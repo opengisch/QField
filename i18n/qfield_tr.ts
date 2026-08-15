@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>Geliştiren</translation>
+        <translation type="vanished">Geliştiren</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QField Destek</translation>
+        <translation type="vanished">QField Destek</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>Değişiklik Günlüğü</translation>
+        <translation type="vanished">Değişiklik Günlüğü</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>Belgeler</translation>
+        <translation type="vanished">Belgeler</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>Bağlantılar Menüsü</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bağlantılar Menüsü</translation>
     </message>
 </context>
 <context>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>Bazı katmanlar yüklenememiştir.</translation>
+        <translation type="vanished">Bazı katmanlar yüklenememiştir.</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Aşağıdaki katmanlar yüklenememiştir. Lütfen QGIS projenizi yeniden yapılandırın.</translation>
+        <translation type="vanished">Aşağıdaki katmanlar yüklenememiştir. Lütfen QGIS projenizi yeniden yapılandırın.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">QField&apos;daki &apos;Portable Project&apos; bölümünü inceleyerek daha fazla bilgiye erişebilirsiniz.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>Daha fazla yardım için %1Portable Project%2 dokümantasyon sayfasını kontrol edebilirsiniz.</translation>
     </message>
 </context>
 <context>
@@ -424,30 +408,30 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>QField&apos;daki yenilikler</translation>
+        <translation type="vanished">QField&apos;daki yenilikler</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>Değişiklik günlüğü alınırken hata oluştu, lütfen daha sonra tekrar deneyin.</translation>
+        <translation type="vanished">Değişiklik günlüğü alınırken hata oluştu, lütfen daha sonra tekrar deneyin.</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QField Destek</translation>
+        <translation type="vanished">QField Destek</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>En son QField değişikliklerini şuradan kontrol edin</translation>
+        <translation type="vanished">En son QField değişikliklerini şuradan kontrol edin</translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>QField sürümleri sayfası</translation>
+        <translation type="vanished">QField sürümleri sayfası</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>GitHub&apos;daki önceki sürümler</translation>
+        <translation type="vanished">GitHub&apos;daki önceki sürümler</translation>
     </message>
 </context>
 <context>
@@ -463,53 +447,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>NULL</source>
         <translation type="vanished">NULL</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>Geometri</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>Yapıştırma başarısız oldu: hedef katman sağlanmadı</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>Kesme işlemi: kaynak ve hedef katmanlar aynı, yapıştırma atlanıyor.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>Yapıştırma başarısız oldu: panodaki özellik geçersiz</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerinde düzenleme başlatılamadı</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerindeki orijinal özellik silinemedi</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>Yapıştırma başarısız oldu: uyumlu özellikler oluşturulamadı</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>Yapıştırma başarısız oldu: katman %1 üzerinde düzenleme başlatılamadı</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>Yapıştırma başarısız oldu: katman %1 üzerine özellik eklenemedi</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>Yapıştırma başarısız oldu: katman %1 üzerinde commitChanges başarısız oldu</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerinde commitChanges başarısız oldu</translation>
     </message>
 </context>
 <context>
@@ -530,38 +467,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>%1 adlı katman sadece okunabilir.</translation>
+        <translation type="vanished">%1 adlı katman sadece okunabilir.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>Harita teması</translation>
+        <translation type="vanished">Harita teması</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>Proje sadece okunabilir.</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>Açıklama</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1578,111 +1491,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Yazan %1%2%3</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Uninstall sürüm %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Uninstall eklentisi</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>İndirilen zip dosyası açılmadı</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>İndirilen zip dosyası gerekli main.qml eklenti dosyasını içermiyor</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>İndirilen dosya kaydedilemiyor</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>İndirilen dosya ziplenmiş bir eklenti değil</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>Ağ hatası</translation>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>İstenen eklenti URL&apos;si mevcut eklentiler listesinde bulunmaktadır, lütfen indirme düğmesi aracılığıyla yükleyin</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>Eklentiler</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>URL&apos;den eklenti yükle</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>Hatırlanan izinleri temizle</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>Bir URL girin ve eklentiyi indirin ve yükleyin:</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>Yükleniyor %1</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation> `%1` kaldırmak istediğinizden emin misiniz?</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>Yukarıda gösterilen yazar bilgileri eklenti tarafından kendiliğinden bildirilmiştir ve bağımsız olarak doğrulanmamıştır. Lütfen eklentinin kaynağına güvendiğinizden emin olun.</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>Eklenti yönetim menüsü</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>Yerel Eklentiler</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>Mevcut Eklentiler</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>Eklenti ara</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>Mevcut eklentiler alınıyor</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>Henüz hiç eklenti yüklenmedi, hemen denemek için %1mevcut eklentiler%3 sekmesine geçin.&lt;br&gt;&lt;br&gt;Daha fazla bilgi için, %2belgelere bakın%3.</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -1942,21 +1750,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation>Lütfen veritabanı için kimlik bilgilerini girin</translation>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation>sunucuda</translation>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation>serviste</translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2019,35 +1812,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>Projeyi sıfırla</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Bu bulut projesinin yerel kopyası bozuldu. Projeyi sıfırlamak, bulut sürümünü yeniden indirmeye ve yerel değişiklikleri kaldırmaya neden olacaktır, bu nedenle gerekirse bunların önce kopyalandığından emin olun.
-
-Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri kaybını önlemek için sıfırlamanız şiddetle önerilir, çünkü yapılan değişikliklerin hiçbiri buluta geri gönderilmeyecektir.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2062,55 +1833,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="vanished">Yükleniyor...</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>Bilinmeyen</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2122,7 +1845,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>Oturum açma başarısız oldu</translation>
+        <translation type="vanished">Oturum açma başarısız oldu</translation>
     </message>
     <message>
         <source>Server URL
@@ -2132,31 +1855,31 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Username or email</source>
-        <translation>Kullanıcı adı veya e-posta</translation>
+        <translation type="vanished">Kullanıcı adı veya e-posta</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
+        <translation type="vanished">Parola</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Oturumu kapat</translation>
+        <translation type="vanished">Oturumu kapat</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>Oturum açılıyor, lütfen bekleyin</translation>
+        <translation type="vanished">Oturum açılıyor, lütfen bekleyin</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Oturum aç</translation>
+        <translation type="vanished">Oturum aç</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>Yeni kullanıcı?</translation>
+        <translation type="vanished">Yeni kullanıcı?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>Bir hesap oluştur</translation>
+        <translation type="vanished">Bir hesap oluştur</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2172,31 +1895,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>QGIS&apos;ten cihazlarınıza proje aktarmanın en kolay yolu!</translation>
+        <translation type="vanished">QGIS&apos;ten cihazlarınıza proje aktarmanın en kolay yolu!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>QFieldCloud hakkında daha fazla bilgi edinin</translation>
+        <translation type="vanished">QFieldCloud hakkında daha fazla bilgi edinin</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>veya</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>%1 kullanarak oturum aç</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2218,20 +1924,12 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">QFieldCloud&apos;da bazı katmanlar doğru bir şekilde paketlenmemiştir. Bu katmanlar yanlış yapılandırılmış olabilir veya veri kaynakları QFieldCloud sunucusundan erişilemez durumdadır. Lütfen qfield.cloud web sitesinde en son paketleme işinin günlüklerini kontrol edin.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2243,7 +1941,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>QFieldCloud hakkında daha fazla bilgi edinin</translation>
+        <translation type="vanished">QFieldCloud hakkında daha fazla bilgi edinin</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2259,7 +1957,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Bu QFieldCloud projesi ilk olarak başka bir bulut hesabıyla indirildi. Lütfen bu proje için QFieldCloud işlevselliğini kullanmak üzere orijinal hesapla oturum açın.</translation>
+        <translation type="vanished">Bu QFieldCloud projesi ilk olarak başka bir bulut hesabıyla indirildi. Lütfen bu proje için QFieldCloud işlevselliğini kullanmak üzere orijinal hesapla oturum açın.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2295,11 +1993,11 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>Yerel olarak saklanan bulut projesi bozuldu</translation>
+        <translation type="vanished">Yerel olarak saklanan bulut projesi bozuldu</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Senkranize Et</translation>
+        <translation type="vanished">Senkranize Et</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2339,11 +2037,11 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>Son senkronizasyon az önce yapıldı</translation>
+        <translation type="vanished">Son senkronizasyon az önce yapıldı</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>Son senkronizasyon %1 dakika önce yapıldı</translation>
+        <translation type="vanished">Son senkronizasyon %1 dakika önce yapıldı</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2351,7 +2049,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>Son senkronizasyon %1&apos;de yapıldı</translation>
+        <translation type="vanished">Son senkronizasyon %1&apos;de yapıldı</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2383,15 +2081,15 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>Bulut projesini sıfırla</translation>
+        <translation type="vanished">Bulut projesini sıfırla</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Son uyarı, bulut projesini sıfırlamak yerel değişiklikleri silecektir, devam etmek istediğinizden emin misiniz?</translation>
+        <translation type="vanished">Son uyarı, bulut projesini sıfırlamak yerel değişiklikleri silecektir, devam etmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Bulut ile bağlantı kuruluyor</translation>
+        <translation type="vanished">Bulut ile bağlantı kuruluyor</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2404,166 +2102,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">Geri alınacak değişiklik yok</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Bu projenin bulutta güncellenmiş bir proje dosyası var, senkronize olmanız önerilir.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>Bu projenin bulutta güncellenmiş verileri var, senkronize olmalısınız.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud, sizin için en son verileri paketliyor; bu biraz zaman alabilir, lütfen bekleyin</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>İndiriliyor, %1% / %2 alındı</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>İndiriliyor, %1% alındı</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>QFieldCloud ile bağlantı kuruluyor, proje indiriliyor</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2653,102 +2191,15 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation>Sahibi</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Oluşturulma tarihi</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Son güncelleme tarihi</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Bu QR kodu, bu projeyi indirmek ve açmak için uygun erişime sahip kullanıcılar tarafından taranabilir</translation>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>Senkranize Et</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud, projeyi paketliyor, lütfen bekleyin</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Proje indiriliyor</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Projeyi indir</translation>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>Proje %1 indiriliyor</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Projeyi aç</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Arama</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2887,19 +2338,19 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud Projeleri</translation>
+        <translation type="vanished">QFieldCloud Projeleri</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Buluttan bağlantı kesildi.</translation>
+        <translation type="vanished">Buluttan bağlantı kesildi.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Buluta bağlanıyor.</translation>
+        <translation type="vanished">Buluta bağlanıyor.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Merhaba &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Merhaba &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2923,15 +2374,15 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>Yükleniyor…</translation>
+        <translation type="vanished">Yükleniyor…</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>İndirme hatası. </translation>
+        <translation type="vanished">İndirme hatası. </translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>Yükleme hatası. </translation>
+        <translation type="vanished">Yükleme hatası. </translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2959,11 +2410,11 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Projeyi Aç</translation>
+        <translation type="vanished">Projeyi Aç</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>Kaydedilmiş Projeyi Kaldır</translation>
+        <translation type="vanished">Kaydedilmiş Projeyi Kaldır</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2975,67 +2426,27 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>Projeler listesini yenile</translation>
+        <translation type="vanished">Projeler listesini yenile</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>Projeler listesi yenileniyor</translation>
+        <translation type="vanished">Projeler listesi yenileniyor</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">Hiç proje bulunamadı</translation>
     </message>
     <message>
-        <source>Project Actions</source>
-        <translation>Proje Eylemleri</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud, sizin için en son verileri paketliyor; bu biraz zaman alabilir, lütfen bekleyin</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>İndiriliyor, %1% / %2 alındı</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>İndiriliyor, %1% alındı</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Proje indirmek için QFieldCloud ile iletişime geçiliyor</translation>
-    </message>
-    <message>
         <source>Sign out</source>
-        <translation>Çıkış yap</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Oturum aç</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>Geçersiz projeleri göster</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>Proje Detaylarını Görüntüle</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>QFieldCloud proje detayları alınamadı</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Are you sure you want to remove `%1`?</source>
+        <source>Sign in</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Senkranize Et</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3043,70 +2454,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projeler</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3133,73 +2480,58 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>Bitir</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>İleri</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>Geri</translation>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Proje Klasörü</translation>
+        <translation type="vanished">Proje Klasörü</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Yerel Projeler ve Veri Setleri</translation>
+        <translation type="vanished">Yerel Projeler ve Veri Setleri</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Klasörler</translation>
+        <translation type="vanished">Klasörler</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projeler</translation>
+        <translation type="vanished">Projeler</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Veri Setleri</translation>
+        <translation type="vanished">Veri Setleri</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Favoriler</translation>
+        <translation type="vanished">Favoriler</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Proje dosyası</translation>
+        <translation type="vanished">Proje dosyası</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Vektör veri seti</translation>
+        <translation type="vanished">Vektör veri seti</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Raster veri seti</translation>
+        <translation type="vanished">Raster veri seti</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Gönder...</translation>
+        <translation type="vanished">Gönder...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Klasöre Dışa Aktar...</translation>
+        <translation type="vanished">Klasöre Dışa Aktar...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Veri setini kaldır</translation>
+        <translation type="vanished">Veri setini kaldır</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Sıkıştırılmış klasörü gönder...</translation>
+        <translation type="vanished">Sıkıştırılmış klasörü gönder...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3207,235 +2539,23 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Klasörden proje içe aktar</translation>
+        <translation type="vanished">Klasörden proje içe aktar</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>ZIP dosyasından proje içe aktar</translation>
+        <translation type="vanished">ZIP dosyasından proje içe aktar</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Veri seti(ler)ini içe aktar</translation>
+        <translation type="vanished">Veri seti(ler)ini içe aktar</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Depolama yönetimi yardımı</translation>
+        <translation type="vanished">Depolama yönetimi yardımı</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Dosyalar</translation>
-    </message>
-    <message>
-        <source>Home</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Öğe Eylemleri</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>QFieldCloud&apos;a Gönder</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Favorilere ekle</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Favorilerden kaldır</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>WebDAV sunucusuna klasör yükle</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>WebDAV sunucusundan klasör indir</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>İçe Aktarma Eylemleri</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>İçe Aktarma URL&apos;si</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAV klasörünü içe aktar</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Proje Eylemleri</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>ZIP dosyasından projeyi güncelle</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Projeyi WebDAV&apos;a yükle</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Projeyi WebDAV&apos;dan indir</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>WebDAV&apos;a dosya(lar) yükle</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>QFieldCloud&apos;a dosya(lar) gönder</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Lütfen QFieldCloud&apos;a göndermek için bir veya daha fazla dosya seçin.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ QFieldCloud&apos;a yükleniyor</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Aşağıya bir URL girin ve projeyi veya veri setini indirin ve içe aktarın:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAV klasörü içe aktarılıyor</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAV klasörü indiriliyor</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAV klasörü yükleniyor</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV hatası: </translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV yüklemesi</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV indirmesi</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumuna yüklemek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, uzakta depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumundan indirmek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, yerel olarak depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Parola (hatırlananı kullanmak için boş bırakın)</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Parolayı hatırla</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Aşağıya WebDAV bilgilerini girin ve uzak bir klasörü içe aktarın:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV sunucu URL&apos;si</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Kullanıcı ve parola</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>Hatırlananı kullanmak için boş bırakın</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Uzak klasörler alınıyor</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Uzak klasörleri al</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>İçe aktarılacak uzak klasörü seçin:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>kök dizin</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>‘%1’ konumunda yerel olarak mevcut</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>İçe aktarılan klasör adı</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Onayla</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Kaydedilmiş bir WebDAV öğesini kaldırmak üzeresiniz, devam etmek istiyor musunuz?</translation>
     </message>
 </context>
 <context>
@@ -3457,7 +2577,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Ölçek çubuğunu göster</translation>
+        <translation type="vanished">Ölçek çubuğunu göster</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3465,31 +2585,31 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Düzeltilmiş ölçek navigasyonu</translation>
+        <translation type="vanished">Düzeltilmiş ölçek navigasyonu</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Düzeltilmiş ölçek navigasyonu aktif olduğunda, arama sonucuna odaklanır. Düzeltilmiş ölçek navigasyonu aktif olmadığından, ilgili kayıda yakınlaşılır da.</translation>
+        <translation type="vanished">Düzeltilmiş ölçek navigasyonu aktif olduğunda, arama sonucuna odaklanır. Düzeltilmiş ölçek navigasyonu aktif olmadığından, ilgili kayıda yakınlaşılır da.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Sayısallaştırma bilgisini gösterin.</translation>
+        <translation type="vanished">Sayısallaştırma bilgisini gösterin.</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Açıldığında, yeni objeler sayısallaştırılırken veya ölçme aracı kullanılırken enlem ve boylam gibi koordinat bilgileri haritanın üzerine yerleştirilir.</translation>
+        <translation type="vanished">Açıldığında, yeni objeler sayısallaştırılırken veya ölçme aracı kullanılırken enlem ve boylam gibi koordinat bilgileri haritanın üzerine yerleştirilir.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Yer imlerini göster</translation>
+        <translation type="vanished">Yer imlerini göster</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Aktif olduğunda, kullanıcının kaydedilmiş ve şu anda açık olan proje yer imleri haritada görüntülenecektir.</translation>
+        <translation type="vanished">Aktif olduğunda, kullanıcının kaydedilmiş ve şu anda açık olan proje yer imleri haritada görüntülenecektir.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Cihaz kamerasını kullan</translation>
+        <translation type="vanished">Cihaz kamerasını kullan</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3505,7 +2625,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Ekranı boşta iken karart</translation>
+        <translation type="vanished">Ekranı boşta iken karart</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3513,7 +2633,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Fareyi bir dokunmatik ekran cihazı olarak düşünün</translation>
+        <translation type="vanished">Fareyi bir dokunmatik ekran cihazı olarak düşünün</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3521,7 +2641,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Anonimleştirilmiş metrikleri gönder</translation>
+        <translation type="vanished">Anonimleştirilmiş metrikleri gönder</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3529,19 +2649,19 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>General</source>
-        <translation>Genel</translation>
+        <translation type="vanished">Genel</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Konumlandırma</translation>
+        <translation type="vanished">Konumlandırma</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Değişkenler</translation>
+        <translation type="vanished">Değişkenler</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Arama çubuğunu özelleştir</translation>
+        <translation type="vanished">Arama çubuğunu özelleştir</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3553,15 +2673,15 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>system</source>
-        <translation>sistem</translation>
+        <translation type="vanished">sistem</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Eksik veya tamamlanmamış bir dil mi buldunuz? %1Çevirmen topluluğuna katılın.%2</translation>
+        <translation type="vanished">Eksik veya tamamlanmamış bir dil mi buldunuz? %1Çevirmen topluluğuna katılın.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Konumlandırma cihazı kullanımda:</translation>
+        <translation type="vanished">Konumlandırma cihazı kullanımda:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3599,7 +2719,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>%1&apos;e bağlandı</translation>
+        <translation type="vanished">%1&apos;e bağlandı</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3607,7 +2727,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>%1&apos;e bağlanılıyor</translation>
+        <translation type="vanished">%1&apos;e bağlanılıyor</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3615,11 +2735,11 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Konum bilgisi göster</translation>
+        <translation type="vanished">Konum bilgisi göster</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Doğruluk göstergesini etkinleştirin</translation>
+        <translation type="vanished">Doğruluk göstergesini etkinleştirin</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3639,7 +2759,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Averaj konumlandırma gereksinimini etkinleştir</translation>
+        <translation type="vanished">Averaj konumlandırma gereksinimini etkinleştir</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3647,15 +2767,15 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Minimum sayıya ulaşıldığında toplama işlemini otomatik olarak sonlandır</translation>
+        <translation type="vanished">Minimum sayıya ulaşıldığında toplama işlemini otomatik olarak sonlandır</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Etkinleştirildiğinde, konum kilitlenmiş bir imleç ile köşe dijitalleştirme yalnızca toplanan minimum konum sayısından bir ortalama konum kabul edecektir. Ortalama konumlar kullanılarak dijitalleştirme, ekle düğmesine basılı tutularak yapılır ve bu, basılı tutma işlemi bırakılana kadar konumları toplar. Doğruluk gereksinimi ayarları etkinleştirildiğinde dikkate alınır.</translation>
+        <translation type="vanished">Etkinleştirildiğinde, konum kilitlenmiş bir imleç ile köşe dijitalleştirme yalnızca toplanan minimum konum sayısından bir ortalama konum kabul edecektir. Ortalama konumlar kullanılarak dijitalleştirme, ekle düğmesine basılı tutularak yapılır ve bu, basılı tutma işlemi bırakılana kadar konumları toplar. Doğruluk gereksinimi ayarları etkinleştirildiğinde dikkate alınır.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Anten yükseklik telafisi</translation>
+        <translation type="vanished">Anten yükseklik telafisi</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3667,23 +2787,23 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Yükseklik düzeltmesini atlayın.</translation>
+        <translation type="vanished">Yükseklik düzeltmesini atlayın.</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Yüksekliği, konumlandırma cihazının bildirdiği şekilde kullanın. Koordinat sistemi dönüşümünün gerektirebileceği herhangi bir yükseklik düzeltmesini atlayın.</translation>
+        <translation type="vanished">Yüksekliği, konumlandırma cihazının bildirdiği şekilde kullanın. Koordinat sistemi dönüşümünün gerektirebileceği herhangi bir yükseklik düzeltmesini atlayın.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Kullanımda dikey grid kaydırması:</translation>
+        <translation type="vanished">Kullanımda dikey grid kaydırması:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Yok</translation>
+        <translation type="vanished">Yok</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Yükseklik doğruluğunu artırmak için dikey grid kaydırması kullanılır.</translation>
+        <translation type="vanished">Yükseklik doğruluğunu artırmak için dikey grid kaydırması kullanılır.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3691,11 +2811,11 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Ekran parlaklığının pil ömrünü korumak için kısılmadan önceki hareketsizlik süresi (saniye cinsinden).</translation>
+        <translation type="vanished">Ekran parlaklığının pil ömrünü korumak için kısılmadan önceki hareketsizlik süresi (saniye cinsinden).</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Vertex&apos;lere eklenen Ölçü (M) değeri:</translation>
+        <translation type="vanished">Vertex&apos;lere eklenen Ölçü (M) değeri:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3703,378 +2823,59 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Yer hızı</translation>
+        <translation type="vanished">Yer hızı</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Yön</translation>
+        <translation type="vanished">Yön</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Yatay doğruluk</translation>
+        <translation type="vanished">Yatay doğruluk</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Dikey doğruluk</translation>
+        <translation type="vanished">Dikey doğruluk</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Koordinat imleci mevcut konuma kilitlendiğinde özellikleri dijitalleştirirken, yukarıda seçilen ölçüm türü, M boyutu varsa geometriye eklenecektir.</translation>
+        <translation type="vanished">Koordinat imleci mevcut konuma kilitlendiğinde özellikleri dijitalleştirirken, yukarıda seçilen ölçüm türü, M boyutu varsa geometriye eklenecektir.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Eklemek</translation>
+        <translation type="vanished">Eklemek</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Düzenlemek</translation>
+        <translation type="vanished">Düzenlemek</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Çıkarmak</translation>
+        <translation type="vanished">Çıkarmak</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>%1&apos;e bağlan</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Sistem görünümünü takip et</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Açık tema</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Koyu tema</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Minik</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normal</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Büyük</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Ekstra büyük</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Aygıttan dosyaya NMEA cümlelerini kaydet</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Harita tuvali işleme kalitesi:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>En iyi kalite</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Daha düşük kalite</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>En düşük kalite</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Daha düşük bir kalite, daha düşük bellek kullanımı ve işleme süresi lehine işleme hassasiyetinden feragat eder.</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Aygıttan ortometrik</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Sayısallaştırma için ses tuşlarını kullan</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Etkinleştirildiğinde, cihazın ses açma tuşuna basmak bir köşe eklerken, ses kısma tuşuna basmak sayısallaştırma oturumları sırasında son girilen köşeyi kaldıracaktır.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Tuval üzerinde parmakla dokunarak köşe eklemeye izin ver</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Etkinleştirildiğinde, fare parmak gibi davranacaktır. Devre dışı bırakıldığında, fare kalem davranışını yansıtacaktır.</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Harita Tuvali</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Sayısallaştırma ve Düzenleme</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Kullanıcı Arayüzü</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Görünüm:</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Yazı tipi boyutu:</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Dil:</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Gelişmiş</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Eklentileri yönet</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Harita döndürmeyi etkinleştir</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Etkinleştirildiğinde, harita kullanıcı tarafından döndürülebilir.</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Doğruluk gereksinimini zorla</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Doğruluk göstergesi etkinleştirildiğinde, konum düğmesine bir rozet eklenir ve doğruluk değeri &lt;i&gt;kötü&lt;/i&gt; değerinden daha kötü ise &lt;span %1&gt;kırmızı&lt;/span&gt; renkte, &lt;i&gt;harika&lt;/i&gt; değerinden daha düşükse &lt;span %2&gt;sarı&lt;/span&gt; renkte veya &lt;span %3&gt;yeşil&lt;/span&gt; renkte olur.&lt;br&gt;&lt;br&gt;Ayrıca, doğruluk kısıtlama modu açılabilir, bu da koordinat imlecine kilitlendiğinde köşe eklemeyi kötü eşik değerinden daha kötü bir doğruluk değerine sahip konumlarla sınırlar.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Görünür harita tuvali etrafında önizleme içeriğini işleyin</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Etkinleştirildiğinde, yalnızca bir özellik tanımlandığında özellik formu otomatik olarak açılacaktır; bu, özellik listesinin atlanması anlamına gelir.</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1&apos;e bağlan</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
-        <translation>Çizim şablonunu seç</translation>
     </message>
 </context>
 <context>
@@ -4297,6 +3098,41 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>Geliştiren</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>QField Destek</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Belgeler</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>Bağlantılar Menüsü</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>Değişiklik Günlüğü</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4354,6 +3190,21 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>File %1 does not exist</source>
         <translation>%1 adlı dosya yoktur.</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>Lütfen veritabanı için kimlik bilgilerini girin</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>sunucuda</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>serviste</translation>
     </message>
 </context>
 <context>
@@ -4427,6 +3278,21 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>Audio Recorder</source>
         <translation>Ses Kaydedici</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>Bazı katmanlar yüklenememiştir.</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>Aşağıdaki katmanlar yüklenememiştir. Lütfen QGIS projenizi yeniden yapılandırın.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>Daha fazla yardım için %1Portable Project%2 dokümantasyon sayfasını kontrol edebilirsiniz.</translation>
     </message>
 </context>
 <context>
@@ -4797,6 +3663,83 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>QField&apos;daki yenilikler</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>Değişiklik günlüğü alınırken hata oluştu, lütfen daha sonra tekrar deneyin.</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>QField Destek</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>En son QField değişikliklerini şuradan kontrol edin</translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>QField sürümleri sayfası</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>GitHub&apos;daki önceki sürümler</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometri</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>Yapıştırma başarısız oldu: hedef katman sağlanmadı</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>Kesme işlemi: kaynak ve hedef katmanlar aynı, yapıştırma atlanıyor.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>Yapıştırma başarısız oldu: panodaki özellik geçersiz</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerinde düzenleme başlatılamadı</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerindeki orijinal özellik silinemedi</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>Yapıştırma başarısız oldu: uyumlu özellikler oluşturulamadı</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>Yapıştırma başarısız oldu: katman %1 üzerinde düzenleme başlatılamadı</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>Yapıştırma başarısız oldu: katman %1 üzerine özellik eklenemedi</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>Yapıştırma başarısız oldu: katman %1 üzerinde commitChanges başarısız oldu</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>Kesme işlemi başarısız oldu: kaynak katman %1 üzerinde commitChanges başarısız oldu</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
@@ -4858,6 +3801,374 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 %2</source>
         <translation>Ek dosya yüklenemedi `%1`, sebep:
 %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Projeyi sıfırla</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Bu bulut projesinin yerel kopyası bozuldu. Projeyi sıfırlamak, bulut sürümünü yeniden indirmeye ve yerel değişiklikleri kaldırmaya neden olacaktır, bu nedenle gerekirse bunların önce kopyalandığından emin olun.
+
+Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri kaybını önlemek için sıfırlamanız şiddetle önerilir, çünkü yapılan değişikliklerin hiçbiri buluta geri gönderilmeyecektir.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Bilinmeyen</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>Oturum açma başarısız oldu</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>Kullanıcı adı veya e-posta</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Çıkış yap</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>Oturum açılıyor, lütfen bekleyin</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Oturum aç</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>veya</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>%1 kullanarak oturum aç</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>Yeni kullanıcı?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>Bir hesap oluştur</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>QGIS&apos;ten cihazlarınıza proje aktarmanın en kolay yolu!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>QFieldCloud hakkında daha fazla bilgi edinin</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>Bu QFieldCloud projesi ilk olarak başka bir bulut hesabıyla indirildi. Lütfen bu proje için QFieldCloud işlevselliğini kullanmak üzere orijinal hesapla oturum açın.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud, sizin için en son verileri paketliyor; bu biraz zaman alabilir, lütfen bekleyin</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>İndiriliyor, %1% / %2 alındı</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>İndiriliyor, %1% alındı</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Proje indirmek için QFieldCloud ile iletişime geçiliyor</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>QFieldCloud hakkında daha fazla bilgi edinin</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>Yerel olarak saklanan bulut projesi bozuldu</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>Son senkronizasyon az önce yapıldı</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>Son senkronizasyon %1 dakika önce yapıldı</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>Son senkronizasyon %1&apos;de yapıldı</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Senkranize Et</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>Bulut projesini sıfırla</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>Son uyarı, bulut projesini sıfırlamak yerel değişiklikleri silecektir, devam etmek istediğinizden emin misiniz?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>Bulut ile bağlantı kuruluyor</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Bu projenin bulutta güncellenmiş bir proje dosyası var, senkronize olmanız önerilir.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>Bu projenin bulutta güncellenmiş verileri var, senkronize olmalısınız.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4978,6 +4289,104 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Sahibi</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Oluşturulma tarihi</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Son güncelleme tarihi</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Bu QR kodu, bu projeyi indirmek ve açmak için uygun erişime sahip kullanıcılar tarafından taranabilir</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Senkranize Et</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud, projeyi paketliyor, lütfen bekleyin</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Proje indiriliyor</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Projeyi indir</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Proje %1 indiriliyor</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Projeyi aç</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Arama</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -4994,6 +4403,173 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>Cloud project could not be created.</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>QFieldCloud Projeleri</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>Buluttan bağlantı kesildi.</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>Buluta bağlanıyor.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>Merhaba &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projeler</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud, sizin için en son verileri paketliyor; bu biraz zaman alabilir, lütfen bekleyin</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>İndiriliyor, %1% / %2 alındı</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>İndiriliyor, %1% alındı</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Proje indirmek için QFieldCloud ile iletişime geçiliyor</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>Yükleniyor…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>İndirme hatası. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Yükleme hatası. </translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Projeler listesini yenile</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Çıkış yap</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Oturum aç</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>Geçersiz projeleri göster</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Proje Eylemleri</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Projeyi Aç</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Senkranize Et</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Kaydedilmiş Projeyi Kaldır</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>Proje Detaylarını Görüntüle</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>QFieldCloud proje detayları alınamadı</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Projeler listesi yenileniyor</translation>
     </message>
 </context>
 <context>
@@ -5125,6 +4701,41 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>Point Feature Picker</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>%1 adlı katman sadece okunabilir.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>Harita teması</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Açıklama</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>Proje sadece okunabilir.</translation>
     </message>
 </context>
 <context>
@@ -5335,14 +4946,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>Egeniouss sunucusu başlatılamadı.</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>Egeniouss sunucusu durdurulamadı.</translation>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation>Alınan veri işlenemeyecek kadar az</translation>
     </message>
@@ -5373,6 +4976,34 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>TCP receiver error (%1)</source>
         <translation>TCP alıcı hatası (%1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5865,6 +5496,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>Bitir</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>İleri</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Geri</translation>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6095,6 +5741,293 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>Bu katmanın izin yapılandırması, özellik eklemeyi devre dışı bırakır.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>Proje Klasörü</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>Yerel Projeler ve Veri Setleri</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>Klasörler</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projeler</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>Veri Setleri</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>Dosyalar</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoriler</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>Proje dosyası</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>Vektör veri seti</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>Raster veri seti</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Öğe Eylemleri</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Gönder...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>QFieldCloud&apos;a Gönder</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Klasöre Dışa Aktar...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Favorilere ekle</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Favorilerden kaldır</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>Sıkıştırılmış klasörü gönder...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>WebDAV sunucusuna klasör yükle</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>WebDAV sunucusundan klasör indir</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>Veri setini kaldır</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>İçe Aktarma Eylemleri</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>Klasörden proje içe aktar</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>ZIP dosyasından proje içe aktar</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>Veri seti(ler)ini içe aktar</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>İçe Aktarma URL&apos;si</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>WebDAV klasörünü içe aktar</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>Depolama yönetimi yardımı</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Proje Eylemleri</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>ZIP dosyasından projeyi güncelle</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>Projeyi WebDAV&apos;a yükle</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>Projeyi WebDAV&apos;dan indir</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>WebDAV&apos;a dosya(lar) yükle</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>QFieldCloud&apos;a dosya(lar) gönder</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>Lütfen QFieldCloud&apos;a göndermek için bir veya daha fazla dosya seçin.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>‘%1’ QFieldCloud&apos;a yükleniyor</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Aşağıya bir URL girin ve projeyi veya veri setini indirin ve içe aktarın:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>WebDAV klasörü içe aktarılıyor</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>WebDAV klasörü indiriliyor</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>WebDAV klasörü yükleniyor</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>WebDAV hatası: </translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>WebDAV yüklemesi</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>WebDAV indirmesi</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumuna yüklemek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, uzakta depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>Değiştirilmiş içeriği &lt;b&gt;%1&lt;/b&gt; konumundan indirmek üzeresiniz. Kullanıcı: &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu işlem, yerel olarak depolanan verileri üzerine yazacaktır, lütfen bunu yapmak istediğinizden emin olun.</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>Parola (hatırlananı kullanmak için boş bırakın)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>Parolayı hatırla</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>Aşağıya WebDAV bilgilerini girin ve uzak bir klasörü içe aktarın:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>WebDAV sunucu URL&apos;si</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>Kullanıcı ve parola</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>Hatırlananı kullanmak için boş bırakın</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>Uzak klasörler alınıyor</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>Uzak klasörleri al</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>İçe aktarılacak uzak klasörü seçin:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>kök dizin</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>‘%1’ konumunda yerel olarak mevcut</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>İçe aktarılan klasör adı</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Onayla</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>Kaydedilmiş bir WebDAV öğesini kaldırmak üzeresiniz, devam etmek istiyor musunuz?</translation>
     </message>
 </context>
 <context>
@@ -6497,6 +6430,111 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>Raster Verisetleri</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Yazan %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Uninstall sürüm %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Uninstall eklentisi</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>İstenen eklenti URL&apos;si mevcut eklentiler listesinde bulunmaktadır, lütfen indirme düğmesi aracılığıyla yükleyin</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>İndirilen zip dosyası açılmadı</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>İndirilen zip dosyası gerekli main.qml eklenti dosyasını içermiyor</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>İndirilen dosya kaydedilemiyor</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>İndirilen dosya ziplenmiş bir eklenti değil</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>Ağ hatası</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>Eklentiler</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>Yerel Eklentiler</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>Mevcut Eklentiler</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>Eklenti ara</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>Mevcut eklentiler alınıyor</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>Henüz hiç eklenti yüklenmedi, hemen denemek için %1mevcut eklentiler%3 sekmesine geçin.&lt;br&gt;&lt;br&gt;Daha fazla bilgi için, %2belgelere bakın%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>URL&apos;den eklenti yükle</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>Eklenti yönetim menüsü</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>Hatırlanan izinleri temizle</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>Yukarıda gösterilen yazar bilgileri eklenti tarafından kendiliğinden bildirilmiştir ve bağımsız olarak doğrulanmamıştır. Lütfen eklentinin kaynağına güvendiğinizden emin olun.</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>Bir URL girin ve eklentiyi indirin ve yükleyin:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation> `%1` kaldırmak istediğinizden emin misiniz?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>Yükleniyor %1</translation>
     </message>
 </context>
 <context>
@@ -7190,6 +7228,516 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Ölçek çubuğunu göster</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Yer imlerini göster</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Aktif olduğunda, kullanıcının kaydedilmiş ve şu anda açık olan proje yer imleri haritada görüntülenecektir.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Harita döndürmeyi etkinleştir</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Etkinleştirildiğinde, harita kullanıcı tarafından döndürülebilir.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Sayısallaştırma bilgisini gösterin.</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Açıldığında, yeni objeler sayısallaştırılırken veya ölçme aracı kullanılırken enlem ve boylam gibi koordinat bilgileri haritanın üzerine yerleştirilir.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Sayısallaştırma için ses tuşlarını kullan</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Etkinleştirildiğinde, cihazın ses açma tuşuna basmak bir köşe eklerken, ses kısma tuşuna basmak sayısallaştırma oturumları sırasında son girilen köşeyi kaldıracaktır.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Tuval üzerinde parmakla dokunarak köşe eklemeye izin ver</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Fareyi bir dokunmatik ekran cihazı olarak düşünün</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Etkinleştirildiğinde, fare parmak gibi davranacaktır. Devre dışı bırakıldığında, fare kalem davranışını yansıtacaktır.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Etkinleştirildiğinde, yalnızca bir özellik tanımlandığında özellik formu otomatik olarak açılacaktır; bu, özellik listesinin atlanması anlamına gelir.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Düzeltilmiş ölçek navigasyonu</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Düzeltilmiş ölçek navigasyonu aktif olduğunda, arama sonucuna odaklanır. Düzeltilmiş ölçek navigasyonu aktif olmadığından, ilgili kayıda yakınlaşılır da.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Görünür harita tuvali etrafında önizleme içeriğini işleyin</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Cihaz kamerasını kullan</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Anonimleştirilmiş metrikleri gönder</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Genel</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Konumlandırma</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Değişkenler</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Harita Tuvali</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Harita tuvali işleme kalitesi:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>En iyi kalite</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Daha düşük kalite</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>En düşük kalite</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Daha düşük bir kalite, daha düşük bellek kullanımı ve işleme süresi lehine işleme hassasiyetinden feragat eder.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Sayısallaştırma ve Düzenleme</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Kullanıcı Arayüzü</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Arama çubuğunu özelleştir</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Eklentileri yönet</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Ekranı boşta iken karart</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Ekran parlaklığının pil ömrünü korumak için kısılmadan önceki hareketsizlik süresi (saniye cinsinden).</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Görünüm:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Sistem görünümünü takip et</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Açık tema</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Koyu tema</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Yazı tipi boyutu:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Minik</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Büyük</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Ekstra büyük</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Dil:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>sistem</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Eksik veya tamamlanmamış bir dil mi buldunuz? %1Çevirmen topluluğuna katılın.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Kullanıcı adı</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Gelişmiş</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Konumlandırma cihazı kullanımda:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Eklemek</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Düzenlemek</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Çıkarmak</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>%1&apos;e bağlandı</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>%1&apos;e bağlan</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>%1&apos;e bağlanılıyor</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Konum bilgisi göster</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Vertex&apos;lere eklenen Ölçü (M) değeri:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Yer hızı</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Yön</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Yatay doğruluk</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Dikey doğruluk</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Koordinat imleci mevcut konuma kilitlendiğinde özellikleri dijitalleştirirken, yukarıda seçilen ölçüm türü, M boyutu varsa geometriye eklenecektir.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Doğruluk göstergesini etkinleştirin</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Doğruluk gereksinimini zorla</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Doğruluk göstergesi etkinleştirildiğinde, konum düğmesine bir rozet eklenir ve doğruluk değeri &lt;i&gt;kötü&lt;/i&gt; değerinden daha kötü ise &lt;span %1&gt;kırmızı&lt;/span&gt; renkte, &lt;i&gt;harika&lt;/i&gt; değerinden daha düşükse &lt;span %2&gt;sarı&lt;/span&gt; renkte veya &lt;span %3&gt;yeşil&lt;/span&gt; renkte olur.&lt;br&gt;&lt;br&gt;Ayrıca, doğruluk kısıtlama modu açılabilir, bu da koordinat imlecine kilitlendiğinde köşe eklemeyi kötü eşik değerinden daha kötü bir doğruluk değerine sahip konumlarla sınırlar.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Averaj konumlandırma gereksinimini etkinleştir</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Minimum sayıya ulaşıldığında toplama işlemini otomatik olarak sonlandır</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Etkinleştirildiğinde, konum kilitlenmiş bir imleç ile köşe dijitalleştirme yalnızca toplanan minimum konum sayısından bir ortalama konum kabul edecektir. Ortalama konumlar kullanılarak dijitalleştirme, ekle düğmesine basılı tutularak yapılır ve bu, basılı tutma işlemi bırakılana kadar konumları toplar. Doğruluk gereksinimi ayarları etkinleştirildiğinde dikkate alınır.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Anten yükseklik telafisi</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Yükseklik düzeltmesini atlayın.</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Yüksekliği, konumlandırma cihazının bildirdiği şekilde kullanın. Koordinat sistemi dönüşümünün gerektirebileceği herhangi bir yükseklik düzeltmesini atlayın.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Kullanımda dikey grid kaydırması:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Yok</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Aygıttan ortometrik</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Yükseklik doğruluğunu artırmak için dikey grid kaydırması kullanılır.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Aygıttan dosyaya NMEA cümlelerini kaydet</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>Çizim şablonunu seç</translation>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7496,6 +8044,104 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>Bunu duyduğumuza üzüldük. Yorum yapmak veya destek almak için aşağıdaki butona tıklayın.</translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>İletişime geç</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>Harika! Aşağıdaki butona tıklayarak bir değerlendirme bırakmanızı çok isteriz.</translation>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>Bizi değerlendir</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>Anonimleştirilmiş metrik toplama devre dışı bırakıldı. Ayarlar panelinden tekrar etkinleştirebilirsiniz.</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>Kabul ediyorum</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>Tercih etmiyorum</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>Son oturum</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>Varsayılan proje</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>Taban harita</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>Son Proje Eylemleri</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>Başlangıçta varsayılan projeyi yükle</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>Başlangıçta son açılan projeyi yükle</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>Haritaya dön</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -8884,11 +9530,11 @@ to show actions</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>Bunu duyduğumuza üzüldük. Yorum yapmak veya destek almak için aşağıdaki butona tıklayın.</translation>
+        <translation type="vanished">Bunu duyduğumuza üzüldük. Yorum yapmak veya destek almak için aşağıdaki butona tıklayın.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>İletişime geç</translation>
+        <translation type="vanished">İletişime geç</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8900,11 +9546,11 @@ to show actions</source>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Bizi değerlendir</translation>
+        <translation type="vanished">Bizi değerlendir</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>Anonimleştirilmiş metrik toplama devre dışı bırakıldı. Ayarlar panelinden tekrar etkinleştirebilirsiniz.</translation>
+        <translation type="vanished">Anonimleştirilmiş metrik toplama devre dışı bırakıldı. Ayarlar panelinden tekrar etkinleştirebilirsiniz.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8912,11 +9558,11 @@ to show actions</source>
     </message>
     <message>
         <source>I agree</source>
-        <translation>Kabul ediyorum</translation>
+        <translation type="vanished">Kabul ediyorum</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>Tercih etmiyorum</translation>
+        <translation type="vanished">Tercih etmiyorum</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -8932,7 +9578,7 @@ to show actions</source>
     </message>
     <message>
         <source>Last session</source>
-        <translation>Son oturum</translation>
+        <translation type="vanished">Son oturum</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8953,73 +9599,6 @@ to show actions</source>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">QField&apos;a tekrar hoşgeldiniz.</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>Varsayılan proje</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>Taban harita</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>Başlangıçta varsayılan projeyi yükle</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>Başlangıçta son açılan projeyi yükle</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation>Son Proje Eylemleri</translation>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>Harika! Aşağıdaki butona tıklayarak bir değerlendirme bırakmanızı çok isteriz.</translation>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation>Haritaya dön</translation>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

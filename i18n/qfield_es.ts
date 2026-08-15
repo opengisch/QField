@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>Desarrollado por</translation>
+        <translation type="vanished">Desarrollado por</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Apoyar QField</translation>
+        <translation type="vanished">Apoyar QField</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>Registro de cambios</translation>
+        <translation type="vanished">Registro de cambios</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>Documentación</translation>
+        <translation type="vanished">Documentación</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>Menú de enlaces</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation>Desarrollado por QField</translation>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation>%1 directorios de aplicaciones</translation>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation>%1 directorio de aplicaciones</translation>
+        <translation type="vanished">Menú de enlaces</translation>
     </message>
 </context>
 <context>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>Imposible cargar algunas capas</translation>
+        <translation type="vanished">Imposible cargar algunas capas</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Las siguientes capas no se pudieron cargar. Por favor, revíselas y reconfigure el proyecto de QGIS.</translation>
+        <translation type="vanished">Las siguientes capas no se pudieron cargar. Por favor, revíselas y reconfigure el proyecto de QGIS.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">Puede revisar la sección Proyecto portátil en la documentación de QField para más información.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>Puede comprobar la página de documentación de %1Proyectos portátiles%2 para más ayuda.</translation>
     </message>
 </context>
 <context>
@@ -424,30 +408,30 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>¿Qué hay de nuevo en QField?</translation>
+        <translation type="vanished">¿Qué hay de nuevo en QField?</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>Error al recopilar el registro de cambios, pruebe de nuevo más tarde.</translation>
+        <translation type="vanished">Error al recopilar el registro de cambios, pruebe de nuevo más tarde.</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Apoyar QField</translation>
+        <translation type="vanished">Apoyar QField</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>Compruebe los últimos cambios de QField en</translation>
+        <translation type="vanished">Compruebe los últimos cambios de QField en</translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>Página de publicaciones de QField</translation>
+        <translation type="vanished">Página de publicaciones de QField</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>Lanzamientos anteriores en GitHub</translation>
+        <translation type="vanished">Lanzamientos anteriores en GitHub</translation>
     </message>
 </context>
 <context>
@@ -463,53 +447,6 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <message>
         <source>NULL</source>
         <translation type="vanished">NULO</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>Geometría</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>Error al pegar: no se proporcionó ninguna capa de destino</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>Operación de corte: las capas de origen y destino son las mismas, omitiendo el pegado.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>Error al pegar: la función del portapapeles no es válida</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>Error de corte: no se pudo iniciar la edición en la capa de origen %1</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>Error de corte: no se pudo eliminar la entidad original de la capa de origen %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>Error al pegar: no se pudieron crear funciones compatibles</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>Error al pegar: no se pudo iniciar la edición en la capa %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>Error al añadir: no se ha podido añadir la función a capa %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>Error al añadir: commitChanges falló en capa %1</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>Falló la confirmación de corte en la fuente capa %1</translation>
     </message>
 </context>
 <context>
@@ -530,39 +467,15 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>La capa %1 es sólo de lectura.</translation>
+        <translation type="vanished">La capa %1 es sólo de lectura.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>Tema de mapa</translation>
+        <translation type="vanished">Tema de mapa</translation>
     </message>
     <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>El proyecto es de sólo lectura.</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>Leyenda</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation>Retornar a inicio</translation>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation>Expandir todo</translation>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation>Contraer todo</translation>
-    </message>
-    <message>
-        <source>Project Information</source>
-        <translation>Información del proyecto</translation>
     </message>
 </context>
 <context>
@@ -1585,111 +1498,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Autor %1%2%3</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Desinstalar la versión %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Desinstalar complemento</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>No se pudo descomprimir el archivo zip descargado</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>El archivo zip descargado no contiene el archivo de complemento main.qml requerido</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>No se puede guardar el archivo descargado</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>El archivo descargado no es un complemento comprimido</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>Error de red</translation>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>La URL del plugin solicitado está presente en la lista de plugins disponibles, instálalo a través de su botón de descarga</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>Complementos</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>Instalar complemento desde URL</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>Limpiar los permisos recordados</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>Escriba una URL debajo para descargar e instalar un complemento:</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>Instalando %1</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>¿Está seguro de que quiere instalar `%1`?</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>Los detalles de autoría mostrados arriba son aportados por el propio complemento y no están verificados de forma independiente. Por favor, asegúrese de que confía en el origen del complemento.</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>Menú de administración de complementos</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>Complementos locales</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>Complementos disponibles</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>Buscar un complemento</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>Recuperando los complementos disponibles</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>No se ha instalado ningún complemento todavía, cambie a la pestaña %1complementos disponble%3 para probar alguno directamente.&lt;br&gt;&lt;br&gt;Para más información, %2lea la documentación%3.</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation>El proyecto abierto actualmente ha cargado un complemento de proyecto</translation>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation>Denegar permiso</translation>
-    </message>
-</context>
-<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -1949,21 +1757,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation>Por favor, introduzca las credenciales para la base de datos</translation>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation>en el servidor</translation>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation>en el servicio</translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2026,33 +1819,13 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>Restablecer proyecto</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>La copia local de este proyecto en la nube se corrompió. Restablecer el proyecto volverá a descargar la versión de la nube y eliminará cualquier cambio local. Asegúrese de haber copiado antes cualquier cambio local en caso necesario.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2067,55 +1840,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">Cargando</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>Desconocido</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2127,7 +1852,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>Error al iniciar sesión</translation>
+        <translation type="vanished">Error al iniciar sesión</translation>
     </message>
     <message>
         <source>Server URL
@@ -2137,31 +1862,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Username or email</source>
-        <translation>Nombre de usuario o correo electrónico</translation>
+        <translation type="vanished">Nombre de usuario o correo electrónico</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Contraseña</translation>
+        <translation type="vanished">Contraseña</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Cerrar sesión</translation>
+        <translation type="vanished">Cerrar sesión</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>Iniciando sesión, por favor espere</translation>
+        <translation type="vanished">Iniciando sesión, por favor espere</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Iniciar sesión</translation>
+        <translation type="vanished">Iniciar sesión</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>¿Nuevo usuario?</translation>
+        <translation type="vanished">¿Nuevo usuario?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>Registrar una cuenta</translation>
+        <translation type="vanished">Registrar una cuenta</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2177,32 +1902,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>¡La forma más fácil de transferir su proyecto de QGIS a sus dispositivos!</translation>
+        <translation type="vanished">¡La forma más fácil de transferir su proyecto de QGIS a sus dispositivos!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Aprender más sobre QFieldCloud</translation>
+        <translation type="vanished">Aprender más sobre QFieldCloud</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>o</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>Identificarse usando %1</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation>%1URL del servidor
-(Déjalo en blanco para utilizar el servidor predeterminado)</translation>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2224,20 +1931,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">Algunas capas no se han empaquetado correctamente en QFieldCloud. Estas capas pueden estar mal configuradas o no se puede acceder a su fuente de datos desde el servidor QFieldCloud. Consulte los registros del último trabajo de empaquetado en el sitio web qfield.cloud.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation>Algunas capas no se han empaquetado correctamente. Es posible que estas capas estén mal configuradas o que no se pueda acceder a su fuente de datos desde el servidor de QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation>Consulta los comentarios detallados que figuran a continuación y los últimos registros de tareas de empaquetado en la página web de QFieldCloud.</translation>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2249,7 +1948,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Aprender más sobre QFieldCloud</translation>
+        <translation type="vanished">Aprender más sobre QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2265,7 +1964,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Este proyecto de QFieldCloud se descargó por primera vez con otra cuenta en la nube. Inicie sesión con la cuenta original de este proyecto para usar la funcionalidad QFieldCloud.</translation>
+        <translation type="vanished">Este proyecto de QFieldCloud se descargó por primera vez con otra cuenta en la nube. Inicie sesión con la cuenta original de este proyecto para usar la funcionalidad QFieldCloud.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2301,11 +2000,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>El proyecto de la nube guardado localmente se ha corrompido</translation>
+        <translation type="vanished">El proyecto de la nube guardado localmente se ha corrompido</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Sincronizar</translation>
+        <translation type="vanished">Sincronizar</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2343,11 +2042,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>Sincronizado por última vez justo ahora</translation>
+        <translation type="vanished">Sincronizado por última vez justo ahora</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>Sincronizado por última vez hace %1 minutos</translation>
+        <translation type="vanished">Sincronizado por última vez hace %1 minutos</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2355,7 +2054,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>Sincronizado por última el %1</translation>
+        <translation type="vanished">Sincronizado por última el %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2387,15 +2086,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>Restablecer proyecto en la nube</translation>
+        <translation type="vanished">Restablecer proyecto en la nube</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Último aviso: restablecer el proyecto en la nube borrará cualquier cambio local. ¿Seguro que quiere continuar?</translation>
+        <translation type="vanished">Último aviso: restablecer el proyecto en la nube borrará cualquier cambio local. ¿Seguro que quiere continuar?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Conectando con la nube.</translation>
+        <translation type="vanished">Conectando con la nube.</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2408,166 +2107,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">Ningún cambio que revertir</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Este proyecto tiene un archivo de proyecto actualizado en la nube, se recomienda sincronizarlo.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>Este proyecto tiene datos actualizados en la nube, deberías sincronizarlos.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud está empaquetando los datos más recientes para usted; esto puede llevar algún tiempo, por favor espere.</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Descargando, %1% de %2 obtenido</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Descargando, %1% obtenido</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation>Subiendo cambios, %1%…</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud está aplicando los últimos cambios subidos. Esto puede llevar algo de tiempo, mantente atento…</translation>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation>Subiendo el proyecto actual a QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation>Subiendo %1</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation><numerusform>Falta un archivo</numerusform><numerusform>Faltan %n archivos</numerusform><numerusform>Faltan %n archivos</numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation>Usado %1 de %2</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Aumentar almacenamiento</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation>No se puede empaquetar el proyecto %1 porque el espacio de almacenamiento disponible está lleno.</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation>El proyecto %1 no se puede empaquetar porque el espacio de almacenamiento disponible del propietario del proyecto está lleno.</translation>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2657,103 +2196,16 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation>Propietario</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Fecha de creación</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Fecha de la última actualización</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Este código QR puede ser escaneado por usuarios con el acceso apropiado para descargar y abrir este proyecto</translation>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>Sincronizar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud está empaquetando el proyecto, esté atento</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Descargando proyecto</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Descargar proyecto</translation>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>Descargando proyecto %1</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Abrir proyecto</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation>Sincronizando</translation>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation>Usando %1 de %2</translation>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation>Tamaño de almacenamiento</translation>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation>Clonar proyecto</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation>Filtros predefinidos</translation>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation>Criterios</translation>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation>Incluir proyectos públicos</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Buscar</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>Los proyectos de %1</translation>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation>Mis propios proyectos</translation>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation>El título o la descripción contiene</translation>
-    </message>
-    <message>
-        <source>Owner is</source>
-        <translation>El propietario es</translation>
     </message>
 </context>
 <context>
@@ -2891,19 +2343,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>Proyectos de QFieldCloud</translation>
+        <translation type="vanished">Proyectos de QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Desconectado de la nube.</translation>
+        <translation type="vanished">Desconectado de la nube.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Conectando con la nube.</translation>
+        <translation type="vanished">Conectando con la nube.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Saludos &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Saludos &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2927,15 +2379,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>Subiendo…</translation>
+        <translation type="vanished">Subiendo…</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>Error de descarga.</translation>
+        <translation type="vanished">Error de descarga.</translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>Error de subida.</translation>
+        <translation type="vanished">Error de subida.</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2963,11 +2415,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Abrir proyecto</translation>
+        <translation type="vanished">Abrir proyecto</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>Eliminar proyecto guardado</translation>
+        <translation type="vanished">Eliminar proyecto guardado</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2979,67 +2431,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>Refrescar lista de proyectos</translation>
+        <translation type="vanished">Refrescar lista de proyectos</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>Refrescando lista de proyectos</translation>
+        <translation type="vanished">Refrescando lista de proyectos</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">Proyecto no localizado</translation>
     </message>
     <message>
-        <source>Project Actions</source>
-        <translation>Acciones del proyecto</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud está empaquetando los datos más recientes para usted; esto puede llevar algún tiempo, por favor espere.</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Descargando, %1% de %2 obtenido</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Descargando, %1% obtenido</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
-    </message>
-    <message>
         <source>Sign out</source>
-        <translation>Cerrar sesión</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Iniciar sesión</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>Mostrar proyectos no válidos</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>Ver detalles del proyecto</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Falló la obtención de detalles del proyecto de QFieldCloud</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation>Ver carpeta del proyecto</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation>¿Está seguro de que quiere eliminar `%1`?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Sincronizar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3047,70 +2459,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation>Proyectos</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation>Actualizando la lista de proyectos...</translation>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation>Buscando proyectos...</translation>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation>No se han encontrado proyectos en la nube.</translation>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation>Para empezar, %1lee la documentación%2.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation>Intenta %1incluir proyectos públicos%2 y descubre lo que la comunidad tiene que ofrecer.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation>Intenta %1incluir proyectos públicos%2.</translation>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation>Buscar proyectos</translation>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation>Clonar proyecto</translation>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation>Proyecto clonado</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>¿Qué nombre quieres darle a tu proyecto clonado?</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Error al clonar el proyecto: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Error al crear el proyecto: %1</translation>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation>El proyecto se ha clonado con éxito</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>El proyecto se ha creado correctamente</translation>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3137,73 +2485,58 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>Terminar</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>Siguiente</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>Anterior</translation>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Carpeta del proyecto</translation>
+        <translation type="vanished">Carpeta del proyecto</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Proyectos y conjuntos de datos locales</translation>
+        <translation type="vanished">Proyectos y conjuntos de datos locales</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Carpetas</translation>
+        <translation type="vanished">Carpetas</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Proyectos</translation>
+        <translation type="vanished">Proyectos</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Conjuntos de datos</translation>
+        <translation type="vanished">Conjuntos de datos</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Favoritos</translation>
+        <translation type="vanished">Favoritos</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Archivo de proyecto</translation>
+        <translation type="vanished">Archivo de proyecto</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Conjunto de datos vectoriales</translation>
+        <translation type="vanished">Conjunto de datos vectoriales</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Conjunto de datos ráster</translation>
+        <translation type="vanished">Conjunto de datos ráster</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Enviar a...</translation>
+        <translation type="vanished">Enviar a...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Exportar a carpeta...</translation>
+        <translation type="vanished">Exportar a carpeta...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Eliminar conjunto de datos</translation>
+        <translation type="vanished">Eliminar conjunto de datos</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Enviar carpeta comprimida a...</translation>
+        <translation type="vanished">Enviar carpeta comprimida a...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3211,235 +2544,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Importar proyecto desde carpeta</translation>
+        <translation type="vanished">Importar proyecto desde carpeta</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Importar proyecto desde ZIP</translation>
+        <translation type="vanished">Importar proyecto desde ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Importar conjunto(s) de datos</translation>
+        <translation type="vanished">Importar conjunto(s) de datos</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Ayuda sobre gestión de almacenamiento</translation>
+        <translation type="vanished">Ayuda sobre gestión de almacenamiento</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Contraseña</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Archivos</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Inicio</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Acciones de elementos</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>Ver archivo</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Enviar a QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Añadir a favoritos</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Eliminar de favoritos</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Subir carpeta al servidor WebDAV</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Descargar carpeta del servidor WebDAV</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
-        <translation>Borrar carpeta</translation>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation>Eliminar archivo</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Acciones de importación</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Importar URL</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>Importar carpeta WebDAV</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Acciones del proyecto</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Actualizar proyecto desde ZIP</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation>Comprimir el proyecto y enviarlo a...</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Subir proyecto a WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Descargar proyecto desde WebDAV</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Subir archivo(s) a WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Enviar archivo(s) a QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Por favor, seleccione uno o más archivos para subir a QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation>Eliminar archivo(s)</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ se está subiendo a QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Elementos que se están subiendo a QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation>Remover archivo(s)</translation>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation><numerusform>¿Está seguro de que quiere eliminar un archivo?</numerusform><numerusform>¿Está seguro de que quiere eliminar %n archivos?</numerusform><numerusform>¿Está seguro de que quiere eliminar %n archivos?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>Un archivo borrado con éxito</numerusform><numerusform>%n archivos borrados con éxito</numerusform><numerusform>%n archivos borrados con éxito</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>No se pudo borrar un archivo</numerusform><numerusform>No se pudieron borrar %n archivos</numerusform><numerusform>No se pudieron borrar %n archivos</numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Escriba una URL a continuación para descargar e importar el proyecto o el conjunto de datos:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>Importación de carpeta WebDAV</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>Descargando la carpeta WebDAV</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>Subir carpeta WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>Error de WebDAV:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>Subir WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>Descargar WebDAV</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Está a punto de cargar contenido modificado en &lt;b&gt;%1&lt;/b&gt; usando el usuario &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Esta operación sobrescribirá los datos almacenados de forma remota, asegúrese de que esto es lo que desea hacer.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Está a punto de descargar contenido modificado de &lt;b&gt;%1&lt;/b&gt; usando el usuario &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Esta operación sobrescribirá los datos almacenados localmente, asegúrese de que esto es lo que desea hacer.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Contraseña (dejar vacío para usar la guardada)</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Recordar contraseña</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Escriba los detalles de WebDAV a continuación para importar una carpeta remota:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>URL del servidor WebDAV</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Usuario y contraseña</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>dejar vacío para usar la guardada</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Obteniendo carpetas remotas</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Obtener carpetas remotas</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Seleccione la carpeta remota a importar:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>carpeta raíz</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Disponible localmente en ‘%1’</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>Nombre de la carpeta importada</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Confirmar</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Va a eliminar un elemento de WebDAV guardado, ¿continuar?</translation>
     </message>
 </context>
 <context>
@@ -3461,7 +2582,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Mostrar barra de escala</translation>
+        <translation type="vanished">Mostrar barra de escala</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3469,31 +2590,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navegación a escala fija</translation>
+        <translation type="vanished">Navegación a escala fija</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Cuando la navegación a escala fija está activa, enfocar el resultado de una búsqueda desplazará al objeto. Con la navegación a escala fija desactivada desplazará y hará zoom al objeto.</translation>
+        <translation type="vanished">Cuando la navegación a escala fija está activa, enfocar el resultado de una búsqueda desplazará al objeto. Con la navegación a escala fija desactivada desplazará y hará zoom al objeto.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Mostrar información de digitalización</translation>
+        <translation type="vanished">Mostrar información de digitalización</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Cuando está activado, la información de coordenadas, tal como latitud y longitud, se superpone sobre el mapa al digitalizar nuevos objetos o al usar la herramienta de medida.</translation>
+        <translation type="vanished">Cuando está activado, la información de coordenadas, tal como latitud y longitud, se superpone sobre el mapa al digitalizar nuevos objetos o al usar la herramienta de medida.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Mostrar marcadores</translation>
+        <translation type="vanished">Mostrar marcadores</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Cuando está activado, se mostrarán en el mapa los marcadores de usuario guardados y los del proyecto abierto actualmente.</translation>
+        <translation type="vanished">Cuando está activado, se mostrarán en el mapa los marcadores de usuario guardados y los del proyecto abierto actualmente.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Usar cámara nativa</translation>
+        <translation type="vanished">Usar cámara nativa</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3509,7 +2630,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Atenuar pantalla si no hay actividad</translation>
+        <translation type="vanished">Atenuar pantalla si no hay actividad</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3517,7 +2638,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Considerar el ratón como un dispositivo de pantalla táctil</translation>
+        <translation type="vanished">Considerar el ratón como un dispositivo de pantalla táctil</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3525,7 +2646,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Enviar métricas anonimizadas</translation>
+        <translation type="vanished">Enviar métricas anonimizadas</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3533,19 +2654,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="vanished">General</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posicionamiento</translation>
+        <translation type="vanished">Posicionamiento</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation type="vanished">Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Personalizar barra de búsqueda</translation>
+        <translation type="vanished">Personalizar barra de búsqueda</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3557,15 +2678,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>system</source>
-        <translation>sistema</translation>
+        <translation type="vanished">sistema</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>¿Falta un idioma o está incompleto? %1Únase a la comunidad de traductores.%2</translation>
+        <translation type="vanished">¿Falta un idioma o está incompleto? %1Únase a la comunidad de traductores.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Dispositivo de posicionamiento en uso:</translation>
+        <translation type="vanished">Dispositivo de posicionamiento en uso:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3603,7 +2724,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Conectado a %1</translation>
+        <translation type="vanished">Conectado a %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3611,7 +2732,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Conectando a %1</translation>
+        <translation type="vanished">Conectando a %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3619,11 +2740,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Mostrar información de la posición</translation>
+        <translation type="vanished">Mostrar información de la posición</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Activar indicador de precisión</translation>
+        <translation type="vanished">Activar indicador de precisión</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3643,7 +2764,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Habilitar requerimiento de posicionamiento promediado</translation>
+        <translation type="vanished">Habilitar requerimiento de posicionamiento promediado</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3651,15 +2772,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Terminar automáticamente la colección cuando se alcanza el número mínimo</translation>
+        <translation type="vanished">Terminar automáticamente la colección cuando se alcanza el número mínimo</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Cuando se habilita, la digitalización de vértices con un cursor bloqueado a la posición solo aceptará una posición promediada a partir de un número mínimo de posiciones recopiladas. La digitalización usando posiciones promediadas se hace presionando y manteniendo el botón añadir vértice, que tomará posiciones hasta que se deje de pulsar. La configuración de los requerimientos de precisión se respeta cuando está habilitada.</translation>
+        <translation type="vanished">Cuando se habilita, la digitalización de vértices con un cursor bloqueado a la posición solo aceptará una posición promediada a partir de un número mínimo de posiciones recopiladas. La digitalización usando posiciones promediadas se hace presionando y manteniendo el botón añadir vértice, que tomará posiciones hasta que se deje de pulsar. La configuración de los requerimientos de precisión se respeta cuando está habilitada.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Compensación de altura de antena</translation>
+        <translation type="vanished">Compensación de altura de antena</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3671,23 +2792,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Omitir corrección de la altitud</translation>
+        <translation type="vanished">Omitir corrección de la altitud</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Utilizar la altitud según lo informado por el dispositivo de posicionamiento. Omitir cualquier corrección de altitud que pueda estar implicada por la transformación del sistema de coordenadas.</translation>
+        <translation type="vanished">Utilizar la altitud según lo informado por el dispositivo de posicionamiento. Omitir cualquier corrección de altitud que pueda estar implicada por la transformación del sistema de coordenadas.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Cambio de cuadrícula vertical en uso:</translation>
+        <translation type="vanished">Cambio de cuadrícula vertical en uso:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Ninguna</translation>
+        <translation type="vanished">Ninguna</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>El cambio de cuadrícula vertical se utiliza para aumentar la precisión de la altitud.</translation>
+        <translation type="vanished">El cambio de cuadrícula vertical se utiliza para aumentar la precisión de la altitud.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3695,11 +2816,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Tiempo de inactividad en segundos antes de que el brillo de la pantalla se atenúe para conservar la batería.</translation>
+        <translation type="vanished">Tiempo de inactividad en segundos antes de que el brillo de la pantalla se atenúe para conservar la batería.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Valor de medida (M) adjunto a los vértices:</translation>
+        <translation type="vanished">Valor de medida (M) adjunto a los vértices:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3707,379 +2828,59 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Velocidad sobre el terreno</translation>
+        <translation type="vanished">Velocidad sobre el terreno</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Rumbo</translation>
+        <translation type="vanished">Rumbo</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Precisión horizontal</translation>
+        <translation type="vanished">Precisión horizontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Precisión vertical</translation>
+        <translation type="vanished">Precisión vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Al digitalizar las entidades con el cursor de coordenadas bloqueado en la posición actual, el tipo de medición seleccionado arriba se agregará a la geometría siempre que tenga una dimensión M.</translation>
+        <translation type="vanished">Al digitalizar las entidades con el cursor de coordenadas bloqueado en la posición actual, el tipo de medición seleccionado arriba se agregará a la geometría siempre que tenga una dimensión M.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Agregar</translation>
+        <translation type="vanished">Agregar</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation type="vanished">Editar</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Eliminar</translation>
+        <translation type="vanished">Eliminar</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Conectar con %1</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Seguir la apariencia del sistema</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Claro</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Oscuro</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Pequeño</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normal</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Grande</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Enorme</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Registre sentencias NMEA del dispositivo al archivo</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Calidad de renderizado del lienzo del mapa:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>La mejor calidad</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Calidad más baja</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>La calidad más baja</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Una calidad más baja reduce la precisión del renderizado en favor de un menor uso de memoria y tiempo de renderizado.</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ortométrica desde el dispositivo</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Utilizar teclas de volumen para digitalizar</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Si se habilita, presionar la tecla de subir el volumen del dispositivo añadirá un vértice mientras que presionar la tecla de bajar el volumen eliminará el último vértice introducido durante la sesión de digitalización.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Permitir toques con los dedos en el lienzo para añadir vértices</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Cuando está activado, el ratón actuará como si fuera un dedo. Cuando no está activado, el ratón funcionará como un lápiz óptico.</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Lienzo del mapa</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitalización y edición</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Interfaz de usuario</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Apariencia:</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Tamaño de letra:</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Idioma:</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Avanzado</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Administrar complementos</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Habilitar rotación del mapa</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Cuando se activa, el usuario puede rotar el mapa.</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Forzar requerimiento de precisión</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Cuando el indicador de precisión está activado, se adjunta una marca al botón de localización y se colorea en &lt;span %1&gt;rojo&lt;/span&gt;  si el valor de precisión es peor que &lt;i&gt;malo&lt;/i&gt;, &lt;span %2&gt;amarillo&lt;/span&gt;si no llega a &lt;i&gt;excelente&lt;/i&gt;, o &lt;span %3&gt;verde&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Además, se puede activar un modo de restricción de precisión, que restringe la adición de vértices cuando está bloqueado a las coordenadas del cursor a posiciones con una precisión por encima del umbral malo.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Representar contenido previsto alrededor del lienzo visible del mapa</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Cuando está activado, el formulario de objetos se abrirá automáticamente si solo se identifica un objeto, omitiendo la lista de objetos.</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Mostrar controles de zoom</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Maximizar el formulario de entidades</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Formulario de características abiertas para la identificación de características individuales</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Si está habilitado, las áreas justo fuera de la extensión del lienzo del mapa visible se representarán parcialmente para permitir la vista previa al hacer zoom y desplazarse panorámicamente.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Habilitar el modo de guardado automático</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Si esta opción está habilitada, las características recientemente agregadas se almacenan tan pronto como tienen una geometría válida y se cumplen las restricciones y los atributos editados se confirman inmediatamente.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Zoom automático a las características identificadas</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>Cuando esta opción está habilitada, el mapa se acercará automáticamente para mostrar todas las características identificadas, así como la característica individual seleccionada cuando se abra el formulario de características.</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Comportamiento cuando está bloqueado a la posición:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Solo seguir la posición</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Seguir posición y orientación de la brújula</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Seguir posición y dirección de movimiento</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Cuando el lienzo del mapa está siguiendo la posición o bloqueado a ella, también puede rotar para coincidir con la orientación de la brújula o la dirección del movimiento.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Este valor corregirá los valores Z registrados por el dispositivo de posicionamiento. Si se introduce un valor de 1.6, el sistema restará automáticamente 1.6 de cada valor registrado. Asegúrese de introducir la altura efectiva de la antena, es decir, la longitud del mástil + el desplazamiento del centro de fase de la antena.</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 Configuración</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Red</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Habilitar proxy</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Tipo</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Configuración predeterminada del sistema</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Host</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>ej: proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Puerto</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>ej. 8888</translation>
+        <translation type="vanished">Conectar con %1</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nombre de usuario</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>Opcional</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Contraseña</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>URLs excluidas del proxy (separadas por comas)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>ej: localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Configura un proxy de red para enrutar el tráfico de QField a través de un servidor proxy. Útil para redes corporativas y VPN.</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Si está habilitada, se utilizará la cámara nativa proporcionada por el sistema operativo.
- </translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Si está activado, se recopilarán y enviarán métricas anónimas para mejorar la experiencia de usuario.</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Dispositivo de posicionamiento</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>Activar correcciones NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>El cliente NTRIP se ha desconectado</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>Conexión del cliente NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Cliente NTRIP conectado</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>Introduce unos parámetros NTRIP válidos</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>Ajuste de la altura</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>Marca de tiempo (segundos desde la época)</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Umbral de precisión inadecuado</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>Excelente umbral de precisión</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>Recuento de posiciones mínimas</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Altura de la antena</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>Configuraciones de autenticación disponibles:</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>Borrar la caché de autenticación</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>Se ha vaciado la caché de autenticación</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
-        <translation>Seleccionar plantilla de dibujo</translation>
     </message>
 </context>
 <context>
@@ -4302,6 +3103,41 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation>Desarrollado por QField</translation>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>Desarrollado por</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation>%1 directorios de aplicaciones</translation>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation>%1 directorio de aplicaciones</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Apoyar QField</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Documentación</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>Menú de enlaces</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>Registro de cambios</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4359,6 +3195,21 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>File %1 does not exist</source>
         <translation>El archivo %1 no existe</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>Por favor, introduzca las credenciales para la base de datos</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>en el servidor</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>en el servicio</translation>
     </message>
 </context>
 <context>
@@ -4432,6 +3283,21 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Audio Recorder</source>
         <translation>Grabador de audio</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>Imposible cargar algunas capas</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>Las siguientes capas no se pudieron cargar. Por favor, revíselas y reconfigure el proyecto de QGIS.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>Puede comprobar la página de documentación de %1Proyectos portátiles%2 para más ayuda.</translation>
     </message>
 </context>
 <context>
@@ -4802,6 +3668,83 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
 </context>
 <context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>¿Qué hay de nuevo en QField?</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>Error al recopilar el registro de cambios, pruebe de nuevo más tarde.</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Apoyar QField</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>Compruebe los últimos cambios de QField en</translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>Página de publicaciones de QField</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>Lanzamientos anteriores en GitHub</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometría</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>Error al pegar: no se proporcionó ninguna capa de destino</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>Operación de corte: las capas de origen y destino son las mismas, omitiendo el pegado.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>Error al pegar: la función del portapapeles no es válida</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>Error de corte: no se pudo iniciar la edición en la capa de origen %1</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>Error de corte: no se pudo eliminar la entidad original de la capa de origen %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>Error al pegar: no se pudieron crear funciones compatibles</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>Error al pegar: no se pudo iniciar la edición en la capa %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>Error al añadir: no se ha podido añadir la función a capa %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>Error al añadir: commitChanges falló en capa %1</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>Falló la confirmación de corte en la fuente capa %1</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
@@ -4863,6 +3806,373 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
 %2</source>
         <translation>No se pudo cargar el archivo adjunto almacenado en `%1`, motivo:
 %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Restablecer proyecto</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>La copia local de este proyecto en la nube se corrompió. Restablecer el proyecto volverá a descargar la versión de la nube y eliminará cualquier cambio local. Asegúrese de haber copiado antes cualquier cambio local en caso necesario.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Desconocido</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>Error al iniciar sesión</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation>%1URL del servidor
+(Déjalo en blanco para utilizar el servidor predeterminado)</translation>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>Nombre de usuario o correo electrónico</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contraseña</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Cerrar sesión</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>Iniciando sesión, por favor espere</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>o</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>Identificarse usando %1</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>¿Nuevo usuario?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>Registrar una cuenta</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>¡La forma más fácil de transferir su proyecto de QGIS a sus dispositivos!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Aprender más sobre QFieldCloud</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation>Algunas capas no se han empaquetado correctamente. Es posible que estas capas estén mal configuradas o que no se pueda acceder a su fuente de datos desde el servidor de QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation>Consulta los comentarios detallados que figuran a continuación y los últimos registros de tareas de empaquetado en la página web de QFieldCloud.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>Este proyecto de QFieldCloud se descargó por primera vez con otra cuenta en la nube. Inicie sesión con la cuenta original de este proyecto para usar la funcionalidad QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud está empaquetando los datos más recientes para usted; esto puede llevar algún tiempo, por favor espere.</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Descargando, %1% de %2 obtenido</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Descargando, %1% obtenido</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>Subiendo cambios, %1%…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud está aplicando los últimos cambios subidos. Esto puede llevar algo de tiempo, mantente atento…</translation>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>Subiendo el proyecto actual a QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Aprender más sobre QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>El proyecto de la nube guardado localmente se ha corrompido</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>Sincronizado por última vez justo ahora</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>Sincronizado por última vez hace %1 minutos</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>Sincronizado por última el %1</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>Subiendo %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>Falta un archivo</numerusform><numerusform>Faltan %n archivos</numerusform><numerusform>Faltan %n archivos</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>Restablecer proyecto en la nube</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>Último aviso: restablecer el proyecto en la nube borrará cualquier cambio local. ¿Seguro que quiere continuar?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>Conectando con la nube.</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Este proyecto tiene un archivo de proyecto actualizado en la nube, se recomienda sincronizarlo.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>Este proyecto tiene datos actualizados en la nube, deberías sincronizarlos.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation>No se puede empaquetar el proyecto %1 porque el espacio de almacenamiento disponible está lleno.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Aumentar almacenamiento</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation>El proyecto %1 no se puede empaquetar porque el espacio de almacenamiento disponible del propietario del proyecto está lleno.</translation>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>Usado %1 de %2</translation>
     </message>
 </context>
 <context>
@@ -4983,6 +4293,104 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>Usando %1 de %2</translation>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation>Tamaño de almacenamiento</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Propietario</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Fecha de creación</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Fecha de la última actualización</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Este código QR puede ser escaneado por usuarios con el acceso apropiado para descargar y abrir este proyecto</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Sincronizando</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud está empaquetando el proyecto, esté atento</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Descargando proyecto</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Descargar proyecto</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Descargando proyecto %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Abrir proyecto</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation>Clonar proyecto</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation>Mis propios proyectos</translation>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation>Los proyectos de %1</translation>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation>Filtros predefinidos</translation>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation>Criterios</translation>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation>El título o la descripción contiene</translation>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation>El propietario es</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation>Incluir proyectos públicos</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Buscar</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -4999,6 +4407,173 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Cloud project could not be created.</source>
         <translation>No se pudo crear el proyecto en la nube.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>Proyectos de QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>Desconectado de la nube.</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>Conectando con la nube.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>Saludos &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Proyectos</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation>Buscar proyectos</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud está empaquetando los datos más recientes para usted; esto puede llevar algún tiempo, por favor espere.</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Descargando, %1% de %2 obtenido</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Descargando, %1% obtenido</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>Subiendo…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Error de descarga.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Error de subida.</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation>Actualizando la lista de proyectos...</translation>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation>Buscando proyectos...</translation>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation>No se han encontrado proyectos en la nube.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation>Intenta %1incluir proyectos públicos%2 y descubre lo que la comunidad tiene que ofrecer.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation>Intenta %1incluir proyectos públicos%2.</translation>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation>Para empezar, %1lee la documentación%2.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Refrescar lista de proyectos</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Cerrar sesión</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>Mostrar proyectos no válidos</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Acciones del proyecto</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Abrir proyecto</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation>Clonar proyecto</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Eliminar proyecto guardado</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>Ver detalles del proyecto</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>Ver carpeta del proyecto</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>¿Está seguro de que quiere eliminar `%1`?</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation>Proyecto clonado</translation>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation>¿Qué nombre quieres darle a tu proyecto clonado?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Falló la obtención de detalles del proyecto de QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Error al clonar el proyecto: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Error al crear el proyecto: %1</translation>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation>El proyecto se ha clonado con éxito</translation>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation>El proyecto se ha creado correctamente</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Refrescando lista de proyectos</translation>
     </message>
 </context>
 <context>
@@ -5130,6 +4705,41 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Point Feature Picker</source>
         <translation>Capturador de objetos tipo punto</translation>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>La capa %1 es sólo de lectura.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation>Información del proyecto</translation>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>Tema de mapa</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Leyenda</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>Expandir todo</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>Contraer todo</translation>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation>Retornar a inicio</translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>El proyecto es de sólo lectura.</translation>
     </message>
 </context>
 <context>
@@ -5340,14 +4950,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>No se pudo iniciar el servidor egeniouss.</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>No se pudo detener el servidor egeniouss.</translation>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation>Los datos recibidos son demasiado cortos para procesarlos</translation>
     </message>
@@ -5378,6 +4980,34 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>TCP receiver error (%1)</source>
         <translation>Error de receptor TCP (%1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5876,6 +5506,21 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>Terminar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Siguiente</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Anterior</translation>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6107,6 +5752,293 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>La configuración de permisos de esta capa deshabilita la adición de funciones.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>Carpeta del proyecto</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>Proyectos y conjuntos de datos locales</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>Carpetas</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Proyectos</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>Conjuntos de datos</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>Archivos</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>Archivo de proyecto</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>Conjunto de datos vectoriales</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>Conjunto de datos ráster</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Acciones de elementos</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>Ver archivo</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Enviar a...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>Enviar a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exportar a carpeta...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Añadir a favoritos</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Eliminar de favoritos</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>Enviar carpeta comprimida a...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>Subir carpeta al servidor WebDAV</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>Descargar carpeta del servidor WebDAV</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation>Borrar carpeta</translation>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation>Eliminar archivo</translation>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>Eliminar conjunto de datos</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>Acciones de importación</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>Importar proyecto desde carpeta</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>Importar proyecto desde ZIP</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>Importar conjunto(s) de datos</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>Importar URL</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>Importar carpeta WebDAV</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>Ayuda sobre gestión de almacenamiento</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Acciones del proyecto</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>Actualizar proyecto desde ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation>Comprimir el proyecto y enviarlo a...</translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>Subir proyecto a WebDAV</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>Descargar proyecto desde WebDAV</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>Subir archivo(s) a WebDAV</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>Enviar archivo(s) a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>Por favor, seleccione uno o más archivos para subir a QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation>Eliminar archivo(s)</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>‘%1’ se está subiendo a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Elementos que se están subiendo a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation>Remover archivo(s)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation><numerusform>¿Está seguro de que quiere eliminar un archivo?</numerusform><numerusform>¿Está seguro de que quiere eliminar %n archivos?</numerusform><numerusform>¿Está seguro de que quiere eliminar %n archivos?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation><numerusform>Un archivo borrado con éxito</numerusform><numerusform>%n archivos borrados con éxito</numerusform><numerusform>%n archivos borrados con éxito</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation><numerusform>No se pudo borrar un archivo</numerusform><numerusform>No se pudieron borrar %n archivos</numerusform><numerusform>No se pudieron borrar %n archivos</numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Escriba una URL a continuación para descargar e importar el proyecto o el conjunto de datos:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>Importación de carpeta WebDAV</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>Descargando la carpeta WebDAV</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>Subir carpeta WebDAV</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>Error de WebDAV:</translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>Subir WebDAV</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>Descargar WebDAV</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>Está a punto de cargar contenido modificado en &lt;b&gt;%1&lt;/b&gt; usando el usuario &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Esta operación sobrescribirá los datos almacenados de forma remota, asegúrese de que esto es lo que desea hacer.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>Está a punto de descargar contenido modificado de &lt;b&gt;%1&lt;/b&gt; usando el usuario &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Esta operación sobrescribirá los datos almacenados localmente, asegúrese de que esto es lo que desea hacer.</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>Contraseña (dejar vacío para usar la guardada)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contraseña</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>Recordar contraseña</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>Escriba los detalles de WebDAV a continuación para importar una carpeta remota:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>URL del servidor WebDAV</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>Usuario y contraseña</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>dejar vacío para usar la guardada</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>Obteniendo carpetas remotas</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>Obtener carpetas remotas</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>Seleccione la carpeta remota a importar:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>carpeta raíz</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>Disponible localmente en ‘%1’</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>Nombre de la carpeta importada</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Confirmar</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>Va a eliminar un elemento de WebDAV guardado, ¿continuar?</translation>
     </message>
 </context>
 <context>
@@ -6509,6 +6441,111 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Raster Datasets</source>
         <translation>Conjuntos de datos ráster</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Autor %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Desinstalar la versión %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Desinstalar complemento</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>La URL del plugin solicitado está presente en la lista de plugins disponibles, instálalo a través de su botón de descarga</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>No se pudo descomprimir el archivo zip descargado</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>El archivo zip descargado no contiene el archivo de complemento main.qml requerido</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>No se puede guardar el archivo descargado</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>El archivo descargado no es un complemento comprimido</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>Error de red</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>Complementos</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>Complementos locales</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>Complementos disponibles</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>Buscar un complemento</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>Recuperando los complementos disponibles</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>No se ha instalado ningún complemento todavía, cambie a la pestaña %1complementos disponble%3 para probar alguno directamente.&lt;br&gt;&lt;br&gt;Para más información, %2lea la documentación%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>Instalar complemento desde URL</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation>El proyecto abierto actualmente ha cargado un complemento de proyecto</translation>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation>Denegar permiso</translation>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>Menú de administración de complementos</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>Limpiar los permisos recordados</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>Los detalles de autoría mostrados arriba son aportados por el propio complemento y no están verificados de forma independiente. Por favor, asegúrese de que confía en el origen del complemento.</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>Escriba una URL debajo para descargar e instalar un complemento:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation>¿Está seguro de que quiere instalar `%1`?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>Instalando %1</translation>
     </message>
 </context>
 <context>
@@ -7202,6 +7239,517 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Mostrar barra de escala</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Mostrar controles de zoom</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Mostrar marcadores</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Cuando está activado, se mostrarán en el mapa los marcadores de usuario guardados y los del proyecto abierto actualmente.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Habilitar rotación del mapa</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Cuando se activa, el usuario puede rotar el mapa.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Mostrar información de digitalización</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Cuando está activado, la información de coordenadas, tal como latitud y longitud, se superpone sobre el mapa al digitalizar nuevos objetos o al usar la herramienta de medida.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Utilizar teclas de volumen para digitalizar</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Si se habilita, presionar la tecla de subir el volumen del dispositivo añadirá un vértice mientras que presionar la tecla de bajar el volumen eliminará el último vértice introducido durante la sesión de digitalización.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Permitir toques con los dedos en el lienzo para añadir vértices</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Considerar el ratón como un dispositivo de pantalla táctil</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Cuando está activado, el ratón actuará como si fuera un dedo. Cuando no está activado, el ratón funcionará como un lápiz óptico.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Maximizar el formulario de entidades</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Formulario de características abiertas para la identificación de características individuales</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Cuando está activado, el formulario de objetos se abrirá automáticamente si solo se identifica un objeto, omitiendo la lista de objetos.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navegación a escala fija</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Cuando la navegación a escala fija está activa, enfocar el resultado de una búsqueda desplazará al objeto. Con la navegación a escala fija desactivada desplazará y hará zoom al objeto.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Zoom automático a las características identificadas</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>Cuando esta opción está habilitada, el mapa se acercará automáticamente para mostrar todas las características identificadas, así como la característica individual seleccionada cuando se abra el formulario de características.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Representar contenido previsto alrededor del lienzo visible del mapa</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Si está habilitado, las áreas justo fuera de la extensión del lienzo del mapa visible se representarán parcialmente para permitir la vista previa al hacer zoom y desplazarse panorámicamente.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Habilitar el modo de guardado automático</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Si esta opción está habilitada, las características recientemente agregadas se almacenan tan pronto como tienen una geometría válida y se cumplen las restricciones y los atributos editados se confirman inmediatamente.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Usar cámara nativa</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Si está habilitada, se utilizará la cámara nativa proporcionada por el sistema operativo.
+ </translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Enviar métricas anonimizadas</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Si está activado, se recopilarán y enviarán métricas anónimas para mejorar la experiencia de usuario.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>General</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Posicionamiento</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variables</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Lienzo del mapa</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Calidad de renderizado del lienzo del mapa:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>La mejor calidad</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Calidad más baja</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>La calidad más baja</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Una calidad más baja reduce la precisión del renderizado en favor de un menor uso de memoria y tiempo de renderizado.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalización y edición</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Interfaz de usuario</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Personalizar barra de búsqueda</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Administrar complementos</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Atenuar pantalla si no hay actividad</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Tiempo de inactividad en segundos antes de que el brillo de la pantalla se atenúe para conservar la batería.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Apariencia:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Seguir la apariencia del sistema</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Claro</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Oscuro</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Tamaño de letra:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Pequeño</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Grande</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Enorme</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Idioma:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>sistema</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>¿Falta un idioma o está incompleto? %1Únase a la comunidad de traductores.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Red</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>Configuraciones de autenticación disponibles:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Borrar la caché de autenticación</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>Se ha vaciado la caché de autenticación</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Habilitar proxy</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Configuración predeterminada del sistema</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Host</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>ej: proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Puerto</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>ej. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Opcional</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contraseña</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>URLs excluidas del proxy (separadas por comas)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>ej: localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Configura un proxy de red para enrutar el tráfico de QField a través de un servidor proxy. Útil para redes corporativas y VPN.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Avanzado</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Dispositivo de posicionamiento</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Dispositivo de ubicación en uso:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Agregar</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Editar</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Eliminar</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Conectado a %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Conectar con %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Conectando a %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>Activar correcciones NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>El cliente NTRIP se ha desconectado</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>Conexión del cliente NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>Cliente NTRIP conectado</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>Introduce unos parámetros NTRIP válidos</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Mostrar información de la posición</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Comportamiento cuando está bloqueado a la posición:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Solo seguir la posición</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Seguir posición y orientación de la brújula</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Seguir posición y dirección de movimiento</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Cuando el lienzo del mapa está siguiendo la posición o bloqueado a ella, también puede rotar para coincidir con la orientación de la brújula o la dirección del movimiento.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Valor de medida (M) adjunto a los vértices:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Marca de tiempo (segundos desde la época)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Velocidad sobre el terreno</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Rumbo</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Precisión horizontal</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Precisión vertical</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Al digitalizar las entidades con el cursor de coordenadas bloqueado en la posición actual, el tipo de medición seleccionado arriba se agregará a la geometría siempre que tenga una dimensión M.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Activar indicador de precisión</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Umbral de precisión inadecuado</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>Excelente umbral de precisión</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Forzar requerimiento de precisión</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Cuando el indicador de precisión está activado, se adjunta una marca al botón de localización y se colorea en &lt;span %1&gt;rojo&lt;/span&gt;  si el valor de precisión es peor que &lt;i&gt;malo&lt;/i&gt;, &lt;span %2&gt;amarillo&lt;/span&gt;si no llega a &lt;i&gt;excelente&lt;/i&gt;, o &lt;span %3&gt;verde&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Además, se puede activar un modo de restricción de precisión, que restringe la adición de vértices cuando está bloqueado a las coordenadas del cursor a posiciones con una precisión por encima del umbral malo.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Habilitar requerimiento de posicionamiento promediado</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>Recuento de posiciones mínimas</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Terminar automáticamente la colección cuando se alcanza el número mínimo</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Cuando se habilita, la digitalización de vértices con un cursor bloqueado a la posición solo aceptará una posición promediada a partir de un número mínimo de posiciones recopiladas. La digitalización usando posiciones promediadas se hace presionando y manteniendo el botón añadir vértice, que tomará posiciones hasta que se deje de pulsar. La configuración de los requerimientos de precisión se respeta cuando está habilitada.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Ajuste de la altura</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Compensación de altura de antena</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Altura de la antena</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Este valor corregirá los valores Z registrados por el dispositivo de posicionamiento. Si se introduce un valor de 1.6, el sistema restará automáticamente 1.6 de cada valor registrado. Asegúrese de introducir la altura efectiva de la antena, es decir, la longitud del mástil + el desplazamiento del centro de fase de la antena.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Omitir corrección de la altitud</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Utilizar la altitud según lo informado por el dispositivo de posicionamiento. Omitir cualquier corrección de altitud que pueda estar implicada por la transformación del sistema de coordenadas.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Cambio de cuadrícula vertical en uso:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguna</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ortométrica desde el dispositivo</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>El cambio de cuadrícula vertical se utiliza para aumentar la precisión de la altitud.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Registre sentencias NMEA del dispositivo al archivo</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 Configuración</translation>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>Seleccionar plantilla de dibujo</translation>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7509,6 +8057,107 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Invalid WebDAV config JSON.</source>
         <translation>Configuración JSON no válida de WebDAV.</translation>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>Sentimos oír eso. Pulse el botón de abajo para comentar o buscar ayuda.</translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>LLegar</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation>Hola, ¿qué tal tu experiencia con %1 hasta ahora?</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>¡Eso es genial! Nos encantaría que pulsara el botón de abajo y dejara un comentario.</translation>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>Valórenos</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>Se ha deshabilitado la recopilación de métricas anonimizadas. Puede rehabilitarlas en el panel de configuración.</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation>Para mejorar la estabilidad para todos, %1 recopila y envía métricas anónimas.</translation>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>De acuerdo</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>Prefiero que no</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloud
+proyectos</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>Proyectos locales y
+conjuntos de datos</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>Crear nuevo
+proyecto</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>Última sesión</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>Proyecto predeterminado</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>Mapa base</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>Acciones recientes del proyecto</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>Cargar proyecto predeterminado al iniciar</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>Cargar el último proyecto abierto al iniciar</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>Regresar al mapa</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation>¿Es la primera vez que utiliza esta aplicación? Pruebe los proyectos de ejemplo que se enumeran a continuación.</translation>
     </message>
 </context>
 <context>
@@ -8897,11 +9546,11 @@ para mostrar las acciones</translation>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>Sentimos oír eso. Pulse el botón de abajo para comentar o buscar ayuda.</translation>
+        <translation type="vanished">Sentimos oír eso. Pulse el botón de abajo para comentar o buscar ayuda.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>LLegar</translation>
+        <translation type="vanished">LLegar</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8913,11 +9562,11 @@ para mostrar las acciones</translation>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Valórenos</translation>
+        <translation type="vanished">Valórenos</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>Se ha deshabilitado la recopilación de métricas anonimizadas. Puede rehabilitarlas en el panel de configuración.</translation>
+        <translation type="vanished">Se ha deshabilitado la recopilación de métricas anonimizadas. Puede rehabilitarlas en el panel de configuración.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8925,11 +9574,11 @@ para mostrar las acciones</translation>
     </message>
     <message>
         <source>I agree</source>
-        <translation>De acuerdo</translation>
+        <translation type="vanished">De acuerdo</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>Prefiero que no</translation>
+        <translation type="vanished">Prefiero que no</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -8945,7 +9594,7 @@ para mostrar las acciones</translation>
     </message>
     <message>
         <source>Last session</source>
-        <translation>Última sesión</translation>
+        <translation type="vanished">Última sesión</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8966,76 +9615,6 @@ para mostrar las acciones</translation>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">Bienvenido de nuevo a QField.</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>Proyecto predeterminado</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>Mapa base</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>Cargar proyecto predeterminado al iniciar</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>Cargar el último proyecto abierto al iniciar</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation>Acciones recientes del proyecto</translation>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>¡Eso es genial! Nos encantaría que pulsara el botón de abajo y dejara un comentario.</translation>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation>Regresar al mapa</translation>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation>QFieldCloud
-proyectos</translation>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation>Proyectos locales y
-conjuntos de datos</translation>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation>Crear nuevo
-proyecto</translation>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Hola, ¿qué tal tu experiencia con %1 hasta ahora?</translation>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation>Para mejorar la estabilidad para todos, %1 recopila y envía métricas anónimas.</translation>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation>¿Es la primera vez que utiliza esta aplicación? Pruebe los proyectos de ejemplo que se enumeran a continuación.</translation>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

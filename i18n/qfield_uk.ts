@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>Розроблено</translation>
+        <translation type="vanished">Розроблено</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Підтримка QField</translation>
+        <translation type="vanished">Підтримка QField</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>Журнал змін</translation>
+        <translation type="vanished">Журнал змін</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>Документація</translation>
+        <translation type="vanished">Документація</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>Меню посилань</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation>Працює на QField</translation>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation>Каталог застосунку %1</translation>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation>Каталог застосунку %1</translation>
+        <translation type="vanished">Меню посилань</translation>
     </message>
 </context>
 <context>
@@ -91,7 +79,7 @@
     </message>
     <message>
         <source>projection</source>
-        <translation type="vanished">проєкція</translation>
+        <translation type="vanished">проекція</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>Не вдалось завантажити деякі шари</translation>
+        <translation type="vanished">Не вдалось завантажити деякі шари</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Не вдалося завантажити наступні шари, перегляньте їх та переналаштуйте проєкт QGIS.</translation>
+        <translation type="vanished">Не вдалося завантажити наступні шари, перегляньте їх та переналаштуйте проєкт QGIS.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">Ви можете переглянути розділ Portable Project в документації QField для отримання додаткової допомоги.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>Ви можете переглянути сторінку документації %1Portable Project%2 для отримання додаткової допомоги.</translation>
     </message>
 </context>
 <context>
@@ -424,30 +408,30 @@ Cancel to make a minimal device scan instead.</source>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>Що нового в QField</translation>
+        <translation type="vanished">Що нового в QField</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>Помилка під час отримання журналу змін. Спробуйте пізніше.</translation>
+        <translation type="vanished">Помилка під час отримання журналу змін. Спробуйте пізніше.</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Підтримка QField</translation>
+        <translation type="vanished">Підтримка QField</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>Перевірте останні зміни QField</translation>
+        <translation type="vanished">Перевірте останні зміни QField</translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>Сторінка випусків QField</translation>
+        <translation type="vanished">Сторінка випусків QField</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>Попередні випуски на GitHub</translation>
+        <translation type="vanished">Попередні випуски на GitHub</translation>
     </message>
 </context>
 <context>
@@ -463,53 +447,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation type="vanished">НУЛЬ</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>Геометрія</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>Вставка не вдалася: цільовий шар не вказано</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>Операція вирізання: вихідний та цільовий шари однакові, вставка пропускається.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>Не вдалося вставити: функція буфера обміну недійсна</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>Не вдалося вирізати: не вдалося розпочати редагування вихідного шару %1</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>Вирізання не вдалося: не вдалося видалити оригінальний об&apos;єкт з вихідного шару %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>Вставити не вдалося: не вдалося створити сумісні об&apos;єкти</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>Вставка не вдалася: не вдалося розпочати редагування шару %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>Вставка не вдалася: не вдалося додати об&apos;єкт до шару %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>Вставка не вдалася: не вдалося виконати зміни на шарі %1</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>Не вдалося вирізати фіксацію на вихідному шарі %1</translation>
     </message>
 </context>
 <context>
@@ -530,39 +467,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Шар %1 доступний лише для читання.</translation>
+        <translation type="vanished">Шар %1 доступний лише для читання.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>Тема карти</translation>
+        <translation type="vanished">Тема карти</translation>
     </message>
     <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>Проєкт доступний лише для читання.</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>Легенда</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation>Повернутися додому</translation>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation>Розгорнути все</translation>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation>Згорнути все</translation>
-    </message>
-    <message>
-        <source>Project Information</source>
-        <translation>Інформація про проект</translation>
     </message>
 </context>
 <context>
@@ -1419,15 +1332,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Друк об&apos;єктів Атласу у файл зображення</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Друк об&apos;єктів Атласу у файл зображення</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Друк об&apos;єктів Атласу</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -1435,7 +1348,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Елемент(и) Атласу успішно надруковано та розміщено у Вашій папці проекту</translation>
     </message>
 </context>
 <context>
@@ -1555,7 +1468,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Не вдалося зберегти файл ресурсу</translation>
     </message>
     <message>
         <source>Select Image File</source>
@@ -1584,111 +1497,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Select File</source>
         <translation type="vanished">Вибрати файл</translation>
-    </message>
-</context>
-<context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>За авторством %1%2%3</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Видалити версію %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Видалити плагін</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>Завантажений zip-файл не вдалося розпакувати</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>Завантажений zip-файл не містить необхідного файлу плагіна main.qml.</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>Не вдається зберегти завантажений файл</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>Завантажений файл не є плагіном у zip-архіві</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>Помилка мережі</translation>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>URL-адреса запитуваного плагіна присутня у списку доступних плагінів, будь ласка, встановіть його за допомогою кнопки завантаження.</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>Плагіни</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>Встановити плагін з URL</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>Очистити запам&apos;ятовані дозволи</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>Введіть нижче URL-адресу, щоб завантажити та встановити плагін:</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>Встановлення %1</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>Ви впевнені, що хочете видалити `%1`?</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>Дані автора, наведені вище, надані плагіном самостійно та не перевірені незалежно. Будь ласка, переконайтеся, що Ви довіряєте походженню плагіна.</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>Меню управління плагінами</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>Локальні плагіни</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>Наявні плагіни</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>Пошук плагіна</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>Отримання доступних плагінів</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>Якщо не встановлено жодних плагінів, перейдіть на вкладку %1наявні плагіни%3, щоб одразу спробувати деякі з них.&lt;br&gt;&lt;br&gt;Для отримання додаткової інформації, %2ознайомтеся з документацією%3.</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation>Відмовити в дозволі</translation>
     </message>
 </context>
 <context>
@@ -1951,21 +1759,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation>Будь ласка, введіть облікові дані для бази даних</translation>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2028,35 +1821,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>Скинути проєкт</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Локальна копія цього хмарного проєкту пошкоджена. Скидання проєкту призведе до повторного завантаження хмарної версії та видалить будь-які локальні зміни. Якщо потрібно, переконайтеся, що вони були скопійовані.
-
-Хоча ви все ще можете переглядати та використовувати проєкт, настійно рекомендується скинути налаштування, щоб уникнути випадкової втрати даних, оскільки жодні з внесених змін не будуть перенесені назад у хмару.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2071,55 +1842,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">Завантаження…</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>Невідомо</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2131,7 +1854,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>Не вдалося ввійти</translation>
+        <translation type="vanished">Не вдалося ввійти</translation>
     </message>
     <message>
         <source>Server URL
@@ -2141,31 +1864,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Username or email</source>
-        <translation>Ім&apos;я користувача або email</translation>
+        <translation type="vanished">Ім&apos;я користувача або email</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation type="vanished">Пароль</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Вийти з аккаунта</translation>
+        <translation type="vanished">Вийти з аккаунта</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>Виконується вхід, будь ласка, зачекайте</translation>
+        <translation type="vanished">Виконується вхід, будь ласка, зачекайте</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Увійти</translation>
+        <translation type="vanished">Увійти</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>Новий користувач?</translation>
+        <translation type="vanished">Новий користувач?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>Зареєструйте обліковий запис</translation>
+        <translation type="vanished">Зареєструйте обліковий запис</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2181,32 +1904,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Найпростіший спосіб перенести проект із QGIS на ваші пристрої!</translation>
+        <translation type="vanished">Найпростіший спосіб перенести проект із QGIS на ваші пристрої!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Дізнайтеся більше про QFieldCloud</translation>
+        <translation type="vanished">Дізнайтеся більше про QFieldCloud</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>або</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>Увійдіть за допомогою %1</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation>%1сервер URL
-(Залиште порожнім, щоб використовувати сервер за замовчуванням)</translation>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2228,20 +1933,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">Деякі шари неправильно запаковано в QFieldCloud. Ці шари можуть бути неправильно налаштовані або їхнє джерело даних недоступне із сервера QFieldCloud. Будь ласка, перевірте журнали останнього завдання пакування на веб-сайті qfield.cloud.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2253,7 +1950,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Дізнайтеся більше про QFieldCloud</translation>
+        <translation type="vanished">Дізнайтеся більше про QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2269,7 +1966,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Цей проект QFieldCloud спочатку було завантажено за допомогою іншого хмарного облікового запису. Будь ласка, увійдіть, використовуючи вихідний обліковий запис для цього проекту, щоб використовувати функції QFieldCloud.</translation>
+        <translation type="vanished">Цей проект QFieldCloud спочатку було завантажено за допомогою іншого хмарного облікового запису. Будь ласка, увійдіть, використовуючи вихідний обліковий запис для цього проекту, щоб використовувати функції QFieldCloud.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2305,11 +2002,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>Локально збережений хмарний проєкт пошкоджено</translation>
+        <translation type="vanished">Локально збережений хмарний проєкт пошкоджено</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Синхронізувати</translation>
+        <translation type="vanished">Синхронізувати</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2349,11 +2046,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>Остання синхронізація щойно</translation>
+        <translation type="vanished">Остання синхронізація щойно</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>Востаннє синхронізовано %1 хвилину тому</translation>
+        <translation type="vanished">Востаннє синхронізовано %1 хвилину тому</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2361,7 +2058,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>Остання синхронізація на %1</translation>
+        <translation type="vanished">Остання синхронізація на %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2393,15 +2090,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>Скинути хмарний проєкт</translation>
+        <translation type="vanished">Скинути хмарний проєкт</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Останнє попередження: скидання хмарного проєкту призведе до видалення будь-яких локальних змін. Ви впевнені, що хочете продовжити?</translation>
+        <translation type="vanished">Останнє попередження: скидання хмарного проєкту призведе до видалення будь-яких локальних змін. Ви впевнені, що хочете продовжити?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Підключення хмари</translation>
+        <translation type="vanished">Підключення хмари</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2414,166 +2111,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">Немає змін для повернення</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Цей проект має оновлений файл проекту в хмарі, рекомендується синхронізувати його.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>Цей проект оновив дані в хмарі, Вам слід їх синхронізувати.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud пакує найновіші дані спеціально для Вас; це може зайняти деякий час, будь ласка, зачекайте.</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Завантаження, %1% з %2 отримано</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Завантаження, %1% отримано</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Звернутись до QFieldCloud, щоб завантажити проект</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation>Надсилання змін, %1%…</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud застосовує останні надіслані зміни. Це може зайняти деякий час, будь ласка, зачекайте…</translation>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation>Завантаження поточного проєкту до QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation>Завантаження %1</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation>Використано %1 із %2</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2663,103 +2200,16 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation>Власник</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Дата створення</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Дата останнього оновлення</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Цей QR-код можна відсканувати користувачам з відповідним доступом, щоб завантажити та відкрити цей проект</translation>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>Синхронізувати</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Завантаження проекту</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Завантажити проект</translation>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>Завантаження проєкту %1</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Відкрити проект</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation>Синхронізація</translation>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Пошук</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>Проекти %1</translation>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation>Мої власні проекти</translation>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation>Назва або опис містять</translation>
-    </message>
-    <message>
-        <source>Owner is</source>
-        <translation>Власником є</translation>
     </message>
 </context>
 <context>
@@ -2798,7 +2248,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Оновлення відповіді на запит проекту(%1) не містить усіх необхідних ключів: назва(string), власние(string), опис(string), роль_користувача(string), є_публічним(bool), можна_перепакувати(bool), потребує_перепакування(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
@@ -2897,23 +2347,23 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>Проєкти QFieldCloud</translation>
+        <translation type="vanished">Проекти QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Відключено від хмари.</translation>
+        <translation type="vanished">Відключено від хмари.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Підключення до хмари.</translation>
+        <translation type="vanished">Підключення до хмари.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Привітання &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Привітання &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">Мій проєкт</translation>
+        <translation type="vanished">Мій проект</translation>
     </message>
     <message>
         <source>Community</source>
@@ -2933,15 +2383,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>Завантаження...</translation>
+        <translation type="vanished">Завантаження...</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>Помилка завантаження.</translation>
+        <translation type="vanished">Помилка завантаження.</translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>Помилка викачування.</translation>
+        <translation type="vanished">Помилка викачування.</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2969,11 +2419,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Відкрити проект</translation>
+        <translation type="vanished">Відкрити проект</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>Видалити збережений проєкт</translation>
+        <translation type="vanished">Видалити збережений проєкт</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2985,67 +2435,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>Оновити список проєктів</translation>
+        <translation type="vanished">Оновити список проектів</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>Оновлення списку проєктів</translation>
+        <translation type="vanished">Оновлення списку проектів</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">Проекти не знайдено</translation>
     </message>
     <message>
-        <source>Project Actions</source>
+        <source>Sign out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud пакує найновіші дані спеціально для Вас; це може зайняти деякий час, будь ласка, зачекайте.</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Завантаження, %1% з %2 отримано</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Завантаження, %1% отримано</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Звернутись до QFieldCloud, щоб завантажити проект</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Вийти з аккаунта</translation>
-    </message>
-    <message>
         <source>Sign in</source>
-        <translation>Увійти</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>Показати недійсні проекти</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>Переглянути деталі проекту</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Не вдалося отримати деталі проекту QFieldCloud</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation>Переглянути папку проекту</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation>Ви впевнені, що хочете видалити `%1`?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Синхронізувати</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3053,70 +2463,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation>Проекти</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation>Пошук проектів...</translation>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation>Пошук проектів</translation>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation>Клонування проекту</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>Як Ви хочете назвати свій клоновий проект?</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Клонування проекту не вдалося: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Не вдалося створити проект: %1</translation>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation>Проект успішно клоновано</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>Проект успішно створено</translation>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3143,73 +2489,58 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>Завершити</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>Далі</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>Попередній</translation>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Папка проектів</translation>
+        <translation type="vanished">Папка проектів</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Локальні Проекти та Набори даних</translation>
+        <translation type="vanished">Локальні Проекти та Набори даних</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Папки</translation>
+        <translation type="vanished">Папки</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Проекти</translation>
+        <translation type="vanished">Проекти</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Набори даних</translation>
+        <translation type="vanished">Набори даних</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Вибране</translation>
+        <translation type="vanished">Вибране</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Файл проекту</translation>
+        <translation type="vanished">Файл проекту</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Набір векторних даних</translation>
+        <translation type="vanished">Набір векторних даних</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Набір растрових даних</translation>
+        <translation type="vanished">Набір растрових даних</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Відправити...</translation>
+        <translation type="vanished">Відправити...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Експортувати в папку...</translation>
+        <translation type="vanished">Експортувати в папку...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Видалити набір даних</translation>
+        <translation type="vanished">Видалити набір даних</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Надіслати стиснуту папку до...</translation>
+        <translation type="vanished">Надіслати стиснуту папку до...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3217,235 +2548,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Імпорт проекту з папки</translation>
+        <translation type="vanished">Імпорт проекту з папки</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Імпорт проекту з ZIP</translation>
+        <translation type="vanished">Імпорт проекту з ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Імпорт наборів даних</translation>
+        <translation type="vanished">Імпорт наборів даних</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Допомога в управлінні сховищем</translation>
+        <translation type="vanished">Допомога в управлінні пам’яттю</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Файли</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Головна сторінка</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>Переглянути файл</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Надіслати до QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Додати до обраних</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Видалити із обраних</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Завантаження папки на сервер WebDAV</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Завантажити папку із сервера WebDAV</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
-        <translation>Видалити папку</translation>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation>Видалити файл</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Імпорт URL</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>Імпорт папки WebDAV</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Оновити проект із ZIP</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Завантаження проекту до WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Завантажити проект з WebDAV</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Завантаження файлy(-ів) до WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Надіслати файл(и) до QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Будь ласка, виберіть один або декілька файлів для надсилання до QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation>Видалити файл(и)</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ завантажується до QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation>Видалити файл(и)</translation>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation><numerusform>Ви впевнені, що хочете видалити %n файл?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Введіть нижче URL-адресу, щоб завантажити та імпортувати проєкт або набір даних:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>Імпорт папки WebDAV</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>Завантаження папки WebDAV</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>Завантаження папки WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>Помилка WebDAV:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>Завантаження WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>Завантаження WebDAV</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Ви збираєтеся завантажити змінений вміст до &lt;b&gt;%1&lt;/b&gt; за допомогою користувача &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ця операція перезапише дані, що зберігаються віддалено, переконайтеся, що Ви хочете це зробити.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Ви збираєтеся завантажити змінений вміст з &lt;b&gt;%1&lt;/b&gt; за допомогою користувача &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ця операція перезапише дані, що зберігаються локально, переконайтеся, що Ви хочете це зробити.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Пароль (залиште поле порожнім, щоб використовувати збережений пароль)</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Запам&apos;ятати пароль</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Введіть нижче дані WebDAV, щоб імпортувати віддалену папку:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>URL-адреса сервера WebDAV</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Ім&apos;я користувача та пароль</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>залиште поле порожнім, щоб використовувати збережений пароль</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Отримання віддалених папок</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Отримати віддалені папки</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Виберіть віддалену папку для імпорту:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>коренева папка</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Доступно локально в ‘%1’</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>Назва імпортованої папки</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Підтвердити</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Ви збираєтеся видалити збережений елемент WebDAV. Продовжити?</translation>
     </message>
 </context>
 <context>
@@ -3467,7 +2586,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Показати масштабну шкалу</translation>
+        <translation type="vanished">Показати масштабну шкалу</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3475,31 +2594,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Фіксована шкала масштабу</translation>
+        <translation type="vanished">Фіксована шкала масштабу</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Коли активна навігація з фіксованим масштабом, фокусування на результатах пошуку буде переміщуватися до функції. Якщо навігацію з фіксованим масштабом вимкнено, вона буде панорамувати та масштабувати об’єкт.</translation>
+        <translation type="vanished">Коли активна навігація з фіксованим масштабом, фокусування на результатах пошуку буде переміщуватися до функції. Якщо навігацію з фіксованим масштабом вимкнено, вона буде панорамувати та масштабувати об’єкт.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Показати інформацію про оцифрування</translation>
+        <translation type="vanished">Показати інформацію про оцифрування</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Коли ввімкнено, інформація про координати, така як широта та довгота, накладається на карту під час оцифрування нових об’єктів або використання інструмента «Вимірювання».</translation>
+        <translation type="vanished">Коли ввімкнено, інформація про координати, така як широта та довгота, накладається на карту під час оцифрування нових об’єктів або використання інструмента «Вимірювання».</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Показати закладки</translation>
+        <translation type="vanished">Показати закладки</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Якщо цей параметр увімкнено, на карті відображатимуться збережені та відкриті закладки проекту користувача.</translation>
+        <translation type="vanished">Якщо цей параметр увімкнено, на карті відображатимуться збережені та відкриті закладки проекту користувача.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Використати вбудовану камеру</translation>
+        <translation type="vanished">Використати вбудовану камеру</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3515,7 +2634,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Темний екран в режимі очікування</translation>
+        <translation type="vanished">Темний екран в режимі очікування</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3523,7 +2642,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Розглянемо мишу як пристрій із сенсорним екраном</translation>
+        <translation type="vanished">Розглянемо мишу як пристрій із сенсорним екраном</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3531,7 +2650,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Надсилати анонімні показники</translation>
+        <translation type="vanished">Надсилати анонімні показники</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3539,19 +2658,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>Загальні</translation>
+        <translation type="vanished">Загальні</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Позиціювання</translation>
+        <translation type="vanished">Позиціювання</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Змінні</translation>
+        <translation type="vanished">Змінні</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Налаштувати панель пошуку</translation>
+        <translation type="vanished">Налаштувати панель пошуку</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3563,15 +2682,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>system</source>
-        <translation>система</translation>
+        <translation type="vanished">система</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Знайшли відсутню або неповну мову? %1Приєднуйтесь до спільноти перекладачів.%2</translation>
+        <translation type="vanished">Знайшли відсутню або неповну мову? %1Приєднуйтесь до спільноти перекладачів.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Використовуваний пристрій позиціонування:</translation>
+        <translation type="vanished">Використовуваний пристрій позиціонування:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3609,7 +2728,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Підключено до %1</translation>
+        <translation type="vanished">Підключено до %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3617,7 +2736,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Підключення до %1</translation>
+        <translation type="vanished">Підключення до %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3625,11 +2744,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Показувати інформацію про місце розташування</translation>
+        <translation type="vanished">Показувати інформацію про місце розташування</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Активувати індикатор точності</translation>
+        <translation type="vanished">Активувати індикатор точності</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3649,7 +2768,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Увімкнути вимогу до усередненого позиціонування</translation>
+        <translation type="vanished">Увімкнути вимогу до усередненого позиціонування</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3657,15 +2776,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Автоматично завершувати збір, коли досягнуто мінімальної кількості</translation>
+        <translation type="vanished">Автоматично завершувати збір, коли досягнуто мінімальної кількості</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Якщо ввімкнено, оцифрування вершин із курсором, зафіксованим у позиції, прийматиме лише усереднене положення з мінімальної кількості зібраних позицій. Оцифрування з використанням усереднених позицій виконується натисканням і утриманням кнопки додавання вершин, яка збиратиме позиції, доки не буде відпущено натискання. Якщо ввімкнено, параметри вимог до точності дотримуються.</translation>
+        <translation type="vanished">Якщо ввімкнено, оцифрування вершин із курсором, зафіксованим у позиції, прийматиме лише усереднене положення з мінімальної кількості зібраних позицій. Оцифрування з використанням усереднених позицій виконується натисканням і утриманням кнопки додавання вершин, яка збиратиме позиції, доки не буде відпущено натискання. Якщо ввімкнено, параметри вимог до точності дотримуються.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Компенсація висоти антени</translation>
+        <translation type="vanished">Компенсація висоти антени</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3677,23 +2796,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Пропустити корекцію висоти</translation>
+        <translation type="vanished">Пропустити корекцію висоти</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Використовуйте висоту, яку повідомляє пристрій позиціонування. Пропустіть будь-яку корекцію висоти, яка може випливати з перетворення системи координат.</translation>
+        <translation type="vanished">Використовуйте висоту, яку повідомляє пристрій позиціонування. Пропустіть будь-яку корекцію висоти, яка може випливати з перетворення системи координат.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Використовується вертикальний зсув сітки:</translation>
+        <translation type="vanished">Використовується вертикальний зсув сітки:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Жодного</translation>
+        <translation type="vanished">Жодного</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Вертикальний зсув сітки використовується для підвищення точності висоти.</translation>
+        <translation type="vanished">Вертикальний зсув сітки використовується для підвищення точності висоти.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3701,11 +2820,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Час бездіяльності в секундах, перш ніж яскравість екрана буде затемнена для збереження заряду акумулятора.</translation>
+        <translation type="vanished">Час бездіяльності в секундах, перш ніж яскравість екрана буде затемнена для збереження заряду акумулятора.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Виміряне значення (M), що додається до вершин:</translation>
+        <translation type="vanished">Виміряне значення (M), що додається до вершин:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3713,377 +2832,58 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Шляхова швидкість</translation>
+        <translation type="vanished">Шляхова швидкість</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Пеленг</translation>
+        <translation type="vanished">Пеленг</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Горизонтальна точність</translation>
+        <translation type="vanished">Горизонтальна точність</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Вертикальна точність</translation>
+        <translation type="vanished">Вертикальна точність</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Під час оцифрування об&apos;єктів з координатним курсором, заблокованим у поточному положенні, вибраний вище тип вимірювання буде додано до геометрії за умови, що він має розмірність М.</translation>
+        <translation type="vanished">Під час оцифрування об&apos;єктів з координатним курсором, заблокованим у поточному положенні, вибраний вище тип вимірювання буде додано до геометрії за умови, що він має розмірність М.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Додати</translation>
+        <translation type="vanished">Додати</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Редагувати</translation>
+        <translation type="vanished">Редагувати</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Видалити</translation>
+        <translation type="vanished">Видалити</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Підключіться до %1</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Системна тема</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Світла тема</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Темна тема</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Дрібний</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Середній</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Великий</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Дуже великий</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Журнал речень NMEA від пристрою до файлу</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Якість візуалізації карти:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Найкраща якість</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Нижча якість</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Найнижча якість</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Нижча якість поступається точністю візуалізації на користь меншого використання пам&apos;яті та часу візуалізації.</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ортометрична висота із присторою</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Використати кнопки гучності для оцифрування</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Якщо ця опція увімкнена, натискання кнопки збільшення гучності пристрою додасть вершину, а натискання кнопки зменшення гучності видалить останню введену вершину під час сесії оцифрування.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Дозволити додавання вершин натисканням пальця на карту</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Якщо ця функція увімкнена, миша буде діяти так, наче це палець. Якщо вимкнено, миша буде працювати як стилус.</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Полотно карти</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Оцифрування та редагування</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Інтерфейс користувача</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Вигляд:</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Розмір шрифту:</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Мова:</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Розширені</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Управління плагінами</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Увімкнути обертання карти</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Якщо цей параметер увімкнено, користувач може обертати карту.</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Дотримуватись вимог точності</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Коли індикатор точності ввімкнено, до кнопки визначення місцезнаходження прикріплюється значок, який забарвлюється &lt;span %1&gt;червоним&lt;/span&gt; кольором, якщо точність нижча межі &lt;i&gt;низької точності&lt;/i&gt;, &lt;span %2&gt;жовтим&lt;/span&gt;, якщо не дотягує до &lt;i&gt;високої точності&lt;/i&gt;, або &lt;span %3&gt;зеленим&lt;/span&gt; кольором.&lt;br&gt;&lt;br&gt;Крім того, можна ввімкнути режим обмеження точності, який обмежує додавання вершин, тобто коли відбувається блокування координації курсору для позицій із точністю нижчою за межу низької точності.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Відтворити попередній перегляд вмісту на видимому полотні карти</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Якщо ввімкнено, форма об’єктів відкриється автоматично, якщо визначено лише один об’єкт, список об’єктів пропускається.</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Показати елементи керування масштабом</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Максимізувати форму об&apos;єкта</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Відкрити форму об&apos;єкта для ідентифікації одного об&apos;єкта</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Якщо ввімкнено, області безпосередньо за межами видимого полотна карти будуть частково відображатися для попереднього перегляду під час масштабування та панорамування.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Увімкнути режим автоматичного збереження</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Якщо ввімкнено, щойно додані об&apos;єкти зберігаються, як тільки вони мають дійсну геометрію та виконуються обмеження, а редаговані атрибути фіксуються негайно.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Автоматичне масштабування до визначених об&apos;єктів</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>Якщо цю функцію ввімкнено, карта автоматично масштабуватиметься, щоб відобразити всі виявлені об’єкти, а також вибраний об’єкт, коли відкрито форму об’єкта.</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Дії при фіксації положення:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Відслідковувати лише положення</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Відслідковувати положення та орієнтацію за компасом</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Відслідковувати положення та напрямок руху</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Коли полотно карти відповідає положенню або зафіксоване в ньому, воно також може обертатися відповідно до орієнтації компаса або напрямку руху.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Ця поправка скоригує значення висот Z, записані з пристрою позиціонування. Якщо введено значення 1.6, система автоматично відніме 1.6 від кожного записаного значення. Обов’язково введіть ефективну висоту антени, тобто довжина віхи + зсув фазового центру антени. </translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 Налаштування</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Мережа</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Увімкнути проксі-сервер</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Тип</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Система за умовчанням</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Хост</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>напр. proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Порт</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>напр. 8888</translation>
+        <translation type="vanished">Підключіться до %1</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>URL-адреси, виключені з проксі-сервера (розділені комами)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>напр. локальний хост, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Налаштуйте мережевий проксі-сервер для маршрутизації трафіку QField через проксі-сервер. Корисно для корпоративних мереж та VPN.</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Якщо ввімкнено, буде використовуватися вбудована камера, що надається операційною системою.</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Якщо цю функцію ввімкнено, анонімні показники будуть збиратися та надсилатися для покращення взаємодії з користувачем.</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Пристрій позиціонування</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>Увімкнути корекції NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Клієнт NTRIP відключився</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>Підключення клієнта NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Клієнта NTRIP підключено</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>Будь ласка, вкажіть дійсні налаштування NTRIP</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>Поправки висоти</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>Позначка часу (секунди з епохи)</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Межа низької точності</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>м</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>Межа високої точності</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Висота антени</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4123,7 +2923,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Multiple Projects</source>
-        <translation>Кілька проєктів</translation>
+        <translation>Кілька проектів</translation>
     </message>
     <message>
         <source>Invalid delta file</source>
@@ -4231,7 +3031,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>Кандидат (точка перетину)</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
@@ -4307,6 +3107,41 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation>Працює на QField</translation>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>Розроблено</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation>Каталог застосунку %1</translation>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation>Каталог застосунку %1</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Підтримка QField</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Документація</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>Меню посилань</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>Журнал змін</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4367,6 +3202,21 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>Будь ласка, введіть облікові дані для бази даних</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>у хоста</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>на сервісі</translation>
+    </message>
+</context>
+<context>
     <name>QfAppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
@@ -4382,7 +3232,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>projection</source>
-        <translation>проєкція</translation>
+        <translation>проекція</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
@@ -4437,6 +3287,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Audio Recorder</source>
         <translation>Аудіозаписувач</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>Не вдалось завантажити деякі шари</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>Не вдалося завантажити наступні шари, перегляньте їх та переналаштуйте проєкт QGIS.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>Ви можете переглянути сторінку документації %1Portable Project%2 для отримання додаткової допомоги.</translation>
     </message>
 </context>
 <context>
@@ -4525,47 +3390,47 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfBookmarkList</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Закладки</translation>
     </message>
     <message>
         <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню списку закладок</translation>
     </message>
     <message>
         <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
+        <translation>Перемкнути вибір закладок</translation>
     </message>
     <message>
         <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Експортувати вибрані закладки</translation>
     </message>
     <message>
         <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Експортувати всі закладки користувача</translation>
     </message>
     <message>
         <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
+        <translation>Закладки експортовано</translation>
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Видалити вибрані закладки</translation>
     </message>
     <message>
         <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
+        <translation>Дії із закладками</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Редагувати закладку</translation>
     </message>
     <message>
         <source>Navigate to bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Перейти до закладки</translation>
     </message>
     <message>
         <source>Copy Bookmark Details</source>
-        <translation type="unfinished"/>
+        <translation>Скопіювати деталі закладки</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -4573,7 +3438,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Delete Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Видалити закладку</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -4585,35 +3450,35 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Видалити закладку(и)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ви дійсно хочете видалити %n закладку(и)?</numerusform><numerusform>Ви дійсно хочете видалити %n закладку(и)?</numerusform><numerusform>Ви дійсно хочете видалити %n закладку(и)?</numerusform><numerusform>Ви дійсно хочете видалити %n закладку(и)?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Видалити %n закладку(и)</numerusform><numerusform>Видалити %n закладку(и)</numerusform><numerusform>Видалити %n закладку(и)</numerusform><numerusform>Видалити %n закладку(и)</numerusform></translation>
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"/>
+        <translation>Помаранчевий</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished"/>
+        <translation>Червоний</translation>
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished"/>
+        <translation>Блакитний</translation>
     </message>
     <message>
         <source>Project bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Закладки поекту</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished"/>
+        <translation>Зелений</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -4621,14 +3486,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
+        <translation>Поки що немає закладок</translation>
     </message>
 </context>
 <context>
     <name>QfBookmarkLocatorFilter</name>
     <message>
         <source>Navigate to bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Перейти до закладки</translation>
     </message>
     <message>
         <source>Spatial bookmarks</source>
@@ -4775,11 +3640,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути деталізацію</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Вимкнути деталізацію</translation>
     </message>
     <message>
         <source>Geotagging enabled</source>
@@ -4804,6 +3669,83 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>back</source>
         <translation>ззаду</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>Що нового в QField</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>Помилка під час отримання журналу змін. Спробуйте пізніше.</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Підтримка QField</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>Перевірте останні зміни QField</translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>Сторінка випусків QField</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>Попередні випуски на GitHub</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>Геометрія</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>Вставка не вдалася: цільовий шар не вказано</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>Операція вирізання: вихідний та цільовий шари однакові, вставка пропускається.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>Не вдалося вставити: функція буфера обміну недійсна</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>Не вдалося вирізати: не вдалося розпочати редагування вихідного шару %1</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>Вирізання не вдалося: не вдалося видалити оригінальний об&apos;єкт з вихідного шару %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>Вставити не вдалося: не вдалося створити сумісні об&apos;єкти</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>Вставка не вдалася: не вдалося розпочати редагування шару %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>Вставка не вдалася: не вдалося додати об&apos;єкт до шару %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>Вставка не вдалася: не вдалося виконати зміни на шарі %1</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>Не вдалося вирізати фіксацію на вихідному шарі %1</translation>
     </message>
 </context>
 <context>
@@ -4868,6 +3810,375 @@ Cancel to make a minimal device scan instead.</source>
 %2</source>
         <translation>Не вдалося завантажити вкладений файл, який зберігається в `%1`, причина:
 %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation>Наведена нижче дія є незворотною та назавжди впливає на ваші локальні дані. Будьте обережні.</translation>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Скинути проект</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Відмінити локальні зміни</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Локальна копія цього хмарного проєкту пошкоджена. Скидання проєкту призведе до повторного завантаження хмарної версії та видалить будь-які локальні зміни. Якщо потрібно, переконайтеся, що вони були скопійовані.
+
+Хоча ви все ще можете переглядати та використовувати проєкт, настійно рекомендується скинути налаштування, щоб уникнути випадкової втрати даних, оскільки жодні з внесених змін не будуть перенесені назад у хмару.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation>Видаляє всі Ваші локальні зміни, які ще не було завантажено.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Скинути</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Відхилити</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation>Історія завантажень</translation>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation>Завантаження історії завантажень…</translation>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation>Жодних змін ще не завантажено!</translation>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation>Завантажено %1 %2</translation>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation>Застосовано</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>В очікуванні</translation>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation>Зайнятий</translation>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation>Конфлікт</translation>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation>Не застосовано</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Помилка</translation>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation>Проігноровано</translation>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation>Без дозволу</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Невідомо</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>Не вдалося ввійти</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation>%1сервер URL
+(Залиште порожнім, щоб використовувати сервер за замовчуванням)</translation>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>Ім&apos;я користувача або email</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Вийти з аккаунта</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>Виконується вхід, будь ласка, зачекайте</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Увійти</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>або</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>Увійдіть за допомогою %1</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation>Відвідайте %1сторінку налаштувань%2, щоб керувати своїм обліковим записом.</translation>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>Новий користувач?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>Зареєструйте обліковий запис</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>Найпростіший спосіб перенести проект із QGIS на ваші пристрої!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Дізнайтеся більше про QFieldCloud</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation>Деякі шари не були запаковані належним чином. Ці шари можуть бути неправильно налаштовані або їх джерело даних недоступне з сервера QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation>Будь ласка, перегляньте детальні відгуки нижче та останні робочі логи на вебсайті QFieldCloud.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation>Небезпечна зона</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>Цей проект QFieldCloud спочатку було завантажено за допомогою іншого хмарного облікового запису. Будь ласка, увійдіть, використовуючи вихідний обліковий запис для цього проекту, щоб використовувати функції QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud пакує найновіші дані спеціально для Вас; це може зайняти деякий час, будь ласка, зачекайте.</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Завантаження, %1% з %2 отримано</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Завантаження, %1% отримано</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Звернутись до QFieldCloud, щоб завантажити проект</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>Надсилання змін, %1%…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud застосовує останні надіслані зміни. Це може зайняти деякий час, будь ласка, зачекайте…</translation>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation>Перенести проект в хмару</translation>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>Завантаження поточного проєкту до QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation>Поточний проект не зберігається в QFieldCloud. Зберігання проектів у QFieldCloud забезпечує безперешкодну синхронізацію, редагування в автономному режимі та управління командою.</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Дізнайтеся більше про QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation>Перенесення в хмару %1%</translation>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation>Перенесення в хмару</translation>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>Локально збережений хмарний проєкт пошкоджено</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Завантажити останні зміни</translation>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation>Надсилає Ваші зміни та вкладення в хмару без завантаження оновлень проекту. Працює швидко й економно витрачає трафік.</translation>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation>Зміни ще не завантажено</translation>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation>Щойно здійснено останнє завантаження </translation>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation>Останнє завантаження здійснено %1 хвилин тому</translation>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation>Останнє завантаження відбудеться сьогодні о %1</translation>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation>Останнє завантаження відбудеться у %1</translation>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation>Завантаження</translation>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation><numerusform>Автоматичне завантаження кожні %n хвилин</numerusform><numerusform>Автоматичне завантаження кожні %n хвилин</numerusform><numerusform>Автоматичне завантаження кожні %n хвилин</numerusform><numerusform>Автоматичне завантаження кожні %n хвилин</numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation>Поточний проект не дозволяє вимкнути автоматичне завантаження</translation>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation>Синхронізувати проект</translation>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation>Надсилає Ваші зміни, а потім завантажує найновішу версію проекту з QFieldCloud, щоб усе було актуальним.</translation>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>Остання синхронізація щойно</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>Востаннє синхронізовано %1 хвилину тому</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation>Остання синхронізація сьогодні о %1</translation>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>Остання синхронізація на %1</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Синхронізувати</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation>Історія завантажень</translation>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation>Небезпечна зона</translation>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>Завантаження %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Відмінити локальні зміни</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation>Чи потрібно відмінити локальні зміни?</translation>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>Скинути хмарний проєкт</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>Останнє попередження: скидання хмарного проєкту призведе до видалення будь-яких локальних змін. Ви впевнені, що хочете продовжити?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>Підключення хмари</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Цей проект має оновлений файл проекту в хмарі, рекомендується синхронізувати його.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>Цей проект оновив дані в хмарі, Вам слід їх синхронізувати.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation>Проект %1 неможливо запакувати, оскільки доступна пам’ять переповнена.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Збільшити обсяг пам’яті</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation>Проект %1 неможливо запакувати, оскільки доступна пам’ять власника проекту заповнена.</translation>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>Локальні зміни відмінено</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>Не вдалося відмінити зміни</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>Немає змін до відміни</translation>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>Використано %1 із %2</translation>
     </message>
 </context>
 <context>
@@ -4960,7 +4271,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення відповіді на запит проекту(%1) не містить усіх необхідних ключів: назва(string), власние(string), опис(string), роль_користувача(string), є_публічним(bool), можна_перепакувати(bool), потребує_перепакування(bool)</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -4988,6 +4299,104 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>Використовується %1 із %2</translation>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation>Обсяг пам’яті</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Власник</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Дата створення</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Дата останнього оновлення</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Цей QR-код можна відсканувати користувачам з відповідним доступом, щоб завантажити та відкрити цей проект</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Синхронізація</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Синхронізувати</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Завантажити останні зміни</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud готує проект до пакування — зачекайте трохи.</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Завантаження проекту</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Завантажити проект</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Завантаження проєкту %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Відкрити проект</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation>Клонувати проект</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation>Мої власні проекти</translation>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation>Проекти %1</translation>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation>Попередньо визначені фільтри</translation>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation>Критерій</translation>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation>Назва або опис містять</translation>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation>Власником є</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation>Включити публічні проекти</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Пошук</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -4995,7 +4404,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
+        <translation>Наразі мережа неактивна. Ми автоматично застосуємо зміни, щойно Ви знову підключитеся до мережі.</translation>
     </message>
     <message>
         <source>Project creation requires a name</source>
@@ -5007,6 +4416,173 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>Проекти QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>Відключено від хмари.</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>Підключення до хмари.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>Привітання &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Проекти</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation>Пошук проектів</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud пакує найновіші дані спеціально для Вас; це може зайняти деякий час, будь ласка, зачекайте.</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Завантаження, %1% з %2 отримано</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Завантаження, %1% отримано</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Звернутись до QFieldCloud, щоб завантажити проект</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>Завантаження...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Помилка завантаження.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Помилка викачування.</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation>Оновлення списку проектів...</translation>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation>Пошук проектів...</translation>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation>Хмарних проектів не знайдено.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation>Спробуйте %1додати публічні проекти%2 і подивіться, що пропонує спільнота.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation>Спробуйте %1додати публічні проекти%2.</translation>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation>Щоб почати, %1ознайомтеся з документацією%2.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Оновити список проектів</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Вийти з аккаунта</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Увійти</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation>Сторінка налаштувань</translation>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>Показати недійсні проекти</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Дії в рамках проекту</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Відкрити проект</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Синхронізувати</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Завантажити останні зміни</translation>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation>Клонувати проект</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Видалити збережений проєкт</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>Переглянути деталі проекту</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>Переглянути папку проекту</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Ви впевнені, що хочете видалити `%1`?</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation>Клонування проекту</translation>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation>Як Ви хочете назвати свій клоновий проект?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Не вдалося отримати деталі проекту QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Клонування проекту не вдалося: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Не вдалося створити проект: %1</translation>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation>Проект успішно клоновано</translation>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation>Проект успішно створено</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Оновлення списку проектів</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudStatus</name>
     <message>
         <source>QFieldCloud server is not reachable</source>
@@ -5014,7 +4590,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося з’єднатися із сервером за адресою %1. Перевірте підключення до Інтернету.</translation>
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
@@ -5022,11 +4598,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
+        <translation>Робота сервісу QFieldCloud порушена.</translation>
     </message>
     <message>
         <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
+        <translation>Наразі триває інцидент</translation>
     </message>
 </context>
 <context>
@@ -5041,7 +4617,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation>Доступне сховище влсника облікового запису заповнене.</translation>
+        <translation>Доступна пам’ять власника облікового запису заповнена.</translation>
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
@@ -5065,26 +4641,26 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>%n feature(s) created</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Створено %n об&apos;єкт(-ів)</numerusform><numerusform>Створено %n об&apos;єкт(-ів)</numerusform><numerusform>Створено %n об&apos;єкт(-ів)</numerusform><numerusform>Створено %n об&apos;єкт(-ів)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) edited</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Відредаговано %n об&apos;єкт(-ів)</numerusform><numerusform>Відредаговано %n об&apos;єкт(-ів)</numerusform><numerusform>Відредаговано %n об&apos;єкт(-ів)</numerusform><numerusform>Відредаговано %n об&apos;єкт(-ів)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) deleted</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Видалено %n об&apos;єкт(-ів)</numerusform><numerusform>Видалено %n об&apos;єкт(-ів)</numerusform><numerusform>Видалено %n об&apos;єкт(-ів)</numerusform><numerusform>Видалено %n об&apos;єкт(-ів)</numerusform></translation>
     </message>
     <message>
         <source>%1 in layer %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 у шарі %2</translation>
     </message>
 </context>
 <context>
     <name>QfCodeReader</name>
     <message>
         <source>No readable code found in the selected image</source>
-        <translation type="unfinished"/>
+        <translation>На вибраному зображенні не знайдено зчитуваного коду.</translation>
     </message>
     <message>
         <source>NFC text tag detected</source>
@@ -5122,11 +4698,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>easting [X]</source>
-        <translation type="unfinished"/>
+        <translation>абсциса [X, UTM]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation type="unfinished"/>
+        <translation> ордината [Y, UTM]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
@@ -5135,6 +4711,41 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Point Feature Picker</source>
         <translation>Виберіть точковий об&apos;єкт</translation>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>Шар %1 доступний лише для читання.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation>Інформація про проект</translation>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>Тема карти</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Легенда</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>Розгорнути все</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>Згорнути все</translation>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation>Повернутися додому</translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>Проєкт доступний лише для читання.</translation>
     </message>
 </context>
 <context>
@@ -5257,7 +4868,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfEditorWidgetExternalResource</name>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Ідентифікатор конфігурації автентифікації зовнішнього сховища відсутній. Переконайтеся, що його імпортовано в %1</translation>
+        <translation>Ідентифікатор конфігурації автентифікації зовнішньої пам’яті відсутній. Переконайтеся, що його імпортовано в %1</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -5345,14 +4956,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>Не вдалося запустити сервер egeniouss.</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>Не вдалося зупинити сервер egeniuss.</translation>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation>Отримані дані занадто короткі для обробки</translation>
     </message>
@@ -5383,6 +4986,34 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>TCP receiver error (%1)</source>
         <translation>Помилка приймача TCP (%1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation>Чи запущено програму? Помилка HTTP-запиту: %1</translation>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation>Сервіс Egeniouss ще не готовий.</translation>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation>Останнє виправлення</translation>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation>Напрямок</translation>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation>Крен</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Тангаж</translation>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation>Стандартне відхилення</translation>
     </message>
 </context>
 <context>
@@ -5883,6 +5514,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>Завершити</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Далі</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Попередній</translation>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6117,6 +5763,293 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>Папка проектів</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>Локальні Проекти та Набори даних</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>Папки</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Проекти</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>Набори даних</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>Файли</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Вибране</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>Файл проекту</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>Набір векторних даних</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>Набір растрових даних</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Головна сторінка</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Дії з елементом</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>Переглянути файл</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Відправити...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>Надіслати до QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Експортувати в папку...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Додати до обраних</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Видалити із обраних</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>Надіслати стиснуту папку до...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>Завантаження папки на сервер WebDAV</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>Завантажити папку із сервера WebDAV</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation>Видалити папку</translation>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation>Видалити файл</translation>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>Видалити набір даних</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>Дії імпорту</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>Імпорт проекту з папки</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>Імпорт проекту з ZIP</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>Імпорт наборів даних</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>Імпорт URL</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>Імпорт папки WebDAV</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>Допомога в управлінні пам’яттю</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Дії в рамках проекту</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>Оновити проект із ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation>Стиснути проект і надіслати до...</translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>Завантаження проекту до WebDAV</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>Завантажити проект з WebDAV</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>Завантаження файлy(-ів) до WebDAV</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>Надіслати файл(и) до QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>Будь ласка, виберіть один або декілька файлів для надсилання до QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation>Надіслати стиснений файл(-и) до...</translation>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation>Видалити файл(и)</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>‘%1’ завантажується до QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Елементи, що завантажуються в QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation>Видалити файл(и)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation><numerusform>Ви впевнені, що хочете видалити %n файл?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Введіть нижче URL-адресу, щоб завантажити та імпортувати проєкт або набір даних:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>Імпорт папки WebDAV</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>Завантаження папки WebDAV</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>Завантаження папки WebDAV</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>Помилка WebDAV:</translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>Завантаження WebDAV</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>Завантаження WebDAV</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>Ви збираєтеся завантажити змінений вміст до &lt;b&gt;%1&lt;/b&gt; за допомогою користувача &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ця операція перезапише дані, що зберігаються віддалено, переконайтеся, що Ви хочете це зробити.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>Ви збираєтеся завантажити змінений вміст з &lt;b&gt;%1&lt;/b&gt; за допомогою користувача &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ця операція перезапише дані, що зберігаються локально, переконайтеся, що Ви хочете це зробити.</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>Пароль (залиште поле порожнім, щоб використовувати збережений пароль)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>Запам&apos;ятати пароль</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>Введіть нижче дані WebDAV, щоб імпортувати віддалену папку:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>URL-адреса сервера WebDAV</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>Ім&apos;я користувача та пароль</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>залиште поле порожнім, щоб використовувати збережений пароль</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>Отримання віддалених папок</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>Отримати віддалені папки</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>Виберіть віддалену папку для імпорту:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>коренева папка</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>Доступно локально в ‘%1’</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>Назва імпортованої папки</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Підтвердити</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>Ви збираєтеся видалити збережений елемент WebDAV. Продовжити?</translation>
+    </message>
+</context>
+<context>
     <name>QfLocalFilesModel</name>
     <message>
         <source>Home</source>
@@ -6301,11 +6234,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Атрибути об&apos;єкта оновлено з буфера обміну</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Жодних атрибутів об&apos;єктів не було оновлено з буфера обміну.</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
@@ -6321,7 +6254,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>Опрацювати об&apos;єкт</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -6337,7 +6270,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>Оновити атрибути з об&apos;єкта</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -6345,7 +6278,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Друк об&apos;єктів Атласу</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6357,7 +6290,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Елемент(и) атласу успішно надруковано та розміщено у Вашій папці проекту</translation>
     </message>
 </context>
 <context>
@@ -6399,15 +6332,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
+        <translation>З’єднання розірвано до отримання вихідної таблиці</translation>
     </message>
     <message>
         <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
+        <translation>У таблиці джерел NTRIP не знайдено точок підключення</translation>
     </message>
     <message>
         <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation>Помилка отримання таблиці джерел NTRIP:</translation>
     </message>
 </context>
 <context>
@@ -6459,7 +6392,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Destination Folder</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть цільову папку</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
@@ -6475,7 +6408,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося зберегти файл ресурсу</translation>
     </message>
     <message>
         <source>Select Image File</source>
@@ -6519,6 +6452,111 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>За авторством %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Видалити версію %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Видалити плагін</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>URL-адреса запитуваного плагіна присутня у списку доступних плагінів, будь ласка, встановіть його за допомогою кнопки завантаження.</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>Завантажений zip-файл не вдалося розпакувати</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>Завантажений zip-файл не містить необхідного файлу плагіна main.qml.</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>Не вдається зберегти завантажений файл</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>Завантажений файл не є плагіном у zip-архіві</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>Помилка мережі</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>Плагіни</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>Локальні плагіни</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>Наявні плагіни</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>Пошук плагіна</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>Отримання доступних плагінів</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>Якщо не встановлено жодних плагінів, перейдіть на вкладку %1наявні плагіни%3, щоб одразу спробувати деякі з них.&lt;br&gt;&lt;br&gt;Для отримання додаткової інформації, %2ознайомтеся з документацією%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>Встановити плагін з URL</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation>У відкритому наразі проекті завантажено плагін проекту.</translation>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation>Відмовити в дозволі</translation>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>Меню управління плагінами</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>Очистити запам&apos;ятовані дозволи</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>Дані автора, наведені вище, надані плагіном самостійно та не перевірені незалежно. Будь ласка, переконайтеся, що Ви довіряєте походженню плагіна.</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>Введіть нижче URL-адресу, щоб завантажити та встановити плагін:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation>Ви впевнені, що хочете видалити `%1`?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>Встановлення %1</translation>
+    </message>
+</context>
+<context>
     <name>QfPositioningDeviceModel</name>
     <message>
         <source>Internal device</source>
@@ -6529,7 +6567,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfPositioningDeviceSettings</name>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Bluetooth BT + BLE (NMEA)</source>
@@ -6620,7 +6658,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ант.</translation>
     </message>
     <message>
         <source>%1/s</source>
@@ -6654,11 +6692,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Версія 1</translation>
     </message>
     <message>
         <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Версія 2</translation>
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
@@ -6674,7 +6712,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation>Точка підключення</translation>
     </message>
     <message>
         <source>Identifier:</source>
@@ -6690,7 +6728,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Передача позиції на NTRIP caster</translation>
     </message>
 </context>
 <context>
@@ -6713,7 +6751,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Rotation source</source>
-        <translation type="unfinished"/>
+        <translation>Центр обертання</translation>
     </message>
     <message>
         <source>Compass</source>
@@ -6721,7 +6759,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation>Пересування</translation>
     </message>
     <message>
         <source>Precision</source>
@@ -6970,7 +7008,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
+        <translation>Автоматично завантажувати зміни через регулярні проміжки часу</translation>
     </message>
     <message>
         <source>Create Project</source>
@@ -7005,11 +7043,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>Занотувати додатки</translation>
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>Медіа</translation>
     </message>
     <message>
         <source>Description</source>
@@ -7021,7 +7059,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Marker color</source>
-        <translation type="unfinished"/>
+        <translation>Колір маркера</translation>
     </message>
     <message>
         <source>Title</source>
@@ -7033,11 +7071,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracks</source>
-        <translation type="unfinished"/>
+        <translation>Маршрути пересування</translation>
     </message>
     <message>
         <source>Track color</source>
-        <translation type="unfinished"/>
+        <translation>Колір маршруту пересування</translation>
     </message>
     <message>
         <source>Basemap</source>
@@ -7106,11 +7144,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Дочірне меню</translation>
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити форму</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -7122,7 +7160,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Друк об&apos;єктів Атласу</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -7134,7 +7172,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>Елемент(и) атласу успішно надруковано та розміщено у Вашій папці проекту</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -7209,6 +7247,516 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Показати масштабну шкалу</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Показати елементи керування масштабом</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Показати закладки</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Якщо цей параметр увімкнено, на карті відображатимуться збережені та відкриті закладки проекту користувача.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Увімкнути обертання карти</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Якщо цей параметер увімкнено, користувач може обертати карту.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Показати інформацію про оцифрування</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Коли ввімкнено, інформація про координати, така як широта та довгота, накладається на карту під час оцифрування нових об’єктів або використання інструмента «Вимірювання».</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Використати кнопки гучності для оцифрування</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Якщо ця опція увімкнена, натискання кнопки збільшення гучності пристрою додасть вершину, а натискання кнопки зменшення гучності видалить останню введену вершину під час сесії оцифрування.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Дозволити додавання вершин натисканням пальця на карту</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>Якщо ця функція увімкнена, натискання пальцем на карту переміщує курсор координат, а подвійне натискання додає вершину.</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Розглянемо мишу як пристрій із сенсорним екраном</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Якщо ця функція увімкнена, миша буде діяти так, наче це палець. Якщо вимкнено, миша буде працювати як стилус.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Максимізувати форму об&apos;єкта</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Відкрити форму об&apos;єкта для ідентифікації одного об&apos;єкта</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Якщо ввімкнено, форма об’єктів відкриється автоматично, якщо визначено лише один об’єкт, список об’єктів пропускається.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Фіксована шкала масштабу</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Коли активна навігація з фіксованим масштабом, фокусування на результатах пошуку буде переміщуватися до функції. Якщо навігацію з фіксованим масштабом вимкнено, вона буде панорамувати та масштабувати об’єкт.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Автоматичне масштабування до визначених об&apos;єктів</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>Якщо цю функцію ввімкнено, карта автоматично масштабуватиметься, щоб відобразити всі виявлені об’єкти, а також вибраний об’єкт, коли відкрито форму об’єкта.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Відтворити попередній перегляд вмісту на видимому полотні карти</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Якщо ввімкнено, області безпосередньо за межами видимого полотна карти будуть частково відображатися для попереднього перегляду під час масштабування та панорамування.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Увімкнути режим автоматичного збереження</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Якщо ввімкнено, щойно додані об&apos;єкти зберігаються, як тільки вони мають дійсну геометрію та виконуються обмеження, а редаговані атрибути фіксуються негайно.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Використати вбудовану камеру</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Якщо ввімкнено, буде використовуватися вбудована камера, що надається операційною системою.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Надсилати анонімні показники</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Якщо цю функцію ввімкнено, анонімні показники будуть збиратися та надсилатися для покращення взаємодії з користувачем.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Загальні</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Позиціювання</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Змінні</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Полотно карти</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Якість візуалізації карти:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Найкраща якість</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Нижча якість</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Найнижча якість</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Нижча якість поступається точністю візуалізації на користь меншого використання пам&apos;яті та часу візуалізації.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Оцифрування та редагування</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Інтерфейс користувача</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Налаштувати панель пошуку</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Управління плагінами</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Темний екран в режимі очікування</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Час бездіяльності в секундах, перш ніж яскравість екрана буде затемнена для збереження заряду акумулятора.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Вигляд:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Системна тема</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Світла тема</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Темна тема</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Розмір шрифту:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Дрібний</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Середній</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Великий</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Дуже великий</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Мова:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>система</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Знайшли відсутню або неповну мову? %1Приєднуйтесь до спільноти перекладачів.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Мережа</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>Доступні конфігурації автентифікації:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Очистити кеш автентифікації</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>Кеш автентифікації очищено</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Увімкнути проксі-сервер</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Система за умовчанням</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Хост</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>напр. proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Порт</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>напр. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Ім&apos;я користувача</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>За бажанням</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>URL-адреси, виключені з проксі-сервера (розділені комами)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>напр. локальний хост, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Налаштуйте мережевий проксі-сервер для маршрутизації трафіку QField через проксі-сервер. Корисно для корпоративних мереж та VPN.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Розширені</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Пристрій позиціонування</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Використовуваний пристрій позиціонування:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Додати</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Редагувати</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Видалити</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Підключено до %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Підключіться до %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Підключення до %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>Увімкнути корекції NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>Клієнт NTRIP відключився</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>Підключення клієнта NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>Клієнта NTRIP підключено</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>Будь ласка, вкажіть дійсні налаштування NTRIP</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Показувати інформацію про місце розташування</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Дії при фіксації положення:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Відслідковувати лише положення</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Відслідковувати положення та орієнтацію за компасом</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Відслідковувати положення та напрямок руху</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Коли полотно карти відповідає положенню або зафіксоване в ньому, воно також може обертатися відповідно до орієнтації компаса або напрямку руху.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Виміряне значення (M), що додається до вершин:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Позначка часу (секунди з епохи)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Шляхова швидкість</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Пеленг</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Горизонтальна точність</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Вертикальна точність</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Під час оцифрування об&apos;єктів з координатним курсором, заблокованим у поточному положенні, вибраний вище тип вимірювання буде додано до геометрії за умови, що він має розмірність М.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Активувати індикатор точності</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Межа низької точності</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>м</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>Межа високої точності</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Дотримуватись вимог точності</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Коли індикатор точності ввімкнено, до кнопки визначення місцезнаходження прикріплюється значок, який забарвлюється &lt;span %1&gt;червоним&lt;/span&gt; кольором, якщо точність нижча межі &lt;i&gt;низької точності&lt;/i&gt;, &lt;span %2&gt;жовтим&lt;/span&gt;, якщо не дотягує до &lt;i&gt;високої точності&lt;/i&gt;, або &lt;span %3&gt;зеленим&lt;/span&gt; кольором.&lt;br&gt;&lt;br&gt;Крім того, можна ввімкнути режим обмеження точності, який обмежує додавання вершин, тобто коли відбувається блокування координації курсору для позицій із точністю нижчою за межу низької точності.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Увімкнути вимогу до усередненого позиціонування</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>Мінімальна кількість позицій</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Автоматично завершувати збір, коли досягнуто мінімальної кількості</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Якщо ввімкнено, оцифрування вершин із курсором, зафіксованим у позиції, прийматиме лише усереднене положення з мінімальної кількості зібраних позицій. Оцифрування з використанням усереднених позицій виконується натисканням і утриманням кнопки додавання вершин, яка збиратиме позиції, доки не буде відпущено натискання. Якщо ввімкнено, параметри вимог до точності дотримуються.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Поправки висоти</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Компенсація висоти антени</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Висота антени</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Ця поправка скоригує значення висот Z, записані з пристрою позиціонування. Якщо введено значення 1.6, система автоматично відніме 1.6 від кожного записаного значення. Обов’язково введіть ефективну висоту антени, тобто довжина віхи + зсув фазового центру антени. </translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Пропустити корекцію висоти</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Використовуйте висоту, яку повідомляє пристрій позиціонування. Пропустіть будь-яку корекцію висоти, яка може випливати з перетворення системи координат.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Використовується вертикальний зсув сітки:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Жодного</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ортометрична висота із присторою</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Вертикальний зсув сітки використовується для підвищення точності висоти.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Журнал речень NMEA від пристрою до файлу</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 Налаштування</translation>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>Виберіть шаблон зображення</translation>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7279,7 +7827,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>Шар</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
@@ -7335,7 +7883,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Захист від помилкової відстані</translation>
     </message>
     <message>
         <source>Maximum tolerated distance</source>
@@ -7399,7 +7947,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>Трек шару %1 відновлено</translation>
     </message>
 </context>
 <context>
@@ -7467,19 +8015,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>Локальні шляхи не вказано.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV зайнятий.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>Це не проект, імпортований через WebDAV.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>У конфігурації WebDAV бракує обов’язкових полів.</translation>
     </message>
     <message>
         <source>No stored password available.</source>
@@ -7487,7 +8035,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>Вибрані елементи належать до різних проектів WebDAV.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
@@ -7511,11 +8059,112 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося прочитати файл конфігурації WebDAV.</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>Недійсний JSON конфігурації WebDAV.</translation>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>Нам прикро це чути. Натисніть кнопку нижче, щоб прокоментувати або звернутися за підтримкою.</translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>Звернутись</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation>Привіт, як Вам поки що користуватися %1?</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>Чудово! Будемо раді, якщо Ви натиснете кнопку нижче та залишите відгук.</translation>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>Оцініть нас</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>Збір анонімних показників вимкнено. Ви можете повторно ввімкнути через панель налаштувань.</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation>Щоб покращити стабільність для всіх, %1 збирає та надсилає анонімні показники.</translation>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>Я згоден</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>Я віддаю перевагу ні</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloud
+проекти</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>Локальні проекти та
+ набори даних</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>Створити новий
+проект</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation>Нещодавно відкриті</translation>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>Остання сесія</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>Проект за замовчуванням</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>Базова карта</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>Нещодавні дії в проекті</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation>Індивідуальний набір даних базової карти</translation>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation>Видалити зі списку нещодавно відкритих</translation>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>Завантажити проект за замовчуванням під час запуску</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>Завантажте останній відкритий проект під час запуску</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>Повернутися до карти</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation>Вперше користуєтеся цим застосунком? Спробуйте зразки проектів, перелічені нижче.</translation>
     </message>
 </context>
 <context>
@@ -7566,7 +8215,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Завершіть роботу з функцією оцифрування або скасуйте її, перш ніж перемикатися в режим перегляду</translation>
     </message>
     <message>
         <source>You are now in browse mode</source>
@@ -7590,7 +8239,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Відтворюю зібрані позиції, зачекайте.</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -7606,12 +8255,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Натисніть і утримуйте маркер свого місцезнаходження, щоб переглянути доступні дії.</translation>
     </message>
     <message>
         <source>Tap on your location marker
 to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Торкніться маркера свого місцезнаходження, 
+щоб переглянути доступні дії</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -7631,7 +8281,7 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Полотно карти прив’язане до місцезнаходження та напрямку руху</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
@@ -7659,7 +8309,7 @@ to show actions</source>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Відстеження активне на %n шарі(-ах)</numerusform><numerusform>Відстеження активне на %n шарі(-ах)</numerusform><numerusform>Відстеження активне на %n шарі(-ах)</numerusform><numerusform>Відстеження активне на %n шарі(-ах)</numerusform></translation>
     </message>
     <message>
         <source>Stop all</source>
@@ -7667,11 +8317,11 @@ to show actions</source>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Відстеження на %n шарі(-ах) зупинено</numerusform><numerusform>Відстеження на %n шарі(-ах) зупинено</numerusform><numerusform>Відстеження на %n шарі(-ах) зупинено</numerusform><numerusform>Відстеження на %n шарі(-ах) зупинено</numerusform></translation>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>Немає сумісних шарів для запуску відстеження</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -7679,19 +8329,19 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Натисніть і утримуйте маркер пункту призначення, щоб переглянути доступні дії</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Положення вийшло за межі ‘%1’</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Положення за межами областей після виходу з ‘%1’</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Полодження введено в ‘%1’</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
@@ -7743,11 +8393,11 @@ to show actions</source>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Оцифровування COGO увімкнено</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Оцифровування COGO вимкнено</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
@@ -7843,11 +8493,11 @@ to show actions</source>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
+        <translation>Увімкніть службу позицонування, щоб відображувати Ваше розташування у вигляді пунктів.</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
+        <translation>Служба позицонування ще не отримала дійсних даних про місцезнаходження.</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -7875,7 +8525,7 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Закладки</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
@@ -8011,7 +8661,7 @@ to show actions</source>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути корекції NTRIP</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -8023,7 +8673,7 @@ to show actions</source>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>Прив’язати курсор координат до місця розташування</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
@@ -8079,27 +8729,27 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1 неможливо запакувати, оскільки доступна пам’ять переповнена.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Збільшити обсяг пам’яті</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1 неможливо запакувати, оскільки доступна пам’ять власника проекту заповнена.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1 неможливо завантажити, оскільки ваш тарифний план недостатній для цього.</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation type="unfinished"/>
+        <translation>Оновити план</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1 неможливо завантажити, оскільки тарифний план власника проекту недостатній для цього.</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -8131,7 +8781,7 @@ to show actions</source>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>Ви хочете імпортувати &lt;b&gt;%1&lt;/b&gt; з &lt;b&gt;%2&lt;/b&gt; до %3?</translation>
     </message>
     <message>
         <source> Project Plugin</source>
@@ -8163,7 +8813,7 @@ to show actions</source>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>Плагін проекту завантажено</translation>
     </message>
     <message>
         <source>Dashboard</source>
@@ -8171,7 +8821,7 @@ to show actions</source>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Ця кнопка відкриває інформаційну панель. За її допомогою можна взаємодіяти з легендою та темою карти або розпочати оцифрування, активувавши режим редагування. Тривале натискання кнопки забезпечує миттєвий доступ до головного меню.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -8179,7 +8829,7 @@ to show actions</source>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Ця кнопка вмикає та вимикає систему позиціонування. Після активації на карті з’явиться маркер позиції. Тривале натискання кнопки відкриває меню визначення місцезнаходження, де можна ознайомитися з додатковими функціями.</translation>
     </message>
     <message>
         <source>Search</source>
@@ -8203,7 +8853,7 @@ to show actions</source>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>Легенда відображає шари карти та дозволяє керувати їхньою видимістю й прозорістю: для цього потрібно &lt;b&gt;довго натиснути на шар, щоб відкрити спливне вікно з налаштуваннями&lt;/b&gt;. Це вікно також пропонує додаткові функції, як-от масштабування до меж шару та перегляд об&apos;єктів, що містяться у векторних шарах.</translation>
     </message>
     <message>
         <source>Measurement</source>
@@ -8223,7 +8873,7 @@ to show actions</source>
     </message>
     <message>
         <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Завантажує локальні зміни, синхронізує їх або скасовує під час роботи з хмарним проектом у QFieldCloud.</translation>
     </message>
     <message>
         <source>Project folder</source>
@@ -8231,7 +8881,7 @@ to show actions</source>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Відкрийте папку проекту, щоб отримати доступ до файлів проекту, джерел даних і супутніх документів. Це корисно для керування ресурсами проекту, завантаження даних у QFieldCloud вручну, а також для обміну наборами даних, вкладеннями та компонуваннями.</translation>
     </message>
 </context>
 <context>
@@ -8903,11 +9553,11 @@ to show actions</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>Нам прикро це чути. Натисніть кнопку нижче, щоб прокоментувати або звернутися за підтримкою.</translation>
+        <translation type="vanished">Нам прикро це чути. Натисніть кнопку нижче, щоб прокоментувати або звернутися за підтримкою.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>Звернутись</translation>
+        <translation type="vanished">Звернутись</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8919,11 +9569,11 @@ to show actions</source>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Оцініть нас</translation>
+        <translation type="vanished">Оцініть нас</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>Збір анонімних показників вимкнено. Ви можете повторно ввімкнути через панель налаштувань.</translation>
+        <translation type="vanished">Збір анонімних показників вимкнено. Ви можете повторно ввімкнути через панель налаштувань.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8931,15 +9581,15 @@ to show actions</source>
     </message>
     <message>
         <source>I agree</source>
-        <translation>Я згоден</translation>
+        <translation type="vanished">Я згоден</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>Я віддаю перевагу ні</translation>
+        <translation type="vanished">Я віддаю перевагу ні</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation type="vanished">Проєкти QFieldCloud</translation>
+        <translation type="vanished">Проекти QFieldCloud</translation>
     </message>
     <message>
         <source>Open local file</source>
@@ -8947,11 +9597,11 @@ to show actions</source>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation type="vanished">Нещодавні проєкти</translation>
+        <translation type="vanished">Нещодавні проекти</translation>
     </message>
     <message>
         <source>Last session</source>
-        <translation>Остання сесія</translation>
+        <translation type="vanished">Остання сесія</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8963,7 +9613,7 @@ to show actions</source>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation type="vanished">Видалити з останніх проєктів</translation>
+        <translation type="vanished">Видалити з останніх проектів</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -8972,76 +9622,6 @@ to show actions</source>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">З поверненням до QField.</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>Проект за замовчуванням</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>Базова карта</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>Завантажити проект за замовчуванням під час запуску</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>Завантажте останній відкритий проект під час запуску</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>Чудово! Будемо раді, якщо Ви натиснете кнопку нижче та залишите відгук.</translation>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation>Повернутися до карти</translation>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation>QFieldCloud
-проекти</translation>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation>Локальні проекти та
- набори даних</translation>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation>Створити новий
-проект</translation>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Привіт, як Вам поки що користуватися %1?</translation>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation>Вперше користуєтеся цим застосунком? Спробуйте зразки проектів, перелічені нижче.</translation>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9063,7 +9643,7 @@ project</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Ідентифікатор конфігурації автентифікації зовнішнього сховища відсутній. Переконайтеся, що його імпортовано в %1</translation>
+        <translation>Ідентифікатор конфігурації автентифікації зовнішньоі пам’яті відсутній. Переконайтеся, що його імпортовано в %1</translation>
     </message>
     <message>
         <source>Learn more</source>

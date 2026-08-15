@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>개발</translation>
+        <translation type="vanished">개발</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QField 후원</translation>
+        <translation type="vanished">QField 후원</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>변경 내역</translation>
+        <translation type="vanished">변경 내역</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>문서</translation>
+        <translation type="vanished">문서</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>링크 메뉴</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation>QField 기반</translation>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation>%1 앱 디렉터리</translation>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation>%1 앱 디렉터리</translation>
+        <translation type="vanished">링크 메뉴</translation>
     </message>
 </context>
 <context>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>일부 레이어를 불러올 수 없습니다</translation>
+        <translation type="vanished">일부 레이어를 불러올 수 없습니다</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>다음 레이어를 불러오지 못했습니다. 확인 후 QGIS 프로젝트를 다시 설정하십시오.</translation>
+        <translation type="vanished">다음 레이어를 불러오지 못했습니다. 확인 후 QGIS 프로젝트를 다시 설정하십시오.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">자세한 내용은 QField 문서의 이동식 프로젝트(Portable Project) 항목을 참고하십시오.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>자세한 내용은 %1이동식 프로젝트%2 문서 페이지를 참고하십시오.</translation>
     </message>
 </context>
 <context>
@@ -424,30 +408,30 @@ Cancel to make a minimal device scan instead.</source>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>QField의 새로운 기능</translation>
+        <translation type="vanished">QField의 새로운 기능</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>변경 내역을 가져오는 중 오류가 발생했습니다. 나중에 다시 시도하십시오.</translation>
+        <translation type="vanished">변경 내역을 가져오는 중 오류가 발생했습니다. 나중에 다시 시도하십시오.</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QField 후원</translation>
+        <translation type="vanished">QField 후원</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>최신 QField 변경 사항 확인: </translation>
+        <translation type="vanished">최신 QField 변경 사항 확인: </translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>QField 릴리스 페이지</translation>
+        <translation type="vanished">QField 릴리스 페이지</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>GitHub의 이전 릴리스</translation>
+        <translation type="vanished">GitHub의 이전 릴리스</translation>
     </message>
 </context>
 <context>
@@ -463,53 +447,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation type="vanished">NULL</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>도형</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>붙여넣기 실패: 대상 레이어가 지정되지 않았습니다</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>잘라내기 작업: 원본 레이어와 대상 레이어가 같아 붙여넣기를 건너뜁니다.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>붙여넣기 실패: 클립보드의 객체가 유효하지 않습니다</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>잘라내기 실패: 원본 레이어 %1의 편집을 시작할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>잘라내기 실패: 원본 레이어 %1에서 원본 객체를 삭제할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>붙여넣기 실패: 호환되는 객체를 생성할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>붙여넣기 실패: 레이어 %1의 편집을 시작할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>붙여넣기 실패: 레이어 %1에 객체를 추가할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>붙여넣기 실패: 레이어 %1의 변경 사항 저장에 실패했습니다</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>원본 레이어 %1에서 잘라내기 저장에 실패했습니다</translation>
     </message>
 </context>
 <context>
@@ -530,39 +467,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>%1 레이어는 읽기 전용입니다.</translation>
+        <translation type="vanished">%1 레이어는 읽기 전용입니다.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>지도 테마</translation>
+        <translation type="vanished">지도 테마</translation>
     </message>
     <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>이 프로젝트는 읽기 전용입니다.</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>범례</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation>홈으로 돌아가기</translation>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation>모두 펼치기</translation>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation>모두 접기</translation>
-    </message>
-    <message>
-        <source>Project Information</source>
-        <translation>프로젝트 정보</translation>
     </message>
 </context>
 <context>
@@ -1581,111 +1494,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>제작: %1%2%3</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>버전 %1 제거</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>플러그인 제거</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>내려받은 ZIP 파일의 압축을 풀 수 없습니다</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>내려받은 ZIP 파일에 필수 플러그인 파일 main.qml이 없습니다</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>내려받은 파일을 저장할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>내려받은 파일이 압축된 플러그인이 아닙니다</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>네트워크 오류</translation>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>요청한 플러그인 URL이 사용 가능한 플러그인 목록에 있습니다. 해당 항목의 내려받기 버튼으로 설치하십시오</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>플러그인</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>URL에서 플러그인 설치</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>저장된 권한 초기화</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>아래에 URL을 입력해 플러그인을 내려받아 설치하십시오:</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>%1 설치 중</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>`%1`을(를) 제거하시겠습니까?</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>위에 표시된 제작자 정보는 플러그인이 자체적으로 제공한 것이며 별도로 검증되지 않았습니다. 플러그인의 출처를 신뢰할 수 있는지 확인하십시오.</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>플러그인 관리 메뉴</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>설치된 플러그인</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>사용 가능한 플러그인</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>플러그인 검색</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>사용 가능한 플러그인 불러오는 중</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>아직 설치된 플러그인이 없습니다. %1사용 가능한 플러그인%3 탭에서 바로 사용해 보십시오.&lt;br&gt;&lt;br&gt;자세한 내용은 %2문서를 참고하십시오%3.</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation>현재 열린 프로젝트가 프로젝트 플러그인을 불러왔습니다</translation>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation>권한 거부</translation>
-    </message>
-</context>
-<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -1945,21 +1753,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation>데이터베이스 인증 정보를 입력하십시오</translation>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation>호스트</translation>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation>서비스</translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2022,36 +1815,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation>아래 작업은 되돌릴 수 없으며 로컬 데이터에 영구적인 영향을 줍니다. 주의해서 진행하십시오.</translation>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>프로젝트 초기화</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation>로컬 변경 사항 버리기</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>이 클라우드 프로젝트의 로컬 사본이 손상되었습니다. 프로젝트를 초기화하면 클라우드 버전을 다시 내려받고 로컬 변경 사항은 모두 삭제되므로, 필요한 자료는 미리 복사해 두십시오.
-
-프로젝트를 계속 보고 사용할 수는 있지만 변경 사항이 클라우드로 전송되지 않아 데이터가 유실될 수 있으므로 초기화를 강력히 권장합니다.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation>아직 업로드하지 않은 로컬 편집 내용을 모두 삭제합니다.</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>초기화</translation>
-    </message>
-    <message>
-        <source>Discard</source>
-        <translation>버리기</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2065,56 +1836,8 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">Loading…</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation>적용됨</translation>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation>대기 중</translation>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation>처리 중</translation>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation>충돌</translation>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation>적용되지 않음</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>오류</translation>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation>무시됨</translation>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation>권한 없음</translation>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>알 수 없음</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation>업로드 기록</translation>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation>업로드 기록 불러오는 중…</translation>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation>아직 업로드된 변경 사항이 없습니다!</translation>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
-        <translation>%2에 %1이(가) 업로드함</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2125,7 +1848,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>로그인에 실패했습니다</translation>
+        <translation type="vanished">로그인에 실패했습니다</translation>
     </message>
     <message>
         <source>Server URL
@@ -2135,31 +1858,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Username or email</source>
-        <translation>사용자 이름 또는 이메일</translation>
+        <translation type="vanished">사용자 이름 또는 이메일</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>비밀번호</translation>
+        <translation type="vanished">비밀번호</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>로그아웃</translation>
+        <translation type="vanished">로그아웃</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>로그인 중입니다. 잠시 기다려 주십시오</translation>
+        <translation type="vanished">로그인 중입니다. 잠시 기다려 주십시오</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>로그인</translation>
+        <translation type="vanished">로그인</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>처음 사용하십니까?</translation>
+        <translation type="vanished">처음 사용하십니까?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>계정 등록</translation>
+        <translation type="vanished">계정 등록</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2175,33 +1898,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>QGIS의 프로젝트를 기기로 옮기는 가장 쉬운 방법입니다!</translation>
+        <translation type="vanished">QGIS의 프로젝트를 기기로 옮기는 가장 쉬운 방법입니다!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>QFieldCloud 자세히 알아보기</translation>
+        <translation type="vanished">QFieldCloud 자세히 알아보기</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>또는</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>%1(으)로 로그인</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation>%1서버 URL
-(기본 서버를 사용하려면 비워 두십시오)</translation>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
-        <translation>계정을 관리하려면 %1설정 페이지%2를 방문하십시오.</translation>
     </message>
 </context>
 <context>
@@ -2222,20 +1927,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation>일부 레이어가 올바르게 패키징되지 않았습니다. 해당 레이어의 설정이 잘못되었거나 QFieldCloud 서버가 데이터 원본에 접근하지 못했을 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation>아래 상세 내용과 QFieldCloud 웹사이트의 최근 패키징 작업 로그를 확인하십시오.</translation>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2247,7 +1944,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>QFieldCloud 자세히 알아보기</translation>
+        <translation type="vanished">QFieldCloud 자세히 알아보기</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2263,7 +1960,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>이 QFieldCloud 프로젝트는 다른 클라우드 계정으로 처음 내려받았습니다. QFieldCloud 기능을 사용하려면 원래 계정으로 로그인하십시오.</translation>
+        <translation type="vanished">이 QFieldCloud 프로젝트는 다른 클라우드 계정으로 처음 내려받았습니다. QFieldCloud 기능을 사용하려면 원래 계정으로 로그인하십시오.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2299,11 +1996,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>로컬에 저장된 클라우드 프로젝트가 손상되었습니다</translation>
+        <translation type="vanished">로컬에 저장된 클라우드 프로젝트가 손상되었습니다</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>동기화</translation>
+        <translation type="vanished">동기화</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2343,11 +2040,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>방금 동기화됨</translation>
+        <translation type="vanished">방금 동기화됨</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>%1분 전에 동기화됨</translation>
+        <translation type="vanished">%1분 전에 동기화됨</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2355,7 +2052,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>%1에 마지막으로 동기화됨</translation>
+        <translation type="vanished">%1에 마지막으로 동기화됨</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2387,15 +2084,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>클라우드 프로젝트 초기화</translation>
+        <translation type="vanished">클라우드 프로젝트 초기화</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>마지막 경고입니다. 클라우드 프로젝트를 초기화하면 로컬 변경 사항이 모두 삭제됩니다. 계속하시겠습니까?</translation>
+        <translation type="vanished">마지막 경고입니다. 클라우드 프로젝트를 초기화하면 로컬 변경 사항이 모두 삭제됩니다. 계속하시겠습니까?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>클라우드 연결 중</translation>
+        <translation type="vanished">클라우드 연결 중</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2408,166 +2105,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">No changes to revert</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>이 프로젝트는 클라우드에 갱신된 프로젝트 파일이 있습니다. 동기화하는 것을 권장합니다.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>이 프로젝트는 클라우드에 갱신된 데이터가 있습니다. 동기화하십시오.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud가 최신 데이터를 패키징하고 있습니다. 시간이 다소 걸릴 수 있으니 잠시 기다려 주십시오</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>내려받는 중, %2 중 %1% 완료</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>내려받는 중, %1% 완료</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>프로젝트를 내려받기 위해 QFieldCloud에 연결하는 중</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation>변경 사항 전송 중, %1%…</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud가 최근 전송된 변경 사항을 적용하고 있습니다. 시간이 다소 걸릴 수 있으니 잠시 기다려 주십시오…</translation>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation>현재 프로젝트를 QFieldCloud에 업로드하는 중입니다.</translation>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation>%1 업로드 중</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation><numerusform>파일 %n개 남음</numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation>%2 중 %1 사용</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>저장 용량 업그레이드</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation>사용 가능한 저장 용량이 가득 차 프로젝트 %1을(를) 패키징할 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation>프로젝트 소유자의 저장 용량이 가득 차 프로젝트 %1을(를) 패키징할 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation>위험 구역</translation>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation>프로젝트 클라우드 전환</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation>현재 프로젝트는 QFieldCloud에 저장되어 있지 않습니다. QFieldCloud에 저장하면 원활한 동기화, 오프라인 편집, 팀 관리 기능을 사용할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation>클라우드로 전환 중 %1%</translation>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation>클라우드로 전환 중</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>로컬 변경 사항 업로드</translation>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation>프로젝트 갱신 내용을 내려받지 않고 편집 내용과 첨부 파일만 클라우드로 보냅니다. 빠르고 데이터 사용량이 적습니다.</translation>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation>아직 업로드한 변경 사항이 없습니다</translation>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation>방금 업로드됨</translation>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation>%1분 전에 업로드됨</translation>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation>오늘 %1에 마지막으로 업로드됨</translation>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation>%1에 마지막으로 업로드됨</translation>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation>업로드</translation>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation><numerusform>%n분마다 자동 업로드</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation>현재 프로젝트는 자동 업로드를 끌 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation>프로젝트 동기화</translation>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation>편집 내용을 업로드한 뒤 QFieldCloud에서 최신 프로젝트를 내려받아 모든 내용을 최신 상태로 유지합니다.</translation>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation>오늘 %1에 마지막으로 동기화됨</translation>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation>업로드 기록</translation>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation>위험 구역</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation>로컬 변경 사항 버리기</translation>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation>로컬 변경 사항을 버리시겠습니까?</translation>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation>로컬 변경 사항을 버렸습니다</translation>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation>변경 사항을 버리지 못했습니다</translation>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation>버릴 변경 사항이 없습니다</translation>
     </message>
 </context>
 <context>
@@ -2657,103 +2194,16 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation>소유자</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>생성일</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>최종 수정일</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>이 QR 코드를 스캔하면 접근 권한이 있는 사용자가 이 프로젝트를 내려받아 열 수 있습니다</translation>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>동기화</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud가 프로젝트를 패키징하고 있습니다. 잠시 기다려 주십시오</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>프로젝트 내려받는 중</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>프로젝트 내려받기</translation>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>프로젝트 %1 내려받는 중</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>프로젝트 열기</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation>동기화 중</translation>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation>%2 중 %1 사용 중</translation>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation>저장 용량</translation>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation>프로젝트 복제</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>로컬 변경 사항 업로드</translation>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation>미리 정의된 필터</translation>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation>조건</translation>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation>공개 프로젝트 포함</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>검색</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>%1의 프로젝트</translation>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation>내 프로젝트</translation>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation>제목 또는 설명 포함</translation>
-    </message>
-    <message>
-        <source>Owner is</source>
-        <translation>소유자</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2891,19 +2341,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud 프로젝트</translation>
+        <translation type="vanished">QFieldCloud 프로젝트</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>클라우드 연결이 끊어졌습니다.</translation>
+        <translation type="vanished">클라우드 연결이 끊어졌습니다.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>클라우드에 연결하는 중입니다.</translation>
+        <translation type="vanished">클라우드에 연결하는 중입니다.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>안녕하세요, &lt;strong&gt;%1&lt;/strong&gt;님.</translation>
+        <translation type="vanished">안녕하세요, &lt;strong&gt;%1&lt;/strong&gt;님.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2927,15 +2377,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>업로드 중…</translation>
+        <translation type="vanished">업로드 중…</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>내려받기 오류. </translation>
+        <translation type="vanished">내려받기 오류. </translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>업로드 오류. </translation>
+        <translation type="vanished">업로드 오류. </translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2963,11 +2413,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Open Project</source>
-        <translation>프로젝트 열기</translation>
+        <translation type="vanished">프로젝트 열기</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>저장된 프로젝트 삭제</translation>
+        <translation type="vanished">저장된 프로젝트 삭제</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2979,67 +2429,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>프로젝트 목록 새로 고침</translation>
+        <translation type="vanished">프로젝트 목록 새로 고침</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>프로젝트 목록 새로 고치는 중</translation>
+        <translation type="vanished">프로젝트 목록 새로 고치는 중</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">프로젝트를 찾을 수 없습니다</translation>
     </message>
     <message>
-        <source>Project Actions</source>
-        <translation>프로젝트 작업</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud가 최신 데이터를 패키징하고 있습니다. 시간이 다소 걸릴 수 있으니 잠시 기다려 주십시오</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>내려받는 중, %2 중 %1% 완료</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>내려받는 중, %1% 완료</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>프로젝트를 내려받기 위해 QFieldCloud에 연결하는 중</translation>
-    </message>
-    <message>
         <source>Sign out</source>
-        <translation>로그아웃</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>로그인</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>유효하지 않은 프로젝트 표시</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>프로젝트 상세 정보 보기</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>QFieldCloud 프로젝트 상세 정보를 가져오지 못했습니다</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation>프로젝트 폴더 보기</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation>`%1`을(를) 삭제하시겠습니까?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>동기화</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3047,71 +2457,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation>프로젝트</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation>프로젝트 목록 새로 고치는 중...</translation>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation>프로젝트 검색 중...</translation>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation>클라우드 프로젝트를 찾을 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation>시작하려면 %1문서를 참고하십시오%2.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation>%1공개 프로젝트 포함%2을 켜고 커뮤니티가 공유한 프로젝트를 살펴보십시오.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation>%1공개 프로젝트 포함%2을 켜 보십시오.</translation>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation>프로젝트 검색</translation>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation>프로젝트 복제</translation>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation>프로젝트 복제</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>복제한 프로젝트의 이름을 무엇으로 하시겠습니까?</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>프로젝트 복제 실패: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>프로젝트 생성 실패: %1</translation>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation>프로젝트를 복제했습니다</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>프로젝트를 생성했습니다</translation>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation>설정 페이지</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>로컬 변경 사항 업로드</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3137,73 +2483,58 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>완료</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>다음</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>이전</translation>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>프로젝트 폴더</translation>
+        <translation type="vanished">프로젝트 폴더</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>로컬 프로젝트 및 데이터셋</translation>
+        <translation type="vanished">로컬 프로젝트 및 데이터셋</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>폴더</translation>
+        <translation type="vanished">폴더</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>프로젝트</translation>
+        <translation type="vanished">프로젝트</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>데이터셋</translation>
+        <translation type="vanished">데이터셋</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>즐겨찾기</translation>
+        <translation type="vanished">즐겨찾기</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>프로젝트 파일</translation>
+        <translation type="vanished">프로젝트 파일</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>벡터 데이터셋</translation>
+        <translation type="vanished">벡터 데이터셋</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>래스터 데이터셋</translation>
+        <translation type="vanished">래스터 데이터셋</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>보내기...</translation>
+        <translation type="vanished">보내기...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>폴더로 내보내기...</translation>
+        <translation type="vanished">폴더로 내보내기...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>데이터셋 삭제</translation>
+        <translation type="vanished">데이터셋 삭제</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>압축한 폴더 보내기...</translation>
+        <translation type="vanished">압축한 폴더 보내기...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3211,235 +2542,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>폴더에서 프로젝트 가져오기</translation>
+        <translation type="vanished">폴더에서 프로젝트 가져오기</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>ZIP에서 프로젝트 가져오기</translation>
+        <translation type="vanished">ZIP에서 프로젝트 가져오기</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>데이터셋 가져오기</translation>
+        <translation type="vanished">데이터셋 가져오기</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>저장 공간 관리 도움말</translation>
+        <translation type="vanished">저장 공간 관리 도움말</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>비밀번호</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>파일</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>홈</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>항목 작업</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>파일 보기</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>QFieldCloud로 전송</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>즐겨찾기에 추가</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>즐겨찾기에서 제거</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>WebDAV 서버로 폴더 업로드</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>WebDAV 서버에서 폴더 내려받기</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
-        <translation>폴더 삭제</translation>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation>파일 삭제</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>가져오기 작업</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>URL에서 가져오기</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAV 폴더 가져오기</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>프로젝트 작업</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>ZIP으로 프로젝트 갱신</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation>프로젝트 압축 후 보내기...</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>WebDAV로 프로젝트 업로드</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>WebDAV에서 프로젝트 내려받기</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>WebDAV로 파일 업로드</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>QFieldCloud로 파일 전송</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>QFieldCloud로 전송할 파일을 하나 이상 선택하십시오.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
-        <translation>압축한 파일 보내기...</translation>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation>파일 삭제</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’을(를) QFieldCloud로 업로드하는 중입니다</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>QFieldCloud로 업로드 중인 항목</translation>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation>파일 삭제</translation>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation><numerusform>파일 %n개를 삭제하시겠습니까?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>파일 %n개를 삭제했습니다</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>파일 %n개 삭제에 실패했습니다</numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>아래에 URL을 입력해 프로젝트나 데이터셋을 내려받아 가져오십시오:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAV 폴더 가져오는 중</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAV 폴더 내려받는 중</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAV 폴더 업로드 중</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV 오류: </translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV 업로드</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV 내려받기</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>사용자 &lt;b&gt;%2&lt;/b&gt;(으)로 수정된 내용을 &lt;b&gt;%1&lt;/b&gt;에 업로드하려고 합니다.&lt;br&gt;&lt;br&gt;이 작업은 원격에 저장된 데이터를 덮어씁니다. 계속할지 확인하십시오.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>사용자 &lt;b&gt;%2&lt;/b&gt;(으)로 &lt;b&gt;%1&lt;/b&gt;에서 수정된 내용을 내려받으려고 합니다.&lt;br&gt;&lt;br&gt;이 작업은 로컬에 저장된 데이터를 덮어씁니다. 계속할지 확인하십시오.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>비밀번호 (저장된 값을 사용하려면 비워 두십시오)</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>비밀번호 저장</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>원격 폴더를 가져오려면 아래에 WebDAV 정보를 입력하십시오:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV 서버 URL</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>사용자 이름과 비밀번호</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>저장된 값을 사용하려면 비워 두십시오</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>원격 폴더 불러오는 중</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>원격 폴더 불러오기</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>가져올 원격 폴더를 선택하십시오:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>최상위 폴더</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>‘%1’에 로컬로 저장되어 있음</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>가져온 폴더 이름</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>확인</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>저장된 WebDAV 항목을 삭제하려고 합니다. 계속하시겠습니까?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3461,7 +2580,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>축적바 표시</translation>
+        <translation type="vanished">축적바 표시</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3469,31 +2588,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>검색 이동 시 축적 고정</translation>
+        <translation type="vanished">검색 이동 시 축적 고정</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>활성화 시 검색 대상으로 이동할 때 축적이 변하지 않음, 비활성화 시 검색 대상으로 이동에 맞춰 축적이 변경됨.</translation>
+        <translation type="vanished">활성화 시 검색 대상으로 이동할 때 축적이 변하지 않음, 비활성화 시 검색 대상으로 이동에 맞춰 축적이 변경됨.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>디지털화(수치화) 표시</translation>
+        <translation type="vanished">디지털화(수치화) 표시</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>새로운 대상을 지도에 생성하거나 측정 도구를 사용할 때 위도 및 경도와 같은 좌표 정보가 지도 위에 겹쳐 표시됩니다.</translation>
+        <translation type="vanished">새로운 대상을 지도에 생성하거나 측정 도구를 사용할 때 위도 및 경도와 같은 좌표 정보가 지도 위에 겹쳐 표시됩니다.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>북마크 표시</translation>
+        <translation type="vanished">북마크 표시</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>지도 상 북마크가 표시됩니다.</translation>
+        <translation type="vanished">지도 상 북마크가 표시됩니다.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>기본 카메라 앱 사용</translation>
+        <translation type="vanished">기본 카메라 앱 사용</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3509,7 +2628,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>미사용 시 화면 밝기 지정</translation>
+        <translation type="vanished">미사용 시 화면 밝기 지정</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3517,7 +2636,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>마우스를 터치펜으로 인식</translation>
+        <translation type="vanished">마우스를 터치펜으로 인식</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3525,7 +2644,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>익명으로 측정 값 공유</translation>
+        <translation type="vanished">익명으로 측정 값 공유</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3533,19 +2652,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>기본 설정</translation>
+        <translation type="vanished">기본 설정</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>측위</translation>
+        <translation type="vanished">측위</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>변수</translation>
+        <translation type="vanished">변수</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>검색창 설정</translation>
+        <translation type="vanished">검색창 설정</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3557,15 +2676,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>system</source>
-        <translation>시스템</translation>
+        <translation type="vanished">시스템</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>변역이 완벽하지 않습니까? %1이 곳에서 번역을 도와주실 수 있습니다.%2</translation>
+        <translation type="vanished">변역이 완벽하지 않습니까? %1이 곳에서 번역을 도와주실 수 있습니다.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>사용 중인 측위 장치:</translation>
+        <translation type="vanished">사용 중인 측위 장치:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3603,7 +2722,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>%1에 연결됨</translation>
+        <translation type="vanished">%1에 연결됨</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3611,7 +2730,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>%1에 연결 중</translation>
+        <translation type="vanished">%1에 연결 중</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3619,11 +2738,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>위치정보 표시</translation>
+        <translation type="vanished">위치정보 표시</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>정확도 표시기 사용</translation>
+        <translation type="vanished">정확도 표시기 사용</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3643,7 +2762,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>평균 위치 요구 조건 사용</translation>
+        <translation type="vanished">평균 위치 요구 조건 사용</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3651,15 +2770,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>최소 개수를 충족하면 수집 자동 종료</translation>
+        <translation type="vanished">최소 개수를 충족하면 수집 자동 종료</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>켜면 좌표 커서를 위치에 고정한 상태로 꼭짓점을 디지타이징할 때, 최소 개수 이상 수집된 위치의 평균값만 사용합니다. 평균 위치를 이용한 디지타이징은 꼭짓점 추가 버튼을 길게 눌러 진행하며, 누르고 있는 동안 위치가 계속 수집됩니다. 정확도 요구 조건 설정도 함께 적용됩니다.</translation>
+        <translation type="vanished">켜면 좌표 커서를 위치에 고정한 상태로 꼭짓점을 디지타이징할 때, 최소 개수 이상 수집된 위치의 평균값만 사용합니다. 평균 위치를 이용한 디지타이징은 꼭짓점 추가 버튼을 길게 눌러 진행하며, 누르고 있는 동안 위치가 계속 수집됩니다. 정확도 요구 조건 설정도 함께 적용됩니다.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>안테나 높이 보정</translation>
+        <translation type="vanished">안테나 높이 보정</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3671,23 +2790,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>고도 보정 생략</translation>
+        <translation type="vanished">고도 보정 생략</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>측위 장치가 보고한 고도를 그대로 사용하고, 좌표계 변환에 따른 고도 보정을 생략합니다.</translation>
+        <translation type="vanished">측위 장치가 보고한 고도를 그대로 사용하고, 좌표계 변환에 따른 고도 보정을 생략합니다.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>사용 중인 수직 격자 보정:</translation>
+        <translation type="vanished">사용 중인 수직 격자 보정:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>없음</translation>
+        <translation type="vanished">없음</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>수직 격자 보정은 고도 정확도를 높이는 데 사용됩니다.</translation>
+        <translation type="vanished">수직 격자 보정은 고도 정확도를 높이는 데 사용됩니다.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3695,11 +2814,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>배터리 절약을 위해 화면 밝기를 낮추기까지의 미사용 시간(초)입니다.</translation>
+        <translation type="vanished">배터리 절약을 위해 화면 밝기를 낮추기까지의 미사용 시간(초)입니다.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>꼭짓점에 기록할 측정(M) 값:</translation>
+        <translation type="vanished">꼭짓점에 기록할 측정(M) 값:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3707,378 +2826,59 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>지상 속도</translation>
+        <translation type="vanished">지상 속도</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>방위</translation>
+        <translation type="vanished">방위</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>수평 정확도</translation>
+        <translation type="vanished">수평 정확도</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>수직 정확도</translation>
+        <translation type="vanished">수직 정확도</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>좌표 커서를 현재 위치에 고정한 상태로 객체를 디지타이징할 때, 도형에 M 차원이 있으면 위에서 선택한 측정 유형이 함께 기록됩니다.</translation>
+        <translation type="vanished">좌표 커서를 현재 위치에 고정한 상태로 객체를 디지타이징할 때, 도형에 M 차원이 있으면 위에서 선택한 측정 유형이 함께 기록됩니다.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation type="vanished">추가</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>편집</translation>
+        <translation type="vanished">편집</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>삭제</translation>
+        <translation type="vanished">삭제</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>%1에 연결</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>시스템 설정 따르기</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>밝은 테마</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>어두운 테마</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>아주 작게</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>보통</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>크게</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>아주 크게</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>장치의 NMEA 문장을 파일로 기록</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>지도 캔버스 렌더링 품질:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>최고 품질</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>낮은 품질</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>가장 낮은 품질</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>품질을 낮추면 렌더링 정밀도는 떨어지지만 메모리 사용량과 렌더링 시간이 줄어듭니다.</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>장치의 정표고</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>볼륨 키로 디지타이징</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>켜면 디지타이징 중 볼륨 위 키를 눌러 꼭짓점을 추가하고, 볼륨 아래 키를 눌러 마지막에 입력한 꼭짓점을 삭제할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>캔버스를 손가락으로 눌러 꼭짓점 추가 허용</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>켜면 마우스가 손가락처럼 동작하고, 끄면 스타일러스 펜처럼 동작합니다.</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>지도 캔버스</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>디지타이징 및 편집</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>사용자 인터페이스</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>화면 모양:</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>글자 크기:</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>언어:</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>고급</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>플러그인 관리</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>지도 회전 사용</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>켜면 사용자가 지도를 회전할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>정확도 요구 조건 적용</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>정확도 표시기를 켜면 위치 버튼에 배지가 표시되며, 정확도가 &lt;i&gt;나쁨&lt;/i&gt;보다 떨어지면 &lt;span %1&gt;빨간색&lt;/span&gt;, &lt;i&gt;우수&lt;/i&gt;에 미치지 못하면 &lt;span %2&gt;노란색&lt;/span&gt;, 그 이상이면 &lt;span %3&gt;녹색&lt;/span&gt;으로 표시됩니다.&lt;br&gt;&lt;br&gt;또한 정확도 제한 모드를 켜면 좌표 커서를 위치에 고정한 상태에서 정확도가 나쁨 기준보다 떨어지는 위치에는 꼭짓점을 추가할 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>보이는 지도 캔버스 주변까지 미리 렌더링</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>켜면 객체가 하나만 식별될 경우 객체 목록을 건너뛰고 객체 양식이 자동으로 열립니다.</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>확대·축소 버튼 표시</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>객체 양식 최대화</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>객체가 하나만 식별되면 객체 양식 열기</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>켜면 보이는 지도 캔버스 범위 바로 바깥 영역도 일부 렌더링해 확대·이동 시 미리 볼 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>자동 저장 모드 사용</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>켜면 새로 추가한 객체가 유효한 도형을 갖추고 제약 조건을 충족하는 즉시 저장되며, 편집한 속성도 바로 반영됩니다.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>식별된 객체로 자동 확대</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>켜면 지도가 식별된 모든 객체가 보이도록 자동으로 확대되고, 객체 양식을 열면 선택한 객체로 확대됩니다.</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>위치 고정 시 동작:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>위치만 따라가기</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>위치와 나침반 방향 따라가기</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>위치와 이동 방향 따라가기</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>지도 캔버스가 위치를 따라가거나 위치에 고정된 경우, 나침반 방향이나 이동 방향에 맞춰 회전할 수도 있습니다.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>이 값으로 측위 장치에서 기록된 Z 값이 보정됩니다. 1.6을 입력하면 기록된 각 값에서 1.6이 자동으로 차감됩니다. 폴 길이와 안테나 위상중심 오프셋을 합한 실제 안테나 높이를 입력하십시오.</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 설정</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>네트워크</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>프록시 사용</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>유형</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>시스템 기본값</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>호스트</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>예: proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>포트</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>예: 8888</translation>
+        <translation type="vanished">%1에 연결</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>사용자 이름</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>선택 사항</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>비밀번호</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>프록시에서 제외할 URL (쉼표로 구분)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>예: localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>QField의 네트워크 통신을 프록시 서버로 전달하도록 설정합니다. 사내 네트워크나 VPN 환경에서 유용합니다.</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>켜면 운영체제에서 제공하는 기본 카메라를 사용합니다.</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>켜면 익명화된 사용 정보를 수집·전송해 모두의 사용 경험 개선에 활용합니다.</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>측위 장치</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>NTRIP 보정 사용</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP 클라이언트 연결 끊김</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP 클라이언트 연결 중</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP 클라이언트 연결됨</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>유효한 NTRIP 설정을 입력하십시오</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>고도 보정</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>타임스탬프 (epoch 이후 초)</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>나쁨 정확도 기준값</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>우수 정확도 기준값</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>최소 위치 개수</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>안테나 높이</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>사용 가능한 인증 설정:</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>인증 캐시 지우기</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>인증 캐시를 지웠습니다</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>켜면 지도 캔버스를 손가락으로 한 번 누르면 좌표 커서가 이동하고, 두 번 누르면 꼭짓점이 추가됩니다.</translation>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
-        <translation>그리기 서식 선택</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4301,6 +3101,41 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation>QField 기반</translation>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>개발</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation>%1 앱 디렉터리</translation>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation>%1 앱 디렉터리</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>QField 후원</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>문서</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>링크 메뉴</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>변경 내역</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4358,6 +3193,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>File %1 does not exist</source>
         <translation>파일 %1이(가) 존재하지 않습니다</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>데이터베이스 인증 정보를 입력하십시오</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>호스트</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>서비스</translation>
     </message>
 </context>
 <context>
@@ -4431,6 +3281,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Audio Recorder</source>
         <translation>음성 녹음기</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>일부 레이어를 불러올 수 없습니다</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>다음 레이어를 불러오지 못했습니다. 확인 후 QGIS 프로젝트를 다시 설정하십시오.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>자세한 내용은 %1이동식 프로젝트%2 문서 페이지를 참고하십시오.</translation>
     </message>
 </context>
 <context>
@@ -4801,6 +3666,83 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>QField의 새로운 기능</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>변경 내역을 가져오는 중 오류가 발생했습니다. 나중에 다시 시도하십시오.</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>QField 후원</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>최신 QField 변경 사항 확인: </translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>QField 릴리스 페이지</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>GitHub의 이전 릴리스</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>도형</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>붙여넣기 실패: 대상 레이어가 지정되지 않았습니다</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>잘라내기 작업: 원본 레이어와 대상 레이어가 같아 붙여넣기를 건너뜁니다.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>붙여넣기 실패: 클립보드의 객체가 유효하지 않습니다</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>잘라내기 실패: 원본 레이어 %1의 편집을 시작할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>잘라내기 실패: 원본 레이어 %1에서 원본 객체를 삭제할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>붙여넣기 실패: 호환되는 객체를 생성할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>붙여넣기 실패: 레이어 %1의 편집을 시작할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>붙여넣기 실패: 레이어 %1에 객체를 추가할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>붙여넣기 실패: 레이어 %1의 변경 사항 저장에 실패했습니다</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>원본 레이어 %1에서 잘라내기 저장에 실패했습니다</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
@@ -4862,6 +3804,375 @@ Cancel to make a minimal device scan instead.</source>
 %2</source>
         <translation>`%1`에 저장된 첨부 파일을 업로드하지 못했습니다. 원인:
 %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation>아래 작업은 되돌릴 수 없으며 로컬 데이터에 영구적인 영향을 줍니다. 주의해서 진행하십시오.</translation>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>프로젝트 초기화</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>로컬 변경 사항 버리기</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>이 클라우드 프로젝트의 로컬 사본이 손상되었습니다. 프로젝트를 초기화하면 클라우드 버전을 다시 내려받고 로컬 변경 사항은 모두 삭제되므로, 필요한 자료는 미리 복사해 두십시오.
+
+프로젝트를 계속 보고 사용할 수는 있지만 변경 사항이 클라우드로 전송되지 않아 데이터가 유실될 수 있으므로 초기화를 강력히 권장합니다.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation>아직 업로드하지 않은 로컬 편집 내용을 모두 삭제합니다.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>초기화</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>버리기</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation>업로드 기록</translation>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation>업로드 기록 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation>아직 업로드된 변경 사항이 없습니다!</translation>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation>%2에 %1이(가) 업로드함</translation>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation>적용됨</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>대기 중</translation>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation>처리 중</translation>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation>충돌</translation>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation>적용되지 않음</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>오류</translation>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation>무시됨</translation>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation>권한 없음</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>알 수 없음</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>로그인에 실패했습니다</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation>%1서버 URL
+(기본 서버를 사용하려면 비워 두십시오)</translation>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>사용자 이름 또는 이메일</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>비밀번호</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>로그아웃</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>로그인 중입니다. 잠시 기다려 주십시오</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>또는</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>%1(으)로 로그인</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation>계정을 관리하려면 %1설정 페이지%2를 방문하십시오.</translation>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>처음 사용하십니까?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>계정 등록</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>QGIS의 프로젝트를 기기로 옮기는 가장 쉬운 방법입니다!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>QFieldCloud 자세히 알아보기</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation>일부 레이어가 올바르게 패키징되지 않았습니다. 해당 레이어의 설정이 잘못되었거나 QFieldCloud 서버가 데이터 원본에 접근하지 못했을 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation>아래 상세 내용과 QFieldCloud 웹사이트의 최근 패키징 작업 로그를 확인하십시오.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation>위험 구역</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>이 QFieldCloud 프로젝트는 다른 클라우드 계정으로 처음 내려받았습니다. QFieldCloud 기능을 사용하려면 원래 계정으로 로그인하십시오.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud가 최신 데이터를 패키징하고 있습니다. 시간이 다소 걸릴 수 있으니 잠시 기다려 주십시오</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>내려받는 중, %2 중 %1% 완료</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>내려받는 중, %1% 완료</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>프로젝트를 내려받기 위해 QFieldCloud에 연결하는 중</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>변경 사항 전송 중, %1%…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud가 최근 전송된 변경 사항을 적용하고 있습니다. 시간이 다소 걸릴 수 있으니 잠시 기다려 주십시오…</translation>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation>프로젝트 클라우드 전환</translation>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>현재 프로젝트를 QFieldCloud에 업로드하는 중입니다.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation>현재 프로젝트는 QFieldCloud에 저장되어 있지 않습니다. QFieldCloud에 저장하면 원활한 동기화, 오프라인 편집, 팀 관리 기능을 사용할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>QFieldCloud 자세히 알아보기</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation>클라우드로 전환 중 %1%</translation>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation>클라우드로 전환 중</translation>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>로컬에 저장된 클라우드 프로젝트가 손상되었습니다</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>로컬 변경 사항 업로드</translation>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation>프로젝트 갱신 내용을 내려받지 않고 편집 내용과 첨부 파일만 클라우드로 보냅니다. 빠르고 데이터 사용량이 적습니다.</translation>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation>아직 업로드한 변경 사항이 없습니다</translation>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation>방금 업로드됨</translation>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation>%1분 전에 업로드됨</translation>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation>오늘 %1에 마지막으로 업로드됨</translation>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation>%1에 마지막으로 업로드됨</translation>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation>업로드</translation>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation><numerusform>%n분마다 자동 업로드</numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation>현재 프로젝트는 자동 업로드를 끌 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation>프로젝트 동기화</translation>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation>편집 내용을 업로드한 뒤 QFieldCloud에서 최신 프로젝트를 내려받아 모든 내용을 최신 상태로 유지합니다.</translation>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>방금 동기화됨</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>%1분 전에 동기화됨</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation>오늘 %1에 마지막으로 동기화됨</translation>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>%1에 마지막으로 동기화됨</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>동기화</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation>업로드 기록</translation>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation>위험 구역</translation>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>%1 업로드 중</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>파일 %n개 남음</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>로컬 변경 사항 버리기</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation>로컬 변경 사항을 버리시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>클라우드 프로젝트 초기화</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>마지막 경고입니다. 클라우드 프로젝트를 초기화하면 로컬 변경 사항이 모두 삭제됩니다. 계속하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>클라우드 연결 중</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>이 프로젝트는 클라우드에 갱신된 프로젝트 파일이 있습니다. 동기화하는 것을 권장합니다.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>이 프로젝트는 클라우드에 갱신된 데이터가 있습니다. 동기화하십시오.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation>사용 가능한 저장 용량이 가득 차 프로젝트 %1을(를) 패키징할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>저장 용량 업그레이드</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation>프로젝트 소유자의 저장 용량이 가득 차 프로젝트 %1을(를) 패키징할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>로컬 변경 사항을 버렸습니다</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>변경 사항을 버리지 못했습니다</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>버릴 변경 사항이 없습니다</translation>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>%2 중 %1 사용</translation>
     </message>
 </context>
 <context>
@@ -4982,6 +4293,104 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>%2 중 %1 사용 중</translation>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation>저장 용량</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>소유자</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>생성일</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>최종 수정일</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>이 QR 코드를 스캔하면 접근 권한이 있는 사용자가 이 프로젝트를 내려받아 열 수 있습니다</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>동기화 중</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>동기화</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>로컬 변경 사항 업로드</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud가 프로젝트를 패키징하고 있습니다. 잠시 기다려 주십시오</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>프로젝트 내려받는 중</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>프로젝트 내려받기</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>프로젝트 %1 내려받는 중</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>프로젝트 열기</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation>프로젝트 복제</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation>내 프로젝트</translation>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation>%1의 프로젝트</translation>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation>미리 정의된 필터</translation>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation>조건</translation>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation>제목 또는 설명 포함</translation>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation>소유자</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation>공개 프로젝트 포함</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>검색</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -4998,6 +4407,173 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cloud project could not be created.</source>
         <translation>클라우드 프로젝트를 생성할 수 없습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>QFieldCloud 프로젝트</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>클라우드 연결이 끊어졌습니다.</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>클라우드에 연결하는 중입니다.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>안녕하세요, &lt;strong&gt;%1&lt;/strong&gt;님.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>프로젝트</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation>프로젝트 검색</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud가 최신 데이터를 패키징하고 있습니다. 시간이 다소 걸릴 수 있으니 잠시 기다려 주십시오</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>내려받는 중, %2 중 %1% 완료</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>내려받는 중, %1% 완료</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>프로젝트를 내려받기 위해 QFieldCloud에 연결하는 중</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>업로드 중…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>내려받기 오류. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>업로드 오류. </translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation>프로젝트 목록 새로 고치는 중...</translation>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation>프로젝트 검색 중...</translation>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation>클라우드 프로젝트를 찾을 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation>%1공개 프로젝트 포함%2을 켜고 커뮤니티가 공유한 프로젝트를 살펴보십시오.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation>%1공개 프로젝트 포함%2을 켜 보십시오.</translation>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation>시작하려면 %1문서를 참고하십시오%2.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>프로젝트 목록 새로 고침</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>로그아웃</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation>설정 페이지</translation>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>유효하지 않은 프로젝트 표시</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>프로젝트 작업</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>프로젝트 열기</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>동기화</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>로컬 변경 사항 업로드</translation>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation>프로젝트 복제</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>저장된 프로젝트 삭제</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>프로젝트 상세 정보 보기</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>프로젝트 폴더 보기</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>`%1`을(를) 삭제하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation>프로젝트 복제</translation>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation>복제한 프로젝트의 이름을 무엇으로 하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>QFieldCloud 프로젝트 상세 정보를 가져오지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>프로젝트 복제 실패: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>프로젝트 생성 실패: %1</translation>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation>프로젝트를 복제했습니다</translation>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation>프로젝트를 생성했습니다</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>프로젝트 목록 새로 고치는 중</translation>
     </message>
 </context>
 <context>
@@ -5129,6 +4705,41 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Point Feature Picker</source>
         <translation>점 객체 선택기</translation>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>%1 레이어는 읽기 전용입니다.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation>프로젝트 정보</translation>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>지도 테마</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>범례</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>모두 펼치기</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>모두 접기</translation>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation>홈으로 돌아가기</translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>이 프로젝트는 읽기 전용입니다.</translation>
     </message>
 </context>
 <context>
@@ -5339,14 +4950,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>egeniouss 서버를 시작하지 못했습니다.</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>egeniouss 서버를 중지하지 못했습니다.</translation>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation>수신한 데이터가 너무 짧아 처리할 수 없습니다</translation>
     </message>
@@ -5377,6 +4980,34 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>TCP receiver error (%1)</source>
         <translation>TCP 수신기 오류 (%1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5871,6 +5502,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>완료</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>다음</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>이전</translation>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6102,6 +5748,293 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>이 레이어의 권한 설정으로 객체 추가가 비활성화되어 있습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>프로젝트 폴더</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>로컬 프로젝트 및 데이터셋</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>폴더</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>프로젝트</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>데이터셋</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>파일</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>즐겨찾기</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>프로젝트 파일</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>벡터 데이터셋</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>래스터 데이터셋</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>홈</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>항목 작업</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>파일 보기</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>보내기...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>QFieldCloud로 전송</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>폴더로 내보내기...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>즐겨찾기에 추가</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>즐겨찾기에서 제거</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>압축한 폴더 보내기...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>WebDAV 서버로 폴더 업로드</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>WebDAV 서버에서 폴더 내려받기</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation>폴더 삭제</translation>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation>파일 삭제</translation>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>데이터셋 삭제</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>가져오기 작업</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>폴더에서 프로젝트 가져오기</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>ZIP에서 프로젝트 가져오기</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>데이터셋 가져오기</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>URL에서 가져오기</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>WebDAV 폴더 가져오기</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>저장 공간 관리 도움말</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>프로젝트 작업</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>ZIP으로 프로젝트 갱신</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation>프로젝트 압축 후 보내기...</translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>WebDAV로 프로젝트 업로드</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>WebDAV에서 프로젝트 내려받기</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>WebDAV로 파일 업로드</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>QFieldCloud로 파일 전송</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>QFieldCloud로 전송할 파일을 하나 이상 선택하십시오.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation>압축한 파일 보내기...</translation>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation>파일 삭제</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>‘%1’을(를) QFieldCloud로 업로드하는 중입니다</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>QFieldCloud로 업로드 중인 항목</translation>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation>파일 삭제</translation>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation><numerusform>파일 %n개를 삭제하시겠습니까?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation><numerusform>파일 %n개를 삭제했습니다</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation><numerusform>파일 %n개 삭제에 실패했습니다</numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>아래에 URL을 입력해 프로젝트나 데이터셋을 내려받아 가져오십시오:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>WebDAV 폴더 가져오는 중</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>WebDAV 폴더 내려받는 중</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>WebDAV 폴더 업로드 중</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>WebDAV 오류: </translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>WebDAV 업로드</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>WebDAV 내려받기</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>사용자 &lt;b&gt;%2&lt;/b&gt;(으)로 수정된 내용을 &lt;b&gt;%1&lt;/b&gt;에 업로드하려고 합니다.&lt;br&gt;&lt;br&gt;이 작업은 원격에 저장된 데이터를 덮어씁니다. 계속할지 확인하십시오.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>사용자 &lt;b&gt;%2&lt;/b&gt;(으)로 &lt;b&gt;%1&lt;/b&gt;에서 수정된 내용을 내려받으려고 합니다.&lt;br&gt;&lt;br&gt;이 작업은 로컬에 저장된 데이터를 덮어씁니다. 계속할지 확인하십시오.</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>비밀번호 (저장된 값을 사용하려면 비워 두십시오)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>비밀번호</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>비밀번호 저장</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>원격 폴더를 가져오려면 아래에 WebDAV 정보를 입력하십시오:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>WebDAV 서버 URL</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>사용자 이름과 비밀번호</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>저장된 값을 사용하려면 비워 두십시오</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>원격 폴더 불러오는 중</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>원격 폴더 불러오기</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>가져올 원격 폴더를 선택하십시오:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>최상위 폴더</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>‘%1’에 로컬로 저장되어 있음</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>가져온 폴더 이름</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>확인</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>저장된 WebDAV 항목을 삭제하려고 합니다. 계속하시겠습니까?</translation>
     </message>
 </context>
 <context>
@@ -6504,6 +6437,111 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>래스터 데이터셋</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>제작: %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>버전 %1 제거</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>플러그인 제거</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>요청한 플러그인 URL이 사용 가능한 플러그인 목록에 있습니다. 해당 항목의 내려받기 버튼으로 설치하십시오</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>내려받은 ZIP 파일의 압축을 풀 수 없습니다</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>내려받은 ZIP 파일에 필수 플러그인 파일 main.qml이 없습니다</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>내려받은 파일을 저장할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>내려받은 파일이 압축된 플러그인이 아닙니다</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>네트워크 오류</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>플러그인</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>설치된 플러그인</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>사용 가능한 플러그인</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>플러그인 검색</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>사용 가능한 플러그인 불러오는 중</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>아직 설치된 플러그인이 없습니다. %1사용 가능한 플러그인%3 탭에서 바로 사용해 보십시오.&lt;br&gt;&lt;br&gt;자세한 내용은 %2문서를 참고하십시오%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>URL에서 플러그인 설치</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation>현재 열린 프로젝트가 프로젝트 플러그인을 불러왔습니다</translation>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation>권한 거부</translation>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>플러그인 관리 메뉴</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>저장된 권한 초기화</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>위에 표시된 제작자 정보는 플러그인이 자체적으로 제공한 것이며 별도로 검증되지 않았습니다. 플러그인의 출처를 신뢰할 수 있는지 확인하십시오.</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>아래에 URL을 입력해 플러그인을 내려받아 설치하십시오:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation>`%1`을(를) 제거하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>%1 설치 중</translation>
     </message>
 </context>
 <context>
@@ -7197,6 +7235,516 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>축적바 표시</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>확대·축소 버튼 표시</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>북마크 표시</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>지도 상 북마크가 표시됩니다.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>지도 회전 사용</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>켜면 사용자가 지도를 회전할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>디지털화(수치화) 표시</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>새로운 대상을 지도에 생성하거나 측정 도구를 사용할 때 위도 및 경도와 같은 좌표 정보가 지도 위에 겹쳐 표시됩니다.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>볼륨 키로 디지타이징</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>켜면 디지타이징 중 볼륨 위 키를 눌러 꼭짓점을 추가하고, 볼륨 아래 키를 눌러 마지막에 입력한 꼭짓점을 삭제할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>캔버스를 손가락으로 눌러 꼭짓점 추가 허용</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>켜면 지도 캔버스를 손가락으로 한 번 누르면 좌표 커서가 이동하고, 두 번 누르면 꼭짓점이 추가됩니다.</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>마우스를 터치펜으로 인식</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>켜면 마우스가 손가락처럼 동작하고, 끄면 스타일러스 펜처럼 동작합니다.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>객체 양식 최대화</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>객체가 하나만 식별되면 객체 양식 열기</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>켜면 객체가 하나만 식별될 경우 객체 목록을 건너뛰고 객체 양식이 자동으로 열립니다.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>검색 이동 시 축적 고정</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>활성화 시 검색 대상으로 이동할 때 축적이 변하지 않음, 비활성화 시 검색 대상으로 이동에 맞춰 축적이 변경됨.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>식별된 객체로 자동 확대</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>켜면 지도가 식별된 모든 객체가 보이도록 자동으로 확대되고, 객체 양식을 열면 선택한 객체로 확대됩니다.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>보이는 지도 캔버스 주변까지 미리 렌더링</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>켜면 보이는 지도 캔버스 범위 바로 바깥 영역도 일부 렌더링해 확대·이동 시 미리 볼 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>자동 저장 모드 사용</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>켜면 새로 추가한 객체가 유효한 도형을 갖추고 제약 조건을 충족하는 즉시 저장되며, 편집한 속성도 바로 반영됩니다.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>기본 카메라 앱 사용</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>켜면 운영체제에서 제공하는 기본 카메라를 사용합니다.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>익명으로 측정 값 공유</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>켜면 익명화된 사용 정보를 수집·전송해 모두의 사용 경험 개선에 활용합니다.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>기본 설정</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>측위</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>변수</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>지도 캔버스</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>지도 캔버스 렌더링 품질:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>최고 품질</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>낮은 품질</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>가장 낮은 품질</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>품질을 낮추면 렌더링 정밀도는 떨어지지만 메모리 사용량과 렌더링 시간이 줄어듭니다.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>디지타이징 및 편집</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>사용자 인터페이스</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>검색창 설정</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>플러그인 관리</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>미사용 시 화면 밝기 지정</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>배터리 절약을 위해 화면 밝기를 낮추기까지의 미사용 시간(초)입니다.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>화면 모양:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>시스템 설정 따르기</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>밝은 테마</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>어두운 테마</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>글자 크기:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>아주 작게</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>보통</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>크게</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>아주 크게</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>언어:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>시스템</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>변역이 완벽하지 않습니까? %1이 곳에서 번역을 도와주실 수 있습니다.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>네트워크</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>사용 가능한 인증 설정:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>인증 캐시 지우기</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>인증 캐시를 지웠습니다</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>프록시 사용</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>유형</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>시스템 기본값</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>호스트</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>예: proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>포트</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>예: 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>사용자 이름</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>선택 사항</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>비밀번호</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>프록시에서 제외할 URL (쉼표로 구분)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>예: localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>QField의 네트워크 통신을 프록시 서버로 전달하도록 설정합니다. 사내 네트워크나 VPN 환경에서 유용합니다.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>고급</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>측위 장치</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>사용 중인 측위 장치:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>추가</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>편집</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>삭제</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>%1에 연결됨</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>%1에 연결</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>%1에 연결 중</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>NTRIP 보정 사용</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>NTRIP 클라이언트 연결 끊김</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>NTRIP 클라이언트 연결 중</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>NTRIP 클라이언트 연결됨</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>유효한 NTRIP 설정을 입력하십시오</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>위치정보 표시</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>위치 고정 시 동작:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>위치만 따라가기</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>위치와 나침반 방향 따라가기</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>위치와 이동 방향 따라가기</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>지도 캔버스가 위치를 따라가거나 위치에 고정된 경우, 나침반 방향이나 이동 방향에 맞춰 회전할 수도 있습니다.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>꼭짓점에 기록할 측정(M) 값:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>타임스탬프 (epoch 이후 초)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>지상 속도</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>방위</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>수평 정확도</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>수직 정확도</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>좌표 커서를 현재 위치에 고정한 상태로 객체를 디지타이징할 때, 도형에 M 차원이 있으면 위에서 선택한 측정 유형이 함께 기록됩니다.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>정확도 표시기 사용</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>나쁨 정확도 기준값</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>우수 정확도 기준값</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>정확도 요구 조건 적용</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>정확도 표시기를 켜면 위치 버튼에 배지가 표시되며, 정확도가 &lt;i&gt;나쁨&lt;/i&gt;보다 떨어지면 &lt;span %1&gt;빨간색&lt;/span&gt;, &lt;i&gt;우수&lt;/i&gt;에 미치지 못하면 &lt;span %2&gt;노란색&lt;/span&gt;, 그 이상이면 &lt;span %3&gt;녹색&lt;/span&gt;으로 표시됩니다.&lt;br&gt;&lt;br&gt;또한 정확도 제한 모드를 켜면 좌표 커서를 위치에 고정한 상태에서 정확도가 나쁨 기준보다 떨어지는 위치에는 꼭짓점을 추가할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>평균 위치 요구 조건 사용</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>최소 위치 개수</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>최소 개수를 충족하면 수집 자동 종료</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>켜면 좌표 커서를 위치에 고정한 상태로 꼭짓점을 디지타이징할 때, 최소 개수 이상 수집된 위치의 평균값만 사용합니다. 평균 위치를 이용한 디지타이징은 꼭짓점 추가 버튼을 길게 눌러 진행하며, 누르고 있는 동안 위치가 계속 수집됩니다. 정확도 요구 조건 설정도 함께 적용됩니다.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>고도 보정</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>안테나 높이 보정</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>안테나 높이</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>이 값으로 측위 장치에서 기록된 Z 값이 보정됩니다. 1.6을 입력하면 기록된 각 값에서 1.6이 자동으로 차감됩니다. 폴 길이와 안테나 위상중심 오프셋을 합한 실제 안테나 높이를 입력하십시오.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>고도 보정 생략</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>측위 장치가 보고한 고도를 그대로 사용하고, 좌표계 변환에 따른 고도 보정을 생략합니다.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>사용 중인 수직 격자 보정:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>장치의 정표고</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>수직 격자 보정은 고도 정확도를 높이는 데 사용됩니다.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>장치의 NMEA 문장을 파일로 기록</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 설정</translation>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>그리기 서식 선택</translation>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7504,6 +8052,107 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Invalid WebDAV config JSON.</source>
         <translation>WebDAV 설정 JSON이 올바르지 않습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>Reach out</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation>%1을(를) 사용해 보니 어떠셨습니까?</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>감사합니다! 아래 버튼을 눌러 리뷰를 남겨 주시면 큰 힘이 됩니다.</translation>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>Rate us</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>익명 사용 정보 수집이 해제되었습니다. 설정 패널에서 다시 켤 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation>모두의 안정적인 사용을 위해 %1은(는) 익명화된 사용 정보를 수집·전송합니다.</translation>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>동의합니다</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>동의하지 않습니다</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloud
+프로젝트</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>로컬 프로젝트 및
+ 데이터셋</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>새 프로젝트
+만들기</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation>최근 열어본 항목</translation>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>Last session</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>기본 프로젝트</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>배경지도</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>최근 프로젝트 작업</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation>개별 데이터셋 배경지도</translation>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation>최근 열어본 항목에서 제거</translation>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>시작할 때 기본 프로젝트 열기</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>시작할 때 마지막으로 연 프로젝트 열기</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>지도로 돌아가기</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation>처음 사용하십니까? 아래 목록의 샘플 프로젝트를 사용해 보십시오.</translation>
     </message>
 </context>
 <context>
@@ -8892,11 +9541,11 @@ to show actions</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>불편을 드려 죄송합니다. 아래 버튼을 눌러 의견을 남기거나 지원을 요청하십시오.</translation>
+        <translation type="vanished">불편을 드려 죄송합니다. 아래 버튼을 눌러 의견을 남기거나 지원을 요청하십시오.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>문의하기</translation>
+        <translation type="vanished">문의하기</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8908,11 +9557,11 @@ to show actions</source>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>평가하기</translation>
+        <translation type="vanished">평가하기</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>익명 사용 정보 수집이 해제되었습니다. 설정 패널에서 다시 켤 수 있습니다.</translation>
+        <translation type="vanished">익명 사용 정보 수집이 해제되었습니다. 설정 패널에서 다시 켤 수 있습니다.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8920,11 +9569,11 @@ to show actions</source>
     </message>
     <message>
         <source>I agree</source>
-        <translation>동의합니다</translation>
+        <translation type="vanished">동의합니다</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>동의하지 않습니다</translation>
+        <translation type="vanished">동의하지 않습니다</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -8940,7 +9589,7 @@ to show actions</source>
     </message>
     <message>
         <source>Last session</source>
-        <translation>마지막 세션</translation>
+        <translation type="vanished">마지막 세션</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8961,76 +9610,6 @@ to show actions</source>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">Welcome back to QField.</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>기본 프로젝트</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>배경지도</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>시작할 때 기본 프로젝트 열기</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>시작할 때 마지막으로 연 프로젝트 열기</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation>최근 프로젝트 작업</translation>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>감사합니다! 아래 버튼을 눌러 리뷰를 남겨 주시면 큰 힘이 됩니다.</translation>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation>지도로 돌아가기</translation>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation>QFieldCloud
-프로젝트</translation>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation>로컬 프로젝트 및
- 데이터셋</translation>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation>새 프로젝트
-만들기</translation>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>%1을(를) 사용해 보니 어떠셨습니까?</translation>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation>모두의 안정적인 사용을 위해 %1은(는) 익명화된 사용 정보를 수집·전송합니다.</translation>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation>처음 사용하십니까? 아래 목록의 샘플 프로젝트를 사용해 보십시오.</translation>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation>최근 열어본 항목</translation>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation>개별 데이터셋 배경지도</translation>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation>최근 열어본 항목에서 제거</translation>
     </message>
 </context>
 <context>

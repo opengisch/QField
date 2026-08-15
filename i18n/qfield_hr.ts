@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>Razvijeno od</translation>
+        <translation type="vanished">Razvijeno od</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Podržite Qfield</translation>
+        <translation type="vanished">Podržite Qfield</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>Dnevnik promjena</translation>
+        <translation type="vanished">Dnevnik promjena</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>Dokumentacija</translation>
+        <translation type="vanished">Dokumentacija</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>Izbornik s poveznicama</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Izbornik s poveznicama</translation>
     </message>
 </context>
 <context>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>Ne mogu se učitati neki slojevi.</translation>
+        <translation type="vanished">Ne mogu se učitati neki slojevi.</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Sljedeći slojevi ne mogu se učitati, molimo provjerite ih i  ponovo namjestite QGIS projekt.</translation>
+        <translation type="vanished">Sljedeći slojevi ne mogu se učitati, molimo provjerite ih i  ponovo namjestite QGIS projekt.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">Možete provjeriti odjeljak Prijenosni Projekt u QField dokumentaciji za pomoć.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -424,30 +408,30 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>Što je novo u QFieldu</translation>
+        <translation type="vanished">Što je novo u QFieldu</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>Greška prilikom dohvaćanja dnevnika promjena, pokušajte ponovo kasnije.</translation>
+        <translation type="vanished">Greška prilikom dohvaćanja dnevnika promjena, pokušajte ponovo kasnije.</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Podržite Qfield</translation>
+        <translation type="vanished">Podržite Qfield</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>Provjeri zadnje promjene u Qfield-u</translation>
+        <translation type="vanished">Provjeri zadnje promjene u Qfield-u</translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>QField stranica izdanja</translation>
+        <translation type="vanished">QField stranica izdanja</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>Prethodna izdanja na GitHub-u</translation>
+        <translation type="vanished">Prethodna izdanja na GitHub-u</translation>
     </message>
 </context>
 <context>
@@ -463,53 +447,6 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <message>
         <source>NULL</source>
         <translation type="vanished">NULL</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -530,38 +467,14 @@ Otkažite za pokretanje minimalnog skeniranja uređaja.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>Sloj %1 je u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+        <translation type="vanished">Sloj %1 je u konfiguraciji &quot;Samo za čitanje&quot;</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>Tema Mape</translation>
+        <translation type="vanished">Tema Mape</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1585,111 +1498,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
 </context>
 <context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -1949,21 +1757,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2026,33 +1819,13 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>Ponovo Pokreni Projekt</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Lokalna kopija projekta iz oblaka je neispravna. Ponovo pokretanje projekta će ponovo skinuti verziju iz oblaka i ukloniti lokalne promjene, provjerite da li su kopirane ako ih trebate.Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučivo da ga ponovo pokrenete da izbjegnete slučajne gubitke podataka pošto nikakve promjene neće ići u oblak.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2067,55 +1840,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">Učitavam...</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>Nepoznato</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2127,7 +1852,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>Neuspješna prijava </translation>
+        <translation type="vanished">Neuspješna prijava </translation>
     </message>
     <message>
         <source>Server URL
@@ -2137,31 +1862,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Username or email</source>
-        <translation>Korisničko ime ili email</translation>
+        <translation type="vanished">Korisničko ime ili email</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Lozinka</translation>
+        <translation type="vanished">Lozinka</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Odjavi se</translation>
+        <translation type="vanished">Odjavi se</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>Prijavljivanje, molimo pričekajte</translation>
+        <translation type="vanished">Prijavljivanje, molimo pričekajte</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Prijavi se</translation>
+        <translation type="vanished">Prijavi se</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>Novi korisnik?</translation>
+        <translation type="vanished">Novi korisnik?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>Registrirajte račun</translation>
+        <translation type="vanished">Registrirajte račun</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2177,31 +1902,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Najlakši način slanja vašeg projekta iz QGIS-a na vaše uređaje!</translation>
+        <translation type="vanished">Najlakši način slanja vašeg projekta iz QGIS-a na vaše uređaje!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Saznaj više o QFieldCloud-u</translation>
+        <translation type="vanished">Saznaj više o QFieldCloud-u</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2223,20 +1931,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">Neki slojevi nisu ispravno zapakirani na QFieldCloud-u. Ovi slojevi možda nisu dobro konfigurirani ili njihov izvor podataka nije dostupan sa QFieldCloud servera. Provjerite zapisnik zadnjeg posla pakiranja na qfield.cloud website.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2248,7 +1948,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Saznaj više o QFieldCloud-u</translation>
+        <translation type="vanished">Saznaj više o QFieldCloud-u</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2264,7 +1964,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Ovaj QFieldCloud projekt prvo je preuzet s drugim računom. Molimo prijaviti se s tim računom da biste koristili sve funkcionalnosti QFieldClouda.</translation>
+        <translation type="vanished">Ovaj QFieldCloud projekt prvo je preuzet s drugim računom. Molimo prijaviti se s tim računom da biste koristili sve funkcionalnosti QFieldClouda.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2300,11 +2000,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>Lokalno pohranjen projekt iz oblaka je korumpiran</translation>
+        <translation type="vanished">Lokalno pohranjen projekt iz oblaka je korumpiran</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Sinkroniziraj</translation>
+        <translation type="vanished">Sinkroniziraj</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2342,11 +2042,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>Upravo sinkronizirano</translation>
+        <translation type="vanished">Upravo sinkronizirano</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>Zadnja sinkronizacija prije %1 minuta</translation>
+        <translation type="vanished">Zadnja sinkronizacija prije %1 minuta</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2354,7 +2054,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>Zadnja sinkronizacija u %1</translation>
+        <translation type="vanished">Zadnja sinkronizacija u %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2386,15 +2086,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>Ponovo postavi projekt u oblaku</translation>
+        <translation type="vanished">Ponovo postavi projekt u oblaku</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Posljednje upozorenje,ponovo postavljanje projekta u oblaku će obrisati sve lokalne promjene, jeste li sigurni da želite nastaviti?</translation>
+        <translation type="vanished">Posljednje upozorenje,ponovo postavljanje projekta u oblaku će obrisati sve lokalne promjene, jeste li sigurni da želite nastaviti?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Spajanje oblaka</translation>
+        <translation type="vanished">Spajanje oblaka</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2407,166 +2107,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">Nema promjena za vraćanje</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2656,102 +2196,15 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>Sinkroniziraj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>Preuzimanje projekta %1</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Open project</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2888,19 +2341,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud projekti</translation>
+        <translation type="vanished">QFieldCloud projekti</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Odspojen sa oblaka</translation>
+        <translation type="vanished">Odspojen sa oblaka</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Povezivanje na oblak.</translation>
+        <translation type="vanished">Povezivanje na oblak.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Pozdrav &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Pozdrav &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2924,15 +2377,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>Učitavanje...</translation>
+        <translation type="vanished">Učitavanje...</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>Greška preuzimanja.</translation>
+        <translation type="vanished">Greška preuzimanja.</translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>Greška pri učitavanju.</translation>
+        <translation type="vanished">Greška pri učitavanju.</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2960,11 +2413,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Otvori Projekt</translation>
+        <translation type="vanished">Otvori Projekt</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>Ukloni pohranjen projekt</translation>
+        <translation type="vanished">Ukloni pohranjen projekt</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2976,67 +2429,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>Osvježi listu projekata</translation>
+        <translation type="vanished">Osvježi listu projekata</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>Osvježavam listu projekata</translation>
+        <translation type="vanished">Osvježavam listu projekata</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">Nisu pronađeni projekti</translation>
     </message>
     <message>
-        <source>Project Actions</source>
-        <translation>Akcije projekta</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Sign out</source>
-        <translation>Odjavi se</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Prijavi se</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Sinkroniziraj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3044,70 +2457,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projekti</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3134,73 +2483,58 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Mapa projekta</translation>
+        <translation type="vanished">Mapa projekta</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Lokalni projekti i skupovi podataka</translation>
+        <translation type="vanished">Lokalni projekti i skupovi podataka</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Mape</translation>
+        <translation type="vanished">Mape</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projekti</translation>
+        <translation type="vanished">Projekti</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Skupovi podataka</translation>
+        <translation type="vanished">Skupovi podataka</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Favoriti</translation>
+        <translation type="vanished">Favoriti</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Datoteka projekta</translation>
+        <translation type="vanished">Datoteka projekta</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Vektorski skup podataka</translation>
+        <translation type="vanished">Vektorski skup podataka</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Rasterski skup podataka</translation>
+        <translation type="vanished">Rasterski skup podataka</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Pošalji na...</translation>
+        <translation type="vanished">Pošalji na...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Izvezi u mapu...</translation>
+        <translation type="vanished">Izvezi u mapu...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Ukloni skup podataka</translation>
+        <translation type="vanished">Ukloni skup podataka</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Pošalji kompresiranu mapu na...</translation>
+        <translation type="vanished">Pošalji kompresiranu mapu na...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3208,234 +2542,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Uvezi projekt iz mape</translation>
+        <translation type="vanished">Uvezi projekt iz mape</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Uvezi projekt iz ZIP datoteke</translation>
+        <translation type="vanished">Uvezi projekt iz ZIP datoteke</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Uvezi skup(ove) podataka</translation>
+        <translation type="vanished">Uvezi skup(ove) podataka</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Pomoć oko upravljanja pohranom</translation>
+        <translation type="vanished">Pomoć oko upravljanja pohranom</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Lozinka</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Akcije stavke</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Akcije uvoza</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Uvezi URL</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Akcije projekta</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Ispod upiši URL za preuzimanje i uvoz projekta ili seta podataka:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3458,7 +2580,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Prikaži grafičko mjerilo</translation>
+        <translation type="vanished">Prikaži grafičko mjerilo</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3466,31 +2588,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navigacija s fiksnim mjerilom</translation>
+        <translation type="vanished">Navigacija s fiksnim mjerilom</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Kada je aktivna navigacija s fiksnim mjerilom, fokusiranje na rezultat pretrage će se pomaknuti na element. S onemogućenom opcijom doći će do pomicanja i zumiranja na element karte.</translation>
+        <translation type="vanished">Kada je aktivna navigacija s fiksnim mjerilom, fokusiranje na rezultat pretrage će se pomaknuti na element. S onemogućenom opcijom doći će do pomicanja i zumiranja na element karte.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Prikaži informacije digitalizacije</translation>
+        <translation type="vanished">Prikaži informacije digitalizacije</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Kada je uključeno, informacije o koordinatama, kao npr. geografska dužina i širina se prikazuju na karti prilikom digitaliziranja novih elemenata ili dok se rade mjerenja.</translation>
+        <translation type="vanished">Kada je uključeno, informacije o koordinatama, kao npr. geografska dužina i širina se prikazuju na karti prilikom digitaliziranja novih elemenata ili dok se rade mjerenja.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Prikaži oznake</translation>
+        <translation type="vanished">Prikaži oznake</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Kada je uključeno, korisnikove spremljene i trenutno otvorene projektne oznake će se prikazati na karti.</translation>
+        <translation type="vanished">Kada je uključeno, korisnikove spremljene i trenutno otvorene projektne oznake će se prikazati na karti.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Koristi zadanu kameru</translation>
+        <translation type="vanished">Koristi zadanu kameru</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3506,7 +2628,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Zatamni ekran kada se ne koristi</translation>
+        <translation type="vanished">Zatamni ekran kada se ne koristi</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3514,7 +2636,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Miš kao uređaj dodirnog zaslona</translation>
+        <translation type="vanished">Miš kao uređaj dodirnog zaslona</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3522,7 +2644,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Pošaljite anonimine metrike</translation>
+        <translation type="vanished">Pošaljite anonimine metrike</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3530,19 +2652,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>Općenito</translation>
+        <translation type="vanished">Općenito</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Pozicioniranje</translation>
+        <translation type="vanished">Pozicioniranje</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Varijable</translation>
+        <translation type="vanished">Varijable</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Prilagodite traku pretraživanja</translation>
+        <translation type="vanished">Prilagodite traku pretraživanja</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3554,15 +2676,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>system</source>
-        <translation>sustav</translation>
+        <translation type="vanished">sustav</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Jezik nedostaje ili nije kompletan? %1Priključite se zajednici prevoditelja.%2</translation>
+        <translation type="vanished">Jezik nedostaje ili nije kompletan? %1Priključite se zajednici prevoditelja.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Uređaj za pozicioniranje u upotrebi</translation>
+        <translation type="vanished">Uređaj za pozicioniranje u upotrebi</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3600,7 +2722,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Povezano na %1</translation>
+        <translation type="vanished">Povezano na %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3608,7 +2730,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Povezivanje na %1</translation>
+        <translation type="vanished">Povezivanje na %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3616,11 +2738,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Prikaži informacije o lokaciji</translation>
+        <translation type="vanished">Prikaži informacije o lokaciji</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Aktiviranje indikatora točnosti</translation>
+        <translation type="vanished">Aktiviranje indikatora točnosti</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3640,7 +2762,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Uključi zahtjev za usrednjeno pozicioniranje</translation>
+        <translation type="vanished">Uključi zahtjev za usrednjeno pozicioniranje</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3648,15 +2770,15 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Automatski završi prikupljanje kada je minimalan broj zadovoljen</translation>
+        <translation type="vanished">Automatski završi prikupljanje kada je minimalan broj zadovoljen</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Kada je uključeno, digitalizacija točaka s pokazivačem zaključanim na poziciji će biti prihvaćena kao usrednjena pozicija iz minimalnog broja prikupljenih pozicija. Digitaliziranje s korištenjem usrednjenih pozicija se obavlja pritiskom i držanjem tipke za dodavanje točke, što će prikupljati pozicije dok se tipka ne pusti. Postavke zahtjeva za točnost se također uzimaju u obzir kada je uključeno.</translation>
+        <translation type="vanished">Kada je uključeno, digitalizacija točaka s pokazivačem zaključanim na poziciji će biti prihvaćena kao usrednjena pozicija iz minimalnog broja prikupljenih pozicija. Digitaliziranje s korištenjem usrednjenih pozicija se obavlja pritiskom i držanjem tipke za dodavanje točke, što će prikupljati pozicije dok se tipka ne pusti. Postavke zahtjeva za točnost se također uzimaju u obzir kada je uključeno.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Kompenzacija visine antene</translation>
+        <translation type="vanished">Kompenzacija visine antene</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3668,23 +2790,23 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Preskoči korekciju visine</translation>
+        <translation type="vanished">Preskoči korekciju visine</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Koristite nadmorsku visinu sa uređaja za pozicioniranje. Preskače svaku korekciju visine do koje može doći zbog transformacije koordinatnog sustava.</translation>
+        <translation type="vanished">Koristite nadmorsku visinu sa uređaja za pozicioniranje. Preskače svaku korekciju visine do koje može doći zbog transformacije koordinatnog sustava.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Mreža vertikalnih pomaka - grid datoteka u upotrebi:</translation>
+        <translation type="vanished">Mreža vertikalnih pomaka - grid datoteka u upotrebi:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Nijedna</translation>
+        <translation type="vanished">Nijedna</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Mreža vertikalnih pomaka se koristi za povećanje točnosti nadmorske visine.</translation>
+        <translation type="vanished">Mreža vertikalnih pomaka se koristi za povećanje točnosti nadmorske visine.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3692,11 +2814,11 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Vrijeme neaktivnosti u sekundama prije nego se svjetlina zaslona priguši radi štednje baterije.</translation>
+        <translation type="vanished">Vrijeme neaktivnosti u sekundama prije nego se svjetlina zaslona priguši radi štednje baterije.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Mjerena (M) vrijednost je dodijeljena točkama:</translation>
+        <translation type="vanished">Mjerena (M) vrijednost je dodijeljena točkama:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3704,377 +2826,58 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Brzina na terenu</translation>
+        <translation type="vanished">Brzina na terenu</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Smjerni kut</translation>
+        <translation type="vanished">Smjerni kut</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Horizontalna točnost</translation>
+        <translation type="vanished">Horizontalna točnost</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Vertikalna točnost</translation>
+        <translation type="vanished">Vertikalna točnost</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Kada digitaliziraš elemente s koordinatnim kursorom zaključanim na trenutnu lokaciju, vrsta mjerenja koja je iznad označena će biti dodana u geometriju kao M dimenzija.</translation>
+        <translation type="vanished">Kada digitaliziraš elemente s koordinatnim kursorom zaključanim na trenutnu lokaciju, vrsta mjerenja koja je iznad označena će biti dodana u geometriju kao M dimenzija.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Dodaj</translation>
+        <translation type="vanished">Dodaj</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Uredi</translation>
+        <translation type="vanished">Uredi</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Ukloni</translation>
+        <translation type="vanished">Ukloni</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Poveži na %1</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Preuzmi prikaz definiran u sustavu</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Svijetla tema</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Tamna tema</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Malo</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normalno</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Veliko</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Vrlo veliko</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Zapiši NMEA rečenice od uređaja u datoteku</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Kvaliteta renderiranja platna karte:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Najbolja kvaliteta</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Smanjena kvaliteta</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Najlošija kvaliteta</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Lošija kvaliteta žrtvuje preciznost iscrtavanja u korist manje potrošnje memorije i potrebnog vremena za iscrtavanje</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Poveži na %1</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Korisničko Ime</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Lozinka</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4298,6 +3101,41 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>Razvijeno od</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Podržite Qfield</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Dokumentacija</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>Izbornik s poveznicama</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>Dnevnik promjena</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4355,6 +3193,21 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>File %1 does not exist</source>
         <translation>Datoteka %1 ne postoji</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4428,6 +3281,21 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Audio Recorder</source>
         <translation>Snimač zvuka</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>Ne mogu se učitati neki slojevi.</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>Sljedeći slojevi ne mogu se učitati, molimo provjerite ih i  ponovo namjestite QGIS projekt.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4798,6 +3666,83 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>Što je novo u QFieldu</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>Greška prilikom dohvaćanja dnevnika promjena, pokušajte ponovo kasnije.</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Podržite Qfield</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>Provjeri zadnje promjene u Qfield-u</translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>QField stranica izdanja</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>Prethodna izdanja na GitHub-u</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
@@ -4859,6 +3804,372 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 %2</source>
         <translation>Neuspješno učitavanje privitka spremljenog u `%1`, razlog:
 %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Ponovo Pokreni Projekt</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Lokalna kopija projekta iz oblaka je neispravna. Ponovo pokretanje projekta će ponovo skinuti verziju iz oblaka i ukloniti lokalne promjene, provjerite da li su kopirane ako ih trebate.Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučivo da ga ponovo pokrenete da izbjegnete slučajne gubitke podataka pošto nikakve promjene neće ići u oblak.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Nepoznato</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>Neuspješna prijava </translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>Korisničko ime ili email</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Lozinka</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Odjavi se</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>Prijavljivanje, molimo pričekajte</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Prijavi se</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>Novi korisnik?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>Registrirajte račun</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>Najlakši način slanja vašeg projekta iz QGIS-a na vaše uređaje!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Saznaj više o QFieldCloud-u</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>Ovaj QFieldCloud projekt prvo je preuzet s drugim računom. Molimo prijaviti se s tim računom da biste koristili sve funkcionalnosti QFieldClouda.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Saznaj više o QFieldCloud-u</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>Lokalno pohranjen projekt iz oblaka je korumpiran</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>Upravo sinkronizirano</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>Zadnja sinkronizacija prije %1 minuta</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>Zadnja sinkronizacija u %1</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sinkroniziraj</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>Ponovo postavi projekt u oblaku</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>Posljednje upozorenje,ponovo postavljanje projekta u oblaku će obrisati sve lokalne promjene, jeste li sigurni da želite nastaviti?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>Spajanje oblaka</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4979,6 +4290,104 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sinkroniziraj</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Preuzimanje projekta %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Open project</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -4995,6 +4404,173 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Cloud project could not be created.</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>QFieldCloud projekti</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>Odspojen sa oblaka</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>Povezivanje na oblak.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>Pozdrav &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projekti</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>Učitavanje...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Greška preuzimanja.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Greška pri učitavanju.</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Osvježi listu projekata</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Odjavi se</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Prijavi se</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Akcije projekta</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Otvori Projekt</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sinkroniziraj</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Ukloni pohranjen projekt</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Osvježavam listu projekata</translation>
     </message>
 </context>
 <context>
@@ -5125,6 +4701,41 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>Sloj %1 je u konfiguraciji &quot;Samo za čitanje&quot;</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>Tema Mape</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5336,14 +4947,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation type="unfinished"/>
     </message>
@@ -5373,6 +4976,34 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading sigma</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5872,6 +5503,21 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6102,6 +5748,293 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>Mapa projekta</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>Lokalni projekti i skupovi podataka</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>Mape</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projekti</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>Skupovi podataka</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoriti</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>Datoteka projekta</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>Vektorski skup podataka</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>Rasterski skup podataka</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Akcije stavke</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Pošalji na...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Izvezi u mapu...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>Pošalji kompresiranu mapu na...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>Ukloni skup podataka</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>Akcije uvoza</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>Uvezi projekt iz mape</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>Uvezi projekt iz ZIP datoteke</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>Uvezi skup(ove) podataka</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>Uvezi URL</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>Pomoć oko upravljanja pohranom</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Akcije projekta</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Ispod upiši URL za preuzimanje i uvoz projekta ili seta podataka:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Lozinka</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6505,6 +6438,111 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Raster Datasets</source>
         <translation>Rasterski Skup Podataka</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7198,6 +7236,516 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Prikaži grafičko mjerilo</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Prikaži oznake</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Kada je uključeno, korisnikove spremljene i trenutno otvorene projektne oznake će se prikazati na karti.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Prikaži informacije digitalizacije</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Kada je uključeno, informacije o koordinatama, kao npr. geografska dužina i širina se prikazuju na karti prilikom digitaliziranja novih elemenata ili dok se rade mjerenja.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Miš kao uređaj dodirnog zaslona</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navigacija s fiksnim mjerilom</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Kada je aktivna navigacija s fiksnim mjerilom, fokusiranje na rezultat pretrage će se pomaknuti na element. S onemogućenom opcijom doći će do pomicanja i zumiranja na element karte.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Koristi zadanu kameru</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Pošaljite anonimine metrike</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Općenito</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Pozicioniranje</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Varijable</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Kvaliteta renderiranja platna karte:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Najbolja kvaliteta</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Smanjena kvaliteta</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Najlošija kvaliteta</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Lošija kvaliteta žrtvuje preciznost iscrtavanja u korist manje potrošnje memorije i potrebnog vremena za iscrtavanje</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Prilagodite traku pretraživanja</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Zatamni ekran kada se ne koristi</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Vrijeme neaktivnosti u sekundama prije nego se svjetlina zaslona priguši radi štednje baterije.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Preuzmi prikaz definiran u sustavu</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Svijetla tema</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Tamna tema</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Malo</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normalno</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Veliko</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Vrlo veliko</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>sustav</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Jezik nedostaje ili nije kompletan? %1Priključite se zajednici prevoditelja.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Korisničko Ime</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Lozinka</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Uređaj za pozicioniranje u upotrebi:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Dodaj</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Uredi</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Ukloni</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Povezano na %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Poveži na %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Povezivanje na %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Prikaži informacije o lokaciji</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Mjerena (M) vrijednost je dodijeljena točkama:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Brzina na terenu</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Smjerni kut</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horizontalna točnost</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Vertikalna točnost</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Kada digitaliziraš elemente s koordinatnim kursorom zaključanim na trenutnu lokaciju, vrsta mjerenja koja je iznad označena će biti dodana u geometriju kao M dimenzija.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Aktiviranje indikatora točnosti</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Uključi zahtjev za usrednjeno pozicioniranje</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Automatski završi prikupljanje kada je minimalan broj zadovoljen</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Kada je uključeno, digitalizacija točaka s pokazivačem zaključanim na poziciji će biti prihvaćena kao usrednjena pozicija iz minimalnog broja prikupljenih pozicija. Digitaliziranje s korištenjem usrednjenih pozicija se obavlja pritiskom i držanjem tipke za dodavanje točke, što će prikupljati pozicije dok se tipka ne pusti. Postavke zahtjeva za točnost se također uzimaju u obzir kada je uključeno.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Kompenzacija visine antene</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Preskoči korekciju visine</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Koristite nadmorsku visinu sa uređaja za pozicioniranje. Preskače svaku korekciju visine do koje može doći zbog transformacije koordinatnog sustava.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Mreža vertikalnih pomaka - grid datoteka u upotrebi:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Nijedna</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Mreža vertikalnih pomaka se koristi za povećanje točnosti nadmorske visine.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Zapiši NMEA rečenice od uređaja u datoteku</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7504,6 +8052,104 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>Žao nam je. Pritisnite donje dugme za kometar ili traženje podrške.</translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>Kontaktiraj</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>Ocijenite nas</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>Prikupljanje anonimine metrike je onemogućeno. Možete je ponovo omogućiti preko panela postavki</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>Slažem se</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>Ne preferiram</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>Zadnja sesija</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>Zadani projekt</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>Osnovna karta</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>Nedavne akcije projekta</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>Učitaj zadani projekt prilikom pokretanja</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>Učitaj posljednji otvoreni projekt prilikom pokretanja</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -8892,11 +9538,11 @@ to show actions</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>Žao nam je. Pritisnite donje dugme za kometar ili traženje podrške.</translation>
+        <translation type="vanished">Žao nam je. Pritisnite donje dugme za kometar ili traženje podrške.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>Kontaktiraj</translation>
+        <translation type="vanished">Kontaktiraj</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8908,11 +9554,11 @@ to show actions</source>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Ocijenite nas</translation>
+        <translation type="vanished">Ocijenite nas</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>Prikupljanje anonimine metrike je onemogućeno. Možete je ponovo omogućiti preko panela postavki</translation>
+        <translation type="vanished">Prikupljanje anonimine metrike je onemogućeno. Možete je ponovo omogućiti preko panela postavki</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8920,11 +9566,11 @@ to show actions</source>
     </message>
     <message>
         <source>I agree</source>
-        <translation>Slažem se</translation>
+        <translation type="vanished">Slažem se</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>Ne preferiram</translation>
+        <translation type="vanished">Ne preferiram</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -8940,7 +9586,7 @@ to show actions</source>
     </message>
     <message>
         <source>Last session</source>
-        <translation>Zadnja sesija</translation>
+        <translation type="vanished">Zadnja sesija</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8961,73 +9607,6 @@ to show actions</source>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">Dobrodošli nazad u QField.</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>Zadani projekt</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>Osnovna karta</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>Učitaj zadani projekt prilikom pokretanja</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>Učitaj posljednji otvoreni projekt prilikom pokretanja</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation>Nedavne akcije projekta</translation>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

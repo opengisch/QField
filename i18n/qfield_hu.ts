@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>Fejlesztő</translation>
+        <translation type="vanished">Fejlesztő</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Támogasd a QField fejlesztését</translation>
+        <translation type="vanished">Támogasd a QField fejlesztését</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>Változásnapló</translation>
+        <translation type="vanished">Változásnapló</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>Dokumentáció</translation>
+        <translation type="vanished">Dokumentáció</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>Linkek menü</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation>QField-el működtetve</translation>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation>%1 alkalmazás könyvtárak</translation>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation>%1 alkalmazás könyvtár</translation>
+        <translation type="vanished">Linkek menü</translation>
     </message>
 </context>
 <context>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>Néhány réteget nem tudok betölteni</translation>
+        <translation type="vanished">Néhány réteget nem tudok betölteni</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>A következő rétegeket nem tudom betölteni, kérem ellenőrizze azokat és konfigurálja újra a QGIS projektet.</translation>
+        <translation type="vanished">A következő rétegeket nem tudom betölteni, kérem ellenőrizze azokat és konfigurálja újra a QGIS projektet.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">További segítségért keresd a Hordozható projekt fejezetet a QField dokumentációjában.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>További segítségért keresd a %1Portable Project%2 dokumentációs oldalt.</translation>
     </message>
 </context>
 <context>
@@ -424,30 +408,30 @@ Szakítsd meg a minimális eszközkereséshez.</translation>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>A QField újdonságai</translation>
+        <translation type="vanished">A QField újdonságai</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>Hiba a változási napló betöltése közben. Próbálja újra később!</translation>
+        <translation type="vanished">Hiba a változási napló betöltése közben. Próbálja újra később!</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Támogasd a QField fejlesztését</translation>
+        <translation type="vanished">Támogasd a QField fejlesztését</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>Nézze meg a legutóbbi QField változásokat</translation>
+        <translation type="vanished">Nézze meg a legutóbbi QField változásokat</translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>QField kiadás oldala</translation>
+        <translation type="vanished">QField kiadás oldala</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>Előző kiadások a GitHub-on</translation>
+        <translation type="vanished">Előző kiadások a GitHub-on</translation>
     </message>
 </context>
 <context>
@@ -463,53 +447,6 @@ Szakítsd meg a minimális eszközkereséshez.</translation>
     <message>
         <source>NULL</source>
         <translation type="vanished">NULL</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>Geometria</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>Sikertelen beillesztés: a cél réteg nem biztosított</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>Vágás művelet: a forrás és cél réteg ugyanaz, elmaradt beillesztés.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>Sikertelen beillesztés: a vágólapi alakzat érvénytelen.</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>Sikertelen vágás: %1 forrás rétegen nem indítható szerkesztés</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>Sikertelen vágás: %1 forrás rétegből nem törölhető az eredeti alakzat</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>Sikertelen beillesztés: nem készíthetők kompatibilis alakzatok</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>Sikertelen beillesztés: %1 réteg szerkesztése nem indítható el</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>Sikertelen beillesztés: %1 réteghez nem adható alakzat</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>Sikertelen beillesztés: %1 rétegen sikertelen a változások véglegesítése</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>%1 forrás rétegen a vágás véglegesítése nem sikerült</translation>
     </message>
 </context>
 <context>
@@ -530,39 +467,15 @@ Szakítsd meg a minimális eszközkereséshez.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>A %1 réteg csak olvasható.</translation>
+        <translation type="vanished">A %1 réteg csak olvasható.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>Térkép téma</translation>
+        <translation type="vanished">Térkép téma</translation>
     </message>
     <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>A projekt csak olvasható.</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>Jelmagyarázat</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation>Vissza a kezdethez</translation>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation>Összes kibontása</translation>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation>Összes összecsukása</translation>
-    </message>
-    <message>
-        <source>Project Information</source>
-        <translation>Projekt információ</translation>
     </message>
 </context>
 <context>
@@ -1582,111 +1495,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Szerző: %1%2%3</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Törlésre kerülő verzió: %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Bővítmény törlése</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>A letöltött zip fájlt nem sikerült kicsomagolni</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>A letöltött zip fájl nem tartalmazza a szükséges main.qml bővítmény fájlt</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>A letöltött fájl nem menthető</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>A letöltött fájl nem egy tömörített bővítmény</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>Hálózati hiba</translation>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>A kért plugin URL szerepel az elérhető plugin listában, installáld azt a letöltés gomb segítségével</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>Bővítmények</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>Plugin telepítés URL-ről</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>Törölje a megjegyzett engedélyeket</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>Írd be alább a bővítmény letöltéséhez és telepítéséhez szükséges URL-t:</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>%1 telepítése</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>Valóban törölni kívánod `%1`-t?</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>A szerzői adatok fentebb, a bővítményben rögzítettek, nincsenek függetlennül hitelesítve. Kérlek bizonyosodj meg a bővítmény eredetében!</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>Bővítmény kezelési menű</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>Helyi pluginok</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>Elérhető pluginok</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>Plugin keresése</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>Az elérhető pluginok lehívása</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>Még nincs telepített bővítmény. Váltson át az %1elérhető bővítmények%3 fülre, hogy azonnal kipróbálhasson néhányat.&lt;br&gt;&lt;br&gt;További információkért %2olvassa el a dokumentációt%3.</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation>A jelenleg megnyitott projekt betöltött egy bővítményt</translation>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation>Engedély megtagadása</translation>
-    </message>
-</context>
-<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -1946,21 +1754,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation>Kérjük, adja meg az adatbázis hitelesítő adatait</translation>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation>a host-nál</translation>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation>a szolgáltatásnál</translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2022,34 +1815,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation>A fenti művelet visszafordíthatatlanul megváltoztatja a helyi adataidat. Alkalmazd figyelmesen.</translation>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>Projekt visszaállítás</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation>Helyi változások eldobása</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Ennek a felhőprojektnek a helyi példánya megsérült. A projekt alaphelyzetbe állításával újra letölti a felhőverziót, és eltávolítja az összes helyi módosítást. Szükség esetén  először készítsen másolatot. A projektet továbbra is megtekintheti és használhatja, a véletlen adatvesztés elkerülése érdekében erősen ajánlott a visszaállítás, mivel a végrehajtott módosítások egyike sem kerül vissza a felhőbe.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation>Eltávolít minden még fel nem töltött helyi szerkesztést</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>Visszaállítás</translation>
-    </message>
-    <message>
-        <source>Discard</source>
-        <translation>Eldobás</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2063,55 +1836,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">Betöltés...</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation>Alkalmazott</translation>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation>Függő</translation>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation>Foglalt</translation>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation>Konfliktus</translation>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation>Nem alkalmazott</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Hiba</translation>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation>Kizárt</translation>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation>Nem engedélyezett</translation>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>Ismeretlen</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation>Feltöltés történet</translation>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation>Feltöltés történet lehívása</translation>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation>Változások még nem kerültek feltöltésre!</translation>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2123,7 +1848,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>Sikertelen bejelentkezés</translation>
+        <translation type="vanished">Sikertelen bejelentkezés</translation>
     </message>
     <message>
         <source>Server URL
@@ -2133,31 +1858,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Username or email</source>
-        <translation>Felhasználó név vagy email</translation>
+        <translation type="vanished">Felhasználó név vagy email</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Jelszó</translation>
+        <translation type="vanished">Jelszó</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Kijelentkezés</translation>
+        <translation type="vanished">Kijelentkezés</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>Bejelentkezés, kérem várjon!</translation>
+        <translation type="vanished">Bejelentkezés, kérem várjon!</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Bejelentkezés</translation>
+        <translation type="vanished">Bejelentkezés</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>Új felhasználó?</translation>
+        <translation type="vanished">Új felhasználó?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>Regisztráljon egy fiókot!</translation>
+        <translation type="vanished">Regisztráljon egy fiókot!</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2173,33 +1898,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>A legegyszerűbb mód a projektjének átvitelére a QGIS-ből az eszközére!</translation>
+        <translation type="vanished">A legegyszerűbb mód a projektjének átvitelére a QGIS-ből az eszközére!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Tanuljon többet a QFieldCloud-ról</translation>
+        <translation type="vanished">Tanuljon többet a QFieldCloud-ról</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>vagy</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>Bejelentkezés %1-el</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation>%1Szerver URL
-(Alapértelmezett szerver esetén hagyd üresen)</translation>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
-        <translation>Látogasd meg a %1beállítások oldalt%2 a fiókod kezeléséhez.</translation>
     </message>
 </context>
 <context>
@@ -2220,20 +1927,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">Néhány réteg nincs megfelelően csomagolva a QFieldCloudban. Lehetséges, hogy ezek a rétegek rosszul vannak konfigurálva, vagy adatforrásuk nem érhető el a QFieldCloud szerverről. Kérjük, ellenőrizze a naplófájlokat a qfield.cloud webhelyen.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation>Néhány réteg helytelenül lett becsomagolva. Ezen a rétegek konfigurációja hibás lehet vagy az adatforrásai nem érhetők el a QFieldCloud szerverről.</translation>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation>Ellenőrizd az alábbi visszajelzést és az utolsó csomagolási naplót a QFieldCloud oldalán.</translation>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2245,7 +1944,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Tanuljon többet a QFieldCloud-ról</translation>
+        <translation type="vanished">Tanuljon többet a QFieldCloud-ról</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2261,7 +1960,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Néhány réteg nincs megfelelően csomagolva a QFieldCloudban. Lehetséges, hogy ezek a rétegek rosszul vannak konfigurálva, vagy adatforrásuk nem érhető el a QFieldCloud szerverről. Kérjük, ellenőrizze a csomagolás naplófájljait a qfield.cloud webhelyen.</translation>
+        <translation type="vanished">Néhány réteg nincs megfelelően csomagolva a QFieldCloudban. Lehetséges, hogy ezek a rétegek rosszul vannak konfigurálva, vagy adatforrásuk nem érhető el a QFieldCloud szerverről. Kérjük, ellenőrizze a csomagolás naplófájljait a qfield.cloud webhelyen.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2297,11 +1996,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>A helyben tárolt felhő projekt megsérült</translation>
+        <translation type="vanished">A helyben tárolt felhő projekt megsérült</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Szinkronizálás</translation>
+        <translation type="vanished">Szinkronizálás</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2339,11 +2038,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>Utoljára éppen most szinkronizáltuk</translation>
+        <translation type="vanished">Utoljára éppen most szinkronizáltuk</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>Utoljára %1 perccel ezelőtt szinkronizáltuk</translation>
+        <translation type="vanished">Utoljára %1 perccel ezelőtt szinkronizáltuk</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2351,7 +2050,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>Utolsó szinkronizálás: %1</translation>
+        <translation type="vanished">Utolsó szinkronizálás: %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2383,15 +2082,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>Felhő projekt visszaállítása</translation>
+        <translation type="vanished">Felhő projekt visszaállítása</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Utolsó figyelmeztetés: a felhőprojekt alaphelyzetbe állítása törli a helyi módosításokat. Biztosan folytatja?</translation>
+        <translation type="vanished">Utolsó figyelmeztetés: a felhőprojekt alaphelyzetbe állítása törli a helyi módosításokat. Biztosan folytatja?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Kapcsolódás a felhőhöz</translation>
+        <translation type="vanished">Kapcsolódás a felhőhöz</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2404,166 +2103,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">Nincsenek elvethető változások</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Ehhez a projekthez van egy frissített fájl a felhőben, javasoljuk hogy szinkronizáljon.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>A projekthez frissített adatok vannak a felhőben, szinkronizálni kellene.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>A QFieldCloud az Ön számára csomagolja a legfrissebb adatokat; ez eltarthat egy ideig, kérjük legyen türelmes</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Letöltési folyamat: %1% -ból %2 letöltve</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Letöltési folyamat: %1% letöltve</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation>Változások feltöltése, %1%…</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation>A QFieldCloud érvényesíti a legutóbb feltöltött változásokat. Ez eltarthat egy ideig, kérem várjon...</translation>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation>Az aktuális projekt feltöltése a QFieldCloud-ra.</translation>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation>Feltöltés: %1</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation><numerusform>%n fájl marad meg</numerusform><numerusform>%n fájl marad meg</numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation>Használva %1 a %2-ből</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Tárhelybővítés</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation>A %1 projekt nem becsomagolható, mert a tárhelyed betelt.</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation>A %1 projekt nem becsomagolható, mert a projekt tulajdonos tárhelye betelt.</translation>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation>Veszélyzóna</translation>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation>Felhősítsd a projektet</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation>Az aktuális projekt nincs meg a QFieldCloud-ban. A QFieldCloud-ban tárolás zökkenőmentes szinkronizációt, offline szerkesztést és csapatkezelést tesz lehetővé.</translation>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation>%1% felhősítése</translation>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation>Felhősítés</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Helyi változások feltöltése</translation>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation>Szerkesztések és csatolmányok küldése a felhőbe a projekt frissítések letöltése nélkül. Gyors és kis adatigényű.</translation>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation>Még nem történt változás feltöltés</translation>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation>Az utolsó feltöltés épp most volt</translation>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation>Az utolsó feltöltés %1 perce történt</translation>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation>A mai utolsó feltöltés %1</translation>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation>Az utolsó feltöltés ezen %1</translation>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation>Feltöltés</translation>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation><numerusform>Automatikus feltöltés %n percenként</numerusform><numerusform>Automatikus feltöltés %n percenként</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation>A jelenlegi projekt nem engedélyezi az automatikus feltöltés kikapcsolását</translation>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation>Szinkronizáld a projektet</translation>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation>A változások feltöltése, majd a projekt utolsó változatának letöltése után minden adat aktuális.</translation>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation>A mai utolsó szinkronizálás %1-kor</translation>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation>Feltöltés történet</translation>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation>Veszélyzóna</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation>Helyi változások eldobása</translation>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation>Elveti a helyi változásokat?</translation>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation>Helyi változásokat eldobtam</translation>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation>Sikertelen a változások eldobása</translation>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation>Nincsenek eldobható változások</translation>
     </message>
 </context>
 <context>
@@ -2653,103 +2192,16 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation>Tulajdonos</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Létrehozás</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Utolsó frissítés</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Ezt a QR-kódot a hozzáféréssel bíró felhasználók beolvashatják a projekt letöltéséhez és megnyitásához.</translation>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>Szinkronizálás</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>A QFieldCloud projektet csomagol, szoríts</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Projekt letöltés</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Töltsd le a projektet</translation>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>%1 projekt letöltése</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Projekt megnyitása</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation>Szinkronizálás</translation>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation>%1 használata %2 -ből</translation>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation>Tárhely méret</translation>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation>Projekt másolás</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Helyi változások feltöltése</translation>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation>Előre megadott szűrők</translation>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation>Feltétel</translation>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation>A nyilvános projekteket is beleértve</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Keresés</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>%1 projektjei</translation>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation>Saját projektjeim</translation>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation>A cím vagy a leírás tartalmazza</translation>
-    </message>
-    <message>
-        <source>Owner is</source>
-        <translation>A tulajdonos</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2885,19 +2337,19 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud projektek</translation>
+        <translation type="vanished">QFieldCloud projektek</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Leválasztva a felhőről-</translation>
+        <translation type="vanished">Leválasztva a felhőről-</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Kapcsolódás a felhőhöz.</translation>
+        <translation type="vanished">Kapcsolódás a felhőhöz.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Üdvözlet &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Üdvözlet &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2921,15 +2373,15 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>Feltöltés...</translation>
+        <translation type="vanished">Feltöltés...</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>Letöltési hiba.</translation>
+        <translation type="vanished">Letöltési hiba.</translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>Feltöltési hiba.</translation>
+        <translation type="vanished">Feltöltési hiba.</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2957,11 +2409,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Projekt megnyitása</translation>
+        <translation type="vanished">Projekt megnyitása</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>Tárolt projekt eltávolítása</translation>
+        <translation type="vanished">Tárolt projekt eltávolítása</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2973,67 +2425,27 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>Projekt lista frissítés</translation>
+        <translation type="vanished">Projekt lista frissítés</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>Projekt lista frissítése</translation>
+        <translation type="vanished">Projekt lista frissítése</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">Nem találtunk projekteket</translation>
     </message>
     <message>
-        <source>Project Actions</source>
-        <translation>Projekt műveletek</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>A QFieldCloud az Ön számára csomagolja a legfrissebb adatokat; ez eltarthat egy ideig, kérjük legyen türelmes</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Letöltési folyamat: %1% -ból %2 letöltve</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Letöltési folyamat: %1% letöltve</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
-    </message>
-    <message>
         <source>Sign out</source>
-        <translation>Kijelentkezés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Bejelentkezés</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>Mutasd a hibás projekteket</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>Projekt részletek nézet</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Felhőprojekt részleteinek lekérése sikertelen</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation>Projekt mappa nézet</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation>Valóban törölni kívánod `%1`-t?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Szinkronizálás</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3041,71 +2453,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projektek</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation>Projektlista frissítése...</translation>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation>Projektek keresése...</translation>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation>Nem található felhőprojekt.</translation>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation>Kezdetnek %1 olvasd el a %2 leírását.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation>Próbálj %1 felhasználni nyilvános projekteket %2, nézd, mit kínál a közösség.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation>Próbálj %1 felhasználni nyilvános projekteket %2</translation>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation>Projektek keresése</translation>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation>Projekt Másolás</translation>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation>Projekt Másolás</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>Milyen nevet akarsz adni a projekt másolatának?</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Projekt másolás sikertelen: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Projekt készítés sikertelen: %1</translation>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation>A projekt másolása sikerült</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>Sikerült létrehozni a projektet</translation>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation>Beállítások oldal</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Helyi változások feltöltése</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3131,73 +2479,58 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>Befejezés</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>Következő</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>Előző</translation>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Projekt mappa</translation>
+        <translation type="vanished">Projekt mappa</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Helyi projektek és adathalmazok</translation>
+        <translation type="vanished">Helyi projektek és adathalmazok</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Mappák</translation>
+        <translation type="vanished">Mappák</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projektek</translation>
+        <translation type="vanished">Projektek</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Adathalmazok</translation>
+        <translation type="vanished">Adathalmazok</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Kedvencek</translation>
+        <translation type="vanished">Kedvencek</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Projektfájl</translation>
+        <translation type="vanished">Projektfájl</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Vektor adathalmaz</translation>
+        <translation type="vanished">Vektor adathalmaz</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Raszter adathalmaz</translation>
+        <translation type="vanished">Raszter adathalmaz</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Küldés...</translation>
+        <translation type="vanished">Küldés...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Exportálás mappába...</translation>
+        <translation type="vanished">Exportálás mappába...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Adathalmaz eltávolítása</translation>
+        <translation type="vanished">Adathalmaz eltávolítása</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Tömörített mappa küldése...</translation>
+        <translation type="vanished">Tömörített mappa küldése...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3205,235 +2538,23 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Projekt importálása mappából</translation>
+        <translation type="vanished">Projekt importálása mappából</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Projekt importálása ZIP-ből</translation>
+        <translation type="vanished">Projekt importálása ZIP-ből</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Adathalmaz(ok) importálása</translation>
+        <translation type="vanished">Adathalmaz(ok) importálása</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Tárhelykezelési súgó</translation>
+        <translation type="vanished">Tárhelykezelési súgó</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Fájlok</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Kezdőoldal</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Elem műveletek</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>Fájl megnézése</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Feltöltés a QFieldCloud-ra</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Hozzáadás a Kedvencekhez</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Eltávolítás a Kedvencek közül</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Mappa feltöltése WebDAV szerverre</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Mappa letöltése WebDAV szerverről</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
-        <translation>Mappa törlése</translation>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation>Fájl törlése</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Import műveletek</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>URL importálása</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAV mappa import</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Projekt műveletek</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Projekt aktualizálása ZIP-ből</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation>Tömöríts a projektet és küld ide...</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Projekt feltöltése WebDAV-ra</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Projekt letöltése WebDAV-ról</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Fájl(ok) feltöltése WebDAV-ra</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Fájl(ok) elküldése a QFieldCloudba</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Válassz ki egy, vagy több fájlt a QFieldCloud-ba töltésre.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation>Fájl(ok) törlése</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ a QFieldCloud-ra való feltöltés alatt</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>A QFieldCloud-ra feltöltendő elemek</translation>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation>Fájl(ok) eltávolítása</translation>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation><numerusform>Valóban el akar távolítani %n fájlt?</numerusform><numerusform>Valóban el akar távolítani %n fájlt?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>%n fájl megfelelően törölve</numerusform><numerusform>%n fájl megfelelően törölve</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>%n fájl törlése sikertelen</numerusform><numerusform>%n fájl törlése sikertelen</numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Írd az URL címet alább a projekt, vagy adathalmaz importálásához</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAV mappa importálása</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAV mappa letöltése</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAV mappa feltöltése</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV hiba:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV feltöltés</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV letöltés</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Módosított tartalmat fog feltölteni &lt;b&gt;%1&lt;/b&gt;-be mint &lt;b&gt;%2&lt;/b&gt; felhasználó. &lt;br&gt;&lt;br&gt;Ez a művelet felülírja a távol tárolt tartalmat, győződjön meg róla, hogy ezt akarja csinálni.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>&lt;b&gt;%1&lt;/b&gt; módosított tartalmának letöltésére készülsz a &lt;b&gt;%2&lt;/b&gt; felhasználóval.&lt;br&gt;&lt;br&gt;Ez a művelet felülírja a helyben tárolt adatokat, valóban ezt szeretnéd?</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Jelszó (hagyja üresen a megjegyzett használatához)</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Jelszó megjegyzése</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Írja be a WebDAV adatokat a távoli mappa importhoz:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV szerver URL</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Felhasználó és jelszó</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>üresen hagyva a megjegyzettet veszi</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Távoli mappák lekérése</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Távoli mappák lekérése</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Válassza ki az importálandó távoli mappát:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>gyökérkönyvtár</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Elérhető helyben itt: ‘%1’</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>Importált mappa neve</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Megerősít</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Egy mentett WebDAV-elemet készül eltávolítani, folytatja?</translation>
     </message>
 </context>
 <context>
@@ -3455,7 +2576,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Léptékvonalzó megjelenítése</translation>
+        <translation type="vanished">Léptékvonalzó megjelenítése</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3463,31 +2584,31 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Rögzített méretarányú navigálás</translation>
+        <translation type="vanished">Rögzített méretarányú navigálás</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Amikor a rögzített méretarányú navigáció aktív, a keresési eredményekre fókuszálás az elemre mozgatással jár. A rögzített méretarányú navigálás kikapcsolásakor az elemre mozgat és nagyít a program.</translation>
+        <translation type="vanished">Amikor a rögzített méretarányú navigáció aktív, a keresési eredményekre fókuszálás az elemre mozgatással jár. A rögzített méretarányú navigálás kikapcsolásakor az elemre mozgat és nagyít a program.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Digitalizálási információ mutatása</translation>
+        <translation type="vanished">Digitalizálási információ mutatása</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Ha be van kapcsolva, a koordináták, mint szélességi és hosszúsági értékek rákerülnek a térképre az új elemek digitalizálása vagy a mérőeszköz használata közben.</translation>
+        <translation type="vanished">Ha be van kapcsolva, a koordináták, mint szélességi és hosszúsági értékek rákerülnek a térképre az új elemek digitalizálása vagy a mérőeszköz használata közben.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Könyvjelzők megjelenítése</translation>
+        <translation type="vanished">Könyvjelzők megjelenítése</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Bekapcsoláskor a felhasználó mentett és jelenleg megnyitott projektkönyvjelzői megjelennek a térképen.</translation>
+        <translation type="vanished">Bekapcsoláskor a felhasználó mentett és jelenleg megnyitott projektkönyvjelzői megjelennek a térképen.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Natív kamera használata</translation>
+        <translation type="vanished">Natív kamera használata</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3503,7 +2624,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Alapjáraton elsötétül a képernyő</translation>
+        <translation type="vanished">Alapjáraton elsötétül a képernyő</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3511,7 +2632,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Tekintsük az egeret érintőképernyős eszköznek</translation>
+        <translation type="vanished">Tekintsük az egeret érintőképernyős eszköznek</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3519,7 +2640,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Névtelen mérőszámok küldése</translation>
+        <translation type="vanished">Névtelen mérőszámok küldése</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3527,19 +2648,19 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>General</source>
-        <translation>Általános</translation>
+        <translation type="vanished">Általános</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Pozícionálás</translation>
+        <translation type="vanished">Pozícionálás</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Változók</translation>
+        <translation type="vanished">Változók</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Keresés sor testreszabása</translation>
+        <translation type="vanished">Keresés sor testreszabása</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3551,15 +2672,15 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>system</source>
-        <translation>rendszer</translation>
+        <translation type="vanished">rendszer</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Hiányzó vagy hiányos nyelvet talált? %1Csatlakozzon a fordítói közösséghez.%2</translation>
+        <translation type="vanished">Hiányzó vagy hiányos nyelvet talált? %1Csatlakozzon a fordítói közösséghez.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Használt helymeghatározó eszköz:</translation>
+        <translation type="vanished">Használt helymeghatározó eszköz:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3597,7 +2718,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Csatlakoztatva ide %1</translation>
+        <translation type="vanished">Csatlakoztatva ide %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3605,7 +2726,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Csatlakozom ide %1</translation>
+        <translation type="vanished">Csatlakozom ide %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3613,11 +2734,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Helyzetinformációk megjelenítése</translation>
+        <translation type="vanished">Helyzetinformációk megjelenítése</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Pontosság jelző aktiválása</translation>
+        <translation type="vanished">Pontosság jelző aktiválása</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3638,7 +2759,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Átlagolt pozicionálási igény engedélyezése</translation>
+        <translation type="vanished">Átlagolt pozicionálási igény engedélyezése</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3646,15 +2767,15 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>A gyűjtemény automatikus befejezése, ha eléri a minimális számot</translation>
+        <translation type="vanished">A gyűjtemény automatikus befejezése, ha eléri a minimális számot</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Beállítása esetén a pozícióhoz rögzített kurzorral felvett töréspontok digitalizálása csak a minimális számú összegyűjtött pozíció átlagolt értékét fogadja el. Az átlagolt pozíciókkal történő digitalizálás során a művelet a töréspont hozzáadása gomb lenyomásával és nyomva tartásával történik, amely addig gyűjti a pozíciókat, amíg a gombot fel nem engedi. A pontossági követelmény beállítását a rendszer tiszteletben tartja, ha engedélyezve van.</translation>
+        <translation type="vanished">Beállítása esetén a pozícióhoz rögzített kurzorral felvett töréspontok digitalizálása csak a minimális számú összegyűjtött pozíció átlagolt értékét fogadja el. Az átlagolt pozíciókkal történő digitalizálás során a művelet a töréspont hozzáadása gomb lenyomásával és nyomva tartásával történik, amely addig gyűjti a pozíciókat, amíg a gombot fel nem engedi. A pontossági követelmény beállítását a rendszer tiszteletben tartja, ha engedélyezve van.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Antenna magasság kompenzáció</translation>
+        <translation type="vanished">Antenna magasság kompenzáció</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3666,23 +2787,23 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Magasság korrekció kihagyása</translation>
+        <translation type="vanished">Magasság korrekció kihagyása</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Használja a helymeghatározó eszköz által jelentett magasságot. Hagyjon ki minden olyan magassági korrekciót, amelyet a koordináta-rendszer transzformációja feltételezhet.</translation>
+        <translation type="vanished">Használja a helymeghatározó eszköz által jelentett magasságot. Hagyjon ki minden olyan magassági korrekciót, amelyet a koordináta-rendszer transzformációja feltételezhet.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Használt függőleges eltolás rács:</translation>
+        <translation type="vanished">Használt függőleges eltolás rács:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>egyik sem</translation>
+        <translation type="vanished">egyik sem</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Függőleges eltolási rács  a magasság pontosságának növelésére. Függőleges eltolási rács fájl hozzáadás a dokumentáció szerint.</translation>
+        <translation type="vanished">Függőleges eltolási rács  a magasság pontosságának növelésére. Függőleges eltolási rács fájl hozzáadás a dokumentáció szerint.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3690,11 +2811,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Az aktivitás nélküli idő hossza, mielőtt a képernyő elsötétülne, hogy kímélje az akkumulátort.</translation>
+        <translation type="vanished">Az aktivitás nélküli idő hossza, mielőtt a képernyő elsötétülne, hogy kímélje az akkumulátort.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>A töréspontokhoz rendelt mérték (M) érték:</translation>
+        <translation type="vanished">A töréspontokhoz rendelt mérték (M) érték:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3702,379 +2823,59 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Felszíni sebesség</translation>
+        <translation type="vanished">Felszíni sebesség</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Irány</translation>
+        <translation type="vanished">Irány</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Vízszintes pontosság</translation>
+        <translation type="vanished">Vízszintes pontosság</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Függőleges pontosság</translation>
+        <translation type="vanished">Függőleges pontosság</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Az aktuális pozícióhoz kötött koordináta kurzorral történő digitalizálás közben a fent kiválasztott mérési érték kerül hozzáadásra a geometriához, feltéve, hogy az rendelkezik M dimenzióval.</translation>
+        <translation type="vanished">Az aktuális pozícióhoz kötött koordináta kurzorral történő digitalizálás közben a fent kiválasztott mérési érték kerül hozzáadásra a geometriához, feltéve, hogy az rendelkezik M dimenzióval.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Hozzáad</translation>
+        <translation type="vanished">Hozzáad</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Szerkeszt</translation>
+        <translation type="vanished">Szerkeszt</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Eltávolít</translation>
+        <translation type="vanished">Eltávolít</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Csatlakozás ide %1</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Kövesd a rendszer megjelenést</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Világos téma</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Sötét téma</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Apró</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Szokásos</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Nagy</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Különösen nagy</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Az eszköz NMEA mondatainak fájlba naplózása</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Térképvászon megjelenítési minősége:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Legjobb minőség</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Alacsonyabb minőség</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Legalacsonyabb minőség</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Az alacsonyabb minőségű megjelenítés a kisebb memóriahasználatot és a gyorsabb frissítést részesíti előnyban a pontosság hátrányára.</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ortometrikus az eszköztől</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Használja a hangerő gombot a digitalizáláshoz</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Amennyiben engedélyezte, a hangerő növelés hozzáad egy  új töréspontot a hangerő csökkentés pedig eltávolítja a legutóbbi töréspontot a digitalizálás során.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Lehetséges töréspont hozzáadása a térkép ujjal érintésével</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Ha engedélyezett, az egér úgy működik, mintha egy ujj lett volna. Ha tiltott, az egér egy toll viselkedését követi.</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Térképvászon</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitalizálás és szerkesztés</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Felhasználói felület</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Megjelenítés:</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Betű méret:</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Nyelv:</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Haladó</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Bővítmény kezelés</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Lehetséges a térkép forgatása</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Bekapcsolásakor, a térkép forgatható a felhasználó által.</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Pontossági követelmény érvényesítése</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Ha pontossági jelző be van kapcsolva, a helymeghatározó gomb oldalán egy színezett jelvény látható. Ami &lt;span %1&gt;vörös&lt;/span&gt; ha a pontosság értéke rosszabb, a &lt;i&gt;gyenge&lt;/i&gt;értékénél, &lt;span %2&gt;sárga&lt;/span&gt; ha rosszabb, mint a &lt;i&gt;kíváló&lt;/i&gt;, viszont ha jobb, akkor &lt;span %3&gt;zöld&lt;/span&gt;.&lt;br&gt;
-Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizálás a pozícióhoz van kötve.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Előnézeti kép előállítása a látható térkép körül</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Az alakzat űrlap automatikusan nyílik, ha csak egy alakzat került kiválasztásra, az alakzatlista nézet kimarad.</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Zoom gombok megjelenítése</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Teljes képernyős alakzat űrlap</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Egyetlen alakzat kiválasztásakor az űrlap azonnali nyitása</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Bekapcsolva, a látható térképvászon körüli kép is részleges előállításra kerül, előnézetet adva a nagyítás és mozgatás során.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Automatikus mentés mód</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Bekapcsolva, a friss alakzatok azonnal mentődnek, amint érvényes a geometriájuk, teljesültek a megszorítások és az attribútum szerkesztés befejeződött.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Auto-zoom a kiválasztott alakzat(ok)ra</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>Engedélyezve, a térkép automatikusan nagyít a kiválasztott alakzatokra, akárcsak az űrlap nézetben éppen megjelenített adatokhoz tartozó alakzatra.</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Pozícióhoz kötött viselkedési mód:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Pozíció követés kizárólag</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Pozíció és iránytű orientáció követése</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Pozíció és mozgásirány követése</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Ha a térképvászon követi, vagy rögzített is a pozícióhoz, ugyanakkor képes igazodni az iránytű orientációjához, vagy a mozgás irányához.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Ez az érték módosítja a helymeghatározó eszköz által rögzített Z értéket. Ha pl. 1.6 kerül megadásra, a rendszer automatikusan kivon 1.6-ot minden rögzített értékből. Győződj meg a valós antenna magasságról, ami pl. a rúd magasság + antenna fázisközpont eltolás.</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 beállítások</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Hálózat</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Proxy engedélyezése</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Típus</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Rendszer alapértelmezett</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Host</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>pl. proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>pl. 8888</translation>
+        <translation type="vanished">Csatlakozás ide %1</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Felhasználó név</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>Választható</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>Proxyból kizárt URL-ek (vesszővel elválasztva)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>pl. localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Hálózati proxy beállítása, a QField forgalom proxy szerveren keresztüli vezetésére. Hasznos vállalati hálózatokhoz és VPN-hez.</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Bekapcsolva, a rendszer által biztosított, belső kamera lesz használva.</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Engedélyezve, névtelen mérőszámok kerülnek gyűjtésre és elküldésre,  segítve a használati érték fejlesztését.</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Pozícionáló eszköz</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>NTRIP korrekciók fogadása</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP kliens lecsatlakozott</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP kliens csatlakozva</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP kliens csatlakozva</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>Kérem adj érvényes NTRIP beállításokat</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>Magasság beállítás</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>Időbélyeg (másodperc Unix-idő)</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Rossz pontossági határérték</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>Kíváló pontossági határérték</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>Minimális pozíció szám</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Antenna magasság</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>Elérhető hitelesítési konfigurációk:</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>Hitelesítési gyorsítótár kiürítése</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>Hitelesítési gyorsítótár kiürítve</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>Ha elérhető, akkor a térképen ujjal érintett pontra mozog a koordináta kurzor, míg a kétszeri érintés egy töréspontot hoz létre.</translation>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
-        <translation>Válassz rajzolási sablont</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4297,6 +3098,41 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation>QField-el működtetve</translation>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>Fejlesztő</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation>%1 alkalmazás könyvtárak</translation>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation>%1 alkalmazás könyvtár</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Támogasd a QField fejlesztését</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Dokumentáció</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>Linkek menü</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>Változásnapló</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4354,6 +3190,21 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>File %1 does not exist</source>
         <translation>%1 fájl nem található</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>Kérjük, adja meg az adatbázis hitelesítő adatait</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>a host-nál</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>a szolgáltatásnál</translation>
     </message>
 </context>
 <context>
@@ -4427,6 +3278,21 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Audio Recorder</source>
         <translation>Hangfelvevő</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>Néhány réteget nem tudok betölteni</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>A következő rétegeket nem tudom betölteni, kérem ellenőrizze azokat és konfigurálja újra a QGIS projektet.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>További segítségért keresd a %1Portable Project%2 dokumentációs oldalt.</translation>
     </message>
 </context>
 <context>
@@ -4797,6 +3663,83 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
 </context>
 <context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>A QField újdonságai</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>Hiba a változási napló betöltése közben. Próbálja újra később!</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Támogasd a QField fejlesztését</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>Nézze meg a legutóbbi QField változásokat</translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>QField kiadás oldala</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>Előző kiadások a GitHub-on</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometria</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>Sikertelen beillesztés: a cél réteg nem biztosított</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>Vágás művelet: a forrás és cél réteg ugyanaz, elmaradt beillesztés.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>Sikertelen beillesztés: a vágólapi alakzat érvénytelen.</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>Sikertelen vágás: %1 forrás rétegen nem indítható szerkesztés</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>Sikertelen vágás: %1 forrás rétegből nem törölhető az eredeti alakzat</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>Sikertelen beillesztés: nem készíthetők kompatibilis alakzatok</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>Sikertelen beillesztés: %1 réteg szerkesztése nem indítható el</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>Sikertelen beillesztés: %1 réteghez nem adható alakzat</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>Sikertelen beillesztés: %1 rétegen sikertelen a változások véglegesítése</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>%1 forrás rétegen a vágás véglegesítése nem sikerült</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
@@ -4857,6 +3800,373 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>Nem sikerült feltölteni a `%1` címen tárolt mellékletet, oka:%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation>A fenti művelet visszafordíthatatlanul megváltoztatja a helyi adataidat. Alkalmazd figyelmesen.</translation>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Projekt visszaállítás</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Helyi változások eldobása</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Ennek a felhőprojektnek a helyi példánya megsérült. A projekt alaphelyzetbe állításával újra letölti a felhőverziót, és eltávolítja az összes helyi módosítást. Szükség esetén  először készítsen másolatot. A projektet továbbra is megtekintheti és használhatja, a véletlen adatvesztés elkerülése érdekében erősen ajánlott a visszaállítás, mivel a végrehajtott módosítások egyike sem kerül vissza a felhőbe.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation>Eltávolít minden még fel nem töltött helyi szerkesztést</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Visszaállítás</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Eldobás</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation>Feltöltés történet</translation>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation>Feltöltés történet lehívása</translation>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation>Változások még nem kerültek feltöltésre!</translation>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation>Alkalmazott</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>Függő</translation>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation>Foglalt</translation>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation>Konfliktus</translation>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation>Nem alkalmazott</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Hiba</translation>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation>Kizárt</translation>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation>Nem engedélyezett</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Ismeretlen</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>Sikertelen bejelentkezés</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation>%1Szerver URL
+(Alapértelmezett szerver esetén hagyd üresen)</translation>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>Felhasználó név vagy email</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Jelszó</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Kijelentkezés</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>Bejelentkezés, kérem várjon!</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Bejelentkezés</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>vagy</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>Bejelentkezés %1-el</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation>Látogasd meg a %1beállítások oldalt%2 a fiókod kezeléséhez.</translation>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>Új felhasználó?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>Regisztráljon egy fiókot!</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>A legegyszerűbb mód a projektjének átvitelére a QGIS-ből az eszközére!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Tanuljon többet a QFieldCloud-ról</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation>Néhány réteg helytelenül lett becsomagolva. Ezen a rétegek konfigurációja hibás lehet vagy az adatforrásai nem érhetők el a QFieldCloud szerverről.</translation>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation>Ellenőrizd az alábbi visszajelzést és az utolsó csomagolási naplót a QFieldCloud oldalán.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation>Veszélyzóna</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>Néhány réteg nincs megfelelően csomagolva a QFieldCloudban. Lehetséges, hogy ezek a rétegek rosszul vannak konfigurálva, vagy adatforrásuk nem érhető el a QFieldCloud szerverről. Kérjük, ellenőrizze a csomagolás naplófájljait a qfield.cloud webhelyen.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>A QFieldCloud az Ön számára csomagolja a legfrissebb adatokat; ez eltarthat egy ideig, kérjük legyen türelmes</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Letöltési folyamat: %1% -ból %2 letöltve</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Letöltési folyamat: %1% letöltve</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>Változások feltöltése, %1%…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>A QFieldCloud érvényesíti a legutóbb feltöltött változásokat. Ez eltarthat egy ideig, kérem várjon...</translation>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation>Felhősítsd a projektet</translation>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>Az aktuális projekt feltöltése a QFieldCloud-ra.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation>Az aktuális projekt nincs meg a QFieldCloud-ban. A QFieldCloud-ban tárolás zökkenőmentes szinkronizációt, offline szerkesztést és csapatkezelést tesz lehetővé.</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Tanuljon többet a QFieldCloud-ról</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation>%1% felhősítése</translation>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation>Felhősítés</translation>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>A helyben tárolt felhő projekt megsérült</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Helyi változások feltöltése</translation>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation>Szerkesztések és csatolmányok küldése a felhőbe a projekt frissítések letöltése nélkül. Gyors és kis adatigényű.</translation>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation>Még nem történt változás feltöltés</translation>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation>Az utolsó feltöltés épp most volt</translation>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation>Az utolsó feltöltés %1 perce történt</translation>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation>A mai utolsó feltöltés %1</translation>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation>Az utolsó feltöltés ezen %1</translation>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation>Feltöltés</translation>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation><numerusform>Automatikus feltöltés %n percenként</numerusform><numerusform>Automatikus feltöltés %n percenként</numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation>A jelenlegi projekt nem engedélyezi az automatikus feltöltés kikapcsolását</translation>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation>Szinkronizáld a projektet</translation>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation>A változások feltöltése, majd a projekt utolsó változatának letöltése után minden adat aktuális.</translation>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>Utoljára éppen most szinkronizáltuk</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>Utoljára %1 perccel ezelőtt szinkronizáltuk</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation>A mai utolsó szinkronizálás %1-kor</translation>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>Utolsó szinkronizálás: %1</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Szinkronizálás</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation>Feltöltés történet</translation>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation>Veszélyzóna</translation>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>Feltöltés: %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>%n fájl marad meg</numerusform><numerusform>%n fájl marad meg</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Helyi változások eldobása</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation>Elveti a helyi változásokat?</translation>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>Felhő projekt visszaállítása</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>Utolsó figyelmeztetés: a felhőprojekt alaphelyzetbe állítása törli a helyi módosításokat. Biztosan folytatja?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>Kapcsolódás a felhőhöz</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Ehhez a projekthez van egy frissített fájl a felhőben, javasoljuk hogy szinkronizáljon.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>A projekthez frissített adatok vannak a felhőben, szinkronizálni kellene.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation>A %1 projekt nem becsomagolható, mert a tárhelyed betelt.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Tárhelybővítés</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation>A %1 projekt nem becsomagolható, mert a projekt tulajdonos tárhelye betelt.</translation>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>Helyi változásokat eldobtam</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>Sikertelen a változások eldobása</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>Nincsenek eldobható változások</translation>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>Használva %1 a %2-ből</translation>
     </message>
 </context>
 <context>
@@ -4977,6 +4287,104 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>%1 használata %2 -ből</translation>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation>Tárhely méret</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Tulajdonos</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Létrehozás</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Utolsó frissítés</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Ezt a QR-kódot a hozzáféréssel bíró felhasználók beolvashatják a projekt letöltéséhez és megnyitásához.</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Szinkronizálás</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Szinkronizálás</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Helyi változások feltöltése</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>A QFieldCloud projektet csomagol, szoríts</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Projekt letöltés</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Töltsd le a projektet</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>%1 projekt letöltése</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Projekt megnyitása</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation>Projekt másolás</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation>Saját projektjeim</translation>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation>%1 projektjei</translation>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation>Előre megadott szűrők</translation>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation>Feltétel</translation>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation>A cím vagy a leírás tartalmazza</translation>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation>A tulajdonos</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation>A nyilvános projekteket is beleértve</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Keresés</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -4993,6 +4401,173 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Cloud project could not be created.</source>
         <translation>A felhőprojekt nem létrehozható</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>QFieldCloud projektek</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>Leválasztva a felhőről-</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>Kapcsolódás a felhőhöz.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>Üdvözlet &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projektek</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation>Projektek keresése</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>A QFieldCloud az Ön számára csomagolja a legfrissebb adatokat; ez eltarthat egy ideig, kérjük legyen türelmes</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Letöltési folyamat: %1% -ból %2 letöltve</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Letöltési folyamat: %1% letöltve</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>Feltöltés...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Letöltési hiba.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Feltöltési hiba.</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation>Projektlista frissítése...</translation>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation>Projektek keresése...</translation>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation>Nem található felhőprojekt.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation>Próbálj %1 felhasználni nyilvános projekteket %2, nézd, mit kínál a közösség.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation>Próbálj %1 felhasználni nyilvános projekteket %2</translation>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation>Kezdetnek %1 olvasd el a %2 leírását.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Projekt lista frissítés</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Kijelentkezés</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Bejelentkezés</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation>Beállítások oldal</translation>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>Mutasd a hibás projekteket</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Projekt műveletek</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Projekt megnyitása</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Szinkronizálás</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Helyi változások feltöltése</translation>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation>Projekt Másolás</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Tárolt projekt eltávolítása</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>Projekt részletek nézet</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>Projekt mappa nézet</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Valóban törölni kívánod `%1`-t?</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation>Projekt Másolás</translation>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation>Milyen nevet akarsz adni a projekt másolatának?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Felhőprojekt részleteinek lekérése sikertelen</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Projekt másolás sikertelen: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Projekt készítés sikertelen: %1</translation>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation>A projekt másolása sikerült</translation>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation>Sikerült létrehozni a projektet</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Projekt lista frissítése</translation>
     </message>
 </context>
 <context>
@@ -5124,6 +4699,41 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Point Feature Picker</source>
         <translation>Pont alakzat átvétel</translation>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>A %1 réteg csak olvasható.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation>Projekt információ</translation>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>Térkép téma</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Jelmagyarázat</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>Összes kibontása</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>Összes összecsukása</translation>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation>Vissza a kezdethez</translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>A projekt csak olvasható.</translation>
     </message>
 </context>
 <context>
@@ -5334,14 +4944,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>Nem sikerült elindítani az egeniouss szervert.</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>Nem sikerült leállítani az egeniouss szervert.</translation>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation>A beérkezett adat túl rövid a feldolgozáshoz</translation>
     </message>
@@ -5372,6 +4974,34 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>TCP receiver error (%1)</source>
         <translation>TCP vételi hiba (%1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5867,6 +5497,21 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>Befejezés</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Következő</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Előző</translation>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6098,6 +5743,293 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>Ezen réteg jogosultság beállításai tiltják az elem hozzáadást.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>Projekt mappa</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>Helyi projektek és adathalmazok</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>Mappák</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projektek</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>Adathalmazok</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>Fájlok</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Kedvencek</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>Projektfájl</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>Vektor adathalmaz</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>Raszter adathalmaz</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Kezdőoldal</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Elem műveletek</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>Fájl megnézése</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Küldés...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>Feltöltés a QFieldCloud-ra</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exportálás mappába...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Hozzáadás a Kedvencekhez</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Eltávolítás a Kedvencek közül</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>Tömörített mappa küldése...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>Mappa feltöltése WebDAV szerverre</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>Mappa letöltése WebDAV szerverről</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation>Mappa törlése</translation>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation>Fájl törlése</translation>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>Adathalmaz eltávolítása</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>Import műveletek</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>Projekt importálása mappából</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>Projekt importálása ZIP-ből</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>Adathalmaz(ok) importálása</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>URL importálása</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>WebDAV mappa import</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>Tárhelykezelési súgó</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Projekt műveletek</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>Projekt aktualizálása ZIP-ből</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation>Tömöríts a projektet és küld ide...</translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>Projekt feltöltése WebDAV-ra</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>Projekt letöltése WebDAV-ról</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>Fájl(ok) feltöltése WebDAV-ra</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>Fájl(ok) elküldése a QFieldCloudba</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>Válassz ki egy, vagy több fájlt a QFieldCloud-ba töltésre.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation>Fájl(ok) törlése</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>‘%1’ a QFieldCloud-ra való feltöltés alatt</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>A QFieldCloud-ra feltöltendő elemek</translation>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation>Fájl(ok) eltávolítása</translation>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation><numerusform>Valóban el akar távolítani %n fájlt?</numerusform><numerusform>Valóban el akar távolítani %n fájlt?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation><numerusform>%n fájl megfelelően törölve</numerusform><numerusform>%n fájl megfelelően törölve</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation><numerusform>%n fájl törlése sikertelen</numerusform><numerusform>%n fájl törlése sikertelen</numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Írd az URL címet alább a projekt, vagy adathalmaz importálásához</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>WebDAV mappa importálása</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>WebDAV mappa letöltése</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>WebDAV mappa feltöltése</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>WebDAV hiba:</translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>WebDAV feltöltés</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>WebDAV letöltés</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>Módosított tartalmat fog feltölteni &lt;b&gt;%1&lt;/b&gt;-be mint &lt;b&gt;%2&lt;/b&gt; felhasználó. &lt;br&gt;&lt;br&gt;Ez a művelet felülírja a távol tárolt tartalmat, győződjön meg róla, hogy ezt akarja csinálni.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>&lt;b&gt;%1&lt;/b&gt; módosított tartalmának letöltésére készülsz a &lt;b&gt;%2&lt;/b&gt; felhasználóval.&lt;br&gt;&lt;br&gt;Ez a művelet felülírja a helyben tárolt adatokat, valóban ezt szeretnéd?</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>Jelszó (hagyja üresen a megjegyzett használatához)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Jelszó</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>Jelszó megjegyzése</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>Írja be a WebDAV adatokat a távoli mappa importhoz:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>WebDAV szerver URL</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>Felhasználó és jelszó</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>üresen hagyva a megjegyzettet veszi</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>Távoli mappák lekérése</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>Távoli mappák lekérése</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>Válassza ki az importálandó távoli mappát:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>gyökérkönyvtár</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>Elérhető helyben itt: ‘%1’</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>Importált mappa neve</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Megerősít</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>Egy mentett WebDAV-elemet készül eltávolítani, folytatja?</translation>
     </message>
 </context>
 <context>
@@ -6500,6 +6432,111 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Raster Datasets</source>
         <translation>Raszter adatállományok</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Szerző: %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Törlésre kerülő verzió: %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Bővítmény törlése</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>A kért plugin URL szerepel az elérhető plugin listában, installáld azt a letöltés gomb segítségével</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>A letöltött zip fájlt nem sikerült kicsomagolni</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>A letöltött zip fájl nem tartalmazza a szükséges main.qml bővítmény fájlt</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>A letöltött fájl nem menthető</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>A letöltött fájl nem egy tömörített bővítmény</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>Hálózati hiba</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>Bővítmények</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>Helyi pluginok</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>Elérhető pluginok</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>Plugin keresése</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>Az elérhető pluginok lehívása</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>Még nincs telepített bővítmény. Váltson át az %1elérhető bővítmények%3 fülre, hogy azonnal kipróbálhasson néhányat.&lt;br&gt;&lt;br&gt;További információkért %2olvassa el a dokumentációt%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>Plugin telepítés URL-ről</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation>A jelenleg megnyitott projekt betöltött egy bővítményt</translation>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation>Engedély megtagadása</translation>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>Bővítmény kezelési menű</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>Törölje a megjegyzett engedélyeket</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>A szerzői adatok fentebb, a bővítményben rögzítettek, nincsenek függetlennül hitelesítve. Kérlek bizonyosodj meg a bővítmény eredetében!</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>Írd be alább a bővítmény letöltéséhez és telepítéséhez szükséges URL-t:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation>Valóban törölni kívánod `%1`-t?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>%1 telepítése</translation>
     </message>
 </context>
 <context>
@@ -7193,6 +7230,517 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Léptékvonalzó megjelenítése</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Zoom gombok megjelenítése</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Könyvjelzők megjelenítése</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Bekapcsoláskor a felhasználó mentett és jelenleg megnyitott projektkönyvjelzői megjelennek a térképen.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Lehetséges a térkép forgatása</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Bekapcsolásakor, a térkép forgatható a felhasználó által.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Digitalizálási információ mutatása</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Ha be van kapcsolva, a koordináták, mint szélességi és hosszúsági értékek rákerülnek a térképre az új elemek digitalizálása vagy a mérőeszköz használata közben.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Használja a hangerő gombot a digitalizáláshoz</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Amennyiben engedélyezte, a hangerő növelés hozzáad egy  új töréspontot a hangerő csökkentés pedig eltávolítja a legutóbbi töréspontot a digitalizálás során.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Lehetséges töréspont hozzáadása a térkép ujjal érintésével</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>Ha elérhető, akkor a térképen ujjal érintett pontra mozog a koordináta kurzor, míg a kétszeri érintés egy töréspontot hoz létre.</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Tekintsük az egeret érintőképernyős eszköznek</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Ha engedélyezett, az egér úgy működik, mintha egy ujj lett volna. Ha tiltott, az egér egy toll viselkedését követi.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Teljes képernyős alakzat űrlap</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Egyetlen alakzat kiválasztásakor az űrlap azonnali nyitása</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Az alakzat űrlap automatikusan nyílik, ha csak egy alakzat került kiválasztásra, az alakzatlista nézet kimarad.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Rögzített méretarányú navigálás</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Amikor a rögzített méretarányú navigáció aktív, a keresési eredményekre fókuszálás az elemre mozgatással jár. A rögzített méretarányú navigálás kikapcsolásakor az elemre mozgat és nagyít a program.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Auto-zoom a kiválasztott alakzat(ok)ra</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>Engedélyezve, a térkép automatikusan nagyít a kiválasztott alakzatokra, akárcsak az űrlap nézetben éppen megjelenített adatokhoz tartozó alakzatra.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Előnézeti kép előállítása a látható térkép körül</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Bekapcsolva, a látható térképvászon körüli kép is részleges előállításra kerül, előnézetet adva a nagyítás és mozgatás során.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Automatikus mentés mód</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Bekapcsolva, a friss alakzatok azonnal mentődnek, amint érvényes a geometriájuk, teljesültek a megszorítások és az attribútum szerkesztés befejeződött.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Natív kamera használata</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Bekapcsolva, a rendszer által biztosított, belső kamera lesz használva.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Névtelen mérőszámok küldése</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Engedélyezve, névtelen mérőszámok kerülnek gyűjtésre és elküldésre,  segítve a használati érték fejlesztését.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Általános</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Pozícionálás</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Változók</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Térképvászon</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Térképvászon megjelenítési minősége:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Legjobb minőség</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Alacsonyabb minőség</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Legalacsonyabb minőség</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Az alacsonyabb minőségű megjelenítés a kisebb memóriahasználatot és a gyorsabb frissítést részesíti előnyban a pontosság hátrányára.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalizálás és szerkesztés</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Felhasználói felület</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Keresés sor testreszabása</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Bővítmény kezelés</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Alapjáraton elsötétül a képernyő</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Az aktivitás nélküli idő hossza, mielőtt a képernyő elsötétülne, hogy kímélje az akkumulátort.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Megjelenítés:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Kövesd a rendszer megjelenést</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Világos téma</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Sötét téma</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Betű méret:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Apró</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Szokásos</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Nagy</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Különösen nagy</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Nyelv:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>rendszer</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Hiányzó vagy hiányos nyelvet talált? %1Csatlakozzon a fordítói közösséghez.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Hálózat</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>Elérhető hitelesítési konfigurációk:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Hitelesítési gyorsítótár kiürítése</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>Hitelesítési gyorsítótár kiürítve</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Proxy engedélyezése</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Típus</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Rendszer alapértelmezett</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Kiszolgáló</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>pl. proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>pl. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Felhasználó név</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Választható</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Jelszó</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>Proxyból kizárt URL-ek (vesszővel elválasztva)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>pl. localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Hálózati proxy beállítása, a QField forgalom proxy szerveren keresztüli vezetésére. Hasznos vállalati hálózatokhoz és VPN-hez.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Haladó</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Pozícionáló eszköz</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Használt helymeghatározó eszköz:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Hozzáad</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Szerkeszt</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Eltávolít</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Csatlakoztatva ide %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Csatlakozás ide %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Csatlakozom ide %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>NTRIP korrekciók fogadása</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>NTRIP kliens lecsatlakozott</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>NTRIP kliens csatlakozva</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>NTRIP kliens csatlakozva</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>Kérem adj érvényes NTRIP beállításokat</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Helyzetinformációk megjelenítése</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Pozícióhoz kötött viselkedési mód:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Pozíció követés kizárólag</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Pozíció és iránytű orientáció követése</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Pozíció és mozgásirány követése</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Ha a térképvászon követi, vagy rögzített is a pozícióhoz, ugyanakkor képes igazodni az iránytű orientációjához, vagy a mozgás irányához.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>A töréspontokhoz rendelt mérték (M) érték:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Időbélyeg (másodperc Unix-idő)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Felszíni sebesség</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Irány</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Vízszintes pontosság</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Függőleges pontosság</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Az aktuális pozícióhoz kötött koordináta kurzorral történő digitalizálás közben a fent kiválasztott mérési érték kerül hozzáadásra a geometriához, feltéve, hogy az rendelkezik M dimenzióval.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Pontosság jelző aktiválása</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Rossz pontossági határérték</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>Kíváló pontossági határérték</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Pontossági követelmény érvényesítése</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Ha pontossági jelző be van kapcsolva, a helymeghatározó gomb oldalán egy színezett jelvény látható. Ami &lt;span %1&gt;vörös&lt;/span&gt; ha a pontosság értéke rosszabb, a &lt;i&gt;gyenge&lt;/i&gt;értékénél, &lt;span %2&gt;sárga&lt;/span&gt; ha rosszabb, mint a &lt;i&gt;kíváló&lt;/i&gt;, viszont ha jobb, akkor &lt;span %3&gt;zöld&lt;/span&gt;.&lt;br&gt;
+Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizálás a pozícióhoz van kötve.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Átlagolt pozicionálási igény engedélyezése</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>Minimális pozíció szám</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>A gyűjtemény automatikus befejezése, ha eléri a minimális számot</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Beállítása esetén a pozícióhoz rögzített kurzorral felvett töréspontok digitalizálása csak a minimális számú összegyűjtött pozíció átlagolt értékét fogadja el. Az átlagolt pozíciókkal történő digitalizálás során a művelet a töréspont hozzáadása gomb lenyomásával és nyomva tartásával történik, amely addig gyűjti a pozíciókat, amíg a gombot fel nem engedi. A pontossági követelmény beállítását a rendszer tiszteletben tartja, ha engedélyezve van.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Magasság beállítás</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Antenna magasság kompenzáció</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Antenna magasság</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Ez az érték módosítja a helymeghatározó eszköz által rögzített Z értéket. Ha pl. 1.6 kerül megadásra, a rendszer automatikusan kivon 1.6-ot minden rögzített értékből. Győződj meg a valós antenna magasságról, ami pl. a rúd magasság + antenna fázisközpont eltolás.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Magasság korrekció kihagyása</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Használja a helymeghatározó eszköz által jelentett magasságot. Hagyjon ki minden olyan magassági korrekciót, amelyet a koordináta-rendszer transzformációja feltételezhet.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Használt függőleges eltolás rács:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>egyik sem</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ortometrikus az eszköztől</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Függőleges eltolási rács  a magasság pontosságának növelésére. Függőleges eltolási rács fájl hozzáadás a dokumentáció szerint.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Az eszköz NMEA mondatainak fájlba naplózása</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 beállítások</translation>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>Válassz rajzolási sablont</translation>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7500,6 +8048,107 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Invalid WebDAV config JSON.</source>
         <translation>Hibás WebDAV konfig JSON.</translation>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>Sajnálattal halljuk. Az alábbi gombra kattintva tud hozzászólni vagy segítséget kérni.</translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>elérni</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation>Szia, milyen tapasztalataid vannak eddig a %1-ről?</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>Ez nagyszerű! Szeretnénk, ha az alábbi gombra kattintana, és leírná a véleményét.</translation>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>Értékeljen minket</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>Az anonimizált mutatók gyűjtése le van tiltva. A beállítások panelen keresztül újra engedélyezheti.</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation>A %1 névtelen mérőszámokat gyűjt és küld a stabilitás javítása érdekében.</translation>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>Egyetértek</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>Inkább nem</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloud
+projektek</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>Helyi projektek és
+adatkészletek</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>Új projekt
+készítése</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>Utolsó használat</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>Alapértelmezett projekt</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>Alaptérkép</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>Korábbi projekt műveletek</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>Alapértelmezett projekt betöltése az indításnál</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>Indításkor az utoljára megnyitott projekt betöltése</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>Visszatérés a térképhez</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation>Először használod az applikációt? Próbáld ki az alábbi mintaprojekteket.</translation>
     </message>
 </context>
 <context>
@@ -8887,11 +9536,11 @@ to show actions</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>Sajnálattal halljuk. Az alábbi gombra kattintva tud hozzászólni vagy segítséget kérni.</translation>
+        <translation type="vanished">Sajnálattal halljuk. Az alábbi gombra kattintva tud hozzászólni vagy segítséget kérni.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>elérni</translation>
+        <translation type="vanished">elérni</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8903,11 +9552,11 @@ to show actions</source>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Értékeljen minket</translation>
+        <translation type="vanished">Értékeljen minket</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>Az anonimizált mutatók gyűjtése le van tiltva. A beállítások panelen keresztül újra engedélyezheti.</translation>
+        <translation type="vanished">Az anonimizált mutatók gyűjtése le van tiltva. A beállítások panelen keresztül újra engedélyezheti.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8915,11 +9564,11 @@ to show actions</source>
     </message>
     <message>
         <source>I agree</source>
-        <translation>Egyetértek</translation>
+        <translation type="vanished">Egyetértek</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>Inkább nem</translation>
+        <translation type="vanished">Inkább nem</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -8935,7 +9584,7 @@ to show actions</source>
     </message>
     <message>
         <source>Last session</source>
-        <translation>Utolsó használat</translation>
+        <translation type="vanished">Utolsó használat</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8956,76 +9605,6 @@ to show actions</source>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">Üdvözöllek újra a QField-ben.</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>Alapértelmezett projekt</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>Alaptérkép</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>Alapértelmezett projekt betöltése az indításnál</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>Indításkor az utoljára megnyitott projekt betöltése</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation>Korábbi projekt műveletek</translation>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>Ez nagyszerű! Szeretnénk, ha az alábbi gombra kattintana, és leírná a véleményét.</translation>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation>Visszatérés a térképhez</translation>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation>QFieldCloud
-projektek</translation>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation>Helyi projektek és
-adatkészletek</translation>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation>Új projekt
-készítése</translation>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Szia, milyen tapasztalataid vannak eddig a %1-ről?</translation>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation>A %1 névtelen mérőszámokat gyűjt és küld a stabilitás javítása érdekében.</translation>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation>Először használod az applikációt? Próbáld ki az alábbi mintaprojekteket.</translation>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

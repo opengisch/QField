@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>மூலம் உருவாக்கப்பட்டது</translation>
+        <translation type="vanished">மூலம் உருவாக்கப்பட்டது</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QField ஐ ஆதரிக்கவும்</translation>
+        <translation type="vanished">QField ஐ ஆதரிக்கவும்</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>மாற்றபதிவு</translation>
+        <translation type="vanished">மாற்றபதிவு</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>ஆவணப்படுத்துதல்</translation>
+        <translation type="vanished">ஆவணப்படுத்துதல்</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>இணைப்புகள் பட்டியல்</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation>QFIELD ஆல் இயக்கப்படுகிறது</translation>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation>%1 பயன்பாட்டு கோப்பகங்கள்</translation>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation>1 சதவீதம் பயன்பாட்டு அடைவு</translation>
+        <translation type="vanished">இணைப்புகள் பட்டியல்</translation>
     </message>
 </context>
 <context>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>சில அடுக்குகளை ஏற்ற முடியவில்லை</translation>
+        <translation type="vanished">சில அடுக்குகளை ஏற்ற முடியவில்லை</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>பின்வரும் அடுக்குகளை ஏற்ற முடியவில்லை, தயவுசெய்து அவற்றை மதிப்பாய்வு செய்து QGIS திட்டத்தை மறுகட்டமைக்கவும்.</translation>
+        <translation type="vanished">பின்வரும் அடுக்குகளை ஏற்ற முடியவில்லை, தயவுசெய்து அவற்றை மதிப்பாய்வு செய்து QGIS திட்டத்தை மறுகட்டமைக்கவும்.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">மேலும் உதவிக்கு QField ஆவணத்தில் போர்ட்டபிள் திட்டப் பகுதியை நீங்கள் சரிபார்க்கலாம்.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>மேலும் உதவிக்கு %1Portable Project%2 ஆவணப் பக்கத்தைப் பார்க்கலாம்.</translation>
     </message>
 </context>
 <context>
@@ -424,30 +408,30 @@ Cancel to make a minimal device scan instead.</source>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>QField இல் புதிதாக என்ன இருக்கிறது</translation>
+        <translation type="vanished">QField இல் புதிதாக என்ன இருக்கிறது</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>சேஞ்ச்லாக்கைப் பெறுவதில் பிழை, பிறகு முயற்சிக்கவும்.</translation>
+        <translation type="vanished">சேஞ்ச்லாக்கைப் பெறுவதில் பிழை, பிறகு முயற்சிக்கவும்.</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QField ஐ ஆதரிக்கவும்</translation>
+        <translation type="vanished">QField ஐ ஆதரிக்கவும்</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>அண்மைக் கால QField மாற்றங்களைச் சரிபார்க்கவும்</translation>
+        <translation type="vanished">அண்மைக் கால QField மாற்றங்களைச் சரிபார்க்கவும்</translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>QField வெளியீடுகள் பக்கம்</translation>
+        <translation type="vanished">QField வெளியீடுகள் பக்கம்</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>GitHub இல் முந்தைய வெளியீடுகள்</translation>
+        <translation type="vanished">GitHub இல் முந்தைய வெளியீடுகள்</translation>
     </message>
 </context>
 <context>
@@ -463,53 +447,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation type="vanished">NULL</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>வடிவியல்</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>ஒட்டுவதில் தோல்வி: இலக்கு அடுக்கு வழங்கப்படவில்லை</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>வெட்டு செயல்பாடு: மூல மற்றும் இலக்கு அடுக்குகள் ஒரே மாதிரியானவை, பேச்ட்டைத் தவிர்க்கவும்.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>ஒட்டுவதில் தோல்வி: இடைநிலைப்பலகை நற்பொருத்தம் தவறானது</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>வெட்டு தோல்வியடைந்தது: மூல அடுக்கு % 1 இல் திருத்தத் தொடங்க முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>வெட்டு தோல்வியடைந்தது: மூல அடுக்கு % 1 இலிருந்து அசல் அம்சத்தை நீக்க முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>ஒட்டுவதில் தோல்வி: இணக்கமான அம்சங்களை உருவாக்க முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>ஒட்டுவதில் தோல்வி: அடுக்கு % 1 இல் திருத்தத் தொடங்க முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>ஒட்டுவதில் தோல்வி: % 1 அடுக்குக்கு அம்சத்தைச் சேர்க்க முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>ஒட்டுவதில் தோல்வி: அடுக்கு% 1 இல் மாற்றங்கள் தோல்வியடைந்தன</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>மூல அடுக்கு% 1 இல் கட் கமிட் தோல்வியடைந்தது</translation>
     </message>
 </context>
 <context>
@@ -530,38 +467,14 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>அடுக்கு % 1 படிக்க மட்டுமே.</translation>
+        <translation type="vanished">அடுக்கு % 1 படிக்க மட்டுமே.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>வரைபடம் கருப்பொருள்</translation>
+        <translation type="vanished">வரைபடம் கருப்பொருள்</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>திட்டம் படிக்க மட்டுமே.</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>புராணக்கதை</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation>வீட்டுக்குத் திரும்பு</translation>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation>அனைத்தையும் விரிவாக்கு</translation>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation>அனைத்தையும் சுருக்கு</translation>
-    </message>
-    <message>
-        <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1579,111 +1492,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>%1%2%3 ஆல் எழுதப்பட்டது</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>பதிப்பு% 1ஐ நிறுவல் நீக்கவும்</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>சொருகி நிறுவல் நீக்கவும்</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>பதிவிறக்கம் செய்யப்பட்ட சிப் கோப்பை டிகம்ப்ரச் செய்ய முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>பதிவிறக்கம் செய்யப்பட்ட சிப் கோப்பில் தேவையான main.qml செருகுநிரல் கோப்பு இல்லை</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>பதிவிறக்கிய கோப்பைச் சேமிக்க முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>பதிவிறக்க கோப்பு சிப் செய்யப்பட்ட செருகுநிரல் அல்ல</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>பிணையம் பிழை</translation>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>கோரப்பட்ட செருகுநிரல் முகவரி கிடைக்கக்கூடிய செருகுநிரல்கள் பட்டியலில் உள்ளது, அதன் பதிவிறக்க பொத்தான் மூலம் நிறுவவும்</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>செருகுநிரல்கள்</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>முகவரி இலிருந்து செருகுநிரலை நிறுவவும்</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>நினைவில் வைத்திருக்கும் அனுமதிகளை அழிக்கவும்</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>செருகுநிரலைப் பதிவிறக்கி நிறுவ, கீழே உள்ள URLஐத் தட்டச்சு செய்க:</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>% 1ஐ நிறுவுகிறது</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>நீங்கள் நிச்சயமாக `%1` ஐ நிறுவல் நீக்க விரும்புகிறீர்களா?</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>மேலே காட்டப்பட்டுள்ள ஆசிரியர் விவரங்கள் சொருகி மூலம் சுயமாகப் புகாரளிக்கப்பட்டு சுயாதீனமாக சரிபார்க்கப்படவில்லை. செருகுநிரலின் மூலத்தை நீங்கள் நம்புவதை உறுதிசெய்யவும்.</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>செருகுநிரல்கள் மேலாண்மை பட்டியல்</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>உள்ளக செருகுநிரல்கள்</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>கிடைக்கும் செருகுநிரல்கள்</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>செருகுநிரலைத் தேடுங்கள்</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>கிடைக்கும் செருகுநிரல்களைப் பெறுகிறது</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>இன்னும் செருகுநிரல்கள் எதுவும் நிறுவப்படவில்லை, %1கிடைக்கும் செருகுநிரல்கள்%3 தாவலுக்கு மாறவும், சிலவற்றை இப்போதே முயற்சிக்கவும்.&lt;br&gt;&lt;br&gt;மேலும் தகவலுக்கு, %2ஆவணத்தைப் படிக்கவும்%3.</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -1943,21 +1751,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation>தரவுத்தளத்திற்கான சான்றுகளை உள்ளிடவும்</translation>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation>ஓச்டில்</translation>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation>சேவையில்</translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2020,35 +1813,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>திட்டத்தை மீட்டமைக்கவும்</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>இந்த முகில் திட்டத்தின் உள்ளக நகல் சிதைந்துள்ளது. திட்டத்தை மீட்டமைப்பது முகில் பதிப்பை மீண்டும் பதிவிறக்கும் மற்றும் ஏதேனும் உள்ளக மாற்றங்களை அகற்றும், தேவைப்பட்டால் அவை முதலில் நகலெடுக்கப்பட்டன என்பதை உறுதிப்படுத்தவும். 
-
-நீங்கள் இன்னும் திட்டத்தைப் பார்க்கவும் பயன்படுத்தவும் முடியும் என்றாலும், தற்செயலான தரவு இழப்பைத் தவிர்க்க மீட்டமைக்க பரிந்துரைக்கப்படுகிறது, ஏனெனில் செய்யப்பட்ட மாற்றங்கள் எதுவும் மேகக்கணிக்குத் தள்ளப்படாது.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2063,55 +1834,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">ஏற்றுகிறது…</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>தெரியவில்லை</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2123,7 +1846,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>உள்நுழைவதில் தோல்வி</translation>
+        <translation type="vanished">உள்நுழைவதில் தோல்வி</translation>
     </message>
     <message>
         <source>Server URL
@@ -2133,31 +1856,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Username or email</source>
-        <translation>பயனர்பெயர் அல்லது மின்னஞ்சல்</translation>
+        <translation type="vanished">பயனர்பெயர் அல்லது மின்னஞ்சல்</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>கடவுச்சொல்</translation>
+        <translation type="vanished">கடவுச்சொல்</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>விடுபதிகை</translation>
+        <translation type="vanished">விடுபதிகை</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>உள்நுழைகிறேன், காத்திருக்கவும்</translation>
+        <translation type="vanished">உள்நுழைகிறேன், காத்திருக்கவும்</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>விடுபதிகை</translation>
+        <translation type="vanished">விடுபதிகை</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>புதிய பயனரா?</translation>
+        <translation type="vanished">புதிய பயனரா?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>ஒரு கணக்கை பதிவு செய்யவும்</translation>
+        <translation type="vanished">ஒரு கணக்கை பதிவு செய்யவும்</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2173,31 +1896,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>உங்கள் திட்டத்தை QGIS இலிருந்து உங்கள் சாதனங்களுக்கு மாற்றுவதற்கான எளிதான வழி!</translation>
+        <translation type="vanished">உங்கள் திட்டத்தை QGIS இலிருந்து உங்கள் சாதனங்களுக்கு மாற்றுவதற்கான எளிதான வழி!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>QFieldCloud பற்றி மேலும் அறிக</translation>
+        <translation type="vanished">QFieldCloud பற்றி மேலும் அறிக</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>அல்லது</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>% 1ஐப் பயன்படுத்தி உள்நுழைக</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2219,20 +1925,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">QFieldCloud இல் சில அடுக்குகள் சரியாக தொகுக்கப்படவில்லை. இந்த அடுக்குகள் தவறாக உள்ளமைக்கப்படலாம் அல்லது அவற்றின் தரவு மூலத்தை QFieldCloud சேவையகத்திலிருந்து அணுக முடியாது. qfield.cloud இணையதளத்தில் அண்மைக் கால பேக்கேசிங் வேலையின் பதிவுகளை சரிபார்க்கவும்.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2244,7 +1942,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>QFieldCloud பற்றி மேலும் அறிக</translation>
+        <translation type="vanished">QFieldCloud பற்றி மேலும் அறிக</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2260,7 +1958,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>இந்த QFieldCloud திட்டம் முதலில் வேறொரு முகில் கணக்குடன் பதிவிறக்கப்பட்டது. QFieldCloud செயல்பாட்டைப் பயன்படுத்த, இந்தத் திட்டத்திற்கான அசல் கணக்கில் உள்நுழையவும்.</translation>
+        <translation type="vanished">இந்த QFieldCloud திட்டம் முதலில் வேறொரு முகில் கணக்குடன் பதிவிறக்கப்பட்டது. QFieldCloud செயல்பாட்டைப் பயன்படுத்த, இந்தத் திட்டத்திற்கான அசல் கணக்கில் உள்நுழையவும்.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2296,11 +1994,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>உள்நாட்டில் சேமிக்கப்பட்ட முகில் திட்டம் சிதைந்துள்ளது</translation>
+        <translation type="vanished">உள்நாட்டில் சேமிக்கப்பட்ட முகில் திட்டம் சிதைந்துள்ளது</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>ஒத்திசைக்கவும்</translation>
+        <translation type="vanished">ஒத்திசைக்கவும்</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2340,11 +2038,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>இப்போதுதான் கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
+        <translation type="vanished">இப்போதுதான் கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>% 1 நிமிடங்களுக்கு முன்பு கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
+        <translation type="vanished">% 1 நிமிடங்களுக்கு முன்பு கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2352,7 +2050,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>% 1 இல் கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
+        <translation type="vanished">% 1 இல் கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2384,15 +2082,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>முகில் திட்டத்தை மீட்டமைக்கவும்</translation>
+        <translation type="vanished">முகில் திட்டத்தை மீட்டமைக்கவும்</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>கடைசி முன்னறிவிப்பு, முகில் ப்ராசெக்ட்டை மீட்டமைப்பதால், உள்ளக மாற்றங்கள் ஏதேனும் இருந்தால் அழிக்கப்படும், நீங்கள் நிச்சயமாக தொடர விரும்புகிறீர்களா?</translation>
+        <translation type="vanished">கடைசி முன்னறிவிப்பு, முகில் ப்ராசெக்ட்டை மீட்டமைப்பதால், உள்ளக மாற்றங்கள் ஏதேனும் இருந்தால் அழிக்கப்படும், நீங்கள் நிச்சயமாக தொடர விரும்புகிறீர்களா?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>இணைக்கும் முகில்</translation>
+        <translation type="vanished">இணைக்கும் முகில்</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2405,166 +2103,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">மாற்றியமைக்க மாற்றங்கள் இல்லை</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>இந்த திட்டப்பணியானது மேகக்கணியில் புதுப்பிக்கப்பட்ட திட்டக் கோப்பு உள்ளது, நீங்கள் ஒத்திசைக்க அறிவுறுத்தப்படுகிறீர்கள்.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>இந்த திட்டம் மேகக்கணியில் தரவைப் புதுப்பித்துள்ளது, நீங்கள் ஒத்திசைக்க வேண்டும்.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud உங்களுக்கான அண்மைக் கால தரவை பேக்கேசிங் செய்கிறது; இதற்கு சிறிது நேரம் ஆகலாம், தயவுசெய்து இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>பதிவிறக்குகிறது, %2 இல் %1% பெறப்பட்டது</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>பதிவிறக்குகிறது, %1% பெறப்பட்டது</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>திட்டத்தைப் பதிவிறக்க QFieldCloud ஐ அணுகவும்</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation>மாற்றங்களைத் தள்ளுகிறது, % 1%…</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud அண்மைக் கால மாற்றப்பட்ட மாற்றங்களைப் பயன்படுத்துகிறது. இதற்கு சிறிது நேரம் ஆகலாம், தயவுசெய்து இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்...</translation>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation>தற்போதைய திட்டத்தை QFieldCloud இல் பதிவேற்றுகிறது.</translation>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation>பதிவேற்றுகிறது% 1</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation><numerusform>%n கோப்புகள் மீதமுள்ளன</numerusform><numerusform>%n கோப்புகள் மீதமுள்ளன</numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2654,102 +2192,15 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation>உரிமையாளர்</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>உருவாக்கிய தேதி</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>அண்மைக் கால புதுப்பிப்பு தேதி</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>இந்தத் திட்டத்தைப் பதிவிறக்கித் திறப்பதற்குத் தகுந்த அணுகல் உள்ள பயனர்களுக்கு இந்த QR குறியீட்டை வருடு செய்யலாம்</translation>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>ஒத்திசைக்கவும்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud என்பது பேக்கேசிங் திட்டம், இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>திட்டத்தைப் பதிவிறக்குகிறது</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>திட்டத்தைப் பதிவிறக்கவும்</translation>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>திட்டம்% 1ஐ பதிவிறக்குகிறது</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>திறந்த திட்டம்</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation>ஒத்திசைத்தல்</translation>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>தேடல்</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2888,19 +2339,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud திட்டங்கள்</translation>
+        <translation type="vanished">QFieldCloud திட்டங்கள்</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>மேகத்திலிருந்து துண்டிக்கப்பட்டது.</translation>
+        <translation type="vanished">மேகத்திலிருந்து துண்டிக்கப்பட்டது.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>மேகத்துடன் இணைக்கிறது.</translation>
+        <translation type="vanished">மேகத்துடன் இணைக்கிறது.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>வாழ்த்துக்கள் &lt;strong&gt;% 1&lt;/strong&gt;.</translation>
+        <translation type="vanished">வாழ்த்துக்கள் &lt;strong&gt;% 1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2924,15 +2375,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>பதிவேற்றுகிறது…</translation>
+        <translation type="vanished">பதிவேற்றுகிறது…</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>பதிவிறக்குவதில் பிழை.</translation>
+        <translation type="vanished">பதிவிறக்குவதில் பிழை.</translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>பதிவேற்றுவதில் பிழை.</translation>
+        <translation type="vanished">பதிவேற்றுவதில் பிழை.</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2960,11 +2411,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Open Project</source>
-        <translation>திறந்த திட்டம்</translation>
+        <translation type="vanished">திறந்த திட்டம்</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>சேமிக்கப்பட்ட திட்டத்தை அகற்று</translation>
+        <translation type="vanished">சேமிக்கப்பட்ட திட்டத்தை அகற்று</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2976,67 +2427,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>திட்டங்களின் பட்டியலைப் புதுப்பிக்கவும்</translation>
+        <translation type="vanished">திட்டங்களின் பட்டியலைப் புதுப்பிக்கவும்</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>புத்துணர்ச்சியூட்டும் திட்டங்களின் பட்டியல்</translation>
+        <translation type="vanished">புத்துணர்ச்சியூட்டும் திட்டங்களின் பட்டியல்</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">திட்டங்கள் எதுவும் இல்லை</translation>
     </message>
     <message>
-        <source>Project Actions</source>
-        <translation>திட்ட நடவடிக்கைகள்</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud உங்களுக்கான அண்மைக் கால தரவை பேக்கேசிங் செய்கிறது; இதற்கு சிறிது நேரம் ஆகலாம், தயவுசெய்து இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>பதிவிறக்குகிறது, %2 இல் %1% பெறப்பட்டது</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>பதிவிறக்குகிறது, %1% பெறப்பட்டது</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>திட்டத்தைப் பதிவிறக்க QFieldCloud ஐ அணுகவும்</translation>
-    </message>
-    <message>
         <source>Sign out</source>
-        <translation>விடுபதிகை</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>விடுபதிகை</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>தவறான திட்டங்களைக் காட்டு</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>திட்ட விவரங்களைக் காண்க</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>QFieldCloud திட்ட விவரங்களைப் பெறுவதில் தோல்வி</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation>திட்டக் கோப்புறையைப் பார்க்கவும்</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation>`%1` ஐ நிச்சயமாக அகற்ற விரும்புகிறீர்களா?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>ஒத்திசைக்கவும்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3044,70 +2455,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation>திட்டங்கள்</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3134,73 +2481,58 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>முடிக்கவும்</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>அடுத்தது</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>முந்தைய</translation>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>திட்ட கோப்புறை</translation>
+        <translation type="vanished">திட்ட கோப்புறை</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>உள்ளக திட்டங்கள் &amp; தரவுத்தொகுப்புகள்</translation>
+        <translation type="vanished">உள்ளக திட்டங்கள் &amp; தரவுத்தொகுப்புகள்</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>கோப்புறைகள்</translation>
+        <translation type="vanished">கோப்புறைகள்</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>திட்டங்கள்</translation>
+        <translation type="vanished">திட்டங்கள்</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>தரவுத்தொகுப்புகள்</translation>
+        <translation type="vanished">தரவுத்தொகுப்புகள்</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>பிடித்தவை</translation>
+        <translation type="vanished">பிடித்தவை</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>திட்ட கோப்பு</translation>
+        <translation type="vanished">திட்ட கோப்பு</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>திசையன் தரவுத்தொகுப்பு</translation>
+        <translation type="vanished">திசையன் தரவுத்தொகுப்பு</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>ராச்டர் தரவுத்தொகுப்பு</translation>
+        <translation type="vanished">ராச்டர் தரவுத்தொகுப்பு</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>அனுப்பு...</translation>
+        <translation type="vanished">அனுப்பு...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>கோப்புறைக்கு ஏற்றுமதி செய்...</translation>
+        <translation type="vanished">கோப்புறைக்கு ஏற்றுமதி செய்...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>தரவுத்தொகுப்பை அகற்று</translation>
+        <translation type="vanished">தரவுத்தொகுப்பை அகற்று</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>சுருக்கப்பட்ட கோப்புறையை இதற்கு அனுப்பு...</translation>
+        <translation type="vanished">சுருக்கப்பட்ட கோப்புறையை இதற்கு அனுப்பு...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3208,235 +2540,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>கோப்புறையிலிருந்து திட்டத்தை இறக்குமதி செய்யவும்</translation>
+        <translation type="vanished">கோப்புறையிலிருந்து திட்டத்தை இறக்குமதி செய்யவும்</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>ZIP இலிருந்து திட்டத்தை இறக்குமதி செய்யவும்</translation>
+        <translation type="vanished">ZIP இலிருந்து திட்டத்தை இறக்குமதி செய்யவும்</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>தரவுத்தொகுப்பு(களை) இறக்குமதி வெற்றி</translation>
+        <translation type="vanished">தரவுத்தொகுப்பு(களை) இறக்குமதி வெற்றி</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>சேமிப்பக மேலாண்மை உதவி</translation>
+        <translation type="vanished">சேமிப்பக மேலாண்மை உதவி</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>கடவுச்சொல்</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>கோப்புகள்</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>வீடு</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>பொருள் செயல்கள்</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>கோப்பைப் பார்க்கவும்</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>QFieldCloud க்கு தள்ளவும்</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>பிடித்தவைகளில் சேர்க்கவும்</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>பிடித்தவற்றிலிருந்து அகற்று</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>WebDAV சர்வரில் கோப்புறையைப் பதிவேற்றவும்</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>WebDAV சேவையகத்திலிருந்து கோப்புறையைப் பதிவிறக்கவும்</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation>கோப்பை அழி</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>இறக்குமதி நடவடிக்கைகள்</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>முகவரி ஐ இறக்குமதி செய்யவும்</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>WebDAV கோப்புறையை இறக்குமதி செய்யவும்</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>திட்ட நடவடிக்கைகள்</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>ZIP இலிருந்து திட்டத்தைப் புதுப்பிக்கவும்</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>திட்டத்தை WebDAV இல் பதிவேற்றவும்</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>WebDAV இலிருந்து திட்டத்தைப் பதிவிறக்கவும்</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>WebDAV இல் கோப்பு(களை) பதிவேற்றவும்</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>QFieldCloud க்கு கோப்பு(களை) தள்ளவும்</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>QFieldCloud க்கு தள்ள ஒன்று அல்லது அதற்கு மேற்பட்ட கோப்புகளைத் தேர்ந்தெடுக்கவும்.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation>கோப்பு(களை) நீக்கு</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>QFieldCloud இல் ‘%1’ பதிவேற்றப்படுகிறது</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>QFieldCloud இல் உருப்படிகள் பதிவேற்றப்படுகின்றன</translation>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation>கோப்பு(களை) அகற்று</translation>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>திட்டம் அல்லது தரவுத்தொகுப்பைப் பதிவிறக்கி இறக்குமதி செய்ய கீழே முகவரி ஐத் தட்டச்சு செய்யவும்:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>WebDAV கோப்புறையை இறக்குமதி செய்கிறது</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>WebDAV கோப்புறையைப் பதிவிறக்குகிறது</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>WebDAV கோப்புறையைப் பதிவேற்றுகிறது</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV பிழை:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV பதிவேற்றம்</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV பதிவிறக்கம்</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>&lt;b&gt;%2&lt;/b&gt; என்ற பயனரைப் பயன்படுத்தி மாற்றியமைக்கப்பட்ட உள்ளடக்கத்தை &lt;b&gt;%1&lt;/b&gt; இல் பதிவேற்ற உள்ளீர்கள்.&lt;br&gt;&lt;br&gt;இந்தச் செயல்பாடு தொலைநிலையில் சேமிக்கப்பட்ட தரவை மேலெழுதும், இதைத்தான் நீங்கள் செய்ய விரும்புகிறீர்கள் என்பதை உறுதிசெய்யவும்.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>&lt;b&gt;%2&lt;/b&gt; பயனரைப் பயன்படுத்தி, &lt;b&gt;%1&lt;/b&gt; இலிருந்து மாற்றியமைக்கப்பட்ட உள்ளடக்கத்தைப் பதிவிறக்க உள்ளீர்கள்.&lt;br&gt;&lt;br&gt;இந்தச் செயல்பாடு உள்நாட்டில் சேமிக்கப்பட்ட தரவை மேலெழுதும், இதைத்தான் நீங்கள் செய்ய விரும்புகிறீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளவும்.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>கடவுச்சொல் (நினைவில் பயன்படுத்த காலியாக விடவும்)</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>கடவுச்சொல்லை நினைவில் கொள்க</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>தொலை கோப்புறையை இறக்குமதி செய்ய கீழே உள்ள WebDAV விவரங்களை உள்ளிடவும்:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV சர்வர் முகவரி</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>பயனர் மற்றும் கடவுச்சொல்</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>நினைவில் வைத்து பயன்படுத்த காலியாக விடவும்</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>தொலை கோப்புறைகளைப் பெறுகிறது</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>தொலை கோப்புறைகளைப் பெறவும்</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>இறக்குமதி செய்ய தொலை கோப்புறையைத் தேர்ந்தெடுக்கவும்:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>ரூட் கோப்புறை</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>உள்நாட்டில் ‘% 1’ இல் கிடைக்கும்</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>இறக்குமதி செய்யப்பட்ட கோப்புறை பெயர்</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>உறுதிப்படுத்தவும்</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>சேமித்த WebDAV உருப்படியை அகற்ற உள்ளீர்கள், தொடரவா?</translation>
     </message>
 </context>
 <context>
@@ -3458,7 +2578,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>அளவுகோலைக் காட்டு</translation>
+        <translation type="vanished">அளவுகோலைக் காட்டு</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3466,31 +2586,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>நிலையான அளவிலான வழிசெலுத்தல்</translation>
+        <translation type="vanished">நிலையான அளவிலான வழிசெலுத்தல்</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>நிலையான அளவிலான வழிசெலுத்தல் செயலில் இருக்கும்போது, ​​தேடல் முடிவில் கவனம் செலுத்துவது அம்சத்திற்குச் செல்லும். நிலையான அளவிலான வழிசெலுத்தல் முடக்கப்பட்டிருந்தால், அது அம்சத்திற்கு மாற்றப்பட்டு பெரிதாக்கப்படும்.</translation>
+        <translation type="vanished">நிலையான அளவிலான வழிசெலுத்தல் செயலில் இருக்கும்போது, ​​தேடல் முடிவில் கவனம் செலுத்துவது அம்சத்திற்குச் செல்லும். நிலையான அளவிலான வழிசெலுத்தல் முடக்கப்பட்டிருந்தால், அது அம்சத்திற்கு மாற்றப்பட்டு பெரிதாக்கப்படும்.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>டிசிட்டல் மயமாக்கும் தகவலைக் காட்டு</translation>
+        <translation type="vanished">டிசிட்டல் மயமாக்கும் தகவலைக் காட்டு</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​புதிய அம்சங்களை டிசிட்டல் மயமாக்கும் போது அல்லது அளவீட்டு கருவியைப் பயன்படுத்தும் போது, ​​அட்சரேகை மற்றும் தீர்க்கரேகை போன்ற ஒருங்கிணைக்கும் தகவல்கள் வரைபடத்தில் மேலெழுதப்படும்.</translation>
+        <translation type="vanished">ச்விட்ச் ஆன் செய்யும்போது, ​​புதிய அம்சங்களை டிசிட்டல் மயமாக்கும் போது அல்லது அளவீட்டு கருவியைப் பயன்படுத்தும் போது, ​​அட்சரேகை மற்றும் தீர்க்கரேகை போன்ற ஒருங்கிணைக்கும் தகவல்கள் வரைபடத்தில் மேலெழுதப்படும்.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>புக்மார்க்குகளைக் காட்டு</translation>
+        <translation type="vanished">புக்மார்க்குகளைக் காட்டு</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​பயனரின் சேமித்த மற்றும் தற்போது திறக்கப்பட்ட திட்டப் புக்மார்க்குகள் வரைபடத்தில் காட்டப்படும்.</translation>
+        <translation type="vanished">ச்விட்ச் ஆன் செய்யும்போது, ​​பயனரின் சேமித்த மற்றும் தற்போது திறக்கப்பட்ட திட்டப் புக்மார்க்குகள் வரைபடத்தில் காட்டப்படும்.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>சொந்த கேமராவைப் பயன்படுத்தவும்</translation>
+        <translation type="vanished">சொந்த கேமராவைப் பயன்படுத்தவும்</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3506,7 +2626,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>செயலற்ற நிலையில் இருக்கும் போது மங்கலான திரை</translation>
+        <translation type="vanished">செயலற்ற நிலையில் இருக்கும் போது மங்கலான திரை</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3514,7 +2634,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>சுட்டியை தொடுதிரை சாதனமாக கருதுங்கள்</translation>
+        <translation type="vanished">சுட்டியை தொடுதிரை சாதனமாக கருதுங்கள்</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3522,7 +2642,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>அநாமதேய அளவீடுகளை அனுப்பவும்</translation>
+        <translation type="vanished">அநாமதேய அளவீடுகளை அனுப்பவும்</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3530,19 +2650,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>பொது</translation>
+        <translation type="vanished">பொது</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>நிலைப்படுத்துதல்</translation>
+        <translation type="vanished">நிலைப்படுத்துதல்</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>மாறிகள்</translation>
+        <translation type="vanished">மாறிகள்</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>தேடல் பட்டியைத் தனிப்பயனாக்கு</translation>
+        <translation type="vanished">தேடல் பட்டியைத் தனிப்பயனாக்கு</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3554,15 +2674,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>system</source>
-        <translation>மண்டலம்</translation>
+        <translation type="vanished">மண்டலம்</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>விடுபட்ட அல்லது முழுமையடையாத மொழி கண்டுபிடிக்கப்பட்டதா? % 1 மொழிபெயர்ப்பாளர் சமூகத்தில் சேரவும்.% 2</translation>
+        <translation type="vanished">விடுபட்ட அல்லது முழுமையடையாத மொழி கண்டுபிடிக்கப்பட்டதா? % 1 மொழிபெயர்ப்பாளர் சமூகத்தில் சேரவும்.% 2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>பயன்பாட்டில் உள்ள பொருத்துதல் சாதனம்:</translation>
+        <translation type="vanished">பயன்பாட்டில் உள்ள பொருத்துதல் சாதனம்:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3600,7 +2720,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>% 1 உடன் இணைக்கப்பட்டது</translation>
+        <translation type="vanished">% 1 உடன் இணைக்கப்பட்டது</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3608,7 +2728,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>% 1 உடன் இணைக்கிறது</translation>
+        <translation type="vanished">% 1 உடன் இணைக்கிறது</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3616,11 +2736,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>நிலை தகவலைக் காட்டு</translation>
+        <translation type="vanished">நிலை தகவலைக் காட்டு</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>துல்லியம் காட்டி செயல்படுத்தவும்</translation>
+        <translation type="vanished">துல்லியம் காட்டி செயல்படுத்தவும்</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3640,7 +2760,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>சராசரி பொருத்துதல் தேவையை இயக்கு</translation>
+        <translation type="vanished">சராசரி பொருத்துதல் தேவையை இயக்கு</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3648,15 +2768,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>குறைந்தபட்ச எண்ணிக்கையை எட்டும்போது தானாகவே சேகரிப்பை முடிக்கவும்</translation>
+        <translation type="vanished">குறைந்தபட்ச எண்ணிக்கையை எட்டும்போது தானாகவே சேகரிப்பை முடிக்கவும்</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>இயக்கப்பட்டிருக்கும் போது, ​​கர்சரைப் பூட்டப்பட்ட நிலையில் உள்ள முனைகளை டிசிட்டல் மயமாக்குவது, சேகரிக்கப்பட்ட நிலைகளின் குறைந்தபட்ச எண்ணிக்கையிலிருந்து சராசரி நிலையை மட்டுமே ஏற்றுக்கொள்ளும். சராசரி நிலைகளைப் பயன்படுத்தி டிசிட்டல் மயமாக்கல், சேர் வெர்டெக்ச் பொத்தானை அழுத்திப் பிடிப்பதன் மூலம் செய்யப்படுகிறது, இது செய்தித் தாள் வெளியிடப்படும் வரை நிலைகளை சேகரிக்கும். இயக்கப்படும் போது துல்லியத் தேவை அமைப்புகள் மதிக்கப்படும்.</translation>
+        <translation type="vanished">இயக்கப்பட்டிருக்கும் போது, ​​கர்சரைப் பூட்டப்பட்ட நிலையில் உள்ள முனைகளை டிசிட்டல் மயமாக்குவது, சேகரிக்கப்பட்ட நிலைகளின் குறைந்தபட்ச எண்ணிக்கையிலிருந்து சராசரி நிலையை மட்டுமே ஏற்றுக்கொள்ளும். சராசரி நிலைகளைப் பயன்படுத்தி டிசிட்டல் மயமாக்கல், சேர் வெர்டெக்ச் பொத்தானை அழுத்திப் பிடிப்பதன் மூலம் செய்யப்படுகிறது, இது செய்தித் தாள் வெளியிடப்படும் வரை நிலைகளை சேகரிக்கும். இயக்கப்படும் போது துல்லியத் தேவை அமைப்புகள் மதிக்கப்படும்.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>ஆண்டெனா உயர இழப்பீடு</translation>
+        <translation type="vanished">ஆண்டெனா உயர இழப்பீடு</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3668,23 +2788,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>உயரத் திருத்தத்தைத் தவிர்க்கவும்</translation>
+        <translation type="vanished">உயரத் திருத்தத்தைத் தவிர்க்கவும்</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>பொசிசனிங் சாதனத்தால் தெரிவிக்கப்பட்ட உயரத்தைப் பயன்படுத்தவும். ஒருங்கிணைப்பு அமைப்பு மாற்றத்தால் குறிக்கப்படும் எந்த உயரத் திருத்தத்தையும் தவிர்க்கவும்.</translation>
+        <translation type="vanished">பொசிசனிங் சாதனத்தால் தெரிவிக்கப்பட்ட உயரத்தைப் பயன்படுத்தவும். ஒருங்கிணைப்பு அமைப்பு மாற்றத்தால் குறிக்கப்படும் எந்த உயரத் திருத்தத்தையும் தவிர்க்கவும்.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>பயன்பாட்டில் உள்ள செங்குத்து கட்டம் மாற்றம்:</translation>
+        <translation type="vanished">பயன்பாட்டில் உள்ள செங்குத்து கட்டம் மாற்றம்:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>எதுவுமில்லை</translation>
+        <translation type="vanished">எதுவுமில்லை</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>உயரத்தின் துல்லியத்தை அதிகரிக்க செங்குத்து கட்டம் மாற்றம் பயன்படுத்தப்படுகிறது.</translation>
+        <translation type="vanished">உயரத்தின் துல்லியத்தை அதிகரிக்க செங்குத்து கட்டம் மாற்றம் பயன்படுத்தப்படுகிறது.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3692,11 +2812,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>பேட்டரியைப் பாதுகாக்க, திரையின் ஒளி மங்குவதற்கு முன் சில நொடிகளில் செயலற்ற நேரம்.</translation>
+        <translation type="vanished">பேட்டரியைப் பாதுகாக்க, திரையின் ஒளி மங்குவதற்கு முன் சில நொடிகளில் செயலற்ற நேரம்.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>செங்குத்துகளுடன் இணைக்கப்பட்ட அளவீடு (எம்) மதிப்பு:</translation>
+        <translation type="vanished">செங்குத்துகளுடன் இணைக்கப்பட்ட அளவீடு (எம்) மதிப்பு:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3704,378 +2824,59 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>தரை விரைவு</translation>
+        <translation type="vanished">தரை விரைவு</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>தாங்கி</translation>
+        <translation type="vanished">தாங்கி</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>கிடைமட்ட துல்லியம்</translation>
+        <translation type="vanished">கிடைமட்ட துல்லியம்</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>செங்குத்து துல்லியம்</translation>
+        <translation type="vanished">செங்குத்து துல்லியம்</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>தற்போதைய நிலைக்கு பூட்டப்பட்ட ஆய கர்சரைக் கொண்டு அம்சங்களை டிசிட்டல் மயமாக்கும் போது, ​​மேலே தேர்ந்தெடுக்கப்பட்ட அளவீட்டு வகை, M பரிமாணத்தைக் கொண்டிருக்கும் வடிவவியலில் சேர்க்கப்படும்.</translation>
+        <translation type="vanished">தற்போதைய நிலைக்கு பூட்டப்பட்ட ஆய கர்சரைக் கொண்டு அம்சங்களை டிசிட்டல் மயமாக்கும் போது, ​​மேலே தேர்ந்தெடுக்கப்பட்ட அளவீட்டு வகை, M பரிமாணத்தைக் கொண்டிருக்கும் வடிவவியலில் சேர்க்கப்படும்.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>கூட்டு</translation>
+        <translation type="vanished">கூட்டு</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>தொகு</translation>
+        <translation type="vanished">தொகு</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>அகற்று</translation>
+        <translation type="vanished">அகற்று</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>% 1 உடன் இணைக்கவும்</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>கணினி தோற்றத்தைப் பின்பற்றவும்</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>ஒளி கருப்பொருள்</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>இருண்ட கருப்பொருள்</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>சிறியது</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>இயல்பானது</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>பெரியது</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>மிக பெரியது</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>சாதனத்திலிருந்து கோப்பில் NMEA வாக்கியங்களை பதிவு செய்யவும்</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>வரைபட கேன்வாச் வழங்குதல் தரம்:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>சிறந்த தகுதி</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>குறைந்த தகுதி</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>குறைந்த தகுதி</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>குறைந்த தகுதி, குறைந்த நினைவக பயன்பாடு மற்றும் வழங்குதல் நேரத்திற்கு ஆதரவாக வழங்குதல் துல்லியம்.</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>சாதனத்திலிருந்து ஆர்த்தோமெட்ரிக்</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>டிசிட்டல் மயமாக்குவதற்கு வால்யூம் கீகளைப் பயன்படுத்தவும்</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>இயக்கப்பட்டிருந்தால், சாதனத்தின் வால்யூம் அப் விசையை அழுத்தினால், வால்யூம் பேரூர் விசையை அழுத்தும் போது ஒரு உச்சியைச் சேர்க்கும் போது, ​​டிசிட்டல் மயமாக்கும் அமர்வுகளின் போது கடைசியாக உள்ளிடப்பட்ட உச்சியை அகற்றும்.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>செங்குத்துகளைச் சேர்க்க, கேன்வாசில் விரல் தட்டுவதை அனுமதிக்கவும்</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>இயக்கப்பட்டால், சுட்டி ஒரு விரலைப் போல செயல்படும். முடக்கப்பட்டிருக்கும் போது, ​​மவுச் ச்டைலச் நடத்தைக்கு பொருந்தும்.</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>வரைபடம் கேன்வாச்</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>டிசிட்டல் &amp; திருத்துதல்</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>பயனர் இடைமுகம்</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>தோற்றம்:</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>எழுத்துரு அளவு:</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>மொழி:</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>மேம்பட்ட</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>செருகுநிரல்களை நிர்வகிக்கவும்</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>வரைபட சுழற்சியை இயக்கு</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​வரைபடத்தை பயனரால் சுழற்ற முடியும்.</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>துல்லியத் தேவையைச் செயல்படுத்தவும்</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>துல்லியம் காட்டி இயக்கப்பட்டிருக்கும் போது, இருப்பிடப் பொத்தானில் ஒரு ஒட்டு இணைக்கப்பட்டு, &lt;span %1&gt;சிவப்பு&lt;/span&gt; என்ற வண்ணத்தில் துல்லிய மதிப்பு &lt;i&gt;மோசமாக&lt;/i&gt; இருந்தால், &lt;span %2&gt;மஞ்சள்&lt;/span&gt; &lt;i&gt;சிறந்தது&lt;/i&gt; அல்லது &lt;span %3&gt;பச்சை, &lt;br&gt;சேர்ப்பு &lt;br&gt; பயன்முறையை மாற்றலாம், இது கர்சரை ஒருங்கிணைக்க பூட்டப்பட்டிருக்கும் போது வெர்டெக்ச் சேர்ப்பை கட்டுப்படுத்துகிறது, இது மோசமான வரம்பை விட மோசமான துல்லிய மதிப்பு கொண்ட நிலைகளுக்கு.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>காணக்கூடிய வரைபட கேன்வாசைச் சுற்றி முன்னோட்ட உள்ளடக்கத்தை வழங்கவும்</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>இயக்கப்படும் போது, ​​அம்சப் பட்டியலைத் தவிர்த்து, ஒரே ஒரு நற்பொருத்தம் அடையாளம் காணப்பட்டால், அம்சப் படிவம் தானாகவே திறக்கும்.</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>சூம் கட்டுப்பாடுகளைக் காட்டு</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>அம்சப் படிவத்தை அதிகரிக்கவும்</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>ஒற்றை அம்ச அடையாளத்திற்கான அம்சப் படிவத்தைத் திறக்கவும்</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>இயக்கப்பட்டால், பெரிதாக்கும்போதும் அலசும்போதும் முன்னோட்டத்தை அனுமதிக்க, காணக்கூடிய வரைபடத்தின் கேன்வாச் எல்லைக்கு வெளியே உள்ள பகுதிகள் ஓரளவு வழங்குதல் செய்யப்படும்.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>தானாக சேமிக்கும் பயன்முறையை இயக்கவும்</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>இயக்கப்பட்டால், புதிதாகச் சேர்க்கப்பட்ட நற்பொருத்தங்கள் சரியான வடிவவியலைக் கொண்டவுடன் சேமிக்கப்படும், மேலும் கட்டுப்பாடுகள் நிறைவு செய்யப்பட்டு திருத்தப்பட்ட பண்புக்கூறுகள் உடனடியாகச் செய்யப்படும்.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>அம்சங்களை அடையாளம் காண தானாக பெரிதாக்கவும்)</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>இயக்கப்பட்டால், அடையாளம் காணப்பட்ட அனைத்து அம்சங்களையும், அம்சப் படிவம் திறக்கப்படும்போது தனிப்பட்ட தேர்ந்தெடுக்கப்பட்ட அம்சத்தையும் காண்பிக்க வரைபடம் தானாகவே பெரிதாக்கப்படும்.</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>நிலைக்கு பூட்டப்பட்ட போது நடத்தை:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>நிலையை மட்டும் பின்பற்றவும்</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>நிலை மற்றும் திசைகாட்டி நோக்குநிலையைப் பின்பற்றவும்</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>நிலை மற்றும் இயக்கத்தின் திசையைப் பின்பற்றவும்</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>வரைபட கேன்வாச் பின்தொடரும் போது அல்லது நிலைக்கு பூட்டப்பட்டிருக்கும் போது, ​​திசைகாட்டி நோக்குநிலை அல்லது இயக்கத்தின் திசையுடன் பொருந்துமாறு சுழற்றலாம்.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>இந்த மதிப்பு நிலைப்படுத்தல் சாதனத்திலிருந்து பதிவுசெய்யப்பட்ட Z மதிப்புகளைச் சரிசெய்யும். 1.6 மதிப்பை உள்ளிட்டால், கணினி தானாகவே ஒவ்வொரு பதிவுசெய்யப்பட்ட மதிப்பிலிருந்தும் 1.6 ஐக் கழிக்கும். பயனுள்ள ஆண்டெனா உயரத்தைச் செருகுவதை உறுதிசெய்து கொள்ளுங்கள், அதாவது துருவ நீளம் + ஆண்டெனா கட்ட மைய ஆஃப்செட்.</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 அமைப்புகள்</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>பிணையம்</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>ப்ராக்ஸியை இயக்கு</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>துறைமுகம்</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">% 1 உடன் இணைக்கவும்</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>பயனர் பெயர்</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>கடவுச்சொல்</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
-        <translation>வரைதல் டெம்ப்ளேட்டைத் தேர்ந்தெடுக்கவும்</translation>
     </message>
 </context>
 <context>
@@ -4298,6 +3099,41 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation>QFIELD ஆல் இயக்கப்படுகிறது</translation>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>மூலம் உருவாக்கப்பட்டது</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation>%1 பயன்பாட்டு கோப்பகங்கள்</translation>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation>1 சதவீதம் பயன்பாட்டு அடைவு</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>QField ஐ ஆதரிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>ஆவணப்படுத்துதல்</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>இணைப்புகள் பட்டியல்</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>மாற்றபதிவு</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4355,6 +3191,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>File %1 does not exist</source>
         <translation>கோப்பு% 1 இல்லை</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>தரவுத்தளத்திற்கான சான்றுகளை உள்ளிடவும்</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>ஓச்டில்</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>சேவையில்</translation>
     </message>
 </context>
 <context>
@@ -4428,6 +3279,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Audio Recorder</source>
         <translation>ஆடியோ ரெக்கார்டர்</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>சில அடுக்குகளை ஏற்ற முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>பின்வரும் அடுக்குகளை ஏற்ற முடியவில்லை, தயவுசெய்து அவற்றை மதிப்பாய்வு செய்து QGIS திட்டத்தை மறுகட்டமைக்கவும்.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>மேலும் உதவிக்கு %1Portable Project%2 ஆவணப் பக்கத்தைப் பார்க்கலாம்.</translation>
     </message>
 </context>
 <context>
@@ -4798,6 +3664,83 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>QField இல் புதிதாக என்ன இருக்கிறது</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>சேஞ்ச்லாக்கைப் பெறுவதில் பிழை, பிறகு முயற்சிக்கவும்.</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>QField ஐ ஆதரிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>அண்மைக் கால QField மாற்றங்களைச் சரிபார்க்கவும்</translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>QField வெளியீடுகள் பக்கம்</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>GitHub இல் முந்தைய வெளியீடுகள்</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>வடிவியல்</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>ஒட்டுவதில் தோல்வி: இலக்கு அடுக்கு வழங்கப்படவில்லை</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>வெட்டு செயல்பாடு: மூல மற்றும் இலக்கு அடுக்குகள் ஒரே மாதிரியானவை, பேச்ட்டைத் தவிர்க்கவும்.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>ஒட்டுவதில் தோல்வி: இடைநிலைப்பலகை நற்பொருத்தம் தவறானது</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>வெட்டு தோல்வியடைந்தது: மூல அடுக்கு % 1 இல் திருத்தத் தொடங்க முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>வெட்டு தோல்வியடைந்தது: மூல அடுக்கு % 1 இலிருந்து அசல் அம்சத்தை நீக்க முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>ஒட்டுவதில் தோல்வி: இணக்கமான அம்சங்களை உருவாக்க முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>ஒட்டுவதில் தோல்வி: அடுக்கு % 1 இல் திருத்தத் தொடங்க முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>ஒட்டுவதில் தோல்வி: % 1 அடுக்குக்கு அம்சத்தைச் சேர்க்க முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>ஒட்டுவதில் தோல்வி: அடுக்கு% 1 இல் மாற்றங்கள் தோல்வியடைந்தன</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>மூல அடுக்கு% 1 இல் கட் கமிட் தோல்வியடைந்தது</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
@@ -4859,6 +3802,374 @@ Cancel to make a minimal device scan instead.</source>
 %2</source>
         <translation>`%1` இல் சேமிக்கப்பட்ட இணைப்பைப் பதிவேற்ற முடியவில்லை, காரணம்: 
 % 2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>திட்டத்தை மீட்டமைக்கவும்</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>இந்த முகில் திட்டத்தின் உள்ளக நகல் சிதைந்துள்ளது. திட்டத்தை மீட்டமைப்பது முகில் பதிப்பை மீண்டும் பதிவிறக்கும் மற்றும் ஏதேனும் உள்ளக மாற்றங்களை அகற்றும், தேவைப்பட்டால் அவை முதலில் நகலெடுக்கப்பட்டன என்பதை உறுதிப்படுத்தவும். 
+
+நீங்கள் இன்னும் திட்டத்தைப் பார்க்கவும் பயன்படுத்தவும் முடியும் என்றாலும், தற்செயலான தரவு இழப்பைத் தவிர்க்க மீட்டமைக்க பரிந்துரைக்கப்படுகிறது, ஏனெனில் செய்யப்பட்ட மாற்றங்கள் எதுவும் மேகக்கணிக்குத் தள்ளப்படாது.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>தெரியவில்லை</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>உள்நுழைவதில் தோல்வி</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>பயனர்பெயர் அல்லது மின்னஞ்சல்</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>கடவுச்சொல்</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>விடுபதிகை</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>உள்நுழைகிறேன், காத்திருக்கவும்</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>விடுபதிகை</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>அல்லது</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>% 1ஐப் பயன்படுத்தி உள்நுழைக</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>புதிய பயனரா?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>ஒரு கணக்கை பதிவு செய்யவும்</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>உங்கள் திட்டத்தை QGIS இலிருந்து உங்கள் சாதனங்களுக்கு மாற்றுவதற்கான எளிதான வழி!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>QFieldCloud பற்றி மேலும் அறிக</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>இந்த QFieldCloud திட்டம் முதலில் வேறொரு முகில் கணக்குடன் பதிவிறக்கப்பட்டது. QFieldCloud செயல்பாட்டைப் பயன்படுத்த, இந்தத் திட்டத்திற்கான அசல் கணக்கில் உள்நுழையவும்.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud உங்களுக்கான அண்மைக் கால தரவை பேக்கேசிங் செய்கிறது; இதற்கு சிறிது நேரம் ஆகலாம், தயவுசெய்து இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>பதிவிறக்குகிறது, %2 இல் %1% பெறப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>பதிவிறக்குகிறது, %1% பெறப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>திட்டத்தைப் பதிவிறக்க QFieldCloud ஐ அணுகவும்</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>மாற்றங்களைத் தள்ளுகிறது, % 1%…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud அண்மைக் கால மாற்றப்பட்ட மாற்றங்களைப் பயன்படுத்துகிறது. இதற்கு சிறிது நேரம் ஆகலாம், தயவுசெய்து இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்...</translation>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>தற்போதைய திட்டத்தை QFieldCloud இல் பதிவேற்றுகிறது.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>QFieldCloud பற்றி மேலும் அறிக</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>உள்நாட்டில் சேமிக்கப்பட்ட முகில் திட்டம் சிதைந்துள்ளது</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>இப்போதுதான் கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>% 1 நிமிடங்களுக்கு முன்பு கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>% 1 இல் கடைசியாக ஒத்திசைக்கப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>ஒத்திசைக்கவும்</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>பதிவேற்றுகிறது% 1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>%n கோப்புகள் மீதமுள்ளன</numerusform><numerusform>%n கோப்புகள் மீதமுள்ளன</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>முகில் திட்டத்தை மீட்டமைக்கவும்</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>கடைசி முன்னறிவிப்பு, முகில் ப்ராசெக்ட்டை மீட்டமைப்பதால், உள்ளக மாற்றங்கள் ஏதேனும் இருந்தால் அழிக்கப்படும், நீங்கள் நிச்சயமாக தொடர விரும்புகிறீர்களா?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>இணைக்கும் முகில்</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>இந்த திட்டப்பணியானது மேகக்கணியில் புதுப்பிக்கப்பட்ட திட்டக் கோப்பு உள்ளது, நீங்கள் ஒத்திசைக்க அறிவுறுத்தப்படுகிறீர்கள்.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>இந்த திட்டம் மேகக்கணியில் தரவைப் புதுப்பித்துள்ளது, நீங்கள் ஒத்திசைக்க வேண்டும்.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4979,6 +4290,104 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>உரிமையாளர்</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>உருவாக்கிய தேதி</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>அண்மைக் கால புதுப்பிப்பு தேதி</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>இந்தத் திட்டத்தைப் பதிவிறக்கித் திறப்பதற்குத் தகுந்த அணுகல் உள்ள பயனர்களுக்கு இந்த QR குறியீட்டை வருடு செய்யலாம்</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>ஒத்திசைத்தல்</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>ஒத்திசைக்கவும்</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud என்பது பேக்கேசிங் திட்டம், இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>திட்டத்தைப் பதிவிறக்குகிறது</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>திட்டத்தைப் பதிவிறக்கவும்</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>திட்டம்% 1ஐ பதிவிறக்குகிறது</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>திறந்த திட்டம்</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>தேடல்</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -4995,6 +4404,173 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cloud project could not be created.</source>
         <translation>முகில் திட்டத்தை உருவாக்க முடியவில்லை.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>QFieldCloud திட்டங்கள்</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>மேகத்திலிருந்து துண்டிக்கப்பட்டது.</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>மேகத்துடன் இணைக்கிறது.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>வாழ்த்துக்கள் &lt;strong&gt;% 1&lt;/strong&gt;.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>திட்டங்கள்</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud உங்களுக்கான அண்மைக் கால தரவை பேக்கேசிங் செய்கிறது; இதற்கு சிறிது நேரம் ஆகலாம், தயவுசெய்து இறுக்கமாகப் பிடித்துக் கொள்ளுங்கள்</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>பதிவிறக்குகிறது, %2 இல் %1% பெறப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>பதிவிறக்குகிறது, %1% பெறப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>திட்டத்தைப் பதிவிறக்க QFieldCloud ஐ அணுகவும்</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>பதிவேற்றுகிறது…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>பதிவிறக்குவதில் பிழை.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>பதிவேற்றுவதில் பிழை.</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>திட்டங்களின் பட்டியலைப் புதுப்பிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>விடுபதிகை</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>விடுபதிகை</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>தவறான திட்டங்களைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>திட்ட நடவடிக்கைகள்</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>திறந்த திட்டம்</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>ஒத்திசைக்கவும்</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>சேமிக்கப்பட்ட திட்டத்தை அகற்று</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>திட்ட விவரங்களைக் காண்க</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>திட்டக் கோப்புறையைப் பார்க்கவும்</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>`%1` ஐ நிச்சயமாக அகற்ற விரும்புகிறீர்களா?</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>QFieldCloud திட்ட விவரங்களைப் பெறுவதில் தோல்வி</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>புத்துணர்ச்சியூட்டும் திட்டங்களின் பட்டியல்</translation>
     </message>
 </context>
 <context>
@@ -5126,6 +4702,41 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Point Feature Picker</source>
         <translation>புள்ளி அம்சத் தேர்வி</translation>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>அடுக்கு % 1 படிக்க மட்டுமே.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>வரைபடம் கருப்பொருள்</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>புராணக்கதை</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>அனைத்தையும் விரிவாக்கு</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>அனைத்தையும் சுருக்கு</translation>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation>வீட்டுக்குத் திரும்பு</translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>திட்டம் படிக்க மட்டுமே.</translation>
     </message>
 </context>
 <context>
@@ -5336,14 +4947,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>ஈசினியச் சேவையகத்தைத் தொடங்குவதில் தோல்வி.</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>ஈசினியச் சர்வரை நிறுத்த முடியவில்லை.</translation>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation>பெறப்பட்ட தரவு செயலாக்க முடியாத அளவு மிகக் குறைவு</translation>
     </message>
@@ -5374,6 +4977,34 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>TCP receiver error (%1)</source>
         <translation>TCP பெறுதல் பிழை (% 1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5866,6 +5497,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>முடிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>அடுத்தது</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>முந்தைய</translation>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6097,6 +5743,293 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>இந்த லேயரின் அனுமதிகள் உள்ளமைவு நற்பொருத்தம் சேர்ப்பதை முடக்குகிறது.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>திட்ட கோப்புறை</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>உள்ளக திட்டங்கள் &amp; தரவுத்தொகுப்புகள்</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>கோப்புறைகள்</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>திட்டங்கள்</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>தரவுத்தொகுப்புகள்</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>கோப்புகள்</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>பிடித்தவை</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>திட்ட கோப்பு</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>திசையன் தரவுத்தொகுப்பு</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>ராச்டர் தரவுத்தொகுப்பு</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>வீடு</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>பொருள் செயல்கள்</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>கோப்பைப் பார்க்கவும்</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>அனுப்பு...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>QFieldCloud க்கு தள்ளவும்</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>கோப்புறைக்கு ஏற்றுமதி செய்...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>பிடித்தவைகளில் சேர்க்கவும்</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>பிடித்தவற்றிலிருந்து அகற்று</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>சுருக்கப்பட்ட கோப்புறையை இதற்கு அனுப்பு...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>WebDAV சர்வரில் கோப்புறையைப் பதிவேற்றவும்</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>WebDAV சேவையகத்திலிருந்து கோப்புறையைப் பதிவிறக்கவும்</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation>கோப்பை அழி</translation>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>தரவுத்தொகுப்பை அகற்று</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>இறக்குமதி நடவடிக்கைகள்</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>கோப்புறையிலிருந்து திட்டத்தை இறக்குமதி செய்யவும்</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>ZIP இலிருந்து திட்டத்தை இறக்குமதி செய்யவும்</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>தரவுத்தொகுப்பு(களை) இறக்குமதி வெற்றி</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>முகவரி ஐ இறக்குமதி செய்யவும்</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>WebDAV கோப்புறையை இறக்குமதி செய்யவும்</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>சேமிப்பக மேலாண்மை உதவி</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>திட்ட நடவடிக்கைகள்</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>ZIP இலிருந்து திட்டத்தைப் புதுப்பிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>திட்டத்தை WebDAV இல் பதிவேற்றவும்</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>WebDAV இலிருந்து திட்டத்தைப் பதிவிறக்கவும்</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>WebDAV இல் கோப்பு(களை) பதிவேற்றவும்</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>QFieldCloud க்கு கோப்பு(களை) தள்ளவும்</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>QFieldCloud க்கு தள்ள ஒன்று அல்லது அதற்கு மேற்பட்ட கோப்புகளைத் தேர்ந்தெடுக்கவும்.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation>கோப்பு(களை) நீக்கு</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>QFieldCloud இல் ‘%1’ பதிவேற்றப்படுகிறது</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>QFieldCloud இல் உருப்படிகள் பதிவேற்றப்படுகின்றன</translation>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation>கோப்பு(களை) அகற்று</translation>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>திட்டம் அல்லது தரவுத்தொகுப்பைப் பதிவிறக்கி இறக்குமதி செய்ய கீழே முகவரி ஐத் தட்டச்சு செய்யவும்:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>WebDAV கோப்புறையை இறக்குமதி செய்கிறது</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>WebDAV கோப்புறையைப் பதிவிறக்குகிறது</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>WebDAV கோப்புறையைப் பதிவேற்றுகிறது</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>WebDAV பிழை:</translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>WebDAV பதிவேற்றம்</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>WebDAV பதிவிறக்கம்</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>&lt;b&gt;%2&lt;/b&gt; என்ற பயனரைப் பயன்படுத்தி மாற்றியமைக்கப்பட்ட உள்ளடக்கத்தை &lt;b&gt;%1&lt;/b&gt; இல் பதிவேற்ற உள்ளீர்கள்.&lt;br&gt;&lt;br&gt;இந்தச் செயல்பாடு தொலைநிலையில் சேமிக்கப்பட்ட தரவை மேலெழுதும், இதைத்தான் நீங்கள் செய்ய விரும்புகிறீர்கள் என்பதை உறுதிசெய்யவும்.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>&lt;b&gt;%2&lt;/b&gt; பயனரைப் பயன்படுத்தி, &lt;b&gt;%1&lt;/b&gt; இலிருந்து மாற்றியமைக்கப்பட்ட உள்ளடக்கத்தைப் பதிவிறக்க உள்ளீர்கள்.&lt;br&gt;&lt;br&gt;இந்தச் செயல்பாடு உள்நாட்டில் சேமிக்கப்பட்ட தரவை மேலெழுதும், இதைத்தான் நீங்கள் செய்ய விரும்புகிறீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளவும்.</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>கடவுச்சொல் (நினைவில் பயன்படுத்த காலியாக விடவும்)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>கடவுச்சொல்</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>கடவுச்சொல்லை நினைவில் கொள்க</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>தொலை கோப்புறையை இறக்குமதி செய்ய கீழே உள்ள WebDAV விவரங்களை உள்ளிடவும்:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>WebDAV சர்வர் முகவரி</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>பயனர் மற்றும் கடவுச்சொல்</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>நினைவில் வைத்து பயன்படுத்த காலியாக விடவும்</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>தொலை கோப்புறைகளைப் பெறுகிறது</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>தொலை கோப்புறைகளைப் பெறவும்</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>இறக்குமதி செய்ய தொலை கோப்புறையைத் தேர்ந்தெடுக்கவும்:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>ரூட் கோப்புறை</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>உள்நாட்டில் ‘% 1’ இல் கிடைக்கும்</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>இறக்குமதி செய்யப்பட்ட கோப்புறை பெயர்</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>உறுதிப்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>சேமித்த WebDAV உருப்படியை அகற்ற உள்ளீர்கள், தொடரவா?</translation>
     </message>
 </context>
 <context>
@@ -6499,6 +6432,111 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>ராச்டர் தரவுத்தொகுப்புகள்</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>%1%2%3 ஆல் எழுதப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>பதிப்பு% 1ஐ நிறுவல் நீக்கவும்</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>சொருகி நிறுவல் நீக்கவும்</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>கோரப்பட்ட செருகுநிரல் முகவரி கிடைக்கக்கூடிய செருகுநிரல்கள் பட்டியலில் உள்ளது, அதன் பதிவிறக்க பொத்தான் மூலம் நிறுவவும்</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>பதிவிறக்கம் செய்யப்பட்ட சிப் கோப்பை டிகம்ப்ரச் செய்ய முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>பதிவிறக்கம் செய்யப்பட்ட சிப் கோப்பில் தேவையான main.qml செருகுநிரல் கோப்பு இல்லை</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>பதிவிறக்கிய கோப்பைச் சேமிக்க முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>பதிவிறக்க கோப்பு சிப் செய்யப்பட்ட செருகுநிரல் அல்ல</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>பிணையம் பிழை</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>செருகுநிரல்கள்</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>உள்ளக செருகுநிரல்கள்</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>கிடைக்கும் செருகுநிரல்கள்</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>செருகுநிரலைத் தேடுங்கள்</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>கிடைக்கும் செருகுநிரல்களைப் பெறுகிறது</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>இன்னும் செருகுநிரல்கள் எதுவும் நிறுவப்படவில்லை, %1கிடைக்கும் செருகுநிரல்கள்%3 தாவலுக்கு மாறவும், சிலவற்றை இப்போதே முயற்சிக்கவும்.&lt;br&gt;&lt;br&gt;மேலும் தகவலுக்கு, %2ஆவணத்தைப் படிக்கவும்%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>முகவரி இலிருந்து செருகுநிரலை நிறுவவும்</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>செருகுநிரல்கள் மேலாண்மை பட்டியல்</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>நினைவில் வைத்திருக்கும் அனுமதிகளை அழிக்கவும்</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>மேலே காட்டப்பட்டுள்ள ஆசிரியர் விவரங்கள் சொருகி மூலம் சுயமாகப் புகாரளிக்கப்பட்டு சுயாதீனமாக சரிபார்க்கப்படவில்லை. செருகுநிரலின் மூலத்தை நீங்கள் நம்புவதை உறுதிசெய்யவும்.</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>செருகுநிரலைப் பதிவிறக்கி நிறுவ, கீழே உள்ள URLஐத் தட்டச்சு செய்க:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation>நீங்கள் நிச்சயமாக `%1` ஐ நிறுவல் நீக்க விரும்புகிறீர்களா?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>% 1ஐ நிறுவுகிறது</translation>
     </message>
 </context>
 <context>
@@ -7192,6 +7230,516 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>அளவுகோலைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>சூம் கட்டுப்பாடுகளைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>புக்மார்க்குகளைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​பயனரின் சேமித்த மற்றும் தற்போது திறக்கப்பட்ட திட்டப் புக்மார்க்குகள் வரைபடத்தில் காட்டப்படும்.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>வரைபட சுழற்சியை இயக்கு</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​வரைபடத்தை பயனரால் சுழற்ற முடியும்.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>டிசிட்டல் மயமாக்கும் தகவலைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​புதிய அம்சங்களை டிசிட்டல் மயமாக்கும் போது அல்லது அளவீட்டு கருவியைப் பயன்படுத்தும் போது, ​​அட்சரேகை மற்றும் தீர்க்கரேகை போன்ற ஒருங்கிணைக்கும் தகவல்கள் வரைபடத்தில் மேலெழுதப்படும்.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>டிசிட்டல் மயமாக்குவதற்கு வால்யூம் கீகளைப் பயன்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>இயக்கப்பட்டிருந்தால், சாதனத்தின் வால்யூம் அப் விசையை அழுத்தினால், வால்யூம் பேரூர் விசையை அழுத்தும் போது ஒரு உச்சியைச் சேர்க்கும் போது, ​​டிசிட்டல் மயமாக்கும் அமர்வுகளின் போது கடைசியாக உள்ளிடப்பட்ட உச்சியை அகற்றும்.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>செங்குத்துகளைச் சேர்க்க, கேன்வாசில் விரல் தட்டுவதை அனுமதிக்கவும்</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>சுட்டியை தொடுதிரை சாதனமாக கருதுங்கள்</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>இயக்கப்பட்டால், சுட்டி ஒரு விரலைப் போல செயல்படும். முடக்கப்பட்டிருக்கும் போது, ​​மவுச் ச்டைலச் நடத்தைக்கு பொருந்தும்.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>அம்சப் படிவத்தை அதிகரிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>ஒற்றை அம்ச அடையாளத்திற்கான அம்சப் படிவத்தைத் திறக்கவும்</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>இயக்கப்படும் போது, ​​அம்சப் பட்டியலைத் தவிர்த்து, ஒரே ஒரு நற்பொருத்தம் அடையாளம் காணப்பட்டால், அம்சப் படிவம் தானாகவே திறக்கும்.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>நிலையான அளவிலான வழிசெலுத்தல்</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>நிலையான அளவிலான வழிசெலுத்தல் செயலில் இருக்கும்போது, ​​தேடல் முடிவில் கவனம் செலுத்துவது அம்சத்திற்குச் செல்லும். நிலையான அளவிலான வழிசெலுத்தல் முடக்கப்பட்டிருந்தால், அது அம்சத்திற்கு மாற்றப்பட்டு பெரிதாக்கப்படும்.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>அம்சங்களை அடையாளம் காண தானாக பெரிதாக்கவும்)</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>இயக்கப்பட்டால், அடையாளம் காணப்பட்ட அனைத்து அம்சங்களையும், அம்சப் படிவம் திறக்கப்படும்போது தனிப்பட்ட தேர்ந்தெடுக்கப்பட்ட அம்சத்தையும் காண்பிக்க வரைபடம் தானாகவே பெரிதாக்கப்படும்.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>காணக்கூடிய வரைபட கேன்வாசைச் சுற்றி முன்னோட்ட உள்ளடக்கத்தை வழங்கவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>இயக்கப்பட்டால், பெரிதாக்கும்போதும் அலசும்போதும் முன்னோட்டத்தை அனுமதிக்க, காணக்கூடிய வரைபடத்தின் கேன்வாச் எல்லைக்கு வெளியே உள்ள பகுதிகள் ஓரளவு வழங்குதல் செய்யப்படும்.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>தானாக சேமிக்கும் பயன்முறையை இயக்கவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>இயக்கப்பட்டால், புதிதாகச் சேர்க்கப்பட்ட நற்பொருத்தங்கள் சரியான வடிவவியலைக் கொண்டவுடன் சேமிக்கப்படும், மேலும் கட்டுப்பாடுகள் நிறைவு செய்யப்பட்டு திருத்தப்பட்ட பண்புக்கூறுகள் உடனடியாகச் செய்யப்படும்.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>சொந்த கேமராவைப் பயன்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>அநாமதேய அளவீடுகளை அனுப்பவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>பொது</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>நிலைப்படுத்துதல்</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>மாறிகள்</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>வரைபடம் கேன்வாச்</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>வரைபட கேன்வாச் வழங்குதல் தரம்:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>சிறந்த தகுதி</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>குறைந்த தகுதி</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>குறைந்த தகுதி</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>குறைந்த தகுதி, குறைந்த நினைவக பயன்பாடு மற்றும் வழங்குதல் நேரத்திற்கு ஆதரவாக வழங்குதல் துல்லியம்.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>டிசிட்டல் &amp; திருத்துதல்</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>பயனர் இடைமுகம்</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>தேடல் பட்டியைத் தனிப்பயனாக்கு</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>செருகுநிரல்களை நிர்வகிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>செயலற்ற நிலையில் இருக்கும் போது மங்கலான திரை</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>பேட்டரியைப் பாதுகாக்க, திரையின் ஒளி மங்குவதற்கு முன் சில நொடிகளில் செயலற்ற நேரம்.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>தோற்றம்:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>கணினி தோற்றத்தைப் பின்பற்றவும்</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>ஒளி கருப்பொருள்</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>இருண்ட கருப்பொருள்</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>எழுத்துரு அளவு:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>சிறியது</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>இயல்பானது</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>பெரியது</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>மிக பெரியது</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>மொழி:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>மண்டலம்</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>விடுபட்ட அல்லது முழுமையடையாத மொழி கண்டுபிடிக்கப்பட்டதா? % 1 மொழிபெயர்ப்பாளர் சமூகத்தில் சேரவும்.% 2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>பிணையம்</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>ப்ராக்ஸியை இயக்கு</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>துறைமுகம்</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>பயனர் பெயர்</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>கடவுச்சொல்</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>மேம்பட்ட</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>பயன்பாட்டில் உள்ள பொருத்துதல் சாதனம்:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>கூட்டு</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>தொகு</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>அகற்று</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>% 1 உடன் இணைக்கப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>% 1 உடன் இணைக்கவும்</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>% 1 உடன் இணைக்கிறது</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>நிலை தகவலைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>நிலைக்கு பூட்டப்பட்ட போது நடத்தை:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>நிலையை மட்டும் பின்பற்றவும்</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>நிலை மற்றும் திசைகாட்டி நோக்குநிலையைப் பின்பற்றவும்</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>நிலை மற்றும் இயக்கத்தின் திசையைப் பின்பற்றவும்</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>வரைபட கேன்வாச் பின்தொடரும் போது அல்லது நிலைக்கு பூட்டப்பட்டிருக்கும் போது, ​​திசைகாட்டி நோக்குநிலை அல்லது இயக்கத்தின் திசையுடன் பொருந்துமாறு சுழற்றலாம்.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>செங்குத்துகளுடன் இணைக்கப்பட்ட அளவீடு (எம்) மதிப்பு:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>தரை விரைவு</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>தாங்கி</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>கிடைமட்ட துல்லியம்</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>செங்குத்து துல்லியம்</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>தற்போதைய நிலைக்கு பூட்டப்பட்ட ஆய கர்சரைக் கொண்டு அம்சங்களை டிசிட்டல் மயமாக்கும் போது, ​​மேலே தேர்ந்தெடுக்கப்பட்ட அளவீட்டு வகை, M பரிமாணத்தைக் கொண்டிருக்கும் வடிவவியலில் சேர்க்கப்படும்.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>துல்லியம் காட்டி செயல்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>துல்லியத் தேவையைச் செயல்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>துல்லியம் காட்டி இயக்கப்பட்டிருக்கும் போது, இருப்பிடப் பொத்தானில் ஒரு ஒட்டு இணைக்கப்பட்டு, &lt;span %1&gt;சிவப்பு&lt;/span&gt; என்ற வண்ணத்தில் துல்லிய மதிப்பு &lt;i&gt;மோசமாக&lt;/i&gt; இருந்தால், &lt;span %2&gt;மஞ்சள்&lt;/span&gt; &lt;i&gt;சிறந்தது&lt;/i&gt; அல்லது &lt;span %3&gt;பச்சை, &lt;br&gt;சேர்ப்பு &lt;br&gt; பயன்முறையை மாற்றலாம், இது கர்சரை ஒருங்கிணைக்க பூட்டப்பட்டிருக்கும் போது வெர்டெக்ச் சேர்ப்பை கட்டுப்படுத்துகிறது, இது மோசமான வரம்பை விட மோசமான துல்லிய மதிப்பு கொண்ட நிலைகளுக்கு.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>சராசரி பொருத்துதல் தேவையை இயக்கு</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>குறைந்தபட்ச எண்ணிக்கையை எட்டும்போது தானாகவே சேகரிப்பை முடிக்கவும்</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>இயக்கப்பட்டிருக்கும் போது, ​​கர்சரைப் பூட்டப்பட்ட நிலையில் உள்ள முனைகளை டிசிட்டல் மயமாக்குவது, சேகரிக்கப்பட்ட நிலைகளின் குறைந்தபட்ச எண்ணிக்கையிலிருந்து சராசரி நிலையை மட்டுமே ஏற்றுக்கொள்ளும். சராசரி நிலைகளைப் பயன்படுத்தி டிசிட்டல் மயமாக்கல், சேர் வெர்டெக்ச் பொத்தானை அழுத்திப் பிடிப்பதன் மூலம் செய்யப்படுகிறது, இது செய்தித் தாள் வெளியிடப்படும் வரை நிலைகளை சேகரிக்கும். இயக்கப்படும் போது துல்லியத் தேவை அமைப்புகள் மதிக்கப்படும்.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>ஆண்டெனா உயர இழப்பீடு</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>இந்த மதிப்பு நிலைப்படுத்தல் சாதனத்திலிருந்து பதிவுசெய்யப்பட்ட Z மதிப்புகளைச் சரிசெய்யும். 1.6 மதிப்பை உள்ளிட்டால், கணினி தானாகவே ஒவ்வொரு பதிவுசெய்யப்பட்ட மதிப்பிலிருந்தும் 1.6 ஐக் கழிக்கும். பயனுள்ள ஆண்டெனா உயரத்தைச் செருகுவதை உறுதிசெய்து கொள்ளுங்கள், அதாவது துருவ நீளம் + ஆண்டெனா கட்ட மைய ஆஃப்செட்.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>உயரத் திருத்தத்தைத் தவிர்க்கவும்</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>பொசிசனிங் சாதனத்தால் தெரிவிக்கப்பட்ட உயரத்தைப் பயன்படுத்தவும். ஒருங்கிணைப்பு அமைப்பு மாற்றத்தால் குறிக்கப்படும் எந்த உயரத் திருத்தத்தையும் தவிர்க்கவும்.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>பயன்பாட்டில் உள்ள செங்குத்து கட்டம் மாற்றம்:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>எதுவுமில்லை</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>சாதனத்திலிருந்து ஆர்த்தோமெட்ரிக்</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>உயரத்தின் துல்லியத்தை அதிகரிக்க செங்குத்து கட்டம் மாற்றம் பயன்படுத்தப்படுகிறது.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>சாதனத்திலிருந்து கோப்பில் NMEA வாக்கியங்களை பதிவு செய்யவும்</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 அமைப்புகள்</translation>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>வரைதல் டெம்ப்ளேட்டைத் தேர்ந்தெடுக்கவும்</translation>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7499,6 +8047,107 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Invalid WebDAV config JSON.</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>அதைக் கேட்டு வருந்துகிறோம். கருத்து தெரிவிக்க அல்லது ஆதரவைப் பெற கீழே உள்ள பொத்தானைக் சொடுக்கு செய்யவும்.</translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>அடையுங்கள்</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation>வணக்கம், இதுவரை %1 உடனான உங்கள் அனுபவம் உங்களுக்கு எப்படிப் பிடித்திருக்கிறது?</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>அருமை! நீங்கள் கீழே உள்ள பொத்தானைக் சொடுக்கு செய்து மதிப்பாய்வு செய்ய விரும்புகிறோம்.</translation>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>எங்களை மதிப்பிடுங்கள்</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>அநாமதேய அளவீடுகள் சேகரிப்பு முடக்கப்பட்டுள்ளது. அமைப்புகள் குழு மூலம் நீங்கள் மீண்டும் இயக்கலாம்.</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation>அனைவருக்கும் நிலைத்தன்மையை மேம்படுத்த, %1 பெயர் குறிப்பிடப்படாதது அளவீடுகளைச் சேகரித்து அனுப்புகிறது.</translation>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>நான் ஒப்புக்கொள்கிறேன்</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>நான் விரும்பவில்லை</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloud 
+திட்டங்கள்</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>உள்ளக திட்டங்கள் மற்றும் 
+தரவுத்தொகுப்புகள்</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>புதிதாக உருவாக்கவும் 
+திட்டம்</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>கடைசி அமர்வு</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>இயல்புநிலை திட்டம்</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>அடிப்படை வரைபடம்</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>அண்மைக் கால திட்ட நடவடிக்கைகள்</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>துவக்கத்தில் இயல்புநிலை திட்டத்தை ஏற்றவும்</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>துவக்கத்தில் கடைசியாக திறக்கப்பட்ட திட்டத்தை ஏற்றவும்</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>வரைபடத்திற்குத் திரும்பு</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation>இந்தப் பயன்பாட்டை முதல் முறையாகப் பயன்படுத்துகிறீர்களா? கீழே பட்டியலிடப்பட்டுள்ள மாதிரி திட்டங்களை முயற்சிக்கவும்.</translation>
     </message>
 </context>
 <context>
@@ -8887,11 +9536,11 @@ to show actions</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>அதைக் கேட்டு வருந்துகிறோம். கருத்து தெரிவிக்க அல்லது ஆதரவைப் பெற கீழே உள்ள பொத்தானைக் சொடுக்கு செய்யவும்.</translation>
+        <translation type="vanished">அதைக் கேட்டு வருந்துகிறோம். கருத்து தெரிவிக்க அல்லது ஆதரவைப் பெற கீழே உள்ள பொத்தானைக் சொடுக்கு செய்யவும்.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>அடையுங்கள்</translation>
+        <translation type="vanished">அடையுங்கள்</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8903,11 +9552,11 @@ to show actions</source>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>எங்களை மதிப்பிடுங்கள்</translation>
+        <translation type="vanished">எங்களை மதிப்பிடுங்கள்</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>அநாமதேய அளவீடுகள் சேகரிப்பு முடக்கப்பட்டுள்ளது. அமைப்புகள் குழு மூலம் நீங்கள் மீண்டும் இயக்கலாம்.</translation>
+        <translation type="vanished">அநாமதேய அளவீடுகள் சேகரிப்பு முடக்கப்பட்டுள்ளது. அமைப்புகள் குழு மூலம் நீங்கள் மீண்டும் இயக்கலாம்.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8915,11 +9564,11 @@ to show actions</source>
     </message>
     <message>
         <source>I agree</source>
-        <translation>நான் ஒப்புக்கொள்கிறேன்</translation>
+        <translation type="vanished">நான் ஒப்புக்கொள்கிறேன்</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>நான் விரும்பவில்லை</translation>
+        <translation type="vanished">நான் விரும்பவில்லை</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -8935,7 +9584,7 @@ to show actions</source>
     </message>
     <message>
         <source>Last session</source>
-        <translation>கடைசி அமர்வு</translation>
+        <translation type="vanished">கடைசி அமர்வு</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8956,76 +9605,6 @@ to show actions</source>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">QFieldக்கு மீண்டும் வரவேற்கிறோம்.</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>இயல்புநிலை திட்டம்</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>அடிப்படை வரைபடம்</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>துவக்கத்தில் இயல்புநிலை திட்டத்தை ஏற்றவும்</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>துவக்கத்தில் கடைசியாக திறக்கப்பட்ட திட்டத்தை ஏற்றவும்</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation>அண்மைக் கால திட்ட நடவடிக்கைகள்</translation>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>அருமை! நீங்கள் கீழே உள்ள பொத்தானைக் சொடுக்கு செய்து மதிப்பாய்வு செய்ய விரும்புகிறோம்.</translation>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation>வரைபடத்திற்குத் திரும்பு</translation>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation>QFieldCloud 
-திட்டங்கள்</translation>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation>உள்ளக திட்டங்கள் மற்றும் 
-தரவுத்தொகுப்புகள்</translation>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation>புதிதாக உருவாக்கவும் 
-திட்டம்</translation>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>வணக்கம், இதுவரை %1 உடனான உங்கள் அனுபவம் உங்களுக்கு எப்படிப் பிடித்திருக்கிறது?</translation>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation>அனைவருக்கும் நிலைத்தன்மையை மேம்படுத்த, %1 பெயர் குறிப்பிடப்படாதது அளவீடுகளைச் சேகரித்து அனுப்புகிறது.</translation>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation>இந்தப் பயன்பாட்டை முதல் முறையாகப் பயன்படுத்துகிறீர்களா? கீழே பட்டியலிடப்பட்டுள்ள மாதிரி திட்டங்களை முயற்சிக்கவும்.</translation>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

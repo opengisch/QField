@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>ພັດທະນາໂດຍ</translation>
+        <translation type="vanished">ພັດທະນາໂດຍ</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>ການຊ່ວຍເຫຼືອ QField</translation>
+        <translation type="vanished">ການຊ່ວຍເຫຼືອ QField</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>ບັນທຶກການປ່ຽນແປງ</translation>
+        <translation type="vanished">ບັນທຶກການປ່ຽນແປງ</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>ເອກະສານ</translation>
+        <translation type="vanished">ເອກະສານ</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>ເມນູລິ້ງຄ໌</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ເມນູລິ້ງຄ໌</translation>
     </message>
 </context>
 <context>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>ບໍ່ສາມາດໂຫຼດບາງຊັ້ນແຜນທີ່ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດໂຫຼດບາງຊັ້ນແຜນທີ່ໄດ້</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>ບໍ່​ສາ​ມາດ​ໂຫຼດ​ຊັ້ນ​ແຜນທີ່ດັ່ງ​ຕໍ່​ໄປ​ນີ້​ໄດ້, ກະ​ລຸ​ນາ​ກວດ​ຄືນ​ເບິ່ງ​ແລະ​ປັບ​ຄ່າ​ໂຄງ​ການ QGIS ຄືນ​ໃໝ່</translation>
+        <translation type="vanished">ບໍ່​ສາ​ມາດ​ໂຫຼດ​ຊັ້ນ​ແຜນທີ່ດັ່ງ​ຕໍ່​ໄປ​ນີ້​ໄດ້, ກະ​ລຸ​ນາ​ກວດ​ຄືນ​ເບິ່ງ​ແລະ​ປັບ​ຄ່າ​ໂຄງ​ການ QGIS ຄືນ​ໃໝ່</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">ທ່ານສາມາດກວດເບິ່ງສ່ວນ Portable Project ໃນເອກະສານ QField ເພື່ອຮັບຄວາມຊ່ວຍເຫຼືອເພີ່ມເຕີມ.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>ທ່ານສາມາດກວດເບິ່ງໜ້າເອກະສານ %1Portable Project%2 ສໍາລັບການຊ່ວຍເຫຼືອເພີ່ມເຕີມ.</translation>
     </message>
 </context>
 <context>
@@ -423,30 +407,30 @@ Cancel to make a minimal device scan instead.</source>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>ມີຫຍັງໃຫມ່ໃນ QField</translation>
+        <translation type="vanished">ມີຫຍັງໃຫມ່ໃນ QField</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>ເກີດຄວາມຜິດພາດໃນລະຫວ່າງການດຶງຂໍ້ມູນການປ່ຽນແປງ, ກະລຸນາລອງໃໝ່ໃນພາຍຫຼັງ.</translation>
+        <translation type="vanished">ເກີດຄວາມຜິດພາດໃນລະຫວ່າງການດຶງຂໍ້ມູນການປ່ຽນແປງ, ກະລຸນາລອງໃໝ່ໃນພາຍຫຼັງ.</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>ການຊ່ວຍເຫຼືອ QField</translation>
+        <translation type="vanished">ການຊ່ວຍເຫຼືອ QField</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>ກວດເບິ່ງການປ່ຽນແປງຫຼ້າສຸດກ່ຽວກັບ QField </translation>
+        <translation type="vanished">ກວດເບິ່ງການປ່ຽນແປງຫຼ້າສຸດກ່ຽວກັບ QField </translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>ຫນ້າເວີຊັນ QField</translation>
+        <translation type="vanished">ຫນ້າເວີຊັນ QField</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>ລຸ້ນກ່ອນໜ້ານີ້ໃນ GitHub</translation>
+        <translation type="vanished">ລຸ້ນກ່ອນໜ້ານີ້ໃນ GitHub</translation>
     </message>
 </context>
 <context>
@@ -462,53 +446,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation type="vanished">NULL</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>ເລຂາຄະນິດ</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>ວາງບໍ່ສຳເລັດ: ບໍ່ມີຊັ້ນແຜນທີ່ປາຍທາງສະໜອງໃຫ້</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>ການຕັດການດໍາເນີນງານ: ຊັ້ນແຫຼ່ງແລະຈຸດຫມາຍປາຍທາງແມ່ນຄືກັນ, ຂ້າມການວາງ.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>ວາງບໍ່ສຳເລັດ: ຄຸນສົມບັດຄລິບບອດບໍ່ຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>ຕັດບໍ່ສຳເລັດ: ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໃນຊັ້ນຂໍ້ມູນຕົ້ນສະບັບ %1 ໄດ້</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>ຕັດບໍ່ສຳເລັດ: ບໍ່ສາມາດລຶບຄຸນສົມບັດຕົ້ນສະບັບອອກຈາກຊັ້ນຂໍ້ມູນແຫຼ່ງ %1 ໄດ້</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>ວາງບໍ່ສຳເລັດ: ບໍ່ສາມາດສ້າງຄຸນສົມບັດທີ່ເຂົ້າກັນໄດ້</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>ວາງບໍ່ສຳເລັດ: ບໍ່ສາມາດເລີ່ມການແກ້ໄຂຊັ້ນແຜນທີ່ %1 ໄດ້</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>ວາງບໍ່ສຳເລັດ: ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດໃສ່ຊັ້ນແຜນທີ່  %1 ໄດ້</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>ວາງບໍ່ສຳເລັດ: ການປ່ຽນແປງລົ້ມເຫລວໃນຊັ້ນແຜນທີ່ %1</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>ການ​ຕັດ​ບໍ່​ສຳ​ເລັດ​ຢູ່​ໃນແຫຼ່ງ​ຊັ້ນແຜນທີ່ %1</translation>
     </message>
 </context>
 <context>
@@ -529,38 +466,14 @@ Cancel to make a minimal device scan instead.</source>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>ຊັ້ນ %1 ສາມາດອ່ານໄດ້ເທົ່ານັ້ນ.</translation>
+        <translation type="vanished">ຊັ້ນ %1 ສາມາດອ່ານໄດ້ເທົ່ານັ້ນ.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>ຫົວຂໍ້ແຜນທີ່</translation>
+        <translation type="vanished">ຫົວຂໍ້ແຜນທີ່</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>ໂຄງການສາມາດອ່ານໄດ້ເທົ່ານັ້ນ</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>ນິທານ</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation>ກັບໄປໜ້າຫຼັກ</translation>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation>ຂະຫຍາຍທັງໝົດ</translation>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation>ຫຍໍ້ທັງໝົດ</translation>
-    </message>
-    <message>
-        <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1574,111 +1487,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>ຂຽນໂດຍ %1%2%3</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>ຖອນການຕິດຕັ້ງເວີຊັນ %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>ຖອນການຕິດຕັ້ງ plugin</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>ໄຟລ໌ zip ທີ່ດາວໂຫລດມາບໍ່ສາມາດຖືກບີບອັດໄດ້</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>ໄຟລ໌ zip ທີ່ດາວໂຫລດມາບໍ່ມີໄຟລ໌ plugin main.qml ທີ່ຕ້ອງການ</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>ບໍ່ສາມາດບັນທຶກໄຟລ໌ທີ່ດາວໂຫລດໄດ້</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>ໄຟລ໌ດາວໂຫຼດບໍ່ແມ່ນ plugin zipped</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>ເຄືອຂ່າຍຜິດພາດ</translation>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>URL plugin ທີ່ຮ້ອງຂໍແມ່ນມີຢູ່ໃນລາຍຊື່ plugins ທີ່ມີຢູ່, ກະລຸນາຕິດຕັ້ງຜ່ານປຸ່ມດາວໂຫລດ</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>Plugins</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>ຕິດຕັ້ງ plugin ຈາກ URL</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>ລົບລ້າງການອະນຸຍາດທີ່ຈື່ໄວ້</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>ພິມ URL ຂ້າງລຸ່ມນີ້ເພື່ອດາວໂຫລດ ແລະຕິດຕັ້ງ plugin:</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>ກຳລັງຕິດຕັ້ງ %1</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຖອນການຕິດຕັ້ງ `%1`?</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>ລາຍລະອຽດຂອງຜູ້ຂຽນທີ່ສະແດງຢູ່ຂ້າງເທິງແມ່ນລາຍງານດ້ວຍຕົນເອງໂດຍ plugin ແລະ ບໍ່ໄດ້ຮັບການຢັ້ງຢືນເປັນເອກະລາດ. ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າທ່ານເຊື່ອແຫຼ່ງທີ່ມາຂອງ plugin.</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>ເມນູການຈັດການ plugins</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>Plugins ທ້ອງຖິ່ນ</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>Plugins ທີ່ສາມາດໃຊ້ໄດ້</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>ຊອກຫາ plugin</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>ກຳລັງດຶງເອົາປລັກອິນທີ່ມີຢູ່</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>ບໍ່ມີ plugin ໃດຖືກຕິດຕັ້ງເທື່ອ, ສະຫຼັບໄປແຖບ %1 plugin ທີ່ໃຊ້ໄດ້%3 ເພື່ອລອງໃຊ້ທັນທີ. ສຳລັບຂໍ້ມູນເພີ່ມເຕີມ, %2ອ່ານເອກະສານ%3.</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -1938,21 +1746,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation>ກະລຸນາໃສ່ຂໍ້ມູນປະຈໍາຕົວສໍາລັບຖານຂໍ້ມູນ</translation>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation>ຢູ່ໃນແມ່ຂ່າຍ</translation>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation>ໃນ​ການ​ບໍ​ລິ​ການ​</translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2014,33 +1807,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>ຕັ້ງຄ່າໂຄງການຄືນໃໝ່</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>ສໍາເນົາທ້ອງຖິ່ນຂອງໂຄງການຄລາວນີ້ຖືກເສຍຫາຍ. ການຣີເຊັດໂຄງການຈະດາວໂຫຼດເວີຊັນຄລາວຄືນໃໝ່ ແລະ ຈະລຶບການປ່ຽນແປງໃນເຄື່ອງອອກ, ໃຫ້ແນ່ໃຈວ່າການປ່ຽນແປງຖືກສຳເນົາໄວ້ກ່ອນຖ້າຈຳເປັນ. ໃນຂະນະທີ່ທ່ານຍັງສາມາດເບິ່ງ ແລະ ນຳໃຊ້ໂຄງການໄດ້, ແນະນຳໃຫ້ຣີເຊັດເພື່ອຫຼີກເວັ້ນການສູນເສຍຂໍ້ມູນໂດຍບັງເອີນ ເນື່ອງຈາກບໍ່ມີການປ່ຽນແປງໃດໆທີ່ສ້າງຂຶ້ນຈະຖືກຍູ້ກັບໄປຄລາວ.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2055,55 +1828,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="vanished">ກຳລັງໂຫລດ...</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>ບໍ່ຮູ້</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2115,7 +1840,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>ເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ</translation>
+        <translation type="vanished">ເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ</translation>
     </message>
     <message>
         <source>Server URL
@@ -2124,31 +1849,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Username or email</source>
-        <translation>ຊື່ຜູ້ໃຊ້ ຫຼືອີເມລ໌</translation>
+        <translation type="vanished">ຊື່ຜູ້ໃຊ້ ຫຼືອີເມລ໌</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>ລະຫັດຜ່ານ</translation>
+        <translation type="vanished">ລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>ອອກຈາກລະບົບ</translation>
+        <translation type="vanished">ອອກຈາກລະບົບ</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>ເຂົ້າສູ່ລະບົບ, ກະລຸນາລໍຖ້າ</translation>
+        <translation type="vanished">ເຂົ້າສູ່ລະບົບ, ກະລຸນາລໍຖ້າ</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>ເຂົ້າສູ່ລະບົບ</translation>
+        <translation type="vanished">ເຂົ້າສູ່ລະບົບ</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>ຜູ້ໃຊ້ໃຫມ່?</translation>
+        <translation type="vanished">ຜູ້ໃຊ້ໃຫມ່?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>ລົງທະບຽນບັນຊີ</translation>
+        <translation type="vanished">ລົງທະບຽນບັນຊີ</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2164,31 +1889,14 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>ວິທີທີ່ງ່າຍທີ່ຈະໂອນໂຄງການຂອງທ່ານຈາກ QGIS ໄປຫາອຸປະກອນຂອງທ່ານ!</translation>
+        <translation type="vanished">ວິທີທີ່ງ່າຍທີ່ຈະໂອນໂຄງການຂອງທ່ານຈາກ QGIS ໄປຫາອຸປະກອນຂອງທ່ານ!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud</translation>
+        <translation type="vanished">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>ຫຼື</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>ເຂົ້າສູ່ລະບົບໂດຍໃຊ້ %1</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2210,20 +1918,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">ບາງຊັ້ນຂໍ້ມູນບໍ່ໄດ້ຖືກຫຸ້ມຫໍ່ຢ່າງຖືກຕ້ອງຢູ່ໃນ QFieldCloud. ຊັ້ນຂໍ້ມູນເຫຼົ່ານີ້ອາດຈະຖືກຕັ້ງຄ່າຜິດ ຫຼືແຫຼ່ງຂໍ້ມູນຂອງພວກມັນບໍ່ສາມາດເຂົ້າເຖິງໄດ້ຈາກເຊີບເວີ QFieldCloud. ກະລຸນາກວດເບິ່ງບັນທຶກຂອງວຽກການຫຸ້ມຫໍ່ຫຼ້າສຸດຢູ່ໃນເວັບໄຊທ໌ qfield.cloud.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2235,7 +1935,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud</translation>
+        <translation type="vanished">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2251,7 +1951,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>ໂຄງການ QFieldCloud ນີ້ຖືກດາວໂຫຼດຄັ້ງທຳອິດດ້ວຍບັນຊີຄລາວອື່ນ. ກະລຸນາເຂົ້າສູ່ລະບົບດ້ວຍບັນຊີຕົ້ນສະບັບສໍາລັບໂຄງການນີ້ເພື່ອໃຊ້ຟັງຊັນ QFieldCloud.</translation>
+        <translation type="vanished">ໂຄງການ QFieldCloud ນີ້ຖືກດາວໂຫຼດຄັ້ງທຳອິດດ້ວຍບັນຊີຄລາວອື່ນ. ກະລຸນາເຂົ້າສູ່ລະບົບດ້ວຍບັນຊີຕົ້ນສະບັບສໍາລັບໂຄງການນີ້ເພື່ອໃຊ້ຟັງຊັນ QFieldCloud.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2287,11 +1987,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>ໂຄງ​ການ​ທີ່​ເກັບ​ໄວ້​ໃນ​ທ້ອງ​ຖິ່ນ​ໄດ້​ຮັບ​ຄວາມ​ເສຍ​ຫາຍ​</translation>
+        <translation type="vanished">ໂຄງ​ການ​ທີ່​ເກັບ​ໄວ້​ໃນ​ທ້ອງ​ຖິ່ນ​ໄດ້​ຮັບ​ຄວາມ​ເສຍ​ຫາຍ​</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>ຊິ້ງຂໍ້ມູນ</translation>
+        <translation type="vanished">ຊິ້ງຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2329,11 +2029,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>ຊິຊິ້ງຂໍ້ມູນຫຼ້າສຸດ​ໃນ​ປັດ​ຈຸ​ບັນ​</translation>
+        <translation type="vanished">ຊິຊິ້ງຂໍ້ມູນຫຼ້າສຸດ​ໃນ​ປັດ​ຈຸ​ບັນ​</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>ຊິ້ງຂໍ້ມູນຫຼ້າສຸດ %1 ນາທີ</translation>
+        <translation type="vanished">ຊິ້ງຂໍ້ມູນຫຼ້າສຸດ %1 ນາທີ</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2341,7 +2041,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>ຊິ້ງຂໍ້ມູນຫຼ້າສຸດ ເມື່ອ %1</translation>
+        <translation type="vanished">ຊິ້ງຂໍ້ມູນຫຼ້າສຸດ ເມື່ອ %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2373,15 +2073,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>ຕັ້ງຄ່າໂຄງການຄລາວຄືນໃໝ່</translation>
+        <translation type="vanished">ຕັ້ງຄ່າໂຄງການຄລາວຄືນໃໝ່</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>ການເຕືອນຄັ້ງສຸດທ້າຍ, ການຣີເຊັດໂຄງການຄລາວຈະລຶບການປ່ຽນແປງໃນທ້ອງຖິ່ນ, ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການສືບຕໍ່?</translation>
+        <translation type="vanished">ການເຕືອນຄັ້ງສຸດທ້າຍ, ການຣີເຊັດໂຄງການຄລາວຈະລຶບການປ່ຽນແປງໃນທ້ອງຖິ່ນ, ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການສືບຕໍ່?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>ເຊື່ອມຕໍ່ຄລາວ</translation>
+        <translation type="vanished">ເຊື່ອມຕໍ່ຄລາວ</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2394,166 +2094,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">ບໍ່ມີການປ່ຽນແປງທີ່ຈະຍົກເລີກ</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>ໂຄງ​ການ​ນີ້​ມີ​ໄຟລ​໌​ໂຄງ​ການ​ທີ່​ປັບ​ປຸງ​ຢູ່​ໃນ​ຄລາວ​, ແນະນໍາໃຫ້ synchronize.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>ໂຄງການນີ້ໄດ້ອັບເດດຂໍ້ມູນຢູ່ໃນຄລາວ, ທ່ານຄວນ synchronize.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud ກຳລັງຫຸ້ມຫໍ່ຂໍ້ມູນຫລ້າສຸດສໍາລັບທ່ານ; ອາດຈະໃຊ້ເວລາ, ກະລຸນາລໍຖ້າ</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>ກຳລັງດາວໂຫຼດ, %1% ຂອງ %2 ໄດ້ຖືກດຶງມາ</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>ກຳລັງດາວໂຫຼດ, %1% ໄດ້ຖືກດຶງມາ</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>ກຳລັງເຂົ້າຫາ QFieldCloud ເພື່ອດາວໂຫລດໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation>ກຳລັງຊຸກການປ່ຽນແປງ, %1%…</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud ກຳລັງນຳໃຊ້ການປ່ຽນແປງຫຼ້າສຸດ. ອາດຈະໃຊ້ເວລາຄາວໜຶ່ງ, ກະລຸນາລໍຖ້າ...</translation>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation>ກຳລັງອັບໂຫລດໂຄງການປັດຈຸບັນໄປໃສ່ QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation>ກຳລັງອັບໂຫຼດ %1</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation><numerusform>ຍັງເຫຼືອອີກ %n ໄຟລ໌</numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2643,102 +2183,15 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation>ເຈົ້າຂອງ</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>ວັນທີສ້າງ</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>ວັນທີອັບເດດຫຼ້າສຸດ</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>ລະຫັດ QR ນີ້ສາມາດຖືກສະແກນສໍາລັບຜູ້ໃຊ້ທີ່ມີການເຂົ້າເຖິງທີ່ເຫມາະສົມເພື່ອດາວໂຫລດ ແລະເປີດໂຄງການນີ້</translation>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>ຊິ້ງຂໍ້ມູນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud ກໍາລັງບັນຈຸໂຄງການ, ກະລຸນາລໍຖ້າ</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>ກຳລັງດາວໂຫຼດໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>ດາວໂຫຼດໂຄງການ</translation>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>ກຳລັງດາວໂຫຼດໂຄງການ %1</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>ເປີດໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation>ກຳລັງຊິງໂຄໄນ</translation>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>ຄົ້ນ​ຫາ</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2873,19 +2326,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>ໂຄງການ QFieldCloud</translation>
+        <translation type="vanished">ໂຄງການ QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>ຕັດການເຊື່ອມຕໍ່ຈາກຄລາວ.</translation>
+        <translation type="vanished">ຕັດການເຊື່ອມຕໍ່ຈາກຄລາວ.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>ກຳລັງເຊື່ອມຕໍ່ກັບຄລາວ.</translation>
+        <translation type="vanished">ກຳລັງເຊື່ອມຕໍ່ກັບຄລາວ.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>ທັກທາຍ %1.</translation>
+        <translation type="vanished">ທັກທາຍ %1.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2909,15 +2362,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>ກຳລັງອັບໂຫລດ...</translation>
+        <translation type="vanished">ກຳລັງອັບໂຫລດ...</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>ການດາວໂຫຼດຜິດພາດ.</translation>
+        <translation type="vanished">ການດາວໂຫຼດຜິດພາດ.</translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>ການອັບໂຫລດຜິດພາດ.</translation>
+        <translation type="vanished">ການອັບໂຫລດຜິດພາດ.</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2945,11 +2398,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Open Project</source>
-        <translation>ເປີດໂຄງການ</translation>
+        <translation type="vanished">ເປີດໂຄງການ</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>ລົບໂຄງການທີ່ເກັບໄວ້</translation>
+        <translation type="vanished">ລົບໂຄງການທີ່ເກັບໄວ້</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2961,67 +2414,27 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>ໂຫຼດບັນຊີລາຍຊື່ໂຄງການຄືນໃໝ່</translation>
+        <translation type="vanished">ໂຫຼດບັນຊີລາຍຊື່ໂຄງການຄືນໃໝ່</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>ກຳລັງໂຫຼດບັນຊີລາຍຊື່ໂຄງການຄືນໃໝ່</translation>
+        <translation type="vanished">ກຳລັງໂຫຼດບັນຊີລາຍຊື່ໂຄງການຄືນໃໝ່</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">ບໍ່ພົບເຫັນໂຄງການ</translation>
     </message>
     <message>
-        <source>Project Actions</source>
-        <translation>ການດໍາເນີນການໂຄງການ</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud ກຳລັງຫຸ້ມຫໍ່ຂໍ້ມູນຫລ້າສຸດສໍາລັບທ່ານ; ອາດຈະໃຊ້ເວລາ, ກະລຸນາລໍຖ້າ</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>ກຳລັງດາວໂຫຼດ, %1% ຂອງ %2 ໄດ້ຖືກດຶງມາ</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>ກຳລັງດາວໂຫຼດ, %1% ໄດ້ຖືກດຶງມາ</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>ກຳລັງເຂົ້າຫາ QFieldCloud ເພື່ອດາວໂຫລດໂຄງການ</translation>
-    </message>
-    <message>
         <source>Sign out</source>
-        <translation>ອອກຈາກລະບົບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>ເຂົ້າສູ່ລະບົບ</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>ສະແດງໂຄງການທີ່ບໍ່ຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>ເບິ່ງລາຍລະອຽດໂຄງການ</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>ການດຶງຂໍ້ມູນລາຍລະອຽດໂຄງການ QFieldCloud ບໍ່ສຳເລັດ</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation>ເບິ່ງໂຟນເດີໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation>ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການເອົາ `%1` ອອກ?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>ຊິ້ງຂໍ້ມູນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3029,70 +2442,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation>ໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3119,73 +2468,58 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>ສໍາເລັດ</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>ຕໍ່ໄປ</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>ກ່ອນ​ຫນ້າ​ນີ້</translation>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>ໂຟນເດີໂຄງການ</translation>
+        <translation type="vanished">ໂຟນເດີໂຄງການ</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>ໂຄງການ ແລະ ຊຸດຂໍ້ມູນທ້ອງຖິ່ນ</translation>
+        <translation type="vanished">ໂຄງການ ແລະ ຊຸດຂໍ້ມູນທ້ອງຖິ່ນ</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>ໂຟນເດີ</translation>
+        <translation type="vanished">ໂຟນເດີ</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>ໂຄງການ</translation>
+        <translation type="vanished">ໂຄງການ</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>ຊຸດຂໍ້ມູນ</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>ລາຍການທີ່ມັກ</translation>
+        <translation type="vanished">ລາຍການທີ່ມັກ</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>ໄຟລ໌ໂຄງການ</translation>
+        <translation type="vanished">ໄຟລ໌ໂຄງການ</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>ຊຸດຂໍ້ມູນ Vector</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນ Vector</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>ຊຸດຂໍ້ມູນ Raster</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນ Raster</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>ສົ່ງໄປ...</translation>
+        <translation type="vanished">ສົ່ງໄປ...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>ສົ່ງອອກໄປໂຟນເດີ...</translation>
+        <translation type="vanished">ສົ່ງອອກໄປໂຟນເດີ...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>ເອົາຊຸດຂໍ້ມູນອອກ</translation>
+        <translation type="vanished">ເອົາຊຸດຂໍ້ມູນອອກ</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>ສົ່ງໂຟນເດີທີ່ຖືກບີບອັດໄປ...</translation>
+        <translation type="vanished">ສົ່ງໂຟນເດີທີ່ຖືກບີບອັດໄປ...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3193,235 +2527,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>ນໍາເຂົ້າໂຄງການຈາກໂຟນເດີ</translation>
+        <translation type="vanished">ນໍາເຂົ້າໂຄງການຈາກໂຟນເດີ</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>ນໍາເຂົ້າໂຄງການຈາກ ZIP</translation>
+        <translation type="vanished">ນໍາເຂົ້າໂຄງການຈາກ ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>ນຳເຂົ້າຊຸດຂໍ້ມູນ</translation>
+        <translation type="vanished">ນຳເຂົ້າຊຸດຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>ຊ່ວຍການຄຸ້ມຄອງການເກັບຮັກສາ</translation>
+        <translation type="vanished">ຊ່ວຍການຄຸ້ມຄອງການເກັບຮັກສາ</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>ໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>ໜ້າຫຼັກ</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>ລາຍ​ການການດໍາເນີນການ</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>ເບິ່ງໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>ຍູ້ໄປທີ່ QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>ເພີ່ມເຂົ້າໃນລາຍການທີ່ມັກ</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>ເອົາ​ອອກ​ຈາກລາຍການທີ່ມັກ</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>ອັບໂຫລດໂຟນເດີໄປໃສ່ເຊີບເວີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>ດາວໂຫລດໂຟນເດີຈາກເຊີບເວີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation>ລົບໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>ນຳເຂົ້າການດໍາເນີນການ</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>ນຳເຂົ້າ URL</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>ນໍາເຂົ້າໂຟນເດີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>ການດໍາເນີນການໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>ອັບເດດໂຄງການຈາກ ZIP</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>ອັບໂຫຼດໂຄງການໃສ່ WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>ດາວໂຫລດໂຄງການຈາກ WebDAV</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>ອັບໂຫຼດໄຟລ໌ໃສ່ WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>ຍູ້ໄຟລ໌ໄປຫາ QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>ກະລຸນາເລືອກໜຶ່ງ ຫຼືຫຼາຍໄຟລ໌ເພື່ອຍູ້ໄປທີ່ QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation>ລົບໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>&apos;%1&apos; ກຳລັງຖືກອັບໂຫລດໄປໃສ່ QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>ລາຍການກຳລັງຖືກອັບໂຫຼດໃສ່ QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation>ເອົາໄຟລ໌ອອກ</translation>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation><numerusform>ຢືນຢັນການເອົາ %n ໄຟລ໌ອອກ?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>ລົບ %n ໄຟລ໌ສຳເລັດແລ້ວ</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>ບໍ່ສາມາດລົບ %n ໄຟລ໌ໄດ້</numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>ພິມ URL ຂ້າງລຸ່ມນີ້ເພື່ອດາວໂຫລດ ແລະ ນໍາເຂົ້າໂຄງການ ຫຼືຊຸດຂໍ້ມູນ:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>ກຳລັງນຳເຂົ້າໂຟນເດີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>ກຳລັງດາວໂຫຼດໂຟນເດີ WebDAV</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>ກຳລັງອັບໂຫລດໂຟນເດີ WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>ຄວາມຜິດພາດ WebDAV:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>ອັບໂຫຼດ WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>ດາວໂຫຼດ WebDAV</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>ທ່ານກຳລັງຈະອັບໂຫລດເນື້ອຫາທີ່ຖືກແກ້ໄຂໄປໃສ່ %1 ໂດຍໃຊ້ຜູ້ໃຊ້ %2. ຄຳສັ່ງນີ້ຈະຂຽນທັບຂໍ້ມູນທີ່ເກັບໄວ້ຈາກໄລຍະໄກ, ທ່ານແນ່ໃຈບໍ່ວ່າແມ່ນສິ່ງທີ່ທ່ານຕ້ອງການເຮັດ.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>ທ່ານກຳລັງຈະດາວໂຫຼດເນື້ອຫາທີ່ຖືກແກ້ໄຂໄປໃສ່ %1 ໂດຍໃຊ້ຜູ້ໃຊ້ %2. ຄຳສັ່ງນີ້ຈະຂຽນທັບຂໍ້ມູນທີ່ເກັບໄວ້ຈາກໄລຍະໄກ, ທ່ານແນ່ໃຈບໍ່ວ່າແມ່ນສິ່ງທີ່ທ່ານຕ້ອງການເຮັດ.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>ລະຫັດຜ່ານ (ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ອັນທີ່ບັນ​ທຶກ​ໄວ້​ແລ້ວ)</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>ຈື່ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>ພິມລາຍລະອຽດ WebDAV ຂ້າງລຸ່ມນີ້ເພື່ອນໍາເຂົ້າໂຟນເດີທາງໄກ:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV ເຊີບເວີ URL</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>ຜູ້ໃຊ້ ແລະ ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ອັນທີ່ບັນ​ທຶກ​ໄວ້​ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>ກຳລັງດຶງເອົາໂຟນເດີທາງໄກ</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>ດຶງເອົາໂຟນເດີທາງໄກ</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>ເລືອກໂຟນເດີທາງໄກເພື່ອນໍາເຂົ້າ:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>ໂຟນເດີຮາກ</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>ມີຢູ່ໃນເຄື່ອງໃນ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>ຊື່ໂຟນເດີທີ່ນໍາເຂົ້າ</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>ຢືນຢັນ</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>ທ່ານກຳລັງຈະລຶບລາຍການ WebDAV ທີ່ບັນທຶກໄວ້, ດຳເນີນການຕໍ່ບໍ?</translation>
     </message>
 </context>
 <context>
@@ -3443,7 +2565,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>ສະແດງແຖບຂະໜາດ</translation>
+        <translation type="vanished">ສະແດງແຖບຂະໜາດ</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3451,31 +2573,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>ການນຳທາງຂະໜາດຄົງທີ່</translation>
+        <translation type="vanished">ການນຳທາງຂະໜາດຄົງທີ່</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>ເມື່ອການນຳທາງແບບຂະໜາດຄົງທີ່ເປີດນຳໃຊ້ຢູ່, ການເນັ້ນໃສ່ຜົນການຄົ້ນຫາຈະເລື່ອນໄປທີ່ຟີເຈີເທົ່ານັ້ນ. ຫາກປິດການນຳທາງແບບຂະໜາດຄົງທີ່, ມັນຈະເລື່ອນແລະຊູມໄປທີ່ຟີເຈີ.</translation>
+        <translation type="vanished">ເມື່ອການນຳທາງແບບຂະໜາດຄົງທີ່ເປີດນຳໃຊ້ຢູ່, ການເນັ້ນໃສ່ຜົນການຄົ້ນຫາຈະເລື່ອນໄປທີ່ຟີເຈີເທົ່ານັ້ນ. ຫາກປິດການນຳທາງແບບຂະໜາດຄົງທີ່, ມັນຈະເລື່ອນແລະຊູມໄປທີ່ຟີເຈີ.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>ສະ​ແດງ​ໃຫ້​ເຫັນ​ຂໍ້​ມູນ​ເປັນ​ດິ​ຈິ​ຕອນ​</translation>
+        <translation type="vanished">ສະ​ແດງ​ໃຫ້​ເຫັນ​ຂໍ້​ມູນ​ເປັນ​ດິ​ຈິ​ຕອນ​</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>ເມື່ອເປີດ, ຂໍ້ມູນປະສານງານ, ເຊັ່ນ: ເສັ້ນຂະໜານ ແລະເສັ້ນແວງ, ຈະຖືກວາງຊ້ອນໃສ່ແຜນທີ່ ໃນຂະນະທີ່ກຳລັງສະແກນລັກສະນະໃໝ່ ຫຼື ໃຊ້ເຄື່ອງມືວັດແທກ.</translation>
+        <translation type="vanished">ເມື່ອເປີດ, ຂໍ້ມູນປະສານງານ, ເຊັ່ນ: ເສັ້ນຂະໜານ ແລະເສັ້ນແວງ, ຈະຖືກວາງຊ້ອນໃສ່ແຜນທີ່ ໃນຂະນະທີ່ກຳລັງສະແກນລັກສະນະໃໝ່ ຫຼື ໃຊ້ເຄື່ອງມືວັດແທກ.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>ສະແດງ ບຸກມາກ (bookmarks)</translation>
+        <translation type="vanished">ສະແດງ ບຸກມາກ (bookmarks)</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>ເມື່ອເປີດ, ບຸກມາກໂຄງການທີ່ບັນທຶກໄວ້ ແລະເປີດໃນປັດຈຸບັນຂອງຜູ້ໃຊ້ຈະສະແດງຢູ່ໃນແຜນທີ່.</translation>
+        <translation type="vanished">ເມື່ອເປີດ, ບຸກມາກໂຄງການທີ່ບັນທຶກໄວ້ ແລະເປີດໃນປັດຈຸບັນຂອງຜູ້ໃຊ້ຈະສະແດງຢູ່ໃນແຜນທີ່.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>ໃຊ້ກ້ອງຖ່າຍຮູບເດີມ</translation>
+        <translation type="vanished">ໃຊ້ກ້ອງຖ່າຍຮູບເດີມ</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3491,7 +2613,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>ໜ້າຈໍຈາງລົງໃນການເຄື່ອນໄຫວຊ້າ</translation>
+        <translation type="vanished">ໜ້າຈໍຈາງລົງໃນການເຄື່ອນໄຫວຊ້າ</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3499,7 +2621,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>ພິຈາລະນາເມົາສ໌ເປັນອຸປະກອນໜ້າຈໍສຳຜັດ</translation>
+        <translation type="vanished">ພິຈາລະນາເມົາສ໌ເປັນອຸປະກອນໜ້າຈໍສຳຜັດ</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3507,7 +2629,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>ສົ່ງເມຕຣິກທີ່ບໍ່ເປີດເຜີຍຊື່</translation>
+        <translation type="vanished">ສົ່ງເມຕຣິກທີ່ບໍ່ເປີດເຜີຍຊື່</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3515,19 +2637,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>General</source>
-        <translation>ທົ່ວໄປ</translation>
+        <translation type="vanished">ທົ່ວໄປ</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>ການຈັດຕໍາແໜ່ງ</translation>
+        <translation type="vanished">ການຈັດຕໍາແໜ່ງ</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>ຕົວແປ</translation>
+        <translation type="vanished">ຕົວແປ</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>ປັບແຕ່ງແຖບຊອກຫາ</translation>
+        <translation type="vanished">ປັບແຕ່ງແຖບຊອກຫາ</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3539,15 +2661,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>system</source>
-        <translation>ລະບົບ</translation>
+        <translation type="vanished">ລະບົບ</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>ພົບພາສາທີ່ຂາດຫາຍໄປ ຫຼືບໍ່ຄົບຖ້ວນບໍ? %1ເຂົ້າຮ່ວມຊຸມຊົນນັກແປ.%2</translation>
+        <translation type="vanished">ພົບພາສາທີ່ຂາດຫາຍໄປ ຫຼືບໍ່ຄົບຖ້ວນບໍ? %1ເຂົ້າຮ່ວມຊຸມຊົນນັກແປ.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>ອຸປະກອນການຈັດຕໍາແຫນ່ງໃນລະຫວ່າງການນໍາໃຊ້</translation>
+        <translation type="vanished">ອຸປະກອນການຈັດຕໍາແຫນ່ງໃນລະຫວ່າງການນໍາໃຊ້</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3584,7 +2706,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+        <translation type="vanished">ເຊື່ອມຕໍ່ກັບ %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3592,7 +2714,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+        <translation type="vanished">ເຊື່ອມຕໍ່ກັບ %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3600,11 +2722,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>ສະແດງຂໍ້ມູນຕໍາແຫນ່ງ</translation>
+        <translation type="vanished">ສະແດງຂໍ້ມູນຕໍາແຫນ່ງ</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>ເປີດໃຊ້ຕົວຊີ້ວັດຄວາມຖືກຕ້ອງ</translation>
+        <translation type="vanished">ເປີດໃຊ້ຕົວຊີ້ວັດຄວາມຖືກຕ້ອງ</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3624,7 +2746,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>ເປີດໃຊ້ຄວາມຕ້ອງການຕໍາແຫນ່ງສະເລ່ຍ</translation>
+        <translation type="vanished">ເປີດໃຊ້ຄວາມຕ້ອງການຕໍາແຫນ່ງສະເລ່ຍ</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3632,15 +2754,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>ສິ້ນສຸດການເກັບກໍາອັດຕະໂນມັດເມື່ອມີຈໍານວນຕໍາ່ສຸດທີ່ບັນລຸໄດ້</translation>
+        <translation type="vanished">ສິ້ນສຸດການເກັບກໍາອັດຕະໂນມັດເມື່ອມີຈໍານວນຕໍາ່ສຸດທີ່ບັນລຸໄດ້</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານແລ້ວ, ການຕັ້ງຈຸດເປັນຕົວເລກດ້ວຍເຄີເຊີທີ່ລັອກໃສ່ຕຳແໜ່ງຈະຍອມຮັບພຽງແຕ່ຕຳແໜ່ງສະເລ່ຍຈາກຈຳນວນຕ່ຳສຸດທີ່ເກັບກຳໄດ້. Digitizing ໂດຍໃຊ້ຕໍາແຫນ່ງສະເລ່ຍແມ່ນເຮັດໄດ້ໂດຍການກົດປຸ່ມ add vertex ຄ້າງໄວ້, ເຊິ່ງຈະເກັບກໍາຕໍາແຫນ່ງຈົນກ່ວາກົດອອກ. ການຕັ້ງຄ່າຄວາມຕ້ອງການຄວາມຖືກຕ້ອງແມ່ນເຄົາລົບເມື່ອເປີດໃຊ້ງານ.</translation>
+        <translation type="vanished">ເມື່ອເປີດໃຊ້ງານແລ້ວ, ການຕັ້ງຈຸດເປັນຕົວເລກດ້ວຍເຄີເຊີທີ່ລັອກໃສ່ຕຳແໜ່ງຈະຍອມຮັບພຽງແຕ່ຕຳແໜ່ງສະເລ່ຍຈາກຈຳນວນຕ່ຳສຸດທີ່ເກັບກຳໄດ້. Digitizing ໂດຍໃຊ້ຕໍາແຫນ່ງສະເລ່ຍແມ່ນເຮັດໄດ້ໂດຍການກົດປຸ່ມ add vertex ຄ້າງໄວ້, ເຊິ່ງຈະເກັບກໍາຕໍາແຫນ່ງຈົນກ່ວາກົດອອກ. ການຕັ້ງຄ່າຄວາມຕ້ອງການຄວາມຖືກຕ້ອງແມ່ນເຄົາລົບເມື່ອເປີດໃຊ້ງານ.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>ການຊົດເຊີຍຄວາມສູງຂອງເສົາອາກາດ</translation>
+        <translation type="vanished">ການຊົດເຊີຍຄວາມສູງຂອງເສົາອາກາດ</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3652,23 +2774,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງ</translation>
+        <translation type="vanished">ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງ</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>ໃຊ້ລະດັບຄວາມສູງຕາມການລາຍງານໂດຍອຸປະກອນການຈັດຕໍາແຫນ່ງ. ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງທີ່ອາດຈະຖືກບົ່ງບອກໂດຍການຫັນປ່ຽນລະບົບປະສານງານ.</translation>
+        <translation type="vanished">ໃຊ້ລະດັບຄວາມສູງຕາມການລາຍງານໂດຍອຸປະກອນການຈັດຕໍາແຫນ່ງ. ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງທີ່ອາດຈະຖືກບົ່ງບອກໂດຍການຫັນປ່ຽນລະບົບປະສານງານ.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>ການ​ປ່ຽນ​ຕາ​ໜ່າງ​ສາຍ​ຕັ້ງ​ຢູ່​ໃນ​ການ​ນໍາ​ໃຊ້​:</translation>
+        <translation type="vanished">ການ​ປ່ຽນ​ຕາ​ໜ່າງ​ສາຍ​ຕັ້ງ​ຢູ່​ໃນ​ການ​ນໍາ​ໃຊ້​:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>ບໍ່ມີ</translation>
+        <translation type="vanished">ບໍ່ມີ</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>ການປ່ຽນຕາໜ່າງແນວຕັ້ງແມ່ນໃຊ້ເພື່ອເພີ່ມຄວາມຖືກຕ້ອງຂອງລະດັບຄວາມສູງ.</translation>
+        <translation type="vanished">ການປ່ຽນຕາໜ່າງແນວຕັ້ງແມ່ນໃຊ້ເພື່ອເພີ່ມຄວາມຖືກຕ້ອງຂອງລະດັບຄວາມສູງ.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3676,11 +2798,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>ເວລາທີ່ບໍ່ມີການເຄື່ອນໄຫວເປັນວິນາທີກ່ອນທີ່ຄວາມສະຫວ່າງຂອງໜ້າຈໍຈະຖືກເຮັດໃຫ້ມືດມົວເພື່ອຮັກສາແບັດເຕີຣີ.</translation>
+        <translation type="vanished">ເວລາທີ່ບໍ່ມີການເຄື່ອນໄຫວເປັນວິນາທີກ່ອນທີ່ຄວາມສະຫວ່າງຂອງໜ້າຈໍຈະຖືກເຮັດໃຫ້ມືດມົວເພື່ອຮັກສາແບັດເຕີຣີ.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>ຄ່າວັດແທກ (M) ທີ່ຕິດຢູ່ກັບຈຸດຕັ້ງ:</translation>
+        <translation type="vanished">ຄ່າວັດແທກ (M) ທີ່ຕິດຢູ່ກັບຈຸດຕັ້ງ:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3688,379 +2810,59 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>ຄວາມໄວຫນ້າດິນ</translation>
+        <translation type="vanished">ຄວາມໄວຫນ້າດິນ</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>ຕໍາ​ແຫນ່ງ</translation>
+        <translation type="vanished">ຕໍາ​ແຫນ່ງ</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>ຄວາມຖືກຕ້ອງຕາມລວງນອນ</translation>
+        <translation type="vanished">ຄວາມຖືກຕ້ອງຕາມລວງນອນ</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>ຄວາມຖືກຕ້ອງຂອງແນວຕັ້ງ</translation>
+        <translation type="vanished">ຄວາມຖືກຕ້ອງຂອງແນວຕັ້ງ</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>ໃນເວລາທີ່ການກໍານົດລັກສະນະດິຈິຕອນດ້ວຍເຄີເຊີພິກັດຖືກລັອກກັບຕໍາແຫນ່ງປະຈຸບັນ, ປະເພດການວັດແທກທີ່ເລືອກຂ້າງເທິງຈະຖືກເພີ່ມໃສ່ເລຂາຄະນິດທີ່ມັນມີຂະຫນາດ M.</translation>
+        <translation type="vanished">ໃນເວລາທີ່ການກໍານົດລັກສະນະດິຈິຕອນດ້ວຍເຄີເຊີພິກັດຖືກລັອກກັບຕໍາແຫນ່ງປະຈຸບັນ, ປະເພດການວັດແທກທີ່ເລືອກຂ້າງເທິງຈະຖືກເພີ່ມໃສ່ເລຂາຄະນິດທີ່ມັນມີຂະຫນາດ M.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>ເພີ່ມ</translation>
+        <translation type="vanished">ເພີ່ມ</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>ແກ້ໄຂ</translation>
+        <translation type="vanished">ແກ້ໄຂ</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>ເອົາອອກ</translation>
+        <translation type="vanished">ເອົາອອກ</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>ປະຕິບັດຕາມຮູບລັກສະນະຂອງລະບົບ</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>ຮູບແບບສີສັນແຈ້ງ</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>ຮູບແບບສີສັນມືດ</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>ນ້ອຍໆ</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>​ປົກ​ກະ​ຕິ​</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>ຂະ​ຫນາດ​ໃຫຍ່​</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>ຂະ​ຫນາດ​ໃຫຍ່​ພິ​ເສດ​</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>ບັນທຶກປະໂຫຍກ NMEA ຈາກອຸປະກອນໄປຫາໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>ຄຸນນະພາບການສະແດງຜົນຜືນແຜນທີ່:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>ຄຸນນະພາບທີ່ດີທີ່ສຸດ</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>ຄຸນະພາບຕໍ່າກວ່າ</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>ຄຸນະພາບຕໍ່າສຸດ</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>ຄຸນນະພາບທີ່ຕໍ່າລົງຈະຫຼຸດຜ່ອນຄວາມລະອຽດຂອງການສະແດງຜົນ ເພື່ອໃຫ້ໃຊ້ໜ່ວຍຄວາມຈຳນ້ອຍລົງ ແລະ ໃຊ້ເວລາສະແດງຜົນສັ້ນລົງ.</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Orthometric ຈາກອຸປະກອນ</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>ໃຊ້ປຸ່ມລະດັບສຽງເພື່ອປ່ຽນເປັນດິຈິຕອນ</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>ຖ້າເປີດໃຊ້, ການກົດປຸ່ມເພີ່ມລະດັບສຽງຂອງອຸປະກອນຈະເພີ່ມຈຸດສູງສຸດໃນ​ຂະ​ນະ​ທີ່​ການ​ກົດ​ປຸ່ມ​ລະ​ດັບ​ສຽງ​ລົງ​ຈະ​ເອົາ​ຈຸດ​ສຸດ​ທ້າຍ​ທີ່​ເຂົ້າ​ໄປ​ໃນ​ລະ​ຫວ່າງ​ການ​ສະ​ແກນ​</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>ອະນຸຍາດໃຫ້ແຕະນິ້ວມືໃສ່ຜ້າໃບເພື່ອເພີ່ມຈຸດຕັ້ງ</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານ, ເມົາສ໌ຈະເຮັດໜ້າທີ່ຄືກັບວ່າມັນເປັນນິ້ວມື. ເມື່ອປິດໃຊ້ງານ, ເມົາສ໌ຈະກົງກັບພຶດຕິກໍາຂອງສະໄຕລັດ.</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>ແຜນທີ່ Canvas</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>ສະແກນ ແລະແກ້ໄຂ</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>ສ່ວນຕິດຕໍ່ຜູ້ໃຊ້</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>ຮູບລັກສະນະ:</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>ຂະໜາດຕົວອັກສອນ:</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>ພາສາ:</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>ຂັ້ນສູງ</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>ຈັດ​ການ plugins</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>ເປີດໃຊ້ການຫມຸນແຜນທີ່</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>ເມື່ອເປີດ, ຜູ້ໃຊ້ສາມາດຫມຸນແຜນທີ່ໄດ້.</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>ບັງຄັບໃຊ້ຄວາມຕ້ອງການຄວາມຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>ເມື່ອເປີດໃຊ້ຕົວຊີ້ວັດຄວາມແມ່ນຍຳ, ຈະມີປ້າຍຕິດກັບປຸ່ມຕຳແໜ່ງ ແລະມີສີ &lt;span %1&gt;ແດງ ຖ້າຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”, &lt;span %2&gt;ເຫຼືອງ ຖ້າຄ່າຄວາມແມ່ນຍຳຕ່ຳກວ່າຂີດຈຳກັດ “ດີເລີດ”, ຫຼື &lt;span %3&gt;ຂຽວ ຖ້າຄ່າຄວາມແມ່ນຍຳດີ.
-ຍິ່ງໄປກວ່ານັ້ນ, ຍັງສາມາດເປີດໂໝດຈຳກັດຄວາມແມ່ນຍຳໄດ້, ເຊິ່ງຈະຈຳກັດການເພີ່ມຈຸດຍອດ (vertex) ໃນເວລາທີ່ຕຳແໜ່ງຖືກລັອກກັບເຄື່ອງໝາຍພິກັດ ໃຫ້ຢູ່ໃນຕຳແໜ່ງທີ່ມີຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>ສະແດງຜົນເນື້ອໃນແບບເບິ່ງຕົວຢ່າງອ້ອມຮອບຜືນແຜນທີ່ທີ່ເຫັນໄດ້</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>ເມື່ອເປີດນຳໃຊ້, ຟອມຟີເຈີຈະເປີດຂຶ້ນໂດຍອັດຕະໂນມັດ ຖ້າຫາກກຳນົດຟີເຈີພຽງແຕ່ອັນດຽວເທົ່ານັ້ນ, ຊຶ່ງຈະຂ້າມລາຍການຟີເຈີໄປ.</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>ສະແດງເຄື່ອງມືຄວບຄຸມການຊູມ</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>ຂະຫຍາຍແບບຟອມໃຫ້ໃຫຍ່ສຸດ</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>ເປີດແບບຟອມຂໍ້ມູນ ເພື່ອເບິ່ງລາຍລະອຽດວັດຖຸດ່ຽວ</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>ຫາກເປີດໃຊ້ງານ, ເນື້ອທີ່ບໍລິເວນຂອບນອກຂອງຂອບເຂດແຜນທີ່ທີ່ກຳລັງສະແດງຢູ່ນັ້ນ ຈະຖືກປະມວນຜົນໄວ້ບາງສ່ວນ ເພື່ອໃຫ້ສາມາດເຫັນຕົວຢ່າງໃນຂະນະທີ່ຊູມ ແລະ ເລື່ອນແຜນທີ່.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>ເປີດບັນທຶກອັດຕະໂນມັດ</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>ຫາກເປີດໃຊ້ງານ, ຂໍ້ມູນທີ່ເພີ່ມເຂົ້າໃໝ່ຈະຖືກບັນທຶກທັນທີ ເມື່ອຮູບຊົງເລຂາຄະນິດຖືກຕ້ອງ ແລະ ຄົບຖ້ວນຕາມເງື່ອນໄຂທີ່ກຳນົດ, ລວມທັງຄຸນລັກສະນະທີ່ຖືກແກ້ໄຂຈະຖືກຢືນຢັນການປ່ຽນແປງໃນທັນທີ.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>ຊູມອັດຕະໂນມັດໄປຫາວັດຖຸທີ່ລະບຸ</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານ, ແຜນທີ່ຈະຊູມໂດຍອັດຕະໂນມັດເພື່ອສະແດງວັດຖຸທັງໝົດທີ່ຖືກລະບຸ, ລວມທັງຊູມໄປຫາວັດຖຸທີ່ເລືອກໃນຂະນະທີ່ເປີດແບບຟອມຂໍ້ມູນ</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>ພອດ:</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ເຊື່ອມຕໍ່ກັບ %1</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>ຊື່ຜູ້ໃຊ້</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
-        <translation>ເລືອກແມ່ແບບການແຕ້ມຮູບ</translation>
     </message>
 </context>
 <context>
@@ -4283,6 +3085,41 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>ພັດທະນາໂດຍ</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>ການຊ່ວຍເຫຼືອ QField</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>ເອກະສານ</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>ເມນູລິ້ງຄ໌</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>ບັນທຶກການປ່ຽນແປງ</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4340,6 +3177,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>File %1 does not exist</source>
         <translation>ໄຟລ໌ %1 ບໍ່ມີຢູ່ </translation>
+    </message>
+</context>
+<context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>ກະລຸນາໃສ່ຂໍ້ມູນປະຈໍາຕົວສໍາລັບຖານຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>ຢູ່ໃນແມ່ຂ່າຍ</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>ໃນ​ການ​ບໍ​ລິ​ການ​</translation>
     </message>
 </context>
 <context>
@@ -4413,6 +3265,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Audio Recorder</source>
         <translation>ເຄື່ອງບັນທຶກສຽງ</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>ບໍ່ສາມາດໂຫຼດບາງຊັ້ນແຜນທີ່ໄດ້</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>ບໍ່​ສາ​ມາດ​ໂຫຼດ​ຊັ້ນ​ແຜນທີ່ດັ່ງ​ຕໍ່​ໄປ​ນີ້​ໄດ້, ກະ​ລຸ​ນາ​ກວດ​ຄືນ​ເບິ່ງ​ແລະ​ປັບ​ຄ່າ​ໂຄງ​ການ QGIS ຄືນ​ໃໝ່</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>ທ່ານສາມາດກວດເບິ່ງໜ້າເອກະສານ %1Portable Project%2 ສໍາລັບການຊ່ວຍເຫຼືອເພີ່ມເຕີມ.</translation>
     </message>
 </context>
 <context>
@@ -4783,6 +3650,83 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>ມີຫຍັງໃຫມ່ໃນ QField</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>ເກີດຄວາມຜິດພາດໃນລະຫວ່າງການດຶງຂໍ້ມູນການປ່ຽນແປງ, ກະລຸນາລອງໃໝ່ໃນພາຍຫຼັງ.</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>ການຊ່ວຍເຫຼືອ QField</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>ກວດເບິ່ງການປ່ຽນແປງຫຼ້າສຸດກ່ຽວກັບ QField </translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>ຫນ້າເວີຊັນ QField</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>ລຸ້ນກ່ອນໜ້ານີ້ໃນ GitHub</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>ເລຂາຄະນິດ</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>ວາງບໍ່ສຳເລັດ: ບໍ່ມີຊັ້ນແຜນທີ່ປາຍທາງສະໜອງໃຫ້</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>ການຕັດການດໍາເນີນງານ: ຊັ້ນແຫຼ່ງແລະຈຸດຫມາຍປາຍທາງແມ່ນຄືກັນ, ຂ້າມການວາງ.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>ວາງບໍ່ສຳເລັດ: ຄຸນສົມບັດຄລິບບອດບໍ່ຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>ຕັດບໍ່ສຳເລັດ: ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໃນຊັ້ນຂໍ້ມູນຕົ້ນສະບັບ %1 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>ຕັດບໍ່ສຳເລັດ: ບໍ່ສາມາດລຶບຄຸນສົມບັດຕົ້ນສະບັບອອກຈາກຊັ້ນຂໍ້ມູນແຫຼ່ງ %1 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>ວາງບໍ່ສຳເລັດ: ບໍ່ສາມາດສ້າງຄຸນສົມບັດທີ່ເຂົ້າກັນໄດ້</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>ວາງບໍ່ສຳເລັດ: ບໍ່ສາມາດເລີ່ມການແກ້ໄຂຊັ້ນແຜນທີ່ %1 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>ວາງບໍ່ສຳເລັດ: ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດໃສ່ຊັ້ນແຜນທີ່  %1 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>ວາງບໍ່ສຳເລັດ: ການປ່ຽນແປງລົ້ມເຫລວໃນຊັ້ນແຜນທີ່ %1</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>ການ​ຕັດ​ບໍ່​ສຳ​ເລັດ​ຢູ່​ໃນແຫຼ່ງ​ຊັ້ນແຜນທີ່ %1</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
@@ -4843,6 +3787,372 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
         <translation>ການອັບໂຫລດໄຟລ໌ແນບທີ່ເກັບໄວ້ໃນ `%1`, ເຫດຜົນ:%2 ລົ້ມເຫລວ</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>ຕັ້ງຄ່າໂຄງການຄືນໃໝ່</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>ສໍາເນົາທ້ອງຖິ່ນຂອງໂຄງການຄລາວນີ້ຖືກເສຍຫາຍ. ການຣີເຊັດໂຄງການຈະດາວໂຫຼດເວີຊັນຄລາວຄືນໃໝ່ ແລະ ຈະລຶບການປ່ຽນແປງໃນເຄື່ອງອອກ, ໃຫ້ແນ່ໃຈວ່າການປ່ຽນແປງຖືກສຳເນົາໄວ້ກ່ອນຖ້າຈຳເປັນ. ໃນຂະນະທີ່ທ່ານຍັງສາມາດເບິ່ງ ແລະ ນຳໃຊ້ໂຄງການໄດ້, ແນະນຳໃຫ້ຣີເຊັດເພື່ອຫຼີກເວັ້ນການສູນເສຍຂໍ້ມູນໂດຍບັງເອີນ ເນື່ອງຈາກບໍ່ມີການປ່ຽນແປງໃດໆທີ່ສ້າງຂຶ້ນຈະຖືກຍູ້ກັບໄປຄລາວ.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>ບໍ່ຮູ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>ເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>ຊື່ຜູ້ໃຊ້ ຫຼືອີເມລ໌</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>ລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>ອອກຈາກລະບົບ</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>ເຂົ້າສູ່ລະບົບ, ກະລຸນາລໍຖ້າ</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>ເຂົ້າສູ່ລະບົບ</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>ຫຼື</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>ເຂົ້າສູ່ລະບົບໂດຍໃຊ້ %1</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>ຜູ້ໃຊ້ໃຫມ່?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>ລົງທະບຽນບັນຊີ</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>ວິທີທີ່ງ່າຍທີ່ຈະໂອນໂຄງການຂອງທ່ານຈາກ QGIS ໄປຫາອຸປະກອນຂອງທ່ານ!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>ໂຄງການ QFieldCloud ນີ້ຖືກດາວໂຫຼດຄັ້ງທຳອິດດ້ວຍບັນຊີຄລາວອື່ນ. ກະລຸນາເຂົ້າສູ່ລະບົບດ້ວຍບັນຊີຕົ້ນສະບັບສໍາລັບໂຄງການນີ້ເພື່ອໃຊ້ຟັງຊັນ QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud ກຳລັງຫຸ້ມຫໍ່ຂໍ້ມູນຫລ້າສຸດສໍາລັບທ່ານ; ອາດຈະໃຊ້ເວລາ, ກະລຸນາລໍຖ້າ</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>ກຳລັງດາວໂຫຼດ, %1% ຂອງ %2 ໄດ້ຖືກດຶງມາ</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>ກຳລັງດາວໂຫຼດ, %1% ໄດ້ຖືກດຶງມາ</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>ກຳລັງເຂົ້າຫາ QFieldCloud ເພື່ອດາວໂຫລດໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>ກຳລັງຊຸກການປ່ຽນແປງ, %1%…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud ກຳລັງນຳໃຊ້ການປ່ຽນແປງຫຼ້າສຸດ. ອາດຈະໃຊ້ເວລາຄາວໜຶ່ງ, ກະລຸນາລໍຖ້າ...</translation>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>ກຳລັງອັບໂຫລດໂຄງການປັດຈຸບັນໄປໃສ່ QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>ໂຄງ​ການ​ທີ່​ເກັບ​ໄວ້​ໃນ​ທ້ອງ​ຖິ່ນ​ໄດ້​ຮັບ​ຄວາມ​ເສຍ​ຫາຍ​</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>ຊິຊິ້ງຂໍ້ມູນຫຼ້າສຸດ​ໃນ​ປັດ​ຈຸ​ບັນ​</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>ຊິ້ງຂໍ້ມູນຫຼ້າສຸດ %1 ນາທີ</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>ຊິ້ງຂໍ້ມູນຫຼ້າສຸດ ເມື່ອ %1</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>ຊິ້ງຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>ກຳລັງອັບໂຫຼດ %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>ຍັງເຫຼືອອີກ %n ໄຟລ໌</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>ຕັ້ງຄ່າໂຄງການຄລາວຄືນໃໝ່</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>ການເຕືອນຄັ້ງສຸດທ້າຍ, ການຣີເຊັດໂຄງການຄລາວຈະລຶບການປ່ຽນແປງໃນທ້ອງຖິ່ນ, ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການສືບຕໍ່?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>ເຊື່ອມຕໍ່ຄລາວ</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>ໂຄງ​ການ​ນີ້​ມີ​ໄຟລ​໌​ໂຄງ​ການ​ທີ່​ປັບ​ປຸງ​ຢູ່​ໃນ​ຄລາວ​, ແນະນໍາໃຫ້ synchronize.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>ໂຄງການນີ້ໄດ້ອັບເດດຂໍ້ມູນຢູ່ໃນຄລາວ, ທ່ານຄວນ synchronize.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4962,6 +4272,104 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>ເຈົ້າຂອງ</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>ວັນທີສ້າງ</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>ວັນທີອັບເດດຫຼ້າສຸດ</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>ລະຫັດ QR ນີ້ສາມາດຖືກສະແກນສໍາລັບຜູ້ໃຊ້ທີ່ມີການເຂົ້າເຖິງທີ່ເຫມາະສົມເພື່ອດາວໂຫລດ ແລະເປີດໂຄງການນີ້</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>ກຳລັງຊິງໂຄໄນ</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>ຊິ້ງຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud ກໍາລັງບັນຈຸໂຄງການ, ກະລຸນາລໍຖ້າ</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>ກຳລັງດາວໂຫຼດໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>ດາວໂຫຼດໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>ກຳລັງດາວໂຫຼດໂຄງການ %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>ເປີດໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>ຄົ້ນ​ຫາ</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -4978,6 +4386,173 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cloud project could not be created.</source>
         <translation>ບໍ່ສາມາດສ້າງໂຄງການຄລາວໄດ້.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>ໂຄງການ QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>ຕັດການເຊື່ອມຕໍ່ຈາກຄລາວ.</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>ກຳລັງເຊື່ອມຕໍ່ກັບຄລາວ.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>ທັກທາຍ %1.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>ໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud ກຳລັງຫຸ້ມຫໍ່ຂໍ້ມູນຫລ້າສຸດສໍາລັບທ່ານ; ອາດຈະໃຊ້ເວລາ, ກະລຸນາລໍຖ້າ</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>ກຳລັງດາວໂຫຼດ, %1% ຂອງ %2 ໄດ້ຖືກດຶງມາ</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>ກຳລັງດາວໂຫຼດ, %1% ໄດ້ຖືກດຶງມາ</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>ກຳລັງເຂົ້າຫາ QFieldCloud ເພື່ອດາວໂຫລດໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>ກຳລັງອັບໂຫລດ...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>ການດາວໂຫຼດຜິດພາດ.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>ການອັບໂຫລດຜິດພາດ.</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>ໂຫຼດບັນຊີລາຍຊື່ໂຄງການຄືນໃໝ່</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>ອອກຈາກລະບົບ</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>ເຂົ້າສູ່ລະບົບ</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>ສະແດງໂຄງການທີ່ບໍ່ຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>ການດໍາເນີນການໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>ເປີດໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>ຊິ້ງຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>ລົບໂຄງການທີ່ເກັບໄວ້</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>ເບິ່ງລາຍລະອຽດໂຄງການ</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>ເບິ່ງໂຟນເດີໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການເອົາ `%1` ອອກ?</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>ການດຶງຂໍ້ມູນລາຍລະອຽດໂຄງການ QFieldCloud ບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>ກຳລັງໂຫຼດບັນຊີລາຍຊື່ໂຄງການຄືນໃໝ່</translation>
     </message>
 </context>
 <context>
@@ -5109,6 +4684,41 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Point Feature Picker</source>
         <translation>ເລືອກວັດຖຸຈຸດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>ຊັ້ນ %1 ສາມາດອ່ານໄດ້ເທົ່ານັ້ນ.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>ຫົວຂໍ້ແຜນທີ່</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>ນິທານ</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>ຂະຫຍາຍທັງໝົດ</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>ຫຍໍ້ທັງໝົດ</translation>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation>ກັບໄປໜ້າຫຼັກ</translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>ໂຄງການສາມາດອ່ານໄດ້ເທົ່ານັ້ນ</translation>
     </message>
 </context>
 <context>
@@ -5319,14 +4929,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>ການເລີ່ມຕົ້ນເຊີບເວີ egeniouss ລົ້ມເຫລວ</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>ການຢຸດເຊີບເວີ egeniouss ລົ້ມເຫລວ</translation>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation>ຂໍ້​ມູນ​ທີ່​ໄດ້​ຮັບ​ແມ່ນ​ສັ້ນ​ເກີນ​ໄປ​ທີ່​ຈະ​ດໍາ​ເນີນ​ການ</translation>
     </message>
@@ -5357,6 +4959,34 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>TCP receiver error (%1)</source>
         <translation>ເຄື່ອງຮັບ TCP ຜິດພາດ (%1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5848,6 +5478,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>ສໍາເລັດ</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>ຕໍ່ໄປ</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>ກ່ອນ​ຫນ້າ​ນີ້</translation>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6076,6 +5721,293 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>ການຕັ້ງຄ່າການອະນຸຍາດໃນຊັ້ນນີ້ປິດການເພີ່ມຄຸນສົມບັດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>ໂຟນເດີໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>ໂຄງການ ແລະ ຊຸດຂໍ້ມູນທ້ອງຖິ່ນ</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>ໂຟນເດີ</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>ໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>ຊຸດຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>ໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>ລາຍການທີ່ມັກ</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>ໄຟລ໌ໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>ຊຸດຂໍ້ມູນ Vector</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>ຊຸດຂໍ້ມູນ Raster</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>ໜ້າຫຼັກ</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>ລາຍ​ການການດໍາເນີນການ</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>ເບິ່ງໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>ສົ່ງໄປ...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>ຍູ້ໄປທີ່ QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>ສົ່ງອອກໄປໂຟນເດີ...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>ເພີ່ມເຂົ້າໃນລາຍການທີ່ມັກ</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>ເອົາ​ອອກ​ຈາກລາຍການທີ່ມັກ</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>ສົ່ງໂຟນເດີທີ່ຖືກບີບອັດໄປ...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>ອັບໂຫລດໂຟນເດີໄປໃສ່ເຊີບເວີ WebDAV</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>ດາວໂຫລດໂຟນເດີຈາກເຊີບເວີ WebDAV</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation>ລົບໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>ເອົາຊຸດຂໍ້ມູນອອກ</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>ນຳເຂົ້າການດໍາເນີນການ</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>ນໍາເຂົ້າໂຄງການຈາກໂຟນເດີ</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>ນໍາເຂົ້າໂຄງການຈາກ ZIP</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>ນຳເຂົ້າຊຸດຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>ນຳເຂົ້າ URL</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>ນໍາເຂົ້າໂຟນເດີ WebDAV</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>ຊ່ວຍການຄຸ້ມຄອງການເກັບຮັກສາ</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>ການດໍາເນີນການໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>ອັບເດດໂຄງການຈາກ ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>ອັບໂຫຼດໂຄງການໃສ່ WebDAV</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>ດາວໂຫລດໂຄງການຈາກ WebDAV</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>ອັບໂຫຼດໄຟລ໌ໃສ່ WebDAV</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>ຍູ້ໄຟລ໌ໄປຫາ QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>ກະລຸນາເລືອກໜຶ່ງ ຫຼືຫຼາຍໄຟລ໌ເພື່ອຍູ້ໄປທີ່ QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation>ລົບໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>&apos;%1&apos; ກຳລັງຖືກອັບໂຫລດໄປໃສ່ QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>ລາຍການກຳລັງຖືກອັບໂຫຼດໃສ່ QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation>ເອົາໄຟລ໌ອອກ</translation>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation><numerusform>ຢືນຢັນການເອົາ %n ໄຟລ໌ອອກ?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation><numerusform>ລົບ %n ໄຟລ໌ສຳເລັດແລ້ວ</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation><numerusform>ບໍ່ສາມາດລົບ %n ໄຟລ໌ໄດ້</numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>ພິມ URL ຂ້າງລຸ່ມນີ້ເພື່ອດາວໂຫລດ ແລະ ນໍາເຂົ້າໂຄງການ ຫຼືຊຸດຂໍ້ມູນ:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>ກຳລັງນຳເຂົ້າໂຟນເດີ WebDAV</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>ກຳລັງດາວໂຫຼດໂຟນເດີ WebDAV</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>ກຳລັງອັບໂຫລດໂຟນເດີ WebDAV</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>ຄວາມຜິດພາດ WebDAV:</translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>ອັບໂຫຼດ WebDAV</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>ດາວໂຫຼດ WebDAV</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>ທ່ານກຳລັງຈະອັບໂຫລດເນື້ອຫາທີ່ຖືກແກ້ໄຂໄປໃສ່ %1 ໂດຍໃຊ້ຜູ້ໃຊ້ %2. ຄຳສັ່ງນີ້ຈະຂຽນທັບຂໍ້ມູນທີ່ເກັບໄວ້ຈາກໄລຍະໄກ, ທ່ານແນ່ໃຈບໍ່ວ່າແມ່ນສິ່ງທີ່ທ່ານຕ້ອງການເຮັດ.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>ທ່ານກຳລັງຈະດາວໂຫຼດເນື້ອຫາທີ່ຖືກແກ້ໄຂໄປໃສ່ %1 ໂດຍໃຊ້ຜູ້ໃຊ້ %2. ຄຳສັ່ງນີ້ຈະຂຽນທັບຂໍ້ມູນທີ່ເກັບໄວ້ຈາກໄລຍະໄກ, ທ່ານແນ່ໃຈບໍ່ວ່າແມ່ນສິ່ງທີ່ທ່ານຕ້ອງການເຮັດ.</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>ລະຫັດຜ່ານ (ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ອັນທີ່ບັນ​ທຶກ​ໄວ້​ແລ້ວ)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>ລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>ຈື່ລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>ພິມລາຍລະອຽດ WebDAV ຂ້າງລຸ່ມນີ້ເພື່ອນໍາເຂົ້າໂຟນເດີທາງໄກ:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>WebDAV ເຊີບເວີ URL</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>ຜູ້ໃຊ້ ແລະ ລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ອັນທີ່ບັນ​ທຶກ​ໄວ້​ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>ກຳລັງດຶງເອົາໂຟນເດີທາງໄກ</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>ດຶງເອົາໂຟນເດີທາງໄກ</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>ເລືອກໂຟນເດີທາງໄກເພື່ອນໍາເຂົ້າ:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>ໂຟນເດີຮາກ</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>ມີຢູ່ໃນເຄື່ອງໃນ &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>ຊື່ໂຟນເດີທີ່ນໍາເຂົ້າ</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>ຢືນຢັນ</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>ທ່ານກຳລັງຈະລຶບລາຍການ WebDAV ທີ່ບັນທຶກໄວ້, ດຳເນີນການຕໍ່ບໍ?</translation>
     </message>
 </context>
 <context>
@@ -6478,6 +6410,111 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>ຊຸດຂໍ້ມູນ Raster</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>ຂຽນໂດຍ %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>ຖອນການຕິດຕັ້ງເວີຊັນ %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>ຖອນການຕິດຕັ້ງ plugin</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>URL plugin ທີ່ຮ້ອງຂໍແມ່ນມີຢູ່ໃນລາຍຊື່ plugins ທີ່ມີຢູ່, ກະລຸນາຕິດຕັ້ງຜ່ານປຸ່ມດາວໂຫລດ</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>ໄຟລ໌ zip ທີ່ດາວໂຫລດມາບໍ່ສາມາດຖືກບີບອັດໄດ້</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>ໄຟລ໌ zip ທີ່ດາວໂຫລດມາບໍ່ມີໄຟລ໌ plugin main.qml ທີ່ຕ້ອງການ</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>ບໍ່ສາມາດບັນທຶກໄຟລ໌ທີ່ດາວໂຫລດໄດ້</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>ໄຟລ໌ດາວໂຫຼດບໍ່ແມ່ນ plugin zipped</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>ເຄືອຂ່າຍຜິດພາດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>Plugins</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>Plugins ທ້ອງຖິ່ນ</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>Plugins ທີ່ສາມາດໃຊ້ໄດ້</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>ຊອກຫາ plugin</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>ກຳລັງດຶງເອົາປລັກອິນທີ່ມີຢູ່</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>ບໍ່ມີ plugin ໃດຖືກຕິດຕັ້ງເທື່ອ, ສະຫຼັບໄປແຖບ %1 plugin ທີ່ໃຊ້ໄດ້%3 ເພື່ອລອງໃຊ້ທັນທີ. ສຳລັບຂໍ້ມູນເພີ່ມເຕີມ, %2ອ່ານເອກະສານ%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>ຕິດຕັ້ງ plugin ຈາກ URL</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>ເມນູການຈັດການ plugins</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>ລົບລ້າງການອະນຸຍາດທີ່ຈື່ໄວ້</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>ລາຍລະອຽດຂອງຜູ້ຂຽນທີ່ສະແດງຢູ່ຂ້າງເທິງແມ່ນລາຍງານດ້ວຍຕົນເອງໂດຍ plugin ແລະ ບໍ່ໄດ້ຮັບການຢັ້ງຢືນເປັນເອກະລາດ. ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າທ່ານເຊື່ອແຫຼ່ງທີ່ມາຂອງ plugin.</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>ພິມ URL ຂ້າງລຸ່ມນີ້ເພື່ອດາວໂຫລດ ແລະຕິດຕັ້ງ plugin:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation>ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຖອນການຕິດຕັ້ງ `%1`?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>ກຳລັງຕິດຕັ້ງ %1</translation>
     </message>
 </context>
 <context>
@@ -7171,6 +7208,517 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>ສະແດງແຖບຂະໜາດ</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>ສະແດງເຄື່ອງມືຄວບຄຸມການຊູມ</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>ສະແດງ ບຸກມາກ (bookmarks)</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>ເມື່ອເປີດ, ບຸກມາກໂຄງການທີ່ບັນທຶກໄວ້ ແລະເປີດໃນປັດຈຸບັນຂອງຜູ້ໃຊ້ຈະສະແດງຢູ່ໃນແຜນທີ່.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>ເປີດໃຊ້ການຫມຸນແຜນທີ່</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>ເມື່ອເປີດ, ຜູ້ໃຊ້ສາມາດຫມຸນແຜນທີ່ໄດ້.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>ສະ​ແດງ​ໃຫ້​ເຫັນ​ຂໍ້​ມູນ​ເປັນ​ດິ​ຈິ​ຕອນ​</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>ເມື່ອເປີດ, ຂໍ້ມູນປະສານງານ, ເຊັ່ນ: ເສັ້ນຂະໜານ ແລະເສັ້ນແວງ, ຈະຖືກວາງຊ້ອນໃສ່ແຜນທີ່ ໃນຂະນະທີ່ກຳລັງສະແກນລັກສະນະໃໝ່ ຫຼື ໃຊ້ເຄື່ອງມືວັດແທກ.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>ໃຊ້ປຸ່ມລະດັບສຽງເພື່ອປ່ຽນເປັນດິຈິຕອນ</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>ຖ້າເປີດໃຊ້, ການກົດປຸ່ມເພີ່ມລະດັບສຽງຂອງອຸປະກອນຈະເພີ່ມຈຸດສູງສຸດໃນ​ຂະ​ນະ​ທີ່​ການ​ກົດ​ປຸ່ມ​ລະ​ດັບ​ສຽງ​ລົງ​ຈະ​ເອົາ​ຈຸດ​ສຸດ​ທ້າຍ​ທີ່​ເຂົ້າ​ໄປ​ໃນ​ລະ​ຫວ່າງ​ການ​ສະ​ແກນ​</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>ອະນຸຍາດໃຫ້ແຕະນິ້ວມືໃສ່ຜ້າໃບເພື່ອເພີ່ມຈຸດຕັ້ງ</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>ພິຈາລະນາເມົາສ໌ເປັນອຸປະກອນໜ້າຈໍສຳຜັດ</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານ, ເມົາສ໌ຈະເຮັດໜ້າທີ່ຄືກັບວ່າມັນເປັນນິ້ວມື. ເມື່ອປິດໃຊ້ງານ, ເມົາສ໌ຈະກົງກັບພຶດຕິກໍາຂອງສະໄຕລັດ.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>ຂະຫຍາຍແບບຟອມໃຫ້ໃຫຍ່ສຸດ</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>ເປີດແບບຟອມຂໍ້ມູນ ເພື່ອເບິ່ງລາຍລະອຽດວັດຖຸດ່ຽວ</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>ເມື່ອເປີດນຳໃຊ້, ຟອມຟີເຈີຈະເປີດຂຶ້ນໂດຍອັດຕະໂນມັດ ຖ້າຫາກກຳນົດຟີເຈີພຽງແຕ່ອັນດຽວເທົ່ານັ້ນ, ຊຶ່ງຈະຂ້າມລາຍການຟີເຈີໄປ.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>ການນຳທາງຂະໜາດຄົງທີ່</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>ເມື່ອການນຳທາງແບບຂະໜາດຄົງທີ່ເປີດນຳໃຊ້ຢູ່, ການເນັ້ນໃສ່ຜົນການຄົ້ນຫາຈະເລື່ອນໄປທີ່ຟີເຈີເທົ່ານັ້ນ. ຫາກປິດການນຳທາງແບບຂະໜາດຄົງທີ່, ມັນຈະເລື່ອນແລະຊູມໄປທີ່ຟີເຈີ.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>ຊູມອັດຕະໂນມັດໄປຫາວັດຖຸທີ່ລະບຸ</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານ, ແຜນທີ່ຈະຊູມໂດຍອັດຕະໂນມັດເພື່ອສະແດງວັດຖຸທັງໝົດທີ່ຖືກລະບຸ, ລວມທັງຊູມໄປຫາວັດຖຸທີ່ເລືອກໃນຂະນະທີ່ເປີດແບບຟອມຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>ສະແດງຜົນເນື້ອໃນແບບເບິ່ງຕົວຢ່າງອ້ອມຮອບຜືນແຜນທີ່ທີ່ເຫັນໄດ້</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>ຫາກເປີດໃຊ້ງານ, ເນື້ອທີ່ບໍລິເວນຂອບນອກຂອງຂອບເຂດແຜນທີ່ທີ່ກຳລັງສະແດງຢູ່ນັ້ນ ຈະຖືກປະມວນຜົນໄວ້ບາງສ່ວນ ເພື່ອໃຫ້ສາມາດເຫັນຕົວຢ່າງໃນຂະນະທີ່ຊູມ ແລະ ເລື່ອນແຜນທີ່.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>ເປີດບັນທຶກອັດຕະໂນມັດ</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>ຫາກເປີດໃຊ້ງານ, ຂໍ້ມູນທີ່ເພີ່ມເຂົ້າໃໝ່ຈະຖືກບັນທຶກທັນທີ ເມື່ອຮູບຊົງເລຂາຄະນິດຖືກຕ້ອງ ແລະ ຄົບຖ້ວນຕາມເງື່ອນໄຂທີ່ກຳນົດ, ລວມທັງຄຸນລັກສະນະທີ່ຖືກແກ້ໄຂຈະຖືກຢືນຢັນການປ່ຽນແປງໃນທັນທີ.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>ໃຊ້ກ້ອງຖ່າຍຮູບເດີມ</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>ສົ່ງເມຕຣິກທີ່ບໍ່ເປີດເຜີຍຊື່</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>ທົ່ວໄປ</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>ການຈັດຕໍາແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>ຕົວແປ</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>ແຜນທີ່ Canvas</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>ຄຸນນະພາບການສະແດງຜົນຜືນແຜນທີ່:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>ຄຸນນະພາບທີ່ດີທີ່ສຸດ</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>ຄຸນະພາບຕໍ່າກວ່າ</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>ຄຸນະພາບຕໍ່າສຸດ</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>ຄຸນນະພາບທີ່ຕໍ່າລົງຈະຫຼຸດຜ່ອນຄວາມລະອຽດຂອງການສະແດງຜົນ ເພື່ອໃຫ້ໃຊ້ໜ່ວຍຄວາມຈຳນ້ອຍລົງ ແລະ ໃຊ້ເວລາສະແດງຜົນສັ້ນລົງ.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>ສະແກນ ແລະແກ້ໄຂ</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>ສ່ວນຕິດຕໍ່ຜູ້ໃຊ້</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>ປັບແຕ່ງແຖບຊອກຫາ</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>ຈັດ​ການ plugins</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>ໜ້າຈໍຈາງລົງໃນການເຄື່ອນໄຫວຊ້າ</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>ເວລາທີ່ບໍ່ມີການເຄື່ອນໄຫວເປັນວິນາທີກ່ອນທີ່ຄວາມສະຫວ່າງຂອງໜ້າຈໍຈະຖືກເຮັດໃຫ້ມືດມົວເພື່ອຮັກສາແບັດເຕີຣີ.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>ຮູບລັກສະນະ:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>ປະຕິບັດຕາມຮູບລັກສະນະຂອງລະບົບ</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>ຮູບແບບສີສັນແຈ້ງ</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>ຮູບແບບສີສັນມືດ</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>ຂະໜາດຕົວອັກສອນ:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>ນ້ອຍໆ</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>​ປົກ​ກະ​ຕິ​</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>ຂະ​ຫນາດ​ໃຫຍ່​</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>ຂະ​ຫນາດ​ໃຫຍ່​ພິ​ເສດ​</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>ພາສາ:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>ລະບົບ</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>ພົບພາສາທີ່ຂາດຫາຍໄປ ຫຼືບໍ່ຄົບຖ້ວນບໍ? %1ເຂົ້າຮ່ວມຊຸມຊົນນັກແປ.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>ພອດ:</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>ຊື່ຜູ້ໃຊ້</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>ລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>ຂັ້ນສູງ</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>ອຸປະກອນການຈັດຕໍາແຫນ່ງໃນລະຫວ່າງການນໍາໃຊ້</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>ເພີ່ມ</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>ແກ້ໄຂ</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>ເອົາອອກ</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>ສະແດງຂໍ້ມູນຕໍາແຫນ່ງ</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>ຄ່າວັດແທກ (M) ທີ່ຕິດຢູ່ກັບຈຸດຕັ້ງ:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>ຄວາມໄວຫນ້າດິນ</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>ຕໍາ​ແຫນ່ງ</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງຕາມລວງນອນ</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງຂອງແນວຕັ້ງ</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>ໃນເວລາທີ່ການກໍານົດລັກສະນະດິຈິຕອນດ້ວຍເຄີເຊີພິກັດຖືກລັອກກັບຕໍາແຫນ່ງປະຈຸບັນ, ປະເພດການວັດແທກທີ່ເລືອກຂ້າງເທິງຈະຖືກເພີ່ມໃສ່ເລຂາຄະນິດທີ່ມັນມີຂະຫນາດ M.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>ເປີດໃຊ້ຕົວຊີ້ວັດຄວາມຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>ບັງຄັບໃຊ້ຄວາມຕ້ອງການຄວາມຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>ເມື່ອເປີດໃຊ້ຕົວຊີ້ວັດຄວາມແມ່ນຍຳ, ຈະມີປ້າຍຕິດກັບປຸ່ມຕຳແໜ່ງ ແລະມີສີ &lt;span %1&gt;ແດງ ຖ້າຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”, &lt;span %2&gt;ເຫຼືອງ ຖ້າຄ່າຄວາມແມ່ນຍຳຕ່ຳກວ່າຂີດຈຳກັດ “ດີເລີດ”, ຫຼື &lt;span %3&gt;ຂຽວ ຖ້າຄ່າຄວາມແມ່ນຍຳດີ.
+ຍິ່ງໄປກວ່ານັ້ນ, ຍັງສາມາດເປີດໂໝດຈຳກັດຄວາມແມ່ນຍຳໄດ້, ເຊິ່ງຈະຈຳກັດການເພີ່ມຈຸດຍອດ (vertex) ໃນເວລາທີ່ຕຳແໜ່ງຖືກລັອກກັບເຄື່ອງໝາຍພິກັດ ໃຫ້ຢູ່ໃນຕຳແໜ່ງທີ່ມີຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>ເປີດໃຊ້ຄວາມຕ້ອງການຕໍາແຫນ່ງສະເລ່ຍ</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>ສິ້ນສຸດການເກັບກໍາອັດຕະໂນມັດເມື່ອມີຈໍານວນຕໍາ່ສຸດທີ່ບັນລຸໄດ້</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານແລ້ວ, ການຕັ້ງຈຸດເປັນຕົວເລກດ້ວຍເຄີເຊີທີ່ລັອກໃສ່ຕຳແໜ່ງຈະຍອມຮັບພຽງແຕ່ຕຳແໜ່ງສະເລ່ຍຈາກຈຳນວນຕ່ຳສຸດທີ່ເກັບກຳໄດ້. Digitizing ໂດຍໃຊ້ຕໍາແຫນ່ງສະເລ່ຍແມ່ນເຮັດໄດ້ໂດຍການກົດປຸ່ມ add vertex ຄ້າງໄວ້, ເຊິ່ງຈະເກັບກໍາຕໍາແຫນ່ງຈົນກ່ວາກົດອອກ. ການຕັ້ງຄ່າຄວາມຕ້ອງການຄວາມຖືກຕ້ອງແມ່ນເຄົາລົບເມື່ອເປີດໃຊ້ງານ.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>ການຊົດເຊີຍຄວາມສູງຂອງເສົາອາກາດ</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງ</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>ໃຊ້ລະດັບຄວາມສູງຕາມການລາຍງານໂດຍອຸປະກອນການຈັດຕໍາແຫນ່ງ. ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງທີ່ອາດຈະຖືກບົ່ງບອກໂດຍການຫັນປ່ຽນລະບົບປະສານງານ.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>ການ​ປ່ຽນ​ຕາ​ໜ່າງ​ສາຍ​ຕັ້ງ​ຢູ່​ໃນ​ການ​ນໍາ​ໃຊ້​:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>ບໍ່ມີ</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Orthometric ຈາກອຸປະກອນ</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>ການປ່ຽນຕາໜ່າງແນວຕັ້ງແມ່ນໃຊ້ເພື່ອເພີ່ມຄວາມຖືກຕ້ອງຂອງລະດັບຄວາມສູງ.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>ບັນທຶກປະໂຫຍກ NMEA ຈາກອຸປະກອນໄປຫາໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>ເລືອກແມ່ແບບການແຕ້ມຮູບ</translation>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7477,6 +8025,104 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>ພວກເຮົາຂໍສະແດງຄວາມເສຍໃຈນຳ. ກົດປຸ່ມດ້ານລຸ່ມເພື່ອຄອມເມັ້ນ ຫຼື ຂໍຄວາມຊ່ວຍເຫຼືອ. </translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>ຕິດຕໍ່</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>ດີຫຼາຍ! ພວກເຮົາຢາກໃຫ້ທ່ານກົດປຸ່ມດ້ານລຸ່ມນີ້ ແລະ ຂຽນຄຳຕິຊົມໃຫ້ແດ່. </translation>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>ໃຫ້ຄະແນນພວກເຮົາ</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>ການເກັບກຳມາດຕະການທີ່ບໍ່ເປີດເຜີຍຊື່ໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ. ທ່ານສາມາດເປີດນຳໃຊ້ຄືນໃໝ່ຜ່ານແຜງຕັ້ງຄ່າ.</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>ເຫັນດີ</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>ຂ້ອຍຂໍບໍ່</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloudໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>ໂຄງການທ້ອງຖິ່ນ ແລະ ຊຸດຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>ສ້າງໂຄງການໃໝ່</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>ໃຊ້ງານຫຼ້າສຸດ</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>ໂຄງການເລີ່ມຕົ້ນ</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>ແຜນ​ທີ່​ພື້ນ​ຖານ​</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>ການເຄື່ອນໄຫວໂຄງການລ່າສຸດ</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>ໂຫຼດໂຄງການເລີ່ມຕົ້ນເມື່ອເປີດຕົວ</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>ໂຫຼດໂຄງການເປີດຫຼ້າສຸດເມື່ອເປີດຕົວ</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>ກັບໄປທີ່ແຜນທີ່</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -8867,11 +9513,11 @@ to show actions</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>ພວກເຮົາຂໍສະແດງຄວາມເສຍໃຈນຳ. ກົດປຸ່ມດ້ານລຸ່ມເພື່ອຄອມເມັ້ນ ຫຼື ຂໍຄວາມຊ່ວຍເຫຼືອ. </translation>
+        <translation type="vanished">ພວກເຮົາຂໍສະແດງຄວາມເສຍໃຈນຳ. ກົດປຸ່ມດ້ານລຸ່ມເພື່ອຄອມເມັ້ນ ຫຼື ຂໍຄວາມຊ່ວຍເຫຼືອ. </translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>ຕິດຕໍ່</translation>
+        <translation type="vanished">ຕິດຕໍ່</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8883,11 +9529,11 @@ to show actions</source>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>ໃຫ້ຄະແນນພວກເຮົາ</translation>
+        <translation type="vanished">ໃຫ້ຄະແນນພວກເຮົາ</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>ການເກັບກຳມາດຕະການທີ່ບໍ່ເປີດເຜີຍຊື່ໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ. ທ່ານສາມາດເປີດນຳໃຊ້ຄືນໃໝ່ຜ່ານແຜງຕັ້ງຄ່າ.</translation>
+        <translation type="vanished">ການເກັບກຳມາດຕະການທີ່ບໍ່ເປີດເຜີຍຊື່ໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ. ທ່ານສາມາດເປີດນຳໃຊ້ຄືນໃໝ່ຜ່ານແຜງຕັ້ງຄ່າ.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8895,11 +9541,11 @@ to show actions</source>
     </message>
     <message>
         <source>I agree</source>
-        <translation>ເຫັນດີ</translation>
+        <translation type="vanished">ເຫັນດີ</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>ຂ້ອຍຂໍບໍ່</translation>
+        <translation type="vanished">ຂ້ອຍຂໍບໍ່</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -8915,7 +9561,7 @@ to show actions</source>
     </message>
     <message>
         <source>Last session</source>
-        <translation>ໃຊ້ງານຫຼ້າສຸດ</translation>
+        <translation type="vanished">ໃຊ້ງານຫຼ້າສຸດ</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8936,73 +9582,6 @@ to show actions</source>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">ຍິນດີຕ້ອນຮັບກັບມາທີ່ QField</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>ໂຄງການເລີ່ມຕົ້ນ</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>ແຜນ​ທີ່​ພື້ນ​ຖານ​</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>ໂຫຼດໂຄງການເລີ່ມຕົ້ນເມື່ອເປີດຕົວ</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>ໂຫຼດໂຄງການເປີດຫຼ້າສຸດເມື່ອເປີດຕົວ</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation>ການເຄື່ອນໄຫວໂຄງການລ່າສຸດ</translation>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>ດີຫຼາຍ! ພວກເຮົາຢາກໃຫ້ທ່ານກົດປຸ່ມດ້ານລຸ່ມນີ້ ແລະ ຂຽນຄຳຕິຊົມໃຫ້ແດ່. </translation>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation>ກັບໄປທີ່ແຜນທີ່</translation>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation>QFieldCloudໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation>ໂຄງການທ້ອງຖິ່ນ ແລະ ຊຸດຂໍ້ມູນ</translation>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation>ສ້າງໂຄງການໃໝ່</translation>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3,35 +3,23 @@
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>Desenvolupat per</translation>
+        <translation type="vanished">Desenvolupat per</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Ajudeu QField</translation>
+        <translation type="vanished">Ajudeu QField</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>Registre de canvis</translation>
+        <translation type="vanished">Registre de canvis</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>Documentació</translation>
+        <translation type="vanished">Documentació</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>Menú d&apos;enllaços</translation>
-    </message>
-    <message>
-        <source>Powered by QField</source>
-        <translation>Funciona amb QField</translation>
-    </message>
-    <message>
-        <source>%1 app directories</source>
-        <translation>Directoris d&apos;aplicacions %1</translation>
-    </message>
-    <message>
-        <source>%1 app directory</source>
-        <translation>Directori d&apos;aplicacions %1</translation>
+        <translation type="vanished">Menú d&apos;enllaços</translation>
     </message>
 </context>
 <context>
@@ -145,19 +133,15 @@
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>No s&apos;han pogut carregar algunes capes</translation>
+        <translation type="vanished">No s&apos;han pogut carregar algunes capes</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Les següents capes no poden ser carregades, si us plau, reviseu-les i reconfigureu el projecte de QGIS. </translation>
+        <translation type="vanished">Les següents capes no poden ser carregades, si us plau, reviseu-les i reconfigureu el projecte de QGIS. </translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
         <translation type="vanished">Podeu consultar la secció Projecte portable a la documentació de QField per obtenir més ajuda.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>Podeu consultar la pàgina de documentació de %1Projecte portable%2 per obtenir més ajuda.</translation>
     </message>
 </context>
 <context>
@@ -425,30 +409,30 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>Novetats del QField</translation>
+        <translation type="vanished">Novetats del QField</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>Error en recuperar el registre de canvis, proveu-ho més tard. </translation>
+        <translation type="vanished">Error en recuperar el registre de canvis, proveu-ho més tard. </translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Ajudeu QField</translation>
+        <translation type="vanished">Ajudeu QField</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>Consulteu els darrers canvis de QField a</translation>
+        <translation type="vanished">Consulteu els darrers canvis de QField a</translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>Pàgina de llançaments de QField</translation>
+        <translation type="vanished">Pàgina de llançaments de QField</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>Llançaments anteriors a GitHub</translation>
+        <translation type="vanished">Llançaments anteriors a GitHub</translation>
     </message>
 </context>
 <context>
@@ -464,53 +448,6 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>NULL</source>
         <translation type="vanished">NUL</translation>
-    </message>
-</context>
-<context>
-    <name>ClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>Geometria</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>No s&apos;ha pogut enganxar: no s&apos;ha proporcionat cap capa de destinació.</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>Operació de tall: les capes d&apos;origen i de destinació són iguals, no es pot enganxar.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>Ha fallat en enganxar: l&apos;objecte del porta-retalls no és vàlid</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>Ha fallat en retallar: no s&apos;ha pogut iniciar l&apos;edició a la capa d&apos;origen %1</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>Ha fallat en retallar: no s&apos;ha pogut suprimir l&apos;objecte original de la capa d&apos;origen %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>Ha fallat en enganxar: no s&apos;ha pogut crear objectes compatibles</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>No s&apos;ha pogut enganxar: no s&apos;ha pogut iniciar l&apos;edició a la capa %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>Ha fallat en enganxa: no s&apos;ha pogut afegir l&apos;objecte a la capa %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>Enganxar ha fallat: commitChanges ha fallat a la capa %1</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>La confirmació de tall ha fallat a la capa d&apos;origen %1</translation>
     </message>
 </context>
 <context>
@@ -531,39 +468,15 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>La capa %1 és només de lectura.</translation>
+        <translation type="vanished">La capa %1 és només de lectura.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>Tema del Mapa</translation>
+        <translation type="vanished">Tema del Mapa</translation>
     </message>
     <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>El projecte és de només lectura.</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>Llegenda</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation>Torna a l&apos;inici</translation>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation>Expandir-ho tot</translation>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation>Replegar-ho tot</translation>
-    </message>
-    <message>
-        <source>Project Information</source>
-        <translation>Informació del projecte</translation>
     </message>
 </context>
 <context>
@@ -1584,111 +1497,6 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
 </context>
 <context>
-    <name>PluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Creat per %1%2%3</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Desinstal·la la versió %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Desinstal·la el connector</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManager</name>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>El fitxer zip descarregat no s&apos;ha pogut descomprimir.</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>El fitxer zip descarregat no conté el fitxer de connector main.qml necessari.</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>No es pot desar el fitxer descarregat</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>El fitxer descarregat no és un connector comprimit.</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>Error de xarxa</translation>
-    </message>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>L&apos;URL del connector sol·licitat figura a la llista de connectors disponibles; si us plau, instal·leu-lo mitjançant el botó de descàrrega.</translation>
-    </message>
-</context>
-<context>
-    <name>PluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>Connectors</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>Instal·la el connector des de l&apos;URL</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>Esborra els permisos recordats</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>Escriviu una URL a continuació per descarregar i instal·lar un connector:</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>Instal·lant %1</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>Esteu segur que voleu desinstal·lar `%1`?</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>Les dades de l&apos;autor que es mostren a dalt han estat autoinformades pel connector i no han estat verificades de manera independent. Assegureu-vos que confieu en l&apos;origen del connector.</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>Menú de gestió de connectors</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>Connectors locals</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>Connectors disponibles</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>Cerca connectors</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>Obtenint els connectors disponibles</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>Encara no s&apos;ha instal·lat cap connector; canvieu a la pestanya %1connectors disponibles%3 per provar-ne alguns de seguida. &lt;br&gt;&lt;br&gt;Per a més informació, %2llegiu la documentació%3.</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation>El projecte actualment obert ha carregat un connector de projecte.</translation>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation>Denegar permís</translation>
-    </message>
-</context>
-<context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
@@ -1948,21 +1756,6 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
 </context>
 <context>
-    <name>QFieldAppAuthRequestHandler</name>
-    <message>
-        <source>Please enter credentials for database</source>
-        <translation>Introduïu les credencials per a la base de dades.</translation>
-    </message>
-    <message>
-        <source>at host</source>
-        <translation>a l&apos;amfitrió</translation>
-    </message>
-    <message>
-        <source>at service</source>
-        <translation>al servei</translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
         <source>Altitude</source>
@@ -2025,36 +1818,14 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
 <context>
     <name>QFieldCloudDangerZone</name>
     <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation>L&apos;acció següent és irreversible i afecta permanentment les vostres dades locals. Aneu amb compte.</translation>
-    </message>
-    <message>
         <source>Reset project</source>
-        <translation>Restableix el projecte</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation>Descarta els canvis locals</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>La còpia local d&apos;aquest projecte al núvol s&apos;ha corromput. Restablir el projecte tornarà a descarregar la versió del núvol i eliminarà tots els canvis locals; assegureu-vos de copiar-los primer si cal.
-
-Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament restablir-lo per evitar qualsevol pèrdua accidental de dades, ja que cap dels canvis fets no s&apos;enviarà de nou al núvol.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation>Elimina totes les edicions locals que encara no s&apos;han pujat.</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>Reinicia</translation>
-    </message>
-    <message>
-        <source>Discard</source>
-        <translation>Descarta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2068,55 +1839,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation type="vanished">Carregant...</translation>
     </message>
     <message>
-        <source>Applied</source>
-        <translation>Aplicat</translation>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation>Pendent</translation>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation>Ocupat</translation>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation>Conflicte</translation>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation>No s&apos;ha aplicat</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Error</translation>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation>Ignorat</translation>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation>Sense permís</translation>
-    </message>
-    <message>
         <source>Unknown</source>
-        <translation>Desconegut</translation>
-    </message>
-    <message>
-        <source>Upload History</source>
-        <translation>Historial de pujades</translation>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation>Recuperant l&apos;historial de pujades…</translation>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation>Encara no s&apos;han pujat cap canvi!</translation>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2128,7 +1851,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>No s&apos;ha pogut iniciar la sessió</translation>
+        <translation type="vanished">No s&apos;ha pogut iniciar la sessió</translation>
     </message>
     <message>
         <source>Server URL
@@ -2138,31 +1861,31 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Username or email</source>
-        <translation>Nom d&apos;usuari o adreça de correu electrònic</translation>
+        <translation type="vanished">Nom d&apos;usuari o adreça de correu electrònic</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Contrasenya</translation>
+        <translation type="vanished">Contrasenya</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Tanca la sessió</translation>
+        <translation type="vanished">Tanca la sessió</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>Iniciant la sessió, si us plau, espereu</translation>
+        <translation type="vanished">Iniciant la sessió, si us plau, espereu</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Inicia la sessió</translation>
+        <translation type="vanished">Inicia la sessió</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>Usuari nou?</translation>
+        <translation type="vanished">Usuari nou?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>Crea un compte</translation>
+        <translation type="vanished">Crea un compte</translation>
     </message>
     <message>
         <source>Logout</source>
@@ -2178,33 +1901,15 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>La manera més senzilla de transferir el vostre projecte de QGIS als vostres dispositius!</translation>
+        <translation type="vanished">La manera més senzilla de transferir el vostre projecte de QGIS als vostres dispositius!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Més informació sobre QFieldCloud</translation>
+        <translation type="vanished">Més informació sobre QFieldCloud</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>o</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>Inicia la sessió amb %1</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation>%1URL del servidor
-(Deixeu-ho en blanc per utilitzar el servidor per defecte)</translation>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
-        <translation>Visita la %1pàgina de configuració%2 per gestionar el teu compte.</translation>
     </message>
 </context>
 <context>
@@ -2225,20 +1930,12 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
         <translation type="vanished">Algunes capes no s&apos;han empaquetat correctament a QFieldCloud. Pot ser que aquestes capes estiguin mal configurades o que la seva font de dades no sigui accessible des del servidor QFieldCloud. Consulteu els registres de la darrera tasca d&apos;empaquetament al lloc web qfield.cloud.</translation>
     </message>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation>Algunes capes no s&apos;han empaquetat correctament. Pot ser que aquestes capes estiguin mal configurades o que la seva font de dades no sigui accessible des del servidor QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation>Consulteu els comentaris detallats a continuació i els registres de treballs d&apos;empaquetament més recents al lloc web de QFieldCloud.</translation>
-    </message>
 </context>
 <context>
     <name>QFieldCloudPopup</name>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="vanished">QFieldCloud</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
@@ -2250,7 +1947,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Més informació sobre QFieldCloud</translation>
+        <translation type="vanished">Més informació sobre QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -2266,7 +1963,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Aquest projecte de QFieldCloud es va descarregar per primera vegada amb un altre compte al núvol. Si us plau, inicieu la sessió amb el compte original d&apos;aquest projecte per poder utilitzar la funcionalitat de QFieldCloud.</translation>
+        <translation type="vanished">Aquest projecte de QFieldCloud es va descarregar per primera vegada amb un altre compte al núvol. Si us plau, inicieu la sessió amb el compte original d&apos;aquest projecte per poder utilitzar la funcionalitat de QFieldCloud.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
@@ -2302,11 +1999,11 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>El projecte del núvol emmagatzemat localment s&apos;ha corromput.</translation>
+        <translation type="vanished">El projecte del núvol emmagatzemat localment s&apos;ha corromput.</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Sincronitza</translation>
+        <translation type="vanished">Sincronitza</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
@@ -2346,11 +2043,11 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>Sincronitzat per última vegada ara mateix</translation>
+        <translation type="vanished">Sincronitzat per última vegada ara mateix</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>Darrera sincronització fa %1 minuts</translation>
+        <translation type="vanished">Darrera sincronització fa %1 minuts</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
@@ -2358,7 +2055,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>Darrera sincronització el %1</translation>
+        <translation type="vanished">Darrera sincronització el %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
@@ -2390,15 +2087,15 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>Restablir el projecte al núvol</translation>
+        <translation type="vanished">Restablir el projecte al núvol</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Últim avís: restablir el projecte al núvol suprimirà qualsevol canvi local. Esteu segur que voleu continuar?</translation>
+        <translation type="vanished">Últim avís: restablir el projecte al núvol suprimirà qualsevol canvi local. Esteu segur que voleu continuar?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Connectant el núvol</translation>
+        <translation type="vanished">Connectant el núvol</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
@@ -2411,167 +2108,6 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <message>
         <source>No changes to revert</source>
         <translation type="vanished">No hi ha canvis per revertir</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Aquest projecte té un fitxer de projecte actualitzat al núvol; us recomanem que el sincronitzeu.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>Aquest projecte té dades actualitzades al núvol, les haurieu de sincronitzar.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud està empaquetant les dades més recents només per a tu; això pot trigar una estona, si us plau, espera.</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Descarregant, s&apos;ha obtingut %1% de %2</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Descarregant, %1% obtingut</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Contactant amb QFieldCloud per descarregar el projecte</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation>Enviant canvis, 1%…</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud està aplicant els últims canvis enviats. Això pot trigar una estona, si us plau, tingueu paciència…</translation>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation>Pujant el projecte actual a QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation>Pujant %1</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation><numerusform>%n fitxer(s) restants</numerusform><numerusform>%n fitxer(s) restants</numerusform></translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation>S&apos;ha utilitzat %1 de %2</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Amplia l&apos;emmagatzematge</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation>El projecte %1 no es pot empaquetar perquè l&apos;emmagatzematge disponible està ple.</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation>El projecte %1 no es pot empaquetar perquè l&apos;emmagatzematge disponible del propietari del projecte està ple.</translation>
-    </message>
-    <message>
-        <source>Danger Zone</source>
-        <translation>Zona de perill</translation>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation>Projecte Cloudify</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation>El projecte actual no està emmagatzemat a QFieldCloud. Emmagatzemar projectes a QFieldCloud ofereix una sincronització fluida, edició fora de línia i gestió d&apos;equips.</translation>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation>Enviant al núvol %1%</translation>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation>Enviant al núvol</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Puja els canvis locals</translation>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation>Envia les teves edicions i adjunts al núvol sense haver de descarregar les actualitzacions del projecte. Ràpid i amb un consum de dades reduït.</translation>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation>Encara no s&apos;han pujat canvis</translation>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation>Última pujada ara mateix</translation>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation>Última pujada fa %1 minuts</translation>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation>Última pujada avui a les %1</translation>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation>Última pujada el %1</translation>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation>Pujada</translation>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation><numerusform>Pujada automàtica cada %n minut(s)</numerusform><numerusform>Pujada automàtica cada %n minut(s)</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation>El projecte actual no permet desactivar la pujada automàtica</translation>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation>Sincronitza el projecte</translation>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation>Puja les teves modificacions i després descarrega el projecte més recent de QFieldCloud perquè tot estigui actualitzat. 
- </translation>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation>Darrera sincronització avui al %1</translation>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation>Historial de pujades</translation>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation>Zona de perill</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation>Descarta els canvis locals</translation>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation>S&apos;haurien de descartar els canvis locals?</translation>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation>Canvis locals descartats</translation>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation>No s&apos;han pogut descartar els canvis</translation>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation>No hi ha canvis per descartar</translation>
     </message>
 </context>
 <context>
@@ -2661,103 +2197,16 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
-        <source>Owner</source>
-        <translation>Propietari</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Data de creació</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Data de l&apos;última actualització</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Aquest codi QR pot ser escanejat per usuaris amb l&apos;accés adequat per descarregar i obrir aquest projecte.</translation>
-    </message>
-    <message>
         <source>Synchronize</source>
-        <translation>Sincronitza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud està empaquetant el projecte, espereu</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Descarregant el projecte</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Descarrega el projecte</translation>
-    </message>
-    <message>
         <source>Downloading project %1</source>
-        <translation>Descarregant el projecte %1</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Obrir projecte</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation>Sincronitzant</translation>
-    </message>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation>Utilitzant %1 de %2</translation>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation>Mida de l&apos;emmagatzematge</translation>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation>Clonar projecte</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Puja els canvis locals</translation>
-    </message>
-</context>
-<context>
-    <name>QFieldCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation>Filtres predefinits</translation>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation>Criteris</translation>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation>Incloure projectes públics</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Cerca</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>Projectes de %1</translation>
-    </message>
-    <message>
-        <source>My own projects</source>
-        <translation>Els meus propis projectes</translation>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation>El títol o la descripció conté</translation>
-    </message>
-    <message>
-        <source>Owner is</source>
-        <translation>El propietari és</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2895,19 +2344,19 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>Projectes QFieldCloud</translation>
+        <translation type="vanished">Projectes QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Desconnectat del núvol.</translation>
+        <translation type="vanished">Desconnectat del núvol.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Connectant-se al núvol.</translation>
+        <translation type="vanished">Connectant-se al núvol.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Salutacions &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Salutacions &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
@@ -2931,15 +2380,15 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>Pujant…</translation>
+        <translation type="vanished">Pujant…</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>Error de descàrrega. </translation>
+        <translation type="vanished">Error de descàrrega. </translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>Error de pujada. </translation>
+        <translation type="vanished">Error de pujada. </translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
@@ -2967,11 +2416,11 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Open Project</source>
-        <translation>Obrir projecte</translation>
+        <translation type="vanished">Obrir projecte</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>Elimina el projecte desat</translation>
+        <translation type="vanished">Elimina el projecte desat</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
@@ -2983,67 +2432,27 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>Actualitzar la llista de projectes</translation>
+        <translation type="vanished">Actualitzar la llista de projectes</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>Actualitzant la llista de projectes</translation>
+        <translation type="vanished">Actualitzant la llista de projectes</translation>
     </message>
     <message>
         <source>No projects found</source>
         <translation type="vanished">No s&apos;han trobat projectes</translation>
     </message>
     <message>
-        <source>Project Actions</source>
-        <translation>Accions del projecte</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud està empaquetant les dades més recents només per a tu; això pot trigar una estona, si us plau, espera.</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Descarregant, s&apos;ha obtingut %1% de %2</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Descarregant, %1% obtingut</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Contactant amb QFieldCloud per descarregar el projecte</translation>
-    </message>
-    <message>
         <source>Sign out</source>
-        <translation>Tanca la sessió</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Inicia la sessió</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>Mostra els projectes no vàlids</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>Veure detalls del projecte</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Ha fallat l&apos;obtenció dels detalls del projecte QFieldCloud</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation>Veure la carpeta del projecte</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation>Esteu segur que voleu eliminar `%1`?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Sincronitza</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
@@ -3051,71 +2460,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projectes</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation>Actualitzant la llista de projectes...</translation>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation>Buscant projectes...</translation>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation>No s&apos;han trobat projectes al núvol.</translation>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation>Per començar, %1llegiu la documentació%2.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation>Intenteu %1incloure projectes públics%2 i veureu què ofereix la comunitat.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation>Intenteu %1incloure projectes públics%2.</translation>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation>Cerca de projectes</translation>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation>Clonar projecte</translation>
-    </message>
-    <message>
-        <source>Project Cloning</source>
-        <translation>Clonació de projecte</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>Quin nom vols donar al teu projecte clonat?</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>La clonació del projecte ha fallat: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Ha fallat la creació del projecte: %1</translation>
-    </message>
-    <message>
-        <source>Project successfully cloned</source>
-        <translation>Projecte clonat correctament</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>Projecte creat correctament</translation>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation>Pàgina de configuració</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Puja els canvis locals</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3141,73 +2486,58 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
 </context>
 <context>
-    <name>QFieldGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>Acaba</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>Següent</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>Anterior</translation>
-    </message>
-</context>
-<context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>Carpeta del projecte</translation>
+        <translation type="vanished">Carpeta del projecte</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>Projectes i conjunts de dades locals</translation>
+        <translation type="vanished">Projectes i conjunts de dades locals</translation>
     </message>
     <message>
         <source>Folders</source>
-        <translation>Carpetes</translation>
+        <translation type="vanished">Carpetes</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>Projectes</translation>
+        <translation type="vanished">Projectes</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>Conjunts de dades</translation>
+        <translation type="vanished">Conjunts de dades</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Preferits</translation>
+        <translation type="vanished">Preferits</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>Fitxer del projecte</translation>
+        <translation type="vanished">Fitxer del projecte</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>Conjunt de dades vectorial</translation>
+        <translation type="vanished">Conjunt de dades vectorial</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>Conjunts de dades raster</translation>
+        <translation type="vanished">Conjunts de dades raster</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>Envia a...</translation>
+        <translation type="vanished">Envia a...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>Exportar a la carpeta...</translation>
+        <translation type="vanished">Exportar a la carpeta...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>Elimina el conjunt de dades</translation>
+        <translation type="vanished">Elimina el conjunt de dades</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>Envia la carpeta comprimida a...</translation>
+        <translation type="vanished">Envia la carpeta comprimida a...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
@@ -3215,235 +2545,23 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>Importa el projecte des de la carpeta</translation>
+        <translation type="vanished">Importa el projecte des de la carpeta</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>Importa el projecte des d&apos;un fitxer ZIP</translation>
+        <translation type="vanished">Importa el projecte des d&apos;un fitxer ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>Importa conjunt(s) de dades</translation>
+        <translation type="vanished">Importa conjunt(s) de dades</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>Ajuda per a la gestió de l&apos;emmagatzematge</translation>
+        <translation type="vanished">Ajuda per a la gestió de l&apos;emmagatzematge</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Contrasenya</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Fitxers</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Inici</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Accions de l&apos;element</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>Veure fitxer</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Envia a QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Afegeix als preferits</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Elimina dels preferits</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Puja la carpeta al servidor WebDAV</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Descarrega la carpeta des del servidor WebDAV</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
-        <translation>Suprimeix la carpeta</translation>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation>Suprimeix el fitxer</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Importar accions</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Importa URL</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>Importa la carpeta WebDAV</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Accions del projecte</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Actualitza el projecte des d&apos;un fitxer ZIP</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation>Comprimir projecte i enviar a...</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Pujar el projecte a WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Descarregar el projecte de WebDAV</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Puja el(s) fitxers a WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Envia el(s) fitxers al QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Seleccioneu un o més fitxers per enviar a QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
-        <translation>Envia fitxer(s) comprimit a...</translation>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation>Suprimeix fitxer(s)</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>S&apos;està pujant &apos;%1&apos; a QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Elements que s&apos;estan pujant a QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation>Eliminar fitxer(s)</translation>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation><numerusform>Esteu segur que voleu eliminar %n fitxers?</numerusform><numerusform>Esteu segur que voleu eliminar %n fitxers?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>%n fitxer(s) suprimits correctament</numerusform><numerusform>%n fitxer(s) suprimits correctament</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Escriviu una URL a continuació per descarregar i importar el projecte o el conjunt de dades:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>S&apos;està important la carpeta WebDAV</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>Descarregant la carpeta WebDAV</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>Pujant la carpeta WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>Error de WebDAV:</translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>Pujada a WebDAV</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>Descàrrega de WebDAV</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Esteu a punt de carregar contingut modificat a &lt;b&gt;%1&lt;/b&gt; amb l&apos;usuari &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;Aquesta operació sobreescriurà les dades emmagatzemades remotament, assegureu-vos que això és el que voleu fer.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Esteu a punt de descarregar contingut modificat de &lt;b&gt;%1&lt;/b&gt; amb l&apos;usuari &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;Aquesta operació sobreescriurà les dades emmagatzemades localment, assegureu-vos que això és el que voleu fer.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Contrasenya (deixeu-ho en blanc per utilitzar la desada)</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Recordar contrasenya</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Introduïu els detalls de WebDAV a continuació per importar una carpeta remota:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>URL del servidor WebDAV</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Usuari i contrasenya</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>deixar en blanc per utilitzar desat</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Recuperant carpetes remotes</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Recuperar carpetes remotes</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Seleccioneu la carpeta remota per importar:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>carpeta arrel</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Disponible localment a &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>Nom de la carpeta importada</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Confirma</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Esteu a punt d&apos;eliminar un element WebDAV desat, voleu continuar?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3465,7 +2583,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Mostra la barra d&apos;escala</translation>
+        <translation type="vanished">Mostra la barra d&apos;escala</translation>
     </message>
     <message>
         <source>Maximized attribute form</source>
@@ -3473,31 +2591,31 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navegació amb escala fixa</translation>
+        <translation type="vanished">Navegació amb escala fixa</translation>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Quan la navegació d&apos;escala fixa està activa, enfocar un resultat de cerca desplaçarà la vista cap a l&apos;objecte. Amb la navegació d&apos;escala fixa desactivada, es desplaçarà i farà zoom a l&apos;objecte.</translation>
+        <translation type="vanished">Quan la navegació d&apos;escala fixa està activa, enfocar un resultat de cerca desplaçarà la vista cap a l&apos;objecte. Amb la navegació d&apos;escala fixa desactivada, es desplaçarà i farà zoom a l&apos;objecte.</translation>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Mostra la informació de digitalització</translation>
+        <translation type="vanished">Mostra la informació de digitalització</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Quan està activada, la informació de coordenada, com ara la latitud i la longitud, se superposa al mapa mentre es digitalitzen nous objectes o s&apos;utilitza l&apos;eina de mesura.</translation>
+        <translation type="vanished">Quan està activada, la informació de coordenada, com ara la latitud i la longitud, se superposa al mapa mentre es digitalitzen nous objectes o s&apos;utilitza l&apos;eina de mesura.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Mostra els marcadors</translation>
+        <translation type="vanished">Mostra els marcadors</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Quan està activat, els marcadors de projecte desats i oberts actualment per l&apos;usuari es mostraran al mapa.</translation>
+        <translation type="vanished">Quan està activat, els marcadors de projecte desats i oberts actualment per l&apos;usuari es mostraran al mapa.</translation>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Utilitza la càmera nativa</translation>
+        <translation type="vanished">Utilitza la càmera nativa</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
@@ -3513,7 +2631,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Atenua la pantalla quan estigui en repós</translation>
+        <translation type="vanished">Atenua la pantalla quan estigui en repós</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
@@ -3521,7 +2639,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Considereu el ratolí com un dispositiu de pantalla tàctil</translation>
+        <translation type="vanished">Considereu el ratolí com un dispositiu de pantalla tàctil</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
@@ -3529,7 +2647,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Envia mètriques anonimitzades</translation>
+        <translation type="vanished">Envia mètriques anonimitzades</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
@@ -3537,19 +2655,19 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="vanished">General</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posicionament</translation>
+        <translation type="vanished">Posicionament</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation type="vanished">Variables</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Personalitza la barra de cerca</translation>
+        <translation type="vanished">Personalitza la barra de cerca</translation>
     </message>
     <message>
         <source>User interface language:</source>
@@ -3561,15 +2679,15 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>system</source>
-        <translation>sistema</translation>
+        <translation type="vanished">sistema</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Heu trobat un idioma que falta o que està incomplet? %1Uniu-vos a la comunitat de traductors.%2</translation>
+        <translation type="vanished">Heu trobat un idioma que falta o que està incomplet? %1Uniu-vos a la comunitat de traductors.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Dispositiu de posicionament en ús:</translation>
+        <translation type="vanished">Dispositiu de posicionament en ús:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
@@ -3607,7 +2725,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Connectat a %1</translation>
+        <translation type="vanished">Connectat a %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
@@ -3615,7 +2733,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>S&apos;està connectant a %1</translation>
+        <translation type="vanished">S&apos;està connectant a %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
@@ -3623,11 +2741,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Mostrar informació de la posició</translation>
+        <translation type="vanished">Mostrar informació de la posició</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Activa l&apos;indicador de precisió</translation>
+        <translation type="vanished">Activa l&apos;indicador de precisió</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
@@ -3647,7 +2765,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Habilita el requisit de posicionament mitjà</translation>
+        <translation type="vanished">Habilita el requisit de posicionament mitjà</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
@@ -3655,15 +2773,15 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Finalitza automàticament la captura quan s&apos;arriba al nombre mínim</translation>
+        <translation type="vanished">Finalitza automàticament la captura quan s&apos;arriba al nombre mínim</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Quan està habilitat, la digitalització de vèrtexs amb un cursor bloquejat a la posició només acceptarà una posició mitjana obtinguda a partir d&apos;un nombre mínim de posicions recollides. La digitalització mitjançant posicions mitjanes es realitza prement i mantenint premut el botó d&apos;afegir vèrtex, que recollirà posicions fins que es deixi anar el botó. La configuració del requisit de precisió es respecta quan està activat.</translation>
+        <translation type="vanished">Quan està habilitat, la digitalització de vèrtexs amb un cursor bloquejat a la posició només acceptarà una posició mitjana obtinguda a partir d&apos;un nombre mínim de posicions recollides. La digitalització mitjançant posicions mitjanes es realitza prement i mantenint premut el botó d&apos;afegir vèrtex, que recollirà posicions fins que es deixi anar el botó. La configuració del requisit de precisió es respecta quan està activat.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Compensació de l&apos;alçada de l&apos;antena</translation>
+        <translation type="vanished">Compensació de l&apos;alçada de l&apos;antena</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
@@ -3675,23 +2793,23 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Ometre la correcció d&apos;altitud</translation>
+        <translation type="vanished">Ometre la correcció d&apos;altitud</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Utilitza l&apos;altitud tal com l&apos;indica el dispositiu de posicionament. No apliquis cap correcció d&apos;altitud que pugui estar implícita en la transformació del sistema de coordenades.</translation>
+        <translation type="vanished">Utilitza l&apos;altitud tal com l&apos;indica el dispositiu de posicionament. No apliquis cap correcció d&apos;altitud que pugui estar implícita en la transformació del sistema de coordenades.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Desplaçament de la quadrícula vertical en ús:</translation>
+        <translation type="vanished">Desplaçament de la quadrícula vertical en ús:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Cap</translation>
+        <translation type="vanished">Cap</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>El desplaçament vertical de la quadrícula s&apos;utilitza per augmentar la precisió de l&apos;altitud.</translation>
+        <translation type="vanished">El desplaçament vertical de la quadrícula s&apos;utilitza per augmentar la precisió de l&apos;altitud.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3699,11 +2817,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Temps d&apos;inactivitat en segons abans que la brillantor de la pantalla es redueixi per estalviar bateria.</translation>
+        <translation type="vanished">Temps d&apos;inactivitat en segons abans que la brillantor de la pantalla es redueixi per estalviar bateria.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Valor de mesura (M) associat als vèrtexs:</translation>
+        <translation type="vanished">Valor de mesura (M) associat als vèrtexs:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -3711,378 +2829,59 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Velocitat respecte al sòl</translation>
+        <translation type="vanished">Velocitat respecte al sòl</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Rumb</translation>
+        <translation type="vanished">Rumb</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Precisió horitzontal</translation>
+        <translation type="vanished">Precisió horitzontal</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Precisió vertical</translation>
+        <translation type="vanished">Precisió vertical</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>En digitalitzar objectes amb el cursor de coordenada bloquejat a la posició actual, el tipus de mesura seleccionat anteriorment s&apos;afegirà a la geometria sempre que tingui una dimensió M.</translation>
+        <translation type="vanished">En digitalitzar objectes amb el cursor de coordenada bloquejat a la posició actual, el tipus de mesura seleccionat anteriorment s&apos;afegirà a la geometria sempre que tingui una dimensió M.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Afegeix</translation>
+        <translation type="vanished">Afegeix</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Edita</translation>
+        <translation type="vanished">Edita</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Eliminar</translation>
+        <translation type="vanished">Eliminar</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Conecta a %1</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Segueix l&apos;aspecte del sistema</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Tema clar</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Tema fosc</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Petit</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normal</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Gran</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Molt gran</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Registra les sentències NMEA des del dispositiu a un fitxer.</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Qualitat de renderització del llenç del mapa:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Millor qualitat</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Qualitat inferior</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Qualitat més baixa</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Una qualitat inferior sacrifica la precisió del renderitzat a favor d&apos;un ús de memòria i un temps de renderitzat més baixos.</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ortomètrica des del dispositiu</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Utilitza les tecles de volum per digitalitzar</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Si està habilitat, prémer el botó d&apos;augment de volum del dispositiu afegeix un vèrtex, mentre que prémer el botó de reducció de volum elimina l&apos;últim vèrtex introduït durant les sessions de digitalització.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Permet tocar el llenç amb el dit per afegir vèrtexs</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Quan està habilitat, el ratolí actuarà com si fos un dit. Quan està desactivat, el ratolí s&apos;ajustarà al comportament del llapis òptic.</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Llenç del mapa</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitalització i edició</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Interfície d&apos;usuari</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Aspecte:</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Mida de la lletra:</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Idioma:</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Avançat</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Gestiona els connectors</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Activa la rotació del mapa</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Quan està activat, l&apos;usuari pot girar el mapa.</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Fer complir el requisit de precisió</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Quan l&apos;indicador de precisió està habilitat, s&apos;afegeix una insígnia al botó d&apos;ubicació que és de color &lt;span %1&gt;vermell&lt;/span&gt; si el valor de precisió és pitjor que &lt;i&gt;dolent&lt;/i&gt;, &lt;span %2&gt;groc&lt;/span&gt; si no és &lt;i&gt;excel·lent&lt;/i&gt; o &lt;span %3&gt;verd&lt;/span&gt;. &lt;br&gt;&lt;br&gt;A més, es pot activar un mode de restricció de precisió, que limita l&apos;addició de vèrtex quan està bloquejat al cursor de coordenada a posicions amb un valor de precisió pitjor que el llindar dolent.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Renderitzar el contingut de la vista prèvia al voltant del llenç del mapa visible </translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Quan està habilitat, el formulari d&apos;objecte s&apos;obrirà automàticament si només s&apos;identifica una funció, ometent la llista d&apos;objectes.</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Mostra els controls de zoom</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Maximitzar el formulari d&apos;objecte</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Obre el formulari d&apos;objecte per a la identificació d&apos;un sol objecte</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Si s&apos;activa, les àrees just a l&apos;exterior del llenç del mapa visible es renderitzaran parcialment per permetre una previsualització en fer zoom i desplaçar-se.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Activa el mode de desat automàtic</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Si està habilitat, els objectes recentment afegits s&apos;emmagatzemen tan bon punt tinguin una geometria vàlida i es compleixin les restriccions, i els atributs editats es confirmen immediatament.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Zoom automàtic als objecte(s) identificats</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>Quan està activat, el mapa farà zoom automàticament per mostrar tots els objectes  identificats, així com l&apos;objecte seleccionat individualment quan s&apos;obre el formulari d&apos;objecte.</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Comportament quan està bloquejat a la posició:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Seguir només la posició</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Seguir la posició i l&apos;orientació de la brúixola</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Seguir la posició i la direcció del moviment</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Quan el llenç del mapa segueix o està bloquejat a una posició, també pot girar per coincidir amb l&apos;orientació de la brúixola o la direcció del moviment.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Aquest valor corregirà els valors Z registrats pel dispositiu de posicionament. Si s&apos;introdueix un valor de 1,6, el sistema restarà automàticament 1,6 a cada valor registrat. Assegureu-vos d&apos;introduir l&apos;alçada efectiva de l&apos;antena, és a dir, la longitud del pal més el desplaçament del centre de fase de l&apos;antena.</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 Configuració</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Xarxa</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Activa el servidor intermediari</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Tipus</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Per defecte del sistema</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Amfitrió</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>p. ex. proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>p. ex. 8888</translation>
+        <translation type="vanished">Conecta a %1</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nom d&apos;usuari</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>Opcional</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Contrasenya</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>URL excloses del servidor intermediari (separades per comes)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>p. ex. localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Configura un servidor intermediari de xarxa per encaminar el trànsit de QField a través d&apos;un servidor intermediari. Útil per a xarxes corporatives i VPN.</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Si està activat, s&apos;utilitzarà la càmera nativa proporcionada pel sistema operatiu.</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Si s&apos;activa, es recopilaran i s&apos;enviaran mètriques anonimitzades per ajudar a millorar l&apos;experiència de l&apos;usuari per a tothom.</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Dispositiu de posicionament</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>Habilita les correccions NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Client NTRIP desconnectat</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>El client NTRIP s&apos;està connectant</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Client NTRIP connectat</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>Si us plau, proporcioneu una configuració NTRIP vàlida.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>Ajust d&apos;elevació</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>Marca de temps (mil·lisegons des de l&apos;època)</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Llindar de precisió dolent</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>Llindar de precisió excel·lent</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>Nombre mínim de posicions</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Alçada de l&apos;antena</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>Configuracions d&apos;autenticació disponibles:</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>Esborrar la memòria cau d&apos;autenticació</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>S&apos;ha esborrat la memòria cau d&apos;autenticació</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>Quan està activat, si toqueu el llenç del mapa amb el dit es mou el cursor de coordenades, mentre que si toqueu dues vegades s&apos;afegeix un vèrtex.</translation>
-    </message>
-</context>
-<context>
-    <name>QFieldSketcher</name>
-    <message>
-        <source>Select drawing template</source>
-        <translation>Seleccioneu una plantilla de dibuix</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4305,6 +3104,41 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
 </context>
 <context>
+    <name>QfAbout</name>
+    <message>
+        <source>Powered by QField</source>
+        <translation>Funciona amb QField</translation>
+    </message>
+    <message>
+        <source>Developed by</source>
+        <translation>Desenvolupat per</translation>
+    </message>
+    <message>
+        <source>%1 app directories</source>
+        <translation>Directoris d&apos;aplicacions %1</translation>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation>Directori d&apos;aplicacions %1</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Ajudeu QField</translation>
+    </message>
+    <message>
+        <source>Documentation</source>
+        <translation>Documentació</translation>
+    </message>
+    <message>
+        <source>Links Menu</source>
+        <translation>Menú d&apos;enllaços</translation>
+    </message>
+    <message>
+        <source>Changelog</source>
+        <translation>Registre de canvis</translation>
+    </message>
+</context>
+<context>
     <name>QfAbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
@@ -4362,6 +3196,21 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>File %1 does not exist</source>
         <translation>L&apos;arxiu %1 no existeix</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppAuthRequestHandler</name>
+    <message>
+        <source>Please enter credentials for database</source>
+        <translation>Introduïu les credencials per a la base de dades.</translation>
+    </message>
+    <message>
+        <source>at host</source>
+        <translation>a l&apos;amfitrió</translation>
+    </message>
+    <message>
+        <source>at service</source>
+        <translation>al servei</translation>
     </message>
 </context>
 <context>
@@ -4435,6 +3284,21 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>Audio Recorder</source>
         <translation>Gravadora d&apos;àudio</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>No s&apos;han pogut carregar algunes capes</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>Les següents capes no poden ser carregades, si us plau, reviseu-les i reconfigureu el projecte de QGIS. </translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>Podeu consultar la pàgina de documentació de %1Projecte portable%2 per obtenir més ajuda.</translation>
     </message>
 </context>
 <context>
@@ -4805,6 +3669,83 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
 </context>
 <context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>Novetats del QField</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>Error en recuperar el registre de canvis, proveu-ho més tard. </translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Ajudeu QField</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>Consulteu els darrers canvis de QField a</translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>Pàgina de llançaments de QField</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>Llançaments anteriors a GitHub</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometria</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>No s&apos;ha pogut enganxar: no s&apos;ha proporcionat cap capa de destinació.</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>Operació de tall: les capes d&apos;origen i de destinació són iguals, no es pot enganxar.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>Ha fallat en enganxar: l&apos;objecte del porta-retalls no és vàlid</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>Ha fallat en retallar: no s&apos;ha pogut iniciar l&apos;edició a la capa d&apos;origen %1</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>Ha fallat en retallar: no s&apos;ha pogut suprimir l&apos;objecte original de la capa d&apos;origen %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>Ha fallat en enganxar: no s&apos;ha pogut crear objectes compatibles</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>No s&apos;ha pogut enganxar: no s&apos;ha pogut iniciar l&apos;edició a la capa %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>Ha fallat en enganxa: no s&apos;ha pogut afegir l&apos;objecte a la capa %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>Enganxar ha fallat: commitChanges ha fallat a la capa %1</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>La confirmació de tall ha fallat a la capa d&apos;origen %1</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
@@ -4866,6 +3807,376 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
 %2</source>
         <translation>No s&apos;ha pogut carregar el fitxer adjunt emmagatzemat a `%1`, motiu:
 %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation>L&apos;acció següent és irreversible i afecta permanentment les vostres dades locals. Aneu amb compte.</translation>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Restableix el projecte</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Descarta els canvis locals</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>La còpia local d&apos;aquest projecte al núvol s&apos;ha corromput. Restablir el projecte tornarà a descarregar la versió del núvol i eliminarà tots els canvis locals; assegureu-vos de copiar-los primer si cal.
+
+Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament restablir-lo per evitar qualsevol pèrdua accidental de dades, ja que cap dels canvis fets no s&apos;enviarà de nou al núvol.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation>Elimina totes les edicions locals que encara no s&apos;han pujat.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Reinicia</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Descarta</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation>Historial de pujades</translation>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation>Recuperant l&apos;historial de pujades…</translation>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation>Encara no s&apos;han pujat cap canvi!</translation>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation>Aplicat</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>Pendent</translation>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation>Ocupat</translation>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation>Conflicte</translation>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation>No s&apos;ha aplicat</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Error</translation>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation>Ignorat</translation>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation>Sense permís</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Desconegut</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>No s&apos;ha pogut iniciar la sessió</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation>%1URL del servidor
+(Deixeu-ho en blanc per utilitzar el servidor per defecte)</translation>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>Nom d&apos;usuari o adreça de correu electrònic</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contrasenya</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Tanca la sessió</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>Iniciant la sessió, si us plau, espereu</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Inicia la sessió</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>o</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>Inicia la sessió amb %1</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation>Visita la %1pàgina de configuració%2 per gestionar el teu compte.</translation>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>Usuari nou?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>Crea un compte</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>La manera més senzilla de transferir el vostre projecte de QGIS als vostres dispositius!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Més informació sobre QFieldCloud</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation>Algunes capes no s&apos;han empaquetat correctament. Pot ser que aquestes capes estiguin mal configurades o que la seva font de dades no sigui accessible des del servidor QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation>Consulteu els comentaris detallats a continuació i els registres de treballs d&apos;empaquetament més recents al lloc web de QFieldCloud.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation>Zona de perill</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>Aquest projecte de QFieldCloud es va descarregar per primera vegada amb un altre compte al núvol. Si us plau, inicieu la sessió amb el compte original d&apos;aquest projecte per poder utilitzar la funcionalitat de QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud està empaquetant les dades més recents només per a tu; això pot trigar una estona, si us plau, espera.</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Descarregant, s&apos;ha obtingut %1% de %2</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Descarregant, %1% obtingut</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Contactant amb QFieldCloud per descarregar el projecte</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>Enviant canvis, 1%…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud està aplicant els últims canvis enviats. Això pot trigar una estona, si us plau, tingueu paciència…</translation>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation>Projecte Cloudify</translation>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>Pujant el projecte actual a QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation>El projecte actual no està emmagatzemat a QFieldCloud. Emmagatzemar projectes a QFieldCloud ofereix una sincronització fluida, edició fora de línia i gestió d&apos;equips.</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Més informació sobre QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation>Enviant al núvol %1%</translation>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation>Enviant al núvol</translation>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>El projecte del núvol emmagatzemat localment s&apos;ha corromput.</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Puja els canvis locals</translation>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation>Envia les teves edicions i adjunts al núvol sense haver de descarregar les actualitzacions del projecte. Ràpid i amb un consum de dades reduït.</translation>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation>Encara no s&apos;han pujat canvis</translation>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation>Última pujada ara mateix</translation>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation>Última pujada fa %1 minuts</translation>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation>Última pujada avui a les %1</translation>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation>Última pujada el %1</translation>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation>Pujada</translation>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation><numerusform>Pujada automàtica cada %n minut(s)</numerusform><numerusform>Pujada automàtica cada %n minut(s)</numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation>El projecte actual no permet desactivar la pujada automàtica</translation>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation>Sincronitza el projecte</translation>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation>Puja les teves modificacions i després descarrega el projecte més recent de QFieldCloud perquè tot estigui actualitzat. 
+ </translation>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>Sincronitzat per última vegada ara mateix</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>Darrera sincronització fa %1 minuts</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation>Darrera sincronització avui al %1</translation>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>Darrera sincronització el %1</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronitza</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation>Historial de pujades</translation>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation>Zona de perill</translation>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>Pujant %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>%n fitxer(s) restants</numerusform><numerusform>%n fitxer(s) restants</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Descarta els canvis locals</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation>S&apos;haurien de descartar els canvis locals?</translation>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>Restablir el projecte al núvol</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>Últim avís: restablir el projecte al núvol suprimirà qualsevol canvi local. Esteu segur que voleu continuar?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>Connectant el núvol</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Aquest projecte té un fitxer de projecte actualitzat al núvol; us recomanem que el sincronitzeu.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>Aquest projecte té dades actualitzades al núvol, les haurieu de sincronitzar.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation>El projecte %1 no es pot empaquetar perquè l&apos;emmagatzematge disponible està ple.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Amplia l&apos;emmagatzematge</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation>El projecte %1 no es pot empaquetar perquè l&apos;emmagatzematge disponible del propietari del projecte està ple.</translation>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>Canvis locals descartats</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>No s&apos;han pogut descartar els canvis</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>No hi ha canvis per descartar</translation>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>S&apos;ha utilitzat %1 de %2</translation>
     </message>
 </context>
 <context>
@@ -4986,6 +4297,104 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
 </context>
 <context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>Utilitzant %1 de %2</translation>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation>Mida de l&apos;emmagatzematge</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Propietari</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Data de creació</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Data de l&apos;última actualització</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Aquest codi QR pot ser escanejat per usuaris amb l&apos;accés adequat per descarregar i obrir aquest projecte.</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Sincronitzant</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronitza</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Puja els canvis locals</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud està empaquetant el projecte, espereu</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Descarregant el projecte</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Descarrega el projecte</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Descarregant el projecte %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Obrir projecte</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation>Clonar projecte</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>My own projects</source>
+        <translation>Els meus propis projectes</translation>
+    </message>
+    <message>
+        <source>%1&apos;s projects</source>
+        <translation>Projectes de %1</translation>
+    </message>
+    <message>
+        <source>Predefined Filters</source>
+        <translation>Filtres predefinits</translation>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation>Criteris</translation>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation>El títol o la descripció conté</translation>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation>El propietari és</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation>Incloure projectes públics</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Cerca</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudProjectsModel</name>
     <message>
         <source>Project busy.</source>
@@ -5002,6 +4411,173 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>Cloud project could not be created.</source>
         <translation>No s&apos;ha pogut crear el projecte al núvol.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation>Projectes QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation>Desconnectat del núvol.</translation>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation>Connectant-se al núvol.</translation>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation>Salutacions &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projectes</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation>Cerca de projectes</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud està empaquetant les dades més recents només per a tu; això pot trigar una estona, si us plau, espera.</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Descarregant, s&apos;ha obtingut %1% de %2</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Descarregant, %1% obtingut</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Contactant amb QFieldCloud per descarregar el projecte</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>Pujant…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Error de descàrrega. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Error de pujada. </translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation>Actualitzant la llista de projectes...</translation>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation>Buscant projectes...</translation>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation>No s&apos;han trobat projectes al núvol.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation>Intenteu %1incloure projectes públics%2 i veureu què ofereix la comunitat.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation>Intenteu %1incloure projectes públics%2.</translation>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation>Per començar, %1llegiu la documentació%2.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Actualitzar la llista de projectes</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Tanca la sessió</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Inicia la sessió</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation>Pàgina de configuració</translation>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>Mostra els projectes no vàlids</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Accions del projecte</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Obrir projecte</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronitza</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Puja els canvis locals</translation>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation>Clonar projecte</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Elimina el projecte desat</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>Veure detalls del projecte</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>Veure la carpeta del projecte</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Esteu segur que voleu eliminar `%1`?</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation>Clonació de projecte</translation>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation>Quin nom vols donar al teu projecte clonat?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Ha fallat l&apos;obtenció dels detalls del projecte QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>La clonació del projecte ha fallat: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Ha fallat la creació del projecte: %1</translation>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation>Projecte clonat correctament</translation>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation>Projecte creat correctament</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Actualitzant la llista de projectes</translation>
     </message>
 </context>
 <context>
@@ -5133,6 +4709,41 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>Point Feature Picker</source>
         <translation>Selector d&apos;objecte punt</translation>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>La capa %1 és només de lectura.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation>Informació del projecte</translation>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>Tema del Mapa</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Llegenda</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>Expandir-ho tot</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>Replegar-ho tot</translation>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation>Torna a l&apos;inici</translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>El projecte és de només lectura.</translation>
     </message>
 </context>
 <context>
@@ -5343,14 +4954,6 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
 <context>
     <name>QfEgenioussReceiver</name>
     <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>No s&apos;ha pogut iniciar el servidor egeniouss.</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>No s&apos;ha pogut aturar el servidor egeniouss.</translation>
-    </message>
-    <message>
         <source>Received data is too short to process</source>
         <translation>Les dades rebudes són massa curtes per processar-les</translation>
     </message>
@@ -5381,6 +4984,34 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>TCP receiver error (%1)</source>
         <translation>Error del receptor TCP (%1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5877,6 +5508,21 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
 </context>
 <context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>Acaba</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Següent</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Anterior</translation>
+    </message>
+</context>
+<context>
     <name>QfHelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
@@ -6108,6 +5754,293 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>La configuració de permisos d&apos;aquesta capa inhabilita l&apos;addició d&apos;objectes.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>Carpeta del projecte</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>Projectes i conjunts de dades locals</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>Carpetes</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projectes</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>Conjunts de dades</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>Fitxers</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Preferits</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>Fitxer del projecte</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>Conjunt de dades vectorial</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>Conjunts de dades raster</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Inici</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Accions de l&apos;element</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>Veure fitxer</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Envia a...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>Envia a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exportar a la carpeta...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Afegeix als preferits</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Elimina dels preferits</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>Envia la carpeta comprimida a...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>Puja la carpeta al servidor WebDAV</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>Descarrega la carpeta des del servidor WebDAV</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation>Suprimeix la carpeta</translation>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation>Suprimeix el fitxer</translation>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>Elimina el conjunt de dades</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>Importar accions</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>Importa el projecte des de la carpeta</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>Importa el projecte des d&apos;un fitxer ZIP</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>Importa conjunt(s) de dades</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>Importa URL</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>Importa la carpeta WebDAV</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>Ajuda per a la gestió de l&apos;emmagatzematge</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Accions del projecte</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>Actualitza el projecte des d&apos;un fitxer ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation>Comprimir projecte i enviar a...</translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>Pujar el projecte a WebDAV</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>Descarregar el projecte de WebDAV</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>Puja el(s) fitxers a WebDAV</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>Envia el(s) fitxers al QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>Seleccioneu un o més fitxers per enviar a QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation>Envia fitxer(s) comprimit a...</translation>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation>Suprimeix fitxer(s)</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>S&apos;està pujant &apos;%1&apos; a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Elements que s&apos;estan pujant a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation>Eliminar fitxer(s)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation><numerusform>Esteu segur que voleu eliminar %n fitxers?</numerusform><numerusform>Esteu segur que voleu eliminar %n fitxers?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation><numerusform>%n fitxer(s) suprimits correctament</numerusform><numerusform>%n fitxer(s) suprimits correctament</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Escriviu una URL a continuació per descarregar i importar el projecte o el conjunt de dades:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>S&apos;està important la carpeta WebDAV</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>Descarregant la carpeta WebDAV</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>Pujant la carpeta WebDAV</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>Error de WebDAV:</translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>Pujada a WebDAV</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>Descàrrega de WebDAV</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>Esteu a punt de carregar contingut modificat a &lt;b&gt;%1&lt;/b&gt; amb l&apos;usuari &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;Aquesta operació sobreescriurà les dades emmagatzemades remotament, assegureu-vos que això és el que voleu fer.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>Esteu a punt de descarregar contingut modificat de &lt;b&gt;%1&lt;/b&gt; amb l&apos;usuari &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt;Aquesta operació sobreescriurà les dades emmagatzemades localment, assegureu-vos que això és el que voleu fer.</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>Contrasenya (deixeu-ho en blanc per utilitzar la desada)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contrasenya</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>Recordar contrasenya</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>Introduïu els detalls de WebDAV a continuació per importar una carpeta remota:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>URL del servidor WebDAV</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>Usuari i contrasenya</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>deixar en blanc per utilitzar desat</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>Recuperant carpetes remotes</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>Recuperar carpetes remotes</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>Seleccioneu la carpeta remota per importar:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>carpeta arrel</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>Disponible localment a &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>Nom de la carpeta importada</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Confirma</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>Esteu a punt d&apos;eliminar un element WebDAV desat, voleu continuar?</translation>
     </message>
 </context>
 <context>
@@ -6510,6 +6443,111 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Raster Datasets</source>
         <translation>Conjunts de dades raster</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Creat per %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Desinstal·la la versió %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Desinstal·la el connector</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>L&apos;URL del connector sol·licitat figura a la llista de connectors disponibles; si us plau, instal·leu-lo mitjançant el botó de descàrrega.</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>El fitxer zip descarregat no s&apos;ha pogut descomprimir.</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>El fitxer zip descarregat no conté el fitxer de connector main.qml necessari.</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>No es pot desar el fitxer descarregat</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>El fitxer descarregat no és un connector comprimit.</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>Error de xarxa</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>Connectors</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>Connectors locals</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>Connectors disponibles</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>Cerca connectors</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>Obtenint els connectors disponibles</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>Encara no s&apos;ha instal·lat cap connector; canvieu a la pestanya %1connectors disponibles%3 per provar-ne alguns de seguida. &lt;br&gt;&lt;br&gt;Per a més informació, %2llegiu la documentació%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>Instal·la el connector des de l&apos;URL</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation>El projecte actualment obert ha carregat un connector de projecte.</translation>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation>Denegar permís</translation>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>Menú de gestió de connectors</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>Esborra els permisos recordats</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>Les dades de l&apos;autor que es mostren a dalt han estat autoinformades pel connector i no han estat verificades de manera independent. Assegureu-vos que confieu en l&apos;origen del connector.</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>Escriviu una URL a continuació per descarregar i instal·lar un connector:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation>Esteu segur que voleu desinstal·lar `%1`?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>Instal·lant %1</translation>
     </message>
 </context>
 <context>
@@ -7203,6 +7241,516 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
 </context>
 <context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Mostra la barra d&apos;escala</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Mostra els controls de zoom</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Mostra els marcadors</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Quan està activat, els marcadors de projecte desats i oberts actualment per l&apos;usuari es mostraran al mapa.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Activa la rotació del mapa</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Quan està activat, l&apos;usuari pot girar el mapa.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Mostra la informació de digitalització</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Quan està activada, la informació de coordenada, com ara la latitud i la longitud, se superposa al mapa mentre es digitalitzen nous objectes o s&apos;utilitza l&apos;eina de mesura.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Utilitza les tecles de volum per digitalitzar</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Si està habilitat, prémer el botó d&apos;augment de volum del dispositiu afegeix un vèrtex, mentre que prémer el botó de reducció de volum elimina l&apos;últim vèrtex introduït durant les sessions de digitalització.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Permet tocar el llenç amb el dit per afegir vèrtexs</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>Quan està activat, si toqueu el llenç del mapa amb el dit es mou el cursor de coordenades, mentre que si toqueu dues vegades s&apos;afegeix un vèrtex.</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Considereu el ratolí com un dispositiu de pantalla tàctil</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Quan està habilitat, el ratolí actuarà com si fos un dit. Quan està desactivat, el ratolí s&apos;ajustarà al comportament del llapis òptic.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Maximitzar el formulari d&apos;objecte</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Obre el formulari d&apos;objecte per a la identificació d&apos;un sol objecte</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Quan està habilitat, el formulari d&apos;objecte s&apos;obrirà automàticament si només s&apos;identifica una funció, ometent la llista d&apos;objectes.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navegació amb escala fixa</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Quan la navegació d&apos;escala fixa està activa, enfocar un resultat de cerca desplaçarà la vista cap a l&apos;objecte. Amb la navegació d&apos;escala fixa desactivada, es desplaçarà i farà zoom a l&apos;objecte.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Zoom automàtic als objecte(s) identificats</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>Quan està activat, el mapa farà zoom automàticament per mostrar tots els objectes  identificats, així com l&apos;objecte seleccionat individualment quan s&apos;obre el formulari d&apos;objecte.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Renderitzar el contingut de la vista prèvia al voltant del llenç del mapa visible </translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Si s&apos;activa, les àrees just a l&apos;exterior del llenç del mapa visible es renderitzaran parcialment per permetre una previsualització en fer zoom i desplaçar-se.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Activa el mode de desat automàtic</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Si està habilitat, els objectes recentment afegits s&apos;emmagatzemen tan bon punt tinguin una geometria vàlida i es compleixin les restriccions, i els atributs editats es confirmen immediatament.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Utilitza la càmera nativa</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Si està activat, s&apos;utilitzarà la càmera nativa proporcionada pel sistema operatiu.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Envia mètriques anonimitzades</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Si s&apos;activa, es recopilaran i s&apos;enviaran mètriques anonimitzades per ajudar a millorar l&apos;experiència de l&apos;usuari per a tothom.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>General</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Posicionament</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variables</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Llenç del mapa</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Qualitat de renderització del llenç del mapa:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Millor qualitat</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Qualitat inferior</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Qualitat més baixa</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Una qualitat inferior sacrifica la precisió del renderitzat a favor d&apos;un ús de memòria i un temps de renderitzat més baixos.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalització i edició</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Interfície d&apos;usuari</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Personalitza la barra de cerca</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Gestiona els connectors</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Atenua la pantalla quan estigui en repós</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Temps d&apos;inactivitat en segons abans que la brillantor de la pantalla es redueixi per estalviar bateria.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Aspecte:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Segueix l&apos;aspecte del sistema</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Tema clar</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Tema fosc</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Mida de la lletra:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Petit</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Gran</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Molt gran</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Idioma:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>sistema</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Heu trobat un idioma que falta o que està incomplet? %1Uniu-vos a la comunitat de traductors.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Xarxa</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>Configuracions d&apos;autenticació disponibles:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Esborrar la memòria cau d&apos;autenticació</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>S&apos;ha esborrat la memòria cau d&apos;autenticació</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Activa el servidor intermediari</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipus</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Per defecte del sistema</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Amfitrió</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>p. ex. proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>p. ex. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nom d&apos;usuari</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Opcional</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contrasenya</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>URL excloses del servidor intermediari (separades per comes)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>p. ex. localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Configura un servidor intermediari de xarxa per encaminar el trànsit de QField a través d&apos;un servidor intermediari. Útil per a xarxes corporatives i VPN.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Avançat</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Dispositiu de posicionament</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Dispositiu de posicionament en ús:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Afegeix</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Edita</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Eliminar</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Connectat a %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Conecta a %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>S&apos;està connectant a %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>Habilita les correccions NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>Client NTRIP desconnectat</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>El client NTRIP s&apos;està connectant</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>Client NTRIP connectat</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>Si us plau, proporcioneu una configuració NTRIP vàlida.</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Mostrar informació de la posició</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Comportament quan està bloquejat a la posició:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Seguir només la posició</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Seguir la posició i l&apos;orientació de la brúixola</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Seguir la posició i la direcció del moviment</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Quan el llenç del mapa segueix o està bloquejat a una posició, també pot girar per coincidir amb l&apos;orientació de la brúixola o la direcció del moviment.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Valor de mesura (M) associat als vèrtexs:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Marca de temps (mil·lisegons des de l&apos;època)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Velocitat respecte al sòl</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Rumb</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Precisió horitzontal</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Precisió vertical</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>En digitalitzar objectes amb el cursor de coordenada bloquejat a la posició actual, el tipus de mesura seleccionat anteriorment s&apos;afegirà a la geometria sempre que tingui una dimensió M.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Activa l&apos;indicador de precisió</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Llindar de precisió dolent</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>Llindar de precisió excel·lent</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Fer complir el requisit de precisió</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Quan l&apos;indicador de precisió està habilitat, s&apos;afegeix una insígnia al botó d&apos;ubicació que és de color &lt;span %1&gt;vermell&lt;/span&gt; si el valor de precisió és pitjor que &lt;i&gt;dolent&lt;/i&gt;, &lt;span %2&gt;groc&lt;/span&gt; si no és &lt;i&gt;excel·lent&lt;/i&gt; o &lt;span %3&gt;verd&lt;/span&gt;. &lt;br&gt;&lt;br&gt;A més, es pot activar un mode de restricció de precisió, que limita l&apos;addició de vèrtex quan està bloquejat al cursor de coordenada a posicions amb un valor de precisió pitjor que el llindar dolent.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Habilita el requisit de posicionament mitjà</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>Nombre mínim de posicions</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Finalitza automàticament la captura quan s&apos;arriba al nombre mínim</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Quan està habilitat, la digitalització de vèrtexs amb un cursor bloquejat a la posició només acceptarà una posició mitjana obtinguda a partir d&apos;un nombre mínim de posicions recollides. La digitalització mitjançant posicions mitjanes es realitza prement i mantenint premut el botó d&apos;afegir vèrtex, que recollirà posicions fins que es deixi anar el botó. La configuració del requisit de precisió es respecta quan està activat.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Ajust d&apos;elevació</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Compensació de l&apos;alçada de l&apos;antena</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Alçada de l&apos;antena</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Aquest valor corregirà els valors Z registrats pel dispositiu de posicionament. Si s&apos;introdueix un valor de 1,6, el sistema restarà automàticament 1,6 a cada valor registrat. Assegureu-vos d&apos;introduir l&apos;alçada efectiva de l&apos;antena, és a dir, la longitud del pal més el desplaçament del centre de fase de l&apos;antena.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Ometre la correcció d&apos;altitud</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Utilitza l&apos;altitud tal com l&apos;indica el dispositiu de posicionament. No apliquis cap correcció d&apos;altitud que pugui estar implícita en la transformació del sistema de coordenades.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Desplaçament de la quadrícula vertical en ús:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Cap</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ortomètrica des del dispositiu</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>El desplaçament vertical de la quadrícula s&apos;utilitza per augmentar la precisió de l&apos;altitud.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Registra les sentències NMEA des del dispositiu a un fitxer.</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 Configuració</translation>
+    </message>
+</context>
+<context>
+    <name>QfSketcher</name>
+    <message>
+        <source>Select drawing template</source>
+        <translation>Seleccioneu una plantilla de dibuix</translation>
+    </message>
+</context>
+<context>
     <name>QfTcpDeviceChooser</name>
     <message>
         <source>IP address</source>
@@ -7510,6 +8058,107 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Invalid WebDAV config JSON.</source>
         <translation>JSON de configuració WebDAV no vàlid.</translation>
+    </message>
+</context>
+<context>
+    <name>QfWelcomeScreen</name>
+    <message>
+        <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
+        <translation>Ens sap greu. Feu clic al botó següent per comentar o demanar ajuda.</translation>
+    </message>
+    <message>
+        <source>Reach out</source>
+        <translation>Contacta</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation>Ei, què us sembla l&apos;experiència amb %1 fins ara?</translation>
+    </message>
+    <message>
+        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
+        <translation>Fantàstic! Ens encantaria que fessiu clic al botó de sota i deixessiu una ressenya.</translation>
+    </message>
+    <message>
+        <source>Rate us</source>
+        <translation>Valora&apos;ns</translation>
+    </message>
+    <message>
+        <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
+        <translation>La recopilació de mètriques anonimitzades s&apos;ha desactivat. Podeu tornar-la a activar a través del tauler de configuració.</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation>Per millorar l&apos;estabilitat per a tothom, %1 recull i envia mètriques anonimitzades.</translation>
+    </message>
+    <message>
+        <source>I agree</source>
+        <translation>Hi estic d&apos;acord</translation>
+    </message>
+    <message>
+        <source>I prefer not</source>
+        <translation>Prefereixo que no</translation>
+    </message>
+    <message>
+        <source>QFieldCloud
+projects</source>
+        <translation>QFieldCloud
+projectes</translation>
+    </message>
+    <message>
+        <source>Local projects and
+ datasets</source>
+        <translation>Projectes locals i
+ conjunts de dades</translation>
+    </message>
+    <message>
+        <source>Create new
+project</source>
+        <translation>Crea nou
+projecte</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation>Obert recentment</translation>
+    </message>
+    <message>
+        <source>Last session</source>
+        <translation>Darrera sessió</translation>
+    </message>
+    <message>
+        <source>Default project</source>
+        <translation>Projecte per defecte</translation>
+    </message>
+    <message>
+        <source>Base map</source>
+        <translation>Mapa base</translation>
+    </message>
+    <message>
+        <source>Recent Project Actions</source>
+        <translation>Accions recents del projecte</translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation>Mapa base de conjunts de dades individuals</translation>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation>Elimina dels oberts recentment</translation>
+    </message>
+    <message>
+        <source>Load default project on launch</source>
+        <translation>Carrega el projecte per defecte en iniciar-se</translation>
+    </message>
+    <message>
+        <source>Load last opened project on launch</source>
+        <translation>Carrega l&apos;últim projecte obert en iniciar-se</translation>
+    </message>
+    <message>
+        <source>Return to map</source>
+        <translation>Torna al mapa</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation>La primera vegada que utilitzeu aquesta aplicació? Proveu els projectes de mostra que s&apos;indiquen a continuació.</translation>
     </message>
 </context>
 <context>
@@ -8898,11 +9547,11 @@ per mostrar les accions</translation>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>Ens sap greu. Feu clic al botó següent per comentar o demanar ajuda.</translation>
+        <translation type="vanished">Ens sap greu. Feu clic al botó següent per comentar o demanar ajuda.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>Contacta</translation>
+        <translation type="vanished">Contacta</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
@@ -8914,11 +9563,11 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Valora&apos;ns</translation>
+        <translation type="vanished">Valora&apos;ns</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>La recopilació de mètriques anonimitzades s&apos;ha desactivat. Podeu tornar-la a activar a través del tauler de configuració.</translation>
+        <translation type="vanished">La recopilació de mètriques anonimitzades s&apos;ha desactivat. Podeu tornar-la a activar a través del tauler de configuració.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
@@ -8926,11 +9575,11 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>I agree</source>
-        <translation>Hi estic d&apos;acord</translation>
+        <translation type="vanished">Hi estic d&apos;acord</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>Prefereixo que no</translation>
+        <translation type="vanished">Prefereixo que no</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -8946,7 +9595,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Last session</source>
-        <translation>Darrera sessió</translation>
+        <translation type="vanished">Darrera sessió</translation>
     </message>
     <message>
         <source>Base map project</source>
@@ -8967,76 +9616,6 @@ per mostrar les accions</translation>
     <message>
         <source>Welcome back to QField.</source>
         <translation type="vanished">Benvinguts de nou a QField.</translation>
-    </message>
-    <message>
-        <source>Default project</source>
-        <translation>Projecte per defecte</translation>
-    </message>
-    <message>
-        <source>Base map</source>
-        <translation>Mapa base</translation>
-    </message>
-    <message>
-        <source>Load default project on launch</source>
-        <translation>Carrega el projecte per defecte en iniciar-se</translation>
-    </message>
-    <message>
-        <source>Load last opened project on launch</source>
-        <translation>Carrega l&apos;últim projecte obert en iniciar-se</translation>
-    </message>
-    <message>
-        <source>Recent Project Actions</source>
-        <translation>Accions recents del projecte</translation>
-    </message>
-    <message>
-        <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>Fantàstic! Ens encantaria que fessiu clic al botó de sota i deixessiu una ressenya.</translation>
-    </message>
-    <message>
-        <source>Return to map</source>
-        <translation>Torna al mapa</translation>
-    </message>
-    <message>
-        <source>QFieldCloud
-projects</source>
-        <translation>QFieldCloud
-projectes</translation>
-    </message>
-    <message>
-        <source>Local projects and
- datasets</source>
-        <translation>Projectes locals i
- conjunts de dades</translation>
-    </message>
-    <message>
-        <source>Create new
-project</source>
-        <translation>Crea nou
-projecte</translation>
-    </message>
-    <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Ei, què us sembla l&apos;experiència amb %1 fins ara?</translation>
-    </message>
-    <message>
-        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation>Per millorar l&apos;estabilitat per a tothom, %1 recull i envia mètriques anonimitzades.</translation>
-    </message>
-    <message>
-        <source>First time using this application? Try the sample projects listed below.</source>
-        <translation>La primera vegada que utilitzeu aquesta aplicació? Proveu els projectes de mostra que s&apos;indiquen a continuació.</translation>
-    </message>
-    <message>
-        <source>Recently Opened</source>
-        <translation>Obert recentment</translation>
-    </message>
-    <message>
-        <source>Individual datasets base map</source>
-        <translation>Mapa base de conjunts de dades individuals</translation>
-    </message>
-    <message>
-        <source>Remove from recently opened</source>
-        <translation>Elimina dels oberts recentment</translation>
     </message>
 </context>
 <context>
