@@ -22,7 +22,7 @@ Page {
   rightPadding: mainWindow.sceneRightMargin
 
   header: QfPageHeader {
-    title: qsTr("QFieldCloud Projects")
+    title: qsTr("QFieldCloud")
 
     showBackButton: true
     showApplyButton: false
@@ -62,34 +62,45 @@ Page {
       id: connectionInformation
       spacing: 2
       Layout.fillWidth: true
-      visible: (cloudConnection.status === QfCloudConnection.LoggedIn || table.count > 0) && projectsSwipeView.currentIndex !== 1
+      visible: projectsSwipeView.currentIndex !== 1
 
-      Label {
+      QfTabBar {
+        id: filterBar
         Layout.fillWidth: true
-        padding: 10
-        opacity: projectsSwipeView.visible ? 1 : 0
-        text: switch (cloudConnection.status) {
-        case 0:
-          qsTr('Disconnected from the cloud.');
-          break;
-        case 1:
-          qsTr('Connecting to the cloud.');
-          break;
-        case 2:
-          qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
-          break;
+        Layout.preferredHeight: defaultHeight
+        Layout.leftMargin: 68
+        visible: !connectionSettings.visible
+        boundsBehavior: Flickable.StopAtBounds
+        model: cloudProjectsModel.hasTemplates && !filterModel.showLocalOnly ? [qsTr("Projects"), qsTr("Templates")] : [qsTr("Projects")]
+
+        Material.accent: cloudProjectsModel.hasTemplates ? QfTheme.mainColor : QfTheme.mainTextColor
+        highlight: Item {
+          Rectangle {
+            height: cloudProjectsModel.hasTemplates ? 2 : 0
+            color: QfTheme.mainColor
+            radius: 4
+            width: parent.width
+            anchors.bottom: parent.bottom
+          }
         }
-        wrapMode: Text.WordWrap
-        font: QfTheme.tipFont
-        color: QfTheme.mainTextColor
+
+        onCurrentIndexChanged: {
+          filterModel.showTemplates = currentIndex == 1;
+        }
+      }
+
+      Item {
+        id: topSpacer
+        Layout.fillWidth: true
+        visible: !filterBar.visible
       }
 
       Rectangle {
         id: cloudAvatarRect
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         Layout.margins: 10
-        width: 48
-        height: 48
+        Layout.preferredWidth: 48
+        Layout.preferredHeight: 48
         radius: width / 2
         color: QfTheme.controlBackgroundAlternateColor
         layer.enabled: true
@@ -195,34 +206,13 @@ Page {
           cloudServiceStatus: qfieldCloudScreen.cloudServiceStatus
         }
 
-        QfTabBar {
-          id: filterBar
-          Layout.fillWidth: true
-          Layout.preferredHeight: defaultHeight
-          visible: filterModel.hasTemplates
-          model: [qsTr("Projects"), qsTr("Templates")]
-
-          onCurrentIndexChanged: {
-            filterModel.showTemplates = currentIndex === 1;
-          }
-        }
-
-        Connections {
-          target: filterModel
-          function onHasTemplatesChanged() {
-            if (!filterModel.hasTemplates && filterBar.currentIndex !== 0) {
-              filterBar.currentIndex = 0;
-            }
-          }
-        }
-
         QfSearchBar {
           id: searchBar
           Layout.fillWidth: true
           Layout.preferredHeight: searchHeight
           enableFilterButton: true
           filterActive: projectFilter.visible
-          placeHolderText: qsTr("Search for projects")
+          placeHolderText: filterModel.showTemplates ? qsTr("Search for templates") : qsTr("Search for projects")
           parameterKeys: ["owner", "include"]
           z: 10
 
@@ -233,6 +223,7 @@ Page {
             visible: false
 
             currentUsername: cloudConnection.username
+            isTemplateSearch: filterBar.currentIndex === 1
 
             onQueryStringChanged: {
               if (visible) {
@@ -657,21 +648,23 @@ Page {
           Label {
             anchors.fill: parent
             anchors.margins: 20
-            visible: cloudConnection.status === QfCloudConnection.LoggedIn && filterBar.currentIndex === 0 && table.count === 0
+            visible: cloudConnection.status === QfCloudConnection.LoggedIn && table.count === 0
             text: {
+              const isTemplate = filterBar.currentIndex === 1;
               let labelText = "";
               if (cloudProjectsModel.isRefreshing) {
-                labelText = qsTr("Refreshing projects list...");
+                labelText = isTemplate ? qsTr("Refreshing templates list...") : qsTr("Refreshing projects list...");
               } else if (table.model.isSearching) {
-                labelText = qsTr("Searching for projects...");
+                labelText = isTemplate ? qsTr("Searching for templates...") : qsTr("Searching for projects...");
               } else if (searchBar.searchTerm.trim() !== "") {
-                labelText = qsTr("No cloud projects found.");
+                labelText = isTemplate ? qsTr("No templates found.") : qsTr("No cloud projects found.");
                 const parameters = projectFilter.getQueryParametersFromString(searchBar.searchTerm);
                 if (parameters["includePublic"] === false) {
+                  labelText += "\n\n";
                   if (cloudConnection.url == cloudConnection.defaultUrl) {
-                    labelText += "\n\n" + qsTr("Try to %1include public projects%2 and see what the community has to offer.").arg("<a href=\"#includePublic\">").arg("</a>");
+                    labelText += isTemplate ? qsTr("Try to %1include public templates%2 and see what the community has to offer.").arg("<a href=\"#includePublic\">").arg("</a>") : qsTr("Try to %1include public projects%2 and see what the community has to offer.").arg("<a href=\"#includePublic\">").arg("</a>");
                   } else {
-                    labelText += "\n\n" + qsTr("Try to %1include public projects%2.").arg("<a href=\"#includePublic\">").arg("</a>");
+                    labelText += isTemplate ? qsTr("Try to %1include public templates%2.").arg("<a href=\"#includePublic\">").arg("</a>") : qsTr("Try to %1include public projects%2.").arg("<a href=\"#includePublic\">").arg("</a>");
                   }
                 }
               } else {
@@ -705,7 +698,7 @@ Page {
           QfButton {
             id: refreshProjectsListBtn
             Layout.fillWidth: true
-            text: qsTr("Refresh projects list")
+            text: filterBar.currentIndex === 1 ? qsTr("Refresh templates list") : qsTr("Refresh projects list")
             enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
             showProgress: cloudProjectsModel.isRefreshing || table.model.isSearching
             progressValue: 0

@@ -55,6 +55,8 @@ class QfCloudProjectsModel : public QAbstractListModel
     //! Returns TRUE whether the model is creating a project
     Q_PROPERTY( bool isCreating READ isCreating NOTIFY isCreatingChanged )
 
+    Q_PROPERTY( bool hasTemplates READ hasTemplates NOTIFY hasTemplatesChanged )
+
     //! Currently busy project ids.
     Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
 
@@ -205,6 +207,12 @@ class QfCloudProjectsModel : public QAbstractListModel
      */
     Q_INVOKABLE void createProject( const QString &name, const QString &fromProjectId = QString() );
 
+    /**
+     * Returns TRUE if the source model contains at least one template project,
+     * regardless of the currently applied filters.
+     */
+    bool hasTemplates() const;
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
@@ -223,6 +231,8 @@ class QfCloudProjectsModel : public QAbstractListModel
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
 
     void projectUploaded( const QString &projectId );
+
+    void hasTemplatesChanged();
 
   private slots:
     void connectionStatusChanged();
@@ -243,6 +253,9 @@ class QfCloudProjectsModel : public QAbstractListModel
     void resetProjects();
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;
+
+    void updateHasTemplates();
+    bool mHasTemplates = false;
 
     QList<QfCloudProject *> mProjects;
     QfCloudConnection *mCloudConnection = nullptr;
@@ -275,7 +288,6 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showFeaturedOnTop READ showFeaturedOnTop WRITE setShowFeaturedOnTop NOTIFY showFeaturedOnTopChanged )
     Q_PROPERTY( bool isSearching READ isSearching NOTIFY isSearchingChanged )
     Q_PROPERTY( bool showTemplates READ showTemplates WRITE setShowTemplates NOTIFY showTemplatesChanged )
-    Q_PROPERTY( bool hasTemplates READ hasTemplates NOTIFY hasTemplatesChanged )
 
   public:
     explicit QfCloudProjectsFilterModel( QObject *parent = nullptr );
@@ -340,12 +352,6 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     void setShowTemplates( bool showTemplates );
 
     /**
-     * Returns TRUE if the source model contains at least one template project,
-     * regardless of the currently applied filters.
-     */
-    bool hasTemplates() const;
-
-    /**
      * Sets whether featured projects will be shown on top of the list.
      */
     void setShowFeaturedOnTop( bool showFeaturedOnTop );
@@ -370,11 +376,9 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     void showFeaturedOnTopChanged();
     void isSearchingChanged();
     void showTemplatesChanged();
-    void hasTemplatesChanged();
 
   private slots:
     void triggerProjectsAppending();
-    void updateHasTemplates();
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
 
   protected:
@@ -392,7 +396,6 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     bool mIncludePublic = false;
     bool mIsSearching = false;
     bool mShowTemplates = false;
-    bool mHasTemplates = false;
 
     QTimer mProjectsAppendingTimer;
 };

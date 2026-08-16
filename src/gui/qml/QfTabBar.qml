@@ -13,6 +13,7 @@ ListView {
 
   orientation: Qt.Horizontal
   highlightFollowsCurrentItem: true
+  highlightResizeDuration: 0
   currentIndex: 0
 
   highlight: Item {
@@ -28,7 +29,7 @@ ListView {
   delegate: TabButton {
     text: modelData
     height: tabRow.defaultHeight
-    width: tabRow.parent.width / tabRow.count
+    width: tabRow.width / tabRow.count
     font: QfTheme.defaultFont
     checked: tabRow.currentIndex === index
     onClicked: {

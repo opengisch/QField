@@ -548,6 +548,7 @@ void QfCloudProjectsModel::projectReceived()
     {
       insertProjects( QList<QfCloudProject *>() << cloudProject );
       emit projectAppended( projectId );
+      updateHasTemplates();
     }
   }
 }
@@ -574,6 +575,7 @@ void QfCloudProjectsModel::projectListReceived()
       mIsRefreshing = false;
       emit isRefreshingChanged();
     }
+    updateHasTemplates();
 
     emit warning( QfCloudConnection::errorString( rawReply ) );
     return;
@@ -634,6 +636,7 @@ void QfCloudProjectsModel::projectListReceived()
     mIsRefreshing = false;
     emit isRefreshingChanged();
   }
+  updateHasTemplates();
 }
 
 QHash<int, QByteArray> QfCloudProjectsModel::roleNames() const
@@ -1159,7 +1162,7 @@ void QfCloudProjectsModel::createProject( const QString &name, const QString &fr
   mIsCreating = true;
   emit isCreatingChanged();
 
-  QString sanitizedName = name;
+  QString sanitizedName = name.normalized( QString::NormalizationForm_KD );
   sanitizedName.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
   QString url = QStringLiteral( "/api/v1/projects/?owner=%1" ).arg( mUsername );
@@ -1252,6 +1255,21 @@ void QfCloudProjectsModel::projectCreationReceived()
   emit isCreatingChanged();
 }
 
+bool QfCloudProjectsModel::hasTemplates() const
+{
+  return mHasTemplates;
+}
+
+void QfCloudProjectsModel::updateHasTemplates()
+{
+  const bool hasTemplates = std::any_of( mProjects.begin(), mProjects.end(), []( const QfCloudProject *project ) { return project && project->type() == QfCloudProject::ProjectType::Template; } );
+  if ( mHasTemplates != hasTemplates )
+  {
+    mHasTemplates = hasTemplates;
+    emit hasTemplatesChanged();
+  }
+}
+
 // --
 
 QfCloudProjectsFilterModel::QfCloudProjectsFilterModel( QObject *parent )
@@ -1283,10 +1301,7 @@ void QfCloudProjectsFilterModel::setProjectsModel( QfCloudProjectsModel *project
 
   if ( mSourceModel )
   {
-    connect( mSourceModel, &QAbstractItemModel::rowsInserted, this, &QfCloudProjectsFilterModel::updateHasTemplates );
-    connect( mSourceModel, &QAbstractItemModel::rowsRemoved, this, &QfCloudProjectsFilterModel::updateHasTemplates );
-    connect( mSourceModel, &QAbstractItemModel::modelReset, this, &QfCloudProjectsFilterModel::updateHasTemplates );
-    updateHasTemplates();
+    connect( mSourceModel, &QfCloudProjectsModel::projectsAppended, this, &QfCloudProjectsFilterModel::projectsAppended );
   }
 
   emit projectsModelChanged();
@@ -1356,17 +1371,13 @@ bool QfCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelI
     return false;
   }
 
-  const bool isTemplate = project->type() == QfCloudProject::ProjectType::Template;
-  if ( mShowTemplates )
-  {
-    return isTemplate;
-  }
-  else if ( isTemplate )
+  if ( mShowLocalOnly && project->localPath().isEmpty() )
   {
     return false;
   }
 
-  if ( mShowLocalOnly && project->localPath().isEmpty() )
+  const bool isTemplate = project->type() == QfCloudProject::ProjectType::Template;
+  if ( ( !mShowTemplates && isTemplate ) || ( mShowTemplates && !isTemplate ) )
   {
     return false;
   }
@@ -1425,7 +1436,7 @@ void QfCloudProjectsFilterModel::projectsAppended( const QString &owner, const Q
     return;
   }
 
-  if ( mOwnerFilter == owner && mKeywordFilter == search.split( QLatin1Char( ' ' ) ) )
+  if ( mOwnerFilter == owner && mKeywordFilter == search.split( QLatin1Char( ' ' ), Qt::SkipEmptyParts ) )
   {
     mIsSearching = false;
     emit isSearchingChanged();
@@ -1538,36 +1549,6 @@ void QfCloudProjectsFilterModel::setShowTemplates( bool showTemplates )
 bool QfCloudProjectsFilterModel::showTemplates() const
 {
   return mShowTemplates;
-}
-
-bool QfCloudProjectsFilterModel::hasTemplates() const
-{
-  return mHasTemplates;
-}
-
-void QfCloudProjectsFilterModel::updateHasTemplates()
-{
-  bool hasTemplates = false;
-  if ( mSourceModel )
-  {
-    const int rows = mSourceModel->rowCount( QModelIndex() );
-    for ( int i = 0; i < rows; ++i )
-    {
-      const QModelIndex idx = mSourceModel->index( i, 0 );
-      const QfCloudProject *project = mSourceModel->findProject( mSourceModel->data( idx, QfCloudProjectsModel::IdRole ).toString() );
-      if ( project && project->type() == QfCloudProject::ProjectType::Template )
-      {
-        hasTemplates = true;
-        break;
-      }
-    }
-  }
-
-  if ( mHasTemplates != hasTemplates )
-  {
-    mHasTemplates = hasTemplates;
-    emit hasTemplatesChanged();
-  }
 }
 
 bool QfCloudProjectsFilterModel::showInValidProjects() const
