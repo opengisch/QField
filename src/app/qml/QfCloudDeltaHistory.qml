@@ -43,7 +43,7 @@ QfPopup {
       const headerHeight = toolBar.childrenRect.height + 20;
       const maximumHeight = mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4);
       let contentHeight = 0;
-      if (popup.model.isRefreshing || deltaList.count === 0) {
+      if (popup.model.isRefreshing && deltaList.count === 0) {
         contentHeight = loadingIndicator.height;
       } else {
         contentHeight = deltaList.contentHeight;
@@ -144,6 +144,9 @@ QfPopup {
 
       ListView {
         id: deltaList
+
+        property bool overshootFetchNextPage: false
+
         Layout.fillWidth: true
         Layout.fillHeight: true
         visible: count !== 0
@@ -163,6 +166,19 @@ QfPopup {
           iconSource: popup.deltaStatusIcon(Status)
           titleText: Summary + "\n" + qsTr("Uploaded by %1 on %2").arg(CreatedBy).arg(CreatedAt.toLocaleString(Qt.locale(), Locale.ShortFormat))
           detailsText: Output
+        }
+
+        onMovingChanged: {
+          if (!moving && overshootFetchNextPage && deltaListModel.hasNextPage) {
+            deltaListModel.fetchNextPage();
+          }
+          overshootFetchNextPage = false;
+        }
+
+        onVerticalOvershootChanged: {
+          if (verticalOvershoot > 10) {
+            overshootFetchNextPage = true;
+          }
         }
       }
     }

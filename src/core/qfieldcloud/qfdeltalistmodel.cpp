@@ -85,9 +85,14 @@ bool QfDeltaListModel::isRefreshing() const
   return mIsRefreshing;
 }
 
-QJsonDocument QfDeltaListModel::json() const
+bool QfDeltaListModel::hasNextPage() const
 {
-  return mJson;
+  return mHasNextPage;
+}
+
+QJsonDocument QfDeltaListModel::lastJson() const
+{
+  return mLastJson;
 }
 
 QString QfDeltaListModel::errorString() const
@@ -101,8 +106,11 @@ void QfDeltaListModel::refresh()
   {
     beginResetModel();
     mDeltas.clear();
-    mJson = QJsonDocument();
+    mLastJson = QJsonDocument();
     endResetModel();
+
+    mHasNextPage = false;
+    emit hasNextPageChanged();
   }
 
   if ( !mCloudConnection || mCloudProjectId.isEmpty() )
@@ -111,8 +119,34 @@ void QfDeltaListModel::refresh()
     return;
   }
 
+  if ( !mIsRefreshing )
+  {
+    mOffset = 0;
+    fetchDeltaList();
+  }
+}
+
+void QfDeltaListModel::fetchNextPage()
+{
+  if ( !mHasNextPage || mIsRefreshing )
+  {
+    return;
+  }
+
+  mOffset += mDeltasPerFetch;
+  fetchDeltaList();
+}
+
+void QfDeltaListModel::fetchDeltaList()
+{
   setIsRefreshing( true );
-  QfNetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mCloudProjectId ) );
+
+  const QString url = QStringLiteral( "/api/v1/deltas/%1/?ordering=-created_at" ).arg( mCloudProjectId );
+  QVariantMap params;
+  params["limit"] = QString::number( mDeltasPerFetch );
+  params["offset"] = QString::number( mOffset );
+
+  QfNetworkReply *deltaStatusReply = mCloudConnection->get( url, params );
   connect( deltaStatusReply, &QfNetworkReply::finished, this, [this, deltaStatusReply]() {
     QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
     deltaStatusReply->deleteLater();
@@ -126,13 +160,26 @@ void QfDeltaListModel::refresh()
       return;
     }
 
-    mJson = QJsonDocument::fromJson( rawReply->readAll() );
+    mLastJson = QJsonDocument::fromJson( rawReply->readAll() );
 
-    beginResetModel();
     QString errorString;
     bool isValid = false;
-    mDeltas = QfCloudUtils::parseDeltaJsonDocument( mJson, errorString, isValid );
-    endResetModel();
+    if ( mOffset == 0 )
+    {
+      beginResetModel();
+      mDeltas = QfCloudUtils::parseDeltaJsonDocument( mLastJson, errorString, isValid );
+      endResetModel();
+    }
+    else
+    {
+      const QList<QfCloudDelta> deltas = QfCloudUtils::parseDeltaJsonDocument( mLastJson, errorString, isValid );
+      if ( !deltas.isEmpty() )
+      {
+        beginInsertRows( QModelIndex(), mDeltas.size(), mDeltas.size() + deltas.size() - 1 );
+        mDeltas << deltas;
+        endInsertRows();
+      }
+    }
 
     if ( !errorString.isEmpty() )
     {
@@ -144,6 +191,13 @@ void QfDeltaListModel::refresh()
     {
       mIsValid = isValid;
       emit isValidChanged();
+    }
+
+    const bool hasNextPage = errorString.isEmpty() && mIsValid && rawReply->hasRawHeader( QStringLiteral( "X-Next-Page" ) );
+    if ( mHasNextPage != hasNextPage )
+    {
+      mHasNextPage = hasNextPage;
+      emit hasNextPageChanged();
     }
 
     setIsRefreshing( false );
