@@ -4360,6 +4360,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Clone project</source>
         <translation>Клонувати проект</translation>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation>Створення проекту</translation>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation>Створити проект із шаблону</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4550,14 +4558,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Ви впевнені, що хочете видалити `%1`?</translation>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation>Клонування проекту</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>Як Ви хочете назвати свій клоновий проект?</translation>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>Не вдалося отримати деталі проекту QFieldCloud</translation>
     </message>
@@ -4580,6 +4580,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Refreshing projects list</source>
         <translation>Оновлення списку проектів</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Шаблони</translation>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation>Створення проекту</translation>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation>Введіть назву проекту</translation>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation>Допустимі символи: 0-9A-Za-z_-</translation>
     </message>
 </context>
 <context>

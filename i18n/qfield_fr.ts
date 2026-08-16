@@ -4353,6 +4353,14 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Clone project</source>
         <translation>Cloner le projet</translation>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation>Créer projet</translation>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation>Créer projet à partir de modèle</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4543,14 +4551,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Êtes-vous sûr de vouloir supprimer `%1` ?</translation>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation>Clonage du projet</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>Quel nom veux-tu donner à ton projet cloné ?</translation>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>Échec de la récupération des détails du projet QFieldCloud</translation>
     </message>
@@ -4573,6 +4573,22 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Refreshing projects list</source>
         <translation>Rafraîchissement de la liste des projets</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Modèles</translation>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation>Création de projet</translation>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation>Entrer le nom du projet </translation>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation>Caractères autorisés : 0-9A-Za-z_-</translation>
     </message>
 </context>
 <context>

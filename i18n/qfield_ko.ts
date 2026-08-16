@@ -4354,6 +4354,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Clone project</source>
         <translation>프로젝트 복제</translation>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4544,14 +4552,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>`%1`을(를) 삭제하시겠습니까?</translation>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation>프로젝트 복제</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>복제한 프로젝트의 이름을 무엇으로 하시겠습니까?</translation>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>QFieldCloud 프로젝트 상세 정보를 가져오지 못했습니다</translation>
     </message>
@@ -4574,6 +4574,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Refreshing projects list</source>
         <translation>프로젝트 목록 새로 고치는 중</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

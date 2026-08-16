@@ -4348,6 +4348,14 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Clone project</source>
         <translation>Projekt másolás</translation>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4538,14 +4546,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Valóban törölni kívánod `%1`-t?</translation>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation>Projekt Másolás</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>Milyen nevet akarsz adni a projekt másolatának?</translation>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>Felhőprojekt részleteinek lekérése sikertelen</translation>
     </message>
@@ -4568,6 +4568,22 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Refreshing projects list</source>
         <translation>Projekt lista frissítése</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

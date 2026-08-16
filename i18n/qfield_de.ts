@@ -4352,6 +4352,14 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <source>Clone project</source>
         <translation>Projekt klonen</translation>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4542,14 +4550,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <translation>Bist du sicher, dass du `%1` löschen möchtest?</translation>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation>Projektklonen</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>Welchen Namen möchtest du dem geklonten Projekt geben?</translation>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>Herunterladen der Details des QFieldCloud-Projekts ist fehlgeschlagen</translation>
     </message>
@@ -4572,6 +4572,22 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Refreshing projects list</source>
         <translation>Projekte werden aktualisiert</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

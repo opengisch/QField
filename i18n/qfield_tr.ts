@@ -4350,6 +4350,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <source>Clone project</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4540,14 +4548,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>QFieldCloud proje detayları alınamadı</translation>
     </message>
@@ -4570,6 +4570,22 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>Refreshing projects list</source>
         <translation>Projeler listesi yenileniyor</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

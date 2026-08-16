@@ -4358,6 +4358,14 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <source>Clone project</source>
         <translation>Clonar projecte</translation>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4548,14 +4556,6 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Esteu segur que voleu eliminar `%1`?</translation>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation>Clonació de projecte</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>Quin nom vols donar al teu projecte clonat?</translation>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>Ha fallat l&apos;obtenció dels detalls del projecte QFieldCloud</translation>
     </message>
@@ -4578,6 +4578,22 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <message>
         <source>Refreshing projects list</source>
         <translation>Actualitzant la llista de projectes</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

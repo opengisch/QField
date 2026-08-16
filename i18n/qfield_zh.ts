@@ -4354,6 +4354,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Clone project</source>
         <translation>克隆工程</translation>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation>正在创建工程</translation>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation>从模板创建工程</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4544,14 +4552,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>确定要移除 `%1` 吗？</translation>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation>工程克隆</translation>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation>您想给克隆工程取什么名字？</translation>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>QFieldCloud工程详细信息获取失败</translation>
     </message>
@@ -4574,6 +4574,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Refreshing projects list</source>
         <translation>正在刷新工程列表</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>模板</translation>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation>工程创建</translation>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation>输入您的工程名称</translation>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation>允许使用的字符: 0-9A-Za-z_-</translation>
     </message>
 </context>
 <context>

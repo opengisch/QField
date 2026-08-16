@@ -4352,6 +4352,14 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
         <source>Clone project</source>
         <translation>Criar cópia do projeto</translation>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4542,14 +4550,6 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
         <translation>Tem a certeza que quer desinstalar `%1`?</translation>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation>QFieldCloud falhou ao obter detalhes do projeto</translation>
     </message>
@@ -4572,6 +4572,22 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     <message>
         <source>Refreshing projects list</source>
         <translation>Atualizando lista de projetos</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

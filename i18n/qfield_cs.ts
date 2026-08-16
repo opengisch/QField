@@ -4358,6 +4358,14 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <source>Clone project</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Creating project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -4548,14 +4556,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Project Cloning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>QFieldCloud project details fetching failed</source>
         <translation type="unfinished"/>
     </message>
@@ -4578,6 +4578,22 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     <message>
         <source>Refreshing projects list</source>
         <translation>Obnovení seznamu projektů</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
