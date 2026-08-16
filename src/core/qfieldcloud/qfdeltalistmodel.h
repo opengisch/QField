@@ -33,6 +33,8 @@ class QfDeltaListModel : public QAbstractListModel
     Q_PROPERTY( bool isValid READ isValid NOTIFY isValidChanged )
     Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
 
+    Q_PROPERTY( bool hasNextPage READ hasNextPage NOTIFY hasNextPageChanged )
+
     Q_PROPERTY( QfCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
     Q_PROPERTY( QString cloudProjectId READ cloudProjectId WRITE setCloudProjectId NOTIFY cloudProjectIdChanged )
 
@@ -63,8 +65,8 @@ class QfDeltaListModel : public QAbstractListModel
     //! Returns the model role names.
     QHash<int, QByteArray> roleNames() const override;
 
-    //! Returns the json document used to initialize the model.
-    QJsonDocument json() const;
+    //! Returns the last json document used to populate the model.
+    QJsonDocument lastJson() const;
 
     //! Holds the reason why it is invalid. Null string if not invalid.
     QString errorString() const;
@@ -83,12 +85,20 @@ class QfDeltaListModel : public QAbstractListModel
     //! Whether the model is refreshing.
     bool isRefreshing() const;
 
+    //! Whether the delta list has a next page available to retrieve
+    bool hasNextPage() const;
+
     //! Refreshes the delta list model
     Q_INVOKABLE void refresh();
+
+    ///! Retrieves the next available delta list page
+    Q_INVOKABLE void fetchNextPage();
 
   signals:
     void isValidChanged();
     void isRefreshingChanged();
+
+    void hasNextPageChanged();
 
     void errorStringChanged();
 
@@ -96,18 +106,24 @@ class QfDeltaListModel : public QAbstractListModel
     void cloudProjectIdChanged();
 
   private:
+    void fetchDeltaList();
     void setIsRefreshing( bool isRefreshing );
 
     bool mIsValid = false;
     bool mIsRefreshing = false;
 
-    QJsonDocument mJson;
+    QJsonDocument mLastJson;
     QString mErrorString;
 
     QList<QfCloudDelta> mDeltas;
 
     QfCloudConnection *mCloudConnection = nullptr;
     QString mCloudProjectId;
+
+    bool mHasNextPage = false;
+    int mOffset = 0;
+
+    const int mDeltasPerFetch = 50;
 };
 
 #endif // QFDELTALISTMODEL_H
