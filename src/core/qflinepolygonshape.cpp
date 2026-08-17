@@ -36,10 +36,27 @@ void QfLinePolygonShape::createPolylines()
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   const double scaleFactor = 1.0 / mMapSettings->mapUnitsPerPoint();
 
+  if ( !mGeometry || !mGeometry->crs().isValid() || mGeometry->qgsGeometry().isNull() )
+  {
+    if ( mPolylinesType != Qgis::GeometryType::Null )
+    {
+      mPolylinesType = Qgis::GeometryType::Null;
+      emit polylinesTypeChanged();
+    }
+
+    if ( !mPolylines.isEmpty() )
+    {
+      mPolylines.clear();
+      emit polylinesChanged();
+    }
+
+    return;
+  }
+
   mPolylines.clear();
 
-  QgsGeometry geometry( mGeometry ? mGeometry->qgsGeometry() : QgsGeometry() );
-  if ( mGeometry && mGeometry->crs() != mMapSettings->destinationCrs() )
+  QgsGeometry geometry( mGeometry->qgsGeometry() );
+  if ( mGeometry->crs() != mMapSettings->destinationCrs() )
   {
     QgsCoordinateTransform ct( mGeometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
     try
@@ -53,11 +70,10 @@ void QfLinePolygonShape::createPolylines()
   }
 
   Qgis::GeometryType geomType = Qgis::GeometryType::Null;
-  if ( mGeometry && !geometry.isEmpty() && geometry.type() != Qgis::GeometryType::Point )
+  if ( !geometry.isEmpty() && geometry.type() != Qgis::GeometryType::Point )
   {
     geometry = geometry.simplify( mMapSettings->mapUnitsPerPoint() );
     geometry = geometry.makeValid();
-
     geomType = geometry.type();
     switch ( geomType )
     {
