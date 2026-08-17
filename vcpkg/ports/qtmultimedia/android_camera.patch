@@ -1,0 +1,71 @@
+diff --git a/src/android/jar/src/org/qtproject/qt/android/multimedia/QtCamera2.java b/src/android/jar/src/org/qtproject/qt/android/multimedia/QtCamera2.java
+index 0454ffe30..ebbdfd1d1 100644
+--- a/src/android/jar/src/org/qtproject/qt/android/multimedia/QtCamera2.java
++++ b/src/android/jar/src/org/qtproject/qt/android/multimedia/QtCamera2.java
+@@ -5,6 +5,7 @@ package org.qtproject.qt.android.multimedia;
+ import android.annotation.SuppressLint;
+ import android.annotation.TargetApi;
+ import android.content.Context;
++import android.graphics.ImageFormat;
+ import android.graphics.Rect;
+ import android.hardware.camera2.CameraAccessException;
+ import android.hardware.camera2.CameraCaptureSession;
+@@ -324,7 +325,8 @@ class QtCamera2 {
+         mPreviewImageReader.setOnImageAvailableListener(mOnPreviewImageAvailableListener, mBackgroundHandler);
+         addSurface(mPreviewImageReader.getSurface());
+ 
+-        mStillPhotoImageReader = ImageReader.newInstance(width, height, format, MaxNumberFrames);
++        mStillPhotoImageReader =
++                ImageReader.newInstance(width, height, ImageFormat.JPEG, MaxNumberFrames);
+         mStillPhotoImageReader.setOnImageAvailableListener(mOnStillPhotoAvailableListener, mBackgroundHandler);
+         addSurface(mStillPhotoImageReader.getSurface());
+     }
+diff --git a/src/plugins/multimedia/ffmpeg/android/qandroidcamera.cpp b/src/plugins/multimedia/ffmpeg/android/qandroidcamera.cpp
+index c660cafb0..fd5781516 100644
+--- a/src/plugins/multimedia/ffmpeg/android/qandroidcamera.cpp
++++ b/src/plugins/multimedia/ffmpeg/android/qandroidcamera.cpp
+@@ -252,7 +252,7 @@ void QAndroidCamera::frameAvailable(QJniObject image, bool takePhoto)
+     // background thread, but read by the QCamera thread during QAndroid::ffmpegHWPixelFormat().
+     // This causes a race condition (not severe). We should eventually implement some
+     // synchronization strategy.
+-    m_androidFramePixelFormat = videoFrame.pixelFormat();
++    m_androidFramePixelFormat = videoFrame.pixelFormat(); // NOTE: Should this be updated on stills?
+     if (m_waitingForFirstFrame) {
+         m_waitingForFirstFrame = false;
+         setState(State::Started);
+diff --git a/src/plugins/multimedia/ffmpeg/android/qandroidvideoframebuffer.cpp b/src/plugins/multimedia/ffmpeg/android/qandroidvideoframebuffer.cpp
+index efbf585dc..9cb57de89 100644
+--- a/src/plugins/multimedia/ffmpeg/android/qandroidvideoframebuffer.cpp
++++ b/src/plugins/multimedia/ffmpeg/android/qandroidvideoframebuffer.cpp
+@@ -205,16 +205,10 @@ bool QAndroidVideoFrameBuffer::parse(const QJniObject &frame)
+         pixelFormat = calculedPixelFormat;
+         break;
+     case QVideoFrameFormat::Format_Jpeg:
+-        qCWarning(qLCAndroidCameraFrame)
+-                << "FFmpeg HW Mediacodec does not encode other than YCbCr formats";
+-        // we still parse it to preview the frame
+         m_policy = MemoryPolicy::Copy;
+-        m_image = QImage::fromData((uchar *)buffer[0], bufferSize[0]);
+-        m_mapData.bytesPerLine[0] = m_image.bytesPerLine();
+-        dataCleaner[0] = QByteArray::fromRawData((char*)m_image.bits(), m_image.sizeInBytes());
+-        m_mapData.data[0] = (uchar *)dataCleaner[0].constData();
+-        m_mapData.dataSize[0] = m_image.sizeInBytes();
+-        pixelFormat = QVideoFrameFormat::pixelFormatFromImageFormat(m_image.format());
++        m_mapData.planeCount = 1;
++        copyPlane(0, 0);
++        pixelFormat = QVideoFrameFormat::Format_Jpeg;
+         break;
+     default:
+         break;
+diff --git a/src/plugins/multimedia/ffmpeg/android/qandroidvideoframebuffer_p.h b/src/plugins/multimedia/ffmpeg/android/qandroidvideoframebuffer_p.h
+index 95ec5c20d..b8aeeef95 100644
+--- a/src/plugins/multimedia/ffmpeg/android/qandroidvideoframebuffer_p.h
++++ b/src/plugins/multimedia/ffmpeg/android/qandroidvideoframebuffer_p.h
+@@ -70,7 +70,6 @@ private:
+     std::shared_ptr<FrameReleaseDelegate> m_frameReleaseDelegate;
+     MemoryPolicy m_policy;
+     bool m_parsed = false;
+-    QImage m_image;
+ 
+     enum AndroidImageFormat {
+     // Values taken from Android API ImageFormat, PixelFormat, or HardwareBuffer
