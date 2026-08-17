@@ -753,7 +753,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation type="vanished"><numerusform>%n entité supprimée avec succès</numerusform><numerusform>%n entités supprimées avec succès</numerusform><numerusform>%n entités supprimées avec succès</numerusform></translation>
+        <translation type="vanished"><numerusform>%n entité supprimée avec succès</numerusform><numerusform>%n entités supprimées avec succès</numerusform><numerusform>%n entité(s) supprimée(s) avec succès</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
@@ -1281,7 +1281,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation type="vanished">Supprimer les entités sélectionnées</translation>
+        <translation type="vanished">Supprimer l&apos;/les entité(s) sélectionnée(s)</translation>
     </message>
     <message>
         <source>Feature Menu</source>
@@ -2550,7 +2550,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="vanished">Importer un(des) jeu(x) de donnée(s)</translation>
+        <translation type="vanished">Importer le/les jeu(x) de donnée(s)</translation>
     </message>
     <message>
         <source>Storage management help</source>
@@ -3856,7 +3856,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Uploaded by %1 on %2</source>
-        <translation>Transféré par %1 sur %2</translation>
+        <translation>Transféré par %1 le %2</translation>
     </message>
     <message>
         <source>Applied</source>
@@ -4365,14 +4365,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
 <context>
     <name>QfCloudProjectFilter</name>
     <message>
-        <source>My own projects</source>
-        <translation>Mes propres projets</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>Les projets de %1</translation>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation>Filtres prédéfinis</translation>
     </message>
@@ -4395,6 +4387,18 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Search</source>
         <translation>Recherche</translation>
+    </message>
+    <message>
+        <source>My own</source>
+        <translation>Le mien</translation>
+    </message>
+    <message>
+        <source>Owned by %1</source>
+        <translation>Appartient à %1</translation>
+    </message>
+    <message>
+        <source>Include public templates</source>
+        <translation>Inclure les modèles publics</translation>
     </message>
 </context>
 <context>
@@ -4420,19 +4424,19 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <name>QfCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>Projets QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Déconnecté du cloud.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Se connecter au cloud.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Bienvenue &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4590,6 +4594,38 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Allowed characters: 0-9A-Za-z_-</source>
         <translation>Caractères autorisés : 0-9A-Za-z_-</translation>
     </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Rechercher des modèles</translation>
+    </message>
+    <message>
+        <source>Refreshing templates list...</source>
+        <translation>Actualisation de la liste des modèles...</translation>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
+        <translation>Recherche de modèles...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Aucun modèle trouvé.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Essaie d&apos;%1inclure les modèles publics%2 et découvre ce que la communauté a à t&apos;offrir.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Essaie d&apos;%1inclure les modèles publics%2.</translation>
+    </message>
+    <message>
+        <source>Refresh templates list</source>
+        <translation>Actualiser la liste des modèles</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -4650,15 +4686,15 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message numerus="yes">
         <source>%n feature(s) created</source>
-        <translation><numerusform>%n entité(s) créés</numerusform><numerusform>%n entité(s) créés</numerusform><numerusform>%n entité(s) créé(es)</numerusform></translation>
+        <translation><numerusform>%n entité(s) créés</numerusform><numerusform>%n entité(s) créés</numerusform><numerusform>%n entité(s) créée(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) edited</source>
-        <translation><numerusform>%n entité(s) modifié(s)</numerusform><numerusform>%n entité(s) modifié(s)</numerusform><numerusform>%n entité(s) modifié(es)</numerusform></translation>
+        <translation><numerusform>%n entité(s) modifié(s)</numerusform><numerusform>%n entité(s) modifié(s)</numerusform><numerusform>%n entité(s) modifiée(s)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) deleted</source>
-        <translation><numerusform>%n entité(s) supprimé(s)</numerusform><numerusform>%n entité(s) supprimé(s)</numerusform><numerusform>%n entité(s) supprimé(es)</numerusform></translation>
+        <translation><numerusform>%n entité(s) supprimé(s)</numerusform><numerusform>%n entité(s) supprimé(s)</numerusform><numerusform>%n entité(s) supprimée(s)</numerusform></translation>
     </message>
     <message>
         <source>%1 in layer %2</source>
@@ -5275,9 +5311,9 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 
 Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apos; et prendre ses attributs. </numerusform><numerusform>Fusionner les %n objet(s) sélectionnés ?
 
-Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apos; et prendre ses attributs. </numerusform><numerusform>Fusionner les %n objet(s) sélectionnés ?
+Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apos; et prendre ses attributs. </numerusform><numerusform>Fusionner les %n entité(s) sélectionnée(s) ?
 
-Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apos; et prendre ses attributs. </numerusform></translation>
+Les géométries des entités vont être combinées dans l&apos;entité &apos;%1&apos; et prendre ses attributs. </numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
@@ -5314,7 +5350,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation><numerusform>%n entité supprimée avec succès</numerusform><numerusform>%n entités supprimées avec succès</numerusform><numerusform>%n entités supprimées avec succès</numerusform></translation>
+        <translation><numerusform>%n entité supprimée avec succès</numerusform><numerusform>%n entités supprimées avec succès</numerusform><numerusform>%n entité(s) supprimée(s) avec succès</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>

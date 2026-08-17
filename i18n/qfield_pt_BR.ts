@@ -4364,14 +4364,6 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
 <context>
     <name>QfCloudProjectFilter</name>
     <message>
-        <source>My own projects</source>
-        <translation>Meus projetos</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>Projetos de %1&apos;s</translation>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation>Filtros predefinidos</translation>
     </message>
@@ -4394,6 +4386,18 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     <message>
         <source>Search</source>
         <translation>Pesquisar</translation>
+    </message>
+    <message>
+        <source>My own</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owned by %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public templates</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4419,19 +4423,19 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     <name>QfCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>Projetos QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Desconectado da nuvem.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Conectando à nuvem.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Saudações &lt;strong&gt;%1&lt;/strong&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4587,6 +4591,38 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     </message>
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh templates list</source>
         <translation type="unfinished"/>
     </message>
 </context>

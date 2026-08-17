@@ -4366,14 +4366,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfCloudProjectFilter</name>
     <message>
-        <source>My own projects</source>
-        <translation>내 프로젝트</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>%1의 프로젝트</translation>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation>미리 정의된 필터</translation>
     </message>
@@ -4396,6 +4388,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Search</source>
         <translation>검색</translation>
+    </message>
+    <message>
+        <source>My own</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owned by %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include public templates</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4421,19 +4425,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud 프로젝트</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>클라우드 연결이 끊어졌습니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>클라우드에 연결하는 중입니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>안녕하세요, &lt;strong&gt;%1&lt;/strong&gt;님.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4589,6 +4593,38 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh templates list</source>
         <translation type="unfinished"/>
     </message>
 </context>

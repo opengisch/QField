@@ -4372,14 +4372,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfCloudProjectFilter</name>
     <message>
-        <source>My own projects</source>
-        <translation>Мої власні проекти</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>Проекти %1</translation>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation>Попередньо визначені фільтри</translation>
     </message>
@@ -4402,6 +4394,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Search</source>
         <translation>Пошук</translation>
+    </message>
+    <message>
+        <source>My own</source>
+        <translation>Мій власний</translation>
+    </message>
+    <message>
+        <source>Owned by %1</source>
+        <translation>Належить %1</translation>
+    </message>
+    <message>
+        <source>Include public templates</source>
+        <translation>Включити публічні шаблони</translation>
     </message>
 </context>
 <context>
@@ -4427,19 +4431,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>Проекти QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Відключено від хмари.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Підключення до хмари.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Привітання &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4596,6 +4600,38 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
         <translation>Допустимі символи: 0-9A-Za-z_-</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Пошук шаблонів</translation>
+    </message>
+    <message>
+        <source>Refreshing templates list...</source>
+        <translation>Оновлення списку шаблонів...</translation>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
+        <translation>Пошук шаблонів...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Шаблони не знайдено.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Спробуйте %1додати публічні шаблони%2 і подивіться, що пропонує спільнота.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Спробуйте %1додати публічні шаблони%2.</translation>
+    </message>
+    <message>
+        <source>Refresh templates list</source>
+        <translation>Оновити список шаблонів</translation>
     </message>
 </context>
 <context>

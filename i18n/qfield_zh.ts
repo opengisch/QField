@@ -4366,14 +4366,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfCloudProjectFilter</name>
     <message>
-        <source>My own projects</source>
-        <translation>我的专属工程</translation>
-    </message>
-    <message>
-        <source>%1&apos;s projects</source>
-        <translation>%1&apos;s 工程</translation>
-    </message>
-    <message>
         <source>Predefined Filters</source>
         <translation>预定义过滤</translation>
     </message>
@@ -4391,11 +4383,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Include public projects</source>
-        <translation>包含公开工程</translation>
+        <translation>包含公共工程</translation>
     </message>
     <message>
         <source>Search</source>
         <translation>搜索</translation>
+    </message>
+    <message>
+        <source>My own</source>
+        <translation>我自己</translation>
+    </message>
+    <message>
+        <source>Owned by %1</source>
+        <translation>所有者: %1</translation>
+    </message>
+    <message>
+        <source>Include public templates</source>
+        <translation>包括公共模板</translation>
     </message>
 </context>
 <context>
@@ -4421,19 +4425,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloud工程</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>与云断开连接。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>连接到云。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>您好 &lt;strong&gt;%1&lt;/strong&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4590,6 +4594,38 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
         <translation>允许使用的字符: 0-9A-Za-z_-</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>搜索模板</translation>
+    </message>
+    <message>
+        <source>Refreshing templates list...</source>
+        <translation>刷新模板列表...</translation>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
+        <translation>搜索模板...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>未找到模板。</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>尝试%1包含公共模板%2，查看社区能为您提供什么。</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>尝试%1包含公共模板%2。</translation>
+    </message>
+    <message>
+        <source>Refresh templates list</source>
+        <translation>刷新模板列表</translation>
     </message>
 </context>
 <context>
