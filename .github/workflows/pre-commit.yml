@@ -69,7 +69,7 @@ jobs:
             Reply with `@qfield-fairy style please` to fix it up 🪄.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: EndBug/add-and-commit@v10
+      - uses: EndBug/add-and-commit@v11
         if: failure() && steps.run-fixes.outputs.triggered == 'true' && github.event.issue.pull_request
         with:
           author_name: Style Fairy
