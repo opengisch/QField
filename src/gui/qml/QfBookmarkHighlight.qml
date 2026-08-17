@@ -15,8 +15,8 @@ Repeater {
 
   delegate: QfBookmarkRenderer {
     mapSettings: bookmarkHighlight.mapSettings
-    geometryWrapper.qgsGeometry: model.BookmarkPoint
     geometryWrapper.crs: model.BookmarkCrs
+    geometryWrapper.qgsGeometry: model.BookmarkPoint
 
     bookmarkIndex: model.index
     bookmarkId: model.BookmarkId

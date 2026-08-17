@@ -18,8 +18,8 @@ Repeater {
 
   delegate: QfGeometryRenderer {
     mapSettings: processingAlgorithmPreview.mapSettings
-    geometryWrapper.qgsGeometry: modelData
     geometryWrapper.crs: processingAlgorithmPreview.algorithm.inPlaceLayer.crs
+    geometryWrapper.qgsGeometry: modelData
 
     color: processingAlgorithmPreview.color
     z: 1

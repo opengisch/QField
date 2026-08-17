@@ -230,20 +230,37 @@ void QfLinePolygonShape::setGeometry( QfGeometryWrapper *geometry )
 
   if ( mGeometry )
   {
-    disconnect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
-    disconnect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
+    disconnect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::catchGeometryWrapperChange );
+    disconnect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::catchGeometryWrapperChange );
   }
 
   mGeometry = geometry;
 
   if ( mGeometry )
   {
-    connect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
-    connect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
+    connect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::catchGeometryWrapperChange );
+    connect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::catchGeometryWrapperChange );
+
+    if ( mGeometry->crs().isValid() && !mGeometry->qgsGeometry().isEmpty() )
+    {
+      qInfo() << "QfLinePolygonShape::setGeometry crs:" << mGeometry->crs().authid();
+      qInfo() << "QfLinePolygonShape::setGeometry geometry:" << mGeometry->qgsGeometry().asWkt();
+    }
   }
 
   mDirty = true;
-  emit qgsGeometryChanged();
+  emit geometryChanged();
 
   updateTransform();
+}
+
+void QfLinePolygonShape::catchGeometryWrapperChange()
+{
+  if ( mGeometry->crs().isValid() && !mGeometry->qgsGeometry().isEmpty() )
+  {
+    qInfo() << "QfLinePolygonShape::catchGeometryWrapperChange crs:" << mGeometry->crs().authid();
+    qInfo() << "QfLinePolygonShape::catchGeometryWrapperChange geometry:" << mGeometry->qgsGeometry().asWkt();
+  }
+
+  makeDirty();
 }

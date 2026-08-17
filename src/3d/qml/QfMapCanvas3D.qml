@@ -268,8 +268,8 @@ Item {
 
         Model {
           geometry: Qf3DGeometry {
-            qgsGeometry: QfGeometryUtils.createGeometryFromWkt(modelData.wkt)
             crs: modelData.crs
+            qgsGeometry: QfGeometryUtils.createGeometryFromWkt(modelData.wkt)
             lineWidth: modelData.lineWidth
             heightOffset: modelData.heightOffset
             altitudeClamping: modelData.altitudeClamping
