@@ -122,19 +122,6 @@ void QfCloudProject::setDescription( const QString &description )
   emit descriptionChanged();
 }
 
-void QfCloudProject::setTheQgisFileName( const QString &theQgisFileName )
-{
-  if ( mTheQgisFileName == theQgisFileName )
-    return;
-
-  const bool wasValid = !mTheQgisFileName.isEmpty();
-  mTheQgisFileName = theQgisFileName;
-  if ( wasValid != !mTheQgisFileName.isEmpty() )
-  {
-    emit hasValidProjectfileChanged();
-  }
-}
-
 void QfCloudProject::setUserRole( const QString &userRole )
 {
   if ( mUserRole == userRole )
@@ -831,11 +818,6 @@ void QfCloudProject::packageAndDownload()
 
     emit downloaded( error );
   } );
-}
-
-void QfCloudProject::refreshProjectData()
-{
-  refreshData( ProjectRefreshReason::Generic );
 }
 
 void QfCloudProject::download()
@@ -2037,6 +2019,115 @@ void QfCloudProject::getJobStatus( const JobType type )
   } );
 }
 
+void QfCloudProject::checkProjectReadiness()
+{
+  mReadinessJobId.clear();
+  mReadinessAttempts = 0;
+  fetchReadinessJobId();
+}
+
+void QfCloudProject::fetchReadinessJobId()
+{
+  if ( !mCloudConnection )
+    return;
+
+  QVariantMap params;
+  params.insert( QStringLiteral( "project_id" ), mId );
+  params.insert( QStringLiteral( "type" ), QStringLiteral( "process_projectfile" ) );
+
+  QfNetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/jobs/" ), params );
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
+    reply->deleteLater();
+
+    QNetworkReply *rawReply = reply->currentRawReply();
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1: fetching readiness job failed: %2" ).arg( mId, QfCloudConnection::errorString( rawReply ) ) );
+      emit projectReadinessChecked( false, QfCloudConnection::errorString( rawReply ) );
+      return;
+    }
+
+    const QJsonArray jobs = QJsonDocument::fromJson( rawReply->readAll() ).array();
+    if ( jobs.isEmpty() )
+    {
+      // The process_projectfile job is queued asynchronously, so its record might not exist yet.
+      mReadinessAttempts++;
+      if ( mReadinessAttempts >= sMaxReadinessAttempts )
+      {
+        emit projectReadinessChecked( false, tr( "The project could not be prepared in time." ) );
+        return;
+      }
+      QTimer::singleShot( sReadinessBaseDelay, this, [this]() { fetchReadinessJobId(); } );
+      return;
+    }
+
+    // A freshly created or cloned project has a single process_projectfile job.
+    mReadinessJobId = jobs.first().toObject().value( QStringLiteral( "id" ) ).toString();
+    if ( mReadinessJobId.isEmpty() )
+    {
+      emit projectReadinessChecked( false, tr( "Project preparation job is missing an identifier." ) );
+      return;
+    }
+
+    pollReadinessJob();
+  } );
+}
+
+void QfCloudProject::pollReadinessJob()
+{
+  if ( !mCloudConnection || mReadinessJobId.isEmpty() )
+  {
+    emit projectReadinessChecked( false, tr( "No project preparation job to poll." ) );
+    return;
+  }
+
+  QfNetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/jobs/%1/" ).arg( mReadinessJobId ) );
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
+    reply->deleteLater();
+
+    QNetworkReply *rawReply = reply->currentRawReply();
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      QgsLogger::debug( QStringLiteral( "Project %1, job %2: readiness poll failed: %3" ).arg( mId, mReadinessJobId, QfCloudConnection::errorString( rawReply ) ) );
+      emit projectReadinessChecked( false, QfCloudConnection::errorString( rawReply ) );
+      return;
+    }
+
+    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
+    const QString jobStatusString = payload.value( QStringLiteral( "status" ) ).toString();
+    if ( jobStatusString.isEmpty() )
+    {
+      emit projectReadinessChecked( false, tr( "Project preparation job status response is missing required fields: status(string)." ) );
+      return;
+    }
+
+    switch ( getJobStatusFromString( jobStatusString ) )
+    {
+      case JobPendingStatus:
+      case JobQueuedStatus:
+      case JobStartedStatus:
+      case JobStoppedStatus:
+        mReadinessAttempts++;
+        if ( mReadinessAttempts >= sMaxReadinessAttempts )
+        {
+          emit projectReadinessChecked( false, tr( "The project could not be prepared in time." ) );
+          return;
+        }
+        // 2s floor with a mild backoff so a slow or worker-starved queue is not hammered.
+        QTimer::singleShot( sReadinessBaseDelay + ( mReadinessAttempts * 500 ), this, [this]() { pollReadinessJob(); } );
+        return;
+
+      case JobFinishedStatus:
+        emit projectReadinessChecked( true );
+        return;
+
+      case JobFailedStatus:
+        emit projectReadinessChecked( false, tr( "Project preparation job failed." ) );
+        return;
+    }
+  } );
+}
+
 QfCloudProject::JobStatus QfCloudProject::getJobStatusFromString( const QString &status )
 {
   const QString statusLower = status.toLower();
@@ -2136,7 +2227,6 @@ void QfCloudProject::refreshData( ProjectRefreshReason reason )
     setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
     setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
     setDataLastUpdatedAt( QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate ) );
-    setTheQgisFileName( projectData.value( "the_qgis_file_name" ).toString() );
 
     QfCloudUtils::setProjectSetting( mId, QStringLiteral( "name" ), mName );
     QfCloudUtils::setProjectSetting( mId, QStringLiteral( "owner" ), mOwner );
@@ -2222,7 +2312,6 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
-  project->mTheQgisFileName = details.value( "the_qgis_file_name" ).toString();
 
   // QFieldCloud servers predating the `project_type` field still report the
   // deprecated `is_shared_datasets_project` boolean. Prefer `project_type` when

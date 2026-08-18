@@ -230,6 +230,8 @@ class QfCloudProjectsModel : public QAbstractListModel
     void projectDownloaded( const QString &projectId, const QString &projectName, const QString &projectOwner, const bool hasError = false, const QString &errorString = QString() );
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
 
+    void projectReadinessFailed( const QString &projectId, const QString &errorString );
+
     void projectUploaded( const QString &projectId );
 
     void hasTemplatesChanged();

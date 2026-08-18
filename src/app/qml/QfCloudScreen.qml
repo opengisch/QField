@@ -16,8 +16,8 @@ Page {
   signal viewProjectFolder(string projectPath)
 
   property string requestedProjectDetails: ""
-  property QfCloudStatus cloudServiceStatus: null
   property string pendingCreatedProjectId: ""
+  property QfCloudStatus cloudServiceStatus: null
 
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
@@ -700,7 +700,7 @@ Page {
             id: refreshProjectsListBtn
             Layout.fillWidth: true
             text: filterBar.currentIndex === 1 ? qsTr("Refresh templates list") : qsTr("Refresh projects list")
-            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 && pendingCreatedProjectId === ""
             showProgress: cloudProjectsModel.isRefreshing || table.model.isSearching
             progressValue: 0
             onClicked: {
@@ -710,7 +710,7 @@ Page {
 
           QfToolButton {
             id: scanProjectBtn
-            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 && pendingCreatedProjectId === ""
             visible: enabled
 
             bgcolor: "transparent"
@@ -1071,12 +1071,19 @@ Page {
       }
       pendingCreatedProjectId = projectId;
       busyOverlay.text = qsTr("Preparing project…");
-      readinessPollTimer.attempts = 0;
-      readinessPollTimer.start();
+    }
+
+    function onProjectReadinessFailed(projectId, errorString) {
+      if (projectId !== pendingCreatedProjectId) {
+        return;
+      }
+      pendingCreatedProjectId = "";
+      busyOverlay.state = "hidden";
+      displayToast(qsTr("The project could not be prepared: %1").arg(QfCloudUtils.userFriendlyErrorString(errorString)));
     }
 
     function onProjectDownloaded(projectId, projectName, projectOwner, hasError, errorString) {
-      // Only react to the download we started as part of a create-from-source flow
+      // Only react to the download started as part of a create-from-source flow
       if (projectId !== pendingCreatedProjectId) {
         return;
       }
@@ -1099,42 +1106,6 @@ Page {
 
     function onDownloadProgressChanged() {
       busyOverlay.progress = target.downloadProgress;
-    }
-  }
-
-  Timer {
-    id: readinessPollTimer
-    interval: 2000
-    repeat: true
-
-    property int attempts: 0
-
-    onTriggered: {
-      if (pendingCreatedProjectId === "") {
-        stop();
-        return;
-      }
-
-      const project = cloudProjectsModel.findProject(pendingCreatedProjectId);
-      if (project && project.hasValidProjectfile) {
-        stop();
-        busyOverlay.text = qsTr("Downloading project…");
-        cloudProjectsModel.projectPackageAndDownload(pendingCreatedProjectId);
-        return;
-      }
-
-      attempts++;
-      if (attempts >= 15) {
-        stop();
-        pendingCreatedProjectId = "";
-        busyOverlay.state = "hidden";
-        displayToast(qsTr("The project could not be prepared in time. Please try downloading it manually."));
-        return;
-      }
-
-      if (project) {
-        project.refreshProjectData();
-      }
     }
   }
 
