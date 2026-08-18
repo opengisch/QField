@@ -3373,7 +3373,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfBookmarkList</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Zaznamki</translation>
     </message>
     <message>
         <source>Bookmark List Menu</source>
@@ -7876,7 +7876,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Minimum distance</source>
-        <translation type="unfinished"/>
+        <translation>Minimalna razdalja</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
@@ -8330,7 +8330,7 @@ to show actions</source>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Ustavi vse</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
@@ -8458,7 +8458,7 @@ to show actions</source>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
@@ -8526,11 +8526,11 @@ to show actions</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Razveljavi</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Ponovi</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -8542,7 +8542,7 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Zaznamki</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
