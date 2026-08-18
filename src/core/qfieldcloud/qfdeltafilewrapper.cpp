@@ -28,6 +28,8 @@
 #include <qgsproject.h>
 #include <qgsvectorlayerutils.h>
 
+#include <algorithm>
+
 
 /**
  * Attachment fields cache.
@@ -223,6 +225,32 @@ bool QfDeltaFileWrapper::isDirty() const
 int QfDeltaFileWrapper::count() const
 {
   return static_cast<int>( mDeltas.size() );
+}
+
+
+int QfDeltaFileWrapper::countByMethod( const QString &method ) const
+{
+  return static_cast<int>( std::count_if( mDeltas.begin(), mDeltas.end(), [&method]( const QJsonValue &deltaJson ) {
+    return deltaJson.toObject().value( QStringLiteral( "method" ) ).toString() == method;
+  } ) );
+}
+
+
+int QfDeltaFileWrapper::addedCount() const
+{
+  return countByMethod( QStringLiteral( "create" ) );
+}
+
+
+int QfDeltaFileWrapper::editedCount() const
+{
+  return countByMethod( QStringLiteral( "patch" ) );
+}
+
+
+int QfDeltaFileWrapper::deletedCount() const
+{
+  return countByMethod( QStringLiteral( "delete" ) );
 }
 
 

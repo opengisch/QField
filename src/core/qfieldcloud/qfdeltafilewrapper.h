@@ -36,6 +36,9 @@ class QfDeltaFileWrapper : public QObject
     Q_OBJECT
 
     Q_PROPERTY( int count READ count NOTIFY countChanged )
+    Q_PROPERTY( int addedCount READ addedCount NOTIFY countChanged )
+    Q_PROPERTY( int editedCount READ editedCount NOTIFY countChanged )
+    Q_PROPERTY( int deletedCount READ deletedCount NOTIFY countChanged )
     Q_PROPERTY( bool isPushing READ isPushing NOTIFY isPushingChanged )
     Q_PROPERTY( bool hasError READ hasError NOTIFY errorChanged )
     Q_PROPERTY( ErrorType errorType READ errorType NOTIFY errorChanged )
@@ -177,6 +180,30 @@ class QfDeltaFileWrapper : public QObject
      * @return int number of delta elements
      */
     Q_INVOKABLE int count() const;
+
+
+    /**
+     * Returns the number of delta elements creating a feature
+     *
+     * @return int number of created features
+     */
+    int addedCount() const;
+
+
+    /**
+     * Returns the number of delta elements modifying a feature
+     *
+     * @return int number of edited features
+     */
+    int editedCount() const;
+
+
+    /**
+     * Returns the number of delta elements removing a feature
+     *
+     * @return int number of deleted features
+     */
+    int deletedCount() const;
 
 
     /**
@@ -451,6 +478,11 @@ class QfDeltaFileWrapper : public QObject
      * It may not have any change in case undo/redo and delta merging is applied.
      */
     bool deltaContainsActualChange( const QJsonObject &delta ) const;
+
+    /**
+     * Returns the number of stored deltas whose method is \a method.
+     */
+    int countByMethod( const QString &method ) const;
 
     /**
      * A mapping between the local primary key and the uuid of the delta.
