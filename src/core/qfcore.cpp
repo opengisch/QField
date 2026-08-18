@@ -58,6 +58,7 @@
 #include "qfieldcloud/qfdeltafilewrapper.h"
 #include "qfieldcloud/qfdeltalistmodel.h"
 #include "qfieldcloud/qflayerobserver.h"
+#include "qfieldcloud/qfpendingdeltamodel.h"
 #include "qflayerresolver.h"
 #include "qflayertreemodel.h"
 #include "qflinepolygonshape.h"
@@ -184,6 +185,7 @@ namespace QfCore
     qmlRegisterType<QfNavigationModel>( "org.qfield.core", 1, 0, "QfNavigationModel" );
     qmlRegisterType<QfNearFieldReader>( "org.qfield.core", 1, 0, "QfNearFieldReader" );
     qmlRegisterType<QfNtripSourceTableFetcher>( "org.qfield.core", 1, 0, "QfNtripSourceTableFetcher" );
+    qmlRegisterType<QfPendingDeltaModel>( "org.qfield.core", 1, 0, "QfPendingDeltaModel" );
     qmlRegisterType<QfPositioning>( "org.qfield.core", 1, 0, "QfPositioning" );
     qmlRegisterType<QfPositioningDeviceModel>( "org.qfield.core", 1, 0, "QfPositioningDeviceModel" );
     qmlRegisterType<QfPositioningInformationModel>( "org.qfield.core", 1, 0, "QfPositioningInformationModel" );
