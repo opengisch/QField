@@ -571,6 +571,44 @@ TEST_CASE( "DeltaFileWrapper" )
   }
 
 
+  SECTION( "CountPerMethod" )
+  {
+    QfDeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
+
+    REQUIRE( dfw.addedCount() == 0 );
+    REQUIRE( dfw.editedCount() == 0 );
+    REQUIRE( dfw.deletedCount() == 0 );
+
+    // deltas of the same feature are merged, so give each method its own primary key
+    QgsFeature createdFeature( layer->fields(), 100 );
+    createdFeature.setAttribute( QStringLiteral( "fid" ), 100 );
+
+    QgsFeature oldFeature( layer->fields(), 101 );
+    oldFeature.setAttribute( QStringLiteral( "fid" ), 101 );
+    oldFeature.setAttribute( QStringLiteral( "int" ), 42 );
+    QgsFeature newFeature( oldFeature );
+    newFeature.setAttribute( QStringLiteral( "int" ), 43 );
+
+    QgsFeature deletedFeature( layer->fields(), 102 );
+    deletedFeature.setAttribute( QStringLiteral( "fid" ), 102 );
+
+    dfw.addCreate( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), createdFeature );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), oldFeature, newFeature );
+    dfw.addDelete( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), deletedFeature );
+
+    REQUIRE( dfw.count() == 3 );
+    REQUIRE( dfw.addedCount() == 1 );
+    REQUIRE( dfw.editedCount() == 1 );
+    REQUIRE( dfw.deletedCount() == 1 );
+
+    dfw.reset();
+
+    REQUIRE( dfw.addedCount() == 0 );
+    REQUIRE( dfw.editedCount() == 0 );
+    REQUIRE( dfw.deletedCount() == 0 );
+  }
+
+
   SECTION( "Deltas" )
   {
     QfDeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
