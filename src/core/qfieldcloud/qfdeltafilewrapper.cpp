@@ -1354,7 +1354,6 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
     const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
     const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
     const QgsFields fields = vectorLayers[layerId]->fields();
-    const QPair<int, QString> pkAttrPair = getLocalPkAttribute( vectorLayers[layerId] );
 
     QString method = delta.value( QStringLiteral( "method" ) ).toString();
     QVariantMap oldValues = delta.value( QStringLiteral( "old" ) ).toMap();
@@ -1378,8 +1377,7 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
 
     if ( method != QStringLiteral( "create" ) )
     {
-      QgsExpression expr( QStringLiteral( " %1 = %2 " ).arg( QgsExpression::quotedColumnRef( pkAttrPair.second ), QgsExpression::quotedString( localPk ) ) );
-      QgsFeatureIterator it = vectorLayers[layerId]->getFeatures( QgsFeatureRequest( expr ) );
+      QgsFeatureIterator it = vectorLayers[layerId]->getFeatures( localPkRequest( vectorLayers[layerId], localPk ) );
 
       if ( !it.nextFeature( f ) )
         return false;
@@ -1524,6 +1522,18 @@ QPair<int, QString> QfDeltaFileWrapper::getLocalPkAttribute( const QgsVectorLaye
   QgsDebugMsgLevel( QStringLiteral( "DeltaFileWrapper::getLocalPkAttribute: pkAttrName= %1 pkAttrIdx= %2" ).arg( pkAttrName, pkAttrIdx ), 3 );
 
   return QPair<int, QString>( pkAttrIdx, pkAttrName );
+}
+
+
+QgsFeatureRequest QfDeltaFileWrapper::localPkRequest( const QgsVectorLayer *vl, const QString &localPk )
+{
+  const QPair<int, QString> pkAttribute = getLocalPkAttribute( vl );
+  if ( pkAttribute.second.isEmpty() )
+  {
+    return QgsFeatureRequest().setFilterFid( FID_NULL );
+  }
+
+  return QgsFeatureRequest( QgsExpression( QStringLiteral( "%1 = %2" ).arg( QgsExpression::quotedColumnRef( pkAttribute.second ), QgsExpression::quotedString( localPk ) ) ) );
 }
 
 
