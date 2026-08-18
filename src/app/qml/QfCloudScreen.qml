@@ -17,6 +17,7 @@ Page {
 
   property string requestedProjectDetails: ""
   property QfCloudStatus cloudServiceStatus: null
+  property string pendingCreatedProjectId: ""
 
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
@@ -1006,6 +1007,8 @@ Page {
     onAccepted: {
       const trimmedName = cloneProjectName.text.trim();
       if (trimmedName !== "") {
+        busyOverlay.text = qsTr("Creating project…");
+        busyOverlay.state = "visible";
         cloudProjectsModel.createProject(trimmedName, sourceProjectId);
       }
     }
@@ -1062,9 +1065,75 @@ Page {
     function onProjectCreated(projectId, fromProjectId, hasError, errorString) {
       const isClone = fromProjectId !== "";
       if (hasError) {
+        busyOverlay.state = "hidden";
         displayToast(isClone ? qsTr("Project cloning failed: %1").arg(errorString) : qsTr("Project creation failed: %1").arg(errorString));
-      } else {
-        displayToast(isClone ? qsTr("Project successfully cloned") : qsTr("Project successfully created"));
+        return;
+      }
+      pendingCreatedProjectId = projectId;
+      busyOverlay.text = qsTr("Preparing project…");
+      readinessPollTimer.attempts = 0;
+      readinessPollTimer.start();
+    }
+
+    function onProjectDownloaded(projectId, projectName, projectOwner, hasError, errorString) {
+      // Only react to the download we started as part of a create-from-source flow
+      if (projectId !== pendingCreatedProjectId) {
+        return;
+      }
+      pendingCreatedProjectId = "";
+      busyOverlay.state = "hidden";
+
+      if (hasError) {
+        displayToast(qsTr("Project created but downloading failed: %1").arg(QfCloudUtils.userFriendlyErrorString(errorString)));
+        return;
+      }
+
+      projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
+      projectsSwipeView.currentIndex = 1;
+    }
+  }
+
+  Connections {
+    target: pendingCreatedProjectId !== "" ? cloudProjectsModel.findProject(pendingCreatedProjectId) : null
+    ignoreUnknownSignals: true
+
+    function onDownloadProgressChanged() {
+      busyOverlay.progress = target.downloadProgress;
+    }
+  }
+
+  Timer {
+    id: readinessPollTimer
+    interval: 2000
+    repeat: true
+
+    property int attempts: 0
+
+    onTriggered: {
+      if (pendingCreatedProjectId === "") {
+        stop();
+        return;
+      }
+
+      const project = cloudProjectsModel.findProject(pendingCreatedProjectId);
+      if (project && project.hasValidProjectfile) {
+        stop();
+        busyOverlay.text = qsTr("Downloading project…");
+        cloudProjectsModel.projectPackageAndDownload(pendingCreatedProjectId);
+        return;
+      }
+
+      attempts++;
+      if (attempts >= 15) {
+        stop();
+        pendingCreatedProjectId = "";
+        busyOverlay.state = "hidden";
+        displayToast(qsTr("The project could not be prepared in time. Please try downloading it manually."));
+        return;
+      }
+
+      if (project) {
+        project.refreshProjectData();
       }
     }
   }

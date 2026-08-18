@@ -122,6 +122,19 @@ void QfCloudProject::setDescription( const QString &description )
   emit descriptionChanged();
 }
 
+void QfCloudProject::setTheQgisFileName( const QString &theQgisFileName )
+{
+  if ( mTheQgisFileName == theQgisFileName )
+    return;
+
+  const bool wasValid = !mTheQgisFileName.isEmpty();
+  mTheQgisFileName = theQgisFileName;
+  if ( wasValid != !mTheQgisFileName.isEmpty() )
+  {
+    emit hasValidProjectfileChanged();
+  }
+}
+
 void QfCloudProject::setUserRole( const QString &userRole )
 {
   if ( mUserRole == userRole )
@@ -818,6 +831,11 @@ void QfCloudProject::packageAndDownload()
 
     emit downloaded( error );
   } );
+}
+
+void QfCloudProject::refreshProjectData()
+{
+  refreshData( ProjectRefreshReason::Generic );
 }
 
 void QfCloudProject::download()
@@ -2118,6 +2136,7 @@ void QfCloudProject::refreshData( ProjectRefreshReason reason )
     setNeedsRepackaging( projectData.value( "needs_repackaging" ).toBool() );
     setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
     setDataLastUpdatedAt( QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate ) );
+    setTheQgisFileName( projectData.value( "the_qgis_file_name" ).toString() );
 
     QfCloudUtils::setProjectSetting( mId, QStringLiteral( "name" ), mName );
     QfCloudUtils::setProjectSetting( mId, QStringLiteral( "owner" ), mOwner );
@@ -2203,6 +2222,7 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
+  project->mTheQgisFileName = details.value( "the_qgis_file_name" ).toString();
 
   // QFieldCloud servers predating the `project_type` field still report the
   // deprecated `is_shared_datasets_project` boolean. Prefer `project_type` when

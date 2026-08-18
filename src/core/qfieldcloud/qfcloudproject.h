@@ -49,6 +49,7 @@ class QfCloudProject : public QObject
     Q_PROPERTY( qint64 remoteSizeBytes READ remoteSizeBytes NOTIFY remoteSizeBytesChanged )
     Q_PROPERTY( QDateTime dataLastUpdatedAt READ dataLastUpdatedAt NOTIFY dataLastUpdatedAtChanged )
 
+    Q_PROPERTY( bool hasValidProjectfile READ hasValidProjectfile NOTIFY hasValidProjectfileChanged )
     Q_PROPERTY( ProjectStatus status READ status NOTIFY statusChanged )
     Q_PROPERTY( PackagingStatus packagingStatus READ packagingStatus NOTIFY packagingStatusChanged )
     Q_PROPERTY( QStringList packagedLayerErrors READ packagedLayerErrors NOTIFY packagedLayerErrorsChanged )
@@ -218,7 +219,8 @@ class QfCloudProject : public QObject
     enum class ProjectRefreshReason
     {
       Package,
-      DeltaPushed
+      DeltaPushed,
+      Generic
     };
 
     Q_ENUM( ProjectRefreshReason )
@@ -251,6 +253,7 @@ class QfCloudProject : public QObject
 
     QString description() const { return mDescription; }
     void setDescription( const QString &description );
+    void setTheQgisFileName( const QString &theQgisFileName );
 
     QString userRole() const { return mUserRole; }
     void setUserRole( const QString &userRole );
@@ -282,7 +285,9 @@ class QfCloudProject : public QObject
     QDateTime restrictedDataLastUpdatedAt() const { return mRestrictedDataLastUpdatedAt; }
     void setRestrictedDataLastUpdatedAt( const QDateTime &restrictedDataLastUpdatedAt );
 
+    bool hasValidProjectfile() const { return !mTheQgisFileName.isEmpty(); }
     bool canRepackage() const { return mCanRepackage; }
+    QString theQgisFileName() const { return mTheQgisFileName; }
     void setCanRepackage( bool canRepackage );
 
     bool needsRepackaging() const { return mNeedsRepackaging; }
@@ -382,6 +387,7 @@ class QfCloudProject : public QObject
     void cancelDownload();
 
     Q_INVOKABLE void push( bool shouldDownloadUpdates );
+    Q_INVOKABLE void refreshProjectData();
     void cancelPush();
 
     void refreshDeltaList();
@@ -484,6 +490,8 @@ class QfCloudProject : public QObject
     void dataRefreshed( ProjectRefreshReason reason, const QString &error = QString() );
     void jobFinished( JobType type, const QString &error = QString() );
 
+    void hasValidProjectfileChanged();
+
   private:
     void download();
     void prepareDownloadTransfer( const QString &projectId, const QString &fileName, qint64 fileSize, const QString &cloudEtag );
@@ -537,6 +545,7 @@ class QfCloudProject : public QObject
     QString mDescription;
     QString mUserRole;
     QString mUserRoleOrigin;
+    QString mTheQgisFileName;
 
     ProjectErrorStatus mErrorStatus = ProjectErrorStatus::NoErrorStatus;
     ProjectCheckouts mCheckout = ProjectCheckout::LocalCheckout;
