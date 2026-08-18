@@ -29,7 +29,7 @@ Popup {
     pendingAction = "";
     pendingCreationTitle = "";
     pendingUploadPath = "";
-    swipeView.currentIndex = 0;
+    swipeView.currentIndex = 1;
   }
 
   Page {
@@ -37,7 +37,16 @@ Popup {
     anchors.fill: parent
 
     header: QfPageHeader {
-      title: swipeView.currentIndex === 1 ? qsTr('Danger Zone') : qsTr('QFieldCloud')
+      title: {
+        switch (swipeView.currentIndex) {
+        case 0:
+          return qsTr('Danger Zone');
+        case 2:
+          return qsTr('Local changes');
+        default:
+          return qsTr('QFieldCloud');
+        }
+      }
 
       showBackButton: true
       showCancelButton: false
@@ -143,6 +152,12 @@ Popup {
       anchors.bottom: parent.bottom
       clip: true
       interactive: false
+      currentIndex: 1
+
+      QfCloudDangerZone {
+        onDiscardRequested: revertDialog.open()
+        onResetRequested: resetDialog.open()
+      }
 
       ScrollView {
         id: scrollView
@@ -406,6 +421,9 @@ Popup {
             readonly property bool hasDeltaFileWrapper: !!cloudProjectsModel.layerObserver.deltaFileWrapper
             readonly property bool hasDeltaError: hasDeltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             readonly property int changesCount: hasDeltaFileWrapper ? cloudProjectsModel.layerObserver.deltaFileWrapper.count : 0
+            readonly property int addedCount: hasDeltaFileWrapper ? cloudProjectsModel.layerObserver.deltaFileWrapper.addedCount : 0
+            readonly property int editedCount: hasDeltaFileWrapper ? cloudProjectsModel.layerObserver.deltaFileWrapper.editedCount : 0
+            readonly property int deletedCount: hasDeltaFileWrapper ? cloudProjectsModel.layerObserver.deltaFileWrapper.deletedCount : 0
             readonly property bool isProjectIdle: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle)
             readonly property bool canUpload: isProjectIdle && changesCount > 0 && !hasDeltaError
             readonly property bool canSynchronize: isProjectIdle && hasDeltaFileWrapper && !hasDeltaError
@@ -429,6 +447,92 @@ Popup {
               spacing: 10
               visible: cloudProjectGrid.hasDeltaFileWrapper && !cloudProjectGrid.hasDeltaError
 
+              RowLayout {
+                id: localChanges
+                Layout.fillWidth: true
+                Layout.bottomMargin: 10
+                spacing: 10
+                visible: cloudProjectGrid.changesCount > 0
+
+                ColumnLayout {
+                  Layout.fillWidth: true
+                  spacing: 5
+
+                  Text {
+                    Layout.fillWidth: true
+                    font: QfTheme.tipFont
+                    color: QfTheme.mainTextColor
+                    text: qsTr('%n local change(s)', '', cloudProjectGrid.changesCount)
+                  }
+
+                  Row {
+                    Layout.fillWidth: true
+                    spacing: 8
+
+                    Repeater {
+                      model: [
+                        {
+                          "count": cloudProjectGrid.addedCount,
+                          "label": qsTr('%n addition(s)', '', cloudProjectGrid.addedCount),
+                          "color": QfTheme.mainColor
+                        },
+                        {
+                          "count": cloudProjectGrid.editedCount,
+                          "label": qsTr('%n edit(s)', '', cloudProjectGrid.editedCount),
+                          "color": QfTheme.warningColor
+                        },
+                        {
+                          "count": cloudProjectGrid.deletedCount,
+                          "label": qsTr('%n deletion(s)', '', cloudProjectGrid.deletedCount),
+                          "color": QfTheme.errorColor
+                        }
+                      ]
+
+                      Rectangle {
+                        width: changeCountChip.width + 20
+                        height: changeCountChip.height + 10
+                        radius: height / 2
+                        color: Qt.rgba(modelData.color.r, modelData.color.g, modelData.color.b, 0.12)
+                        visible: modelData.count > 0
+
+                        Row {
+                          id: changeCountChip
+                          anchors.centerIn: parent
+                          spacing: 5
+
+                          Rectangle {
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: 6
+                            height: 6
+                            radius: width / 2
+                            color: modelData.color
+                          }
+
+                          Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            font: QfTheme.tinyFont
+                            color: modelData.color
+                            text: modelData.label
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+                QfToolButton {
+                  id: showLocalChangesDetails
+                  Layout.alignment: Qt.AlignVCenter
+                  clip: true
+                  rotation: 180
+                  iconSource: QfTheme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+                  iconColor: QfTheme.mainTextColor
+                  bgcolor: 'transparent'
+
+                  onClicked: swipeView.currentIndex = 2
+                }
+              }
+
               QfContainerCard {
                 id: uploadCard
                 Layout.fillWidth: true
@@ -436,7 +540,6 @@ Popup {
                 iconSource: QfTheme.getThemeVectorIcon('ic_cloud_upload_24dp')
                 title: qsTr('Upload local changes')
                 indicatorVisible: cloudProjectGrid.changesCount > 0
-                indicatorCount: cloudProjectGrid.changesCount
                 description: qsTr('Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.')
                 footnote: {
                   if (!cloudProjectsModel.currentProject) {
@@ -640,7 +743,7 @@ Popup {
                   iconSource: QfTheme.getThemeVectorIcon('ic_error_outline_24dp')
                   iconColor: QfTheme.darkRed
 
-                  onClicked: swipeView.currentIndex = 1
+                  onClicked: swipeView.currentIndex = 0
                 }
 
                 Text {
@@ -654,7 +757,7 @@ Popup {
 
                   MouseArea {
                     anchors.fill: parent
-                    onClicked: swipeView.currentIndex = 1
+                    onClicked: swipeView.currentIndex = 0
                   }
                 }
               }
@@ -696,9 +799,8 @@ Popup {
         }
       }
 
-      QfCloudDangerZone {
-        onDiscardRequested: revertDialog.open()
-        onResetRequested: resetDialog.open()
+      QfCloudPendingChanges {
+        deltaFileWrapper: swipeView.currentIndex === 2 ? cloudProjectsModel.layerObserver.deltaFileWrapper : null
       }
     }
 
@@ -879,7 +981,7 @@ Popup {
 
     onAccepted: {
       revertLocalChangesFromCurrentProject();
-      swipeView.currentIndex = 0;
+      swipeView.currentIndex = 1;
     }
     onRejected: {
       visible = false;
@@ -903,7 +1005,7 @@ Popup {
 
     onAccepted: {
       resetCurrentProject();
-      swipeView.currentIndex = 0;
+      swipeView.currentIndex = 1;
     }
     onRejected: {
       visible = false;
@@ -912,8 +1014,8 @@ Popup {
   }
 
   function goBack() {
-    if (swipeView.currentIndex === 1) {
-      swipeView.currentIndex = 0;
+    if (swipeView.currentIndex !== 1) {
+      swipeView.currentIndex = 1;
     } else if (connectionSettings.visible) {
       if (cloudConnection.status === QfCloudConnection.LoggedIn) {
         connectionSettings.visible = false;
