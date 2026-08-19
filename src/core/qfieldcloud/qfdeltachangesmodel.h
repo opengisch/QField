@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfpendingdeltamodel.h - QfPendingDeltaModel
+  qfdeltachangesmodel.h - QfDeltaChangesModel
 
  ---------------------
  begin                : 15.8.2026
@@ -14,10 +14,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QFPENDINGDELTAMODEL_H
-#define QFPENDINGDELTAMODEL_H
+#ifndef QFDELTACHANGESMODEL_H
+#define QFDELTACHANGESMODEL_H
 
 #include <QAbstractListModel>
+#include <QJsonArray>
 #include <QPointer>
 #include <qgis.h>
 
@@ -59,7 +60,7 @@ Q_DECLARE_METATYPE( QfDeltaAttributeChange )
  *
  * \ingroup core
  */
-class QfPendingDeltaModel : public QAbstractListModel
+class QfDeltaChangesModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -85,7 +86,7 @@ class QfPendingDeltaModel : public QAbstractListModel
     };
     Q_ENUM( DeltaMethod )
 
-    explicit QfPendingDeltaModel( QObject *parent = nullptr );
+    explicit QfDeltaChangesModel( QObject *parent = nullptr );
 
     //! Returns the attached delta file wrapper, if any.
     QfDeltaFileWrapper *deltaFileWrapper() const;
@@ -115,7 +116,7 @@ class QfPendingDeltaModel : public QAbstractListModel
     void deltaFileWrapperChanged();
 
   private:
-    struct PendingDelta
+    struct DeltaChange
     {
         QString layerId;
         DeltaMethod method = UnknownMethod;
@@ -124,30 +125,37 @@ class QfPendingDeltaModel : public QAbstractListModel
         bool hasGeometryChange = false;
     };
 
+    struct LayerSummary
+    {
+        QString name;
+        Qgis::GeometryType geometryType = Qgis::GeometryType::Unknown;
+        QJsonArray deltas;
+        QList<DeltaChange> changes;
+    };
+
+    //! Returns the method \a delta applies.
+    static DeltaMethod deltaMethod( const QJsonObject &delta );
+
     //! Rebuilds the rows from the attached delta file wrapper, if any.
     void refresh();
 
+    //! Returns one row per delta of the \a deltas of the \a layer with the given \a layerId.
+    QList<DeltaChange> layerChanges( const QString &layerId, const QJsonArray &deltas, QgsVectorLayer *layer ) const;
+
     /**
-     * Returns the name to show for the feature the \a delta applies to.
+     * Returns the names to show for the features the \a deltas of the \a layer apply to, keyed by local primary key.
      *
-     * Features still present in the \a layer are named after their display expression,
-     * the ones already gone are described by the values the \a delta kept of them.
+     * Features still present in the layer are named after their display expression and fetched in a single
+     * request, the ones already gone are described by the values their delta kept of them.
      */
-    QString featureDisplayName( const QJsonObject &delta, DeltaMethod method, QgsVectorLayer *layer ) const;
+    QHash<QString, QString> featureDisplayNames( QgsVectorLayer *layer, const QJsonArray &deltas ) const;
 
     //! Returns the attributes the \a delta changed, honouring the semantics of \a method.
     QList<QfDeltaAttributeChange> attributeChanges( const QJsonObject &delta, DeltaMethod method ) const;
 
     QPointer<QfDeltaFileWrapper> mDeltaFileWrapper;
-    QList<PendingDelta> mPendingDeltas;
-    struct LayerSummary
-    {
-        QString name;
-        Qgis::GeometryType geometryType = Qgis::GeometryType::Unknown;
-        int changesCount = 0;
-    };
-
+    QList<DeltaChange> mDeltaChanges;
     QHash<QString, LayerSummary> mLayerSummaries;
 };
 
-#endif // QFPENDINGDELTAMODEL_H
+#endif // QFDELTACHANGESMODEL_H

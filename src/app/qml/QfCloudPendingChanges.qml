@@ -11,15 +11,15 @@ import org.qfield.gui
 Item {
   id: pendingChanges
 
-  property alias deltaFileWrapper: pendingDeltaModel.deltaFileWrapper
+  property alias deltaFileWrapper: deltaChangesModel.deltaFileWrapper
 
   function deltaMethodColor(method) {
     switch (method) {
-    case QfPendingDeltaModel.CreateMethod:
+    case QfDeltaChangesModel.CreateMethod:
       return QfTheme.mainColor;
-    case QfPendingDeltaModel.PatchMethod:
-      return QfTheme.warningColor;
-    case QfPendingDeltaModel.DeleteMethod:
+    case QfDeltaChangesModel.PatchMethod:
+      return QfTheme.gray;
+    case QfDeltaChangesModel.DeleteMethod:
       return QfTheme.errorColor;
     default:
       return QfTheme.secondaryTextColor;
@@ -28,11 +28,11 @@ Item {
 
   function deltaMethodLabel(method) {
     switch (method) {
-    case QfPendingDeltaModel.CreateMethod:
+    case QfDeltaChangesModel.CreateMethod:
       return qsTr('added');
-    case QfPendingDeltaModel.PatchMethod:
+    case QfDeltaChangesModel.PatchMethod:
       return qsTr('edited');
-    case QfPendingDeltaModel.DeleteMethod:
+    case QfDeltaChangesModel.DeleteMethod:
       return qsTr('deleted');
     default:
       return '';
@@ -61,9 +61,9 @@ Item {
 
   function attributeChangeText(change, method) {
     switch (method) {
-    case QfPendingDeltaModel.PatchMethod:
+    case QfDeltaChangesModel.PatchMethod:
       return qsTr('%1: %2 to %3').arg(change.name).arg(attributeValueText(change.oldValue)).arg(attributeValueText(change.newValue));
-    case QfPendingDeltaModel.DeleteMethod:
+    case QfDeltaChangesModel.DeleteMethod:
       return qsTr('%1: %2').arg(change.name).arg(attributeValueText(change.oldValue));
     default:
       return qsTr('%1: %2').arg(change.name).arg(attributeValueText(change.newValue));
@@ -76,8 +76,8 @@ Item {
     clip: true
     ScrollBar.vertical: QfScrollBar {}
 
-    model: QfPendingDeltaModel {
-      id: pendingDeltaModel
+    model: QfDeltaChangesModel {
+      id: deltaChangesModel
     }
 
     section.property: "LayerId"
@@ -87,9 +87,9 @@ Item {
 
       required property string section
 
-      readonly property string layerName: pendingDeltaModel.layerName(layerHeader.section)
-      readonly property int layerGeometryType: pendingDeltaModel.layerGeometryType(layerHeader.section)
-      readonly property int layerChangesCount: pendingDeltaModel.layerChangesCount(layerHeader.section)
+      readonly property string layerName: deltaChangesModel.layerName(layerHeader.section)
+      readonly property int layerGeometryType: deltaChangesModel.layerGeometryType(layerHeader.section)
+      readonly property int layerChangesCount: deltaChangesModel.layerChangesCount(layerHeader.section)
 
       width: pendingChangesList.width
       height: 30

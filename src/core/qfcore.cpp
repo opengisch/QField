@@ -55,10 +55,10 @@
 #include "qfieldcloud/qfcloudproject.h"
 #include "qfieldcloud/qfcloudprojectsmodel.h"
 #include "qfieldcloud/qfcloudstatus.h"
+#include "qfieldcloud/qfdeltachangesmodel.h"
 #include "qfieldcloud/qfdeltafilewrapper.h"
 #include "qfieldcloud/qfdeltalistmodel.h"
 #include "qfieldcloud/qflayerobserver.h"
-#include "qfieldcloud/qfpendingdeltamodel.h"
 #include "qflayerresolver.h"
 #include "qflayertreemodel.h"
 #include "qflinepolygonshape.h"
@@ -162,6 +162,7 @@ namespace QfCore
     qmlRegisterType<QfCameraOrientationNormalizer>( "org.qfield.core", 1, 0, "QfCameraOrientationNormalizer" );
     qmlRegisterType<QfCogoExecutor>( "org.qfield.core", 1, 0, "QfCogoExecutor" );
     qmlRegisterType<QfCogoOperationsModel>( "org.qfield.core", 1, 0, "QfCogoOperationsModel" );
+    qmlRegisterType<QfDeltaChangesModel>( "org.qfield.core", 1, 0, "QfDeltaChangesModel" );
     qmlRegisterType<QfDeltaListModel>( "org.qfield.core", 1, 0, "QfDeltaListModel" );
     qmlRegisterType<QfDigitizingLogger>( "org.qfield.core", 1, 0, "QfDigitizingLogger" );
     qmlRegisterType<QfDistanceArea>( "org.qfield.core", 1, 0, "QfDistanceArea" );
@@ -185,7 +186,6 @@ namespace QfCore
     qmlRegisterType<QfNavigationModel>( "org.qfield.core", 1, 0, "QfNavigationModel" );
     qmlRegisterType<QfNearFieldReader>( "org.qfield.core", 1, 0, "QfNearFieldReader" );
     qmlRegisterType<QfNtripSourceTableFetcher>( "org.qfield.core", 1, 0, "QfNtripSourceTableFetcher" );
-    qmlRegisterType<QfPendingDeltaModel>( "org.qfield.core", 1, 0, "QfPendingDeltaModel" );
     qmlRegisterType<QfPositioning>( "org.qfield.core", 1, 0, "QfPositioning" );
     qmlRegisterType<QfPositioningDeviceModel>( "org.qfield.core", 1, 0, "QfPositioningDeviceModel" );
     qmlRegisterType<QfPositioningInformationModel>( "org.qfield.core", 1, 0, "QfPositioningInformationModel" );

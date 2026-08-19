@@ -447,89 +447,88 @@ Popup {
               spacing: 10
               visible: cloudProjectGrid.hasDeltaFileWrapper && !cloudProjectGrid.hasDeltaError
 
-              RowLayout {
+              ColumnLayout {
                 id: localChanges
                 Layout.fillWidth: true
                 Layout.bottomMargin: 10
-                spacing: 10
+                spacing: 5
                 visible: cloudProjectGrid.changesCount > 0
 
-                ColumnLayout {
+                Text {
                   Layout.fillWidth: true
-                  spacing: 5
+                  font: QfTheme.tipFont
+                  color: QfTheme.mainTextColor
+                  text: qsTr('%n local change(s)', '', cloudProjectGrid.changesCount)
+                }
 
-                  Text {
-                    Layout.fillWidth: true
-                    font: QfTheme.tipFont
-                    color: QfTheme.mainTextColor
-                    text: qsTr('%n local change(s)', '', cloudProjectGrid.changesCount)
-                  }
+                RowLayout {
+                  Layout.fillWidth: true
+                  spacing: 8
 
-                  Row {
-                    Layout.fillWidth: true
-                    spacing: 8
+                  Repeater {
+                    model: [
+                      {
+                        "count": cloudProjectGrid.addedCount,
+                        "label": qsTr('%n addition(s)', '', cloudProjectGrid.addedCount),
+                        "color": QfTheme.mainColor
+                      },
+                      {
+                        "count": cloudProjectGrid.editedCount,
+                        "label": qsTr('%n edit(s)', '', cloudProjectGrid.editedCount),
+                        "color": QfTheme.gray
+                      },
+                      {
+                        "count": cloudProjectGrid.deletedCount,
+                        "label": qsTr('%n deletion(s)', '', cloudProjectGrid.deletedCount),
+                        "color": QfTheme.errorColor
+                      }
+                    ]
 
-                    Repeater {
-                      model: [
-                        {
-                          "count": cloudProjectGrid.addedCount,
-                          "label": qsTr('%n addition(s)', '', cloudProjectGrid.addedCount),
-                          "color": QfTheme.mainColor
-                        },
-                        {
-                          "count": cloudProjectGrid.editedCount,
-                          "label": qsTr('%n edit(s)', '', cloudProjectGrid.editedCount),
-                          "color": QfTheme.warningColor
-                        },
-                        {
-                          "count": cloudProjectGrid.deletedCount,
-                          "label": qsTr('%n deletion(s)', '', cloudProjectGrid.deletedCount),
-                          "color": QfTheme.errorColor
+                    Rectangle {
+                      Layout.preferredWidth: changeCountChip.width + 20
+                      Layout.preferredHeight: changeCountChip.height + 10
+                      radius: height / 2
+                      color: Qt.rgba(modelData.color.r, modelData.color.g, modelData.color.b, 0.12)
+                      visible: modelData.count > 0
+
+                      Row {
+                        id: changeCountChip
+                        anchors.centerIn: parent
+                        spacing: 5
+
+                        Rectangle {
+                          anchors.verticalCenter: parent.verticalCenter
+                          width: 6
+                          height: 6
+                          radius: width / 2
+                          color: modelData.color
                         }
-                      ]
 
-                      Rectangle {
-                        width: changeCountChip.width + 20
-                        height: changeCountChip.height + 10
-                        radius: height / 2
-                        color: Qt.rgba(modelData.color.r, modelData.color.g, modelData.color.b, 0.12)
-                        visible: modelData.count > 0
-
-                        Row {
-                          id: changeCountChip
-                          anchors.centerIn: parent
-                          spacing: 5
-
-                          Rectangle {
-                            anchors.verticalCenter: parent.verticalCenter
-                            width: 6
-                            height: 6
-                            radius: width / 2
-                            color: modelData.color
-                          }
-
-                          Text {
-                            anchors.verticalCenter: parent.verticalCenter
-                            font: QfTheme.tinyFont
-                            color: modelData.color
-                            text: modelData.label
-                          }
+                        Text {
+                          anchors.verticalCenter: parent.verticalCenter
+                          font: QfTheme.tinyFont
+                          color: modelData.color
+                          text: modelData.label
                         }
                       }
                     }
                   }
-                }
 
-                QfToolButton {
-                  id: showLocalChangesDetails
-                  Layout.alignment: Qt.AlignVCenter
-                  clip: true
-                  rotation: 180
-                  iconSource: QfTheme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-                  iconColor: QfTheme.mainTextColor
-                  bgcolor: 'transparent'
+                  Item {
+                    Layout.fillWidth: true
+                  }
 
-                  onClicked: swipeView.currentIndex = 2
+                  QfToolButton {
+                    id: showLocalChangesDetails
+                    Layout.alignment: Qt.AlignVCenter
+                    clip: true
+                    rotation: 180
+                    iconSource: QfTheme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+                    iconColor: QfTheme.mainTextColor
+                    bgcolor: 'transparent'
+
+                    onClicked: swipeView.currentIndex = 2
+                  }
                 }
               }
 
@@ -800,7 +799,7 @@ Popup {
       }
 
       QfCloudPendingChanges {
-        deltaFileWrapper: swipeView.currentIndex === 2 ? cloudProjectsModel.layerObserver.deltaFileWrapper : null
+        deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
       }
     }
 

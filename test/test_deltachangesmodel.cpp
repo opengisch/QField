@@ -1,5 +1,5 @@
 /***************************************************************************
-                        test_pendingdeltamodel
+                        test_deltachangesmodel
                         ----------------------
   begin                : August 2026
   copyright            : (C) 2026 by Mohsen Dehghanzadeh
@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
+#include "qfdeltachangesmodel.h"
 #include "qfdeltafilewrapper.h"
-#include "qfpendingdeltamodel.h"
 
 #include <QTemporaryDir>
 #include <QUuid>
@@ -36,7 +36,7 @@ static QgsFeature makeFeature( const QgsVectorLayer *layer, int fid, const QStri
 }
 
 
-TEST_CASE( "PendingDeltaModel" )
+TEST_CASE( "DeltaChangesModel" )
 {
   QgsProject *project = QgsProject::instance();
   QTemporaryDir workDir;
@@ -65,7 +65,7 @@ TEST_CASE( "PendingDeltaModel" )
   REQUIRE( layer2->commitChanges() );
 
   QfDeltaFileWrapper dfw( QStringLiteral( "TEST_PROJECT_ID" ), workDir.filePath( QUuid::createUuid().toString() ) );
-  QfPendingDeltaModel model;
+  QfDeltaChangesModel model;
 
   SECTION( "starts empty without a delta file wrapper" )
   {
@@ -91,13 +91,13 @@ TEST_CASE( "PendingDeltaModel" )
     const QModelIndex idx1 = model.index( 1, 0 );
     const QModelIndex idx2 = model.index( 2, 0 );
 
-    REQUIRE( model.data( idx0, QfPendingDeltaModel::LayerIdRole ).toString() == layer1->id() );
-    REQUIRE( model.data( idx1, QfPendingDeltaModel::LayerIdRole ).toString() == layer2->id() );
-    REQUIRE( model.data( idx2, QfPendingDeltaModel::LayerIdRole ).toString() == layer2->id() );
+    REQUIRE( model.data( idx0, QfDeltaChangesModel::LayerIdRole ).toString() == layer1->id() );
+    REQUIRE( model.data( idx1, QfDeltaChangesModel::LayerIdRole ).toString() == layer2->id() );
+    REQUIRE( model.data( idx2, QfDeltaChangesModel::LayerIdRole ).toString() == layer2->id() );
 
-    REQUIRE( model.data( idx0, QfPendingDeltaModel::MethodRole ).value<QfPendingDeltaModel::DeltaMethod>() == QfPendingDeltaModel::CreateMethod );
-    REQUIRE( model.data( idx1, QfPendingDeltaModel::MethodRole ).value<QfPendingDeltaModel::DeltaMethod>() == QfPendingDeltaModel::PatchMethod );
-    REQUIRE( model.data( idx2, QfPendingDeltaModel::MethodRole ).value<QfPendingDeltaModel::DeltaMethod>() == QfPendingDeltaModel::DeleteMethod );
+    REQUIRE( model.data( idx0, QfDeltaChangesModel::MethodRole ).value<QfDeltaChangesModel::DeltaMethod>() == QfDeltaChangesModel::CreateMethod );
+    REQUIRE( model.data( idx1, QfDeltaChangesModel::MethodRole ).value<QfDeltaChangesModel::DeltaMethod>() == QfDeltaChangesModel::PatchMethod );
+    REQUIRE( model.data( idx2, QfDeltaChangesModel::MethodRole ).value<QfDeltaChangesModel::DeltaMethod>() == QfDeltaChangesModel::DeleteMethod );
 
 
     REQUIRE( model.layerName( layer1->id() ) == QStringLiteral( "layer1" ) );
@@ -109,8 +109,8 @@ TEST_CASE( "PendingDeltaModel" )
     REQUIRE( model.layerChangesCount( layer2->id() ) == 2 );
 
     // f1 is still in the layer, f3 is only described by its delta
-    REQUIRE( model.data( idx1, QfPendingDeltaModel::FeatureNameRole ).toString() == QStringLiteral( "name1" ) );
-    REQUIRE( model.data( idx2, QfPendingDeltaModel::FeatureNameRole ).toString() == QStringLiteral( "name3" ) );
+    REQUIRE( model.data( idx1, QfDeltaChangesModel::FeatureNameRole ).toString() == QStringLiteral( "name1" ) );
+    REQUIRE( model.data( idx2, QfDeltaChangesModel::FeatureNameRole ).toString() == QStringLiteral( "name3" ) );
   }
 
   SECTION( "patch rows list the changed attributes only" )
@@ -124,11 +124,11 @@ TEST_CASE( "PendingDeltaModel" )
     REQUIRE( model.rowCount() == 1 );
 
     // the delta keeps a full snapshot of the old attributes, only "height" actually changed
-    const QList<QfDeltaAttributeChange> changes = model.data( model.index( 0, 0 ), QfPendingDeltaModel::AttributeChangesRole ).value<QList<QfDeltaAttributeChange>>();
+    const QList<QfDeltaAttributeChange> changes = model.data( model.index( 0, 0 ), QfDeltaChangesModel::AttributeChangesRole ).value<QList<QfDeltaAttributeChange>>();
 
     REQUIRE( changes.size() == 1 );
 
-    const QfDeltaAttributeChange change = changes.at( 0 );
+    const QfDeltaAttributeChange &change = changes.at( 0 );
 
     REQUIRE( change.name == QStringLiteral( "height" ) );
     REQUIRE( change.oldValue.toInt() == 10 );
@@ -143,7 +143,7 @@ TEST_CASE( "PendingDeltaModel" )
     REQUIRE( model.rowCount() == 1 );
 
     QVariantMap changeByName;
-    const QList<QfDeltaAttributeChange> changes = model.data( model.index( 0, 0 ), QfPendingDeltaModel::AttributeChangesRole ).value<QList<QfDeltaAttributeChange>>();
+    const QList<QfDeltaAttributeChange> changes = model.data( model.index( 0, 0 ), QfDeltaChangesModel::AttributeChangesRole ).value<QList<QfDeltaAttributeChange>>();
     for ( const QfDeltaAttributeChange &change : changes )
     {
       changeByName.insert( change.name, change.oldValue );
@@ -171,9 +171,32 @@ TEST_CASE( "PendingDeltaModel" )
     const QModelIndex idx0 = model.index( 0, 0 );
     const QModelIndex idx1 = model.index( 1, 0 );
 
-    REQUIRE( !model.data( idx0, QfPendingDeltaModel::HasGeometryChangeRole ).toBool() );
-    REQUIRE( model.data( idx1, QfPendingDeltaModel::HasGeometryChangeRole ).toBool() );
-    REQUIRE( model.data( idx1, QfPendingDeltaModel::AttributeChangesRole ).value<QList<QfDeltaAttributeChange>>().isEmpty() );
+    REQUIRE( !model.data( idx0, QfDeltaChangesModel::HasGeometryChangeRole ).toBool() );
+    REQUIRE( model.data( idx1, QfDeltaChangesModel::HasGeometryChangeRole ).toBool() );
+    REQUIRE( model.data( idx1, QfDeltaChangesModel::AttributeChangesRole ).value<QList<QfDeltaAttributeChange>>().isEmpty() );
+  }
+
+  SECTION( "rows keep up with the deltas added to an already listed layer" )
+  {
+    dfw.addCreate( project, layer1->id(), layer1->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f2 );
+    model.setDeltaFileWrapper( &dfw );
+
+    REQUIRE( model.rowCount() == 1 );
+    REQUIRE( model.data( model.index( 0, 0 ), QfDeltaChangesModel::FeatureNameRole ).toString() == QStringLiteral( "name2" ) );
+
+    dfw.addCreate( project, layer1->id(), layer1->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), makeFeature( layer1.get(), 2, QStringLiteral( "name4" ) ) );
+
+    REQUIRE( model.rowCount() == 2 );
+    REQUIRE( model.layerChangesCount( layer1->id() ) == 2 );
+    REQUIRE( model.data( model.index( 1, 0 ), QfDeltaChangesModel::FeatureNameRole ).toString() == QStringLiteral( "name4" ) );
+
+    // a delta on another layer leaves the rows of layer1 where they are
+    dfw.addDelete( project, layer2->id(), layer2->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f3 );
+
+    REQUIRE( model.rowCount() == 3 );
+    REQUIRE( model.data( model.index( 0, 0 ), QfDeltaChangesModel::FeatureNameRole ).toString() == QStringLiteral( "name2" ) );
+    REQUIRE( model.data( model.index( 1, 0 ), QfDeltaChangesModel::FeatureNameRole ).toString() == QStringLiteral( "name4" ) );
+    REQUIRE( model.data( model.index( 2, 0 ), QfDeltaChangesModel::FeatureNameRole ).toString() == QStringLiteral( "name3" ) );
   }
 
   SECTION( "rows follow the attached delta file wrapper" )

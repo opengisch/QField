@@ -36,9 +36,9 @@ TestCase {
       "newValue": 12
     };
 
-    compare(pendingChanges.attributeChangeText(change, QfPendingDeltaModel.PatchMethod), "height: 10 to 12");
-    compare(pendingChanges.attributeChangeText(change, QfPendingDeltaModel.DeleteMethod), "height: 10");
-    compare(pendingChanges.attributeChangeText(change, QfPendingDeltaModel.CreateMethod), "height: 12");
+    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.PatchMethod), "height: 10 to 12");
+    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.DeleteMethod), "height: 10");
+    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.CreateMethod), "height: 12");
 
     const cleared = {
       "name": "name",
@@ -46,13 +46,13 @@ TestCase {
       "newValue": null
     };
 
-    compare(pendingChanges.attributeChangeText(cleared, QfPendingDeltaModel.PatchMethod), "name: oak to NULL");
+    compare(pendingChanges.attributeChangeText(cleared, QfDeltaChangesModel.PatchMethod), "name: oak to NULL");
   }
 
   function test_04_deltaMethodLabels() {
-    compare(pendingChanges.deltaMethodLabel(QfPendingDeltaModel.CreateMethod), "added");
-    compare(pendingChanges.deltaMethodLabel(QfPendingDeltaModel.PatchMethod), "edited");
-    compare(pendingChanges.deltaMethodLabel(QfPendingDeltaModel.DeleteMethod), "deleted");
-    compare(pendingChanges.deltaMethodLabel(QfPendingDeltaModel.UnknownMethod), "");
+    compare(pendingChanges.deltaMethodLabel(QfDeltaChangesModel.CreateMethod), "added");
+    compare(pendingChanges.deltaMethodLabel(QfDeltaChangesModel.PatchMethod), "edited");
+    compare(pendingChanges.deltaMethodLabel(QfDeltaChangesModel.DeleteMethod), "deleted");
+    compare(pendingChanges.deltaMethodLabel(QfDeltaChangesModel.UnknownMethod), "");
   }
 }

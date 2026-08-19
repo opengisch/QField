@@ -104,10 +104,10 @@ class QfDeltaFileWrapper : public QObject
 
 
     /**
-     * @brief Get a request matching the feature of given \a vl layer whose local primary key is \a localPk.
+     * @brief Get a request matching the features of given \a vl layer whose local primary key is one of \a localPks.
      * Returns a request matching nothing when the layer has no usable primary key.
      */
-    static QgsFeatureRequest localPkRequest( const QgsVectorLayer *vl, const QString &localPk );
+    static QgsFeatureRequest localPkRequest( const QgsVectorLayer *vl, const QStringList &localPks );
 
 
     /**
