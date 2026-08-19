@@ -1247,16 +1247,18 @@ void QfCloudProjectsModel::projectCreationReceived()
     emit projectCreated( cloudProject->id(), fromProjectId, false, QString() );
 
     const QString createdProjectId = cloudProject->id();
-    connect( cloudProject, &QfCloudProject::projectReadinessChecked, this, [this, createdProjectId]( bool ready, const QString &error ) {
-      if ( ready )
-      {
-        projectPackageAndDownload( createdProjectId );
-      }
-      else
-      {
-        emit projectReadinessFailed( createdProjectId, error );
-      }
-    } );
+    connect(
+      cloudProject, &QfCloudProject::projectReadinessChecked, this, [this, createdProjectId]( bool ready, const QString &error ) {
+        if ( ready )
+        {
+          projectPackageAndDownload( createdProjectId );
+        }
+        else
+        {
+          emit projectReadinessFailed( createdProjectId, error );
+        }
+      },
+      Qt::SingleShotConnection );
     cloudProject->checkProjectReadiness();
   }
   else

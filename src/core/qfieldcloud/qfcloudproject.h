@@ -622,7 +622,7 @@ class QfCloudProject : public QObject
 
     QString mReadinessJobId;
     int mReadinessAttempts = 0;
-    static const int sMaxReadinessAttempts = 40;
+    static const int sMaxReadinessAttempts = 20;
     static const int sReadinessBaseDelay = 2000;
 };
 
