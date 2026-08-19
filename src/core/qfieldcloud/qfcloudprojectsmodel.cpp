@@ -1246,20 +1246,11 @@ void QfCloudProjectsModel::projectCreationReceived()
     insertProjects( QList<QfCloudProject *>() << cloudProject );
     emit projectCreated( cloudProject->id(), fromProjectId, false, QString() );
 
-    const QString createdProjectId = cloudProject->id();
-    connect(
-      cloudProject, &QfCloudProject::projectReadinessChecked, this, [this, createdProjectId]( bool ready, const QString &error ) {
-        if ( ready )
-        {
-          projectPackageAndDownload( createdProjectId );
-        }
-        else
-        {
-          emit projectReadinessFailed( createdProjectId, error );
-        }
-      },
-      Qt::SingleShotConnection );
-    cloudProject->checkProjectReadiness();
+    if ( QfCloudProject *project = findProject( cloudProject->id() ) )
+    {
+      project->setStatus( QfCloudProject::ProjectStatus::Creating );
+      project->ensureProjectCreated();
+    }
   }
   else
   {

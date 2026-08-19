@@ -17,6 +17,7 @@ Page {
 
   property string requestedProjectDetails: ""
   property string pendingCreatedProjectId: ""
+  property bool pendingCreatedDownloadStarted: false
   property QfCloudStatus cloudServiceStatus: null
 
   leftPadding: mainWindow.sceneLeftMargin
@@ -1070,16 +1071,8 @@ Page {
         return;
       }
       pendingCreatedProjectId = projectId;
+      pendingCreatedDownloadStarted = false;
       busyOverlay.text = qsTr("Preparing project…");
-    }
-
-    function onProjectReadinessFailed(projectId, errorString) {
-      if (projectId !== pendingCreatedProjectId) {
-        return;
-      }
-      pendingCreatedProjectId = "";
-      busyOverlay.state = "hidden";
-      displayToast(qsTr("The project could not be prepared: %1").arg(QfCloudUtils.userFriendlyErrorString(errorString)));
     }
 
     function onProjectDownloaded(projectId, projectName, projectOwner, hasError, errorString) {
@@ -1088,6 +1081,7 @@ Page {
         return;
       }
       pendingCreatedProjectId = "";
+      pendingCreatedDownloadStarted = false;
       busyOverlay.state = "hidden";
 
       if (hasError) {
@@ -1103,6 +1097,26 @@ Page {
   Connections {
     target: pendingCreatedProjectId !== "" ? cloudProjectsModel.findProject(pendingCreatedProjectId) : null
     ignoreUnknownSignals: true
+
+    function onStatusChanged() {
+      // The project leaves the Creating state once its create job settles.
+      // On success we start the download and on failure we surface the error and clear the overlay
+      if (target.status === QfCloudProject.ProjectStatus.Creating) {
+        return;
+      }
+      if (target.status === QfCloudProject.ProjectStatus.Failing) {
+        pendingCreatedProjectId = "";
+        pendingCreatedDownloadStarted = false;
+        busyOverlay.state = "hidden";
+        displayToast(qsTr("The project could not be prepared. Please try downloading it manually."));
+        return;
+      }
+      if (target.status === QfCloudProject.ProjectStatus.Idle && !pendingCreatedDownloadStarted) {
+        pendingCreatedDownloadStarted = true;
+        busyOverlay.text = qsTr("Downloading project…");
+        cloudProjectsModel.projectPackageAndDownload(pendingCreatedProjectId);
+      }
+    }
 
     function onDownloadProgressChanged() {
       busyOverlay.progress = target.downloadProgress;

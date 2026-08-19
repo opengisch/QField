@@ -2019,21 +2019,17 @@ void QfCloudProject::getJobStatus( const JobType type )
   } );
 }
 
-void QfCloudProject::checkProjectReadiness()
+void QfCloudProject::ensureProjectCreated()
 {
-  mReadinessJobId.clear();
-  mReadinessAttempts = 0;
-  fetchReadinessJobId();
-}
+  mCreateJobId.clear();
+  mCreateJobAttempts = 0;
 
-void QfCloudProject::fetchReadinessJobId()
-{
   if ( !mCloudConnection )
     return;
 
   QVariantMap params;
   params.insert( QStringLiteral( "project_id" ), mId );
-  params.insert( QStringLiteral( "type" ), QStringLiteral( "process_projectfile" ) );
+  params.insert( QStringLiteral( "type" ), QStringLiteral( "create_project" ) );
 
   QfNetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/jobs/" ), params );
   connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
@@ -2042,64 +2038,39 @@ void QfCloudProject::fetchReadinessJobId()
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1: fetching readiness job failed: %2" ).arg( mId, QfCloudConnection::errorString( rawReply ) ) );
-      emit projectReadinessChecked( false, QfCloudConnection::errorString( rawReply ) );
+      QgsLogger::debug( QStringLiteral( "Project %1: fetching create job failed: %2" ).arg( mId, QfCloudConnection::errorString( rawReply ) ) );
+      setStatus( ProjectStatus::Failing );
       return;
     }
 
     const QJsonArray jobs = QJsonDocument::fromJson( rawReply->readAll() ).array();
-    if ( jobs.isEmpty() )
-    {
-      // The process_projectfile job is queued asynchronously, so its record might not exist yet.
-      mReadinessAttempts++;
-      if ( mReadinessAttempts >= sMaxReadinessAttempts )
-      {
-        emit projectReadinessChecked( false, tr( "The project could not be prepared in time." ) );
-        return;
-      }
-      QTimer::singleShot( sReadinessBaseDelay, this, [this]() { fetchReadinessJobId(); } );
-      return;
-    }
-
-    // A freshly created or cloned project has a single process_projectfile job.
-    mReadinessJobId = jobs.first().toObject().value( QStringLiteral( "id" ) ).toString();
-    if ( mReadinessJobId.isEmpty() )
-    {
-      emit projectReadinessChecked( false, tr( "Project preparation job is missing an identifier." ) );
-      return;
-    }
-
-    pollReadinessJob();
+    mCreateJobId = jobs.first().toObject().value( QStringLiteral( "id" ) ).toString();
+    pollCreateProjectJob();
   } );
 }
 
-void QfCloudProject::pollReadinessJob()
+void QfCloudProject::pollCreateProjectJob()
 {
-  if ( !mCloudConnection || mReadinessJobId.isEmpty() )
+  if ( !mCloudConnection || mCreateJobId.isEmpty() )
   {
-    emit projectReadinessChecked( false, tr( "No project preparation job to poll." ) );
+    setStatus( ProjectStatus::Failing );
     return;
   }
 
-  QfNetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/jobs/%1/" ).arg( mReadinessJobId ) );
+  QfNetworkReply *reply = mCloudConnection->get( QStringLiteral( "/api/v1/jobs/%1/" ).arg( mCreateJobId ) );
   connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
     reply->deleteLater();
 
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      QgsLogger::debug( QStringLiteral( "Project %1, job %2: readiness poll failed: %3" ).arg( mId, mReadinessJobId, QfCloudConnection::errorString( rawReply ) ) );
-      emit projectReadinessChecked( false, QfCloudConnection::errorString( rawReply ) );
+      QgsLogger::debug( QStringLiteral( "Project %1, job %2: create poll failed: %3" ).arg( mId, mCreateJobId, QfCloudConnection::errorString( rawReply ) ) );
+      setStatus( ProjectStatus::Failing );
       return;
     }
 
     const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
     const QString jobStatusString = payload.value( QStringLiteral( "status" ) ).toString();
-    if ( jobStatusString.isEmpty() )
-    {
-      emit projectReadinessChecked( false, tr( "Project preparation job status response is missing required fields: status(string)." ) );
-      return;
-    }
 
     switch ( getJobStatusFromString( jobStatusString ) )
     {
@@ -2107,22 +2078,22 @@ void QfCloudProject::pollReadinessJob()
       case JobQueuedStatus:
       case JobStartedStatus:
       case JobStoppedStatus:
-        mReadinessAttempts++;
-        if ( mReadinessAttempts >= sMaxReadinessAttempts )
+        mCreateJobAttempts++;
+        if ( mCreateJobAttempts >= sMaxCreateJobAttempts )
         {
-          emit projectReadinessChecked( false, tr( "The project could not be prepared in time." ) );
+          setStatus( ProjectStatus::Failing );
           return;
         }
         // 2s floor with a mild backoff so a slow or worker-starved queue is not hammered.
-        QTimer::singleShot( sReadinessBaseDelay + ( mReadinessAttempts * 500 ), this, [this]() { pollReadinessJob(); } );
+        QTimer::singleShot( sCreateJobBaseDelay + ( mCreateJobAttempts * 500 ), this, [this]() { pollCreateProjectJob(); } );
         return;
 
       case JobFinishedStatus:
-        emit projectReadinessChecked( true );
+        setStatus( ProjectStatus::Idle );
         return;
 
       case JobFailedStatus:
-        emit projectReadinessChecked( false, tr( "Project preparation job failed." ) );
+        setStatus( ProjectStatus::Failing );
         return;
     }
   } );
