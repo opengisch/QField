@@ -495,6 +495,8 @@ class QfFeatureGatherer : public QThread
         mNmContext = nmRelation.referencedLayer()->createExpressionContext();
         mNmDisplayExpression = nmRelation.referencedLayer()->displayExpression();
       }
+
+      mRequest.setExpressionContext( mContext );
     }
 
     void run() override
