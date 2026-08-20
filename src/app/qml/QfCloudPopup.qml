@@ -464,65 +464,66 @@ Popup {
                   Layout.fillWidth: true
                   spacing: 8
 
-                  Repeater {
-                    model: [
-                      {
-                        "count": cloudProjectGrid.addedCount,
-                        "label": qsTr('%n addition(s)', '', cloudProjectGrid.addedCount),
-                        "color": QfTheme.mainColor,
-                        "backgroundColor": Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.12)
-                      },
-                      {
-                        "count": cloudProjectGrid.editedCount,
-                        "label": qsTr('%n edit(s)', '', cloudProjectGrid.editedCount),
-                        "color": QfTheme.secondaryTextColor,
-                        "backgroundColor": QfTheme.groupBoxBackgroundColor
-                      },
-                      {
-                        "count": cloudProjectGrid.deletedCount,
-                        "label": qsTr('%n deletion(s)', '', cloudProjectGrid.deletedCount),
-                        "color": QfTheme.errorColor,
-                        "backgroundColor": Qt.rgba(QfTheme.errorColor.r, QfTheme.errorColor.g, QfTheme.errorColor.b, 0.12)
-                      }
-                    ]
+                  Flow {
+                    Layout.fillWidth: true
+                    spacing: 2
 
-                    Rectangle {
-                      Layout.preferredWidth: changeCountChip.width + 20
-                      Layout.preferredHeight: changeCountChip.height + 10
-                      radius: height / 2
-                      color: modelData.backgroundColor
-                      visible: modelData.count > 0
-
-                      Row {
-                        id: changeCountChip
-                        anchors.centerIn: parent
-                        spacing: 5
-
-                        Rectangle {
-                          anchors.verticalCenter: parent.verticalCenter
-                          width: 6
-                          height: 6
-                          radius: width / 2
-                          color: modelData.color
+                    Repeater {
+                      model: [
+                        {
+                          "count": cloudProjectGrid.addedCount,
+                          "label": qsTr('%n addition(s)', '', cloudProjectGrid.addedCount),
+                          "color": QfTheme.mainColor,
+                          "backgroundColor": Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.12)
+                        },
+                        {
+                          "count": cloudProjectGrid.editedCount,
+                          "label": qsTr('%n edit(s)', '', cloudProjectGrid.editedCount),
+                          "color": QfTheme.secondaryTextColor,
+                          "backgroundColor": QfTheme.groupBoxBackgroundColor
+                        },
+                        {
+                          "count": cloudProjectGrid.deletedCount,
+                          "label": qsTr('%n deletion(s)', '', cloudProjectGrid.deletedCount),
+                          "color": QfTheme.errorColor,
+                          "backgroundColor": Qt.rgba(QfTheme.errorColor.r, QfTheme.errorColor.g, QfTheme.errorColor.b, 0.12)
                         }
+                      ]
 
-                        Text {
-                          anchors.verticalCenter: parent.verticalCenter
-                          font: QfTheme.tinyFont
-                          color: modelData.color
-                          text: modelData.label
+                      Rectangle {
+                        width: changeCountChip.width + 20
+                        height: changeCountChip.height + 10
+                        radius: height / 2
+                        color: modelData.backgroundColor
+                        visible: modelData.count > 0
+
+                        Row {
+                          id: changeCountChip
+                          anchors.centerIn: parent
+                          spacing: 5
+
+                          Rectangle {
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: 6
+                            height: 6
+                            radius: width / 2
+                            color: modelData.color
+                          }
+
+                          Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            font: QfTheme.tinyFont
+                            color: modelData.color
+                            text: modelData.label
+                          }
                         }
                       }
                     }
                   }
 
-                  Item {
-                    Layout.fillWidth: true
-                  }
-
                   QfToolButton {
                     id: showLocalChangesDetails
-                    Layout.alignment: Qt.AlignVCenter
+                    Layout.alignment: Qt.AlignTop
                     width: 36
                     height: 36
                     padding: 0
