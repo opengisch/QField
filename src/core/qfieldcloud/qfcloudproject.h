@@ -499,7 +499,7 @@ class QfCloudProject : public QObject
     void startJob( JobType type );
     void getJobStatus( JobType type );
     void getDeltaStatus();
-    void pollCreateProjectJob();
+    void getCreateProjectJobStatus();
 
     void refreshData( ProjectRefreshReason reason );
 

@@ -1108,7 +1108,7 @@ Page {
         pendingCreatedProjectId = "";
         pendingCreatedDownloadStarted = false;
         busyOverlay.state = "hidden";
-        displayToast(qsTr("The project could not be prepared. Please try downloading it manually."));
+        displayToast(qsTr("The newly-created project could not be prepared."), 'warning');
         return;
       }
       if (target.status === QfCloudProject.ProjectStatus.Idle && !pendingCreatedDownloadStarted) {

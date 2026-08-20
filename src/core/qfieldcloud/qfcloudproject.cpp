@@ -477,7 +477,9 @@ void QfCloudProject::downloadThumbnail()
   QgsLogger::debug( QStringLiteral( "Project %1: thumbnail download initiated." ).arg( mId ) );
 
   if ( !mCloudConnection )
+  {
     return;
+  }
 
   QNetworkRequest request;
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
@@ -661,7 +663,9 @@ void QfCloudProject::packageAndDownload()
   QgsLogger::debug( QStringLiteral( "Project %1: package and download initiated." ).arg( mId ) );
 
   if ( !mCloudConnection )
+  {
     return;
+  }
 
   if ( mStatus != ProjectStatus::Idle )
   {
@@ -1072,7 +1076,9 @@ void QfCloudProject::prepareDownloadTransfer( const QString &projectId, const QS
 void QfCloudProject::updateActiveFilesToDownload()
 {
   if ( !mCloudConnection )
+  {
     return;
+  }
 
   const QStringList fileKeys = mDownloadFileTransfers.keys();
 
@@ -1126,7 +1132,9 @@ void QfCloudProject::downloadFiles()
   // calling updateActiveProjectFilesToDownload() before calling this function is mandatory
 
   if ( !mCloudConnection )
+  {
     return;
+  }
 
   // Don't call download project files, if there are no project files
   if ( mActiveFilesToDownload.isEmpty() )
@@ -2025,7 +2033,9 @@ void QfCloudProject::ensureProjectCreated()
   mCreateJobAttempts = 0;
 
   if ( !mCloudConnection )
+  {
     return;
+  }
 
   QVariantMap params;
   params.insert( QStringLiteral( "project_id" ), mId );
@@ -2045,11 +2055,11 @@ void QfCloudProject::ensureProjectCreated()
 
     const QJsonArray jobs = QJsonDocument::fromJson( rawReply->readAll() ).array();
     mCreateJobId = jobs.first().toObject().value( QStringLiteral( "id" ) ).toString();
-    pollCreateProjectJob();
+    getCreateProjectJobStatus();
   } );
 }
 
-void QfCloudProject::pollCreateProjectJob()
+void QfCloudProject::getCreateProjectJobStatus()
 {
   if ( !mCloudConnection || mCreateJobId.isEmpty() )
   {
@@ -2085,7 +2095,7 @@ void QfCloudProject::pollCreateProjectJob()
           return;
         }
         // 2s floor with a mild backoff so a slow or worker-starved queue is not hammered.
-        QTimer::singleShot( sCreateJobBaseDelay + ( mCreateJobAttempts * 500 ), this, [this]() { pollCreateProjectJob(); } );
+        QTimer::singleShot( sCreateJobBaseDelay + ( mCreateJobAttempts * 500 ), this, [this]() { getCreateProjectJobStatus(); } );
         return;
 
       case JobFinishedStatus:
@@ -2225,7 +2235,9 @@ void QfCloudProject::cancelDownload()
     QfNetworkReply *reply = mDownloadFileTransfers[fileKey].networkReply;
 
     if ( reply )
+    {
       reply->abort();
+    }
 
     mDownloadFileTransfers.remove( fileKey );
   }
