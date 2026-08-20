@@ -52,6 +52,7 @@ set(QFIELD_CORE_SRCS
     processing/qfprocessingalgorithm.cpp
     processing/qfprocessingalgorithmparametersmodel.cpp
     processing/qfprocessingalgorithmsmodel.cpp
+    qfieldcloud/qfdeltachangesmodel.cpp
     qfieldcloud/qfdeltafilewrapper.cpp
     qfieldcloud/qfdeltalistmodel.cpp
     qfieldcloud/qflayerobserver.cpp
@@ -168,6 +169,7 @@ set(QFIELD_CORE_HDRS
     processing/qfprocessingalgorithm.h
     processing/qfprocessingalgorithmparametersmodel.h
     processing/qfprocessingalgorithmsmodel.h
+    qfieldcloud/qfdeltachangesmodel.h
     qfieldcloud/qfdeltafilewrapper.h
     qfieldcloud/qfdeltalistmodel.h
     qfieldcloud/qflayerobserver.h

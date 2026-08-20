@@ -36,6 +36,9 @@ class QfDeltaFileWrapper : public QObject
     Q_OBJECT
 
     Q_PROPERTY( int count READ count NOTIFY countChanged )
+    Q_PROPERTY( int addedCount READ addedCount NOTIFY countChanged )
+    Q_PROPERTY( int editedCount READ editedCount NOTIFY countChanged )
+    Q_PROPERTY( int deletedCount READ deletedCount NOTIFY countChanged )
     Q_PROPERTY( bool isPushing READ isPushing NOTIFY isPushingChanged )
     Q_PROPERTY( bool hasError READ hasError NOTIFY errorChanged )
     Q_PROPERTY( ErrorType errorType READ errorType NOTIFY errorChanged )
@@ -98,6 +101,13 @@ class QfDeltaFileWrapper : public QObject
      * @brief Get a pair of the index and the name of the primary key column of given \a vl layer. We assume there is no multi-column primary key.
      */
     static QPair<int, QString> getLocalPkAttribute( const QgsVectorLayer *vl );
+
+
+    /**
+     * @brief Get a request matching the features of given \a vl layer whose local primary key is one of \a localPks.
+     * Returns a request matching nothing when the layer has no usable primary key.
+     */
+    static QgsFeatureRequest localPkRequest( const QgsVectorLayer *vl, const QStringList &localPks );
 
 
     /**
@@ -170,6 +180,30 @@ class QfDeltaFileWrapper : public QObject
      * @return int number of delta elements
      */
     Q_INVOKABLE int count() const;
+
+
+    /**
+     * Returns the number of delta elements creating a feature
+     *
+     * @return int number of created features
+     */
+    int addedCount() const;
+
+
+    /**
+     * Returns the number of delta elements modifying a feature
+     *
+     * @return int number of edited features
+     */
+    int editedCount() const;
+
+
+    /**
+     * Returns the number of delta elements removing a feature
+     *
+     * @return int number of deleted features
+     */
+    int deletedCount() const;
 
 
     /**
@@ -444,6 +478,11 @@ class QfDeltaFileWrapper : public QObject
      * It may not have any change in case undo/redo and delta merging is applied.
      */
     bool deltaContainsActualChange( const QJsonObject &delta ) const;
+
+    /**
+     * Returns the number of stored deltas whose method is \a method.
+     */
+    int countByMethod( const QString &method ) const;
 
     /**
      * A mapping between the local primary key and the uuid of the delta.

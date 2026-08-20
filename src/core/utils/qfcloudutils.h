@@ -50,7 +50,7 @@ struct QfCloudUserInformation
       , fullName( fullName )
     {}
 
-    explicit QfCloudUserInformation( const QJsonObject cloudUserInformation )
+    explicit QfCloudUserInformation( const QJsonObject &cloudUserInformation )
       : username( cloudUserInformation.value( QStringLiteral( "username" ) ).toString() )
       , email( cloudUserInformation.value( QStringLiteral( "email" ) ).toString() )
       , firstName( cloudUserInformation.value( QStringLiteral( "first_name" ) ).toString() )

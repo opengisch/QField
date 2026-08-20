@@ -55,6 +55,7 @@
 #include "qfieldcloud/qfcloudproject.h"
 #include "qfieldcloud/qfcloudprojectsmodel.h"
 #include "qfieldcloud/qfcloudstatus.h"
+#include "qfieldcloud/qfdeltachangesmodel.h"
 #include "qfieldcloud/qfdeltafilewrapper.h"
 #include "qfieldcloud/qfdeltalistmodel.h"
 #include "qfieldcloud/qflayerobserver.h"
@@ -161,6 +162,7 @@ namespace QfCore
     qmlRegisterType<QfCameraOrientationNormalizer>( "org.qfield.core", 1, 0, "QfCameraOrientationNormalizer" );
     qmlRegisterType<QfCogoExecutor>( "org.qfield.core", 1, 0, "QfCogoExecutor" );
     qmlRegisterType<QfCogoOperationsModel>( "org.qfield.core", 1, 0, "QfCogoOperationsModel" );
+    qmlRegisterType<QfDeltaChangesModel>( "org.qfield.core", 1, 0, "QfDeltaChangesModel" );
     qmlRegisterType<QfDeltaListModel>( "org.qfield.core", 1, 0, "QfDeltaListModel" );
     qmlRegisterType<QfDigitizingLogger>( "org.qfield.core", 1, 0, "QfDigitizingLogger" );
     qmlRegisterType<QfDistanceArea>( "org.qfield.core", 1, 0, "QfDistanceArea" );
