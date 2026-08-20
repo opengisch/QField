@@ -59,6 +59,8 @@ ApplicationWindow {
   property double sceneLeftMargin: SafeArea.margins.left
   property double sceneRightMargin: SafeArea.margins.right
 
+  readonly property bool hasLocalCloudChanges: cloudProjectsModel.layerObserver.deltaFileWrapper ? cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 : false
+
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
     // a thread blocking permission request being thrown
@@ -3599,9 +3601,7 @@ ApplicationWindow {
     }
 
     onShowCloudPopup: {
-      qfieldCloudStatus.refresh();
-      dashBoard.close();
-      qfieldCloudPopup.show();
+      mainWindow.openCloudPopup();
     }
 
     onToggleMeasurementTool: {
@@ -5430,6 +5430,13 @@ ApplicationWindow {
     }
   }
 
+  function openCloudPopup() {
+    qfieldCloudStatus.refresh();
+    dashBoard.close();
+    welcomeScreen.visible = false;
+    qfieldCloudPopup.show();
+  }
+
   QfCloudPopup {
     id: qfieldCloudPopup
     objectName: "qfieldCloudPopup"
@@ -5602,7 +5609,15 @@ ApplicationWindow {
     if (!closeAlreadyRequested) {
       close.accepted = false;
       closeAlreadyRequested = true;
-      displayToast(qsTr("Press back again to close project and app"));
+      if (hasLocalCloudChanges) {
+        displayToast(qsTr("Press back again to close project and app. Local changes have not yet been uploaded to the cloud."), 'warning', qsTr("Upload local changes"), () => {
+          closeAlreadyRequested = false;
+          closingTimer.stop();
+          openCloudPopup();
+        });
+      } else {
+        displayToast(qsTr("Press back again to close project and app"));
+      }
       closingTimer.start();
     } else {
       close.accepted = true;
