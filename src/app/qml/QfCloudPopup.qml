@@ -443,22 +443,21 @@ Popup {
             ColumnLayout {
               id: cloudActions
               Layout.fillWidth: true
-              Layout.bottomMargin: 10
+              Layout.bottomMargin: 5
               spacing: 10
               visible: cloudProjectGrid.hasDeltaFileWrapper && !cloudProjectGrid.hasDeltaError
 
               ColumnLayout {
                 id: localChanges
                 Layout.fillWidth: true
-                Layout.bottomMargin: 10
-                spacing: 5
+                spacing: 2
                 visible: cloudProjectGrid.changesCount > 0
 
                 Text {
                   Layout.fillWidth: true
                   font: QfTheme.tipFont
                   color: QfTheme.mainTextColor
-                  text: qsTr('%n local change(s)', '', cloudProjectGrid.changesCount)
+                  text: qsTr('Local changes')
                 }
 
                 RowLayout {
@@ -470,17 +469,20 @@ Popup {
                       {
                         "count": cloudProjectGrid.addedCount,
                         "label": qsTr('%n addition(s)', '', cloudProjectGrid.addedCount),
-                        "color": QfTheme.mainColor
+                        "color": QfTheme.mainColor,
+                        "backgroundColor": Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.12)
                       },
                       {
                         "count": cloudProjectGrid.editedCount,
                         "label": qsTr('%n edit(s)', '', cloudProjectGrid.editedCount),
-                        "color": QfTheme.gray
+                        "color": QfTheme.secondaryTextColor,
+                        "backgroundColor": QfTheme.groupBoxBackgroundColor
                       },
                       {
                         "count": cloudProjectGrid.deletedCount,
                         "label": qsTr('%n deletion(s)', '', cloudProjectGrid.deletedCount),
-                        "color": QfTheme.errorColor
+                        "color": QfTheme.errorColor,
+                        "backgroundColor": Qt.rgba(QfTheme.errorColor.r, QfTheme.errorColor.g, QfTheme.errorColor.b, 0.12)
                       }
                     ]
 
@@ -488,7 +490,7 @@ Popup {
                       Layout.preferredWidth: changeCountChip.width + 20
                       Layout.preferredHeight: changeCountChip.height + 10
                       radius: height / 2
-                      color: Qt.rgba(modelData.color.r, modelData.color.g, modelData.color.b, 0.12)
+                      color: modelData.backgroundColor
                       visible: modelData.count > 0
 
                       Row {
@@ -521,6 +523,9 @@ Popup {
                   QfToolButton {
                     id: showLocalChangesDetails
                     Layout.alignment: Qt.AlignVCenter
+                    width: 36
+                    height: 36
+                    padding: 0
                     clip: true
                     rotation: 180
                     iconSource: QfTheme.getThemeVectorIcon('ic_arrow_left_white_24dp')
@@ -539,6 +544,7 @@ Popup {
                 iconSource: QfTheme.getThemeVectorIcon('ic_cloud_upload_24dp')
                 title: qsTr('Upload local changes')
                 indicatorVisible: cloudProjectGrid.changesCount > 0
+                indicatorCount: cloudProjectGrid.changesCount
                 description: qsTr('Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.')
                 footnote: {
                   if (!cloudProjectsModel.currentProject) {

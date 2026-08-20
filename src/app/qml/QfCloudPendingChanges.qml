@@ -18,11 +18,24 @@ Item {
     case QfDeltaChangesModel.CreateMethod:
       return QfTheme.mainColor;
     case QfDeltaChangesModel.PatchMethod:
-      return QfTheme.gray;
+      return QfTheme.secondaryTextColor;
     case QfDeltaChangesModel.DeleteMethod:
       return QfTheme.errorColor;
     default:
       return QfTheme.secondaryTextColor;
+    }
+  }
+
+  function deltaMethodBackgroundColor(method) {
+    switch (method) {
+    case QfDeltaChangesModel.CreateMethod:
+      return Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.12);
+    case QfDeltaChangesModel.PatchMethod:
+      return QfTheme.groupBoxBackgroundColor;
+    case QfDeltaChangesModel.DeleteMethod:
+      return Qt.rgba(QfTheme.errorColor.r, QfTheme.errorColor.g, QfTheme.errorColor.b, 0.12);
+    default:
+      return QfTheme.groupBoxBackgroundColor;
     }
   }
 
@@ -138,6 +151,7 @@ Item {
 
       readonly property int deltaMethod: Method
       readonly property color badgeColor: pendingChanges.deltaMethodColor(featureRow.deltaMethod)
+      readonly property color badgeBackgroundColor: pendingChanges.deltaMethodBackgroundColor(featureRow.deltaMethod)
       readonly property bool hasDetails: AttributeChanges.length > 0 || HasGeometryChange
       property bool expanded: false
 
@@ -180,7 +194,7 @@ Item {
             Layout.preferredWidth: methodBadgeLabel.implicitWidth + 10
             Layout.preferredHeight: methodBadgeLabel.implicitHeight + 5
             radius: 4
-            color: Qt.rgba(featureRow.badgeColor.r, featureRow.badgeColor.g, featureRow.badgeColor.b, 0.15)
+            color: featureRow.badgeBackgroundColor
 
             Text {
               id: methodBadgeLabel
