@@ -868,9 +868,44 @@ Page {
     round: true
 
     onClicked: {
+      if (mainWindow.hasLocalCloudChanges) {
+        uploadLocalChangesDialog.open();
+        return;
+      }
       mainWindow.closeAlreadyRequested = true;
       mainWindow.close();
     }
+  }
+
+  QfDialog {
+    id: uploadLocalChangesDialog
+    parent: mainWindow.contentItem
+    closePolicy: Popup.NoAutoClose
+
+    width: Math.min(mainWindow.width - QfTheme.popupScreenEdgeVerticalMargin * 2, 400)
+
+    title: qsTr("Local changes")
+
+    Column {
+      width: parent.width
+
+      Label {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: qsTr("You are about to end your session with pending local changes, do you want to upload them now?")
+      }
+    }
+
+    onAccepted: {
+      mainWindow.openCloudPopup();
+    }
+
+    onRejected: {
+      mainWindow.closeAlreadyRequested = true;
+      mainWindow.close();
+    }
+
+    standardButtons: Dialog.Yes | Dialog.No
   }
 
   // Sparkles & unicorns
