@@ -8,7 +8,7 @@ import org.qfield.gui
 /**
  * \ingroup qml
  */
-Item {
+Rectangle {
   id: pendingChanges
 
   property alias deltaFileWrapper: deltaChangesModel.deltaFileWrapper
@@ -83,9 +83,14 @@ Item {
     }
   }
 
+  color: QfTheme.controlBackgroundColor
+  border.color: QfTheme.controlBorderColor
+  border.width: 1
+
   ListView {
     id: pendingChangesList
     anchors.fill: parent
+    anchors.margins: 1
     clip: true
     ScrollBar.vertical: QfScrollBar {}
 

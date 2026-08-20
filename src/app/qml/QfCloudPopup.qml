@@ -810,8 +810,12 @@ Popup {
         }
       }
 
-      QfCloudPendingChanges {
-        deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
+      Item {
+        QfCloudPendingChanges {
+          anchors.fill: parent
+          anchors.margins: 10
+          deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
+        }
       }
     }
 
