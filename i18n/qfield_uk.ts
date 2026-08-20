@@ -6992,7 +6992,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation>Виберіть базову карту для свого проєкту. Виберіть один із доступних варіантів або надайте власну URL-адресу.</translation>
+        <translation>Виберіть базову карту для свого проекту. Виберіть один із доступних варіантів або надайте власну URL-адресу.</translation>
     </message>
     <message>
         <source>Colorful</source>
@@ -7016,7 +7016,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Custom basemap URL</source>
-        <translation>Користувацька URL-адреса базової карти</translation>
+        <translation>URL-адреса власної базової карти</translation>
     </message>
     <message>
         <source>Take notes?</source>

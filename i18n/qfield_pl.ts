@@ -3118,11 +3118,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>Katalogi aplikacji %1</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>Katalog aplikacji %1</translation>
     </message>
     <message>
         <source>Support QField</source>
@@ -3816,7 +3816,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <name>QfCloudDangerZone</name>
     <message>
         <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Poniższa czynność jest nieodwracalna i trwale wpływa na twoje lokalne dane. Postępuj ostrożnie.</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -3836,7 +3836,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
+        <translation>Usuwa wszystkie twoje lokalne zmiany, które nie zostały jeszcze przesłane.</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -3863,7 +3863,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Uploaded by %1 on %2</source>
-        <translation type="unfinished"/>
+        <translation>Przesłane przez %1 dnia %2</translation>
     </message>
     <message>
         <source>Applied</source>
@@ -3911,7 +3911,8 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1 Adres URL serwera
+(Zostaw puste, żeby użyć serwera domyślnego)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -3943,7 +3944,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Visit the %1settings page%2 to manage your account.</source>
-        <translation type="unfinished"/>
+        <translation>Wejdź na %1stronę ustawień%2, żeby zarządzać swoim kontem.</translation>
     </message>
     <message>
         <source>New user?</source>
@@ -3966,7 +3967,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <name>QfCloudPackageLayersFeedback</name>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>Niektóre warstwy nie zostały poprawnie spakowane. Warstwy te mogą być nieprawidłowo skonfigurowane albo serwer QFieldCloud nie ma dostępu do ich źródła danych.</translation>
     </message>
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
@@ -3977,7 +3978,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <name>QfCloudPopup</name>
     <message>
         <source>Danger Zone</source>
-        <translation type="unfinished"/>
+        <translation>Strefa zagrożenia</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -4029,7 +4030,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
+        <translation>Przenoszenie do chmury %1%</translation>
     </message>
     <message>
         <source>Cloudifying</source>
@@ -4069,7 +4070,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij</translation>
     </message>
     <message numerus="yes">
         <source>Auto-upload every %n minute(s)</source>
@@ -4081,7 +4082,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Synchronize project</source>
-        <translation type="unfinished"/>
+        <translation>Zsynchronizuj projekt</translation>
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
@@ -4113,7 +4114,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Danger zone</source>
-        <translation type="unfinished"/>
+        <translation>Strefa zagrożenia</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -4125,11 +4126,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Discard local changes</source>
-        <translation type="unfinished"/>
+        <translation>Odrzuć lokalne zmiany</translation>
     </message>
     <message>
         <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
+        <translation>Czy lokalne zmiany powinny zostać odrzucone?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -4165,11 +4166,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Local changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Lokalne zmiany zostały odrzucone</translation>
     </message>
     <message>
         <source>Failed to discard changes</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się odrzucić zmian</translation>
     </message>
     <message>
         <source>No changes to discard</source>
@@ -4177,7 +4178,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Wykorzystano %1 z %2</translation>
     </message>
 </context>
 <context>
@@ -4305,7 +4306,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>Pojemność pamięci</translation>
     </message>
     <message>
         <source>Owner</source>
@@ -4357,38 +4358,38 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>Klonuj projekt</translation>
     </message>
     <message>
         <source>Creating project</source>
-        <translation type="unfinished"/>
+        <translation>Tworzenie projektu</translation>
     </message>
     <message>
         <source>Create project from template</source>
-        <translation type="unfinished"/>
+        <translation>Utwórz projekt z szablonu</translation>
     </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
     <message>
         <source>Predefined Filters</source>
-        <translation type="unfinished"/>
+        <translation>Wstępnie zdefiniowane filtry</translation>
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>Kryteria</translation>
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation type="unfinished"/>
+        <translation>Tytuł lub opis zawiera</translation>
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>Właściciel to</translation>
     </message>
     <message>
         <source>Include public projects</source>
-        <translation type="unfinished"/>
+        <translation>Uwzględnij projekty publiczne</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4396,15 +4397,15 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>My own</source>
-        <translation type="unfinished"/>
+        <translation>Moje własne</translation>
     </message>
     <message>
         <source>Owned by %1</source>
-        <translation type="unfinished"/>
+        <translation>Właściciel to %1</translation>
     </message>
     <message>
         <source>Include public templates</source>
-        <translation type="unfinished"/>
+        <translation>Uwzględnij szablony publiczne</translation>
     </message>
 </context>
 <context>
@@ -4450,7 +4451,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Wyszukaj projekty</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
@@ -4486,23 +4487,23 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Szukam projektów...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
+        <translation>Nie znaleziono żadnych projektów w chmurze.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Spróbuj %1włączyć projekty publiczne%2 i zobacz, co ma do zaoferowania społeczność.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
+        <translation>Spróbuj %1włączyć projekty publiczne%2.</translation>
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Na początek %1zapoznaj się z dokumentacją%2.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -4518,7 +4519,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Settings page</source>
-        <translation type="unfinished"/>
+        <translation>Strona ustawień</translation>
     </message>
     <message>
         <source>Show invalid projects</source>
@@ -4542,7 +4543,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Clone Project</source>
-        <translation type="unfinished"/>
+        <translation>Klonuj projekt</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
@@ -4586,19 +4587,19 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished"/>
+        <translation>Szablony</translation>
     </message>
     <message>
         <source>Project Creation</source>
-        <translation type="unfinished"/>
+        <translation>Tworzenie projektu</translation>
     </message>
     <message>
         <source>Enter your project name</source>
-        <translation type="unfinished"/>
+        <translation>Wpisz nazwę swojego projektu </translation>
     </message>
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
-        <translation type="unfinished"/>
+        <translation>Dopuszczalne znaki: 0-9A-Za-z_-</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -4606,31 +4607,31 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Search for templates</source>
-        <translation type="unfinished"/>
+        <translation>Wyszukaj szablony</translation>
     </message>
     <message>
         <source>Refreshing templates list...</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizowanie listy szablonów...</translation>
     </message>
     <message>
         <source>Searching for templates...</source>
-        <translation type="unfinished"/>
+        <translation>Szukam szablonów...</translation>
     </message>
     <message>
         <source>No templates found.</source>
-        <translation type="unfinished"/>
+        <translation>Nie znaleziono żadnych szablonów.</translation>
     </message>
     <message>
         <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Spróbuj %1włączyć publiczne szablony%2 i zobacz, co ma do zaoferowania społeczność.</translation>
     </message>
     <message>
         <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
+        <translation>Spróbuj %1włączyć szablony publiczne%2.</translation>
     </message>
     <message>
         <source>Refresh templates list</source>
-        <translation type="unfinished"/>
+        <translation>Odśwież listę szablonów</translation>
     </message>
 </context>
 <context>
@@ -5040,23 +5041,23 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Is the app running? HTTP request failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Czy aplikacja działa? Nie udało się wysłać żądania HTTP: %1</translation>
     </message>
     <message>
         <source>Egeniouss service is not ready.</source>
-        <translation type="unfinished"/>
+        <translation>Usługa Egeniouss jeszcze nie działa.</translation>
     </message>
     <message>
         <source>Last fix</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnia poprawka</translation>
     </message>
     <message>
         <source>Heading</source>
-        <translation type="unfinished"/>
+        <translation>Nagłówek</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"/>
+        <translation>Rolka</translation>
     </message>
     <message>
         <source>Pitch</source>
@@ -5064,7 +5065,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Heading sigma</source>
-        <translation type="unfinished"/>
+        <translation>Nagłówek sigma</translation>
     </message>
 </context>
 <context>
@@ -5973,7 +5974,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Send compressed file(s) to...</source>
-        <translation type="unfinished"/>
+        <translation>Wyślij skompresowane pliki do...</translation>
     </message>
     <message>
         <source>Delete file(s)</source>
@@ -6713,7 +6714,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -7413,7 +7414,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli ta opcja jest włączona, będą gromadzone i przesyłane zanonimizowane dane statystyczne, które pomogą poprawić komfort korzystania z serwisu dla wszystkich.</translation>
     </message>
     <message>
         <source>General</source>
@@ -7525,31 +7526,31 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Sieć</translation>
     </message>
     <message>
         <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
+        <translation>Dostępne konfiguracje uwierzytelniania:</translation>
     </message>
     <message>
         <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
+        <translation>Wyczyść pamięć podręczną uwierzytelniania</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
+        <translation>Pamięć podręczna uwierzytelniania została wyczyszczona</translation>
     </message>
     <message>
         <source>Enable proxy</source>
-        <translation type="unfinished"/>
+        <translation>Włącz serwer proxy</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ</translation>
     </message>
     <message>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia domyślne systemu</translation>
     </message>
     <message>
         <source>Host</source>
@@ -7557,7 +7558,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>np. proxy.przyklad.com</translation>
     </message>
     <message>
         <source>Port</source>
@@ -7565,7 +7566,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>np. 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -7573,7 +7574,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcjonalnie</translation>
     </message>
     <message>
         <source>Password</source>
@@ -7581,11 +7582,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
+        <translation>Adresy URL wykluczone z serwera proxy (oddzielone przecinkami)</translation>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>np. localhost, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
@@ -7597,7 +7598,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Urządzenie do pozycjonowania</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
@@ -7629,11 +7630,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>Włącz poprawki NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Klient NTRIP się rozłączył</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
@@ -7645,7 +7646,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Podaj poprawne ustawienia NTRIP</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -7677,7 +7678,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Sygnatura czasowa (sekundy od epoki)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -7717,15 +7718,15 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Próg złej dokładności</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Próg doskonałej dokładności</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
@@ -7741,7 +7742,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Minimum positions count</source>
-        <translation type="unfinished"/>
+        <translation>Minimalna liczba pozycji</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -7753,7 +7754,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Korekta wysokości</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -7761,11 +7762,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>Wysokość anteny</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>Ta wartość skoryguje wartości osi Z zarejestrowane przez urządzenie pozycjonujące. Jeśli wpiszesz wartość 1,6, system automatycznie odliczy 1,6 od każdej zarejestrowanej wartości. Pamiętaj, żeby podać efektywną wysokość anteny, czyli długość masztu + przesunięcie środka fazowego anteny.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -7797,7 +7798,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 Ustawienia</translation>
     </message>
 </context>
 <context>
@@ -8129,7 +8130,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Cześć, jak ci się jak dotąd podoba korzystanie z %1?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
@@ -8145,7 +8146,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Aby poprawić stabilność serwisu dla wszystkich, %1 zbiera i wysyła anonimowe dane analityczne.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -8175,7 +8176,7 @@ projekt</translation>
     </message>
     <message>
         <source>Recently Opened</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio otwarte</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -8199,7 +8200,7 @@ projekt</translation>
     </message>
     <message>
         <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
+        <translation>Usuń z ostatnio otwieranych</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -8215,7 +8216,7 @@ projekt</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Pierwszy raz korzystasz z tej aplikacji? Wypróbuj poniższe przykładowe projekty.</translation>
     </message>
 </context>
 <context>
