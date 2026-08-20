@@ -56,9 +56,14 @@ void QfDeltaChangesModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrap
     connect( mDeltaFileWrapper, &QfDeltaFileWrapper::countChanged, this, &QfDeltaChangesModel::refresh );
   }
 
-  refresh();
+  beginResetModel();
+  mLayerSummaries.clear();
+  mDeltaChanges.clear();
+  endResetModel();
 
   emit deltaFileWrapperChanged();
+
+  refresh();
 }
 
 int QfDeltaChangesModel::rowCount( const QModelIndex &parent ) const
