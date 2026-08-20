@@ -4984,6 +4984,9 @@ ApplicationWindow {
         } else {
           projectInfo.restoreCloudUserInformation();
         }
+        if (!qfieldCloudPopup.visible) {
+          cloudMenuTour.startOnProjectWithLocalChanges();
+        }
       } else {
         projectInfo.hasInsertRights = true;
         projectInfo.hasEditRights = true;
@@ -5868,13 +5871,70 @@ ApplicationWindow {
     }
   }
 
+  QfGuide {
+    id: cloudButtonTour
+    baseRoot: mainWindow
+    objectName: 'cloudButtonTour'
+    z: dashBoard.z + 1
+    index: -1
+
+    steps: [
+      {
+        "type": "information",
+        "title": qsTr("Local changes"),
+        "description": qsTr("This project has local changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud."),
+        "target": () => [iface.findItemByObjectName('cloudButton')]
+      }
+    ]
+
+    Connections {
+      target: dashBoard
+
+      function onOpened() {
+        if (!mainWindow.hasLocalCloudChanges || dashboardTour.visible || !settings.valueBool("/QField/showCloudButtonGuide", true)) {
+          return;
+        }
+        cloudButtonTour.index = 0;
+        cloudButtonTour.runTour();
+        settings.setValue("/QField/showCloudButtonGuide", false);
+      }
+    }
+  }
+
+  QfGuide {
+    id: cloudMenuTour
+    baseRoot: mainWindow
+    objectName: 'cloudMenuTour'
+
+    steps: [
+      {
+        "type": "information",
+        "title": qsTr("Local changes"),
+        "description": qsTr("This project has local changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud."),
+        "target": () => [menuButton]
+      }
+    ]
+
+    function startOnProjectWithLocalChanges() {
+      if (!mainWindow.hasLocalCloudChanges || !settings.valueBool("/QField/showCloudMenuGuide", true)) {
+        return;
+      }
+      runTour();
+      settings.setValue("/QField/showCloudMenuGuide", false);
+    }
+  }
+
   Item {
     objectName: 'toursController'
 
     function blockGuides() {
       mapCanvasTour.blockGuide();
+      cloudButtonTour.blockGuide();
+      cloudMenuTour.blockGuide();
       settings.setValue("/QField/showMapCanvasGuide", false);
       settings.setValue("/QField/showDashBoardGuide", false);
+      settings.setValue("/QField/showCloudButtonGuide", false);
+      settings.setValue("/QField/showCloudMenuGuide", false);
     }
   }
 
