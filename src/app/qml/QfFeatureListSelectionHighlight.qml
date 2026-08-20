@@ -26,8 +26,8 @@ Repeater {
 
   delegate: QfGeometryRenderer {
     mapSettings: featureListSelectionHighlight.mapSettings
-    geometryWrapper.qgsGeometry: model.geometry
     geometryWrapper.crs: model.crs
+    geometryWrapper.qgsGeometry: model.geometry
 
     visible: featureListSelectionHighlight.visible && (!showSelectedOnly || model.featureSelected)
     color: model.featureSelected ? featureListSelectionHighlight.selectedColor : selectionModel.model.selectedCount === 0 && selectionModel && model.index === selectionModel.focusedItem ? featureListSelectionHighlight.focusedColor : featureListSelectionHighlight.color

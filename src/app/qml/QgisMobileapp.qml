@@ -1221,8 +1221,8 @@ ApplicationWindow {
       visible: informationDrawer.elevationProfile.visible
       mapSettings: mapCanvas.mapSettings
       geometry: QfGeometryWrapper {
-        qgsGeometry: informationDrawer.elevationProfile.profileCurve
         crs: informationDrawer.elevationProfile.crs
+        qgsGeometry: informationDrawer.elevationProfile.profileCurve
       }
       color: "#FFFFFF"
       lineWidth: 4

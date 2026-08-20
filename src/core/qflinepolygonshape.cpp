@@ -36,10 +36,27 @@ void QfLinePolygonShape::createPolylines()
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   const double scaleFactor = 1.0 / mMapSettings->mapUnitsPerPoint();
 
+  if ( !mGeometry || !mGeometry->crs().isValid() || mGeometry->qgsGeometry().isNull() )
+  {
+    if ( mPolylinesType != Qgis::GeometryType::Null )
+    {
+      mPolylinesType = Qgis::GeometryType::Null;
+      emit polylinesTypeChanged();
+    }
+
+    if ( !mPolylines.isEmpty() )
+    {
+      mPolylines.clear();
+      emit polylinesChanged();
+    }
+
+    return;
+  }
+
   mPolylines.clear();
 
-  QgsGeometry geometry( mGeometry ? mGeometry->qgsGeometry() : QgsGeometry() );
-  if ( mGeometry && mGeometry->crs() != mMapSettings->destinationCrs() )
+  QgsGeometry geometry( mGeometry->qgsGeometry() );
+  if ( mGeometry->crs() != mMapSettings->destinationCrs() )
   {
     QgsCoordinateTransform ct( mGeometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
     try
@@ -53,11 +70,10 @@ void QfLinePolygonShape::createPolylines()
   }
 
   Qgis::GeometryType geomType = Qgis::GeometryType::Null;
-  if ( mGeometry && !geometry.isEmpty() && geometry.type() != Qgis::GeometryType::Point )
+  if ( !geometry.isEmpty() && geometry.type() != Qgis::GeometryType::Point )
   {
     geometry = geometry.simplify( mMapSettings->mapUnitsPerPoint() );
     geometry = geometry.makeValid();
-
     geomType = geometry.type();
     switch ( geomType )
     {
@@ -230,20 +246,37 @@ void QfLinePolygonShape::setGeometry( QfGeometryWrapper *geometry )
 
   if ( mGeometry )
   {
-    disconnect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
-    disconnect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
+    disconnect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::catchGeometryWrapperChange );
+    disconnect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::catchGeometryWrapperChange );
   }
 
   mGeometry = geometry;
 
   if ( mGeometry )
   {
-    connect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
-    connect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
+    connect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::catchGeometryWrapperChange );
+    connect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::catchGeometryWrapperChange );
+
+    if ( mGeometry->crs().isValid() && !mGeometry->qgsGeometry().isEmpty() )
+    {
+      qInfo() << "QfLinePolygonShape::setGeometry crs:" << mGeometry->crs().authid();
+      qInfo() << "QfLinePolygonShape::setGeometry geometry:" << mGeometry->qgsGeometry().asWkt();
+    }
   }
 
   mDirty = true;
-  emit qgsGeometryChanged();
+  emit geometryChanged();
 
   updateTransform();
+}
+
+void QfLinePolygonShape::catchGeometryWrapperChange()
+{
+  if ( mGeometry->crs().isValid() && !mGeometry->qgsGeometry().isEmpty() )
+  {
+    qInfo() << "QfLinePolygonShape::catchGeometryWrapperChange crs:" << mGeometry->crs().authid();
+    qInfo() << "QfLinePolygonShape::catchGeometryWrapperChange geometry:" << mGeometry->qgsGeometry().asWkt();
+  }
+
+  makeDirty();
 }

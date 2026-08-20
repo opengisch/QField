@@ -35,7 +35,7 @@ class QfLinePolygonShape : public QQuickItem
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     Q_PROPERTY( float lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( QfGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
+    Q_PROPERTY( QfGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY geometryChanged )
 
     //! List of polylines representing the geometry
     Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
@@ -67,7 +67,7 @@ class QfLinePolygonShape : public QQuickItem
     void colorChanged();
     void lineWidthChanged();
     void mapSettingsChanged();
-    void qgsGeometryChanged();
+    void geometryChanged();
     void updated();
     //! \copydoc polylines
     void polylinesChanged();
@@ -79,6 +79,7 @@ class QfLinePolygonShape : public QQuickItem
     void mapCrsChanged();
     void visibleExtentChanged();
     void makeDirty();
+    void catchGeometryWrapperChange();
 
   private:
     void updateTransform();

@@ -31,8 +31,8 @@ Node {
 
       Model {
         geometry: Qf3DGeometry {
-          qgsGeometry: model.geometry
           crs: model.crs
+          qgsGeometry: model.geometry
           terrainProvider: featureListSelectionHighlight3D.terrainProvider
           lineWidth: featureListSelectionHighlight3D.lineWidth
           heightOffset: featureListSelectionHighlight3D.heightOffset
