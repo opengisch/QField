@@ -466,7 +466,7 @@ Popup {
 
                   Flow {
                     Layout.fillWidth: true
-                    spacing: 2
+                    spacing: 4
 
                     Repeater {
                       model: [
@@ -516,6 +516,11 @@ Popup {
                             color: modelData.color
                             text: modelData.label
                           }
+                        }
+
+                        MouseArea {
+                          anchors.fill: parent
+                          onClicked: swipeView.currentIndex = 2
                         }
                       }
                     }
