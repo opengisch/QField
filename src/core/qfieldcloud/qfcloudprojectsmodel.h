@@ -183,9 +183,6 @@ class QfCloudProjectsModel : public QAbstractListModel
     //! Cancels ongoing cloud project download with \a projectId.
     Q_INVOKABLE void projectCancelDownload( const QString &projectId );
 
-    //! Configure localized data paths for cloud projects when available.
-    Q_INVOKABLE void updateLocalizedDataPaths( const QString &projectPath );
-
     //! Return the cloud project for a given \a projectId.
     Q_INVOKABLE QfCloudProject *findProject( const QString &projectId ) const;
 

@@ -505,6 +505,8 @@ class QfCloudProject : public QObject
 
     void setupDeltaFileWrapper();
 
+    void saveSettings();
+
     QfNetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true, bool autoRedirect = false );
     void downloadFileConnections( const QString &fileKey );
     void downloadAttachmentConnections( const QString &fileKey );

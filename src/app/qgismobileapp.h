@@ -201,6 +201,7 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
 
   private:
     void registerGlobalVariables();
+    void prepareLocalizedDataPaths( const QString &projectFilePath );
     void loadProjectQuirks();
     void saveProjectPreviewImage();
     bool printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination );

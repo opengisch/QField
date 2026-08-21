@@ -1450,6 +1450,8 @@ void QfCloudProject::downloadFilesCompleted( bool emptyDownload )
   QfCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalDataLastUpdatedAt" ), mLastLocalDataLastUpdatedAt );
   QfCloudUtils::setProjectSetting( mId, QStringLiteral( "lastLocalRestrictedDataLastUpdatedAt" ), mLastLocalRestrictedDataLastUpdatedAt );
 
+  saveSettings();
+
   emit downloadFinished();
 }
 
@@ -2215,19 +2217,7 @@ void QfCloudProject::refreshData( ProjectRefreshReason reason )
     setLastRefreshedAt( QDateTime::currentDateTimeUtc() );
     setDataLastUpdatedAt( QDateTime::fromString( projectData.value( "data_last_updated_at" ).toString(), Qt::ISODate ) );
 
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "name" ), mName );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "owner" ), mOwner );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "description" ), mDescription );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "userRole" ), mUserRole );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "userRoleOrigin" ), mUserRoleOrigin );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "createdAt" ), mCreatedAt.toString( Qt::DateFormat::ISODate ) );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "updatedAt" ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "remoteSizeBytes" ), mRemoteSizeBytes );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "isPublic" ), mIsPublic );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "isFeatured" ), mIsFeatured );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
-    QfCloudUtils::setProjectSetting( mId, QStringLiteral( "dataLastUpdatedAt" ), mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+    saveSettings();
 
     emit dataRefreshed( reason );
   } );
@@ -2326,24 +2316,7 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
     {
       restoreLocalSettings( project, localPath );
       project->mCheckout = !project->mLocalPath.isEmpty() ? LocalAndRemoteCheckout : RemoteCheckout;
-
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "owner" ), project->owner() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "name" ), project->name() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "description" ), project->description() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "userRole" ), project->userRole() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "userRoleOrigin" ), project->userRoleOrigin() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "createdAt" ), project->createdAt().toString( Qt::DateFormat::ISODate ) );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "updatedAt" ), project->updatedAt().toString( Qt::DateFormat::ISODate ) );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "remoteSizeBytes" ), project->remoteSizeBytes() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "canRepackage" ), project->canRepackage() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "sharedDatasetsProjectId" ), project->sharedDatasetsProjectId() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "projectType" ), static_cast<int>( project->type() ) );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isPublic" ), project->isPublic() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isAttachmentDownloadOnDemand" ), project->attachmentsOnDemandEnabled() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "dataLastUpdatedAt" ), project->mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "restrictedDataLastUpdatedAt" ), project->mRestrictedDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+      project->saveSettings();
     }
   }
 
@@ -2640,4 +2613,28 @@ void QfCloudProject::uploadFiles()
       uploadFiles();
     }
   } );
+}
+
+void QfCloudProject::saveSettings()
+{
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "name" ), mName );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "owner" ), mOwner );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "description" ), mDescription );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "userRole" ), mUserRole );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "userRoleOrigin" ), mUserRoleOrigin );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "createdAt" ), mCreatedAt.toString( Qt::DateFormat::ISODate ) );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "updatedAt" ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "remoteSizeBytes" ), mRemoteSizeBytes );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "sharedDatasetsProjectId" ), mSharedDatasetsProjectId );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "projectType" ), static_cast<int>( mType ) );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "isPublic" ), mIsPublic );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "isFeatured" ), mIsFeatured );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "canRepackage" ), mCanRepackage );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "needsRepackaging" ), mNeedsRepackaging );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "dataLastUpdatedAt" ), mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "isAttachmentDownloadOnDemand" ), mAttachmentsOnDemandEnabled );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "dataLastUpdatedAt" ), mDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "restrictedDataLastUpdatedAt" ), mRestrictedDataLastUpdatedAt.toString( Qt::DateFormat::ISODate ) );
 }
