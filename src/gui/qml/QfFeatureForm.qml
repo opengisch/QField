@@ -1106,7 +1106,6 @@ Page {
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
         Layout.leftMargin: (!saveButton.isVisible ? QfTheme.toolButtonSize : 0) + (!setupOnly && form.model.hasRemembrance ? QfTheme.toolButtonSize : 0)
-        Layout.rightMargin: !setupOnly ? 0 : QfTheme.toolButtonSize
         objectName: "titleLabel"
 
         font: QfTheme.strongFont
@@ -1166,15 +1165,12 @@ Page {
       QfToolButton {
         id: closeButton
 
-        property bool isVisible: !setupOnly
-
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
         width: QfTheme.toolButtonSize
         height: QfTheme.toolButtonSize
         clip: true
-        visible: isVisible
 
-        iconSource: form.state === 'Add' ? QfTheme.getThemeVectorIcon('ic_delete_forever_white_24dp') : QfTheme.getThemeVectorIcon('ic_close_white_24dp')
+        iconSource: !setupOnly && form.state === 'Add' ? QfTheme.getThemeVectorIcon('ic_delete_forever_white_24dp') : QfTheme.getThemeVectorIcon('ic_close_white_24dp')
         iconColor: QfTheme.mainTextColor
 
         onClicked: {
@@ -1243,11 +1239,18 @@ Page {
     id: cancelDialog
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
-    title: qsTr("Cancel editing")
+    title: qsTr("Cancel")
     Label {
       width: parent.width
       wrapMode: Text.WordWrap
-      text: form.state === 'Add' ? qsTr("You are about to dismiss the new feature, proceed?") : qsTr("You are about to leave editing state, any changes will be lost. Proceed?")
+      text: {
+        if (setupOnly) {
+          return qsTr("You are about to cancel the feature setup, proceed?");
+        } else if (form.state === 'Add') {
+          return qsTr("You are about to dismiss the new feature, proceed?");
+        }
+        return qsTr("You are about to leave editing state, any changes will be lost. Proceed?");
+      }
     }
     onAccepted: {
       form.cancel();
