@@ -2088,23 +2088,29 @@ void QfCloudProject::getCreateProjectJobStatus()
       case JobQueuedStatus:
       case JobStartedStatus:
       case JobStoppedStatus:
+      {
         mCreateJobAttempts++;
         if ( mCreateJobAttempts >= sMaxCreateJobAttempts )
         {
           setStatus( ProjectStatus::Failing );
           return;
         }
-        // 2s floor with a mild backoff so a slow or worker-starved queue is not hammered.
-        QTimer::singleShot( sCreateJobBaseDelay + ( mCreateJobAttempts * 500 ), this, [this]() { getCreateProjectJobStatus(); } );
+
+        QTimer::singleShot( sDelayBeforeStatusRetry + ( mCreateJobAttempts * 250 ), this, [this]() { getCreateProjectJobStatus(); } );
         return;
+      }
 
       case JobFinishedStatus:
+      {
         setStatus( ProjectStatus::Idle );
         return;
+      }
 
       case JobFailedStatus:
+      {
         setStatus( ProjectStatus::Failing );
         return;
+      }
     }
   } );
 }
