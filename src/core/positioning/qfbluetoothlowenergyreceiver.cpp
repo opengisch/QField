@@ -159,7 +159,7 @@ void QfBluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController
   qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Controller state %1" ).arg( mController->state() );
   qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Connect on disconnect: %1" ).arg( mConnectOnDisconnect ? "true" : "false" );
 
-  if ( mController->state() == QLowEnergyController::UnconnectedState || mController->state() == QLowEnergyController::ConnectingState || mController->state() == QLowEnergyController::ClosingState )
+  if ( mController->state() != QLowEnergyController::ConnectedState )
   {
     if ( mConnectOnDisconnect )
     {
