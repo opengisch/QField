@@ -16,6 +16,8 @@ Page {
   signal viewProjectFolder(string projectPath)
 
   property string requestedProjectDetails: ""
+  property string pendingCreatedProjectId: ""
+  property bool pendingCreatedDownloadStarted: false
   property QfCloudStatus cloudServiceStatus: null
 
   leftPadding: mainWindow.sceneLeftMargin
@@ -699,7 +701,7 @@ Page {
             id: refreshProjectsListBtn
             Layout.fillWidth: true
             text: filterBar.currentIndex === 1 ? qsTr("Refresh templates list") : qsTr("Refresh projects list")
-            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 && pendingCreatedProjectId === ""
             showProgress: cloudProjectsModel.isRefreshing || table.model.isSearching
             progressValue: 0
             onClicked: {
@@ -709,7 +711,7 @@ Page {
 
           QfToolButton {
             id: scanProjectBtn
-            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0 && pendingCreatedProjectId === ""
             visible: enabled
 
             bgcolor: "transparent"
@@ -1006,6 +1008,8 @@ Page {
     onAccepted: {
       const trimmedName = cloneProjectName.text.trim();
       if (trimmedName !== "") {
+        busyOverlay.text = qsTr("Creating project…");
+        busyOverlay.state = "visible";
         cloudProjectsModel.createProject(trimmedName, sourceProjectId);
       }
     }
@@ -1062,10 +1066,60 @@ Page {
     function onProjectCreated(projectId, fromProjectId, hasError, errorString) {
       const isClone = fromProjectId !== "";
       if (hasError) {
+        busyOverlay.state = "hidden";
         displayToast(isClone ? qsTr("Project cloning failed: %1").arg(errorString) : qsTr("Project creation failed: %1").arg(errorString));
-      } else {
-        displayToast(isClone ? qsTr("Project successfully cloned") : qsTr("Project successfully created"));
+        return;
       }
+      pendingCreatedProjectId = projectId;
+      pendingCreatedDownloadStarted = false;
+      busyOverlay.text = qsTr("Preparing project…");
+    }
+
+    function onProjectDownloaded(projectId, projectName, projectOwner, hasError, errorString) {
+      // Only react to the download started as part of a create-from-source flow
+      if (projectId !== pendingCreatedProjectId) {
+        return;
+      }
+      pendingCreatedProjectId = "";
+      pendingCreatedDownloadStarted = false;
+      busyOverlay.state = "hidden";
+
+      if (hasError) {
+        displayToast(qsTr("Project created but downloading failed: %1").arg(QfCloudUtils.userFriendlyErrorString(errorString)));
+        return;
+      }
+
+      projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
+      projectsSwipeView.currentIndex = 1;
+    }
+  }
+
+  Connections {
+    target: pendingCreatedProjectId !== "" ? cloudProjectsModel.findProject(pendingCreatedProjectId) : null
+    ignoreUnknownSignals: true
+
+    function onStatusChanged() {
+      // The project leaves the Creating state once its create job settles.
+      // On success we start the download and on failure we surface the error and clear the overlay
+      if (target.status === QfCloudProject.ProjectStatus.Creating) {
+        return;
+      }
+      if (target.status === QfCloudProject.ProjectStatus.Failing) {
+        pendingCreatedProjectId = "";
+        pendingCreatedDownloadStarted = false;
+        busyOverlay.state = "hidden";
+        displayToast(qsTr("The newly-created project could not be prepared."), 'warning');
+        return;
+      }
+      if (target.status === QfCloudProject.ProjectStatus.Idle && !pendingCreatedDownloadStarted) {
+        pendingCreatedDownloadStarted = true;
+        busyOverlay.text = qsTr("Downloading project…");
+        cloudProjectsModel.projectPackageAndDownload(pendingCreatedProjectId);
+      }
+    }
+
+    function onDownloadProgressChanged() {
+      busyOverlay.progress = target.downloadProgress;
     }
   }
 

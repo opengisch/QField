@@ -114,6 +114,7 @@ class QfCloudProject : public QObject
     enum class ProjectStatus
     {
       Idle,
+      Creating,
       Downloading,
       Pushing,
       Uploading,
@@ -382,6 +383,8 @@ class QfCloudProject : public QObject
     void cancelDownload();
 
     Q_INVOKABLE void push( bool shouldDownloadUpdates );
+
+    void ensureProjectCreated();
     void cancelPush();
 
     void refreshDeltaList();
@@ -496,6 +499,7 @@ class QfCloudProject : public QObject
     void startJob( JobType type );
     void getJobStatus( JobType type );
     void getDeltaStatus();
+    void getCreateProjectJobStatus();
 
     void refreshData( ProjectRefreshReason reason );
 
@@ -611,6 +615,11 @@ class QfCloudProject : public QObject
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
 
     static const int sDelayBeforeStatusRetry = 1000;
+
+    QString mCreateJobId;
+    int mCreateJobAttempts = 0;
+    static const int sMaxCreateJobAttempts = 20;
+    static const int sCreateJobBaseDelay = 2000;
 };
 
 Q_DECLARE_METATYPE( QfCloudProject::ProjectType )

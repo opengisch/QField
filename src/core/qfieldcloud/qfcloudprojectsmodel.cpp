@@ -1245,6 +1245,12 @@ void QfCloudProjectsModel::projectCreationReceived()
   {
     insertProjects( QList<QfCloudProject *>() << cloudProject );
     emit projectCreated( cloudProject->id(), fromProjectId, false, QString() );
+
+    if ( QfCloudProject *project = findProject( cloudProject->id() ) )
+    {
+      project->setStatus( QfCloudProject::ProjectStatus::Creating );
+      project->ensureProjectCreated();
+    }
   }
   else
   {
