@@ -538,6 +538,32 @@ void QgisMobileapp::reloadProjectFile()
   emit loadProjectTriggered( mProjectFilePath, mProjectFileName );
 }
 
+void QgisMobileapp::prepareLocalizedDataPaths( const QString &projectFilePath )
+{
+  const QString cloudProjectId = QfCloudUtils::getProjectId( projectFilePath );
+  QString cloudLocalizedDataPath;
+  if ( !cloudProjectId.isEmpty() )
+  {
+    const QString cloudSharedDatasetsProjectId = QfCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
+    if ( !cloudSharedDatasetsProjectId.isEmpty() )
+    {
+      const QString cloudUsername = QSettings().value( QStringLiteral( "/QFieldCloud/username" ) ).toString();
+      cloudLocalizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QfCloudUtils::localCloudDirectory(), cloudUsername, cloudSharedDatasetsProjectId );
+    }
+  }
+
+  QStringList localizedDataPaths = QgsApplication::instance()->localizedDataPathRegistry()->paths();
+  localizedDataPaths.erase( std::remove_if( localizedDataPaths.begin(),
+                                            localizedDataPaths.end(),
+                                            []( const QString &path ) { return path.startsWith( QfCloudUtils::localCloudDirectory() ); } ),
+                            localizedDataPaths.end() );
+  if ( !cloudLocalizedDataPath.isEmpty() )
+  {
+    localizedDataPaths << cloudLocalizedDataPath;
+  }
+  QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
+}
+
 void QgisMobileapp::readProjectFile()
 {
   QFileInfo fi( mProjectFilePath );
@@ -578,6 +604,8 @@ void QgisMobileapp::readProjectFile()
   bool projectLoaded = false;
   if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
   {
+    prepareLocalizedDataPaths( mProjectFilePath );
+
     mProject->read( mProjectFilePath, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
     projectLoaded = true;
   }
@@ -778,6 +806,7 @@ void QgisMobileapp::readProjectFile()
       const QString fileAssociationProject = settings.value( QStringLiteral( "QField/baseMapProject" ), QString() ).toString();
       if ( !fileAssociationProject.isEmpty() && QFile::exists( fileAssociationProject ) )
       {
+        prepareLocalizedDataPaths( fileAssociationProject );
         mProject->read( fileAssociationProject, Qgis::ProjectReadFlag::DontLoadProjectStyles | Qgis::ProjectReadFlag::DontLoad3DViews );
       }
       else

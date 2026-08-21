@@ -1129,28 +1129,6 @@ void QfCloudProjectsModel::setGpkgFlusher( QgsGpkgFlusher *flusher )
   emit gpkgFlusherChanged();
 }
 
-void QfCloudProjectsModel::updateLocalizedDataPaths( const QString &projectPath )
-{
-  const QString projectId = QfCloudUtils::getProjectId( projectPath );
-  QString localizedDataPath;
-  if ( !projectId.isEmpty() )
-  {
-    const QfCloudProject *project = findProject( projectId );
-    if ( project && !project->sharedDatasetsProjectId().isEmpty() )
-    {
-      localizedDataPath = QStringLiteral( "%1/%2/%3" ).arg( QfCloudUtils::localCloudDirectory(), mUsername, project->sharedDatasetsProjectId() );
-    }
-  }
-
-  QStringList localizedDataPaths = QgsApplication::instance()->localizedDataPathRegistry()->paths();
-  localizedDataPaths.erase( std::remove_if( localizedDataPaths.begin(),
-                                            localizedDataPaths.end(),
-                                            [&localizedDataPath]( const QString &path ) { return path.startsWith( QfCloudUtils::localCloudDirectory() ); } ),
-                            localizedDataPaths.end() );
-  localizedDataPaths << localizedDataPath;
-  QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
-}
-
 void QfCloudProjectsModel::createProject( const QString &name, const QString &fromProjectId )
 {
   if ( name.isEmpty() )
