@@ -3968,6 +3968,45 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
 </context>
 <context>
+    <name>QfCloudPendingChanges</name>
+    <message>
+        <source>added</source>
+        <translation>ajouté</translation>
+    </message>
+    <message>
+        <source>edited</source>
+        <translation>édité</translation>
+    </message>
+    <message>
+        <source>deleted</source>
+        <translation>supprimé</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Vide</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>Vide</translation>
+    </message>
+    <message>
+        <source>%1: %2 to %3</source>
+        <translation>%1 : %2 à %3</translation>
+    </message>
+    <message>
+        <source>%1: %2</source>
+        <translation>%1 : %2 </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n change(s)</source>
+        <translation><numerusform>%n changement(s)</numerusform><numerusform>%n changement(s)</numerusform><numerusform>%n changement(s)</numerusform></translation>
+    </message>
+    <message>
+        <source>Geometry modified</source>
+        <translation>Géométrie modifiée</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudPopup</name>
     <message>
         <source>Danger Zone</source>
@@ -4172,6 +4211,22 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Used %1 of %2</source>
         <translation>Utilisé %1 sur %2</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Modifications locales</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n addition(s)</source>
+        <translation><numerusform>%n ajout(s)</numerusform><numerusform>%n ajout(s)</numerusform><numerusform>%n ajout(s)</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n edit(s)</source>
+        <translation><numerusform>%n modification(s)</numerusform><numerusform>%n modification(s)</numerusform><numerusform>%n édition(s)</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n deletion(s)</source>
+        <translation><numerusform>%n suppression(s)</numerusform><numerusform>%n suppression(s)</numerusform><numerusform>%n suppression(s)</numerusform></translation>
     </message>
 </context>
 <context>

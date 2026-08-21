@@ -752,7 +752,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="vanished"><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(и) (%n)?</numerusform></translation>
+        <translation type="vanished"><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(-и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(-и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(-и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(-и) (%n)?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
@@ -1284,7 +1284,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation type="vanished">Видалити вибраний об&apos;єкт(и)</translation>
+        <translation type="vanished">Видалити вибраний об&apos;єкт(-и)</translation>
     </message>
     <message>
         <source>Feature Menu</source>
@@ -3975,6 +3975,45 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QfCloudPendingChanges</name>
+    <message>
+        <source>added</source>
+        <translation>додано</translation>
+    </message>
+    <message>
+        <source>edited</source>
+        <translation>відредаговано</translation>
+    </message>
+    <message>
+        <source>deleted</source>
+        <translation>видалено</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Порожній</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>НУЛЬ</translation>
+    </message>
+    <message>
+        <source>%1: %2 to %3</source>
+        <translation>%1: %2 до %3</translation>
+    </message>
+    <message>
+        <source>%1: %2</source>
+        <translation>%1: %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n change(s)</source>
+        <translation><numerusform>%n зміна(-и)</numerusform><numerusform>%n зміна(-и)</numerusform><numerusform>%n зміна(-и)</numerusform><numerusform>%n зміна(-и)</numerusform></translation>
+    </message>
+    <message>
+        <source>Geometry modified</source>
+        <translation>Геометрію змінено</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudPopup</name>
     <message>
         <source>Danger Zone</source>
@@ -4179,6 +4218,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Used %1 of %2</source>
         <translation>Використано %1 із %2</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Локальні зміни</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n addition(s)</source>
+        <translation><numerusform>%n доповнення(-нь)</numerusform><numerusform>%n доповнення(-нь)</numerusform><numerusform>%n доповнення(-нь)</numerusform><numerusform>%n доповнення(-нь)</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n edit(s)</source>
+        <translation><numerusform>%n редагування(-нь)</numerusform><numerusform>%n редагування(-нь)</numerusform><numerusform>%n редагування(-нь)</numerusform><numerusform>%n редагування(-нь)</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n deletion(s)</source>
+        <translation><numerusform>%n видалення(-нь)</numerusform><numerusform>%n видалення(-нь)</numerusform><numerusform>%n видалення(-нь)</numerusform><numerusform>%n видалення(-нь)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5355,7 +5410,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(и) (%n)?</numerusform></translation>
+        <translation><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(-и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(-и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(-и) (%n)?</numerusform><numerusform>Чи дійсно потрібно видалити вибраний об’єкт(-и) (%n)?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
@@ -6250,7 +6305,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Роздрукувати карту(и) в PDF</translation>
+        <translation>Друк об&apos;єктів атласу у PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
@@ -6266,11 +6321,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation>Видалити вибраний об&apos;єкт(и)</translation>
+        <translation>Видалити вибраний об&apos;єкт(-и)</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation>Обробити вибраний(і) об&apos;єкт(и)</translation>
+        <translation>Обробити вибраний(-і) об&apos;єкт(-и)</translation>
     </message>
     <message>
         <source>Feature Menu</source>
@@ -8869,11 +8924,11 @@ to show actions</source>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation>Інформаційна панель</translation>
+        <translation>Панель керування</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation>Ця кнопка відкриває інформаційну панель. За її допомогою можна взаємодіяти з легендою та темою карти або розпочати оцифрування, активувавши режим редагування. Тривале натискання кнопки забезпечує миттєвий доступ до головного меню.</translation>
+        <translation>Ця кнопка відкриває Панель керування. За її допомогою можна взаємодіяти з легендою та темою карти або розпочати оцифрування, активувавши режим редагування. Тривале натискання кнопки забезпечує миттєвий доступ до головного меню.</translation>
     </message>
     <message>
         <source>Positioning</source>

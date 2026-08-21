@@ -4017,6 +4017,48 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QfCloudPendingChanges</name>
+    <message>
+        <source>added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation type="unfinished">NULL</translation>
+    </message>
+    <message>
+        <source>%1: %2 to %3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n change(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Geometry modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QfCloudPopup</name>
     <message>
         <source>Danger Zone</source>
@@ -4227,6 +4269,31 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Used %1 of %2</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n addition(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n edit(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n deletion(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
