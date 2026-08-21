@@ -614,12 +614,11 @@ class QfCloudProject : public QObject
 
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
 
-    static const int sDelayBeforeStatusRetry = 1000;
-
     QString mCreateJobId;
     int mCreateJobAttempts = 0;
+
     static const int sMaxCreateJobAttempts = 20;
-    static const int sCreateJobBaseDelay = 2000;
+    static const int sDelayBeforeStatusRetry = 2000;
 };
 
 Q_DECLARE_METATYPE( QfCloudProject::ProjectType )
