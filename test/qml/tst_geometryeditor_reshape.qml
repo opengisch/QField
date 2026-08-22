@@ -171,8 +171,8 @@ TestCase {
   Item {
     id: coordinateLocator
     property var currentCoordinate: QfGeometryUtils.point(0, 0)
-    property string positionInformation: ""
-    property string topSnappingResult: ""
+    property var positionInformation
+    property var topSnappingResult
     property bool positionLocked: false
     function flash() {
     }
@@ -180,12 +180,12 @@ TestCase {
 
   Item {
     id: projectInfo
-    property string cloudUserInformation: ""
+    property var cloudUserInformation
   }
 
   Item {
     id: positionSource
-    property string positionInformation: ""
+    property var positionInformation
     property bool averagedPosition: false
     property int averagedPositionCount: 0
   }
