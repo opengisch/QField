@@ -250,6 +250,8 @@ Item {
       onCurrentIndexChanged: {
         if (searchFeaturePopup.opened)
           return;
+        if (!featureListModel)
+          return;
         const newValue = featureListModel.dataFromRowIndex(currentIndex, QfFeatureListModel.KeyFieldRole);
         if (newValue !== currentKeyValue) {
           valueChangeRequested(newValue, false);
