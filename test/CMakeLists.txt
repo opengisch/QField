@@ -77,6 +77,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   )
 
   file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
+  file(GLOB test_qmljsfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.js")
   add_executable(${TESTNAME} ${TESTSOURCES} ${test_qmlfiles})
   # This should sit next to the QML files but that's not possible with Qt5. Retry with Qt6
   # Same is in src/app/CMakeLists.txt
@@ -84,8 +85,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   get_target_property(QT_TARGET_TYPE Qt::Core TYPE)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(Qt6 COMPONENTS QmlImportScanner)
-
-    file(COPY ${test_qmlfiles}
+    file(COPY ${test_qmlfiles} ${test_qmljsfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
     foreach(qml_target qfield_core qfield_3d qfield_gui qfield_app)
       get_target_property(qfield_qmlfiles ${qml_target} QML_FILES)
