@@ -1,13 +1,13 @@
 import QtQuick
 import QtTest
 import org.qfield.core
-import org.qfield.app as QFieldControls
+import org.qfield.app
 
 TestCase {
   name: "QfCloudPendingChanges"
   when: windowShown
 
-  QFieldControls.QfCloudPendingChanges {
+  QfCloudPendingChanges {
     id: pendingChanges
     width: 400
     height: 600

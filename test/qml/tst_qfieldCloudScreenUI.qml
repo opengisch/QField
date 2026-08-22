@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtTest
 import org.qfield.core
-import org.qfield.app as QFieldControls
+import org.qfield.app
 
 TestCase {
   name: "QFieldCloudScreenUI"
@@ -62,7 +62,7 @@ TestCase {
     // no-op for test environment
     }
 
-    QFieldControls.QfCloudScreen {
+    QfCloudScreen {
       id: qfieldCloudScreen
       width: mainWindow.width
       height: mainWindow.height

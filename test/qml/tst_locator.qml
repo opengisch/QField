@@ -2,7 +2,7 @@ import QtQuick
 import QtTest
 import org.qgis
 import org.qfield
-import org.qfield.core as QFieldControls
+import org.qfield.core
 
 /**
  * test_locator.cpp covers each filter's logic in isolation. These tests instead
@@ -15,7 +15,7 @@ TestCase {
 
   property var searchLayer: null
 
-  QFieldControls.QfMapCanvas {
+  QfMapCanvas {
     id: mapCanvas
     objectName: "mapCanvas"
   }
