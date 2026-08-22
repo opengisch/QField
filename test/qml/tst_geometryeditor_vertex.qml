@@ -157,7 +157,7 @@ TestCase {
   Item {
     id: coordinateLocator
     property var currentCoordinate: QfGeometryUtils.point(0, 0)
-    property string positionInformation: ""
+    property var positionInformation
     property var topSnappingResult
     property bool positionLocked: false
     function flash() {
