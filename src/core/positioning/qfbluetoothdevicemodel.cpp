@@ -238,16 +238,16 @@ QVariant QfBluetoothDeviceModel::data( const QModelIndex &index, int role ) cons
       return info.name();
 
     case DeviceClassicSupportRole:
-      return ( info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateCoreConfiguration || info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateAndLowEnergyCoreConfiguration ? true : false );
+      return ( info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateCoreConfiguration ) ? true : false;
 
     case DeviceLowEnergySupportRole:
-      return ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration || info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateAndLowEnergyCoreConfiguration ? true : false );
+      return ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration ) ? true : false;
 
     case DeviceLowEnergyByDefaultRole:
 #if defined( Q_OS_IOS )
       return true;
 #endif
-      if ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration || info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateAndLowEnergyCoreConfiguration )
+      if ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration )
       {
         const QList<QBluetoothUuid> supportedServices = QfBluetoothLowEnergyReceiver::serviceChars.keys();
         return std::any_of( supportedServices.begin(), supportedServices.end(), [&info]( const QBluetoothUuid &service ) { return info.serviceUuids().contains( service ); } );
