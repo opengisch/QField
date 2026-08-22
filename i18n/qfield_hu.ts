@@ -4617,14 +4617,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Projekt készítés sikertelen: %1</translation>
     </message>
     <message>
-        <source>Project successfully cloned</source>
-        <translation>A projekt másolása sikerült</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>Sikerült létrehozni a projektet</translation>
-    </message>
-    <message>
         <source>Refreshing projects list</source>
         <translation>Projekt lista frissítése</translation>
     </message>
@@ -4674,6 +4666,26 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Refresh templates list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creating project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Preparing project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project created but downloading failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project…</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -4623,14 +4623,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>工程创建失败: %1</translation>
     </message>
     <message>
-        <source>Project successfully cloned</source>
-        <translation>工程克隆成功</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>工程创建成功</translation>
-    </message>
-    <message>
         <source>Refreshing projects list</source>
         <translation>正在刷新工程列表</translation>
     </message>
@@ -4681,6 +4673,26 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Refresh templates list</source>
         <translation>刷新模板列表</translation>
+    </message>
+    <message>
+        <source>Creating project…</source>
+        <translation>正在创建工程…</translation>
+    </message>
+    <message>
+        <source>Preparing project…</source>
+        <translation>正在准备工程…</translation>
+    </message>
+    <message>
+        <source>Project created but downloading failed: %1</source>
+        <translation>工程已创建，但下载失败: %1</translation>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation>无法准备新创建的工程。</translation>
+    </message>
+    <message>
+        <source>Downloading project…</source>
+        <translation>正在下载工程…</translation>
     </message>
 </context>
 <context>

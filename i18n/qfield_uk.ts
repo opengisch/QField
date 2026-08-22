@@ -2744,7 +2744,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show position information</source>
-        <translation type="vanished">Показувати інформацію про місце розташування</translation>
+        <translation type="vanished">Показати інформацію про місцерозташування</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
@@ -4629,14 +4629,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Не вдалося створити проект: %1</translation>
     </message>
     <message>
-        <source>Project successfully cloned</source>
-        <translation>Проект успішно клоновано</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>Проект успішно створено</translation>
-    </message>
-    <message>
         <source>Refreshing projects list</source>
         <translation>Оновлення списку проектів</translation>
     </message>
@@ -4687,6 +4679,26 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Refresh templates list</source>
         <translation>Оновити список шаблонів</translation>
+    </message>
+    <message>
+        <source>Creating project…</source>
+        <translation>Створення проекту...</translation>
+    </message>
+    <message>
+        <source>Preparing project…</source>
+        <translation>Підготовка проекту…</translation>
+    </message>
+    <message>
+        <source>Project created but downloading failed: %1</source>
+        <translation>Проект створено, але завантаження не вдалося: %1</translation>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation>Щойно створений проект не вдалося підготувати.</translation>
+    </message>
+    <message>
+        <source>Downloading project…</source>
+        <translation>Завантаження проекту...</translation>
     </message>
 </context>
 <context>
@@ -7705,7 +7717,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Показувати інформацію про місце розташування</translation>
+        <translation>Показати інформацію про місцерозташування</translation>
     </message>
     <message>
         <source>Behavior when locked to position:</source>
@@ -8776,7 +8788,7 @@ to show actions</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Показати інформацію про позицію</translation>
+        <translation>Показати інформацію про місцерозташування</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
@@ -10080,7 +10092,7 @@ to show actions</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="vanished">Показати інформацію про позицію</translation>
+        <translation type="vanished">Показати інформацію про місцерозташування</translation>
     </message>
     <message>
         <source>Positioning Settings</source>

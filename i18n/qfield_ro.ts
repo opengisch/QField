@@ -4629,14 +4629,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Refreshing projects list</source>
         <translation>Reîmprospătare a listei de proiecte</translation>
     </message>
@@ -4686,6 +4678,26 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refresh templates list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creating project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Preparing project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project created but downloading failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project…</source>
         <translation type="unfinished"/>
     </message>
 </context>

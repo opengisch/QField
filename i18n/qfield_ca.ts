@@ -4627,14 +4627,6 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Ha fallat la creació del projecte: %1</translation>
     </message>
     <message>
-        <source>Project successfully cloned</source>
-        <translation>Projecte clonat correctament</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>Projecte creat correctament</translation>
-    </message>
-    <message>
         <source>Refreshing projects list</source>
         <translation>Actualitzant la llista de projectes</translation>
     </message>
@@ -4684,6 +4676,26 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Refresh templates list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creating project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Preparing project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project created but downloading failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project…</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -4622,14 +4622,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Échec de la création du projet: %1</translation>
     </message>
     <message>
-        <source>Project successfully cloned</source>
-        <translation>Projet cloné avec succès</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>Projet créé avec succès</translation>
-    </message>
-    <message>
         <source>Refreshing projects list</source>
         <translation>Rafraîchissement de la liste des projets</translation>
     </message>
@@ -4680,6 +4672,26 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Refresh templates list</source>
         <translation>Actualiser la liste des modèles</translation>
+    </message>
+    <message>
+        <source>Creating project…</source>
+        <translation>Création du projet…</translation>
+    </message>
+    <message>
+        <source>Preparing project…</source>
+        <translation>Préparation du projet…</translation>
+    </message>
+    <message>
+        <source>Project created but downloading failed: %1</source>
+        <translation>Projet créé, mais le téléchargement a échoué : %1</translation>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation>Le nouveau projet créé n&apos;a pas pu être préparé</translation>
+    </message>
+    <message>
+        <source>Downloading project…</source>
+        <translation>Téléchargement du projet…</translation>
     </message>
 </context>
 <context>

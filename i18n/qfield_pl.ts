@@ -3998,11 +3998,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>%1: %2 to %3</source>
-        <translation type="unfinished"/>
+        <translation>%1: od %2 do %3</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished"/>
+        <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
         <source>%n change(s)</source>
@@ -4010,7 +4010,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Geometry modified</source>
-        <translation type="unfinished"/>
+        <translation>Geometria zmodyfikowana</translation>
     </message>
 </context>
 <context>
@@ -4221,7 +4221,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Zmiany lokalne</translation>
     </message>
     <message numerus="yes">
         <source>%n addition(s)</source>
@@ -4629,14 +4629,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Nie udało się utworzyć projektu: %1</translation>
     </message>
     <message>
-        <source>Project successfully cloned</source>
-        <translation>Projekt udało się sklonować</translation>
-    </message>
-    <message>
-        <source>Project successfully created</source>
-        <translation>Projekt utworzono pomyślnie</translation>
-    </message>
-    <message>
         <source>Refreshing projects list</source>
         <translation>Odświeżanie listy projektów</translation>
     </message>
@@ -4687,6 +4679,26 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Refresh templates list</source>
         <translation>Odśwież listę szablonów</translation>
+    </message>
+    <message>
+        <source>Creating project…</source>
+        <translation>Tworzenie projektu…</translation>
+    </message>
+    <message>
+        <source>Preparing project…</source>
+        <translation>Przygotowuję projekt…</translation>
+    </message>
+    <message>
+        <source>Project created but downloading failed: %1</source>
+        <translation>Projekt utworzono, ale pobieranie się nie powiodło: %1</translation>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation>Nie udało się przygotować nowo utworzonego projektu.</translation>
+    </message>
+    <message>
+        <source>Downloading project…</source>
+        <translation>Pobieranie projektu…</translation>
     </message>
 </context>
 <context>
