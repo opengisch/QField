@@ -5,9 +5,8 @@ import QtTest
 import org.qfield
 import org.qgis
 import org.qfield.gui
-import org.qfield.app as QFieldControls
-import org.qfield.core as QFieldControls
-import org.qfield.gui as QFieldControls
+import org.qfield.app
+import org.qfield.core
 
 TestCase {
   id: testCase
@@ -46,19 +45,19 @@ TestCase {
     objectName: "canvasMenuActionsToolbar"
   }
 
-  QFieldControls.QfDashBoard {
+  QfDashBoard {
     id: dashBoardItem
     objectName: "dashBoard"
   }
 
-  QFieldControls.QfFeatureListForm {
+  QfFeatureListForm {
     id: featureListForm
     objectName: "featureForm"
 
     model: QfMultiFeatureListModel {}
   }
 
-  QFieldControls.QfMapCanvas {
+  QfMapCanvas {
     id: mapCanvas
     objectName: "mapCanvas"
   }
@@ -70,7 +69,7 @@ TestCase {
     property var point: QfGeometryUtils.point(0, 0)
   }
 
-  QFieldControls.QfMapCanvasPointHandler {
+  QfMapCanvasPointHandler {
     id: pointHandlerItem
     objectName: "pointHandler"
   }
