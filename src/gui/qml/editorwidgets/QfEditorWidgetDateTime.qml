@@ -208,7 +208,7 @@ QfEditorWidgetBase {
       if (main.fieldIsString && !!config['field_format_overwrite']) {
         return config['field_format'].includes("HH") || !!config['field_iso_format'];
       }
-      return config['display_format'].includes("HH");
+      return config['display_format'] !== undefined ? config['display_format'].includes("HH") : false;
     }
     showDatePicker: {
       if (main.fieldIsDateTime || main.fieldIsDate) {
@@ -219,7 +219,7 @@ QfEditorWidgetBase {
       if (main.fieldIsString && !!config['field_format_overwrite']) {
         return config['field_format'].includes("yy") || config['field_format'].includes("yy") || !!config['field_iso_format'];
       }
-      return config['display_format'].includes("yy");
+      return config['display_format'] !== undefined ? config['display_format'].includes("yy") : false;
     }
 
     onDateTimePicked: date => {
