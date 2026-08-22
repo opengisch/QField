@@ -1,19 +1,19 @@
 import QtQuick
 import QtTest
 import org.qfield.core
-import org.qfield.gui as QFieldControls
+import org.qfield.gui
 import "Utils.js" as Utils
 
 TestCase {
   name: "FeatureForm"
 
-  QFieldControls.QfFeatureForm {
+  QfFeatureForm {
     id: featureForm
     property var mainWindow: mainWindowItem
     property var mSelectedLayer: qgisProject.mapLayersByName('Apiary')[0]
     property var mSelectedFeature: qgisProject.mapLayersByName('Apiary')[0].getFeature("64")
 
-    model: QFieldControls.QfAttributeFormModel {
+    model: QfAttributeFormModel {
       featureModel: QfFeatureModel {
         project: qgisProject
         currentLayer: featureForm.mSelectedLayer
