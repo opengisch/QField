@@ -177,6 +177,7 @@ void QfBluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController
     {
       qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Reconnection attempt %1" ).arg( mConnectionFailureCount );
       doDisconnectDevice();
+      mDisconnecting = false;
       QTimer::singleShot( 1000, this, [this] { doConnectDevice(); } );
     }
 
