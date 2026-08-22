@@ -126,7 +126,7 @@ Popup {
       ctx.fillRect(0, 0, canvasSize.width, canvasSize.height);
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = 'black';
-      for (let i = 0; i < internalObject.target.length; ++i) {
+      for (let i = 0; internalObject.target && i < internalObject.target.length; ++i) {
         internalObject.pos = internalObject.target[i].mapToGlobal(0, 0);
         internalObject.pos = Qt.point(internalObject.pos.x - internalObject.window.x, internalObject.pos.y - internalObject.window.y);
         var rect = Qt.rect(internalObject.pos.x - guide.targetMargins, internalObject.pos.y - guide.targetMargins, internalObject.target[i].width + guide.targetMargins * 2, internalObject.target[i].height + guide.targetMargins * 2);
