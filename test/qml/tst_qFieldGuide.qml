@@ -1,7 +1,7 @@
 import QtQuick
 import QtTest
 import org.qfield
-import org.qfield.app as QFieldControls
+import org.qfield.app
 import "Utils.js" as Utils
 
 TestCase {
@@ -41,7 +41,7 @@ TestCase {
       anchors.bottom: parent.bottom
     }
 
-    QFieldControls.QfGuide {
+    QfGuide {
       id: testTour
       baseRoot: dummyParent
       steps: [

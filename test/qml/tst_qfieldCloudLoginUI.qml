@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtTest
 import org.qfield.core
-import org.qfield.app as QFieldControls
+import org.qfield.app
 
 TestCase {
   name: "QFieldCloudLoginUI"
@@ -38,7 +38,7 @@ TestCase {
     width: 400
     height: 600
 
-    QFieldControls.QfCloudLogin {
+    QfCloudLogin {
       id: qfieldCloudLogin
       isVisible: true
       width: parent.width
