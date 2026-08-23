@@ -5239,7 +5239,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Bewerken annuleren</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5248,6 +5248,14 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>U staat op het punt de bewerkingsstatus te verlaten, alle wijzigingen gaan verloren. Doorgaan?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuleren</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

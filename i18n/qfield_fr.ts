@@ -5237,7 +5237,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Annuler l&apos;édition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5246,6 +5246,14 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Vous êtes sur le point de quitter le mode édition, tous les changements seront perdus. Continuer ?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation>Tu es sur le point d&apos;annuler les éléments de l&apos;entité, continuer ?</translation>
     </message>
 </context>
 <context>

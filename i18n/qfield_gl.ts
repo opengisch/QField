@@ -5239,7 +5239,7 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Cancelar a edición</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5248,6 +5248,14 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Estás a piques de deixar o estado de edición, perderase calquera cambio. Continuar?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5236,7 +5236,7 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Cancelar edição</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5245,6 +5245,14 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Está prestes a sair do modo de edição, todas as alterações serão perdidas. Continuar?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

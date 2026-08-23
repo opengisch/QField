@@ -5245,7 +5245,7 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Annulla le modifiche</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5254,6 +5254,14 @@ Messaggio dell&apos;errore: %4</translation>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Stai per uscire dallo stato di modifica, tutti i cambiamenti andranno persi. Procedere?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancella</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5234,7 +5234,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Düzenlemeyi iptal et</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5243,6 +5243,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation> Düzenleme modundan çıkmak üzeresiniz, yapılan değişiklikler kaybolacak. Devam edilsin mi?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Vazgeç</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

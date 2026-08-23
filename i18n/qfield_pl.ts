@@ -5244,7 +5244,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Anuluj edycję</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5253,6 +5253,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Zamierzasz opuścić stan edycji, wszystkie zmiany zostaną utracone. Czy kontynuować?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

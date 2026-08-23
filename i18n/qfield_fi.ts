@@ -5241,7 +5241,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Peruuta muokkaus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5250,6 +5250,14 @@ epäonnistui, syy: %2</translation>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Olet poistumassa muokkaustilasta, kaikki muutokset menetetään. Jatketaanko?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Peruuta</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

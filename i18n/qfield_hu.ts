@@ -5232,7 +5232,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Szerkesztés megszakítása</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5241,6 +5241,14 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Ha kilép a szerkesztésből, a módosítások elvesznek. Folytatja?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

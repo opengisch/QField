@@ -5217,7 +5217,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>ຍົກ​ເລີກ​ການ​ແກ້​ໄຂ​</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5226,6 +5226,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>ທ່ານກຳລັງຈະອອກຈາກສະຖານະການແກ້ໄຂ, ການປ່ຽນແປງຕ່າງໆຈະສູນເສຍໄປ. ດໍາເນີນການຕໍ່ບໍ?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5236,7 +5236,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Bearbeiten abbrechen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5245,6 +5245,14 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Du bist dabei den Editiermodus zu verlassen, alle Änderungen werden dann verworfen. Fortfahren?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Abbrechen</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

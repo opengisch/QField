@@ -5242,7 +5242,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Cancel·la l&apos;edició</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5251,6 +5251,14 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Esteu a punt de sortir de l&apos;estat d&apos;edició; es perdran els canvis. Voleu continuar?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancel·lar</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5242,7 +5242,7 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Ukončit editaci</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5251,6 +5251,14 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>Chystáte se opustit režim úprav, všechny změny budou ztraceny. Pokračovat?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Zrušit</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

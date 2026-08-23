@@ -5238,7 +5238,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>편집 취소</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
@@ -5247,6 +5247,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
         <translation>편집 상태를 벗어나면 변경 사항이 모두 사라집니다. 계속하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
