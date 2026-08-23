@@ -64,6 +64,7 @@ TestCase {
 
     QfCloudScreen {
       id: qfieldCloudScreen
+      cloudProjectsModel: cloudProjectsModel
       width: mainWindow.width
       height: mainWindow.height
       visible: true
