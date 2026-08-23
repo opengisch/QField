@@ -5414,6 +5414,7 @@ ApplicationWindow {
     focus: visible
 
     cloudServiceStatus: qfieldCloudStatus
+    cloudProjectsModel: cloudProjectsModel
 
     onFinished: {
       visible = false;
