@@ -19,6 +19,8 @@
 #include "qfappinterface.h"
 #include "qfield.h"
 #include "qfield_qml_init.h"
+#include "qfclipboardmanager.h"
+#include "qflayertreemodel.h"
 #include "qfplatformutilities.h"
 #include "qgismobileapp.h"
 
@@ -197,6 +199,12 @@ class Setup : public QObject
       engine->rootContext()->setContextProperty( QStringLiteral( "iface" ), iface );
       QfCogoRegistry *cogoRegistry = new QfCogoRegistry( engine );
       QfCogoRegistry::setInstance( cogoRegistry );
+
+      QfFlatLayerTreeModel *flatLayerTree = new QfFlatLayerTreeModel( QgsProject::instance()->layerTreeRoot(), QgsProject::instance(), engine );
+      engine->rootContext()->setContextProperty( QStringLiteral( "flatLayerTree" ), flatLayerTree );
+
+      QfClipboardManager *clipboardManager = new QfClipboardManager( engine );
+      engine->rootContext()->setContextProperty( QStringLiteral( "clipboardManager" ), clipboardManager );
     }
 };
 
