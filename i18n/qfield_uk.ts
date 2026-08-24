@@ -213,7 +213,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">Використовуйте ортометричну висоту з пристрою</translation>
+        <translation type="vanished">Використання ортометричної висоти з пристрою</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
@@ -2804,7 +2804,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation type="vanished">Використовується вертикальний зсув сітки:</translation>
+        <translation type="vanished">Використання вертикального зсуву сітки:</translation>
     </message>
     <message>
         <source>None</source>
@@ -5260,7 +5260,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>You are about to cancel the feature setup, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Ви збираєтеся скасувати налаштування об&apos;єкту. Продовжити?</translation>
     </message>
 </context>
 <context>
