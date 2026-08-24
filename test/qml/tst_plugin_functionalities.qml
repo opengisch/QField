@@ -58,6 +58,7 @@ TestCase {
     id: dashBoardItem
     objectName: "dashBoard"
     cloudProjectsModel: cloudProjectsModel
+    mapSettings: mapCanvas.mapSettings
   }
 
   QfFeatureListForm {
