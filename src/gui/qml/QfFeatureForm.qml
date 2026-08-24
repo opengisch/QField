@@ -1238,7 +1238,7 @@ Page {
   QfDialog {
     id: cancelDialog
     parent: mainWindow.contentItem
-    width: Math.min(350, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
+    width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
     title: qsTr("Cancel")
     Label {

@@ -207,7 +207,7 @@ QfEditorWidgetBase {
     property string nmReferencedLayerName: relationEditorModel.nmRelation.referencedLayer ? relationEditorModel.nmRelation.referencedLayer.name : ''
     property string nmReferencingLayerName
 
-    width: Math.min(350, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
+    width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
     z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
     title: nmRelationId ? qsTr('Unlink Feature') : qsTr('Delete Feature')
 
