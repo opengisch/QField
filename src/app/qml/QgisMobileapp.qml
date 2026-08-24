@@ -3576,6 +3576,7 @@ ApplicationWindow {
     objectName: "dashBoard"
 
     allowActiveLayerChange: !digitizingToolbar.isDigitizing
+    cloudProjectsModel: cloudProjectsModel
     allowInteractive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
     mapSettings: mapCanvas.mapSettings
 

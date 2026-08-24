@@ -45,9 +45,19 @@ TestCase {
     objectName: "canvasMenuActionsToolbar"
   }
 
+  QfCloudConnection {
+    id: cloudConnection
+  }
+
+  QfCloudProjectsModel {
+    id: cloudProjectsModel
+    cloudConnection: cloudConnection
+  }
+
   QfDashBoard {
     id: dashBoardItem
     objectName: "dashBoard"
+    cloudProjectsModel: cloudProjectsModel
   }
 
   QfFeatureListForm {
