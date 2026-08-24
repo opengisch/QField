@@ -31,6 +31,7 @@ Drawer {
   property alias layerTree: legend.model
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
+  property QfCloudProjectsModel cloudProjectsModel
 
   Component.onCompleted: {
     if (Material.roundedScale) {
@@ -242,14 +243,14 @@ Drawer {
             statusBadge.width: cloudButton.width / 2.8
             statusBadge.badgeText.color: QfTheme.light
             statusBadge.badgeText.text: {
-              if (cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
+              if (cloudProjectsModel.layerObserver && cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
                 return cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : cloudProjectsModel.layerObserver.deltaFileWrapper.count;
               }
               return '';
             }
 
             readonly property bool showSync: cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.isOutdated : false
-            readonly property bool showPush: cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
+            readonly property bool showPush: cloudProjectsModel.layerObserver && cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0
           }
 
           QfToolButton {
