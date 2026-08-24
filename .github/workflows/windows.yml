@@ -298,25 +298,33 @@ jobs:
     needs: build
 
     steps:
+      - name: Set up MSStore CLI
+        uses: microsoft/microsoft-store-apppublisher@v1.4
+
       - name: Configure Store Credentials
-        uses: microsoft/store-submission@v1
-        with:
-          command: configure
-          type: win32
-          seller-id: ${{ secrets.MICROSOFT_STORE_SELLER_ID }}
-          product-id: ${{ secrets.MICROSOFT_STORE_PRODUCT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+        shell: bash
+        env:
+          STORE_SELLER_ID: ${{ secrets.MICROSOFT_STORE_SELLER_ID }}
+          STORE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          STORE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          STORE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        run: >-
+          msstore reconfigure
+          --tenantId "$STORE_TENANT_ID"
+          --sellerId "$STORE_SELLER_ID"
+          --clientId "$STORE_CLIENT_ID"
+          --clientSecret "$STORE_CLIENT_SECRET"
 
       - name: Update Draft Submission
-        uses: microsoft/store-submission@v1
-        with:
-          command: update
+        shell: bash
+        env:
+          STORE_PRODUCT_ID: ${{ secrets.MICROSOFT_STORE_PRODUCT_ID }}
           # See documentation here https://learn.microsoft.com/en-us/windows/apps/publish/store-submission-api#update-current-draft-submission-metadata-api
-          product-update: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name_x64 }}","languages":["en"],"architectures":["X64"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}, {"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name_arm64 }}","languages":["en"],"architectures":["Arm64"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}]}'
+          PRODUCT_UPDATE: '{"packages":[{"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name_x64 }}","languages":["en"],"architectures":["X64"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}, {"packageUrl":"https://sos-ch-dk-2.exo.io/qfieldapks/releases/files/${{ needs.build.outputs.artifact_name_arm64 }}","languages":["en"],"architectures":["Arm64"],"isSilentInstall":false,"installerParameters":"/S","packageType":"exe","genericDocUrl":"https://nsis.sourceforge.io/Docs/AppendixD.html#errorlevels"}]}'
+        run: msstore submission update "$STORE_PRODUCT_ID" "$PRODUCT_UPDATE"
 
       - name: Publish Submission
-        uses: microsoft/store-submission@v1
-        with:
-          command: publish
+        shell: bash
+        env:
+          STORE_PRODUCT_ID: ${{ secrets.MICROSOFT_STORE_PRODUCT_ID }}
+        run: msstore submission publish "$STORE_PRODUCT_ID"
