@@ -22,6 +22,12 @@
 
 #include <QAbstractItemModelTester>
 
+static QModelIndex indexForField( QfAttributeFormModel *model, int fieldIndex )
+{
+  const QModelIndexList matches = model->match( model->index( 0, 0 ), QfAttributeFormModel::FieldIndex, fieldIndex, 1, Qt::MatchExactly | Qt::MatchRecursive );
+  return matches.value( 0 );
+}
+
 TEST_CASE( "AttributeFormModel" )
 {
   std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string&field=str2:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) );
