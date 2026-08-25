@@ -276,6 +276,24 @@ TEST_CASE( "AttributeFormModel" )
     REQUIRE( model->rowCount() == 2 );
   }
 
+  SECTION( "DeleteFeature" )
+  {
+    QgsProject::instance()->addMapLayer( layer.get(), false, false );
+
+    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
+    model->setFeatureModel( fModel.get() );
+    fModel->setProject( QgsProject::instance() );
+    fModel->setCurrentLayer( layer.get() );
+
+    const long countBefore = layer->featureCount();
+    fModel->setFeature( layer->getFeature( 2 ) );
+    REQUIRE( model->deleteFeature() );
+    REQUIRE( layer->featureCount() == countBefore - 1 );
+
+    QgsProject::instance()->takeMapLayer( layer.get() );
+  }
+
   SECTION( "QAbstractItemModelTester" )
   {
     std::unique_ptr<QfAttributeFormModel> modelTest = std::make_unique<QfAttributeFormModel>();
