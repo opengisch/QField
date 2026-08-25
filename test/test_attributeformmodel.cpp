@@ -25,6 +25,7 @@
 #include <qgsattributeeditorfield.h>
 #include <qgseditformconfig.h>
 #include <qgsfieldconstraints.h>
+#include <qgsoptionalexpression.h>
 
 static QModelIndex indexForField( QfAttributeFormModel *model, int fieldIndex )
 {
@@ -236,6 +237,43 @@ TEST_CASE( "AttributeFormModel" )
     model->setData( strItems.at( 0 ), QStringLiteral( "synced" ), QfAttributeFormModel::AttributeValue );
     REQUIRE( model->data( strItems.at( 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
     REQUIRE( model->data( strItems.at( 1 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
+  }
+
+  SECTION( "Visibility" )
+  {
+    QgsEditFormConfig config = layer->editFormConfig();
+    config.clearTabs();
+    config.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+
+    QgsAttributeEditorContainer *tab1 = new QgsAttributeEditorContainer( QStringLiteral( "Driver" ), nullptr );
+    tab1->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str" ), 1, tab1 ) );
+    config.addTab( tab1 );
+
+    QgsAttributeEditorContainer *tab2 = new QgsAttributeEditorContainer( QStringLiteral( "Conditional" ), nullptr );
+    tab2->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str2" ), 2, tab2 ) );
+    tab2->setVisibilityExpression( QgsOptionalExpression( QgsExpression( QStringLiteral( "\"str\" = 'show'" ) ) ) );
+    config.addTab( tab2 );
+
+    layer->setEditFormConfig( config );
+
+    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
+    model->setFeatureModel( fModel.get() );
+    fModel->setCurrentLayer( layer.get() );
+
+    fModel->resetFeature();
+    fModel->resetAttributes();
+
+    const QModelIndex driverField = indexForField( model.get(), 1 );
+    REQUIRE( driverField.isValid() );
+
+    // The conditional tab is filtered out of the proxy when its expression fails,
+    // so it drops from the root row count rather than staying with a false flag.
+    model->setData( driverField, QStringLiteral( "hide" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( model->rowCount() == 1 );
+
+    model->setData( driverField, QStringLiteral( "show" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( model->rowCount() == 2 );
   }
 
   SECTION( "QAbstractItemModelTester" )
