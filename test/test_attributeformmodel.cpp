@@ -21,6 +21,7 @@
 #include "qffeaturemodel.h"
 
 #include <QAbstractItemModelTester>
+#include <qgsfieldconstraints.h>
 
 static QModelIndex indexForField( QfAttributeFormModel *model, int fieldIndex )
 {
@@ -104,6 +105,75 @@ TEST_CASE( "AttributeFormModel" )
     REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeEditable ).toBool() == true );
     attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "data" ), QfAttributeFormModel::AttributeValue );
     REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeEditable ).toBool() == false );
+  }
+
+  SECTION( "HardConstraint" )
+  {
+    layer->setFieldConstraint( 1, QgsFieldConstraints::ConstraintNotNull, QgsFieldConstraints::ConstraintStrengthHard );
+
+    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
+    model->setFeatureModel( fModel.get() );
+    fModel->setCurrentLayer( layer.get() );
+
+    REQUIRE( model->hasConstraints() );
+
+    const QModelIndex strField = indexForField( model.get(), 1 );
+    REQUIRE( strField.isValid() );
+
+    fModel->resetFeature();
+    fModel->resetAttributes();
+
+    model->setData( strField, QStringLiteral( "filled" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( model->data( strField, QfAttributeFormModel::ConstraintHardValid ).toBool() == true );
+    REQUIRE( model->constraintsHardValid() == true );
+
+    model->setData( strField, QVariant(), QfAttributeFormModel::AttributeValue );
+    REQUIRE( model->data( strField, QfAttributeFormModel::ConstraintHardValid ).toBool() == false );
+    REQUIRE( model->constraintsHardValid() == false );
+
+    model->setData( strField, QStringLiteral( "refilled" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( model->data( strField, QfAttributeFormModel::ConstraintHardValid ).toBool() == true );
+    REQUIRE( model->constraintsHardValid() == true );
+  }
+
+  SECTION( "SoftConstraint" )
+  {
+    layer->setConstraintExpression( 1, QStringLiteral( "length(\"str\") > 3" ) );
+    layer->setFieldConstraint( 1, QgsFieldConstraints::ConstraintExpression, QgsFieldConstraints::ConstraintStrengthSoft );
+
+    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
+    model->setFeatureModel( fModel.get() );
+    fModel->setCurrentLayer( layer.get() );
+
+    const QModelIndex strField = indexForField( model.get(), 1 );
+    REQUIRE( strField.isValid() );
+
+    fModel->resetFeature();
+    fModel->resetAttributes();
+
+    model->setData( strField, QStringLiteral( "ab" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( model->data( strField, QfAttributeFormModel::ConstraintSoftValid ).toBool() == false );
+    REQUIRE( model->constraintsSoftValid() == false );
+
+    model->setData( strField, QStringLiteral( "abcd" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( model->data( strField, QfAttributeFormModel::ConstraintSoftValid ).toBool() == true );
+    REQUIRE( model->constraintsSoftValid() == true );
+  }
+
+  SECTION( "ConstraintDescription" )
+  {
+    layer->setFieldConstraint( 1, QgsFieldConstraints::ConstraintNotNull, QgsFieldConstraints::ConstraintStrengthHard );
+
+    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
+    model->setFeatureModel( fModel.get() );
+    fModel->setCurrentLayer( layer.get() );
+
+    const QModelIndex strField = indexForField( model.get(), 1 );
+    REQUIRE( strField.isValid() );
+    REQUIRE( !model->data( strField, QfAttributeFormModel::ConstraintDescription ).toString().isEmpty() );
   }
 
   SECTION( "QAbstractItemModelTester" )
