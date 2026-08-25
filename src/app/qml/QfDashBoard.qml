@@ -31,7 +31,7 @@ Drawer {
   property alias layerTree: legend.model
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
-  property QfCloudProjectsModel cloudProjectsModel
+  property QfCloudProjectsModel cloudProjectsModel: null
 
   Component.onCompleted: {
     if (Material.roundedScale) {
