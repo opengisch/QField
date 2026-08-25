@@ -21,6 +21,9 @@
 #include "qffeaturemodel.h"
 
 #include <QAbstractItemModelTester>
+#include <qgsattributeeditorcontainer.h>
+#include <qgsattributeeditorfield.h>
+#include <qgseditformconfig.h>
 #include <qgsfieldconstraints.h>
 
 static QModelIndex indexForField( QfAttributeFormModel *model, int fieldIndex )
@@ -174,6 +177,65 @@ TEST_CASE( "AttributeFormModel" )
     const QModelIndex strField = indexForField( model.get(), 1 );
     REQUIRE( strField.isValid() );
     REQUIRE( !model->data( strField, QfAttributeFormModel::ConstraintDescription ).toString().isEmpty() );
+  }
+
+  SECTION( "TabLayout" )
+  {
+    QgsEditFormConfig config = layer->editFormConfig();
+    config.clearTabs();
+    config.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+
+    QgsAttributeEditorContainer *tab1 = new QgsAttributeEditorContainer( QStringLiteral( "First" ), nullptr );
+    tab1->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str" ), 1, tab1 ) );
+    config.addTab( tab1 );
+
+    QgsAttributeEditorContainer *tab2 = new QgsAttributeEditorContainer( QStringLiteral( "Second" ), nullptr );
+    tab2->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str2" ), 2, tab2 ) );
+    config.addTab( tab2 );
+
+    layer->setEditFormConfig( config );
+
+    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
+    model->setFeatureModel( fModel.get() );
+    fModel->setCurrentLayer( layer.get() );
+
+    REQUIRE( model->hasTabs() );
+    REQUIRE( model->rowCount() == 2 );
+    REQUIRE( model->data( model->index( 0, 0 ), QfAttributeFormModel::ElementType ) == QStringLiteral( "container" ) );
+    REQUIRE( model->data( model->index( 1, 0 ), QfAttributeFormModel::ElementType ) == QStringLiteral( "container" ) );
+  }
+
+  SECTION( "FieldSynchronization" )
+  {
+    QgsEditFormConfig config = layer->editFormConfig();
+    config.clearTabs();
+    config.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+
+    QgsAttributeEditorContainer *tab1 = new QgsAttributeEditorContainer( QStringLiteral( "Tab1" ), nullptr );
+    tab1->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str" ), 1, tab1 ) );
+    config.addTab( tab1 );
+
+    QgsAttributeEditorContainer *tab2 = new QgsAttributeEditorContainer( QStringLiteral( "Tab2" ), nullptr );
+    tab2->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str" ), 1, tab2 ) );
+    config.addTab( tab2 );
+
+    layer->setEditFormConfig( config );
+
+    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
+    model->setFeatureModel( fModel.get() );
+    fModel->setCurrentLayer( layer.get() );
+
+    REQUIRE( model->hasTabs() );
+    fModel->setFeature( layer->getFeature( 1 ) );
+
+    const QModelIndexList strItems = model->match( model->index( 0, 0 ), QfAttributeFormModel::FieldIndex, 1, -1, Qt::MatchExactly | Qt::MatchRecursive );
+    REQUIRE( strItems.size() == 2 );
+
+    model->setData( strItems.at( 0 ), QStringLiteral( "synced" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( model->data( strItems.at( 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
+    REQUIRE( model->data( strItems.at( 1 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
   }
 
   SECTION( "QAbstractItemModelTester" )
