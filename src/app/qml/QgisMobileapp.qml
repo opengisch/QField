@@ -59,8 +59,6 @@ ApplicationWindow {
   property double sceneLeftMargin: SafeArea.margins.left
   property double sceneRightMargin: SafeArea.margins.right
 
-  readonly property bool hasLocalCloudChanges: cloudProjectsModel.layerObserver.deltaFileWrapper ? cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 : false
-
   onSceneLoadedChanged: {
     // This requires the scene to be fully loaded not to crash due to possibility of
     // a thread blocking permission request being thrown
@@ -3584,6 +3582,22 @@ ApplicationWindow {
 
     Component.onCompleted: focusstack.addFocusTaker(this)
 
+    onOpened: {
+      if (settings.valueBool("/QField/showDashboardGuide", true)) {
+        dashboardTour.index = 0;
+        dashboardTour.runTour();
+        settings.setValue("/QField/showDashboardGuide", false);
+        return;
+      }
+      // The dashboard tour walks through the cloud button on its own, leave that opening to it
+      const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+      if (settings.valueBool("/QField/showCloudButtonGuide", true) && deltaFileWrapper && deltaFileWrapper.count > 0) {
+        cloudButtonTour.index = 0;
+        cloudButtonTour.runTour();
+        settings.setValue("/QField/showCloudButtonGuide", false);
+      }
+    }
+
     onReturnHome: {
       if (currentRubberband && currentRubberband.model.vertexCount > 1) {
         digitizingToolbar.cancelDialog.open();
@@ -4984,7 +4998,10 @@ ApplicationWindow {
         } else {
           projectInfo.restoreCloudUserInformation();
         }
-        cloudMenuTour.startOnProjectWithLocalChanges();
+        if (settings.valueBool("/QField/showCloudMenuGuide", true) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
+          cloudMenuTour.runTour();
+          settings.setValue("/QField/showCloudMenuGuide", false);
+        }
       } else {
         projectInfo.hasInsertRights = true;
         projectInfo.hasEditRights = true;
@@ -5452,6 +5469,14 @@ ApplicationWindow {
     cloudServiceStatus: qfieldCloudStatus
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+
+    // Whoever made it to the cloud panel needs no pointer towards it anymore
+    onAboutToShow: {
+      cloudButtonTour.blockGuide();
+      cloudMenuTour.blockGuide();
+      settings.setValue("/QField/showCloudButtonGuide", false);
+      settings.setValue("/QField/showCloudMenuGuide", false);
+    }
   }
 
   QfCloudPackageLayersFeedback {
@@ -5610,8 +5635,9 @@ ApplicationWindow {
     if (!closeAlreadyRequested) {
       close.accepted = false;
       closeAlreadyRequested = true;
-      if (hasLocalCloudChanges) {
-        displayToast(qsTr("Press back again to close project and app. Local changes have not yet been uploaded to the cloud."), 'warning', qsTr("Upload local changes"), () => {
+      const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+      if (cloudConnection.isReachable && deltaFileWrapper && deltaFileWrapper.count > 0) {
+        displayToast(qsTr("Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app."), 'attention', qsTr("Upload local changes"), () => {
           closeAlreadyRequested = false;
           closingTimer.stop();
           openCloudPopup();
@@ -5854,19 +5880,6 @@ ApplicationWindow {
         "target": () => [iface.findItemByObjectName('projectFolderButton')]
       }
     ]
-
-    Connections {
-      id: dashBoardConnections
-      target: dashBoard
-      enabled: settings ? settings.valueBool("/QField/showDashboardGuide", true) : false
-
-      function onOpened() {
-        dashBoardConnections.enabled = false;
-        dashboardTour.index = 0;
-        dashboardTour.runTour();
-        settings.setValue("/QField/showDashboardGuide", false);
-      }
-    }
   }
 
   QfGuide {
@@ -5880,25 +5893,10 @@ ApplicationWindow {
       {
         "type": "information",
         "title": qsTr("Local changes"),
-        "description": qsTr("This project has local changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud."),
+        "description": qsTr("This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud."),
         "target": () => [iface.findItemByObjectName('cloudButton')]
       }
     ]
-
-    Connections {
-      target: dashBoard
-
-      function onOpened() {
-        // The dashboard tour walks through the cloud button on its own, let it have this opening
-        const isDashboardTourDue = dashboardTour.visible || settings.valueBool("/QField/showDashboardGuide", true);
-        if (!mainWindow.hasLocalCloudChanges || isDashboardTourDue || !settings.valueBool("/QField/showCloudButtonGuide", true)) {
-          return;
-        }
-        cloudButtonTour.index = 0;
-        cloudButtonTour.runTour();
-        settings.setValue("/QField/showCloudButtonGuide", false);
-      }
-    }
   }
 
   QfGuide {
@@ -5910,18 +5908,10 @@ ApplicationWindow {
       {
         "type": "information",
         "title": qsTr("Local changes"),
-        "description": qsTr("This project has local changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud."),
+        "description": qsTr("This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud."),
         "target": () => [menuButton]
       }
     ]
-
-    function startOnProjectWithLocalChanges() {
-      if (!mainWindow.hasLocalCloudChanges || !settings.valueBool("/QField/showCloudMenuGuide", true)) {
-        return;
-      }
-      runTour();
-      settings.setValue("/QField/showCloudMenuGuide", false);
-    }
   }
 
   Item {
@@ -5935,18 +5925,6 @@ ApplicationWindow {
       settings.setValue("/QField/showDashBoardGuide", false);
       settings.setValue("/QField/showCloudButtonGuide", false);
       settings.setValue("/QField/showCloudMenuGuide", false);
-    }
-
-    // Whoever made it to the cloud panel needs no pointer towards it anymore
-    Connections {
-      target: qfieldCloudPopup
-
-      function onAboutToShow() {
-        cloudButtonTour.blockGuide();
-        cloudMenuTour.blockGuide();
-        settings.setValue("/QField/showCloudButtonGuide", false);
-        settings.setValue("/QField/showCloudMenuGuide", false);
-      }
     }
   }
 

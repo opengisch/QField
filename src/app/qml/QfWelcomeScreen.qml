@@ -868,7 +868,8 @@ Page {
     round: true
 
     onClicked: {
-      if (mainWindow.hasLocalCloudChanges) {
+      const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+      if (cloudConnection.isReachable && settings.valueBool("/QField/showPendingChangesDialog", true) && deltaFileWrapper && deltaFileWrapper.count > 0) {
         uploadLocalChangesDialog.open();
         return;
       }
@@ -888,19 +889,34 @@ Page {
 
     Column {
       width: parent.width
+      spacing: 20
 
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: qsTr("You are about to end your session with pending local changes, do you want to upload them now?")
+        text: qsTr("Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?")
+      }
+
+      CheckBox {
+        id: dontShowAgainCheckBox
+        text: qsTr("Don't show this again")
+        font: QfTheme.defaultFont
       }
     }
 
+    onAboutToShow: {
+      dontShowAgainCheckBox.checked = true;
+      standardButton(Dialog.Yes).text = qsTr("Upload now");
+      standardButton(Dialog.No).text = qsTr("Close");
+    }
+
     onAccepted: {
+      settings.setValue("/QField/showPendingChangesDialog", !dontShowAgainCheckBox.checked);
       mainWindow.openCloudPopup();
     }
 
     onRejected: {
+      settings.setValue("/QField/showPendingChangesDialog", !dontShowAgainCheckBox.checked);
       mainWindow.closeAlreadyRequested = true;
       mainWindow.close();
     }
