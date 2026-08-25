@@ -19,7 +19,7 @@ Page {
   property string pendingCreatedProjectId: ""
   property bool pendingCreatedDownloadStarted: false
   property QfCloudStatus cloudServiceStatus: null
-  property QfCloudProjectsModel cloudProjectsModel
+  property QfCloudProjectsModel cloudProjectsModel: null
 
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
