@@ -16,16 +16,10 @@
  ***************************************************************************/
 
 #include "cogo/qfcogoregistry.h"
-#include "qfappexpressioncontextscopesgenerator.h"
 #include "qfappinterface.h"
-#include "qfclipboardmanager.h"
-#include "qfcloudprojectsmodel.h"
 #include "qfield.h"
 #include "qfield_qml_init.h"
-#include "qflayertreemodel.h"
 #include "qfplatformutilities.h"
-#include "qfprojectinfo.h"
-#include "qfsettings.h"
 #include "qgismobileapp.h"
 
 #include <qgis.h>
@@ -203,25 +197,6 @@ class Setup : public QObject
       engine->rootContext()->setContextProperty( QStringLiteral( "iface" ), iface );
       QfCogoRegistry *cogoRegistry = new QfCogoRegistry( engine );
       QfCogoRegistry::setInstance( cogoRegistry );
-
-      QfFlatLayerTreeModel *flatLayerTree = new QfFlatLayerTreeModel( QgsProject::instance()->layerTreeRoot(), QgsProject::instance(), engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "flatLayerTree" ), flatLayerTree );
-
-      QfClipboardManager *clipboardManager = new QfClipboardManager( engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "clipboardManager" ), clipboardManager );
-
-      QfSettings *qfieldSettings = new QfSettings( engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "qfieldSettings" ), qfieldSettings );
-
-      QfAppExpressionContextScopesGenerator *appScopesGenerator = new QfAppExpressionContextScopesGenerator( engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "appScopesGenerator" ), appScopesGenerator );
-
-      QfProjectInfo *projectInfo = new QfProjectInfo( engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "projectInfo" ), projectInfo );
-
-      QfCloudProjectsModel *cloudProjectsModel = new QfCloudProjectsModel();
-      cloudProjectsModel->setParent( engine );
-      engine->rootContext()->setContextProperty( QStringLiteral( "cloudProjectsModel" ), cloudProjectsModel );
     }
 };
 
