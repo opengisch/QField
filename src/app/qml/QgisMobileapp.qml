@@ -4984,9 +4984,7 @@ ApplicationWindow {
         } else {
           projectInfo.restoreCloudUserInformation();
         }
-        if (!qfieldCloudPopup.visible) {
-          cloudMenuTour.startOnProjectWithLocalChanges();
-        }
+        cloudMenuTour.startOnProjectWithLocalChanges();
       } else {
         projectInfo.hasInsertRights = true;
         projectInfo.hasEditRights = true;
@@ -5891,7 +5889,9 @@ ApplicationWindow {
       target: dashBoard
 
       function onOpened() {
-        if (!mainWindow.hasLocalCloudChanges || dashboardTour.visible || !settings.valueBool("/QField/showCloudButtonGuide", true)) {
+        // The dashboard tour walks through the cloud button on its own, let it have this opening
+        const isDashboardTourDue = dashboardTour.visible || settings.valueBool("/QField/showDashboardGuide", true);
+        if (!mainWindow.hasLocalCloudChanges || isDashboardTourDue || !settings.valueBool("/QField/showCloudButtonGuide", true)) {
           return;
         }
         cloudButtonTour.index = 0;
@@ -5935,6 +5935,18 @@ ApplicationWindow {
       settings.setValue("/QField/showDashBoardGuide", false);
       settings.setValue("/QField/showCloudButtonGuide", false);
       settings.setValue("/QField/showCloudMenuGuide", false);
+    }
+
+    // Whoever made it to the cloud panel needs no pointer towards it anymore
+    Connections {
+      target: qfieldCloudPopup
+
+      function onAboutToShow() {
+        cloudButtonTour.blockGuide();
+        cloudMenuTour.blockGuide();
+        settings.setValue("/QField/showCloudButtonGuide", false);
+        settings.setValue("/QField/showCloudMenuGuide", false);
+      }
     }
   }
 
