@@ -5260,7 +5260,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>You are about to cancel the feature setup, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Czy na pewno chcesz anulować konfigurację obiektu?</translation>
     </message>
 </context>
 <context>
