@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qflayerutils.h"
 #include "qfmaplayermodel.h"
 
 
@@ -360,6 +361,14 @@ bool QfMapLayerModel::layerMatchesFilters( QgsMapLayer *layer ) const
       return false;
     }
 
+    if ( vlayer->readOnly() )
+    {
+      return false;
+    }
+    if ( QfLayerUtils::isFeatureAdditionLocked( vlayer ) )
+    {
+      return false;
+    }
     if ( vlayer->geometryType() == Qgis::GeometryType::Null || vlayer->geometryType() == Qgis::GeometryType::Unknown )
     {
       return false;
