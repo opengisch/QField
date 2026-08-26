@@ -965,7 +965,7 @@ ApplicationWindow {
               return;
             }
             // the sourceLocation test checks if a (stylus) hover is active
-            if ((Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2) || (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 2)) {
+            if ((currentRubberband.model.geometryType === Qgis.GeometryType.Line && currentRubberband.model.vertexCount >= 2) || (currentRubberband.model.geometryType === Qgis.GeometryType.Polygon && currentRubberband.model.vertexCount >= 3)) {
               digitizingToolbar.addVertex();
 
               // When it's released, it will normally cause a release event to close the attribute form.
