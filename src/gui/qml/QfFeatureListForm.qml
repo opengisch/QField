@@ -712,6 +712,10 @@ QfPaneDrawer {
       }
       if (state != "FeatureList") {
         if (featureListToolBar.state === "Edit") {
+          if (Qt.inputMethod.visible) {
+            Qt.inputMethod.hide();
+            return;
+          }
           featureForm.requestCancel();
         } else if (formOpenedFromSingleIdentify) {
           state = "Hidden";
