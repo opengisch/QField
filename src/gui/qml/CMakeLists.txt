@@ -1,6 +1,6 @@
 set(QFIELD_GUI_QML_FILES
     QfActionButton.qml
-    QfAudioRecorder.qml
+    QfAudioClipRecorder.qml
     QfBadge.qml
     QfBluetoothDeviceChooser.qml
     QfBookmarkHighlight.qml

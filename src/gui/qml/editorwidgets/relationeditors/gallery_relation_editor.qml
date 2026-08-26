@@ -577,7 +577,7 @@ QfRelationEditorBase {
     id: relationAudioRecorderLoader
     active: false
     sourceComponent: Component {
-      QfAudioRecorder {
+      QfAudioClipRecorder {
         z: 10000
         visible: false
         Component.onCompleted: open()

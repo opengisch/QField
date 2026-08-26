@@ -11,7 +11,7 @@ import org.qfield.gui
  * \ingroup qml
  */
 QfPopup {
-  id: audioRecorder
+  id: audioClipRecorder
 
   signal finished(string path)
   signal canceled
@@ -63,7 +63,7 @@ QfPopup {
   }
 
   /**
-   * Until QAudioRecorder reliably changes its status across all platforms after calling stop(),
+   * Until the recorder reliably changes its status across all platforms after calling stop(),
    * use a timer as workaround and check for duration > 0 as condition for successful
    * saved audio recording.
    */
@@ -147,7 +147,7 @@ QfPopup {
           bgcolor: "transparent"
 
           onClicked: {
-            audioRecorder.canceled();
+            audioClipRecorder.canceled();
           }
         }
       }
@@ -247,7 +247,7 @@ QfPopup {
 
         QfToolButton {
           id: playButton
-          enabled: audioRecorder.hasRecordedClip
+          enabled: audioClipRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.25
 
           iconSource: player.playbackState == MediaPlayer.PlayingState ? QfTheme.getThemeVectorIcon('ic_pause_black_24dp') : QfTheme.getThemeVectorIcon('ic_play_black_24dp')
@@ -270,7 +270,7 @@ QfPopup {
           from: 0
           to: 0
 
-          enabled: audioRecorder.hasRecordedClip
+          enabled: audioClipRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.25
 
           onMoved: {
@@ -309,7 +309,7 @@ QfPopup {
 
         QfToolButton {
           id: acceptButton
-          enabled: audioRecorder.hasRecordedClip
+          enabled: audioClipRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
           iconSource: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
@@ -319,8 +319,8 @@ QfPopup {
 
           onClicked: {
             const path = recorder.actualLocation.toString();
-            audioRecorder.finished(QfUrlUtils.toLocalFile(path));
-            audioRecorder.close();
+            audioClipRecorder.finished(QfUrlUtils.toLocalFile(path));
+            audioClipRecorder.close();
           }
         }
       }
