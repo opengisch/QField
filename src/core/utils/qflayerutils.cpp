@@ -334,10 +334,12 @@ bool QfLayerUtils::isFeatureAdditionLocked( QgsMapLayer *layer )
   {
     return false;
   }
+
   if ( layer->customPropertyKeys().contains( QStringLiteral( "is_geometry_locked" ) ) )
   {
     return layer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
   }
+
   return layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool();
 }
 

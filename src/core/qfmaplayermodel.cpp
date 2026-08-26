@@ -361,11 +361,7 @@ bool QfMapLayerModel::layerMatchesFilters( QgsMapLayer *layer ) const
       return false;
     }
 
-    if ( vlayer->readOnly() )
-    {
-      return false;
-    }
-    if ( QfLayerUtils::isFeatureAdditionLocked( vlayer ) )
+    if ( vlayer->readOnly() || QfLayerUtils::isFeatureAdditionLocked( vlayer ) )
     {
       return false;
     }
