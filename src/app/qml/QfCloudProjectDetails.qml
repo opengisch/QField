@@ -279,7 +279,7 @@ ColumnLayout {
             sourceSize.height: desiredWidth * Screen.devicePixelRatio
             source: cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(QfUrlUtils.createActionUrl("qfield", "cloud", {
               "project": cloudProject.owner + '/' + cloudProject.name
-            })) + "&color=" + encodeURIComponent(QfTheme.mainColor) : ""
+            })) + "&color=" + encodeURIComponent(QfTheme.mainTextColor) : ""
             property int desiredWidth: Math.min(mainWindow.width - 40, 250)
           }
 
