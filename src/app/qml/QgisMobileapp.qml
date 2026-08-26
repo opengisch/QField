@@ -3589,9 +3589,8 @@ ApplicationWindow {
         settings.setValue("/QField/showDashboardGuide", false);
         return;
       }
-      // The dashboard tour walks through the cloud button on its own, leave that opening to it
       const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
-      if (settings.valueBool("/QField/showCloudButtonGuide", true) && deltaFileWrapper && deltaFileWrapper.count > 0) {
+      if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudButtonGuide", true) && deltaFileWrapper && deltaFileWrapper.count > 0) {
         cloudButtonTour.index = 0;
         cloudButtonTour.runTour();
         settings.setValue("/QField/showCloudButtonGuide", false);
@@ -4998,7 +4997,7 @@ ApplicationWindow {
         } else {
           projectInfo.restoreCloudUserInformation();
         }
-        if (settings.valueBool("/QField/showCloudMenuGuide", true) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
+        if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudMenuGuide", true) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
           cloudMenuTour.runTour();
           settings.setValue("/QField/showCloudMenuGuide", false);
         }
@@ -5470,7 +5469,6 @@ ApplicationWindow {
 
     Component.onCompleted: focusstack.addFocusTaker(this)
 
-    // Whoever made it to the cloud panel needs no pointer towards it anymore
     onAboutToShow: {
       cloudButtonTour.blockGuide();
       cloudMenuTour.blockGuide();

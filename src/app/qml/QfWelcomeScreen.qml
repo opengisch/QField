@@ -868,10 +868,13 @@ Page {
     round: true
 
     onClicked: {
-      const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
-      if (cloudConnection.isReachable && settings.valueBool("/QField/showPendingChangesDialog", true) && deltaFileWrapper && deltaFileWrapper.count > 0) {
-        uploadLocalChangesDialog.open();
-        return;
+      if (cloudConnection.isReachable) {
+        const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+        const showPendingChangesDialog = settings.valueBool("/QField/showPendingChangesDialog", true);
+        if (showPendingChangesDialog && deltaFileWrapper && deltaFileWrapper.count > 0) {
+          uploadLocalChangesDialog.open();
+          return;
+        }
       }
       mainWindow.closeAlreadyRequested = true;
       mainWindow.close();
@@ -883,7 +886,7 @@ Page {
     parent: mainWindow.contentItem
     closePolicy: Popup.NoAutoClose
 
-    width: Math.min(mainWindow.width - QfTheme.popupScreenEdgeVerticalMargin * 2, 400)
+    width: Math.min(mainWindow.width - QfTheme.popupScreenEdgeVerticalMargin * 2, 300)
 
     title: qsTr("Local changes")
 
