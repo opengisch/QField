@@ -49,13 +49,35 @@ QfVisibilityFadingRow {
   Connections {
     target: rubberbandModel
 
-    function onVertexCountChanged() {
-      // check whether geometry is valid and can be confirmed
-      checkGeometryValidity();
+    property bool deferredVertexCountChanged: false
 
-      // emit the signal of digitizingToolbar
-      vertexCountChanged();
+    function onCurrentCoordinateChanged() {
+      if (deferredVertexCountChanged) {
+        const vertices = rubberbandModel.vertices;
+        if (vertices[rubberbandModel.vertexCount - 1] !== vertices[rubberbandModel.vertexCount - 2]) {
+          processVertexCountChanged();
+          deferredVertexCountChanged = false;
+        }
+      }
     }
+
+    function onVertexCountChanged() {
+      if (rubberbandModel.geometryType === Qgis.GeometryType.Line && rubberbandModel.vertexCount === 2) {
+        deferredVertexCountChanged = true;
+      } else if (rubberbandModel.geometryType === Qgis.GeometryType.Polygon && rubberbandModel.vertexCount === 3) {
+        deferredVertexCountChanged = true;
+      } else {
+        processVertexCountChanged();
+      }
+    }
+  }
+
+  function processVertexCountChanged() {
+    // check whether geometry is valid and can be confirmed
+    checkGeometryValidity();
+
+    // emit the signal of digitizingToolbar
+    vertexCountChanged();
   }
 
   QfDigitizingLogger {
@@ -190,7 +212,7 @@ QfVisibilityFadingRow {
         QfTheme.toolButtonBackgroundSemiOpaqueColor;
       } else if (!showConfirmButton) {
         QfTheme.toolButtonBackgroundColor;
-      } else if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
+      } else if (!rubberbandModel || rubberbandModel.geometryType === Qgis.GeometryType.Point || rubberbandModel.geometryType === Qgis.GeometryType.Null) {
         QfTheme.mainColor;
       } else {
         QfTheme.toolButtonBackgroundColor;
@@ -242,7 +264,7 @@ QfVisibilityFadingRow {
         }
         lastAdditionAveraged = true;
         addVertex();
-        if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
+        if (rubberbandModel.geometryType === Qgis.GeometryType.Point || rubberbandModel.geometryType === Qgis.GeometryType.Null) {
           confirm();
         }
         positionSource.averagedPosition = false;
@@ -284,7 +306,7 @@ QfVisibilityFadingRow {
         return;
       }
       lastAdditionAveraged = false;
-      if (Number(rubberbandModel.geometryType) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
+      if (rubberbandModel.geometryType === Qgis.GeometryType.Point || rubberbandModel.geometryType === Qgis.GeometryType.Null) {
         confirm();
       } else {
         addVertex();
@@ -323,15 +345,15 @@ QfVisibilityFadingRow {
   }
 
   function checkGeometryValidity() {
-    var extraVertexNeed = cogoEnabled || (coordinateLocator && coordinateLocator.positionLocked && positioningSettings.averagedPositioning && positioningSettings.averagedPositioningMinimumCount > 1) ? 1 : 0;
+    const extraVertexNeed = cogoEnabled || (coordinateLocator && coordinateLocator.positionLocked && positioningSettings.averagedPositioning && positioningSettings.averagedPositioningMinimumCount > 1) ? 1 : 0;
 
     // set geometry valid
-    if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === 0) {
+    if (!rubberbandModel || rubberbandModel.geometryType === Qgis.GeometryType.Point) {
       geometryValid = false;
-    } else if (Number(rubberbandModel.geometryType) === 1) {
+    } else if (rubberbandModel.geometryType === Qgis.GeometryType.Line) {
       // Line: at least 2 points
       geometryValid = rubberbandModel.vertexCount > 1 + extraVertexNeed;
-    } else if (Number(rubberbandModel.geometryType) === 2) {
+    } else if (rubberbandModel.geometryType === Qgis.GeometryType.Polygon) {
       // Polygon: at least 3 points
       geometryValid = rubberbandModel.vertexCount > 2 + extraVertexNeed;
     } else {
