@@ -675,7 +675,7 @@ QfEditorWidgetBase {
   Component {
     id: audioRecorderComponent
 
-    QfAudioRecorder {
+    QfAudioClipRecorder {
       z: 10000
       visible: false
 
