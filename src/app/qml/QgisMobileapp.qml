@@ -3582,6 +3582,23 @@ ApplicationWindow {
 
     Component.onCompleted: focusstack.addFocusTaker(this)
 
+    onOpened: {
+      if (settings.valueBool("/QField/showDashboardGuide", true)) {
+        dashboardTour.index = 0;
+        dashboardTour.runTour();
+        settings.setValue("/QField/showDashboardGuide", false);
+        return;
+      }
+      if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudButtonGuide", true)) {
+        const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+        if (deltaFileWrapper && deltaFileWrapper.count > 0) {
+          cloudButtonTour.index = 0;
+          cloudButtonTour.runTour();
+          settings.setValue("/QField/showCloudButtonGuide", false);
+        }
+      }
+    }
+
     onReturnHome: {
       if (currentRubberband && currentRubberband.model.vertexCount > 1) {
         digitizingToolbar.cancelDialog.open();
@@ -3599,9 +3616,7 @@ ApplicationWindow {
     }
 
     onShowCloudPopup: {
-      qfieldCloudStatus.refresh();
-      dashBoard.close();
-      qfieldCloudPopup.show();
+      mainWindow.openCloudPopup();
     }
 
     onToggleMeasurementTool: {
@@ -4984,6 +4999,10 @@ ApplicationWindow {
         } else {
           projectInfo.restoreCloudUserInformation();
         }
+        if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudButtonGuide", true) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
+          cloudMenuTour.runTour();
+          settings.setValue("/QField/showCloudButtonGuide", false);
+        }
       } else {
         projectInfo.hasInsertRights = true;
         projectInfo.hasEditRights = true;
@@ -5430,6 +5449,13 @@ ApplicationWindow {
     }
   }
 
+  function openCloudPopup() {
+    qfieldCloudStatus.refresh();
+    dashBoard.close();
+    welcomeScreen.visible = false;
+    qfieldCloudPopup.show();
+  }
+
   QfCloudPopup {
     id: qfieldCloudPopup
     objectName: "qfieldCloudPopup"
@@ -5444,6 +5470,12 @@ ApplicationWindow {
     cloudServiceStatus: qfieldCloudStatus
 
     Component.onCompleted: focusstack.addFocusTaker(this)
+
+    onAboutToShow: {
+      cloudButtonTour.blockGuide();
+      cloudMenuTour.blockGuide();
+      settings.setValue("/QField/showCloudButtonGuide", false);
+    }
   }
 
   QfCloudPackageLayersFeedback {
@@ -5602,7 +5634,16 @@ ApplicationWindow {
     if (!closeAlreadyRequested) {
       close.accepted = false;
       closeAlreadyRequested = true;
-      displayToast(qsTr("Press back again to close project and app"));
+      const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+      if (cloudConnection.isReachable && deltaFileWrapper && deltaFileWrapper.count > 0) {
+        displayToast(qsTr("Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app."), 'attention', qsTr("Upload local changes"), () => {
+          closeAlreadyRequested = false;
+          closingTimer.stop();
+          openCloudPopup();
+        });
+      } else {
+        displayToast(qsTr("Press back again to close project and app"));
+      }
       closingTimer.start();
     } else {
       close.accepted = true;
@@ -5838,19 +5879,38 @@ ApplicationWindow {
         "target": () => [iface.findItemByObjectName('projectFolderButton')]
       }
     ]
+  }
 
-    Connections {
-      id: dashBoardConnections
-      target: dashBoard
-      enabled: settings ? settings.valueBool("/QField/showDashboardGuide", true) : false
+  QfGuide {
+    id: cloudButtonTour
+    baseRoot: mainWindow
+    objectName: 'cloudButtonTour'
+    z: dashBoard.z + 1
+    index: -1
 
-      function onOpened() {
-        dashBoardConnections.enabled = false;
-        dashboardTour.index = 0;
-        dashboardTour.runTour();
-        settings.setValue("/QField/showDashboardGuide", false);
+    steps: [
+      {
+        "type": "information",
+        "title": qsTr("Local changes"),
+        "description": qsTr("This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud."),
+        "target": () => [iface.findItemByObjectName('cloudButton')]
       }
-    }
+    ]
+  }
+
+  QfGuide {
+    id: cloudMenuTour
+    baseRoot: mainWindow
+    objectName: 'cloudMenuTour'
+
+    steps: [
+      {
+        "type": "information",
+        "title": qsTr("Local changes"),
+        "description": qsTr("This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud."),
+        "target": () => [menuButton]
+      }
+    ]
   }
 
   Item {
@@ -5858,8 +5918,11 @@ ApplicationWindow {
 
     function blockGuides() {
       mapCanvasTour.blockGuide();
+      cloudButtonTour.blockGuide();
+      cloudMenuTour.blockGuide();
       settings.setValue("/QField/showMapCanvasGuide", false);
       settings.setValue("/QField/showDashBoardGuide", false);
+      settings.setValue("/QField/showCloudButtonGuide", false);
     }
   }
 

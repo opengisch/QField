@@ -868,9 +868,62 @@ Page {
     round: true
 
     onClicked: {
+      if (cloudConnection.isReachable && settings.valueBool("/QField/showPendingChangesDialog", true)) {
+        const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+        if (showPendingChangesDialog && deltaFileWrapper && deltaFileWrapper.count > 0) {
+          uploadLocalChangesDialog.open();
+          return;
+        }
+      }
       mainWindow.closeAlreadyRequested = true;
       mainWindow.close();
     }
+  }
+
+  QfDialog {
+    id: uploadLocalChangesDialog
+    parent: mainWindow.contentItem
+    closePolicy: Popup.NoAutoClose
+
+    width: Math.min(mainWindow.width - QfTheme.popupScreenEdgeVerticalMargin * 2, 300)
+
+    title: qsTr("Local changes")
+
+    Column {
+      width: parent.width
+      spacing: 20
+
+      Label {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: qsTr("Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?")
+      }
+
+      CheckBox {
+        id: dontShowAgainCheckBox
+        text: qsTr("Don't show this again")
+        font: QfTheme.defaultFont
+      }
+    }
+
+    onAboutToShow: {
+      dontShowAgainCheckBox.checked = true;
+      standardButton(Dialog.Yes).text = qsTr("Upload now");
+      standardButton(Dialog.No).text = qsTr("Close");
+    }
+
+    onAccepted: {
+      settings.setValue("/QField/showPendingChangesDialog", !dontShowAgainCheckBox.checked);
+      mainWindow.openCloudPopup();
+    }
+
+    onRejected: {
+      settings.setValue("/QField/showPendingChangesDialog", !dontShowAgainCheckBox.checked);
+      mainWindow.closeAlreadyRequested = true;
+      mainWindow.close();
+    }
+
+    standardButtons: Dialog.Yes | Dialog.No
   }
 
   // Sparkles & unicorns
@@ -994,15 +1047,19 @@ Page {
 
   Component.onCompleted: {
     adjustWelcomeScreen();
-    var runCount = settings.value("/QField/RunCount", 0) * 1;
-    var feedbackFormShown = settings.value("/QField/FeedbackFormShown", false);
+    const runCount = settings.value("/QField/RunCount", 0) * 1;
+    if (runCount > 0) {
+      // Avoid throwing new guides to pre-existing users upgrading
+      settings.setValue("/QField/showCloudButtonGuide", false);
+    }
+    const feedbackFormShown = settings.value("/QField/FeedbackFormShown", false);
     if (!feedbackFormShown) {
-      var now = new Date();
-      var dt = settings.value("/QField/FirstRunDate", "");
+      let now = new Date();
+      let dt = settings.value("/QField/FirstRunDate", "");
       if (dt != "") {
         dt = new Date(dt);
-        var daysToPrompt = 30;
-        var runsToPrompt = 5;
+        let daysToPrompt = 30;
+        let runsToPrompt = 5;
         if (runCount >= runsToPrompt && (now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
           if (Qfield.name === "QField") {
             feedbackView.visible = true;
