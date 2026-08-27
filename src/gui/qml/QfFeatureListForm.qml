@@ -299,6 +299,8 @@ QfPaneDrawer {
           right: parent.right
           verticalCenter: parent.verticalCenter
         }
+        topPadding: 5
+        bottomPadding: 5
         font.pointSize: QfTheme.resultFont.pointSize
         font.bold: conditionalFontBold
         font.italic: conditionalFontItalic
