@@ -3279,7 +3279,7 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation>Ljudinspelare</translation>

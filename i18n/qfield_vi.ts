@@ -3272,7 +3272,7 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation>Trình ghi âm</translation>

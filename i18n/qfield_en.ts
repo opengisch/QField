@@ -3317,7 +3317,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation type="unfinished"></translation>

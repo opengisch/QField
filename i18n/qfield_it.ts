@@ -3284,7 +3284,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation>Registratore Audio</translation>

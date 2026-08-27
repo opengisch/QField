@@ -3276,7 +3276,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation>Audio-Rekorder</translation>

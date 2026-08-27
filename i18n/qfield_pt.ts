@@ -3281,7 +3281,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation>Registar Áudio</translation>

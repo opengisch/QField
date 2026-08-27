@@ -3280,7 +3280,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation>Gravadora d&apos;àudio</translation>

@@ -3281,7 +3281,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation>Äänitallennin</translation>

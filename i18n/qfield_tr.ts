@@ -3274,7 +3274,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
-    <name>QfAudioRecorder</name>
+    <name>QfAudioClipRecorder</name>
     <message>
         <source>Audio Recorder</source>
         <translation>Ses Kaydedici</translation>
