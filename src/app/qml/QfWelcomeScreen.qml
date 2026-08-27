@@ -870,7 +870,7 @@ Page {
     onClicked: {
       if (cloudConnection.isReachable && settings.valueBool("/QField/showPendingChangesDialog", true)) {
         const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
-        if (showPendingChangesDialog && deltaFileWrapper && deltaFileWrapper.count > 0) {
+        if (deltaFileWrapper && deltaFileWrapper.count > 0) {
           uploadLocalChangesDialog.open();
           return;
         }
@@ -907,7 +907,6 @@ Page {
     }
 
     onAboutToShow: {
-      dontShowAgainCheckBox.checked = true;
       standardButton(Dialog.Yes).text = qsTr("Upload now");
       standardButton(Dialog.No).text = qsTr("Close");
     }
