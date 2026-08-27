@@ -39,7 +39,6 @@ class QgsMapRendererParallelJob;
 class Qf3DMapTextureData : public QQuick3DTextureData
 {
     Q_OBJECT
-    QML_ELEMENT
 
     //! The map settings from which to get layers, extent, and output size for rendering
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
