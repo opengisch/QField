@@ -5500,7 +5500,7 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  QfSettings {
+  QfAppSettings {
     id: qfieldSettings
     objectName: "qfieldSettings"
 

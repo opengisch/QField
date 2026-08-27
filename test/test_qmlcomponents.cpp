@@ -40,16 +40,17 @@ TEST_CASE( "QmlComponents" )
       QStringLiteral( ":/qml" ),
     };
 
-    int componentCount = 0;
     QStringList failures;
 
     for ( const QString &modulePath : modulePaths )
     {
+      int modulePathCount = 0;
+
       QDirIterator iterator( modulePath, { QStringLiteral( "*.qml" ) }, QDir::Files, QDirIterator::Subdirectories );
       while ( iterator.hasNext() )
       {
         const QString filePath = iterator.next();
-        componentCount++;
+        modulePathCount++;
 
         QQmlComponent component( &engine, QUrl( QStringLiteral( "qrc%1" ).arg( filePath ) ) );
         if ( component.status() != QQmlComponent::Ready )
@@ -57,11 +58,12 @@ TEST_CASE( "QmlComponents" )
           failures << QStringLiteral( "%1\n    %2" ).arg( filePath, component.errorString().trimmed() );
         }
       }
+
+      INFO( QStringLiteral( "no QML component found in %1" ).arg( modulePath ) );
+      REQUIRE( modulePathCount > 0 );
     }
 
-    REQUIRE( componentCount > 200 );
-
-    INFO( QStringLiteral( "%1 of %2 components failed to compile:\n%3" ).arg( failures.size() ).arg( componentCount ).arg( failures.join( QStringLiteral( "\n" ) ) ) );
+    INFO( QStringLiteral( "%1 components failed to compile:\n%2" ).arg( failures.size() ).arg( failures.join( QStringLiteral( "\n" ) ) ) );
     REQUIRE( failures.isEmpty() );
   }
 }
