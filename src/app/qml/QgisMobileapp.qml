@@ -4999,9 +4999,9 @@ ApplicationWindow {
         } else {
           projectInfo.restoreCloudUserInformation();
         }
-        if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudMenuGuide", true) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
+        if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudButtonGuide", true) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
           cloudMenuTour.runTour();
-          settings.setValue("/QField/showCloudMenuGuide", false);
+          settings.setValue("/QField/showCloudButtonGuide", false);
         }
       } else {
         projectInfo.hasInsertRights = true;
@@ -5475,7 +5475,6 @@ ApplicationWindow {
       cloudButtonTour.blockGuide();
       cloudMenuTour.blockGuide();
       settings.setValue("/QField/showCloudButtonGuide", false);
-      settings.setValue("/QField/showCloudMenuGuide", false);
     }
   }
 
@@ -5924,7 +5923,6 @@ ApplicationWindow {
       settings.setValue("/QField/showMapCanvasGuide", false);
       settings.setValue("/QField/showDashBoardGuide", false);
       settings.setValue("/QField/showCloudButtonGuide", false);
-      settings.setValue("/QField/showCloudMenuGuide", false);
     }
   }
 
