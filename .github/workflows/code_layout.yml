@@ -35,7 +35,7 @@ jobs:
         run: ./scripts/test_banned_keywords.sh
 
   qml_name_collisions_check:
-    name: qml name collisions check
+    name: QML name collisions check
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout

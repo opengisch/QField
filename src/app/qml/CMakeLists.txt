@@ -1,5 +1,6 @@
 set(QFIELD_APP_QML_FILES
     QfAbout.qml
+    QfAppSettings.qml
     QfBadLayerItem.qml
     QfChangelog.qml
     QfCoordinateLocator.qml
@@ -24,7 +25,6 @@ set(QFIELD_APP_QML_FILES
     QfPluginManagerSettings.qml
     QfPositioningSettings.qml
     QfScreenLocker.qml
-    QfSettings.qml
     QfSketcher.qml
     QfTrackerSettings.qml
     QfWelcomeScreen.qml
