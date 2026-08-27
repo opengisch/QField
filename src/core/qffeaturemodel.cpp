@@ -160,7 +160,7 @@ void QfFeatureModel::setCurrentLayer( QgsVectorLayer *layer )
 
     mSavedFeature = QgsFeature( mLayer->fields() );
 
-    if ( mLayer->customPropertyKeys().contains( QStringLiteral( "is_geometry_locked" ) ) )
+    if ( mLayer->customPropertyKeys().contains( QStringLiteral( "QFieldSync/is_geometry_locked" ) ) )
     {
       // Compatibility with old QFieldSync versions prior to geometry lock being broken down into individual permissions
       const bool isLocked = mLayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
