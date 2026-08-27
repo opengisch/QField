@@ -1,0 +1,122 @@
+diff --git a/src/core/qgstiles.cpp b/src/core/qgstiles.cpp
+index b42909fdc28..34078888a9d 100644
+--- a/src/core/qgstiles.cpp
++++ b/src/core/qgstiles.cpp
+@@ -24,12 +24,6 @@
+ 
+ using namespace Qt::StringLiterals;
+ 
+-// WMS/WMTS define the "standardized rendering pixel size" as 0.28 mm. It is used both to derive
+-// tile matrix scale denominators from ground resolution (QgsTileMatrix::fromCustomDef) and as the
+-// reference pixel size when normalizing scales for MapBox/MapLibre tile zoom selection
+-// (QgsTileMatrixSet::calculateTileScaleForMap).
+-static constexpr double PIXELS_TO_M = 2.8 / 10000.0; // 0.28 mm
+-
+ QgsTileMatrix QgsTileMatrix::fromWebMercator( int zoomLevel )
+ {
+   constexpr double z0xMin = -20037508.3427892;
+@@ -48,6 +42,7 @@ QgsTileMatrix QgsTileMatrix::fromCustomDef( int zoomLevel, const QgsCoordinateRe
+ 
+   // Constant for scale denominator calculation
+   constexpr double TILE_SIZE = 256.0;
++  constexpr double PIXELS_TO_M = 2.8 / 10000.0; // WMS/WMTS define "standardized rendering pixel size" as 0.28mm
+   const double unitToMeters = QgsUnitTypes::fromUnitToUnitFactor( crs.mapUnits(), Qgis::DistanceUnit::Meters );
+   // Scale denominator calculation
+   const double scaleDenom0 = ( z0Dimension / TILE_SIZE ) * ( unitToMeters / PIXELS_TO_M );
+@@ -309,12 +304,7 @@ int QgsTileMatrixSet::scaleToZoomLevel( double scale, bool clamp ) const
+ 
+ double QgsTileMatrixSet::scaleForRenderContext( const QgsRenderContext &context ) const
+ {
+-  // Use the actual render DPI (the same DPI used to compute the renderer scale), so that
+-  // the DPI normalisation applied for the MapBox method below cancels out correctly for
+-  // both on-screen rendering and map exports/print layouts
+-  // scaleFactor() is dots-per-millimeter, so multiplying by 25.4 mm/inch gives the output DPI.
+-  const double mapDpi = context.scaleFactor() * 25.4;
+-  return calculateTileScaleForMap( context.rendererScale(), context.coordinateTransform().destinationCrs(), context.mapExtent(), context.outputSize(), mapDpi );
++  return calculateTileScaleForMap( context.rendererScale(), context.coordinateTransform().destinationCrs(), context.mapExtent(), context.outputSize(), context.painter()->device()->logicalDpiX() );
+ }
+ 
+ double QgsTileMatrixSet::calculateTileScaleForMap( double actualMapScale, const QgsCoordinateReferenceSystem &mapCrs, const QgsRectangle &mapExtent, const QSize mapSize, const double mapDpi ) const
+@@ -323,15 +313,7 @@ double QgsTileMatrixSet::calculateTileScaleForMap( double actualMapScale, const
+   // cppcheck-suppress missingReturn
+   {
+     case Qgis::ScaleToTileZoomLevelMethod::MapBox:
+-    {
+-      // MapBox/MapLibre zoom levels correspond to a fixed on-screen pixel resolution and are
+-      // independent of the rendering DPI, whereas actualMapScale embeds the output DPI used to
+-      // render the map.
+-      // we normalize the incoming scale to that reference DPI.
+-      constexpr double REFERENCE_DPI = 0.0254 / PIXELS_TO_M; // ~90.7 dpi
+-      const double tileScale = actualMapScale * REFERENCE_DPI / mapDpi;
+-      return tileScale;
+-    }
++      return actualMapScale;
+ 
+     case Qgis::ScaleToTileZoomLevelMethod::Esri:
+       if ( mapCrs.isGeographic() )
+diff --git a/src/gui/maptools/qgsmaptoolidentify.cpp b/src/gui/maptools/qgsmaptoolidentify.cpp
+index f53729f47b3..40e9d87bd76 100644
+--- a/src/gui/maptools/qgsmaptoolidentify.cpp
++++ b/src/gui/maptools/qgsmaptoolidentify.cpp
+@@ -512,7 +512,7 @@ bool QgsMapToolIdentify::identifyVectorTileLayer( QList<QgsMapToolIdentify::Iden
+     }
+ 
+     const double tileScale
+-      = layer->tileMatrixSet().calculateTileScaleForMap( mCanvas->scale(), mCanvas->mapSettings().destinationCrs(), mCanvas->mapSettings().extent(), mCanvas->size(), mCanvas->mapSettings().outputDpi() );
++      = layer->tileMatrixSet().calculateTileScaleForMap( mCanvas->scale(), mCanvas->mapSettings().destinationCrs(), mCanvas->mapSettings().extent(), mCanvas->size(), mCanvas->logicalDpiX() );
+ 
+     const int tileZoom = layer->tileMatrixSet().scaleToZoomLevel( tileScale );
+     const QgsTileMatrix tileMatrix = layer->tileMatrixSet().tileMatrix( tileZoom );
+diff --git a/tests/src/python/test_qgstiles.py b/tests/src/python/test_qgstiles.py
+index 0893f6eba6d..b2d5a2ebf01 100644
+--- a/tests/src/python/test_qgstiles.py
++++ b/tests/src/python/test_qgstiles.py
+@@ -119,23 +119,8 @@ class TestQgsTiles(QgisTestCase):
+         self.assertEqual(min(t.row() for t in tiles), 4)
+         self.assertEqual(max(t.row() for t in tiles), 7)
+ 
+-        # MapBox method: the incoming scale is normalized from the render DPI to the
+-        # OGC WMTS reference of 0.28 mm/pixel (~90.7 dpi), so that the derived tile zoom
+-        # is DPI-independent and matches MapLibre. At the reference DPI the scale is unchanged.
+-        reference_dpi = 0.0254 / (2.8 / 10000.0)
+-        self.assertAlmostEqual(
+-            matrix_set.calculateTileScaleForMap(
+-                1000,
+-                QgsCoordinateReferenceSystem("EPSG:4326"),
+-                QgsRectangle(0, 2, 20, 12),
+-                QSize(20, 10),
+-                reference_dpi,
+-            ),
+-            1000,
+-            places=3,
+-        )
+-        # at 96 dpi the scale is normalized down by 90.7/96
+-        self.assertAlmostEqual(
++        # should not apply any special logic here, and return scales unchanged
++        self.assertEqual(
+             matrix_set.calculateTileScaleForMap(
+                 1000,
+                 QgsCoordinateReferenceSystem("EPSG:4326"),
+@@ -143,10 +128,9 @@ class TestQgsTiles(QgisTestCase):
+                 QSize(20, 10),
+                 96,
+             ),
+-            944.9404761904763,
+-            places=5,
++            1000,
+         )
+-        self.assertAlmostEqual(
++        self.assertEqual(
+             matrix_set.calculateTileScaleForMap(
+                 1000,
+                 QgsCoordinateReferenceSystem("EPSG:3857"),
+@@ -154,8 +138,7 @@ class TestQgsTiles(QgisTestCase):
+                 QSize(20, 10),
+                 96,
+             ),
+-            944.9404761904763,
+-            places=5,
++            1000,
+         )
+ 
+         self.assertEqual(matrix_set.tileMatrix(1).zoomLevel(), 1)
