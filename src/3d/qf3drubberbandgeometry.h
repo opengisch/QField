@@ -36,7 +36,6 @@
 class Qf3DRubberbandGeometry : public QQuick3DGeometry
 {
     Q_OBJECT
-    QML_ELEMENT
 
     //! The rubberband model providing the vertex coordinates
     Q_PROPERTY( QfRubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
