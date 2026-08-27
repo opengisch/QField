@@ -868,9 +868,8 @@ Page {
     round: true
 
     onClicked: {
-      if (cloudConnection.isReachable) {
+      if (cloudConnection.isReachable && settings.valueBool("/QField/showPendingChangesDialog", true)) {
         const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
-        const showPendingChangesDialog = settings.valueBool("/QField/showPendingChangesDialog", true);
         if (showPendingChangesDialog && deltaFileWrapper && deltaFileWrapper.count > 0) {
           uploadLocalChangesDialog.open();
           return;

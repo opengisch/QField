@@ -3589,11 +3589,13 @@ ApplicationWindow {
         settings.setValue("/QField/showDashboardGuide", false);
         return;
       }
-      const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
-      if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudButtonGuide", true) && deltaFileWrapper && deltaFileWrapper.count > 0) {
-        cloudButtonTour.index = 0;
-        cloudButtonTour.runTour();
-        settings.setValue("/QField/showCloudButtonGuide", false);
+      if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudButtonGuide", true)) {
+        const deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+        if (deltaFileWrapper && deltaFileWrapper.count > 0) {
+          cloudButtonTour.index = 0;
+          cloudButtonTour.runTour();
+          settings.setValue("/QField/showCloudButtonGuide", false);
+        }
       }
     }
 
