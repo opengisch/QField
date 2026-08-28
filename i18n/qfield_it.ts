@@ -3391,7 +3391,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>QfBookmarkList</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Segnalibri</translation>
     </message>
     <message>
         <source>Bookmark List Menu</source>
@@ -7011,7 +7011,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>metri</translation>
     </message>
     <message>
         <source>kilometers</source>
@@ -8283,10 +8283,30 @@ project</source>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Ritorna alla mappa</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Don&apos;t show this again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -8314,15 +8334,15 @@ project</source>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile caricare il font: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile caricare il progetto, il file &quot;%1&quot; non esiste</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile leggere il progetto, il file &quot;%1&quot; non esiste</translation>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
@@ -8370,11 +8390,11 @@ project</source>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile caricare vista 3D</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Caricamento terreno...</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
@@ -8419,7 +8439,7 @@ to show actions</source>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>metri</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -8503,7 +8523,7 @@ to show actions</source>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Chiudi la vista 3D</translation>
     </message>
     <message>
         <source>Stop editing</source>
@@ -8523,11 +8543,11 @@ to show actions</source>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation>Snapping acceso</translation>
+        <translation>Aggancio acceso</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation>Snapping spento</translation>
+        <translation>Aggancio spento</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
@@ -8547,11 +8567,11 @@ to show actions</source>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation>Snap a %1° di angolo attivato</translation>
+        <translation>Aggancio a %1° di angolo attivato</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation>Snap ad angolo comune disattivato</translation>
+        <translation>Aggancio ad angolo comune disattivato</translation>
     </message>
     <message>
         <source>Relative angle</source>
@@ -8559,19 +8579,19 @@ to show actions</source>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Aggancia ad ogni</translation>
     </message>
     <message>
         <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>%1°</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Tolleranza di aggancio</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Stretta</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -8583,7 +8603,7 @@ to show actions</source>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Tolleranza di aggancio impostata a %1</translation>
     </message>
     <message>
         <source>Waiting for location</source>
@@ -8647,11 +8667,11 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Segnalibri</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestore Plugin</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -8715,7 +8735,7 @@ to show actions</source>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Attiva la rotazione della mappa</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -8731,11 +8751,11 @@ to show actions</source>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>Taglia l&apos;elemento</translation>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>Copia l&apos;elemento</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -8751,15 +8771,15 @@ to show actions</source>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>Incolla nel layer</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>Elemento incollato con successo</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile incollare l&apos;elemento nel layer</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -9003,6 +9023,26 @@ to show actions</source>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation type="unfinished"/>
     </message>
 </context>

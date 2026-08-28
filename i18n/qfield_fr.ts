@@ -8284,6 +8284,26 @@ projet</translation>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>C&apos;est la première fois que vous utilisez cette application ? Essayez les exemples de projets listés ci-dessous.</translation>
     </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Modifications locales</translation>
+    </message>
+    <message>
+        <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
+        <translation>Des modifications sont en attente. Veux-tu les publier maintenant ou les laisser en attente et fermer le projet et l&apos;application ?</translation>
+    </message>
+    <message>
+        <source>Don&apos;t show this again</source>
+        <translation>Ne plus afficher ce message</translation>
+    </message>
+    <message>
+        <source>Upload now</source>
+        <translation>Télécharge maintenant</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Fermer QField</translation>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
@@ -9001,6 +9021,26 @@ fermer le projet et quitter l&apos;application</translation>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>Ouvrez le dossier du projet pour accéder aux fichiers du projet, sources de données et documents connexes. Utile pour gérer les ressources du projet, télécharger manuellement des données sur QFieldCloud et partager des jeux de données, pièces jointes et mises en page.</translation>
+    </message>
+    <message>
+        <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
+        <translation>Des modifications sont en attente. Envoie-les maintenant ou appuie à nouveau sur « Retour » pour les laisser en attente et fermer le projet et l&apos;application.</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Envoyer les modifications locales</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Modifications locales</translation>
+    </message>
+    <message>
+        <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
+        <translation>Ce projet contient des modifications qui n&apos;ont pas encore été mises en ligne. Appuie sur le bouton bleu en forme de nuage pour ouvrir le panneau du projet cloud et envoie-les à QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation>Ce projet contient des modifications qui n&apos;ont pas encore été mises en ligne. Ouvre le tableau de bord à l&apos;aide de ce bouton, puis appuie sur l&apos;icône bleue en forme de nuage pour les envoyer à QFieldCloud.</translation>
     </message>
 </context>
 <context>

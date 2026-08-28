@@ -8293,6 +8293,26 @@ project</source>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Вперше користуєтеся цим застосунком? Спробуйте зразки проектів, перелічені нижче.</translation>
     </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Локальні зміни</translation>
+    </message>
+    <message>
+        <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
+        <translation>Є зміни в очікуванні: завантажити їх зараз чи залишити в режимі очікування та закрити хмарний проект і програму?</translation>
+    </message>
+    <message>
+        <source>Don&apos;t show this again</source>
+        <translation>Більше не показувати це</translation>
+    </message>
+    <message>
+        <source>Upload now</source>
+        <translation>Завантажити зараз</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрити</translation>
+    </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
@@ -9009,6 +9029,26 @@ to show actions</source>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>Відкрийте папку проекту, щоб отримати доступ до файлів проекту, джерел даних і супутніх документів. Це корисно для керування ресурсами проекту, завантаження даних у QFieldCloud вручну, а також для обміну наборами даних, вкладеннями та компонуваннями.</translation>
+    </message>
+    <message>
+        <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
+        <translation>Є зміни в очікуванні. Завантажте їх зараз або поверніться назад, щоб залишити їх у режимі очікування та закрити хмарний проект і програму.</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Завантажити останні зміни</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Локальні зміни</translation>
+    </message>
+    <message>
+        <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
+        <translation>У цьому проекті є зміни в очікуванні. Натисніть синю кнопку із зображенням хмаринки, щоб відкрити панель хмарного проекту та надіслати їх до QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation>Цей хмарний проект має зміни, що ще не були завантажені. Відкрийте панель керування за допомогою цієї кнопки, а потім натисніть синю піктограму хмари, щоб надіслати їх до QFieldCloud.</translation>
     </message>
 </context>
 <context>
