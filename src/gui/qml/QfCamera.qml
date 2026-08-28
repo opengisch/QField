@@ -51,6 +51,26 @@ Popup {
     }
   }
 
+  function discardCapture() {
+    if (currentPath !== '') {
+      platformUtilities.rmFile(currentPath);
+      currentPath = '';
+    }
+  }
+
+  function videoResolutionForQuality(cameraResolution, quality) {
+    if (cameraResolution.width < 1 || cameraResolution.height < 1) {
+      return Qt.size(0, 0);
+    }
+    const shorterSide = Math.min(cameraResolution.width, cameraResolution.height);
+    if (quality <= 0 || quality >= shorterSide) {
+      return cameraResolution;
+    }
+    const toEven = side => side + (side & 1);
+    const longerSide = toEven(Math.round(Math.max(cameraResolution.width, cameraResolution.height) * quality / shorterSide));
+    return cameraResolution.width < cameraResolution.height ? Qt.size(toEven(quality), longerSide) : Qt.size(longerSide, toEven(quality));
+  }
+
   signal finished(string path)
   signal canceled
 
@@ -128,6 +148,7 @@ Popup {
     property string deviceId: ''
     property size resolution: Qt.size(0, 0)
     property int pixelFormat: 0
+    property int videoQuality: 0
   }
 
   QfExpressionEvaluator {
@@ -188,6 +209,7 @@ Popup {
 
       sourceComponent: Component {
         Item {
+          id: captureItem
           anchors.fill: parent
 
           property alias captureSession: captureSession
@@ -197,6 +219,21 @@ Popup {
           property alias videoOutput: videoOutput
           property alias videoSinkCapture: videoSinkCapture
           property alias orientationNormalizer: orientationNormalizer
+
+          // falls back to the largest supported format while the camera has no active one
+          readonly property size cameraResolution: {
+            const activeResolution = camera.cameraFormat.resolution;
+            if (activeResolution.width > 0 && activeResolution.height > 0) {
+              return activeResolution;
+            }
+            let largest = Qt.size(0, 0);
+            for (const format of camera.cameraDevice.videoFormats) {
+              if (format.resolution.width * format.resolution.height > largest.width * largest.height) {
+                largest = format.resolution;
+              }
+            }
+            return largest;
+          }
 
           QfCameraOrientationNormalizer {
             id: orientationNormalizer
@@ -321,10 +358,17 @@ Popup {
             recorder: MediaRecorder {
               id: recorder
 
+              videoResolution: cameraItem.videoResolutionForQuality(captureItem.cameraResolution, cameraSettings.videoQuality)
+
               onRecorderStateChanged: {
-                if (cameraItem.state == "VideoPreview" && recorderState === MediaRecorder.StoppedState) {
+                if (recorderState !== MediaRecorder.StoppedState) {
+                  return;
+                }
+                if (cameraItem.state == "VideoPreview") {
                   videoPreview.source = recorder.actualLocation;
                   videoPreview.play();
+                } else {
+                  platformUtilities.rmFile(QfUrlUtils.toLocalFile(recorder.actualLocation.toString()));
                 }
               }
             }
@@ -518,6 +562,7 @@ Popup {
     }
 
     Rectangle {
+      id: captureBar
       width: cameraItem.isPortraitMode ? parent.width : 100 + mainWindow.sceneBottomMargin + cameraItem.panelExtraSpace
       height: cameraItem.isPortraitMode ? 100 + cameraItem.panelExtraSpace + mainWindow.sceneRightMargin : parent.height
       x: cameraItem.isPortraitMode ? 0 : parent.width - width
@@ -559,8 +604,27 @@ Popup {
               enabled: !cameraItem.isCapturing
               opacity: enabled ? 1 : 0.5
 
+              readonly property bool recording: cameraItem.state == "VideoCapture" && captureLoader.item && captureLoader.item.recorder.recorderState !== MediaRecorder.StoppedState
               round: true
               roundborder: true
+
+              backgroundRadius: recording ? 8 : width / 2
+              scale: recording ? 0.65 : 1
+
+              Behavior on backgroundRadius {
+                NumberAnimation {
+                  duration: 200
+                  easing.type: Easing.OutQuad
+                }
+              }
+
+              Behavior on scale {
+                NumberAnimation {
+                  duration: 200
+                  easing.type: Easing.OutQuad
+                }
+              }
+
               iconSource: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? QfTheme.getThemeVectorIcon("ic_check_white_24dp") : ''
               iconColor: QfTheme.toolButtonColor
               bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? QfTheme.mainColor : cameraItem.state == "VideoCapture" ? "red" : "white"
@@ -621,6 +685,8 @@ Popup {
                   }
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState) {
+                    platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+                    captureLoader.item.recorder.outputLocation = QfUrlUtils.fromString(qgisProject.homePath + '/DCIM/');
                     captureLoader.item.recorder.record();
                   } else {
                     cameraItem.state = "VideoPreview";
@@ -755,7 +821,9 @@ Popup {
               implicitWidth: modeSwitch.slotSize * 2
               x: (modeSwitch.width - implicitWidth) / 2
               radius: 4
-              color: "transparent"
+              color: QfTheme.darkGraySemiOpaque
+              border.color: Qt.alpha(QfTheme.light, 0.08)
+              border.width: 1
               anchors.verticalCenter: parent.verticalCenter
 
               QfToolButton {
@@ -765,10 +833,9 @@ Popup {
                 anchors.verticalCenter: parent.verticalCenter
                 round: false
                 iconSource: QfTheme.getThemeVectorIcon('ic_camera_photo_black_24dp')
-                iconColor: "white"
+                iconColor: QfTheme.gray
                 bgcolor: 'transparent'
                 enabled: false
-                opacity: 0.35
                 rotation: cameraItem.isPortraitMode ? 0 : 90
               }
 
@@ -779,10 +846,9 @@ Popup {
                 anchors.verticalCenter: parent.verticalCenter
                 round: false
                 iconSource: QfTheme.getThemeVectorIcon('ic_camera_video_black_24dp')
-                iconColor: "white"
+                iconColor: QfTheme.gray
                 bgcolor: 'transparent'
                 enabled: false
-                opacity: 0.35
                 rotation: cameraItem.isPortraitMode ? 0 : 90
               }
 
@@ -793,9 +859,7 @@ Popup {
                 width: modeSwitch.slotSize - inset * 2
                 height: modeSwitch.slotSize - inset * 2
                 radius: 3
-                color: QfTheme.darkGraySemiOpaque
-                border.color: "#66FFFFFF"
-                border.width: 1
+                color: Qt.alpha(QfTheme.light, 0.25)
                 clip: true
 
                 QfToolButton {
@@ -805,7 +869,7 @@ Popup {
                   round: false
                   hoverEnabled: false
                   iconSource: modeSwitch.checked ? QfTheme.getThemeVectorIcon('ic_camera_video_black_24dp') : QfTheme.getThemeVectorIcon('ic_camera_photo_black_24dp')
-                  iconColor: "white"
+                  iconColor: QfTheme.toolButtonColor
                   bgcolor: 'transparent'
                   enabled: false
                   rotation: cameraItem.isPortraitMode ? 0 : 90
@@ -885,40 +949,143 @@ Popup {
           }
 
           Rectangle {
+            id: recordingIndicator
             visible: cameraItem.state == "VideoCapture" && captureLoader.item && captureLoader.item.recorder.recorderState !== MediaRecorder.StoppedState
 
             x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width / 2 - width / 2
             y: cameraItem.isPortraitMode ? captureRing.y - height - 20 : captureRing.y - height - 20
 
-            width: durationLabelMetrics.boundingRect('00:00:00').width + 20
+            width: durationLabelMetrics.boundingRect('00:00:00').width + 34
             height: durationLabelMetrics.boundingRect('00:00:00').height + 10
             radius: 6
 
-            color: 'red'
+            color: QfTheme.darkGraySemiOpaque
 
-            Text {
-              id: durationLabel
+            Row {
               anchors.centerIn: parent
-              text: {
-                if (captureLoader.item && captureLoader.item.recorder.duration > 0) {
-                  var seconds = Math.ceil(captureLoader.item.recorder.duration / 1000);
-                  var hours = Math.floor(seconds / 60 / 60) + '';
-                  seconds -= hours * 60 * 60;
-                  var minutes = Math.floor(seconds / 60) + '';
-                  seconds = (seconds - minutes * 60) + '';
-                  return hours.padStart(2, '0') + ':' + minutes.padStart(2, '0') + ':' + seconds.padStart(2, '0');
-                } else {
-                  // tiny bit of a cheat here as the first second isn't triggered
-                  return '00:00:01';
-                }
+              spacing: 6
+
+              Rectangle {
+                anchors.verticalCenter: parent.verticalCenter
+                width: 8
+                height: width
+                radius: width / 2
+                color: "red"
               }
-              color: "white"
+
+              Text {
+                id: durationLabel
+                text: {
+                  if (captureLoader.item && captureLoader.item.recorder.duration > 0) {
+                    var seconds = Math.ceil(captureLoader.item.recorder.duration / 1000);
+                    var hours = Math.floor(seconds / 60 / 60) + '';
+                    seconds -= hours * 60 * 60;
+                    var minutes = Math.floor(seconds / 60) + '';
+                    seconds = (seconds - minutes * 60) + '';
+                    return hours.padStart(2, '0') + ':' + minutes.padStart(2, '0') + ':' + seconds.padStart(2, '0');
+                  } else {
+                    // tiny bit of a cheat here as the first second isn't triggered
+                    return '00:00:01';
+                  }
+                }
+                color: QfTheme.light
+              }
             }
 
             FontMetrics {
               id: durationLabelMetrics
               font: durationLabel.font
             }
+          }
+
+          Rectangle {
+            visible: cameraItem.state == "VideoPreview" && recordedSizeLabel.text !== ''
+
+            x: captureRing.x + captureRing.width / 2 - width / 2
+            y: captureRing.y - height - 20
+
+            width: recordedSizeLabel.width + 20
+            height: durationLabelMetrics.boundingRect('00:00:00').height + 10
+            radius: 6
+
+            color: QfTheme.darkGraySemiOpaque
+
+            Text {
+              id: recordedSizeLabel
+              anchors.centerIn: parent
+              text: {
+                if (videoPreview.duration <= 0) {
+                  return '';
+                }
+                const bytes = QfFileUtils.fileSize(cameraItem.currentPath);
+                return bytes > 0 ? QfFileUtils.representFileSize(bytes) : '';
+              }
+              font: durationLabel.font
+              color: QfTheme.light
+            }
+          }
+        }
+      }
+    }
+
+    Rectangle {
+      id: videoQualityPanel
+      visible: cameraItem.state == "VideoCapture" && captureLoader.item && captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState && qualities.length > 1
+
+      readonly property list<int> qualities: {
+        const cameraResolution = captureLoader.item ? captureLoader.item.cameraResolution : Qt.size(0, 0);
+        const shorterSide = Math.min(cameraResolution.width, cameraResolution.height);
+        return [360, 480, 720, 1080].filter(quality => quality < shorterSide).concat([0]);
+      }
+
+      readonly property int selectedQuality: qualities.indexOf(cameraSettings.videoQuality) >= 0 ? cameraSettings.videoQuality : 0
+      readonly property size targetResolution: captureLoader.item ? cameraItem.videoResolutionForQuality(captureLoader.item.cameraResolution, selectedQuality) : Qt.size(0, 0)
+
+      readonly property real availableWidth: cameraItem.isPortraitMode ? parent.width : parent.width - captureBar.width
+
+      width: Math.min(availableWidth - 80, 320)
+      height: videoQualityColumn.height + 20
+      radius: 6
+      color: QfTheme.darkGraySemiOpaque
+
+      x: availableWidth / 2 - width / 2
+      y: parent.height - height - 20 - (cameraItem.isPortraitMode ? captureBar.height : mainWindow.sceneBottomMargin)
+
+      Column {
+        id: videoQualityColumn
+        anchors.centerIn: parent
+        width: parent.width - 20
+        spacing: 6
+
+        Text {
+          width: parent.width
+          horizontalAlignment: Text.AlignHCenter
+          elide: Text.ElideRight
+          text: {
+            const quality = videoQualityPanel.selectedQuality;
+            const label = quality > 0 ? quality + 'p' : qsTr("Highest");
+            const resolution = videoQualityPanel.targetResolution;
+            return resolution.width > 0 ? label + ' — ' + resolution.width + ' × ' + resolution.height : label;
+          }
+          font: QfTheme.tipFont
+          color: QfTheme.light
+        }
+
+        QfSlider {
+          id: qualitySlider
+
+          width: parent.width
+          implicitHeight: 34
+          showValueLabel: false
+
+          from: 0
+          to: videoQualityPanel.qualities.length - 1
+          stepSize: 1
+          snapMode: Slider.SnapAlways
+          value: Math.max(0, videoQualityPanel.qualities.indexOf(videoQualityPanel.selectedQuality))
+
+          onMoved: {
+            cameraSettings.videoQuality = videoQualityPanel.qualities[value];
           }
         }
       }
@@ -942,13 +1109,16 @@ Popup {
           cameraItem.userRotation = 0;
           cameraItem.userMirror = false;
           cameraItem.state = "PhotoCapture";
+          cameraItem.discardCapture();
         } else if (cameraItem.state == "VideoPreview") {
           videoPreview.stop();
           cameraItem.state = "VideoCapture";
+          cameraItem.discardCapture();
         } else {
-          if (currentPath != '') {
-            platformUtilities.rmFile(currentPath);
+          if (captureLoader.item && captureLoader.item.recorder.recorderState !== MediaRecorder.StoppedState) {
+            captureLoader.item.recorder.stop();
           }
+          cameraItem.discardCapture();
           cameraItem.canceled();
         }
       }
