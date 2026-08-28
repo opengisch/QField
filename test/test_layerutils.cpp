@@ -125,3 +125,62 @@ TEST_CASE( "LayerUtils DeleteFeature" )
     REQUIRE( layer->commitChanges() );
   }
 }
+
+TEST_CASE( "LayerUtils DuplicateFeature" )
+{
+  std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=fid:integer&field=name:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
+  REQUIRE( layer->isValid() );
+
+  QgsFeature f( layer->fields() );
+  f.setAttribute( QStringLiteral( "fid" ), 1 );
+  f.setAttribute( QStringLiteral( "name" ), QStringLiteral( "a" ) );
+
+  layer->startEditing();
+  layer->addFeature( f );
+  layer->commitChanges();
+  REQUIRE( layer->featureCount() == 1 );
+
+  QgsFeature source = layer->getFeature( 1 );
+  REQUIRE( source.isValid() );
+
+  SECTION( "InvalidLayer" )
+  {
+    QgsFeature duplicated = QfLayerUtils::duplicateFeature( nullptr, source );
+    REQUIRE_FALSE( duplicated.isValid() );
+  }
+
+  SECTION( "InvalidFeature" )
+  {
+    QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), QgsFeature() );
+    REQUIRE_FALSE( duplicated.isValid() );
+  }
+
+  SECTION( "DefaultPolicyCarriesAttributes" )
+  {
+    QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), source );
+    REQUIRE( duplicated.isValid() );
+    REQUIRE( duplicated.id() != source.id() );
+    REQUIRE( duplicated.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "a" ) );
+    REQUIRE( layer->featureCount() == 2 );
+  }
+
+  SECTION( "UnsetFieldPolicyDropsAttribute" )
+  {
+    const int nameIndex = layer->fields().indexFromName( QStringLiteral( "name" ) );
+    REQUIRE( nameIndex >= 0 );
+    layer->setFieldDuplicatePolicy( nameIndex, Qgis::FieldDuplicatePolicy::UnsetField );
+
+    QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), source );
+    REQUIRE( duplicated.isValid() );
+    REQUIRE( duplicated.attribute( QStringLiteral( "name" ) ).toString().isEmpty() );
+  }
+
+  SECTION( "SourcePrimaryKeyNulledOnDuplicate" )
+  {
+    layer->setCustomProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ), QStringLiteral( "fid" ) );
+
+    QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), source );
+    REQUIRE( duplicated.isValid() );
+    REQUIRE( duplicated.attribute( QStringLiteral( "fid" ) ).isNull() );
+  }
+}
