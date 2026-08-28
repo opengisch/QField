@@ -19,6 +19,7 @@
 #include "catch2.h"
 #include "utils/qflayerutils.h"
 
+#include <qgscoordinatereferencesystem.h>
 #include <qgsfeature.h>
 #include <qgsfeatureiterator.h>
 #include <qgsproject.h>
@@ -182,5 +183,34 @@ TEST_CASE( "LayerUtils DuplicateFeature" )
     QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), source );
     REQUIRE( duplicated.isValid() );
     REQUIRE( duplicated.attribute( QStringLiteral( "fid" ) ).isNull() );
+  }
+}
+
+TEST_CASE( "LayerUtils MemoryLayerFromJsonString" )
+{
+  SECTION( "ValidFeatureCollection" )
+  {
+    const QString json = QStringLiteral( "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[1,2]},\"properties\":{\"name\":\"a\",\"val\":1}},{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[3,4]},\"properties\":{\"name\":\"b\",\"val\":2}}]}" );
+
+    std::unique_ptr<QgsVectorLayer> layer( QfLayerUtils::memoryLayerFromJsonString( QStringLiteral( "vl" ), json, QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) ) );
+    REQUIRE( layer != nullptr );
+    REQUIRE( layer->isValid() );
+    REQUIRE( layer->geometryType() == Qgis::GeometryType::Point );
+    REQUIRE( layer->featureCount() == 2 );
+
+    QStringList names;
+    QgsFeatureIterator it = layer->getFeatures();
+    QgsFeature f;
+    while ( it.nextFeature( f ) )
+      names << f.attribute( QStringLiteral( "name" ) ).toString();
+    names.sort();
+    REQUIRE( names == QStringList( { QStringLiteral( "a" ), QStringLiteral( "b" ) } ) );
+  }
+
+  SECTION( "EmptyFeatureCollectionReturnsNull" )
+  {
+    const QString json = QStringLiteral( "{\"type\":\"FeatureCollection\",\"features\":[]}" );
+    QgsVectorLayer *layer = QfLayerUtils::memoryLayerFromJsonString( QStringLiteral( "vl" ), json );
+    REQUIRE( layer == nullptr );
   }
 }
