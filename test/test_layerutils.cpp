@@ -20,6 +20,8 @@
 #include "utils/qflayerutils.h"
 
 #include <qgsfeature.h>
+#include <qgsfeatureiterator.h>
+#include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
 #include <memory>
@@ -55,5 +57,71 @@ TEST_CASE( "LayerUtils AddFeature" )
     REQUIRE( added.isValid() );
     REQUIRE( added.attribute( QStringLiteral( "fid" ) ) == 1 );
     REQUIRE( added.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "a" ) );
+  }
+}
+
+TEST_CASE( "LayerUtils DeleteFeature" )
+{
+  std::unique_ptr<QgsProject> project = std::make_unique<QgsProject>();
+  std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=fid:integer&field=name:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
+  REQUIRE( layer->isValid() );
+
+  QgsFeature f1( layer->fields() );
+  f1.setAttribute( QStringLiteral( "fid" ), 1 );
+  f1.setAttribute( QStringLiteral( "name" ), QStringLiteral( "a" ) );
+  QgsFeature f2( layer->fields() );
+  f2.setAttribute( QStringLiteral( "fid" ), 2 );
+  f2.setAttribute( QStringLiteral( "name" ), QStringLiteral( "b" ) );
+
+  layer->startEditing();
+  layer->addFeature( f1 );
+  layer->addFeature( f2 );
+  layer->commitChanges();
+  REQUIRE( layer->featureCount() == 2 );
+
+  SECTION( "NullProject" )
+  {
+    REQUIRE_FALSE( QfLayerUtils::deleteFeature( nullptr, layer.get(), 1 ) );
+    REQUIRE( layer->featureCount() == 2 );
+  }
+
+  SECTION( "NullLayer" )
+  {
+    REQUIRE_FALSE( QfLayerUtils::deleteFeature( project.get(), nullptr, 1 ) );
+  }
+
+  SECTION( "NotEditingForcesFlush" )
+  {
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), layer.get(), 1, false ) );
+    REQUIRE_FALSE( layer->isEditable() );
+    REQUIRE( layer->featureCount() == 1 );
+
+    QgsFeatureIterator it = layer->getFeatures();
+    QgsFeature f;
+    REQUIRE( it.nextFeature( f ) );
+    REQUIRE( f.id() == 2 );
+    REQUIRE_FALSE( it.nextFeature( f ) );
+  }
+
+  SECTION( "NoFlushKeepsBufferOpenUntilRollback" )
+  {
+    REQUIRE( layer->startEditing() );
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), layer.get(), 1, false ) );
+    REQUIRE( layer->isEditable() );
+    REQUIRE( layer->isModified() );
+    REQUIRE( layer->featureCount() == 1 );
+
+    REQUIRE( layer->rollBack() );
+    REQUIRE( layer->featureCount() == 2 );
+  }
+
+  SECTION( "FlushWhileAlreadyEditingStaysInEditMode" )
+  {
+    REQUIRE( layer->startEditing() );
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), layer.get(), 1, true ) );
+    REQUIRE( layer->isEditable() );
+    REQUIRE_FALSE( layer->isModified() );
+    REQUIRE( layer->featureCount() == 1 );
+    REQUIRE( layer->commitChanges() );
   }
 }
