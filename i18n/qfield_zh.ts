@@ -8287,15 +8287,15 @@ project</source>
     </message>
     <message>
         <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
-        <translation type="unfinished"/>
+        <translation>当前存在未提交更改，您是希望立即上传这些更改，还是保留未提交状态并关闭云工程和应用程序？</translation>
     </message>
     <message>
         <source>Don&apos;t show this again</source>
-        <translation type="unfinished"/>
+        <translation>不再显示</translation>
     </message>
     <message>
         <source>Upload now</source>
-        <translation type="unfinished"/>
+        <translation>立即上传</translation>
     </message>
     <message>
         <source>Close</source>
@@ -9020,7 +9020,7 @@ to show actions</source>
     </message>
     <message>
         <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
-        <translation type="unfinished"/>
+        <translation>当前存在未提交更改。请立即上传这些更改，或再次按返回保持其未提交状态，并关闭云工程和应用程序。</translation>
     </message>
     <message>
         <source>Upload local changes</source>
@@ -9032,11 +9032,11 @@ to show actions</source>
     </message>
     <message>
         <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>此工程有尚未上传的未提交更改。点击蓝色云按钮打开云工程面板，并将这些更改发送到QFieldCloud。</translation>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>此云端工程有尚未上传的未提交更改。使用此按钮打开仪表板，然后点击蓝色云图标将它们发送到QFieldCloud。</translation>
     </message>
 </context>
 <context>

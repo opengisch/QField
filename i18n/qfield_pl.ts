@@ -3978,15 +3978,15 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <name>QfCloudPendingChanges</name>
     <message>
         <source>added</source>
-        <translation type="unfinished"/>
+        <translation>dodano</translation>
     </message>
     <message>
         <source>edited</source>
-        <translation type="unfinished"/>
+        <translation>edytowano</translation>
     </message>
     <message>
         <source>deleted</source>
-        <translation type="unfinished"/>
+        <translation>usunięto</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -8295,23 +8295,23 @@ projekt</translation>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Zmiany lokalne</translation>
     </message>
     <message>
         <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
-        <translation type="unfinished"/>
+        <translation>Masz zmiany w toku – chcesz je teraz opublikować, czy zostawić je w toku i zamknąć projekt w chmurze oraz aplikację?</translation>
     </message>
     <message>
         <source>Don&apos;t show this again</source>
-        <translation type="unfinished"/>
+        <translation>Nie pokazuj tego więcej</translation>
     </message>
     <message>
         <source>Upload now</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij teraz</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Zamknij</translation>
     </message>
 </context>
 <context>
@@ -9032,7 +9032,7 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
-        <translation type="unfinished"/>
+        <translation>Są jakieś zmiany do zatwierdzenia. Prześlij je teraz albo naciśnij „Wstecz”, żeby je zostawić jako oczekujące i zamknąć projekt w chmurze oraz aplikację.</translation>
     </message>
     <message>
         <source>Upload local changes</source>
@@ -9040,15 +9040,15 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Zmiany lokalne</translation>
     </message>
     <message>
         <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Ten plik projekt zawiera zmiany oczekujące, które nie zostały jeszcze przesłane. Kliknij niebieski przycisk z chmurką, żeby otworzyć panel projektu w chmurze i wyślij je do QFieldCloud.</translation>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>W tym projekcie w chmurze są zmiany oczekujące, które nie zostały jeszcze przesłane. Otwórz pulpit nawigacyjny za pomocą tego przycisku, a potem kliknij niebieską ikonę chmury, żeby wysłać je do QFieldCloud.</translation>
     </message>
 </context>
 <context>
