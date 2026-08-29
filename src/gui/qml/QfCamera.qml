@@ -999,22 +999,23 @@ Popup {
           }
 
           Rectangle {
-            visible: cameraItem.state == "VideoPreview" && recordedSizeLabel.text !== ''
+            visible: previewSizeLabel.text !== ''
 
             x: captureRing.x + captureRing.width / 2 - width / 2
-            y: captureRing.y - height - 20
+            y: (cameraItem.isPortraitMode && cameraItem.state == "PhotoPreview" ? photoEditButtons.y : captureRing.y) - height - 20
 
-            width: recordedSizeLabel.width + 20
+            width: previewSizeLabel.width + 20
             height: durationLabelMetrics.boundingRect('00:00:00').height + 10
             radius: 6
 
             color: QfTheme.darkGraySemiOpaque
 
             Text {
-              id: recordedSizeLabel
+              id: previewSizeLabel
               anchors.centerIn: parent
               text: {
-                if (videoPreview.duration <= 0) {
+                const ready = cameraItem.state == "PhotoPreview" ? photoPreview.status === Image.Ready : cameraItem.state == "VideoPreview" && videoPreview.duration > 0;
+                if (!ready) {
                   return '';
                 }
                 const bytes = QfFileUtils.fileSize(cameraItem.currentPath);
