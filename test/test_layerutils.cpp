@@ -22,167 +22,196 @@
 #include <qgscoordinatereferencesystem.h>
 #include <qgsfeature.h>
 #include <qgsfeatureiterator.h>
+#include <qgsfeaturerequest.h>
+#include <qgsgeometry.h>
+#include <qgspointxy.h>
 #include <qgsproject.h>
+#include <qgsvariantutils.h>
 #include <qgsvectorlayer.h>
 
 #include <memory>
 
 TEST_CASE( "LayerUtils AddFeature" )
 {
-  std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=fid:integer&field=name:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
-  REQUIRE( layer->isValid() );
+  std::unique_ptr<QgsVectorLayer> pointLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=fid:integer&field=name:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
+  REQUIRE( pointLayer->isValid() );
 
-  QgsFeature f( layer->fields() );
-  f.setAttribute( QStringLiteral( "fid" ), 1 );
-  f.setAttribute( QStringLiteral( "name" ), QStringLiteral( "a" ) );
+  QgsFeature featureToAdd( pointLayer->fields() );
+  featureToAdd.setAttributes( QgsAttributes() << 1 << QStringLiteral( "a" ) );
 
   SECTION( "NullLayer" )
   {
-    REQUIRE_FALSE( QfLayerUtils::addFeature( nullptr, f ) );
+    REQUIRE_FALSE( QfLayerUtils::addFeature( nullptr, featureToAdd ) );
   }
 
   SECTION( "NotEditing" )
   {
-    REQUIRE_FALSE( QfLayerUtils::addFeature( layer.get(), f ) );
-    REQUIRE( layer->featureCount() == 0 );
+    REQUIRE_FALSE( QfLayerUtils::addFeature( pointLayer.get(), featureToAdd ) );
+    REQUIRE( pointLayer->featureCount() == 0 );
   }
 
   SECTION( "Editing" )
   {
-    REQUIRE( layer->startEditing() );
-    REQUIRE( QfLayerUtils::addFeature( layer.get(), f ) );
-    REQUIRE( layer->commitChanges() );
-    REQUIRE( layer->featureCount() == 1 );
+    REQUIRE( pointLayer->startEditing() );
+    REQUIRE( QfLayerUtils::addFeature( pointLayer.get(), featureToAdd ) );
+    REQUIRE( pointLayer->commitChanges() );
+    REQUIRE( pointLayer->featureCount() == 1 );
 
-    QgsFeature added = layer->getFeature( 1 );
-    REQUIRE( added.isValid() );
-    REQUIRE( added.attribute( QStringLiteral( "fid" ) ) == 1 );
-    REQUIRE( added.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "a" ) );
+    QgsFeatureIterator addedFeatures = pointLayer->getFeatures();
+    QgsFeature addedFeature;
+    REQUIRE( addedFeatures.nextFeature( addedFeature ) );
+    REQUIRE( addedFeature.attributes() == ( QgsAttributes() << 1 << QStringLiteral( "a" ) ) );
+    REQUIRE_FALSE( addedFeatures.nextFeature( addedFeature ) );
   }
 }
 
 TEST_CASE( "LayerUtils DeleteFeature" )
 {
   std::unique_ptr<QgsProject> project = std::make_unique<QgsProject>();
-  std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=fid:integer&field=name:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
-  REQUIRE( layer->isValid() );
+  std::unique_ptr<QgsVectorLayer> pointLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=fid:integer&field=name:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
+  REQUIRE( pointLayer->isValid() );
 
-  QgsFeature f1( layer->fields() );
-  f1.setAttribute( QStringLiteral( "fid" ), 1 );
-  f1.setAttribute( QStringLiteral( "name" ), QStringLiteral( "a" ) );
-  QgsFeature f2( layer->fields() );
-  f2.setAttribute( QStringLiteral( "fid" ), 2 );
-  f2.setAttribute( QStringLiteral( "name" ), QStringLiteral( "b" ) );
+  QgsFeature firstFeature( pointLayer->fields() );
+  firstFeature.setAttributes( QgsAttributes() << 1 << QStringLiteral( "a" ) );
+  QgsFeature secondFeature( pointLayer->fields() );
+  secondFeature.setAttributes( QgsAttributes() << 2 << QStringLiteral( "b" ) );
 
-  layer->startEditing();
-  layer->addFeature( f1 );
-  layer->addFeature( f2 );
-  layer->commitChanges();
-  REQUIRE( layer->featureCount() == 2 );
+  pointLayer->startEditing();
+  pointLayer->addFeature( firstFeature );
+  pointLayer->addFeature( secondFeature );
+  pointLayer->commitChanges();
+  REQUIRE( pointLayer->featureCount() == 2 );
+
+  QgsFeatureRequest firstFeatureRequest;
+  firstFeatureRequest.setFilterExpression( QStringLiteral( "\"name\" = 'a'" ) );
+  QgsFeature committedFirstFeature;
+  REQUIRE( pointLayer->getFeatures( firstFeatureRequest ).nextFeature( committedFirstFeature ) );
+  const QgsFeatureId firstFeatureId = committedFirstFeature.id();
 
   SECTION( "NullProject" )
   {
-    REQUIRE_FALSE( QfLayerUtils::deleteFeature( nullptr, layer.get(), 1 ) );
-    REQUIRE( layer->featureCount() == 2 );
+    REQUIRE_FALSE( QfLayerUtils::deleteFeature( nullptr, pointLayer.get(), firstFeatureId ) );
+    REQUIRE( pointLayer->featureCount() == 2 );
   }
 
   SECTION( "NullLayer" )
   {
-    REQUIRE_FALSE( QfLayerUtils::deleteFeature( project.get(), nullptr, 1 ) );
+    REQUIRE_FALSE( QfLayerUtils::deleteFeature( project.get(), nullptr, firstFeatureId ) );
   }
 
   SECTION( "NotEditingForcesFlush" )
   {
-    REQUIRE( QfLayerUtils::deleteFeature( project.get(), layer.get(), 1, false ) );
-    REQUIRE_FALSE( layer->isEditable() );
-    REQUIRE( layer->featureCount() == 1 );
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), pointLayer.get(), firstFeatureId, false ) );
+    REQUIRE_FALSE( pointLayer->isEditable() );
+    REQUIRE( pointLayer->featureCount() == 1 );
 
-    QgsFeatureIterator it = layer->getFeatures();
-    QgsFeature f;
-    REQUIRE( it.nextFeature( f ) );
-    REQUIRE( f.id() == 2 );
-    REQUIRE_FALSE( it.nextFeature( f ) );
+    QgsFeatureIterator remainingFeatures = pointLayer->getFeatures();
+    QgsFeature remainingFeature;
+    REQUIRE( remainingFeatures.nextFeature( remainingFeature ) );
+    REQUIRE( remainingFeature.attributes() == ( QgsAttributes() << 2 << QStringLiteral( "b" ) ) );
+    REQUIRE_FALSE( remainingFeatures.nextFeature( remainingFeature ) );
   }
 
   SECTION( "NoFlushKeepsBufferOpenUntilRollback" )
   {
-    REQUIRE( layer->startEditing() );
-    REQUIRE( QfLayerUtils::deleteFeature( project.get(), layer.get(), 1, false ) );
-    REQUIRE( layer->isEditable() );
-    REQUIRE( layer->isModified() );
-    REQUIRE( layer->featureCount() == 1 );
+    REQUIRE( pointLayer->startEditing() );
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), pointLayer.get(), firstFeatureId, false ) );
+    REQUIRE( pointLayer->isEditable() );
+    REQUIRE( pointLayer->isModified() );
+    REQUIRE( pointLayer->featureCount() == 1 );
 
-    REQUIRE( layer->rollBack() );
-    REQUIRE( layer->featureCount() == 2 );
+    REQUIRE( pointLayer->rollBack() );
+    REQUIRE( pointLayer->featureCount() == 2 );
   }
 
   SECTION( "FlushWhileAlreadyEditingStaysInEditMode" )
   {
-    REQUIRE( layer->startEditing() );
-    REQUIRE( QfLayerUtils::deleteFeature( project.get(), layer.get(), 1, true ) );
-    REQUIRE( layer->isEditable() );
-    REQUIRE_FALSE( layer->isModified() );
-    REQUIRE( layer->featureCount() == 1 );
-    REQUIRE( layer->commitChanges() );
+    REQUIRE( pointLayer->startEditing() );
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), pointLayer.get(), firstFeatureId, true ) );
+    REQUIRE( pointLayer->isEditable() );
+    REQUIRE_FALSE( pointLayer->isModified() );
+    REQUIRE( pointLayer->featureCount() == 1 );
+    REQUIRE( pointLayer->commitChanges() );
+  }
+
+  SECTION( "NonExistentFeature" )
+  {
+    const QgsFeatureId nonExistentFeatureId = 999;
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), pointLayer.get(), nonExistentFeatureId ) );
+    REQUIRE( pointLayer->featureCount() == 2 );
   }
 }
 
 TEST_CASE( "LayerUtils DuplicateFeature" )
 {
-  std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=fid:integer&field=name:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
-  REQUIRE( layer->isValid() );
+  std::unique_ptr<QgsVectorLayer> pointLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=fid:integer&field=name:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
+  REQUIRE( pointLayer->isValid() );
 
-  QgsFeature f( layer->fields() );
-  f.setAttribute( QStringLiteral( "fid" ), 1 );
-  f.setAttribute( QStringLiteral( "name" ), QStringLiteral( "a" ) );
+  QgsFeature featureToAdd( pointLayer->fields() );
+  featureToAdd.setAttributes( QgsAttributes() << 1 << QStringLiteral( "a" ) );
+  featureToAdd.setGeometry( QgsGeometry::fromPointXY( QgsPointXY( 5.0, 6.0 ) ) );
 
-  layer->startEditing();
-  layer->addFeature( f );
-  layer->commitChanges();
-  REQUIRE( layer->featureCount() == 1 );
+  pointLayer->startEditing();
+  pointLayer->addFeature( featureToAdd );
+  pointLayer->commitChanges();
+  REQUIRE( pointLayer->featureCount() == 1 );
 
-  QgsFeature source = layer->getFeature( 1 );
-  REQUIRE( source.isValid() );
+  QgsFeature sourceFeature;
+  REQUIRE( pointLayer->getFeatures().nextFeature( sourceFeature ) );
+  REQUIRE( sourceFeature.isValid() );
 
-  SECTION( "InvalidLayer" )
+  const int fidFieldIndex = pointLayer->fields().indexFromName( QStringLiteral( "fid" ) );
+  const int nameFieldIndex = pointLayer->fields().indexFromName( QStringLiteral( "name" ) );
+  REQUIRE( fidFieldIndex == 0 );
+  REQUIRE( nameFieldIndex == 1 );
+
+  SECTION( "NullLayer" )
   {
-    QgsFeature duplicated = QfLayerUtils::duplicateFeature( nullptr, source );
-    REQUIRE_FALSE( duplicated.isValid() );
+    QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( nullptr, sourceFeature );
+    REQUIRE_FALSE( duplicatedFeature.isValid() );
   }
 
   SECTION( "InvalidFeature" )
   {
-    QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), QgsFeature() );
-    REQUIRE_FALSE( duplicated.isValid() );
+    QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( pointLayer.get(), QgsFeature() );
+    REQUIRE_FALSE( duplicatedFeature.isValid() );
+    REQUIRE( pointLayer->featureCount() == 1 );
   }
 
   SECTION( "DefaultPolicyCarriesAttributes" )
   {
-    QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), source );
-    REQUIRE( duplicated.isValid() );
-    REQUIRE( duplicated.id() != source.id() );
-    REQUIRE( duplicated.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "a" ) );
-    REQUIRE( layer->featureCount() == 2 );
+    QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( pointLayer.get(), sourceFeature );
+    REQUIRE( duplicatedFeature.isValid() );
+    REQUIRE( duplicatedFeature.id() != sourceFeature.id() );
+    REQUIRE( duplicatedFeature.attributes() == ( QgsAttributes() << 1 << QStringLiteral( "a" ) ) );
+    REQUIRE( duplicatedFeature.geometry().asPoint().x() == Catch::Approx( 5.0 ) );
+    REQUIRE( duplicatedFeature.geometry().asPoint().y() == Catch::Approx( 6.0 ) );
+    REQUIRE( pointLayer->featureCount() == 2 );
   }
 
-  SECTION( "UnsetFieldPolicyDropsAttribute" )
+  SECTION( "UnsetFieldPolicyLeavesAttributeUnset" )
   {
-    const int nameIndex = layer->fields().indexFromName( QStringLiteral( "name" ) );
-    REQUIRE( nameIndex >= 0 );
-    layer->setFieldDuplicatePolicy( nameIndex, Qgis::FieldDuplicatePolicy::UnsetField );
+    pointLayer->setFieldDuplicatePolicy( nameFieldIndex, Qgis::FieldDuplicatePolicy::UnsetField );
 
-    QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), source );
-    REQUIRE( duplicated.isValid() );
-    REQUIRE( duplicated.attribute( QStringLiteral( "name" ) ).toString().isEmpty() );
+    QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( pointLayer.get(), sourceFeature );
+    REQUIRE( duplicatedFeature.isValid() );
+    REQUIRE( QgsVariantUtils::isUnsetAttributeValue( duplicatedFeature.attribute( nameFieldIndex ) ) );
+    REQUIRE( duplicatedFeature.attribute( fidFieldIndex ) == 1 );
+    REQUIRE( pointLayer->featureCount() == 2 );
+
+    const QgsFeature storedFeature = pointLayer->getFeature( duplicatedFeature.id() );
+    REQUIRE( storedFeature.attributes() == duplicatedFeature.attributes() );
   }
 
   SECTION( "SourcePrimaryKeyNulledOnDuplicate" )
   {
-    layer->setCustomProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ), QStringLiteral( "fid" ) );
+    pointLayer->setCustomProperty( QStringLiteral( "QFieldSync/sourceDataPrimaryKeys" ), QStringLiteral( "fid" ) );
 
-    QgsFeature duplicated = QfLayerUtils::duplicateFeature( layer.get(), source );
-    REQUIRE( duplicated.isValid() );
-    REQUIRE( duplicated.attribute( QStringLiteral( "fid" ) ).isNull() );
+    QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( pointLayer.get(), sourceFeature );
+    REQUIRE( duplicatedFeature.isValid() );
+    REQUIRE( duplicatedFeature.attribute( fidFieldIndex ).isNull() );
+    REQUIRE( duplicatedFeature.attribute( nameFieldIndex ).toString() == QStringLiteral( "a" ) );
+    REQUIRE( pointLayer->featureCount() == 2 );
   }
 }
 
@@ -190,27 +219,39 @@ TEST_CASE( "LayerUtils MemoryLayerFromJsonString" )
 {
   SECTION( "ValidFeatureCollection" )
   {
-    const QString json = QStringLiteral( "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[1,2]},\"properties\":{\"name\":\"a\",\"val\":1}},{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[3,4]},\"properties\":{\"name\":\"b\",\"val\":2}}]}" );
+    const QString geoJson = QStringLiteral( "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[1,2]},\"properties\":{\"name\":\"a\",\"val\":10}},{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[3,4]},\"properties\":{\"name\":\"b\",\"val\":20}}]}" );
 
-    std::unique_ptr<QgsVectorLayer> layer( QfLayerUtils::memoryLayerFromJsonString( QStringLiteral( "vl" ), json, QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) ) );
-    REQUIRE( layer != nullptr );
-    REQUIRE( layer->isValid() );
-    REQUIRE( layer->geometryType() == Qgis::GeometryType::Point );
-    REQUIRE( layer->featureCount() == 2 );
+    std::unique_ptr<QgsVectorLayer> parsedLayer( QfLayerUtils::memoryLayerFromJsonString( QStringLiteral( "parsed_layer" ), geoJson, QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) ) );
+    REQUIRE( parsedLayer != nullptr );
+    REQUIRE( parsedLayer->isValid() );
+    REQUIRE( parsedLayer->name() == QStringLiteral( "parsed_layer" ) );
+    REQUIRE( parsedLayer->crs().authid() == QStringLiteral( "EPSG:4326" ) );
+    REQUIRE( parsedLayer->wkbType() == Qgis::WkbType::Point );
+    REQUIRE( parsedLayer->fields().names() == QStringList( { QStringLiteral( "name" ), QStringLiteral( "val" ) } ) );
+    REQUIRE( parsedLayer->featureCount() == 2 );
 
-    QStringList names;
-    QgsFeatureIterator it = layer->getFeatures();
-    QgsFeature f;
-    while ( it.nextFeature( f ) )
-      names << f.attribute( QStringLiteral( "name" ) ).toString();
-    names.sort();
-    REQUIRE( names == QStringList( { QStringLiteral( "a" ), QStringLiteral( "b" ) } ) );
+    QMap<QString, QgsFeature> parsedFeaturesByName;
+    QgsFeatureIterator parsedFeatures = parsedLayer->getFeatures();
+    QgsFeature parsedFeature;
+    while ( parsedFeatures.nextFeature( parsedFeature ) )
+      parsedFeaturesByName.insert( parsedFeature.attribute( QStringLiteral( "name" ) ).toString(), parsedFeature );
+
+    REQUIRE( parsedFeaturesByName.keys() == QStringList( { QStringLiteral( "a" ), QStringLiteral( "b" ) } ) );
+
+    const QgsFeature firstParsedFeature = parsedFeaturesByName.value( QStringLiteral( "a" ) );
+    REQUIRE( firstParsedFeature.attribute( QStringLiteral( "val" ) ).toInt() == 10 );
+    REQUIRE( firstParsedFeature.geometry().asPoint().x() == Catch::Approx( 1.0 ) );
+    REQUIRE( firstParsedFeature.geometry().asPoint().y() == Catch::Approx( 2.0 ) );
+
+    const QgsFeature secondParsedFeature = parsedFeaturesByName.value( QStringLiteral( "b" ) );
+    REQUIRE( secondParsedFeature.attribute( QStringLiteral( "val" ) ).toInt() == 20 );
+    REQUIRE( secondParsedFeature.geometry().asPoint().x() == Catch::Approx( 3.0 ) );
+    REQUIRE( secondParsedFeature.geometry().asPoint().y() == Catch::Approx( 4.0 ) );
   }
 
   SECTION( "EmptyFeatureCollectionReturnsNull" )
   {
-    const QString json = QStringLiteral( "{\"type\":\"FeatureCollection\",\"features\":[]}" );
-    QgsVectorLayer *layer = QfLayerUtils::memoryLayerFromJsonString( QStringLiteral( "vl" ), json );
-    REQUIRE( layer == nullptr );
+    const QString geoJson = QStringLiteral( "{\"type\":\"FeatureCollection\",\"features\":[]}" );
+    REQUIRE( QfLayerUtils::memoryLayerFromJsonString( QStringLiteral( "parsed_layer" ), geoJson ) == nullptr );
   }
 }
