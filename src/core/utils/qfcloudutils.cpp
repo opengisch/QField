@@ -20,6 +20,7 @@
 #include "qfstringutils.h"
 
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QLockFile>
 #include <QStandardPaths>
@@ -118,6 +119,36 @@ QString QfCloudUtils::documentationFromErrorString( const QString &errorString )
   if ( errorString.contains( errorCodeOverQuota() ) )
   {
     return QStringLiteral( "https://docs.qfield.org/get-started/storage-qfc/#adding-qfieldcloud-storage" );
+  }
+
+  return QString();
+}
+
+QString QfCloudUtils::cloudifyErrorString( const QString &localPath )
+{
+  const QFileInfo localPathInfo( localPath );
+  if ( !localPathInfo.exists() )
+  {
+    return tr( "The project folder could not be found." );
+  }
+
+  const QString projectDirectoryPath = localPathInfo.isFile() ? localPathInfo.absolutePath() : localPathInfo.absoluteFilePath();
+
+  QFileInfo projectFileInfo;
+  QDirIterator projectDirIterator( projectDirectoryPath, { QStringLiteral( "*.qgs" ), QStringLiteral( "*.qgz" ) }, QDir::Files, QDirIterator::Subdirectories );
+  while ( projectDirIterator.hasNext() )
+  {
+    projectDirIterator.next();
+    if ( projectFileInfo.exists() )
+    {
+      return tr( "The project folder contains more than one project file, move the project into a folder of its own and try again." );
+    }
+    projectFileInfo = projectDirIterator.fileInfo();
+  }
+
+  if ( !projectFileInfo.exists() || projectFileInfo.size() == 0 )
+  {
+    return tr( "The project folder does not contain a valid project file." );
   }
 
   return QString();

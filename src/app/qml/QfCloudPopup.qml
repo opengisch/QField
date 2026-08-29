@@ -29,6 +29,7 @@ Popup {
     pendingAction = "";
     pendingCreationTitle = "";
     pendingUploadPath = "";
+    cloudifyError.titleText = "";
     swipeView.currentIndex = 1;
   }
 
@@ -391,6 +392,16 @@ Popup {
               iconSource: QfTheme.getThemeVectorIcon('ic_cloud_active_24dp')
               title: qsTr('Cloudify project')
               description: localProjectGrid.isCloudifying ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.') + (Qt.platform.os !== "ios" ? ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.' : '')
+
+              QfCollapsibleMessage {
+                id: cloudifyError
+                Layout.fillWidth: true
+                Layout.topMargin: 4
+                visible: titleText !== ''
+                color: QfTheme.darkRed
+                font: QfTheme.tipFont
+                iconSource: QfTheme.getThemeVectorIcon('ic_error_outline_24dp')
+              }
 
               QfButton {
                 Layout.fillWidth: true
@@ -946,7 +957,7 @@ Popup {
         qfieldCloudPopup.visible = true;
       }
       if (hasError) {
-        displayToast(errorString, 'error');
+        cloudifyError.titleText = errorString;
         return;
       }
       const createdCloudProject = cloudProjectsModel.findProject(projectId);
@@ -963,7 +974,7 @@ Popup {
 
     function onUploadFinished(error) {
       if (error !== '') {
-        displayToast(error, 'error');
+        cloudifyError.titleText = error;
         cloudProjectCreationConnection.target = null;
         return;
       }
@@ -1103,11 +1114,13 @@ Popup {
     if (!opened) {
       show();
     }
+    cloudifyError.titleText = QfCloudUtils.cloudifyErrorString(path);
+    if (cloudifyError.titleText !== '') {
+      return;
+    }
     pendingCreationTitle = title;
     pendingUploadPath = path;
     if (cloudConnection.status === QfCloudConnection.LoggedIn) {
-      pendingCreationTitle = title;
-      pendingUploadPath = path;
       cloudProjectsModel.createProject(title);
     } else {
       popup.pendingAction = "cloudify";
