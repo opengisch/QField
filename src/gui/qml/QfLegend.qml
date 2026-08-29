@@ -368,6 +368,7 @@ ListView {
               informationPopup.descriptionFormat = Text.RichText;
               informationPopup.description = Notes;
               informationPopup.author = "";
+              informationPopup.coordinateReferenceSystem = "";
               informationPopup.open();
             }
           }
