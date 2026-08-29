@@ -2445,39 +2445,21 @@ void QfCloudProject::setupDeltaFileWrapper()
 
 void QfCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload )
 {
-  QFileInfo localInfo( localPath );
-  if ( !localInfo.exists() )
+  const QString localPathError = QfCloudUtils::cloudifyErrorString( localPath );
+  if ( !localPathError.isEmpty() )
   {
-    emit uploadFinished( tr( "Local path doesn't exist" ) );
+    emit uploadFinished( localPathError );
     return;
   }
 
+  const QFileInfo localInfo( localPath );
   if ( localInfo.isFile() )
   {
     localPath = localInfo.absolutePath();
   }
 
-  QFileInfo projectFileInfo;
-  QDirIterator projectDirIterator( localPath, { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
-  while ( projectDirIterator.hasNext() )
-  {
-    projectDirIterator.next();
-    if ( projectFileInfo.exists() )
-    {
-      emit uploadFinished( tr( "Local path to upload cannot be used as it has multiple project files" ) );
-      return;
-    }
-    projectFileInfo = projectDirIterator.fileInfo();
-  }
-
-  if ( !projectFileInfo.exists() || projectFileInfo.size() == 0 )
-  {
-    emit uploadFinished( tr( "Local path to upload is missing a valid project file" ) );
-    return;
-  }
-
   const QString currentProjectLocalPath = QfFileUtils::absolutePath( QgsProject::instance()->fileName() );
-  if ( projectFileInfo.absoluteFilePath() == currentProjectLocalPath )
+  if ( !currentProjectLocalPath.isEmpty() && QDir( localPath ) == QDir( currentProjectLocalPath ) )
   {
     // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
     QDirIterator it( localPath, { QStringLiteral( "*.gpkg" ), QStringLiteral( "*.sqlite" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );
