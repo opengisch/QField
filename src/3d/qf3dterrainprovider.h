@@ -203,6 +203,10 @@ class Qf3DTerrainProvider : public QObject
   private:
     void updateTerrainProvider();
     void updateFromMapSettings();
+
+    QSizeF extentSizeInMeters( const QgsRectangle &extent ) const;
+    void setNormalizedDataExtent( const QgsRectangle &extent );
+
     void updateExtentFromOffsets();
     void calculateResolution();
     void generateData();
@@ -239,6 +243,9 @@ class Qf3DTerrainProvider : public QObject
 
     double mMinRealHeight = 0.0;
     double mMaxRealHeight = 0.0;
+
+    //! Scene units per meter of elevation, derived from the terrain data extent
+    double mHeightScale = 1.0;
 
     QFutureWatcher<QVector<double>> *mFutureWatcher = nullptr;
     QgsRectangle mFutureExtent;
