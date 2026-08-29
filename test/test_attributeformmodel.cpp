@@ -117,30 +117,30 @@ TEST_CASE( "AttributeFormModel" )
     REQUIRE( clean->isValid() );
     clean->setFieldConstraint( 1, QgsFieldConstraints::ConstraintNotNull, QgsFieldConstraints::ConstraintStrengthHard );
 
-    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
-    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
-    model->setFeatureModel( fModel.get() );
-    fModel->setCurrentLayer( clean.get() );
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( clean.get() );
 
-    REQUIRE( model->hasConstraints() );
+    REQUIRE( formModel->hasConstraints() );
 
-    const QModelIndex valField = indexForField( model.get(), 1 );
+    const QModelIndex valField = indexForField( formModel.get(), 1 );
     REQUIRE( valField.isValid() );
 
-    fModel->resetFeature();
-    fModel->resetAttributes();
+    featureModel->resetFeature();
+    featureModel->resetAttributes();
 
-    model->setData( valField, QStringLiteral( "filled" ), QfAttributeFormModel::AttributeValue );
-    REQUIRE( model->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == true );
-    REQUIRE( model->constraintsHardValid() == true );
+    formModel->setData( valField, QStringLiteral( "filled" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == true );
+    REQUIRE( formModel->constraintsHardValid() == true );
 
-    model->setData( valField, QVariant(), QfAttributeFormModel::AttributeValue );
-    REQUIRE( model->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == false );
-    REQUIRE( model->constraintsHardValid() == false );
+    formModel->setData( valField, QVariant(), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == false );
+    REQUIRE( formModel->constraintsHardValid() == false );
 
-    model->setData( valField, QStringLiteral( "refilled" ), QfAttributeFormModel::AttributeValue );
-    REQUIRE( model->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == true );
-    REQUIRE( model->constraintsHardValid() == true );
+    formModel->setData( valField, QStringLiteral( "refilled" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == true );
+    REQUIRE( formModel->constraintsHardValid() == true );
   }
 
   SECTION( "SoftConstraint" )
@@ -150,38 +150,38 @@ TEST_CASE( "AttributeFormModel" )
     clean->setConstraintExpression( 1, QStringLiteral( "length(\"val\") > 3" ) );
     clean->setFieldConstraint( 1, QgsFieldConstraints::ConstraintExpression, QgsFieldConstraints::ConstraintStrengthSoft );
 
-    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
-    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
-    model->setFeatureModel( fModel.get() );
-    fModel->setCurrentLayer( clean.get() );
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( clean.get() );
 
-    const QModelIndex valField = indexForField( model.get(), 1 );
+    const QModelIndex valField = indexForField( formModel.get(), 1 );
     REQUIRE( valField.isValid() );
 
-    fModel->resetFeature();
-    fModel->resetAttributes();
+    featureModel->resetFeature();
+    featureModel->resetAttributes();
 
-    model->setData( valField, QStringLiteral( "ab" ), QfAttributeFormModel::AttributeValue );
-    REQUIRE( model->data( valField, QfAttributeFormModel::ConstraintSoftValid ).toBool() == false );
-    REQUIRE( model->constraintsSoftValid() == false );
+    formModel->setData( valField, QStringLiteral( "ab" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintSoftValid ).toBool() == false );
+    REQUIRE( formModel->constraintsSoftValid() == false );
 
-    model->setData( valField, QStringLiteral( "abcd" ), QfAttributeFormModel::AttributeValue );
-    REQUIRE( model->data( valField, QfAttributeFormModel::ConstraintSoftValid ).toBool() == true );
-    REQUIRE( model->constraintsSoftValid() == true );
+    formModel->setData( valField, QStringLiteral( "abcd" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintSoftValid ).toBool() == true );
+    REQUIRE( formModel->constraintsSoftValid() == true );
   }
 
   SECTION( "ConstraintDescription" )
   {
     layer->setFieldConstraint( 1, QgsFieldConstraints::ConstraintNotNull, QgsFieldConstraints::ConstraintStrengthHard );
 
-    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
-    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
-    model->setFeatureModel( fModel.get() );
-    fModel->setCurrentLayer( layer.get() );
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( layer.get() );
 
-    const QModelIndex strField = indexForField( model.get(), 1 );
+    const QModelIndex strField = indexForField( formModel.get(), 1 );
     REQUIRE( strField.isValid() );
-    REQUIRE( !model->data( strField, QfAttributeFormModel::ConstraintDescription ).toString().isEmpty() );
+    REQUIRE( formModel->data( strField, QfAttributeFormModel::ConstraintDescription ).toString() == QStringLiteral( "Not NULL" ) );
   }
 
   SECTION( "TabLayout" )
@@ -200,15 +200,15 @@ TEST_CASE( "AttributeFormModel" )
 
     layer->setEditFormConfig( config );
 
-    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
-    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
-    model->setFeatureModel( fModel.get() );
-    fModel->setCurrentLayer( layer.get() );
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( layer.get() );
 
-    REQUIRE( model->hasTabs() );
-    REQUIRE( model->rowCount() == 2 );
-    REQUIRE( model->data( model->index( 0, 0 ), QfAttributeFormModel::ElementType ) == QStringLiteral( "container" ) );
-    REQUIRE( model->data( model->index( 1, 0 ), QfAttributeFormModel::ElementType ) == QStringLiteral( "container" ) );
+    REQUIRE( formModel->hasTabs() );
+    REQUIRE( formModel->rowCount() == 2 );
+    REQUIRE( formModel->data( formModel->index( 0, 0 ), QfAttributeFormModel::ElementType ) == QStringLiteral( "container" ) );
+    REQUIRE( formModel->data( formModel->index( 1, 0 ), QfAttributeFormModel::ElementType ) == QStringLiteral( "container" ) );
   }
 
   SECTION( "FieldSynchronization" )
@@ -227,20 +227,20 @@ TEST_CASE( "AttributeFormModel" )
 
     layer->setEditFormConfig( config );
 
-    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
-    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
-    model->setFeatureModel( fModel.get() );
-    fModel->setCurrentLayer( layer.get() );
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( layer.get() );
 
-    REQUIRE( model->hasTabs() );
-    fModel->setFeature( layer->getFeature( 1 ) );
+    REQUIRE( formModel->hasTabs() );
+    featureModel->setFeature( layer->getFeature( 1 ) );
 
-    const QModelIndexList strItems = model->match( model->index( 0, 0 ), QfAttributeFormModel::FieldIndex, 1, -1, Qt::MatchExactly | Qt::MatchRecursive );
+    const QModelIndexList strItems = formModel->match( formModel->index( 0, 0 ), QfAttributeFormModel::FieldIndex, 1, -1, Qt::MatchExactly | Qt::MatchRecursive );
     REQUIRE( strItems.size() == 2 );
 
-    model->setData( strItems.at( 0 ), QStringLiteral( "synced" ), QfAttributeFormModel::AttributeValue );
-    REQUIRE( model->data( strItems.at( 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
-    REQUIRE( model->data( strItems.at( 1 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
+    formModel->setData( strItems.at( 0 ), QStringLiteral( "synced" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( strItems.at( 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
+    REQUIRE( formModel->data( strItems.at( 1 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
   }
 
   SECTION( "Visibility" )
@@ -260,37 +260,37 @@ TEST_CASE( "AttributeFormModel" )
 
     layer->setEditFormConfig( config );
 
-    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
-    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
-    model->setFeatureModel( fModel.get() );
-    fModel->setCurrentLayer( layer.get() );
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( layer.get() );
 
-    fModel->resetFeature();
-    fModel->resetAttributes();
+    featureModel->resetFeature();
+    featureModel->resetAttributes();
 
-    const QModelIndex driverField = indexForField( model.get(), 1 );
+    const QModelIndex driverField = indexForField( formModel.get(), 1 );
     REQUIRE( driverField.isValid() );
 
-    model->setData( driverField, QStringLiteral( "hide" ), QfAttributeFormModel::AttributeValue );
-    REQUIRE( model->rowCount() == 1 );
+    formModel->setData( driverField, QStringLiteral( "hide" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->rowCount() == 1 );
 
-    model->setData( driverField, QStringLiteral( "show" ), QfAttributeFormModel::AttributeValue );
-    REQUIRE( model->rowCount() == 2 );
+    formModel->setData( driverField, QStringLiteral( "show" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->rowCount() == 2 );
   }
 
   SECTION( "DeleteFeature" )
   {
     QgsProject::instance()->addMapLayer( layer.get(), false, false );
 
-    std::unique_ptr<QfAttributeFormModel> model = std::make_unique<QfAttributeFormModel>();
-    std::unique_ptr<QfFeatureModel> fModel = std::make_unique<QfFeatureModel>();
-    model->setFeatureModel( fModel.get() );
-    fModel->setProject( QgsProject::instance() );
-    fModel->setCurrentLayer( layer.get() );
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setProject( QgsProject::instance() );
+    featureModel->setCurrentLayer( layer.get() );
 
     const long countBefore = layer->featureCount();
-    fModel->setFeature( layer->getFeature( 2 ) );
-    REQUIRE( model->deleteFeature() );
+    featureModel->setFeature( layer->getFeature( 2 ) );
+    REQUIRE( formModel->deleteFeature() );
     REQUIRE( layer->featureCount() == countBefore - 1 );
 
     QgsProject::instance()->takeMapLayer( layer.get() );
