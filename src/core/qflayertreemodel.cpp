@@ -480,9 +480,9 @@ int QfFlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelIn
           QgsRasterLayer *rasterLayer = qobject_cast<QgsRasterLayer *>( nodeLayer->layer() );
           if ( rasterLayer && rasterLayer->dataProvider() && rasterLayer->dataProvider()->name() == QStringLiteral( "wms" ) )
           {
-            if ( rasterLayer->source().contains( QStringLiteral( "type=xyz" ), Qt::CaseInsensitive ) )
+            if ( rasterLayer->source().contains( QStringLiteral( "type=xyz" ), Qt::CaseInsensitive ) || rasterLayer->source().contains( QStringLiteral( "type=mbtiles" ), Qt::CaseInsensitive ) )
             {
-              // XYZ layers have no legend items, skip those.
+              // XYZ and mbtiles layers have no legend items, skip those.
               continue;
             }
           }
