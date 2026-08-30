@@ -5,7 +5,7 @@ import org.qfield.gui
 
 /**
  * A reusable banner that displays the current QFieldCloud service status.
- * \ingroup org.qfield.app
+ * \ingroup qml_app
  */
 QfCollapsibleMessage {
   id: statusBanner

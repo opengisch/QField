@@ -4,7 +4,7 @@ import org.qgis
 import org.qfield.core
 
 /**
- * \ingroup org.qfield.app
+ * \ingroup qml_app
  */
 Item {
   id: measuringTool

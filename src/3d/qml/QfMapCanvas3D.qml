@@ -6,12 +6,12 @@ import org.qfield._3d
 import org.qfield.core
 
 /**
- * \defgroup org.qfield._3d
- * \brief QField 3D QML items
+ * \defgroup qml_3d
+ * \brief QField 3D QML items available through import org.qfield._3d
  */
 
 /**
- * \ingroup org.qfield._3d
+ * \ingroup qml_3d
  */
 Item {
   id: mapArea

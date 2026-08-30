@@ -4,7 +4,7 @@ import org.qgis
 import org.qfield.core
 
 /**
- * \ingroup org.qfield.core
+ * \ingroup qml_core
  */
 Repeater {
   id: vertexRubberband

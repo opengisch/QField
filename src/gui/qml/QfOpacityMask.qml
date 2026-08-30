@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Effects
 
 /**
- * \ingroup org.qfield.gui
+ * \ingroup qml_gui
  */
 MultiEffect {
   maskEnabled: true

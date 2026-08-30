@@ -4,7 +4,7 @@ import org.qfield.core
 import org.qgis
 
 /**
- * \ingroup org.qfield.core
+ * \ingroup qml_core
  */
 QfLinePolygonShape {
   id: linePolygonShape

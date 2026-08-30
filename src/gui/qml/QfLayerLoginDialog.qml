@@ -5,7 +5,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup org.qfield.gui
+ * \ingroup qml_gui
  */
 Page {
   signal enter(string usr, string pw)

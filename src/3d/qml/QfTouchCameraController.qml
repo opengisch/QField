@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick3D
 
 /**
- * \ingroup org.qfield._3d
+ * \ingroup qml_3d
  */
 Item {
   id: root

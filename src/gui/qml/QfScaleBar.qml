@@ -5,7 +5,7 @@ import org.qfield.gui
 import org.qgis
 
 /**
- * \ingroup org.qfield.gui
+ * \ingroup qml_gui
  */
 Item {
   id: scaleBar

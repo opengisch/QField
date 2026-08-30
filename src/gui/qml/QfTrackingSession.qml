@@ -5,7 +5,7 @@ import org.qgis
 import org.qfield.core
 
 /**
- * \ingroup org.qfield.gui
+ * \ingroup qml_gui
  */
 Item {
   id: trackingSession

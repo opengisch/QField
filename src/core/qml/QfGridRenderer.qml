@@ -3,12 +3,12 @@ import QtQuick.Shapes
 import org.qfield.core
 
 /**
- * \defgroup org.qfield.core
- * \brief QField core QML items
+ * \defgroup qml_core
+ * \brief QField core QML items available through import org.qfield.core
  */
 
 /**
- * \ingroup org.qfield.core
+ * \ingroup qml_core
  */
 Item {
   id: gridRenderer
