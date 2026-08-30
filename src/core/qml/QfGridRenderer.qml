@@ -3,7 +3,7 @@ import QtQuick.Shapes
 import org.qfield.core
 
 /**
- * \defgroup qml_core
+ * \defgroup qml_core QML core
  * \brief QField core QML items available through import org.qfield.core
  */
 

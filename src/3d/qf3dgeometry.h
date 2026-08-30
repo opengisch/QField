@@ -28,7 +28,7 @@
 class QgsLineString;
 
 /**
- * \defgroup _3d
+ * \defgroup _3d 3D
  * \brief QField application C++ classes
  */
 
