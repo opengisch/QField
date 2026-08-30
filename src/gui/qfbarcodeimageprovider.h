@@ -21,7 +21,7 @@
 #define DEFAULT_BARCODE_SIZE 255
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfBarcodeImageProvider : public QQuickImageProvider
 {

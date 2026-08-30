@@ -20,7 +20,7 @@
 #include <qgsproject.h>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfExpressionVariableModel : public QStandardItemModel
 {

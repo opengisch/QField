@@ -21,7 +21,7 @@
 #include <QPermission>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfCameraPermission : public QObject
 {

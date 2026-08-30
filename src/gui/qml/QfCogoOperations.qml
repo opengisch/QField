@@ -5,6 +5,9 @@ import org.qgis
 import org.qfield.core
 import org.qfield.gui
 
+/**
+ * \ingroup org.qfield.gui
+ */
 Item {
   id: cogoOperations
 

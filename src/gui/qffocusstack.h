@@ -20,7 +20,7 @@
 #include <QQuickItem>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfFocusStack : public QObject
 {

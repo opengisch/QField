@@ -3,7 +3,7 @@ import org.qgis
 import org.qfield.core
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield.gui
  */
 Repeater {
   id: bookmarkHighlight

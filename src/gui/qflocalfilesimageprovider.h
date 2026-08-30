@@ -19,7 +19,7 @@
 #include <QQuickImageProvider>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfLocalFilesImageProvider : public QQuickImageProvider
 {

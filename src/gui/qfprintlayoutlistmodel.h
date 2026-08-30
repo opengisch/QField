@@ -25,7 +25,7 @@ class QgsProject;
 class QgsVectorLayer;
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfPrintLayoutListModel : public QAbstractListModel
 {

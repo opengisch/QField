@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield.gui
  */
 Item {
   width: parent.width
