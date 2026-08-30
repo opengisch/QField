@@ -135,6 +135,7 @@
 #include <qgsprojectviewsettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
+#include <qgsscreenproperties.h>
 #include <qgssettingsregistrycore.h>
 #include <qgssinglesymbolrenderer.h>
 #include <qgstemporalutils.h>
@@ -252,6 +253,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mFeatureHistory = std::make_unique<QfFeatureHistory>( mProject, mTrackingModel );
   mClipboardManager = std::make_unique<QfClipboardManager>( this );
   mFlatLayerTree = new QfFlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
+
+  QScreen *screen = QGuiApplication::primaryScreen();
+  if ( screen )
+  {
+    mFlatLayerTree->layerTreeModel()->addTargetScreenProperties( QgsScreenProperties( screen ) );
+  }
+
   mLegendImageProvider = new QfLegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mAsyncLegendImageProvider = new QfAsyncLegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mLocalFilesImageProvider = new QfLocalFilesImageProvider();
