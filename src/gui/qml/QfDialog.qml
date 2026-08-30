@@ -4,7 +4,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \defgroup qml_gui
+ * \defgroup qml_gui QML gui
  * \brief QField GUI QML items available through import org.qfield.gui
  */
 

@@ -31,7 +31,7 @@ import org.qfield.gui
 import org.qfield.app
 
 /**
- * \defgroup qml_app
+ * \defgroup qml_app QML app
  * \brief QField application QML items available through import org.qfield.app
  */
 
