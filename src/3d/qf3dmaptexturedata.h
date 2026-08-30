@@ -34,7 +34,7 @@ class QgsMapRendererParallelJob;
  * and the result is exposed as texture data for Qt Quick 3D.
  *
  * \note QML Type: Qf3DMapTextureData
- * \ingroup core
+ * \ingroup _3d
  */
 class Qf3DMapTextureData : public QQuick3DTextureData
 {

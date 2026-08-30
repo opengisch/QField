@@ -30,9 +30,9 @@
 
 
 /**
- * @brief The QfExpressionEvaluator class enables evaluation of expression
+ * \brief The QfExpressionEvaluator class enables evaluation of expression
  * strings and expression templates.
- * \ingroup core
+ * \ingroup gui
  */
 class QfExpressionEvaluator : public QObject
 {

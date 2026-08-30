@@ -24,7 +24,7 @@ class QgsProject;
 class QgsVectorLayer;
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfSensorListModel : public QSortFilterProxyModel
 {

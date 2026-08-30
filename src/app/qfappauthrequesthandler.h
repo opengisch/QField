@@ -24,7 +24,6 @@
 #include <qgsnetworkaccessmanager.h>
 
 /**
- *
  * When a layer requests and authentication, this handler is triggered. When the credentials are found in
  * QgsCredentials (because it's stored before), they are used for the login. If not, QGIS would popup a
  * Login Dialog, but QField does not. The realms (where it should log in to) are just added to the list
@@ -32,7 +31,7 @@
  * successful login, the credentials are stored in QgsCredentials and removed from the list. When the list
  * is empty (or contains only canceled realms), the project is reloaded. This time the logins are contained
  * in QgsCredentials and no dialog needs to pop up.
- * \ingroup core
+ * \ingroup app
  */
 class QfAppAuthRequestHandler : public QObject, public QgsCredentials, public QgsNetworkAuthenticationHandler
 {

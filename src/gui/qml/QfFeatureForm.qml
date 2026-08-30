@@ -11,7 +11,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \ingroup qml_gui
  */
 Page {
   id: form

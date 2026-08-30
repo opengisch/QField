@@ -19,7 +19,7 @@
 #include <QAbstractListModel>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfRecentProjectListModel : public QAbstractListModel
 {

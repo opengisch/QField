@@ -27,7 +27,7 @@
  * \brief Lightweight data item used by plugins to inject geometry into the 3D map scene.
  *
  * \note QML Type: Qf3DGeometryConfiguration
- * \ingroup core
+ * \ingroup _3d
  */
 class Qf3DGeometryConfiguration : public QQuickItem
 {

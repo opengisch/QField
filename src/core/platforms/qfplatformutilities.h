@@ -74,6 +74,13 @@ class QFIELD_CORE_EXPORT QfPlatformUtilities : public QObject
     void initSystem();
 
     /**
+     * This method can be used to implement platform specific initialization tasks to be performed after an app update.
+     * This is implemented for Android to extract app assets to location where it can
+     * be accessed via filesystem.
+     */
+    virtual void afterUpdate();
+
+    /**
      * The path to share data location.
      * Under this path, there should be the app specific directories qgis/ proj/ qfield/ ...
      * Refers to /share or /usr/share on Linux.
@@ -337,13 +344,6 @@ class QFIELD_CORE_EXPORT QfPlatformUtilities : public QObject
     void resourceCanceled( const QString &message );
 
   private:
-    /**
-     * This method can be used to implement platform specific initialization tasks to be performed after an app update.
-     * This is implemented for Android to extract app assets to location where it can
-     * be accessed via filesystem.
-     */
-    virtual void afterUpdate();
-
     void copySampleProjects();
 
     QfResourceSource *createResource( const QString &prefix, const QString &filePath, const QString &fileName, QObject *parent );

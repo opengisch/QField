@@ -5,7 +5,7 @@ import QtQuick.Controls.Material.impl
 import org.qfield.core
 
 /**
- * \ingroup qml
+ * \ingroup qml_gui
  */
 ToolButton {
   id: button

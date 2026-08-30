@@ -5,6 +5,14 @@ import QtQuick3D.Helpers
 import org.qfield._3d
 import org.qfield.core
 
+/**
+ * \defgroup qml_3d QML 3D
+ * \brief QField 3D QML items available through import org.qfield._3d
+ */
+
+/**
+ * \ingroup qml_3d
+ */
 Item {
   id: mapArea
   focus: true

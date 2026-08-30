@@ -36,7 +36,6 @@ class QgsVectorLayer;
  * as a ring in a polygon.
  * \ingroup core
  */
-
 class QFIELD_CORE_EXPORT QfRubberbandModel : public QObject
 {
     Q_OBJECT

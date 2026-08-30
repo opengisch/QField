@@ -25,7 +25,7 @@
 #include <qgsexpressioncontext.h>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfAttributeFormModelBase : public QStandardItemModel
 {

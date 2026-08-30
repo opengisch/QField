@@ -132,7 +132,7 @@ class QfPluginModel : public QAbstractListModel
 };
 
 /**
- * \ingroup core
+ * \ingroup app
  */
 class QfPluginProxyModel : public QSortFilterProxyModel
 {

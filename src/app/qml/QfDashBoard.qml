@@ -7,7 +7,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \ingroup qml_app
  */
 Drawer {
   id: dashBoard

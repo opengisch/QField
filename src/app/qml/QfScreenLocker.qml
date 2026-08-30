@@ -3,6 +3,9 @@ import QtQuick.Controls
 import org.qfield.core
 import org.qfield.gui
 
+/**
+ * \ingroup qml_app
+ */
 Item {
   id: screenLocker
 

@@ -32,7 +32,7 @@ class Qf3DTerrainProvider;
  * use with Qt Quick 3D Model items and supports dynamic updates when height data changes.
  *
  * \note QML Type: Qf3DTerrainGeometry
- * \ingroup core
+ * \ingroup _3d
  *
  */
 class Qf3DTerrainGeometry : public QQuick3DGeometry

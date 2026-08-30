@@ -24,7 +24,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \ingroup qml_gui
  */
 QfPaneDrawer {
   id: featureFormList

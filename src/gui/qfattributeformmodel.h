@@ -23,7 +23,7 @@
 class QfFeatureModel;
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfAttributeFormModel : public QSortFilterProxyModel
 {

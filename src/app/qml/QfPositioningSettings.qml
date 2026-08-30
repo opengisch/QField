@@ -3,7 +3,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \ingroup qml_app
  */
 Settings {
   enum FollowMode {
