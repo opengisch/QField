@@ -7,7 +7,7 @@ import QtQuick
  * We sample finger positions over a short time window to compute release velocity.
  * After the gesture ends motion continues with exponential friction decay (~60fps timer).
  *
- * \ingroup qml
+ * \ingroup org.qfield.core
  */
 Item {
   id: kineticHandler

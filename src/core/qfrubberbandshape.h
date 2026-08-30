@@ -26,7 +26,7 @@ class QfVertexModel;
 class QgsQuickMapSettings;
 
 /**
- * @brief The QfRubberbandShape class is used to provide the shape data to draw rubber bands
+ * \brief The QfRubberbandShape class is used to provide the shape data to draw rubber bands
  * on the map canvas using the QML Shape item.
  * It is aimed to be used with either a QfVertexModel or a QfRubberbandModel.
  * \ingroup core
