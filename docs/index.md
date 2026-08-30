@@ -74,13 +74,13 @@ This [QField template plugin](https://github.com/opengisch/qfield-template-plugi
 
 ## 🧠 Core Interfaces
 
-QField exposes an [`iface`](QField/classAppInterface.md) object and a set of utility modules.
+QField exposes an [`iface`](QField/classQfAppInterface.md) object and a set of utility modules.
 
 ### **Key `iface` functions**
 
 - `iface.mainWindow()` – access to the main application window
-- `iface.mapCanvas()` – retrieve the main [map canvas](QField/classMapCanvas.md) and [map settings](QField/classQgsQuickMapSettings.md)
-- `iface.positioning()` – retrieve the [positioning](QField/classPositioning.md) object
+- `iface.mapCanvas()` – retrieve the main [map canvas](QField/classQfMapCanvas.md) and [map settings](QField/classQgsQuickMapSettings.md)
+- `iface.positioning()` – retrieve the [positioning](QField/classQfPositioning.md) object
 - `iface.addItemToPluginsToolbar(item)` – add custom toolbar buttons overlays in the main window
 - `iface.addItemToDashboardActionsToolbar(item)` – add actions to the side dashboard
 - `iface.addItemToCanvasActionsToolbar(item)` – add actions to the map canvas long-press menu
@@ -90,8 +90,8 @@ QField exposes an [`iface`](QField/classAppInterface.md) object and a set of uti
 
 Examples:
 
-- `GeometryUtils.createGeometryFromWkt()`
-- `FeatureUtils.createFeature()`
+- `QfGeometryUtils.createGeometryFromWkt()`
+- `QfFeatureUtils.createFeature()`
 
 These allow plugins to create features, manipulate geometry, work with the camera, and more.
 
@@ -103,7 +103,7 @@ Minimal plugin example:
 
 ```qml
 import QtQuick
-import org.qfield
+import org.qfield.org
 
 Item {
   Component.onCompleted: {
