@@ -6,7 +6,7 @@ import org.qfield.app
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield.app
  */
 Page {
   id: badLayerPage

@@ -20,7 +20,7 @@
 
 /**
  * Obtain the QField changelog contents from the GitHub releases API.
- * \ingroup core
+ * \ingroup app
  */
 class QfChangelogContents : public QObject
 {

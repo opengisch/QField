@@ -31,12 +31,12 @@ import org.qfield.gui
 import org.qfield.app
 
 /**
- * \defgroup qml
- * \brief QField QML core items
+ * \defgroup org.qfield.app
+ * \brief QField application QML core items
  */
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield.app
  */
 ApplicationWindow {
   id: mainWindow

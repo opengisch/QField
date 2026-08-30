@@ -6,7 +6,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield.app
  */
 Rectangle {
   id: pendingChanges

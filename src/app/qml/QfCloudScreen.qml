@@ -7,7 +7,7 @@ import org.qfield.gui
 import org.qfield.app
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield.app
  */
 Page {
   id: qfieldCloudScreen
