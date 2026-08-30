@@ -271,9 +271,9 @@ ListView {
             id: trackingBadge
             property bool isVisible: InTracking ? true : false
             visible: isVisible
-            height: 24
-            width: 24
-            padding: 4
+            height: 32
+            width: 32
+            padding: 0
             enabled: isVisible
             round: true
             bgcolor: QfTheme.mainColor
@@ -311,9 +311,9 @@ ListView {
             id: invalidBadge
             property bool isVisible: Type == QfFlatLayerTreeModel.Layer && !IsValid
             visible: isVisible
-            height: 24
-            width: 24
-            padding: 4
+            height: 32
+            width: 32
+            padding: 0
             enabled: isVisible
             bgcolor: 'transparent'
             opacity: 0.5
@@ -329,9 +329,9 @@ ListView {
             id: lockedBadge
             property bool isVisible: ReadOnly || FeatureAdditionLocked
             visible: isVisible
-            height: 24
-            width: 24
-            padding: 4
+            height: 32
+            width: 32
+            padding: 0
             enabled: isVisible
             bgcolor: 'transparent'
             opacity: 0.5
@@ -352,9 +352,9 @@ ListView {
             id: notesBadge
             property bool isVisible: HasNotes
             visible: isVisible
-            height: 24
-            width: 24
-            padding: 4
+            height: 32
+            width: 32
+            padding: 0
             enabled: isVisible
             bgcolor: 'transparent'
             opacity: 0.5
@@ -376,9 +376,9 @@ ListView {
             id: snappingBadge
             property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === QfFlatLayerTreeModel.Layer && LayerType === "vectorlayer" && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
             visible: isVisible
-            height: 24
-            width: 24
-            padding: 4
+            height: 32
+            width: 32
+            padding: 0
             enabled: isVisible
             round: true
             bgcolor: SnappingEnabled ? QfTheme.mainColor : QfTheme.controlBackgroundColor
