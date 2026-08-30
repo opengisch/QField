@@ -4999,9 +4999,11 @@ ApplicationWindow {
         } else {
           projectInfo.restoreCloudUserInformation();
         }
-        if (cloudConnection.isReachable && settings.valueBool("/QField/showCloudButtonGuide", true) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
-          cloudMenuTour.runTour();
-          settings.setValue("/QField/showCloudButtonGuide", false);
+        if (cloudConnection.isReachable) {
+          if (!settings.valueBool("/QField/showMapCanvasGuide", true) && settings.valueBool("/QField/showCloudButtonGuide", true) && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
+            cloudMenuTour.runTour();
+            settings.setValue("/QField/showCloudButtonGuide", false);
+          }
         }
       } else {
         projectInfo.hasInsertRights = true;
