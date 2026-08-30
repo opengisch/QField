@@ -8,8 +8,8 @@ Mobile devices can handle several useful hyperlinks protocols such as `tel:` and
 
 ```qml
 import QtQuick
-import org.qfield
-import Theme
+import org.qfield.org
+import org.qfield.gui
 
 Item {
   QfToolButton {
@@ -33,12 +33,12 @@ Item {
 
 ## Change the map canvas center or extent
 
-This code below will re-center the map canvas around a WGS84 point reprojected to match the current project CRS by using [`GeometryUtils`](QField/classGeometryUtils.md) functions.
+This code below will re-center the map canvas around a WGS84 point reprojected to match the current project CRS by using [`QfGeometryUtils`](QField/classQfGeometryUtils.md) functions.
 
 ```qml
 import QtQuick
-import org.qfield
-import Theme
+import org.qfield.org
+import org.qfield.gui
 
 Item {
   QfToolButton {
@@ -50,8 +50,8 @@ Item {
     round: true
 
     onClicked: {
-      const point = GeometryUtils.point(174.7656025, -36.8533493);
-      const projectedPoint = GeometryUtils.reprojectPoint(point, CoordinateReferenceSystemUtils.wgs84Crs(), qgisProject.crs);
+      const point = QfGeometryUtils.point(174.7656025, -36.8533493);
+      const projectedPoint = QfGeometryUtils.reprojectPoint(point, CoordinateReferenceSystemUtils.wgs84Crs(), qgisProject.crs);
       iface.mapCanvas().mapSettings.center = projectedPoint;
     }
   }
@@ -66,10 +66,10 @@ It's also possible to use an extent instead of a point to be in control of the s
 
 ```qml
     onClicked: {
-      const point1 = GeometryUtils.point(174.7646543, -36.8519053);
-      const point2 = GeometryUtils.point(174.7682343, -36.8542590);
-      const extent = GeometryUtils.createRectangleFromPoints(point1, point2);
-      const projectedExtent = GeometryUtils.reprojectRectangle(extent, CoordinateReferenceSystemUtils.wgs84Crs(), qgisProject.crs);
+      const point1 = QfGeometryUtils.point(174.7646543, -36.8519053);
+      const point2 = QfGeometryUtils.point(174.7682343, -36.8542590);
+      const extent = QfGeometryUtils.createRectangleFromPoints(point1, point2);
+      const projectedExtent = QfGeometryUtils.reprojectRectangle(extent, CoordinateReferenceSystemUtils.wgs84Crs(), qgisProject.crs);
       iface.mapCanvas().mapSettings.extent = projectedExtent;
     }
 ```
@@ -80,8 +80,8 @@ One of the basic functionality you will likely seek is the ability to retrieve t
 
 ```qml
 import QtQuick
-import org.qfield
-import Theme
+import org.qfield.org
+import org.qfield.gui
 
 Item {
   QfToolButton {
@@ -93,7 +93,7 @@ Item {
     round: true
 
     onClicked: {
-      let positioning = iface.findItemByObjectName('positionSource');
+      let positioning = iface.positioning();
       if (positioning.active) {
         const info = positioning.positionInformation;
         if (info.longitudeValid && info.latitudeValid) {
@@ -113,10 +113,10 @@ Item {
 
 ## Integrate with the search bar
 
-The plugin framework empowers you to integrate custom searches into the QField search bar through the [`QFieldLocatorFilter`](QField/classQFieldLocatorFilter.md) item which can be added into a plugin's root item:
+The plugin framework empowers you to integrate custom searches into the QField search bar through the [`QfLocatorFilter`](QField/classQfLocatorFilter.md) item which can be added into a plugin's root item:
 
 ```qml
-QFieldLocatorFilter {
+QfLocatorFilter {
   id: locatorFilter
 
   delay: 1000
@@ -146,7 +146,6 @@ Here's a simple search QML source code:
 
 ```qml
 import QtQuick
-import org.qfield
 
 Item {
   signal prepareResult(var details)
@@ -156,7 +155,7 @@ Item {
     // string is the search term(s) typed into the search bar
     // context is a QgsLocatorContext object with the following properties:
     // - targetExtent, targetExtentCrs, and transformContext
-    // parameters is a map of keys and values attached to the QFieldLocatorFilter parameters properties
+    // parameters is a map of keys and values attached to the QfLocatorFilter parameters properties
 
     // sample details object
     let result_details = {
@@ -186,7 +185,7 @@ To do so, you can simply add a `function configure()` invocable function attache
 
 ```qml
 import QtQuick
-import org.qfield
+import org.qfield.org
 
 Item {
   // ...
@@ -210,11 +209,11 @@ Item {
 
 ## Flash geometries on top of the map canvas
 
-Plugins can make use of QField's [`GeometryHighlighter`](QField/classGeometryHighlighter.md) item to flash created or fetched geometries through the following code:
+Plugins can make use of QField's [`QfGeometryHighlighter`](QField/classQfGeometryHighlighter.md) item to flash created or fetched geometries through the following code:
 
 ```qml
 import QtQuick
-import org.qfield
+import org.qfield.org
 
 Item {
   // ...
@@ -223,8 +222,8 @@ Item {
 
   function demo() {
     // Flash Null Island geometry
-    let geom = GeometryUtils.createGeometryFromWkt("POINT(0 0)")
-    let crs = CoordinateReferenceSystemUtils.fromDescription("EPSG:4326")
+    let geom = QfGeometryUtils.createGeometryFromWkt("POINT(0 0)")
+    let crs = QfCoordinateReferenceSystemUtils.fromDescription("EPSG:4326")
 
     geometryHighlighter.geometryWrapper.qgsGeometry = geometry
     geometryHighlighter.geometryWrapper.crs = crs;
@@ -234,20 +233,20 @@ Item {
 
 ## Add a project variable through dialog input
 
-This example demonstrates how to check for a given project variable on project load and asks the user for a value if not present or empty through [`ExpressionContextUtils`](QField/classExpressionContextUtils.md) functions. The plugin also uses the projectInfo object to save the variable across sessions.
+This example demonstrates how to check for a given project variable on project load and asks the user for a value if not present or empty through [`QfExpressionContextUtils`](QField/classQfExpressionContextUtils.md) functions. The plugin also uses the projectInfo object to save the variable across sessions.
 
 ```qml
 import QtQuick
 import QtQuick.Controls
-import org.qfield
-import Theme
+import org.qfield.org
+import org.qfield.gui
 
 Item {
   Connections {
     target: iface
 
     function onLoadProjectEnded() {
-      const variables = ExpressionContextUtils.projectVariables(qgisProject);
+      const variables = QfExpressionContextUtils.projectVariables(qgisProject);
       if (variables["favorite_icecream"] === undefined || variables["favorite_icecream"] === "") {
         favoriteIceCreamDialog.open();
       }
@@ -276,7 +275,7 @@ Item {
     }
 
     onAccepted: {
-      ExpressionContextUtils.setProjectVariable(qgisProject, "favorite_icecream", favoriteIceCreamField.text);
+      QfExpressionContextUtils.setProjectVariable(qgisProject, "favorite_icecream", favoriteIceCreamField.text);
       let projectInfo = iface.findItemByObjectName("projectInfo");
       projectInfo.saveVariable("favorite_icecream", favoriteIceCreamField.text);
     }
@@ -286,9 +285,10 @@ Item {
 
 ## Register a map canvas point handler to take over taps
 
-Plugins can take over map canvas taps behavior by registering an handler with the [`MapCanvasPointHandler`](QField/classMapCanvasPointHandler.md) object. The code snippet below will look for features within a given layer and return an attribute instead of showing the features list. Feature iteration is done using functions provided by the [`LayerUtils`](QField/classLayerUtils.md) class.
+Plugins can take over map canvas taps behavior by registering an handler with the [`QfMapCanvasPointHandler`](QField/classQfMapCanvasPointHandler.md) object. The code snippet below will look for features within a given layer and return an attribute instead of showing the features list. Feature iteration is done using functions provided by the [`QfLayerUtils`](QField/classQfLayerUtils.md) class.
 
 ```qml
+let pointHandler = iface.findItemByObjectName("pointHandler");
 pointHandler.registerHandler("feature_iteration_example", (point, type, interactionType) => {
   if (interactionType === "clicked") {
     let mapCanvas = iface.mapCanvas();
@@ -311,7 +311,7 @@ By returning true, we are telling QField that we have taken over the handling an
 
 ## Split the `qml` code into multiple files
 
-Sometimes, the plugin's `main.qml` file can become long. In such cases, it is possible and recommended to split the code into multiple `qml` files.
+Sometimes, the plugin's `main.qml` file's content can become too long. In such cases, it is possible and recommended to split the code into multiple `qml` files.
 
 _This snippet does not intend to be a tutorial on QML itself, rather on how to organize QML code within a QField plugin. Also consider it as a hint that splitting QML code into multiple files can be considered as a good practice._
 
@@ -321,8 +321,8 @@ Here is an example of the content of the `main.qml` plugin file:
 import QtQuick
 import QtCore
 
-import org.qfield
-import "qrc:/qml" as QFieldItems
+import org.qfield.core
+import org.qfield.gui
 
 Item {
   id: myPlugin
@@ -352,7 +352,8 @@ And an example of the content of the `MyOtherDialog.qml` file:
 ```qml
 import QtQuick
 
-import org.qfield
+import org.qfield.org
+import org.qfield.gui
 
 Dialog {
   id: myOtherDialog
