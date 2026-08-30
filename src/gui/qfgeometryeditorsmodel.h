@@ -24,7 +24,7 @@
 #include <QStandardItemModel>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfGeometryEditorsModel : public QStandardItemModel
 {

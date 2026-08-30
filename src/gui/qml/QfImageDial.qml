@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 
 /**
- * \ingroup qml
+ * \ingroup qml_gui
  */
 Dial {
   id: control

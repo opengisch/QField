@@ -27,7 +27,7 @@ class QgsVectorLayer;
 
 /**
  * This class handles clipboard operations.
- * \ingroup core
+ * \ingroup app
  */
 class QfClipboardManager : public QObject
 {

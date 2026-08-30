@@ -24,7 +24,7 @@
 #include <QTranslator>
 
 /**
- * \ingroup core
+ * \ingroup app
  */
 class QfPluginInformation
 {
@@ -75,7 +75,7 @@ class QfPluginInformation
 Q_DECLARE_METATYPE( QfPluginInformation )
 
 /**
- * \ingroup core
+ * \ingroup app
  */
 class QfPluginManager : public QObject
 {

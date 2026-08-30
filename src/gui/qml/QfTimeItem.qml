@@ -4,6 +4,9 @@ import QtQuick.Controls
 import org.qfield.core
 import org.qfield.gui
 
+/**
+ * \ingroup qml_gui
+ */
 Item {
   property alias hours: hoursSpinBox.value
   property alias minutes: minutesSpinBox.value

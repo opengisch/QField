@@ -28,6 +28,11 @@
 class QgsLineString;
 
 /**
+ * \defgroup _3d 3D
+ * \brief QField application C++ classes
+ */
+
+/**
  * Generates 3D geometry for an identified or selected feature on
  * top of the terrain mesh.
  *
@@ -37,7 +42,7 @@ class QgsLineString;
  * draped on the terrain surface.
  *
  * \note QML Type: Qf3DGeometry
- * \ingroup core
+ * \ingroup _3d
  */
 class Qf3DGeometry : public QQuick3DGeometry
 {

@@ -2,7 +2,7 @@ import QtQuick
 import org.qfield.core
 
 /**
- * \ingroup qml
+ * \ingroup qml_gui
  */
 Item {
   id: geometryHighlighter

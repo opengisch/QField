@@ -24,7 +24,7 @@
 
 /**
  * A base model that manages the key/value pairs for a ValueMap widget.
- * \ingroup core
+ * \ingroup gui
  */
 class QfValueMapModelBase : public QAbstractListModel
 {

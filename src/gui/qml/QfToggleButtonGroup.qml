@@ -7,7 +7,7 @@ import org.qgis
 
 /**
  * Provides a consistent UI for selecting single values from a list of options.
- * \ingroup qml
+ * \ingroup qml_gui
  */
 Item {
   id: toggleButtonGroup

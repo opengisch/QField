@@ -5,7 +5,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \ingroup qml_gui
  */
 T.ScrollBar {
   id: control

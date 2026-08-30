@@ -21,7 +21,7 @@ import org.qfield.gui
  *  - canvasLongPressed(point)
  * These functions must return true if they catch the event.
  *
- * \ingroup qml
+ * \ingroup qml_gui
  */
 QfVisibilityFadingRow {
   id: geometryEditorsToolbar

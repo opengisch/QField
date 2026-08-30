@@ -32,7 +32,7 @@ class QfFeatureGatherer;
 class QfOrderedRelationModel;
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QFIELD_GUI_EXPORT QfReferencingFeatureListModelBase : public QAbstractItemModel
 {
@@ -496,7 +496,7 @@ class QfFeatureGatherer : public QThread
         mNmDisplayExpression = nmRelation.referencedLayer()->displayExpression();
       }
 
-      //mRequest.setExpressionContext( mContext );
+      mRequest.setExpressionContext( mContext );
     }
 
     void run() override

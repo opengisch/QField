@@ -38,8 +38,14 @@ nav:
   - Home: index.md
   - Code Snippets: snippets.md
   - Translate a plugin: translate.md
-  - C++ Classes: QField/group__core.md
-  - QML Items: QField/group__qml.md
+  - C++ app classes: QField/group__app.md
+  - C++ core classes: QField/group__core.md
+  - C++ gui classes: QField/group__gui.md
+  - C++ 3D classes: QField/group____3d.md
+  - QML app items: QField/group__qml__app.md
+  - QML core items: QField/group__qml__core.md
+  - QML gui items: QField/group__qml__gui.md
+  - QML 3D items: QField/group__qml__3d.md
 
 markdown_extensions:
   - admonition

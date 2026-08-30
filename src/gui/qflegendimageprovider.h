@@ -29,7 +29,7 @@ class QgsLayerTree;
 
 /**
  * \brief This class provides legend images for the layer tree model.
- * \ingroup core
+ * \ingroup gui
  */
 class QfLegendImageProvider : public QQuickImageProvider
 {

@@ -21,7 +21,7 @@
 #include <qgsprojectbadlayerhandler.h>
 
 /**
- * \ingroup core
+ * \ingroup app
  */
 class QfBadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
 {

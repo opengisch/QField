@@ -27,7 +27,7 @@
 class QfFeatureExpressionValuesGatherer;
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfOrderedRelationModel : public QfReferencingFeatureListModelBase
 {

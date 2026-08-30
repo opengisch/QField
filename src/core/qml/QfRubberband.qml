@@ -4,7 +4,7 @@ import org.qfield.core
 import org.qgis
 
 /**
- * \ingroup qml
+ * \ingroup qml_core
  */
 QfRubberbandShape {
   id: rubberbandShape

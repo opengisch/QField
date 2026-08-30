@@ -27,7 +27,7 @@
  * geometries. Each helper appends to a raw vertex/index buffer using a fixed
  * 10-float vertex layout: position(3) + normal(3) + rgba(4).
  *
- * \ingroup core
+ * \ingroup _3d
  */
 class QFIELD_3D_EXPORT Qf3DGeometryUtils
 {

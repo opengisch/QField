@@ -5,7 +5,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \ingroup qml_app
  */
 QfDialog {
   property int selectedCount: 0

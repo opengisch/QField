@@ -1,6 +1,9 @@
 import QtQuick
 import QtQuick3D
 
+/**
+ * \ingroup qml_3d
+ */
 Item {
   id: root
 

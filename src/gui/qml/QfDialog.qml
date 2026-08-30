@@ -4,7 +4,12 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup qml
+ * \defgroup qml_gui QML gui
+ * \brief QField GUI QML items available through import org.qfield.gui
+ */
+
+/**
+ * \ingroup qml_gui
  */
 Dialog {
   visible: false
