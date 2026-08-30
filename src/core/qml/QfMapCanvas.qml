@@ -21,7 +21,7 @@ import org.qgis
 import org.qfield.core
 
 /**
- * \ingroup org.qfield.core
+ * \ingroup qml_core
  */
 Item {
   id: mapArea

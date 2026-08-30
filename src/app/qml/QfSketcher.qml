@@ -7,7 +7,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup org.qfield.app
+ * \ingroup qml_app
  */
 Popup {
   id: sketcher

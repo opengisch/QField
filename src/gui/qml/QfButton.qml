@@ -9,7 +9,7 @@ import org.qfield.core
 import org.qfield.gui
 
 /**
- * \ingroup org.qfield.gui
+ * \ingroup qml_gui
  */
 Button {
   id: button

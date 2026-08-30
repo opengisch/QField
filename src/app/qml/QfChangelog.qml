@@ -6,7 +6,7 @@ import org.qfield.app
 import org.qfield.gui
 
 /**
- * \ingroup org.qfield.app
+ * \ingroup qml_app
  */
 QfPopup {
   id: changelogPopup

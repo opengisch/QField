@@ -42,10 +42,10 @@ nav:
   - C++ core classes: QField/group__core.md
   - C++ gui classes: QField/group__gui.md
   - C++ 3D classes: QField/group____3d.md
-  - QML app items: QField/group__org.qfield.app.md
-  - QML core items: QField/group__org.qfield.core.md
-  - QML gui items: QField/group__org.qfield.gui.md
-  - QML 3D items: QField/group__org.qfield._3d.md
+  - QML app items: QField/group__qml__app.md
+  - QML core items: QField/group__qml__core.md
+  - QML gui items: QField/group__qml__gui.md
+  - QML 3D items: QField/group__qml__3d.md
 
 markdown_extensions:
   - admonition

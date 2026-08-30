@@ -7,7 +7,7 @@ import QtQuick.Controls.Material.impl
 import org.qfield.core
 
 /**
- * \ingroup org.qfield.gui
+ * \ingroup qml_gui
  */
 ComboBox {
   id: comboBox

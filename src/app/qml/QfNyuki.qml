@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 
 /**
- * \ingroup org.qfield.app
+ * \ingroup qml_app
  */
 Item {
   id: nyukiContainer

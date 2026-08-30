@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 
 /**
- * \ingroup org.qfield.gui
+ * \ingroup qml_gui
  */
 Pane {
   id: paneDrawer
