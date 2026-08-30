@@ -23,7 +23,7 @@
 #include <qgsvectorlayer.h>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfFeatureCheckListModelBase : public QfFeatureListModel
 {

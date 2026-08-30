@@ -25,12 +25,16 @@ email                : kaustuv@opengis.ch
 #include <QVariantMap>
 
 /**
- * \ingroup gui
- *
+ * \defgroup gui
+ * \brief QField GUI C++ classes
+ */
+
+/**
  * \brief Provides all color, font scale, and layout constants used throughout
  * the QField UI. Registered as a QML singleton in org.qfield.gui.
  *
  * \note Default colors are loaded from :/theme/theme.json
+ * \ingroup gui
  */
 class QFIELD_GUI_EXPORT QfTheme final : public QObject
 {

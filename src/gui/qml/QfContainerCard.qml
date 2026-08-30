@@ -8,7 +8,7 @@ import org.qfield.gui
  * action button or a toggle) can be added as children and is placed below
  * the texts.
  *
- * \ingroup qml
+ * \ingroup org.qfield.gui
  */
 Rectangle {
   id: containerCard

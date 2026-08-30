@@ -23,7 +23,7 @@
 /**
  * This model will connect to the message log and publish any
  * messages received from there.
- * \ingroup core
+ * \ingroup gui
  */
 class QfMessageLogModel : public QAbstractListModel
 {

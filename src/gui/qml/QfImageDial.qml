@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield.gui
  */
 Dial {
   id: control

@@ -21,7 +21,7 @@
 class QfLocalFileItem;
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfLocalFilesModel : public QAbstractListModel
 {

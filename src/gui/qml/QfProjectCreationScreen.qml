@@ -5,6 +5,9 @@ import QtQuick.Controls.Material.impl
 import org.qfield.core
 import org.qfield.gui
 
+/**
+ * \ingroup org.qfield.gui
+ */
 Page {
   id: projectCreation
 

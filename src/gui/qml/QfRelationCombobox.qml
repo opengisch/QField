@@ -6,7 +6,7 @@ import org.qfield.gui
 import org.qgis
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield.gui
  */
 Item {
   id: relationCombobox

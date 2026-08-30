@@ -19,7 +19,7 @@
 #include <QAbstractListModel>
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfDrawingTemplateModel : public QAbstractListModel
 {

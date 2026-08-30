@@ -23,7 +23,7 @@
 #define DEFAULT_STROKE_WIDTH 5
 
 /**
- * \ingroup core
+ * \ingroup gui
  */
 class QfParameterizedImage : public QQuickPaintedItem
 {

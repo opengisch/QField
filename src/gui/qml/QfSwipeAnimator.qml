@@ -1,6 +1,9 @@
 import QtQuick
 import org.qfield.core
 
+/**
+ * \ingroup org.qfield.gui
+ */
 Flickable {
   id: flick
   boundsBehavior: Flickable.StopAtBounds
