@@ -4,7 +4,7 @@ import org.qfield._3d
 
 /**
  * Wraps Qf3DRubberbandGeometry in a ready-to-use Node with a matte PBR material.
- * \ingroup qml
+ * \ingroup org.qfield._3d
  */
 Node {
   id: root

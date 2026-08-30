@@ -31,7 +31,7 @@
  * provider extent changes, enabling dynamic positioning of 3D elements.
  *
  * \note QML Type: QfMapToView3D
- * \ingroup core
+ * \ingroup _3d
  */
 class QfMapToView3D : public QObject
 {

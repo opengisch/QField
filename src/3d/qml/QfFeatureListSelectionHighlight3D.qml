@@ -4,7 +4,7 @@ import org.qfield._3d
 import org.qfield.core
 
 /**
- * \ingroup qml
+ * \ingroup org.qfield._3d
  */
 Node {
   id: featureListSelectionHighlight3D
