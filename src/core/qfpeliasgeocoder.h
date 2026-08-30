@@ -17,19 +17,17 @@
 #define QFPELIASGEOCODER_H
 
 #include "qfield_core_export.h"
-#include "qgis_core.h"
-#include "qgsgeocoder.h"
 
 #include <QMutex>
+#include <qgsgeocoder.h>
 
 /**
- * \ingroup core
  * \brief A geocoder which uses the Pelias geocoding API to retrieve results.
  *
  * This geocoder utilizes the Pelias geocoding API in order to geocode
  * strings from an endpoint server.
  *
- * \since QField 1.9
+ * \ingroup core
 */
 class QFIELD_CORE_EXPORT QfPeliasGeocoder : public QgsGeocoderInterface
 {
