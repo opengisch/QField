@@ -3,6 +3,11 @@ import QtQuick.Shapes
 import org.qfield.core
 
 /**
+ * \defgroup org.qfield.core
+ * \brief QField core QML items
+ */
+
+/**
  * \ingroup org.qfield.core
  */
 Item {

@@ -32,7 +32,7 @@ import org.qfield.app
 
 /**
  * \defgroup org.qfield.app
- * \brief QField application QML core items
+ * \brief QField application QML items
  */
 
 /**

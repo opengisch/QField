@@ -5,7 +5,7 @@ import org.qfield.gui
 
 /**
  * \defgroup org.qfield.gui
- * \brief QField GUI QML core items
+ * \brief QField GUI QML items
  */
 
 /**
