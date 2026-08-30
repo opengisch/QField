@@ -106,6 +106,9 @@ Item {
               stage: Shader.Fragment
               shader: "qrc:/3d/eye_dome_lighting.frag"
             }
+            output: Buffer {
+              format: Buffer.RGBA8
+            }
           }
         }
       ]
@@ -286,6 +289,7 @@ Item {
           }
           materials: PrincipledMaterial {
             vertexColorsEnabled: true
+            alphaMode: PrincipledMaterial.Blend
           }
         }
       }

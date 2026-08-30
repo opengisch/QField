@@ -43,12 +43,9 @@ Node {
 
         materials: [
           PrincipledMaterial {
-            baseColor: "white"
-            metalness: 0.0
-            roughness: 1.0
             vertexColorsEnabled: true
             alphaMode: model.extrusion > 0 ? PrincipledMaterial.Opaque : PrincipledMaterial.Blend
-            depthDrawMode: Material.AlwaysDepthDraw
+            depthDrawMode: Material.OpaqueOnlyDepthDraw
             cullMode: PrincipledMaterial.NoCulling
           }
         ]
