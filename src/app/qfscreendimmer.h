@@ -20,8 +20,8 @@
 #include <qgsapplication.h>
 
 /**
- * @brief The QfScreenDimmer class handles dimming of screen brightness.
- * \ingroup core
+ * \brief The QfScreenDimmer class handles dimming of screen brightness.
+ * \ingroup app
  */
 class QfScreenDimmer : public QObject
 {

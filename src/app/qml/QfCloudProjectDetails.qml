@@ -4,6 +4,9 @@ import QtQuick.Layouts
 import org.qfield.core
 import org.qfield.gui
 
+/**
+ * \ingroup org.qfield.app
+ */
 ColumnLayout {
   id: projectDetails
   spacing: 5

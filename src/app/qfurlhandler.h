@@ -22,6 +22,9 @@
 
 class QfAppInterface;
 
+/**
+ * \ingroup app
+ */
 class QfUrlHandler : public QObject
 {
     Q_OBJECT
