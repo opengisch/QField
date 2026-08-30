@@ -2,6 +2,9 @@ import QtQuick
 import QtQuick3D
 import org.qfield._3d
 
+/**
+ * \ingroup org.qfield._3d
+ */
 Node {
   id: root
 

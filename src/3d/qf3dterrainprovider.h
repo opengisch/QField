@@ -43,7 +43,7 @@ class QgsAbstractTerrainProvider;
  * generation in Qt Quick 3D.
  *
  * \note QML Type: Qf3DTerrainProvider
- * \ingroup core
+ * \ingroup _3d
  *
  */
 class Qf3DTerrainProvider : public QObject
