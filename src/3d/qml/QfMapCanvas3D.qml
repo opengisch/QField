@@ -282,6 +282,9 @@ Item {
           materials: PrincipledMaterial {
             vertexColorsEnabled: true
             alphaMode: PrincipledMaterial.Blend
+            depthDrawMode: Material.OpaqueOnlyDepthDraw
+            cullMode: PrincipledMaterial.NoCulling
+            lighting: PrincipledMaterial.NoLighting
           }
         }
       }
