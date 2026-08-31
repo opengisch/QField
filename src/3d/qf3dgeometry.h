@@ -47,7 +47,6 @@ class QgsLineString;
 class Qf3DGeometry : public QQuick3DGeometry
 {
     Q_OBJECT
-    QML_ELEMENT
 
   public:
     /**
