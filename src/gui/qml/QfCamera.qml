@@ -18,6 +18,7 @@ Popup {
 
   readonly property bool isReady: !isCapturing && (state == "PhotoCapture" || state == "VideoCapture")
   readonly property bool isPortraitMode: mainWindow.height > mainWindow.width
+  readonly property color shieldColor: Qt.hsla(QfTheme.toolButtonBackgroundSemiOpaqueColor.hslHue, QfTheme.toolButtonBackgroundSemiOpaqueColor.hslSaturation, QfTheme.toolButtonBackgroundSemiOpaqueColor.hslLightness, 0.3)
 
   property string currentPath: ''
   property var currentPosition: QfPositioningUtils.createEmptyGnssPositionInformation()
@@ -725,7 +726,7 @@ Popup {
             width: photoEditButtonsRow.width + 8
             height: photoEditButtonsRow.height + 8
             radius: height / 2
-            color: Qt.hsla(QfTheme.toolButtonBackgroundSemiOpaqueColor.hslHue, QfTheme.toolButtonBackgroundSemiOpaqueColor.hslSaturation, QfTheme.toolButtonBackgroundSemiOpaqueColor.hslLightness, 0.3)
+            color: cameraItem.shieldColor
 
             rotation: cameraItem.isPortraitMode ? 0 : -90
 
@@ -957,9 +958,9 @@ Popup {
 
             width: durationLabelMetrics.boundingRect('00:00:00').width + 34
             height: durationLabelMetrics.boundingRect('00:00:00').height + 10
-            radius: 6
+            radius: height / 2
 
-            color: QfTheme.darkGraySemiOpaque
+            color: cameraItem.shieldColor
 
             Row {
               anchors.centerIn: parent
@@ -1006,9 +1007,9 @@ Popup {
 
             width: previewSizeLabel.width + 20
             height: durationLabelMetrics.boundingRect('00:00:00').height + 10
-            radius: 6
+            radius: height / 2
 
-            color: QfTheme.darkGraySemiOpaque
+            color: cameraItem.shieldColor
 
             Text {
               id: previewSizeLabel
@@ -1029,7 +1030,7 @@ Popup {
       }
     }
 
-    Rectangle {
+    Item {
       id: videoQualityPanel
       visible: cameraItem.state == "VideoCapture" && captureLoader.item && captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState && qualities.length > 1
 
@@ -1045,48 +1046,73 @@ Popup {
       readonly property real availableWidth: cameraItem.isPortraitMode ? parent.width : parent.width - captureBar.width
 
       width: Math.min(availableWidth - 80, 320)
-      height: videoQualityColumn.height + 20
-      radius: 6
-      color: QfTheme.darkGraySemiOpaque
+      height: videoQualityColumn.height
 
       x: availableWidth / 2 - width / 2
       y: parent.height - height - 20 - (cameraItem.isPortraitMode ? captureBar.height : mainWindow.sceneBottomMargin)
 
       Column {
         id: videoQualityColumn
-        anchors.centerIn: parent
-        width: parent.width - 20
+        width: parent.width
         spacing: 6
 
-        Text {
-          width: parent.width
-          horizontalAlignment: Text.AlignHCenter
-          elide: Text.ElideRight
-          text: {
-            const quality = videoQualityPanel.selectedQuality;
-            const label = quality > 0 ? quality + 'p' : qsTr("Highest");
-            const resolution = videoQualityPanel.targetResolution;
-            return resolution.width > 0 ? label + ' — ' + resolution.width + ' × ' + resolution.height : label;
+        Rectangle {
+          anchors.horizontalCenter: parent.horizontalCenter
+          width: qualityLabel.width + 20
+          height: qualityLabel.height + 10
+          radius: height / 2
+
+          color: cameraItem.shieldColor
+
+          Text {
+            id: qualityLabel
+            anchors.centerIn: parent
+            width: Math.min(implicitWidth, videoQualityPanel.width - 20)
+            horizontalAlignment: Text.AlignHCenter
+            elide: Text.ElideRight
+            text: {
+              const quality = videoQualityPanel.selectedQuality;
+              const label = quality > 0 ? quality + 'p' : qsTr("Highest");
+              const resolution = videoQualityPanel.targetResolution;
+              return resolution.width > 0 ? label + ' — ' + resolution.width + ' × ' + resolution.height : label;
+            }
+            font: QfTheme.tipFont
+            color: QfTheme.light
           }
-          font: QfTheme.tipFont
-          color: QfTheme.light
         }
 
-        QfSlider {
-          id: qualitySlider
-
+        Rectangle {
           width: parent.width
-          implicitHeight: 34
-          showValueLabel: false
+          height: qualitySlider.height + 8
+          radius: height / 2
 
-          from: 0
-          to: videoQualityPanel.qualities.length - 1
-          stepSize: 1
-          snapMode: Slider.SnapAlways
-          value: Math.max(0, videoQualityPanel.qualities.indexOf(videoQualityPanel.selectedQuality))
+          color: cameraItem.shieldColor
 
-          onMoved: {
-            cameraSettings.videoQuality = videoQualityPanel.qualities[value];
+          Rectangle {
+            anchors.centerIn: parent
+            width: parent.width - 8
+            height: qualitySlider.height
+            radius: height / 2
+
+            color: QfTheme.toolButtonBackgroundSemiOpaqueColor
+
+            QfSlider {
+              id: qualitySlider
+
+              anchors.centerIn: parent
+              width: parent.width - 24
+              showValueLabel: false
+
+              from: 0
+              to: videoQualityPanel.qualities.length - 1
+              stepSize: 1
+              snapMode: Slider.SnapAlways
+              value: Math.max(0, videoQualityPanel.qualities.indexOf(videoQualityPanel.selectedQuality))
+
+              onMoved: {
+                cameraSettings.videoQuality = videoQualityPanel.qualities[value];
+              }
+            }
           }
         }
       }
