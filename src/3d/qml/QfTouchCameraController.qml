@@ -164,9 +164,11 @@ Item {
     id: tapHandler
     target: null
     acceptedButtons: Qt.LeftButton
-    gesturePolicy: TapHandler.WithinBounds
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
+
     onDoubleTapped: resetView()
-    onSingleTapped: function (eventPoint, button) {
+    onSingleTapped: (eventPoint, button) => {
       root.singleTapped(eventPoint.position.x, eventPoint.position.y);
     }
   }
@@ -175,7 +177,8 @@ Item {
     id: orbitDragHandler
     target: null
     acceptedButtons: Qt.LeftButton
-    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
     acceptedModifiers: Qt.NoModifier
     enabled: !root.extentMode
 
@@ -205,7 +208,8 @@ Item {
     id: panDragHandler
     target: null
     acceptedButtons: Qt.RightButton
-    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus | PointerDevice.TouchPad
+    grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus
     acceptedModifiers: Qt.NoModifier
 
     property point lastPoint
@@ -230,8 +234,8 @@ Item {
     target: null
     acceptedButtons: Qt.NoButton | Qt.LeftButton
     acceptedDevices: PointerDevice.TouchScreen
-    dragThreshold: 5
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
+    dragThreshold: 5
 
     property point lastPoint
 
