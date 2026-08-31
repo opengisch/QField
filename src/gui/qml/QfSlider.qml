@@ -21,7 +21,7 @@ Item {
 
   signal moved
 
-  implicitHeight: childrenRect.height
+  implicitHeight: layout.implicitHeight
 
   RowLayout {
     id: layout
