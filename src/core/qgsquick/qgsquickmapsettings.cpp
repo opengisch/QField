@@ -332,6 +332,14 @@ QPointF QgsQuickMapSettings::coordinateToScreen( const QgsPoint &point ) const
   return pp.toQPointF();
 }
 
+QPointF QgsQuickMapSettings::coordinateToScreen( const QgsPointXY &point ) const
+{
+  QgsPointXY pp = mMapSettings.mapToPixel().transform( point );
+  pp.setX( pp.x() / devicePixelRatio() );
+  pp.setY( pp.y() / devicePixelRatio() );
+  return pp.toQPointF();
+}
+
 QgsPoint QgsQuickMapSettings::screenToCoordinate( const QPointF &point ) const
 {
   const QgsPointXY pp = mMapSettings.mapToPixel().toMapCoordinates( point.x() * devicePixelRatio(), point.y() * devicePixelRatio() );

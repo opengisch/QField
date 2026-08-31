@@ -90,7 +90,7 @@ class QfLinePolygonShape : public QQuickItem
     bool mDirty = false;
     QgsQuickMapSettings *mMapSettings = nullptr;
     QfGeometryWrapper *mGeometry = nullptr;
-    QgsPoint mGeometryCorner;
+    QgsPointXY mGeometryCorner;
     double mGeometryMUPP = 0.0;
     QList<QPolygonF> mPolylines;
     Qgis::GeometryType mPolylinesType = Qgis::GeometryType::Null;
