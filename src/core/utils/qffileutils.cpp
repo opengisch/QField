@@ -18,6 +18,7 @@
 #include "qfcloudutils.h"
 #include "qffileutils.h"
 #include "qfgnsspositioninformation.h"
+#include "qfsubtitlewriter.h"
 #include "qgsmessagelog.h"
 
 #include <QDebug>
@@ -1023,4 +1024,25 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
   }
 
   return results;
+}
+
+QSet<QString> QfFileUtils::sidecarFilesForPath( const QString &filePath )
+{
+  if ( filePath.isEmpty() )
+  {
+    return QSet<QString>();
+  }
+
+  QSet<QString> sidecarFiles = QgsFileUtils::sidecarFilesForPath( filePath );
+
+  if ( mimeTypeName( filePath ).startsWith( QLatin1String( "video/" ) ) )
+  {
+    const QString subtitleFilePath = QfSubtitleWriter::subtitleFilePath( filePath );
+    if ( !subtitleFilePath.isEmpty() && QFileInfo::exists( subtitleFilePath ) )
+    {
+      sidecarFiles << subtitleFilePath;
+    }
+  }
+
+  return sidecarFiles;
 }

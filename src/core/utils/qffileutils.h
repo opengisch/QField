@@ -175,6 +175,19 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
      */
     Q_INVOKABLE static QVariantMap deleteFiles( const QStringList &filePaths );
 
+    /**
+     * Returns the existing files accompanying \a filePath which carry no meaning on their
+     * own and must therefore follow it wherever it goes - when shared, exported, moved
+     * into an attachment folder or deleted.
+     *
+     * This extends QgsFileUtils::sidecarFilesForPath(), which resolves companion files by
+     * asking the registered data providers and so covers datasets only, with the sidecars
+     * QField itself writes. A video recorded with details stamping enabled is accompanied
+     * by a SubRip file carrying its positioning details, and no data provider knows about
+     * video.
+     */
+    static QSet<QString> sidecarFilesForPath( const QString &filePath );
+
   private:
     static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
 };
