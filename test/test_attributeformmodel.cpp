@@ -21,6 +21,17 @@
 #include "qffeaturemodel.h"
 
 #include <QAbstractItemModelTester>
+#include <qgsattributeeditorcontainer.h>
+#include <qgsattributeeditorfield.h>
+#include <qgseditformconfig.h>
+#include <qgsfieldconstraints.h>
+#include <qgsoptionalexpression.h>
+
+static QModelIndex indexForField( QfAttributeFormModel *model, int fieldIndex )
+{
+  const QModelIndexList matches = model->match( model->index( 0, 0 ), QfAttributeFormModel::FieldIndex, fieldIndex, 1, Qt::MatchExactly | Qt::MatchRecursive );
+  return matches.isEmpty() ? QModelIndex() : matches.first();
+}
 
 TEST_CASE( "AttributeFormModel" )
 {
@@ -98,6 +109,191 @@ TEST_CASE( "AttributeFormModel" )
     REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeEditable ).toBool() == true );
     attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "data" ), QfAttributeFormModel::AttributeValue );
     REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeEditable ).toBool() == false );
+  }
+
+  SECTION( "HardConstraint" )
+  {
+    std::unique_ptr<QgsVectorLayer> clean = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=val:string" ), QStringLiteral( "Clean Layer" ), QStringLiteral( "memory" ) );
+    REQUIRE( clean->isValid() );
+    clean->setFieldConstraint( 1, QgsFieldConstraints::ConstraintNotNull, QgsFieldConstraints::ConstraintStrengthHard );
+
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( clean.get() );
+
+    REQUIRE( formModel->hasConstraints() );
+
+    const QModelIndex valField = indexForField( formModel.get(), 1 );
+    REQUIRE( valField.isValid() );
+
+    featureModel->resetFeature();
+    featureModel->resetAttributes();
+
+    formModel->setData( valField, QStringLiteral( "filled" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == true );
+    REQUIRE( formModel->constraintsHardValid() == true );
+
+    formModel->setData( valField, QVariant(), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == false );
+    REQUIRE( formModel->constraintsHardValid() == false );
+
+    formModel->setData( valField, QStringLiteral( "refilled" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintHardValid ).toBool() == true );
+    REQUIRE( formModel->constraintsHardValid() == true );
+  }
+
+  SECTION( "SoftConstraint" )
+  {
+    std::unique_ptr<QgsVectorLayer> clean = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=val:string" ), QStringLiteral( "Clean Layer" ), QStringLiteral( "memory" ) );
+    REQUIRE( clean->isValid() );
+    clean->setConstraintExpression( 1, QStringLiteral( "length(\"val\") > 3" ) );
+    clean->setFieldConstraint( 1, QgsFieldConstraints::ConstraintExpression, QgsFieldConstraints::ConstraintStrengthSoft );
+
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( clean.get() );
+
+    const QModelIndex valField = indexForField( formModel.get(), 1 );
+    REQUIRE( valField.isValid() );
+
+    featureModel->resetFeature();
+    featureModel->resetAttributes();
+
+    formModel->setData( valField, QStringLiteral( "ab" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintSoftValid ).toBool() == false );
+    REQUIRE( formModel->constraintsSoftValid() == false );
+
+    formModel->setData( valField, QStringLiteral( "abcd" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( valField, QfAttributeFormModel::ConstraintSoftValid ).toBool() == true );
+    REQUIRE( formModel->constraintsSoftValid() == true );
+  }
+
+  SECTION( "ConstraintDescription" )
+  {
+    layer->setFieldConstraint( 1, QgsFieldConstraints::ConstraintNotNull, QgsFieldConstraints::ConstraintStrengthHard );
+
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( layer.get() );
+
+    const QModelIndex strField = indexForField( formModel.get(), 1 );
+    REQUIRE( strField.isValid() );
+    REQUIRE( formModel->data( strField, QfAttributeFormModel::ConstraintDescription ).toString() == QStringLiteral( "Not NULL" ) );
+  }
+
+  SECTION( "TabLayout" )
+  {
+    QgsEditFormConfig config = layer->editFormConfig();
+    config.clearTabs();
+    config.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+
+    QgsAttributeEditorContainer *tab1 = new QgsAttributeEditorContainer( QStringLiteral( "First" ), nullptr );
+    tab1->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str" ), 1, tab1 ) );
+    config.addTab( tab1 );
+
+    QgsAttributeEditorContainer *tab2 = new QgsAttributeEditorContainer( QStringLiteral( "Second" ), nullptr );
+    tab2->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str2" ), 2, tab2 ) );
+    config.addTab( tab2 );
+
+    layer->setEditFormConfig( config );
+
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( layer.get() );
+
+    REQUIRE( formModel->hasTabs() );
+    REQUIRE( formModel->rowCount() == 2 );
+    REQUIRE( formModel->data( formModel->index( 0, 0 ), QfAttributeFormModel::ElementType ) == QStringLiteral( "container" ) );
+    REQUIRE( formModel->data( formModel->index( 1, 0 ), QfAttributeFormModel::ElementType ) == QStringLiteral( "container" ) );
+  }
+
+  SECTION( "FieldSynchronization" )
+  {
+    QgsEditFormConfig config = layer->editFormConfig();
+    config.clearTabs();
+    config.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+
+    QgsAttributeEditorContainer *tab1 = new QgsAttributeEditorContainer( QStringLiteral( "Tab1" ), nullptr );
+    tab1->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str" ), 1, tab1 ) );
+    config.addTab( tab1 );
+
+    QgsAttributeEditorContainer *tab2 = new QgsAttributeEditorContainer( QStringLiteral( "Tab2" ), nullptr );
+    tab2->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str" ), 1, tab2 ) );
+    config.addTab( tab2 );
+
+    layer->setEditFormConfig( config );
+
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( layer.get() );
+
+    REQUIRE( formModel->hasTabs() );
+    featureModel->setFeature( layer->getFeature( 1 ) );
+
+    const QModelIndexList strItems = formModel->match( formModel->index( 0, 0 ), QfAttributeFormModel::FieldIndex, 1, -1, Qt::MatchExactly | Qt::MatchRecursive );
+    REQUIRE( strItems.size() == 2 );
+
+    formModel->setData( strItems.at( 0 ), QStringLiteral( "synced" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->data( strItems.at( 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
+    REQUIRE( formModel->data( strItems.at( 1 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "synced" ) );
+  }
+
+  SECTION( "Visibility" )
+  {
+    QgsEditFormConfig config = layer->editFormConfig();
+    config.clearTabs();
+    config.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+
+    QgsAttributeEditorContainer *tab1 = new QgsAttributeEditorContainer( QStringLiteral( "Driver" ), nullptr );
+    tab1->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str" ), 1, tab1 ) );
+    config.addTab( tab1 );
+
+    QgsAttributeEditorContainer *tab2 = new QgsAttributeEditorContainer( QStringLiteral( "Conditional" ), nullptr );
+    tab2->addChildElement( new QgsAttributeEditorField( QStringLiteral( "str2" ), 2, tab2 ) );
+    tab2->setVisibilityExpression( QgsOptionalExpression( QgsExpression( QStringLiteral( "\"str\" = 'show'" ) ) ) );
+    config.addTab( tab2 );
+
+    layer->setEditFormConfig( config );
+
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setCurrentLayer( layer.get() );
+
+    featureModel->resetFeature();
+    featureModel->resetAttributes();
+
+    const QModelIndex driverField = indexForField( formModel.get(), 1 );
+    REQUIRE( driverField.isValid() );
+
+    formModel->setData( driverField, QStringLiteral( "hide" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->rowCount() == 1 );
+
+    formModel->setData( driverField, QStringLiteral( "show" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( formModel->rowCount() == 2 );
+  }
+
+  SECTION( "DeleteFeature" )
+  {
+    QgsProject::instance()->addMapLayer( layer.get(), false, false );
+
+    std::unique_ptr<QfAttributeFormModel> formModel = std::make_unique<QfAttributeFormModel>();
+    std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
+    formModel->setFeatureModel( featureModel.get() );
+    featureModel->setProject( QgsProject::instance() );
+    featureModel->setCurrentLayer( layer.get() );
+
+    const long countBefore = layer->featureCount();
+    featureModel->setFeature( layer->getFeature( 2 ) );
+    REQUIRE( formModel->deleteFeature() );
+    REQUIRE( layer->featureCount() == countBefore - 1 );
+
+    QgsProject::instance()->takeMapLayer( layer.get() );
   }
 
   SECTION( "QAbstractItemModelTester" )
