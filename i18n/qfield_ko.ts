@@ -3262,6 +3262,509 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>축적바 표시</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>확대·축소 버튼 표시</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>북마크 표시</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>지도 상 북마크가 표시됩니다.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>지도 회전 사용</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>켜면 사용자가 지도를 회전할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>디지털화(수치화) 표시</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>새로운 대상을 지도에 생성하거나 측정 도구를 사용할 때 위도 및 경도와 같은 좌표 정보가 지도 위에 겹쳐 표시됩니다.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>볼륨 키로 디지타이징</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>켜면 디지타이징 중 볼륨 위 키를 눌러 꼭짓점을 추가하고, 볼륨 아래 키를 눌러 마지막에 입력한 꼭짓점을 삭제할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>캔버스를 손가락으로 눌러 꼭짓점 추가 허용</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>켜면 지도 캔버스를 손가락으로 한 번 누르면 좌표 커서가 이동하고, 두 번 누르면 꼭짓점이 추가됩니다.</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>마우스를 터치펜으로 인식</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>켜면 마우스가 손가락처럼 동작하고, 끄면 스타일러스 펜처럼 동작합니다.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>객체 양식 최대화</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>객체가 하나만 식별되면 객체 양식 열기</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>켜면 객체가 하나만 식별될 경우 객체 목록을 건너뛰고 객체 양식이 자동으로 열립니다.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>검색 이동 시 축적 고정</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>활성화 시 검색 대상으로 이동할 때 축적이 변하지 않음, 비활성화 시 검색 대상으로 이동에 맞춰 축적이 변경됨.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>식별된 객체로 자동 확대</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>켜면 지도가 식별된 모든 객체가 보이도록 자동으로 확대되고, 객체 양식을 열면 선택한 객체로 확대됩니다.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>보이는 지도 캔버스 주변까지 미리 렌더링</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>켜면 보이는 지도 캔버스 범위 바로 바깥 영역도 일부 렌더링해 확대·이동 시 미리 볼 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>자동 저장 모드 사용</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>켜면 새로 추가한 객체가 유효한 도형을 갖추고 제약 조건을 충족하는 즉시 저장되며, 편집한 속성도 바로 반영됩니다.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>기본 카메라 앱 사용</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>켜면 운영체제에서 제공하는 기본 카메라를 사용합니다.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>익명으로 측정 값 공유</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>켜면 익명화된 사용 정보를 수집·전송해 모두의 사용 경험 개선에 활용합니다.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>기본 설정</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>측위</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>변수</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>지도 캔버스</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>지도 캔버스 렌더링 품질:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>최고 품질</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>낮은 품질</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>가장 낮은 품질</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>품질을 낮추면 렌더링 정밀도는 떨어지지만 메모리 사용량과 렌더링 시간이 줄어듭니다.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>디지타이징 및 편집</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>사용자 인터페이스</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>검색창 설정</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>플러그인 관리</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>미사용 시 화면 밝기 지정</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>배터리 절약을 위해 화면 밝기를 낮추기까지의 미사용 시간(초)입니다.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>화면 모양:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>시스템 설정 따르기</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>밝은 테마</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>어두운 테마</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>글자 크기:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>아주 작게</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>보통</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>크게</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>아주 크게</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>언어:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>시스템</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>변역이 완벽하지 않습니까? %1이 곳에서 번역을 도와주실 수 있습니다.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>네트워크</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>사용 가능한 인증 설정:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>인증 캐시 지우기</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>인증 캐시를 지웠습니다</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>프록시 사용</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>유형</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>시스템 기본값</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>호스트</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>예: proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>포트</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>예: 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>사용자 이름</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>선택 사항</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>비밀번호</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>프록시에서 제외할 URL (쉼표로 구분)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>예: localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>QField의 네트워크 통신을 프록시 서버로 전달하도록 설정합니다. 사내 네트워크나 VPN 환경에서 유용합니다.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>고급</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>측위 장치</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>사용 중인 측위 장치:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>추가</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>편집</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>삭제</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>%1에 연결됨</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>%1에 연결</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>%1에 연결 중</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>NTRIP 보정 사용</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>NTRIP 클라이언트 연결 끊김</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>NTRIP 클라이언트 연결 중</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>NTRIP 클라이언트 연결됨</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>유효한 NTRIP 설정을 입력하십시오</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>위치정보 표시</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>위치 고정 시 동작:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>위치만 따라가기</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>위치와 나침반 방향 따라가기</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>위치와 이동 방향 따라가기</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>지도 캔버스가 위치를 따라가거나 위치에 고정된 경우, 나침반 방향이나 이동 방향에 맞춰 회전할 수도 있습니다.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>꼭짓점에 기록할 측정(M) 값:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>타임스탬프 (epoch 이후 초)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>지상 속도</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>방위</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>수평 정확도</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>수직 정확도</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>좌표 커서를 현재 위치에 고정한 상태로 객체를 디지타이징할 때, 도형에 M 차원이 있으면 위에서 선택한 측정 유형이 함께 기록됩니다.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>정확도 표시기 사용</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>나쁨 정확도 기준값</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>우수 정확도 기준값</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>정확도 요구 조건 적용</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>정확도 표시기를 켜면 위치 버튼에 배지가 표시되며, 정확도가 &lt;i&gt;나쁨&lt;/i&gt;보다 떨어지면 &lt;span %1&gt;빨간색&lt;/span&gt;, &lt;i&gt;우수&lt;/i&gt;에 미치지 못하면 &lt;span %2&gt;노란색&lt;/span&gt;, 그 이상이면 &lt;span %3&gt;녹색&lt;/span&gt;으로 표시됩니다.&lt;br&gt;&lt;br&gt;또한 정확도 제한 모드를 켜면 좌표 커서를 위치에 고정한 상태에서 정확도가 나쁨 기준보다 떨어지는 위치에는 꼭짓점을 추가할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>평균 위치 요구 조건 사용</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>최소 위치 개수</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>최소 개수를 충족하면 수집 자동 종료</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>켜면 좌표 커서를 위치에 고정한 상태로 꼭짓점을 디지타이징할 때, 최소 개수 이상 수집된 위치의 평균값만 사용합니다. 평균 위치를 이용한 디지타이징은 꼭짓점 추가 버튼을 길게 눌러 진행하며, 누르고 있는 동안 위치가 계속 수집됩니다. 정확도 요구 조건 설정도 함께 적용됩니다.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>고도 보정</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>안테나 높이 보정</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>안테나 높이</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>이 값으로 측위 장치에서 기록된 Z 값이 보정됩니다. 1.6을 입력하면 기록된 각 값에서 1.6이 자동으로 차감됩니다. 폴 길이와 안테나 위상중심 오프셋을 합한 실제 안테나 높이를 입력하십시오.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>고도 보정 생략</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>측위 장치가 보고한 고도를 그대로 사용하고, 좌표계 변환에 따른 고도 보정을 생략합니다.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>사용 중인 수직 격자 보정:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>장치의 정표고</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>수직 격자 보정은 고도 정확도를 높이는 데 사용됩니다.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>장치의 NMEA 문장을 파일로 기록</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 설정</translation>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7365,503 +7868,191 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>축적바 표시</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>확대·축소 버튼 표시</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>북마크 표시</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>지도 상 북마크가 표시됩니다.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>지도 회전 사용</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>켜면 사용자가 지도를 회전할 수 있습니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>디지털화(수치화) 표시</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>새로운 대상을 지도에 생성하거나 측정 도구를 사용할 때 위도 및 경도와 같은 좌표 정보가 지도 위에 겹쳐 표시됩니다.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>볼륨 키로 디지타이징</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>켜면 디지타이징 중 볼륨 위 키를 눌러 꼭짓점을 추가하고, 볼륨 아래 키를 눌러 마지막에 입력한 꼭짓점을 삭제할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>캔버스를 손가락으로 눌러 꼭짓점 추가 허용</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>켜면 지도 캔버스를 손가락으로 한 번 누르면 좌표 커서가 이동하고, 두 번 누르면 꼭짓점이 추가됩니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>마우스를 터치펜으로 인식</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>켜면 마우스가 손가락처럼 동작하고, 끄면 스타일러스 펜처럼 동작합니다.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>객체 양식 최대화</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>객체가 하나만 식별되면 객체 양식 열기</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>켜면 객체가 하나만 식별될 경우 객체 목록을 건너뛰고 객체 양식이 자동으로 열립니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>검색 이동 시 축적 고정</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>활성화 시 검색 대상으로 이동할 때 축적이 변하지 않음, 비활성화 시 검색 대상으로 이동에 맞춰 축적이 변경됨.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>식별된 객체로 자동 확대</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>켜면 지도가 식별된 모든 객체가 보이도록 자동으로 확대되고, 객체 양식을 열면 선택한 객체로 확대됩니다.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>보이는 지도 캔버스 주변까지 미리 렌더링</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>켜면 보이는 지도 캔버스 범위 바로 바깥 영역도 일부 렌더링해 확대·이동 시 미리 볼 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>자동 저장 모드 사용</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>켜면 새로 추가한 객체가 유효한 도형을 갖추고 제약 조건을 충족하는 즉시 저장되며, 편집한 속성도 바로 반영됩니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>기본 카메라 앱 사용</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>켜면 운영체제에서 제공하는 기본 카메라를 사용합니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>익명으로 측정 값 공유</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>켜면 익명화된 사용 정보를 수집·전송해 모두의 사용 경험 개선에 활용합니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>기본 설정</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>측위</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>변수</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>지도 캔버스</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>지도 캔버스 렌더링 품질:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>최고 품질</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>낮은 품질</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>가장 낮은 품질</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>품질을 낮추면 렌더링 정밀도는 떨어지지만 메모리 사용량과 렌더링 시간이 줄어듭니다.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>디지타이징 및 편집</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>사용자 인터페이스</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>검색창 설정</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>플러그인 관리</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>미사용 시 화면 밝기 지정</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>배터리 절약을 위해 화면 밝기를 낮추기까지의 미사용 시간(초)입니다.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>화면 모양:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>시스템 설정 따르기</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>밝은 테마</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>어두운 테마</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>글자 크기:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>아주 작게</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>보통</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>크게</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>아주 크게</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>언어:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>시스템</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>변역이 완벽하지 않습니까? %1이 곳에서 번역을 도와주실 수 있습니다.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>네트워크</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>사용 가능한 인증 설정:</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>인증 캐시 지우기</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>인증 캐시를 지웠습니다</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>프록시 사용</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>유형</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>시스템 기본값</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>호스트</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>예: proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>포트</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>예: 8888</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>사용자 이름</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>선택 사항</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>비밀번호</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>프록시에서 제외할 URL (쉼표로 구분)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>예: localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>QField의 네트워크 통신을 프록시 서버로 전달하도록 설정합니다. 사내 네트워크나 VPN 환경에서 유용합니다.</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>고급</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>측위 장치</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>사용 중인 측위 장치:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>편집</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>삭제</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>%1에 연결됨</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>%1에 연결</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>%1에 연결 중</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>NTRIP 보정 사용</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP 클라이언트 연결 끊김</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP 클라이언트 연결 중</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP 클라이언트 연결됨</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>유효한 NTRIP 설정을 입력하십시오</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>위치정보 표시</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>위치 고정 시 동작:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>위치만 따라가기</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>위치와 나침반 방향 따라가기</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>위치와 이동 방향 따라가기</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>지도 캔버스가 위치를 따라가거나 위치에 고정된 경우, 나침반 방향이나 이동 방향에 맞춰 회전할 수도 있습니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>꼭짓점에 기록할 측정(M) 값:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>타임스탬프 (epoch 이후 초)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>지상 속도</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>방위</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>수평 정확도</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>수직 정확도</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>좌표 커서를 현재 위치에 고정한 상태로 객체를 디지타이징할 때, 도형에 M 차원이 있으면 위에서 선택한 측정 유형이 함께 기록됩니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>정확도 표시기 사용</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>나쁨 정확도 기준값</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>우수 정확도 기준값</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>정확도 요구 조건 적용</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>정확도 표시기를 켜면 위치 버튼에 배지가 표시되며, 정확도가 &lt;i&gt;나쁨&lt;/i&gt;보다 떨어지면 &lt;span %1&gt;빨간색&lt;/span&gt;, &lt;i&gt;우수&lt;/i&gt;에 미치지 못하면 &lt;span %2&gt;노란색&lt;/span&gt;, 그 이상이면 &lt;span %3&gt;녹색&lt;/span&gt;으로 표시됩니다.&lt;br&gt;&lt;br&gt;또한 정확도 제한 모드를 켜면 좌표 커서를 위치에 고정한 상태에서 정확도가 나쁨 기준보다 떨어지는 위치에는 꼭짓점을 추가할 수 없습니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>평균 위치 요구 조건 사용</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>최소 위치 개수</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>최소 개수를 충족하면 수집 자동 종료</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>켜면 좌표 커서를 위치에 고정한 상태로 꼭짓점을 디지타이징할 때, 최소 개수 이상 수집된 위치의 평균값만 사용합니다. 평균 위치를 이용한 디지타이징은 꼭짓점 추가 버튼을 길게 눌러 진행하며, 누르고 있는 동안 위치가 계속 수집됩니다. 정확도 요구 조건 설정도 함께 적용됩니다.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>고도 보정</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>안테나 높이 보정</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>안테나 높이</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>이 값으로 측위 장치에서 기록된 Z 값이 보정됩니다. 1.6을 입력하면 기록된 각 값에서 1.6이 자동으로 차감됩니다. 폴 길이와 안테나 위상중심 오프셋을 합한 실제 안테나 높이를 입력하십시오.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>고도 보정 생략</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>측위 장치가 보고한 고도를 그대로 사용하고, 좌표계 변환에 따른 고도 보정을 생략합니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>사용 중인 수직 격자 보정:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>없음</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>장치의 정표고</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>수직 격자 보정은 고도 정확도를 높이는 데 사용됩니다.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>장치의 NMEA 문장을 파일로 기록</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 설정</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

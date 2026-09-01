@@ -3262,6 +3262,509 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>显示比例尺</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>显示缩放控件</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>显示书签</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>开启后，用户保存的和当前打开的工程书签将显示在地图上。</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>旋转地图</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>打开后，用户可以旋转地图。</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>显示数字化信息</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>开启后，数字化新要素或使用测量工具时，坐标信息 (如纬度和经度) 将显示在地图上。</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>使用音量键进行数字化</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>如果启用，按设备的音量增大键将添加顶点，而按音量减小键将移除数字化会话期间最后输入的顶点。</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>允许手指在画布上点击以添加顶点</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>启用后，用手指轻触地图画布可移动坐标光标，而双击可添加一个顶点。</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>将鼠标当作触摸屏设备</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>启用后，鼠标将像手指一样工作。禁用时，鼠标将与触控笔的行为相匹配。</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>要素表单最大化</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>用于单要素识别的开放式要素表单</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>启用后，如果只识别了一个要素，要素表单将自动打开，并跳过要素列表。</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>固定比例导航</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>当固定比例导航处于激活状态，对查询结果的聚焦会将地图平移到该要素。当固定比例导航处于禁用状态，将先平移后缩放到该要素。</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>自动缩放至已识别的要素</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>启用后，地图将自动缩放以显示所有已识别的要素，以及在打开要素表单时单个所选要素。</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>在可见地图画布周围预渲染内容</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>如果勾选，将渲染可见地图画布范围之外的周边区域，以便平滑缩放和平移。</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>启用自动保存模式</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>如果勾选，新添加的要素一旦具有有效的几何图形并且满足约束，就会立即存储，并立即提交编辑属性。</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>使用本机相机</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>如果启用，将使用操作系统提供的原生相机。</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>发送匿名测评数据</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>如果启用，将收集并发送匿名测评数据，帮助改善用户的使用体验。</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>常规</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>定位</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>变量</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>地图画布</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>地图画布渲染质量：</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>最佳质量</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>质量较低</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>最低质量</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>较低质量是以较低内存使用率和渲染时间而降低渲染精度。</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>数字化与编辑</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>用户界面</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>自定义搜索栏</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>管理插件</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>休止状态时屏幕变暗</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>屏幕亮度变暗以节省电池电量之前的非活动时间 (以秒为单位)。</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>外观:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>跟随系统外观</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>浅色主题</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>深色主题</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>字号:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>小号</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>标准</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>大号</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>特大号</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>语言:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>设备系统语言</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>是否为缺少或不完整的翻译语言？%1请加入翻译社区。%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>可用认证配置：</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>清除认证缓存</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>认证缓存已清除</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>启用代理</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>类型</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>系统默认</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>主机</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>例如: proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>例如: 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>可选</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>代理排除的URL (逗号分隔)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>例如: localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>配置网络代理，通过代理服务器路径QField的流量。适用于企业网络和VPN。</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>高级</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>定位仪器</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>使用中的定位设备：</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>添加</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>编辑</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>移除</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>已连接%1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>连接至%1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>正在连接%1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>启用NTRIP校正</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>NTRIP客户端断开连接</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>NTRIP客户端连接</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>NTRIP客户端已连接</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>请提供有效的NTRIP设置</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>显示位置信息</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>锁定位置时的行为：</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>仅遵循位置</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>遵循位置和指南针朝向</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>遵循位置和移动方向</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>当地图画布遵循或锁定到位置时，它也可以旋转以匹配指南针朝向或移动方向。</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>附加到顶点的测量值 (M)：</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>时间戳 (纪元秒数)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>对地速度</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>方位角</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>水平精度</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>垂直精度</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>在将坐标指针锁定到当前位置的情况下数字化要素时，如果几何图形具有M维度，则上面选择的测量类型将添加到几何图形中。</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>激活精度指示器</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>差精度阈值</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>米</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>优精度阈值</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>执行精度要求</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>启用精度指示器后，位置按钮会附加标记：如果精度值较&lt;i&gt;差&lt;/i&gt;，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值良，标记颜色为&lt;span %2&gt;黄色&lt;/span&gt;，如果精度值&lt;i&gt;优&lt;/i&gt;，标记颜色为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;&lt;br&gt;此外，可以打开精度限制模式。当锁定光标坐标的位置精度值低于差阈值时，将限制添加顶点。</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>启用平均定位需求</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>最小位置数量</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>达到最小数量时自动结束收集</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>启用后，将光标锁定到位置的数字化顶点仅接受最少收集位置数量的平均位置。通过按住添加顶点按钮，可以使用平均位置进行数字化，该按钮将收集位置，直到释放才结束。启用后，将遵守精度需求设置。</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>高程调整</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>天线高度修正</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>天线高度</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>该值将校正定位设备记录的Z值。如果输入值为1.6，系统将自动从每条记录的值中减去1.6。请确保插入有效天线高度，即杆长+天线相位中心偏移。</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>跳过海拔校正</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>使用定位设备报告的海拔，跳过坐标系转换可能隐含的任何海拔校正。</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>使用中的垂直网格偏移：</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>来自设备的正交测量</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>垂直网格偏移用于提高海拔精度。</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>将日志NMEA语句从设备保存到文件</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1设置</translation>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7365,503 +7868,191 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>显示比例尺</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>显示缩放控件</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>显示书签</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>开启后，用户保存的和当前打开的工程书签将显示在地图上。</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>旋转地图</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>打开后，用户可以旋转地图。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>显示数字化信息</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>开启后，数字化新要素或使用测量工具时，坐标信息 (如纬度和经度) 将显示在地图上。</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>使用音量键进行数字化</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>如果启用，按设备的音量增大键将添加顶点，而按音量减小键将移除数字化会话期间最后输入的顶点。</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>允许手指在画布上点击以添加顶点</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>启用后，用手指轻触地图画布可移动坐标光标，而双击可添加一个顶点。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>将鼠标当作触摸屏设备</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>启用后，鼠标将像手指一样工作。禁用时，鼠标将与触控笔的行为相匹配。</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>要素表单最大化</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>用于单要素识别的开放式要素表单</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>启用后，如果只识别了一个要素，要素表单将自动打开，并跳过要素列表。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>固定比例导航</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>当固定比例导航处于激活状态，对查询结果的聚焦会将地图平移到该要素。当固定比例导航处于禁用状态，将先平移后缩放到该要素。</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>自动缩放至已识别的要素</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>启用后，地图将自动缩放以显示所有已识别的要素，以及在打开要素表单时单个所选要素。</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>在可见地图画布周围预渲染内容</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>如果勾选，将渲染可见地图画布范围之外的周边区域，以便平滑缩放和平移。</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>启用自动保存模式</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>如果勾选，新添加的要素一旦具有有效的几何图形并且满足约束，就会立即存储，并立即提交编辑属性。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>使用本机相机</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>如果启用，将使用操作系统提供的原生相机。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>发送匿名测评数据</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>如果启用，将收集并发送匿名测评数据，帮助改善用户的使用体验。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>常规</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>定位</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>变量</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>地图画布</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>地图画布渲染质量：</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>最佳质量</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>质量较低</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>最低质量</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>较低质量是以较低内存使用率和渲染时间而降低渲染精度。</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>数字化与编辑</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>用户界面</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>自定义搜索栏</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>管理插件</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>休止状态时屏幕变暗</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>屏幕亮度变暗以节省电池电量之前的非活动时间 (以秒为单位)。</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>外观:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>跟随系统外观</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>浅色主题</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>深色主题</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>字号:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>小号</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>标准</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>大号</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>特大号</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>语言:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>设备系统语言</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>是否为缺少或不完整的翻译语言？%1请加入翻译社区。%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>网络</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>可用认证配置：</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>清除认证缓存</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>认证缓存已清除</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>启用代理</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>类型</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>系统默认</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>主机</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>例如: proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>端口</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>例如: 8888</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>用户名</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>可选</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>密码</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>代理排除的URL (逗号分隔)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>例如: localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>配置网络代理，通过代理服务器路径QField的流量。适用于企业网络和VPN。</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>高级</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>定位仪器</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>使用中的定位设备：</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>编辑</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>移除</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>已连接%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>连接至%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>正在连接%1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>启用NTRIP校正</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP客户端断开连接</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP客户端连接</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP客户端已连接</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>请提供有效的NTRIP设置</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>显示位置信息</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>锁定位置时的行为：</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>仅遵循位置</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>遵循位置和指南针朝向</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>遵循位置和移动方向</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>当地图画布遵循或锁定到位置时，它也可以旋转以匹配指南针朝向或移动方向。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>附加到顶点的测量值 (M)：</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>时间戳 (纪元秒数)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>对地速度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>方位角</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>水平精度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>垂直精度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>在将坐标指针锁定到当前位置的情况下数字化要素时，如果几何图形具有M维度，则上面选择的测量类型将添加到几何图形中。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>激活精度指示器</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>差精度阈值</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>米</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>优精度阈值</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>执行精度要求</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>启用精度指示器后，位置按钮会附加标记：如果精度值较&lt;i&gt;差&lt;/i&gt;，将其标记为&lt;span %1&gt;红色&lt;/span&gt;；如果精度值良，标记颜色为&lt;span %2&gt;黄色&lt;/span&gt;，如果精度值&lt;i&gt;优&lt;/i&gt;，标记颜色为&lt;span %3&gt;绿色&lt;/span&gt;。&lt;br&gt;&lt;br&gt;此外，可以打开精度限制模式。当锁定光标坐标的位置精度值低于差阈值时，将限制添加顶点。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>启用平均定位需求</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>最小位置数量</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>达到最小数量时自动结束收集</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>启用后，将光标锁定到位置的数字化顶点仅接受最少收集位置数量的平均位置。通过按住添加顶点按钮，可以使用平均位置进行数字化，该按钮将收集位置，直到释放才结束。启用后，将遵守精度需求设置。</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>高程调整</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>天线高度修正</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>天线高度</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>该值将校正定位设备记录的Z值。如果输入值为1.6，系统将自动从每条记录的值中减去1.6。请确保插入有效天线高度，即杆长+天线相位中心偏移。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>跳过海拔校正</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>使用定位设备报告的海拔，跳过坐标系转换可能隐含的任何海拔校正。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>使用中的垂直网格偏移：</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>无</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>来自设备的正交测量</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>垂直网格偏移用于提高海拔精度。</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>将日志NMEA语句从设备保存到文件</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1设置</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

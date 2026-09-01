@@ -3246,6 +3246,510 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>ສະແດງແຖບຂະໜາດ</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>ສະແດງເຄື່ອງມືຄວບຄຸມການຊູມ</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>ສະແດງ ບຸກມາກ (bookmarks)</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>ເມື່ອເປີດ, ບຸກມາກໂຄງການທີ່ບັນທຶກໄວ້ ແລະເປີດໃນປັດຈຸບັນຂອງຜູ້ໃຊ້ຈະສະແດງຢູ່ໃນແຜນທີ່.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>ເປີດໃຊ້ການຫມຸນແຜນທີ່</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>ເມື່ອເປີດ, ຜູ້ໃຊ້ສາມາດຫມຸນແຜນທີ່ໄດ້.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>ສະ​ແດງ​ໃຫ້​ເຫັນ​ຂໍ້​ມູນ​ເປັນ​ດິ​ຈິ​ຕອນ​</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>ເມື່ອເປີດ, ຂໍ້ມູນປະສານງານ, ເຊັ່ນ: ເສັ້ນຂະໜານ ແລະເສັ້ນແວງ, ຈະຖືກວາງຊ້ອນໃສ່ແຜນທີ່ ໃນຂະນະທີ່ກຳລັງສະແກນລັກສະນະໃໝ່ ຫຼື ໃຊ້ເຄື່ອງມືວັດແທກ.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>ໃຊ້ປຸ່ມລະດັບສຽງເພື່ອປ່ຽນເປັນດິຈິຕອນ</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>ຖ້າເປີດໃຊ້, ການກົດປຸ່ມເພີ່ມລະດັບສຽງຂອງອຸປະກອນຈະເພີ່ມຈຸດສູງສຸດໃນ​ຂະ​ນະ​ທີ່​ການ​ກົດ​ປຸ່ມ​ລະ​ດັບ​ສຽງ​ລົງ​ຈະ​ເອົາ​ຈຸດ​ສຸດ​ທ້າຍ​ທີ່​ເຂົ້າ​ໄປ​ໃນ​ລະ​ຫວ່າງ​ການ​ສະ​ແກນ​</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>ອະນຸຍາດໃຫ້ແຕະນິ້ວມືໃສ່ຜ້າໃບເພື່ອເພີ່ມຈຸດຕັ້ງ</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>ພິຈາລະນາເມົາສ໌ເປັນອຸປະກອນໜ້າຈໍສຳຜັດ</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານ, ເມົາສ໌ຈະເຮັດໜ້າທີ່ຄືກັບວ່າມັນເປັນນິ້ວມື. ເມື່ອປິດໃຊ້ງານ, ເມົາສ໌ຈະກົງກັບພຶດຕິກໍາຂອງສະໄຕລັດ.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>ຂະຫຍາຍແບບຟອມໃຫ້ໃຫຍ່ສຸດ</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>ເປີດແບບຟອມຂໍ້ມູນ ເພື່ອເບິ່ງລາຍລະອຽດວັດຖຸດ່ຽວ</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>ເມື່ອເປີດນຳໃຊ້, ຟອມຟີເຈີຈະເປີດຂຶ້ນໂດຍອັດຕະໂນມັດ ຖ້າຫາກກຳນົດຟີເຈີພຽງແຕ່ອັນດຽວເທົ່ານັ້ນ, ຊຶ່ງຈະຂ້າມລາຍການຟີເຈີໄປ.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>ການນຳທາງຂະໜາດຄົງທີ່</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>ເມື່ອການນຳທາງແບບຂະໜາດຄົງທີ່ເປີດນຳໃຊ້ຢູ່, ການເນັ້ນໃສ່ຜົນການຄົ້ນຫາຈະເລື່ອນໄປທີ່ຟີເຈີເທົ່ານັ້ນ. ຫາກປິດການນຳທາງແບບຂະໜາດຄົງທີ່, ມັນຈະເລື່ອນແລະຊູມໄປທີ່ຟີເຈີ.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>ຊູມອັດຕະໂນມັດໄປຫາວັດຖຸທີ່ລະບຸ</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານ, ແຜນທີ່ຈະຊູມໂດຍອັດຕະໂນມັດເພື່ອສະແດງວັດຖຸທັງໝົດທີ່ຖືກລະບຸ, ລວມທັງຊູມໄປຫາວັດຖຸທີ່ເລືອກໃນຂະນະທີ່ເປີດແບບຟອມຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>ສະແດງຜົນເນື້ອໃນແບບເບິ່ງຕົວຢ່າງອ້ອມຮອບຜືນແຜນທີ່ທີ່ເຫັນໄດ້</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>ຫາກເປີດໃຊ້ງານ, ເນື້ອທີ່ບໍລິເວນຂອບນອກຂອງຂອບເຂດແຜນທີ່ທີ່ກຳລັງສະແດງຢູ່ນັ້ນ ຈະຖືກປະມວນຜົນໄວ້ບາງສ່ວນ ເພື່ອໃຫ້ສາມາດເຫັນຕົວຢ່າງໃນຂະນະທີ່ຊູມ ແລະ ເລື່ອນແຜນທີ່.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>ເປີດບັນທຶກອັດຕະໂນມັດ</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>ຫາກເປີດໃຊ້ງານ, ຂໍ້ມູນທີ່ເພີ່ມເຂົ້າໃໝ່ຈະຖືກບັນທຶກທັນທີ ເມື່ອຮູບຊົງເລຂາຄະນິດຖືກຕ້ອງ ແລະ ຄົບຖ້ວນຕາມເງື່ອນໄຂທີ່ກຳນົດ, ລວມທັງຄຸນລັກສະນະທີ່ຖືກແກ້ໄຂຈະຖືກຢືນຢັນການປ່ຽນແປງໃນທັນທີ.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>ໃຊ້ກ້ອງຖ່າຍຮູບເດີມ</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>ສົ່ງເມຕຣິກທີ່ບໍ່ເປີດເຜີຍຊື່</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>ທົ່ວໄປ</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>ການຈັດຕໍາແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>ຕົວແປ</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>ແຜນທີ່ Canvas</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>ຄຸນນະພາບການສະແດງຜົນຜືນແຜນທີ່:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>ຄຸນນະພາບທີ່ດີທີ່ສຸດ</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>ຄຸນະພາບຕໍ່າກວ່າ</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>ຄຸນະພາບຕໍ່າສຸດ</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>ຄຸນນະພາບທີ່ຕໍ່າລົງຈະຫຼຸດຜ່ອນຄວາມລະອຽດຂອງການສະແດງຜົນ ເພື່ອໃຫ້ໃຊ້ໜ່ວຍຄວາມຈຳນ້ອຍລົງ ແລະ ໃຊ້ເວລາສະແດງຜົນສັ້ນລົງ.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>ສະແກນ ແລະແກ້ໄຂ</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>ສ່ວນຕິດຕໍ່ຜູ້ໃຊ້</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>ປັບແຕ່ງແຖບຊອກຫາ</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>ຈັດ​ການ plugins</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>ໜ້າຈໍຈາງລົງໃນການເຄື່ອນໄຫວຊ້າ</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>ເວລາທີ່ບໍ່ມີການເຄື່ອນໄຫວເປັນວິນາທີກ່ອນທີ່ຄວາມສະຫວ່າງຂອງໜ້າຈໍຈະຖືກເຮັດໃຫ້ມືດມົວເພື່ອຮັກສາແບັດເຕີຣີ.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>ຮູບລັກສະນະ:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>ປະຕິບັດຕາມຮູບລັກສະນະຂອງລະບົບ</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>ຮູບແບບສີສັນແຈ້ງ</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>ຮູບແບບສີສັນມືດ</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>ຂະໜາດຕົວອັກສອນ:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>ນ້ອຍໆ</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>​ປົກ​ກະ​ຕິ​</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>ຂະ​ຫນາດ​ໃຫຍ່​</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>ຂະ​ຫນາດ​ໃຫຍ່​ພິ​ເສດ​</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>ພາສາ:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>ລະບົບ</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>ພົບພາສາທີ່ຂາດຫາຍໄປ ຫຼືບໍ່ຄົບຖ້ວນບໍ? %1ເຂົ້າຮ່ວມຊຸມຊົນນັກແປ.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>ພອດ:</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>ຊື່ຜູ້ໃຊ້</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>ລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>ຂັ້ນສູງ</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>ອຸປະກອນການຈັດຕໍາແຫນ່ງໃນລະຫວ່າງການນໍາໃຊ້</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>ເພີ່ມ</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>ແກ້ໄຂ</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>ເອົາອອກ</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>ສະແດງຂໍ້ມູນຕໍາແຫນ່ງ</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>ຄ່າວັດແທກ (M) ທີ່ຕິດຢູ່ກັບຈຸດຕັ້ງ:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>ຄວາມໄວຫນ້າດິນ</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>ຕໍາ​ແຫນ່ງ</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງຕາມລວງນອນ</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງຂອງແນວຕັ້ງ</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>ໃນເວລາທີ່ການກໍານົດລັກສະນະດິຈິຕອນດ້ວຍເຄີເຊີພິກັດຖືກລັອກກັບຕໍາແຫນ່ງປະຈຸບັນ, ປະເພດການວັດແທກທີ່ເລືອກຂ້າງເທິງຈະຖືກເພີ່ມໃສ່ເລຂາຄະນິດທີ່ມັນມີຂະຫນາດ M.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>ເປີດໃຊ້ຕົວຊີ້ວັດຄວາມຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>ບັງຄັບໃຊ້ຄວາມຕ້ອງການຄວາມຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>ເມື່ອເປີດໃຊ້ຕົວຊີ້ວັດຄວາມແມ່ນຍຳ, ຈະມີປ້າຍຕິດກັບປຸ່ມຕຳແໜ່ງ ແລະມີສີ &lt;span %1&gt;ແດງ ຖ້າຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”, &lt;span %2&gt;ເຫຼືອງ ຖ້າຄ່າຄວາມແມ່ນຍຳຕ່ຳກວ່າຂີດຈຳກັດ “ດີເລີດ”, ຫຼື &lt;span %3&gt;ຂຽວ ຖ້າຄ່າຄວາມແມ່ນຍຳດີ.
+ຍິ່ງໄປກວ່ານັ້ນ, ຍັງສາມາດເປີດໂໝດຈຳກັດຄວາມແມ່ນຍຳໄດ້, ເຊິ່ງຈະຈຳກັດການເພີ່ມຈຸດຍອດ (vertex) ໃນເວລາທີ່ຕຳແໜ່ງຖືກລັອກກັບເຄື່ອງໝາຍພິກັດ ໃຫ້ຢູ່ໃນຕຳແໜ່ງທີ່ມີຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>ເປີດໃຊ້ຄວາມຕ້ອງການຕໍາແຫນ່ງສະເລ່ຍ</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>ສິ້ນສຸດການເກັບກໍາອັດຕະໂນມັດເມື່ອມີຈໍານວນຕໍາ່ສຸດທີ່ບັນລຸໄດ້</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານແລ້ວ, ການຕັ້ງຈຸດເປັນຕົວເລກດ້ວຍເຄີເຊີທີ່ລັອກໃສ່ຕຳແໜ່ງຈະຍອມຮັບພຽງແຕ່ຕຳແໜ່ງສະເລ່ຍຈາກຈຳນວນຕ່ຳສຸດທີ່ເກັບກຳໄດ້. Digitizing ໂດຍໃຊ້ຕໍາແຫນ່ງສະເລ່ຍແມ່ນເຮັດໄດ້ໂດຍການກົດປຸ່ມ add vertex ຄ້າງໄວ້, ເຊິ່ງຈະເກັບກໍາຕໍາແຫນ່ງຈົນກ່ວາກົດອອກ. ການຕັ້ງຄ່າຄວາມຕ້ອງການຄວາມຖືກຕ້ອງແມ່ນເຄົາລົບເມື່ອເປີດໃຊ້ງານ.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>ການຊົດເຊີຍຄວາມສູງຂອງເສົາອາກາດ</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງ</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>ໃຊ້ລະດັບຄວາມສູງຕາມການລາຍງານໂດຍອຸປະກອນການຈັດຕໍາແຫນ່ງ. ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງທີ່ອາດຈະຖືກບົ່ງບອກໂດຍການຫັນປ່ຽນລະບົບປະສານງານ.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>ການ​ປ່ຽນ​ຕາ​ໜ່າງ​ສາຍ​ຕັ້ງ​ຢູ່​ໃນ​ການ​ນໍາ​ໃຊ້​:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>ບໍ່ມີ</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Orthometric ຈາກອຸປະກອນ</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>ການປ່ຽນຕາໜ່າງແນວຕັ້ງແມ່ນໃຊ້ເພື່ອເພີ່ມຄວາມຖືກຕ້ອງຂອງລະດັບຄວາມສູງ.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>ບັນທຶກປະໂຫຍກ NMEA ຈາກອຸປະກອນໄປຫາໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7338,503 +7842,190 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>ສະແດງແຖບຂະໜາດ</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>ສະແດງເຄື່ອງມືຄວບຄຸມການຊູມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>ສະແດງ ບຸກມາກ (bookmarks)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>ເມື່ອເປີດ, ບຸກມາກໂຄງການທີ່ບັນທຶກໄວ້ ແລະເປີດໃນປັດຈຸບັນຂອງຜູ້ໃຊ້ຈະສະແດງຢູ່ໃນແຜນທີ່.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>ເປີດໃຊ້ການຫມຸນແຜນທີ່</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>ເມື່ອເປີດ, ຜູ້ໃຊ້ສາມາດຫມຸນແຜນທີ່ໄດ້.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>ສະ​ແດງ​ໃຫ້​ເຫັນ​ຂໍ້​ມູນ​ເປັນ​ດິ​ຈິ​ຕອນ​</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>ເມື່ອເປີດ, ຂໍ້ມູນປະສານງານ, ເຊັ່ນ: ເສັ້ນຂະໜານ ແລະເສັ້ນແວງ, ຈະຖືກວາງຊ້ອນໃສ່ແຜນທີ່ ໃນຂະນະທີ່ກຳລັງສະແກນລັກສະນະໃໝ່ ຫຼື ໃຊ້ເຄື່ອງມືວັດແທກ.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>ໃຊ້ປຸ່ມລະດັບສຽງເພື່ອປ່ຽນເປັນດິຈິຕອນ</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>ຖ້າເປີດໃຊ້, ການກົດປຸ່ມເພີ່ມລະດັບສຽງຂອງອຸປະກອນຈະເພີ່ມຈຸດສູງສຸດໃນ​ຂະ​ນະ​ທີ່​ການ​ກົດ​ປຸ່ມ​ລະ​ດັບ​ສຽງ​ລົງ​ຈະ​ເອົາ​ຈຸດ​ສຸດ​ທ້າຍ​ທີ່​ເຂົ້າ​ໄປ​ໃນ​ລະ​ຫວ່າງ​ການ​ສະ​ແກນ​</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>ອະນຸຍາດໃຫ້ແຕະນິ້ວມືໃສ່ຜ້າໃບເພື່ອເພີ່ມຈຸດຕັ້ງ</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>ພິຈາລະນາເມົາສ໌ເປັນອຸປະກອນໜ້າຈໍສຳຜັດ</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານ, ເມົາສ໌ຈະເຮັດໜ້າທີ່ຄືກັບວ່າມັນເປັນນິ້ວມື. ເມື່ອປິດໃຊ້ງານ, ເມົາສ໌ຈະກົງກັບພຶດຕິກໍາຂອງສະໄຕລັດ.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>ຂະຫຍາຍແບບຟອມໃຫ້ໃຫຍ່ສຸດ</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>ເປີດແບບຟອມຂໍ້ມູນ ເພື່ອເບິ່ງລາຍລະອຽດວັດຖຸດ່ຽວ</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>ເມື່ອເປີດນຳໃຊ້, ຟອມຟີເຈີຈະເປີດຂຶ້ນໂດຍອັດຕະໂນມັດ ຖ້າຫາກກຳນົດຟີເຈີພຽງແຕ່ອັນດຽວເທົ່ານັ້ນ, ຊຶ່ງຈະຂ້າມລາຍການຟີເຈີໄປ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>ການນຳທາງຂະໜາດຄົງທີ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>ເມື່ອການນຳທາງແບບຂະໜາດຄົງທີ່ເປີດນຳໃຊ້ຢູ່, ການເນັ້ນໃສ່ຜົນການຄົ້ນຫາຈະເລື່ອນໄປທີ່ຟີເຈີເທົ່ານັ້ນ. ຫາກປິດການນຳທາງແບບຂະໜາດຄົງທີ່, ມັນຈະເລື່ອນແລະຊູມໄປທີ່ຟີເຈີ.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>ຊູມອັດຕະໂນມັດໄປຫາວັດຖຸທີ່ລະບຸ</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານ, ແຜນທີ່ຈະຊູມໂດຍອັດຕະໂນມັດເພື່ອສະແດງວັດຖຸທັງໝົດທີ່ຖືກລະບຸ, ລວມທັງຊູມໄປຫາວັດຖຸທີ່ເລືອກໃນຂະນະທີ່ເປີດແບບຟອມຂໍ້ມູນ</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>ສະແດງຜົນເນື້ອໃນແບບເບິ່ງຕົວຢ່າງອ້ອມຮອບຜືນແຜນທີ່ທີ່ເຫັນໄດ້</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>ຫາກເປີດໃຊ້ງານ, ເນື້ອທີ່ບໍລິເວນຂອບນອກຂອງຂອບເຂດແຜນທີ່ທີ່ກຳລັງສະແດງຢູ່ນັ້ນ ຈະຖືກປະມວນຜົນໄວ້ບາງສ່ວນ ເພື່ອໃຫ້ສາມາດເຫັນຕົວຢ່າງໃນຂະນະທີ່ຊູມ ແລະ ເລື່ອນແຜນທີ່.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>ເປີດບັນທຶກອັດຕະໂນມັດ</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>ຫາກເປີດໃຊ້ງານ, ຂໍ້ມູນທີ່ເພີ່ມເຂົ້າໃໝ່ຈະຖືກບັນທຶກທັນທີ ເມື່ອຮູບຊົງເລຂາຄະນິດຖືກຕ້ອງ ແລະ ຄົບຖ້ວນຕາມເງື່ອນໄຂທີ່ກຳນົດ, ລວມທັງຄຸນລັກສະນະທີ່ຖືກແກ້ໄຂຈະຖືກຢືນຢັນການປ່ຽນແປງໃນທັນທີ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>ໃຊ້ກ້ອງຖ່າຍຮູບເດີມ</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>ສົ່ງເມຕຣິກທີ່ບໍ່ເປີດເຜີຍຊື່</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>ທົ່ວໄປ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>ການຈັດຕໍາແໜ່ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>ຕົວແປ</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>ແຜນທີ່ Canvas</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>ຄຸນນະພາບການສະແດງຜົນຜືນແຜນທີ່:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>ຄຸນນະພາບທີ່ດີທີ່ສຸດ</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>ຄຸນະພາບຕໍ່າກວ່າ</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>ຄຸນະພາບຕໍ່າສຸດ</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>ຄຸນນະພາບທີ່ຕໍ່າລົງຈະຫຼຸດຜ່ອນຄວາມລະອຽດຂອງການສະແດງຜົນ ເພື່ອໃຫ້ໃຊ້ໜ່ວຍຄວາມຈຳນ້ອຍລົງ ແລະ ໃຊ້ເວລາສະແດງຜົນສັ້ນລົງ.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>ສະແກນ ແລະແກ້ໄຂ</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>ສ່ວນຕິດຕໍ່ຜູ້ໃຊ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>ປັບແຕ່ງແຖບຊອກຫາ</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>ຈັດ​ການ plugins</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>ໜ້າຈໍຈາງລົງໃນການເຄື່ອນໄຫວຊ້າ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>ເວລາທີ່ບໍ່ມີການເຄື່ອນໄຫວເປັນວິນາທີກ່ອນທີ່ຄວາມສະຫວ່າງຂອງໜ້າຈໍຈະຖືກເຮັດໃຫ້ມືດມົວເພື່ອຮັກສາແບັດເຕີຣີ.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>ຮູບລັກສະນະ:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>ປະຕິບັດຕາມຮູບລັກສະນະຂອງລະບົບ</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>ຮູບແບບສີສັນແຈ້ງ</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>ຮູບແບບສີສັນມືດ</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>ຂະໜາດຕົວອັກສອນ:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>ນ້ອຍໆ</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>​ປົກ​ກະ​ຕິ​</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>ຂະ​ຫນາດ​ໃຫຍ່​</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>ຂະ​ຫນາດ​ໃຫຍ່​ພິ​ເສດ​</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>ພາສາ:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>ລະບົບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>ພົບພາສາທີ່ຂາດຫາຍໄປ ຫຼືບໍ່ຄົບຖ້ວນບໍ? %1ເຂົ້າຮ່ວມຊຸມຊົນນັກແປ.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>ພອດ:</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>ຊື່ຜູ້ໃຊ້</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>ຂັ້ນສູງ</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>ອຸປະກອນການຈັດຕໍາແຫນ່ງໃນລະຫວ່າງການນໍາໃຊ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>ເພີ່ມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>ແກ້ໄຂ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>ເອົາອອກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>ສະແດງຂໍ້ມູນຕໍາແຫນ່ງ</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>ຄ່າວັດແທກ (M) ທີ່ຕິດຢູ່ກັບຈຸດຕັ້ງ:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>ຄວາມໄວຫນ້າດິນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>ຕໍາ​ແຫນ່ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>ຄວາມຖືກຕ້ອງຕາມລວງນອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>ຄວາມຖືກຕ້ອງຂອງແນວຕັ້ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>ໃນເວລາທີ່ການກໍານົດລັກສະນະດິຈິຕອນດ້ວຍເຄີເຊີພິກັດຖືກລັອກກັບຕໍາແຫນ່ງປະຈຸບັນ, ປະເພດການວັດແທກທີ່ເລືອກຂ້າງເທິງຈະຖືກເພີ່ມໃສ່ເລຂາຄະນິດທີ່ມັນມີຂະຫນາດ M.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>ເປີດໃຊ້ຕົວຊີ້ວັດຄວາມຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>ບັງຄັບໃຊ້ຄວາມຕ້ອງການຄວາມຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>ເມື່ອເປີດໃຊ້ຕົວຊີ້ວັດຄວາມແມ່ນຍຳ, ຈະມີປ້າຍຕິດກັບປຸ່ມຕຳແໜ່ງ ແລະມີສີ &lt;span %1&gt;ແດງ ຖ້າຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”, &lt;span %2&gt;ເຫຼືອງ ຖ້າຄ່າຄວາມແມ່ນຍຳຕ່ຳກວ່າຂີດຈຳກັດ “ດີເລີດ”, ຫຼື &lt;span %3&gt;ຂຽວ ຖ້າຄ່າຄວາມແມ່ນຍຳດີ.
-ຍິ່ງໄປກວ່ານັ້ນ, ຍັງສາມາດເປີດໂໝດຈຳກັດຄວາມແມ່ນຍຳໄດ້, ເຊິ່ງຈະຈຳກັດການເພີ່ມຈຸດຍອດ (vertex) ໃນເວລາທີ່ຕຳແໜ່ງຖືກລັອກກັບເຄື່ອງໝາຍພິກັດ ໃຫ້ຢູ່ໃນຕຳແໜ່ງທີ່ມີຄ່າຄວາມແມ່ນຍຳແຍ່ກວ່າຂີດຈຳກັດ “ບໍ່ດີ”.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>ເປີດໃຊ້ຄວາມຕ້ອງການຕໍາແຫນ່ງສະເລ່ຍ</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>ສິ້ນສຸດການເກັບກໍາອັດຕະໂນມັດເມື່ອມີຈໍານວນຕໍາ່ສຸດທີ່ບັນລຸໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານແລ້ວ, ການຕັ້ງຈຸດເປັນຕົວເລກດ້ວຍເຄີເຊີທີ່ລັອກໃສ່ຕຳແໜ່ງຈະຍອມຮັບພຽງແຕ່ຕຳແໜ່ງສະເລ່ຍຈາກຈຳນວນຕ່ຳສຸດທີ່ເກັບກຳໄດ້. Digitizing ໂດຍໃຊ້ຕໍາແຫນ່ງສະເລ່ຍແມ່ນເຮັດໄດ້ໂດຍການກົດປຸ່ມ add vertex ຄ້າງໄວ້, ເຊິ່ງຈະເກັບກໍາຕໍາແຫນ່ງຈົນກ່ວາກົດອອກ. ການຕັ້ງຄ່າຄວາມຕ້ອງການຄວາມຖືກຕ້ອງແມ່ນເຄົາລົບເມື່ອເປີດໃຊ້ງານ.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>ການຊົດເຊີຍຄວາມສູງຂອງເສົາອາກາດ</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>ໃຊ້ລະດັບຄວາມສູງຕາມການລາຍງານໂດຍອຸປະກອນການຈັດຕໍາແຫນ່ງ. ຂ້າມການແກ້ໄຂລະດັບຄວາມສູງທີ່ອາດຈະຖືກບົ່ງບອກໂດຍການຫັນປ່ຽນລະບົບປະສານງານ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>ການ​ປ່ຽນ​ຕາ​ໜ່າງ​ສາຍ​ຕັ້ງ​ຢູ່​ໃນ​ການ​ນໍາ​ໃຊ້​:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>ບໍ່ມີ</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Orthometric ຈາກອຸປະກອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>ການປ່ຽນຕາໜ່າງແນວຕັ້ງແມ່ນໃຊ້ເພື່ອເພີ່ມຄວາມຖືກຕ້ອງຂອງລະດັບຄວາມສູງ.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>ບັນທຶກປະໂຫຍກ NMEA ຈາກອຸປະກອນໄປຫາໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>

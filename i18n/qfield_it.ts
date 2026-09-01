@@ -3269,6 +3269,509 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Mostra barra della scala</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Mostra segnalibri</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Quando attivata, i segnalibri del progetto attualmente aperto e salvati dall&apos;utente saranno visualizzati sulla mappa.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Mostra informazioni di digitalizzazione</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Quando attivata, l&apos;informazione sulle coordinate, come latitudine e longitudine, è sovrapposta alla mappa durante la digitalizzazione di nuovi elementi o con l&apos;utilizzo dello strumento di misura.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Usa i tasti del volume per digitalizzare</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Se abilitato, premere il tasto volume Su del dispositivo aggiungerà un vertice mentre premere il tasto volume Giù rimuoverà l&apos;ultimo vertice inserito durante le sessioni di digitalizzazione.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Permetti di toccare con il dito la mappa per aggiungere vertici</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Considera il mouse come un dispositivo touchscreen</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Quando abilitato, il mouse si comporterà come se fosse un dito. Quando disabilitato, il mouse corrisponderà al comportamento dello stilo.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navigazione a scala fissa</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Quando la navigazione a scala fissa è attiva, selezionare un risultato di una ricerca risulterà in uno spostamento all&apos;elemento selezionato. Se la navigazione a scala fissa è disattivata, risulterà in uno spostamento e zoom all&apos;elemento selezionato.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Usa la fotocamera nativa</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Invia dati diagnostici</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Generale</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Posizionamento</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variabili</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Mappa</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Qualità del rendering delle mappe:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Migliore qualità</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Bassa qualità</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Qualità minima</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Una bassa qualità tratta la precisione del rendering a favore di un minor uso della memoria e del tempo di visualizzazione.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalizzazione &amp; Modifica</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Interfaccia Utente</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Personalizza la barra di ricerca</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Gestisci plugin</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Oscura schermo quando inattivo</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Tempo di inattività in secondi prima che la luminosità dello schermo venga attenuata per preservare la batteria.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Apparenza:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Segui l&apos;aspetto del sistema</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Tema chiaro</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Tema scuro</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Dimensione Font</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Piccolo</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normale</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Grande</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Extra-grande</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Lingua:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>sistema</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Hai trovato una lingua mancante o incompleta? %1Unisciti alla comunità dei traduttori.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nome utente</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Password</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Avanzate</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Dispositivo di posizionamento in uso:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Aggiungi</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Modifica</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Rimuovi</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Connesso a %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Connetti a %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Connessione a %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Mostra informazioni sulla posizione</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Valore di Misura (M) fissato ai vertici:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Velocità di terra</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Rilevamento</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Accuratezza orizzontale</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Accuratezza verticale</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Durante la digitalizzazione degli elementi con il cursore di coordinate bloccato nella posizione corrente, il tipo di misura selezionato sopra verrà aggiunto alla geometria purché abbia una dimensione M.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Attiva indicatore di precisione</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Abilita requisito di posizionamento medio</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Termina automaticamente la registrazione quando il numero minimo è soddisfatto</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Se abilitato, la digitalizzazione dei vertici con un cursore bloccato alla posizione accetterà solo una posizione media da un numero minimo di posizioni raccolte. La digitalizzazione tramite posizioni medie viene eseguita tenendo premuto il pulsante aggiungi vertice, che raccoglierà le posizioni fino al rilascio del pulsante. Le impostazioni dei requisiti di precisione vengono rispettate quando abilitate.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Compensazione altezza dell&apos;antenna</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Evita la correzione dell&apos;altitudine</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Usa l&apos;altitudine riportata dal dispositivo di posizionamento. Salta qualsiasi correzione d&apos;altitudine che potrebbe essere implicita nella trasformazione del sistema di coordinate.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Traslazione verticale della griglia in uso:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Nessuno</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Orthometrico dal dispositivo</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>La traslazione verticale della griglia è usata per aumentare la precisione dell&apos;altitudine.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Registra il Log NMEA da dispositivo a file</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7376,502 +7879,190 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Mostra barra della scala</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Mostra segnalibri</translation>
-    </message>
-    <message>
-        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Quando attivata, i segnalibri del progetto attualmente aperto e salvati dall&apos;utente saranno visualizzati sulla mappa.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>When switched on, the map can be rotated by the user.</source>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Mostra informazioni di digitalizzazione</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Quando attivata, l&apos;informazione sulle coordinate, come latitudine e longitudine, è sovrapposta alla mappa durante la digitalizzazione di nuovi elementi o con l&apos;utilizzo dello strumento di misura.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Usa i tasti del volume per digitalizzare</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Se abilitato, premere il tasto volume Su del dispositivo aggiungerà un vertice mentre premere il tasto volume Giù rimuoverà l&apos;ultimo vertice inserito durante le sessioni di digitalizzazione.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Permetti di toccare con il dito la mappa per aggiungere vertici</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Considera il mouse come un dispositivo touchscreen</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Quando abilitato, il mouse si comporterà come se fosse un dito. Quando disabilitato, il mouse corrisponderà al comportamento dello stilo.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navigazione a scala fissa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Quando la navigazione a scala fissa è attiva, selezionare un risultato di una ricerca risulterà in uno spostamento all&apos;elemento selezionato. Se la navigazione a scala fissa è disattivata, risulterà in uno spostamento e zoom all&apos;elemento selezionato.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Usa la fotocamera nativa</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Invia dati diagnostici</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>Generale</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posizionamento</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variabili</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Mappa</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Qualità del rendering delle mappe:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Migliore qualità</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Bassa qualità</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Qualità minima</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Una bassa qualità tratta la precisione del rendering a favore di un minor uso della memoria e del tempo di visualizzazione.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitalizzazione &amp; Modifica</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Interfaccia Utente</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Personalizza la barra di ricerca</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Gestisci plugin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Oscura schermo quando inattivo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Tempo di inattività in secondi prima che la luminosità dello schermo venga attenuata per preservare la batteria.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Apparenza:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Segui l&apos;aspetto del sistema</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Tema chiaro</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Tema scuro</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Dimensione Font</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Piccolo</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normale</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Grande</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Extra-grande</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Lingua:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>sistema</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Hai trovato una lingua mancante o incompleta? %1Unisciti alla comunità dei traduttori.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nome utente</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Avanzate</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Dispositivo di posizionamento in uso:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Aggiungi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Modifica</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Rimuovi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Connesso a %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Connetti a %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Connessione a %1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Mostra informazioni sulla posizione</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Valore di Misura (M) fissato ai vertici:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Velocità di terra</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Rilevamento</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Accuratezza orizzontale</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Accuratezza verticale</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Durante la digitalizzazione degli elementi con il cursore di coordinate bloccato nella posizione corrente, il tipo di misura selezionato sopra verrà aggiunto alla geometria purché abbia una dimensione M.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Attiva indicatore di precisione</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Abilita requisito di posizionamento medio</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Termina automaticamente la registrazione quando il numero minimo è soddisfatto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Se abilitato, la digitalizzazione dei vertici con un cursore bloccato alla posizione accetterà solo una posizione media da un numero minimo di posizioni raccolte. La digitalizzazione tramite posizioni medie viene eseguita tenendo premuto il pulsante aggiungi vertice, che raccoglierà le posizioni fino al rilascio del pulsante. Le impostazioni dei requisiti di precisione vengono rispettate quando abilitate.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Compensazione altezza dell&apos;antenna</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Evita la correzione dell&apos;altitudine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Usa l&apos;altitudine riportata dal dispositivo di posizionamento. Salta qualsiasi correzione d&apos;altitudine che potrebbe essere implicita nella trasformazione del sistema di coordinate.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Traslazione verticale della griglia in uso:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Nessuno</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Orthometrico dal dispositivo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>La traslazione verticale della griglia è usata per aumentare la precisione dell&apos;altitudine.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Registra il Log NMEA da dispositivo a file</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>

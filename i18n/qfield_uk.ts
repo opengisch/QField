@@ -3268,6 +3268,509 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Показати масштабну шкалу</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Показати елементи керування масштабом</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Показати закладки</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Якщо цей параметр увімкнено, на карті відображатимуться збережені та відкриті закладки проекту користувача.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Увімкнути обертання карти</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Якщо цей параметер увімкнено, користувач може обертати карту.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Показати інформацію про оцифрування</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Коли ввімкнено, інформація про координати, така як широта та довгота, накладається на карту під час оцифрування нових об’єктів або використання інструмента «Вимірювання».</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Використати кнопки гучності для оцифрування</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Якщо ця опція увімкнена, натискання кнопки збільшення гучності пристрою додасть вершину, а натискання кнопки зменшення гучності видалить останню введену вершину під час сесії оцифрування.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Дозволити додавання вершин натисканням пальця на карту</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>Якщо ця функція увімкнена, натискання пальцем на карту переміщує курсор координат, а подвійне натискання додає вершину.</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Розглянемо мишу як пристрій із сенсорним екраном</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Якщо ця функція увімкнена, миша буде діяти так, наче це палець. Якщо вимкнено, миша буде працювати як стилус.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Максимізувати форму об&apos;єкта</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Відкрити форму об&apos;єкта для ідентифікації одного об&apos;єкта</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Якщо ввімкнено, форма об’єктів відкриється автоматично, якщо визначено лише один об’єкт, список об’єктів пропускається.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Фіксована шкала масштабу</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Коли активна навігація з фіксованим масштабом, фокусування на результатах пошуку буде переміщуватися до функції. Якщо навігацію з фіксованим масштабом вимкнено, вона буде панорамувати та масштабувати об’єкт.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Автоматичне масштабування до визначених об&apos;єктів</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>Якщо цю функцію ввімкнено, карта автоматично масштабуватиметься, щоб відобразити всі виявлені об’єкти, а також вибраний об’єкт, коли відкрито форму об’єкта.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Відтворити попередній перегляд вмісту на видимому полотні карти</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Якщо ввімкнено, області безпосередньо за межами видимого полотна карти будуть частково відображатися для попереднього перегляду під час масштабування та панорамування.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Увімкнути режим автоматичного збереження</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Якщо ввімкнено, щойно додані об&apos;єкти зберігаються, як тільки вони мають дійсну геометрію та виконуються обмеження, а редаговані атрибути фіксуються негайно.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Використати вбудовану камеру</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Якщо ввімкнено, буде використовуватися вбудована камера, що надається операційною системою.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Надсилати анонімні показники</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Якщо цю функцію ввімкнено, анонімні показники будуть збиратися та надсилатися для покращення взаємодії з користувачем.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Загальні</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Позиціювання</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Змінні</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Полотно карти</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Якість візуалізації карти:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Найкраща якість</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Нижча якість</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Найнижча якість</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Нижча якість поступається точністю візуалізації на користь меншого використання пам&apos;яті та часу візуалізації.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Оцифрування та редагування</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Інтерфейс користувача</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Налаштувати панель пошуку</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Управління плагінами</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Темний екран в режимі очікування</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Час бездіяльності в секундах, перш ніж яскравість екрана буде затемнена для збереження заряду акумулятора.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Вигляд:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Системна тема</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Світла тема</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Темна тема</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Розмір шрифту:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Дрібний</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Середній</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Великий</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Дуже великий</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Мова:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>система</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Знайшли відсутню або неповну мову? %1Приєднуйтесь до спільноти перекладачів.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Мережа</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>Доступні конфігурації автентифікації:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Очистити кеш автентифікації</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>Кеш автентифікації очищено</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Увімкнути проксі-сервер</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Система за умовчанням</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Хост</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>напр. proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Порт</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>напр. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Ім&apos;я користувача</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>За бажанням</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>URL-адреси, виключені з проксі-сервера (розділені комами)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>напр. локальний хост, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Налаштуйте мережевий проксі-сервер для маршрутизації трафіку QField через проксі-сервер. Корисно для корпоративних мереж та VPN.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Розширені</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Пристрій позиціонування</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Використовуваний пристрій позиціонування:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Додати</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Редагувати</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Видалити</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Підключено до %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Підключіться до %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Підключення до %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>Увімкнути корекції NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>Клієнт NTRIP відключився</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>Підключення клієнта NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>Клієнта NTRIP підключено</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>Будь ласка, вкажіть дійсні налаштування NTRIP</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Показати інформацію про місцерозташування</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Дії при фіксації положення:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Відслідковувати лише положення</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Відслідковувати положення та орієнтацію за компасом</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Відслідковувати положення та напрямок руху</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Коли полотно карти відповідає положенню або зафіксоване в ньому, воно також може обертатися відповідно до орієнтації компаса або напрямку руху.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Виміряне значення (M), що додається до вершин:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Позначка часу (секунди з епохи)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Шляхова швидкість</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Пеленг</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Горизонтальна точність</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Вертикальна точність</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Під час оцифрування об&apos;єктів з координатним курсором, заблокованим у поточному положенні, вибраний вище тип вимірювання буде додано до геометрії за умови, що він має розмірність М.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Активувати індикатор точності</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Межа низької точності</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>м</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>Межа високої точності</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Дотримуватись вимог точності</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Коли індикатор точності ввімкнено, до кнопки визначення місцезнаходження прикріплюється значок, який забарвлюється &lt;span %1&gt;червоним&lt;/span&gt; кольором, якщо точність нижча межі &lt;i&gt;низької точності&lt;/i&gt;, &lt;span %2&gt;жовтим&lt;/span&gt;, якщо не дотягує до &lt;i&gt;високої точності&lt;/i&gt;, або &lt;span %3&gt;зеленим&lt;/span&gt; кольором.&lt;br&gt;&lt;br&gt;Крім того, можна ввімкнути режим обмеження точності, який обмежує додавання вершин, тобто коли відбувається блокування координації курсору для позицій із точністю нижчою за межу низької точності.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Увімкнути вимогу до усередненого позиціонування</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>Мінімальна кількість позицій</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Автоматично завершувати збір, коли досягнуто мінімальної кількості</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Якщо ввімкнено, оцифрування вершин із курсором, зафіксованим у позиції, прийматиме лише усереднене положення з мінімальної кількості зібраних позицій. Оцифрування з використанням усереднених позицій виконується натисканням і утриманням кнопки додавання вершин, яка збиратиме позиції, доки не буде відпущено натискання. Якщо ввімкнено, параметри вимог до точності дотримуються.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Поправки висоти</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Компенсація висоти антени</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Висота антени</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Ця поправка скоригує значення висот Z, записані з пристрою позиціонування. Якщо введено значення 1.6, система автоматично відніме 1.6 від кожного записаного значення. Обов’язково введіть ефективну висоту антени, тобто довжина віхи + зсув фазового центру антени. </translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Пропустити корекцію висоти</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Використовуйте висоту, яку повідомляє пристрій позиціонування. Пропустіть будь-яку корекцію висоти, яка може випливати з перетворення системи координат.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Використання вертикального зсуву сітки:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Жодного</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ортометрична висота із присторою</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Вертикальний зсув сітки використовується для підвищення точності висоти.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Журнал речень NMEA від пристрою до файлу</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 Налаштування</translation>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7377,503 +7880,191 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Показати масштабну шкалу</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Показати елементи керування масштабом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Показати закладки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Якщо цей параметр увімкнено, на карті відображатимуться збережені та відкриті закладки проекту користувача.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Увімкнути обертання карти</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Якщо цей параметер увімкнено, користувач може обертати карту.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Показати інформацію про оцифрування</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Коли ввімкнено, інформація про координати, така як широта та довгота, накладається на карту під час оцифрування нових об’єктів або використання інструмента «Вимірювання».</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Використати кнопки гучності для оцифрування</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Якщо ця опція увімкнена, натискання кнопки збільшення гучності пристрою додасть вершину, а натискання кнопки зменшення гучності видалить останню введену вершину під час сесії оцифрування.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Дозволити додавання вершин натисканням пальця на карту</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>Якщо ця функція увімкнена, натискання пальцем на карту переміщує курсор координат, а подвійне натискання додає вершину.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Розглянемо мишу як пристрій із сенсорним екраном</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Якщо ця функція увімкнена, миша буде діяти так, наче це палець. Якщо вимкнено, миша буде працювати як стилус.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Максимізувати форму об&apos;єкта</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Відкрити форму об&apos;єкта для ідентифікації одного об&apos;єкта</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Якщо ввімкнено, форма об’єктів відкриється автоматично, якщо визначено лише один об’єкт, список об’єктів пропускається.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Фіксована шкала масштабу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Коли активна навігація з фіксованим масштабом, фокусування на результатах пошуку буде переміщуватися до функції. Якщо навігацію з фіксованим масштабом вимкнено, вона буде панорамувати та масштабувати об’єкт.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Автоматичне масштабування до визначених об&apos;єктів</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>Якщо цю функцію ввімкнено, карта автоматично масштабуватиметься, щоб відобразити всі виявлені об’єкти, а також вибраний об’єкт, коли відкрито форму об’єкта.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Відтворити попередній перегляд вмісту на видимому полотні карти</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Якщо ввімкнено, області безпосередньо за межами видимого полотна карти будуть частково відображатися для попереднього перегляду під час масштабування та панорамування.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Увімкнути режим автоматичного збереження</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Якщо ввімкнено, щойно додані об&apos;єкти зберігаються, як тільки вони мають дійсну геометрію та виконуються обмеження, а редаговані атрибути фіксуються негайно.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Використати вбудовану камеру</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Якщо ввімкнено, буде використовуватися вбудована камера, що надається операційною системою.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Надсилати анонімні показники</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Якщо цю функцію ввімкнено, анонімні показники будуть збиратися та надсилатися для покращення взаємодії з користувачем.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>Загальні</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Позиціювання</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Змінні</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Полотно карти</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Якість візуалізації карти:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Найкраща якість</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Нижча якість</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Найнижча якість</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Нижча якість поступається точністю візуалізації на користь меншого використання пам&apos;яті та часу візуалізації.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Оцифрування та редагування</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Інтерфейс користувача</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Налаштувати панель пошуку</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Управління плагінами</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Темний екран в режимі очікування</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Час бездіяльності в секундах, перш ніж яскравість екрана буде затемнена для збереження заряду акумулятора.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Вигляд:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Системна тема</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Світла тема</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Темна тема</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Розмір шрифту:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Дрібний</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Середній</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Великий</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Дуже великий</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Мова:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>система</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Знайшли відсутню або неповну мову? %1Приєднуйтесь до спільноти перекладачів.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Мережа</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>Доступні конфігурації автентифікації:</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>Очистити кеш автентифікації</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>Кеш автентифікації очищено</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Увімкнути проксі-сервер</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Тип</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Система за умовчанням</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Хост</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>напр. proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Порт</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>напр. 8888</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>За бажанням</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>URL-адреси, виключені з проксі-сервера (розділені комами)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>напр. локальний хост, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Налаштуйте мережевий проксі-сервер для маршрутизації трафіку QField через проксі-сервер. Корисно для корпоративних мереж та VPN.</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Розширені</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Пристрій позиціонування</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Використовуваний пристрій позиціонування:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Додати</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Редагувати</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Видалити</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Підключено до %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Підключіться до %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Підключення до %1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>Увімкнути корекції NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Клієнт NTRIP відключився</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>Підключення клієнта NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Клієнта NTRIP підключено</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>Будь ласка, вкажіть дійсні налаштування NTRIP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Показати інформацію про місцерозташування</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Дії при фіксації положення:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Відслідковувати лише положення</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Відслідковувати положення та орієнтацію за компасом</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Відслідковувати положення та напрямок руху</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Коли полотно карти відповідає положенню або зафіксоване в ньому, воно також може обертатися відповідно до орієнтації компаса або напрямку руху.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Виміряне значення (M), що додається до вершин:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>Позначка часу (секунди з епохи)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Шляхова швидкість</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Пеленг</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Горизонтальна точність</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Вертикальна точність</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Під час оцифрування об&apos;єктів з координатним курсором, заблокованим у поточному положенні, вибраний вище тип вимірювання буде додано до геометрії за умови, що він має розмірність М.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Активувати індикатор точності</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Межа низької точності</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>м</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>Межа високої точності</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Дотримуватись вимог точності</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Коли індикатор точності ввімкнено, до кнопки визначення місцезнаходження прикріплюється значок, який забарвлюється &lt;span %1&gt;червоним&lt;/span&gt; кольором, якщо точність нижча межі &lt;i&gt;низької точності&lt;/i&gt;, &lt;span %2&gt;жовтим&lt;/span&gt;, якщо не дотягує до &lt;i&gt;високої точності&lt;/i&gt;, або &lt;span %3&gt;зеленим&lt;/span&gt; кольором.&lt;br&gt;&lt;br&gt;Крім того, можна ввімкнути режим обмеження точності, який обмежує додавання вершин, тобто коли відбувається блокування координації курсору для позицій із точністю нижчою за межу низької точності.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Увімкнути вимогу до усередненого позиціонування</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>Мінімальна кількість позицій</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Автоматично завершувати збір, коли досягнуто мінімальної кількості</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Якщо ввімкнено, оцифрування вершин із курсором, зафіксованим у позиції, прийматиме лише усереднене положення з мінімальної кількості зібраних позицій. Оцифрування з використанням усереднених позицій виконується натисканням і утриманням кнопки додавання вершин, яка збиратиме позиції, доки не буде відпущено натискання. Якщо ввімкнено, параметри вимог до точності дотримуються.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>Поправки висоти</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Компенсація висоти антени</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Висота антени</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Ця поправка скоригує значення висот Z, записані з пристрою позиціонування. Якщо введено значення 1.6, система автоматично відніме 1.6 від кожного записаного значення. Обов’язково введіть ефективну висоту антени, тобто довжина віхи + зсув фазового центру антени. </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Пропустити корекцію висоти</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Використовуйте висоту, яку повідомляє пристрій позиціонування. Пропустіть будь-яку корекцію висоти, яка може випливати з перетворення системи координат.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Використовується вертикальний зсув сітки:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Жодного</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ортометрична висота із присторою</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Вертикальний зсув сітки використовується для підвищення точності висоти.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Журнал речень NMEA від пристрою до файлу</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 Налаштування</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

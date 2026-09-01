@@ -3260,6 +3260,509 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>அளவுகோலைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>சூம் கட்டுப்பாடுகளைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>புக்மார்க்குகளைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​பயனரின் சேமித்த மற்றும் தற்போது திறக்கப்பட்ட திட்டப் புக்மார்க்குகள் வரைபடத்தில் காட்டப்படும்.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>வரைபட சுழற்சியை இயக்கு</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​வரைபடத்தை பயனரால் சுழற்ற முடியும்.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>டிசிட்டல் மயமாக்கும் தகவலைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​புதிய அம்சங்களை டிசிட்டல் மயமாக்கும் போது அல்லது அளவீட்டு கருவியைப் பயன்படுத்தும் போது, ​​அட்சரேகை மற்றும் தீர்க்கரேகை போன்ற ஒருங்கிணைக்கும் தகவல்கள் வரைபடத்தில் மேலெழுதப்படும்.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>டிசிட்டல் மயமாக்குவதற்கு வால்யூம் கீகளைப் பயன்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>இயக்கப்பட்டிருந்தால், சாதனத்தின் வால்யூம் அப் விசையை அழுத்தினால், வால்யூம் பேரூர் விசையை அழுத்தும் போது ஒரு உச்சியைச் சேர்க்கும் போது, ​​டிசிட்டல் மயமாக்கும் அமர்வுகளின் போது கடைசியாக உள்ளிடப்பட்ட உச்சியை அகற்றும்.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>செங்குத்துகளைச் சேர்க்க, கேன்வாசில் விரல் தட்டுவதை அனுமதிக்கவும்</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>சுட்டியை தொடுதிரை சாதனமாக கருதுங்கள்</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>இயக்கப்பட்டால், சுட்டி ஒரு விரலைப் போல செயல்படும். முடக்கப்பட்டிருக்கும் போது, ​​மவுச் ச்டைலச் நடத்தைக்கு பொருந்தும்.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>அம்சப் படிவத்தை அதிகரிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>ஒற்றை அம்ச அடையாளத்திற்கான அம்சப் படிவத்தைத் திறக்கவும்</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>இயக்கப்படும் போது, ​​அம்சப் பட்டியலைத் தவிர்த்து, ஒரே ஒரு நற்பொருத்தம் அடையாளம் காணப்பட்டால், அம்சப் படிவம் தானாகவே திறக்கும்.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>நிலையான அளவிலான வழிசெலுத்தல்</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>நிலையான அளவிலான வழிசெலுத்தல் செயலில் இருக்கும்போது, ​​தேடல் முடிவில் கவனம் செலுத்துவது அம்சத்திற்குச் செல்லும். நிலையான அளவிலான வழிசெலுத்தல் முடக்கப்பட்டிருந்தால், அது அம்சத்திற்கு மாற்றப்பட்டு பெரிதாக்கப்படும்.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>அம்சங்களை அடையாளம் காண தானாக பெரிதாக்கவும்)</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>இயக்கப்பட்டால், அடையாளம் காணப்பட்ட அனைத்து அம்சங்களையும், அம்சப் படிவம் திறக்கப்படும்போது தனிப்பட்ட தேர்ந்தெடுக்கப்பட்ட அம்சத்தையும் காண்பிக்க வரைபடம் தானாகவே பெரிதாக்கப்படும்.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>காணக்கூடிய வரைபட கேன்வாசைச் சுற்றி முன்னோட்ட உள்ளடக்கத்தை வழங்கவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>இயக்கப்பட்டால், பெரிதாக்கும்போதும் அலசும்போதும் முன்னோட்டத்தை அனுமதிக்க, காணக்கூடிய வரைபடத்தின் கேன்வாச் எல்லைக்கு வெளியே உள்ள பகுதிகள் ஓரளவு வழங்குதல் செய்யப்படும்.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>தானாக சேமிக்கும் பயன்முறையை இயக்கவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>இயக்கப்பட்டால், புதிதாகச் சேர்க்கப்பட்ட நற்பொருத்தங்கள் சரியான வடிவவியலைக் கொண்டவுடன் சேமிக்கப்படும், மேலும் கட்டுப்பாடுகள் நிறைவு செய்யப்பட்டு திருத்தப்பட்ட பண்புக்கூறுகள் உடனடியாகச் செய்யப்படும்.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>சொந்த கேமராவைப் பயன்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>அநாமதேய அளவீடுகளை அனுப்பவும்</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>பொது</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>நிலைப்படுத்துதல்</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>மாறிகள்</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>வரைபடம் கேன்வாச்</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>வரைபட கேன்வாச் வழங்குதல் தரம்:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>சிறந்த தகுதி</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>குறைந்த தகுதி</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>குறைந்த தகுதி</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>குறைந்த தகுதி, குறைந்த நினைவக பயன்பாடு மற்றும் வழங்குதல் நேரத்திற்கு ஆதரவாக வழங்குதல் துல்லியம்.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>டிசிட்டல் &amp; திருத்துதல்</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>பயனர் இடைமுகம்</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>தேடல் பட்டியைத் தனிப்பயனாக்கு</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>செருகுநிரல்களை நிர்வகிக்கவும்</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>செயலற்ற நிலையில் இருக்கும் போது மங்கலான திரை</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>பேட்டரியைப் பாதுகாக்க, திரையின் ஒளி மங்குவதற்கு முன் சில நொடிகளில் செயலற்ற நேரம்.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>தோற்றம்:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>கணினி தோற்றத்தைப் பின்பற்றவும்</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>ஒளி கருப்பொருள்</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>இருண்ட கருப்பொருள்</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>எழுத்துரு அளவு:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>சிறியது</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>இயல்பானது</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>பெரியது</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>மிக பெரியது</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>மொழி:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>மண்டலம்</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>விடுபட்ட அல்லது முழுமையடையாத மொழி கண்டுபிடிக்கப்பட்டதா? % 1 மொழிபெயர்ப்பாளர் சமூகத்தில் சேரவும்.% 2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>பிணையம்</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>ப்ராக்ஸியை இயக்கு</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>துறைமுகம்</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>பயனர் பெயர்</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>கடவுச்சொல்</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>மேம்பட்ட</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>பயன்பாட்டில் உள்ள பொருத்துதல் சாதனம்:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>கூட்டு</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>தொகு</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>அகற்று</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>% 1 உடன் இணைக்கப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>% 1 உடன் இணைக்கவும்</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>% 1 உடன் இணைக்கிறது</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>நிலை தகவலைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>நிலைக்கு பூட்டப்பட்ட போது நடத்தை:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>நிலையை மட்டும் பின்பற்றவும்</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>நிலை மற்றும் திசைகாட்டி நோக்குநிலையைப் பின்பற்றவும்</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>நிலை மற்றும் இயக்கத்தின் திசையைப் பின்பற்றவும்</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>வரைபட கேன்வாச் பின்தொடரும் போது அல்லது நிலைக்கு பூட்டப்பட்டிருக்கும் போது, ​​திசைகாட்டி நோக்குநிலை அல்லது இயக்கத்தின் திசையுடன் பொருந்துமாறு சுழற்றலாம்.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>செங்குத்துகளுடன் இணைக்கப்பட்ட அளவீடு (எம்) மதிப்பு:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>தரை விரைவு</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>தாங்கி</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>கிடைமட்ட துல்லியம்</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>செங்குத்து துல்லியம்</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>தற்போதைய நிலைக்கு பூட்டப்பட்ட ஆய கர்சரைக் கொண்டு அம்சங்களை டிசிட்டல் மயமாக்கும் போது, ​​மேலே தேர்ந்தெடுக்கப்பட்ட அளவீட்டு வகை, M பரிமாணத்தைக் கொண்டிருக்கும் வடிவவியலில் சேர்க்கப்படும்.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>துல்லியம் காட்டி செயல்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>துல்லியத் தேவையைச் செயல்படுத்தவும்</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>துல்லியம் காட்டி இயக்கப்பட்டிருக்கும் போது, இருப்பிடப் பொத்தானில் ஒரு ஒட்டு இணைக்கப்பட்டு, &lt;span %1&gt;சிவப்பு&lt;/span&gt; என்ற வண்ணத்தில் துல்லிய மதிப்பு &lt;i&gt;மோசமாக&lt;/i&gt; இருந்தால், &lt;span %2&gt;மஞ்சள்&lt;/span&gt; &lt;i&gt;சிறந்தது&lt;/i&gt; அல்லது &lt;span %3&gt;பச்சை, &lt;br&gt;சேர்ப்பு &lt;br&gt; பயன்முறையை மாற்றலாம், இது கர்சரை ஒருங்கிணைக்க பூட்டப்பட்டிருக்கும் போது வெர்டெக்ச் சேர்ப்பை கட்டுப்படுத்துகிறது, இது மோசமான வரம்பை விட மோசமான துல்லிய மதிப்பு கொண்ட நிலைகளுக்கு.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>சராசரி பொருத்துதல் தேவையை இயக்கு</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>குறைந்தபட்ச எண்ணிக்கையை எட்டும்போது தானாகவே சேகரிப்பை முடிக்கவும்</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>இயக்கப்பட்டிருக்கும் போது, ​​கர்சரைப் பூட்டப்பட்ட நிலையில் உள்ள முனைகளை டிசிட்டல் மயமாக்குவது, சேகரிக்கப்பட்ட நிலைகளின் குறைந்தபட்ச எண்ணிக்கையிலிருந்து சராசரி நிலையை மட்டுமே ஏற்றுக்கொள்ளும். சராசரி நிலைகளைப் பயன்படுத்தி டிசிட்டல் மயமாக்கல், சேர் வெர்டெக்ச் பொத்தானை அழுத்திப் பிடிப்பதன் மூலம் செய்யப்படுகிறது, இது செய்தித் தாள் வெளியிடப்படும் வரை நிலைகளை சேகரிக்கும். இயக்கப்படும் போது துல்லியத் தேவை அமைப்புகள் மதிக்கப்படும்.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>ஆண்டெனா உயர இழப்பீடு</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>இந்த மதிப்பு நிலைப்படுத்தல் சாதனத்திலிருந்து பதிவுசெய்யப்பட்ட Z மதிப்புகளைச் சரிசெய்யும். 1.6 மதிப்பை உள்ளிட்டால், கணினி தானாகவே ஒவ்வொரு பதிவுசெய்யப்பட்ட மதிப்பிலிருந்தும் 1.6 ஐக் கழிக்கும். பயனுள்ள ஆண்டெனா உயரத்தைச் செருகுவதை உறுதிசெய்து கொள்ளுங்கள், அதாவது துருவ நீளம் + ஆண்டெனா கட்ட மைய ஆஃப்செட்.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>உயரத் திருத்தத்தைத் தவிர்க்கவும்</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>பொசிசனிங் சாதனத்தால் தெரிவிக்கப்பட்ட உயரத்தைப் பயன்படுத்தவும். ஒருங்கிணைப்பு அமைப்பு மாற்றத்தால் குறிக்கப்படும் எந்த உயரத் திருத்தத்தையும் தவிர்க்கவும்.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>பயன்பாட்டில் உள்ள செங்குத்து கட்டம் மாற்றம்:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>எதுவுமில்லை</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>சாதனத்திலிருந்து ஆர்த்தோமெட்ரிக்</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>உயரத்தின் துல்லியத்தை அதிகரிக்க செங்குத்து கட்டம் மாற்றம் பயன்படுத்தப்படுகிறது.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>சாதனத்திலிருந்து கோப்பில் NMEA வாக்கியங்களை பதிவு செய்யவும்</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 அமைப்புகள்</translation>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7360,503 +7863,191 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>அளவுகோலைக் காட்டு</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>சூம் கட்டுப்பாடுகளைக் காட்டு</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>புக்மார்க்குகளைக் காட்டு</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​பயனரின் சேமித்த மற்றும் தற்போது திறக்கப்பட்ட திட்டப் புக்மார்க்குகள் வரைபடத்தில் காட்டப்படும்.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>வரைபட சுழற்சியை இயக்கு</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​வரைபடத்தை பயனரால் சுழற்ற முடியும்.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>டிசிட்டல் மயமாக்கும் தகவலைக் காட்டு</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>ச்விட்ச் ஆன் செய்யும்போது, ​​புதிய அம்சங்களை டிசிட்டல் மயமாக்கும் போது அல்லது அளவீட்டு கருவியைப் பயன்படுத்தும் போது, ​​அட்சரேகை மற்றும் தீர்க்கரேகை போன்ற ஒருங்கிணைக்கும் தகவல்கள் வரைபடத்தில் மேலெழுதப்படும்.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>டிசிட்டல் மயமாக்குவதற்கு வால்யூம் கீகளைப் பயன்படுத்தவும்</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>இயக்கப்பட்டிருந்தால், சாதனத்தின் வால்யூம் அப் விசையை அழுத்தினால், வால்யூம் பேரூர் விசையை அழுத்தும் போது ஒரு உச்சியைச் சேர்க்கும் போது, ​​டிசிட்டல் மயமாக்கும் அமர்வுகளின் போது கடைசியாக உள்ளிடப்பட்ட உச்சியை அகற்றும்.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>செங்குத்துகளைச் சேர்க்க, கேன்வாசில் விரல் தட்டுவதை அனுமதிக்கவும்</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>சுட்டியை தொடுதிரை சாதனமாக கருதுங்கள்</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>இயக்கப்பட்டால், சுட்டி ஒரு விரலைப் போல செயல்படும். முடக்கப்பட்டிருக்கும் போது, ​​மவுச் ச்டைலச் நடத்தைக்கு பொருந்தும்.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>அம்சப் படிவத்தை அதிகரிக்கவும்</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>ஒற்றை அம்ச அடையாளத்திற்கான அம்சப் படிவத்தைத் திறக்கவும்</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>இயக்கப்படும் போது, ​​அம்சப் பட்டியலைத் தவிர்த்து, ஒரே ஒரு நற்பொருத்தம் அடையாளம் காணப்பட்டால், அம்சப் படிவம் தானாகவே திறக்கும்.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>நிலையான அளவிலான வழிசெலுத்தல்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>நிலையான அளவிலான வழிசெலுத்தல் செயலில் இருக்கும்போது, ​​தேடல் முடிவில் கவனம் செலுத்துவது அம்சத்திற்குச் செல்லும். நிலையான அளவிலான வழிசெலுத்தல் முடக்கப்பட்டிருந்தால், அது அம்சத்திற்கு மாற்றப்பட்டு பெரிதாக்கப்படும்.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>அம்சங்களை அடையாளம் காண தானாக பெரிதாக்கவும்)</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>இயக்கப்பட்டால், அடையாளம் காணப்பட்ட அனைத்து அம்சங்களையும், அம்சப் படிவம் திறக்கப்படும்போது தனிப்பட்ட தேர்ந்தெடுக்கப்பட்ட அம்சத்தையும் காண்பிக்க வரைபடம் தானாகவே பெரிதாக்கப்படும்.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>காணக்கூடிய வரைபட கேன்வாசைச் சுற்றி முன்னோட்ட உள்ளடக்கத்தை வழங்கவும்</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>இயக்கப்பட்டால், பெரிதாக்கும்போதும் அலசும்போதும் முன்னோட்டத்தை அனுமதிக்க, காணக்கூடிய வரைபடத்தின் கேன்வாச் எல்லைக்கு வெளியே உள்ள பகுதிகள் ஓரளவு வழங்குதல் செய்யப்படும்.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>தானாக சேமிக்கும் பயன்முறையை இயக்கவும்</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>இயக்கப்பட்டால், புதிதாகச் சேர்க்கப்பட்ட நற்பொருத்தங்கள் சரியான வடிவவியலைக் கொண்டவுடன் சேமிக்கப்படும், மேலும் கட்டுப்பாடுகள் நிறைவு செய்யப்பட்டு திருத்தப்பட்ட பண்புக்கூறுகள் உடனடியாகச் செய்யப்படும்.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>சொந்த கேமராவைப் பயன்படுத்தவும்</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>அநாமதேய அளவீடுகளை அனுப்பவும்</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>பொது</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>நிலைப்படுத்துதல்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>மாறிகள்</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>வரைபடம் கேன்வாச்</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>வரைபட கேன்வாச் வழங்குதல் தரம்:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>சிறந்த தகுதி</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>குறைந்த தகுதி</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>குறைந்த தகுதி</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>குறைந்த தகுதி, குறைந்த நினைவக பயன்பாடு மற்றும் வழங்குதல் நேரத்திற்கு ஆதரவாக வழங்குதல் துல்லியம்.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>டிசிட்டல் &amp; திருத்துதல்</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>பயனர் இடைமுகம்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>தேடல் பட்டியைத் தனிப்பயனாக்கு</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>செருகுநிரல்களை நிர்வகிக்கவும்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>செயலற்ற நிலையில் இருக்கும் போது மங்கலான திரை</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>பேட்டரியைப் பாதுகாக்க, திரையின் ஒளி மங்குவதற்கு முன் சில நொடிகளில் செயலற்ற நேரம்.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>தோற்றம்:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>கணினி தோற்றத்தைப் பின்பற்றவும்</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>ஒளி கருப்பொருள்</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>இருண்ட கருப்பொருள்</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>எழுத்துரு அளவு:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>சிறியது</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>இயல்பானது</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>பெரியது</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>மிக பெரியது</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>மொழி:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>மண்டலம்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>விடுபட்ட அல்லது முழுமையடையாத மொழி கண்டுபிடிக்கப்பட்டதா? % 1 மொழிபெயர்ப்பாளர் சமூகத்தில் சேரவும்.% 2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>பிணையம்</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>ப்ராக்ஸியை இயக்கு</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>துறைமுகம்</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>பயனர் பெயர்</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>கடவுச்சொல்</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>மேம்பட்ட</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>பயன்பாட்டில் உள்ள பொருத்துதல் சாதனம்:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>கூட்டு</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>தொகு</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>அகற்று</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>% 1 உடன் இணைக்கப்பட்டது</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>% 1 உடன் இணைக்கவும்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>% 1 உடன் இணைக்கிறது</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>நிலை தகவலைக் காட்டு</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>நிலைக்கு பூட்டப்பட்ட போது நடத்தை:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>நிலையை மட்டும் பின்பற்றவும்</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>நிலை மற்றும் திசைகாட்டி நோக்குநிலையைப் பின்பற்றவும்</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>நிலை மற்றும் இயக்கத்தின் திசையைப் பின்பற்றவும்</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>வரைபட கேன்வாச் பின்தொடரும் போது அல்லது நிலைக்கு பூட்டப்பட்டிருக்கும் போது, ​​திசைகாட்டி நோக்குநிலை அல்லது இயக்கத்தின் திசையுடன் பொருந்துமாறு சுழற்றலாம்.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>செங்குத்துகளுடன் இணைக்கப்பட்ட அளவீடு (எம்) மதிப்பு:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>தரை விரைவு</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>தாங்கி</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>கிடைமட்ட துல்லியம்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>செங்குத்து துல்லியம்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>தற்போதைய நிலைக்கு பூட்டப்பட்ட ஆய கர்சரைக் கொண்டு அம்சங்களை டிசிட்டல் மயமாக்கும் போது, ​​மேலே தேர்ந்தெடுக்கப்பட்ட அளவீட்டு வகை, M பரிமாணத்தைக் கொண்டிருக்கும் வடிவவியலில் சேர்க்கப்படும்.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>துல்லியம் காட்டி செயல்படுத்தவும்</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>துல்லியத் தேவையைச் செயல்படுத்தவும்</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>துல்லியம் காட்டி இயக்கப்பட்டிருக்கும் போது, இருப்பிடப் பொத்தானில் ஒரு ஒட்டு இணைக்கப்பட்டு, &lt;span %1&gt;சிவப்பு&lt;/span&gt; என்ற வண்ணத்தில் துல்லிய மதிப்பு &lt;i&gt;மோசமாக&lt;/i&gt; இருந்தால், &lt;span %2&gt;மஞ்சள்&lt;/span&gt; &lt;i&gt;சிறந்தது&lt;/i&gt; அல்லது &lt;span %3&gt;பச்சை, &lt;br&gt;சேர்ப்பு &lt;br&gt; பயன்முறையை மாற்றலாம், இது கர்சரை ஒருங்கிணைக்க பூட்டப்பட்டிருக்கும் போது வெர்டெக்ச் சேர்ப்பை கட்டுப்படுத்துகிறது, இது மோசமான வரம்பை விட மோசமான துல்லிய மதிப்பு கொண்ட நிலைகளுக்கு.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>சராசரி பொருத்துதல் தேவையை இயக்கு</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>குறைந்தபட்ச எண்ணிக்கையை எட்டும்போது தானாகவே சேகரிப்பை முடிக்கவும்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>இயக்கப்பட்டிருக்கும் போது, ​​கர்சரைப் பூட்டப்பட்ட நிலையில் உள்ள முனைகளை டிசிட்டல் மயமாக்குவது, சேகரிக்கப்பட்ட நிலைகளின் குறைந்தபட்ச எண்ணிக்கையிலிருந்து சராசரி நிலையை மட்டுமே ஏற்றுக்கொள்ளும். சராசரி நிலைகளைப் பயன்படுத்தி டிசிட்டல் மயமாக்கல், சேர் வெர்டெக்ச் பொத்தானை அழுத்திப் பிடிப்பதன் மூலம் செய்யப்படுகிறது, இது செய்தித் தாள் வெளியிடப்படும் வரை நிலைகளை சேகரிக்கும். இயக்கப்படும் போது துல்லியத் தேவை அமைப்புகள் மதிக்கப்படும்.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>ஆண்டெனா உயர இழப்பீடு</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>இந்த மதிப்பு நிலைப்படுத்தல் சாதனத்திலிருந்து பதிவுசெய்யப்பட்ட Z மதிப்புகளைச் சரிசெய்யும். 1.6 மதிப்பை உள்ளிட்டால், கணினி தானாகவே ஒவ்வொரு பதிவுசெய்யப்பட்ட மதிப்பிலிருந்தும் 1.6 ஐக் கழிக்கும். பயனுள்ள ஆண்டெனா உயரத்தைச் செருகுவதை உறுதிசெய்து கொள்ளுங்கள், அதாவது துருவ நீளம் + ஆண்டெனா கட்ட மைய ஆஃப்செட்.</translation>
-    </message>
-    <message>
         <source>Skip altitude correction</source>
-        <translation>உயரத் திருத்தத்தைத் தவிர்க்கவும்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>பொசிசனிங் சாதனத்தால் தெரிவிக்கப்பட்ட உயரத்தைப் பயன்படுத்தவும். ஒருங்கிணைப்பு அமைப்பு மாற்றத்தால் குறிக்கப்படும் எந்த உயரத் திருத்தத்தையும் தவிர்க்கவும்.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>பயன்பாட்டில் உள்ள செங்குத்து கட்டம் மாற்றம்:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>எதுவுமில்லை</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>சாதனத்திலிருந்து ஆர்த்தோமெட்ரிக்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>உயரத்தின் துல்லியத்தை அதிகரிக்க செங்குத்து கட்டம் மாற்றம் பயன்படுத்தப்படுகிறது.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>சாதனத்திலிருந்து கோப்பில் NMEA வாக்கியங்களை பதிவு செய்யவும்</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 அமைப்புகள்</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

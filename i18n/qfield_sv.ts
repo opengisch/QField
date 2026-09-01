@@ -2907,7 +2907,7 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
     </message>
     <message>
         <source>Object not found</source>
-        <translation>Objekt ej hittat</translation>
+        <translation>Objektet hittades inte</translation>
     </message>
     <message>
         <source>API Error</source>
@@ -3194,7 +3194,7 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
     <name>QfAndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>Filen %1, existerar ej</translation>
+        <translation>Filen %1 finns inte</translation>
     </message>
 </context>
 <context>
@@ -3220,11 +3220,11 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>Detta grid är en del av &quot;&lt;i&gt;%1&lt;/i&gt;&quot; paketet, som är tillgängligt för nedladdning från &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation>Det här rutnätet ingår i paketet ”&lt;i&gt;%1&lt;/i&gt;” och kan hämtas från &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation>Detta grid är tillgängligt för nedladdning från &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
+        <translation>Det här rutnätet kan hämtas från &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>projection</source>
@@ -3236,7 +3236,7 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
     </message>
     <message>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>Detta grid är en del av &lt;i&gt;%1&lt;/i&gt; paketet, tillgängligt för nedladdning från &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation>Det här rutnätet ingår i paketet &lt;i&gt;%1&lt;/i&gt; och kan hämtas från &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
@@ -3264,4109 +3264,7 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
     </message>
 </context>
 <context>
-    <name>QfAttributeFormModelBase</name>
-    <message>
-        <source>Expression constraint</source>
-        <translation>Begränsning för uttryck</translation>
-    </message>
-    <message>
-        <source>Not NULL</source>
-        <translation>Ej NULL</translation>
-    </message>
-    <message>
-        <source>Unique</source>
-        <translation>Unik</translation>
-    </message>
-</context>
-<context>
-    <name>QfAudioClipRecorder</name>
-    <message>
-        <source>Audio Recorder</source>
-        <translation>Ljudinspelare</translation>
-    </message>
-</context>
-<context>
-    <name>QfBadLayerItem</name>
-    <message>
-        <source>Unable to load some layers</source>
-        <translation>Kan inte ladda några lager</translation>
-    </message>
-    <message>
-        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>Följande lager kunde inte läsas in, var vänlig kontrollera dem och konfigurera om QGIS projektet.</translation>
-    </message>
-    <message>
-        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>Mer hjälp finns på dokumentationssidan %1Portabelt projekt%2.</translation>
-    </message>
-</context>
-<context>
-    <name>QfBluetoothDeviceChooser</name>
-    <message>
-        <source>Scan for nearby devices</source>
-        <translation>Skanna efter närliggande enheter</translation>
-    </message>
-    <message>
-        <source>Select the Bluetooth device from the list below:</source>
-        <translation>Välj Bluetooth-enheten från listan nedan:</translation>
-    </message>
-    <message>
-        <source>No Bluetooth devices detected.</source>
-        <translation>Inga Bluetooth-enheter upptäckta.</translation>
-    </message>
-    <message>
-        <source>Scanning error: %1</source>
-        <translation>Skanningsfel: %1</translation>
-    </message>
-    <message>
-        <source>Scanning for paired devices</source>
-        <translation>Skannar efter parade enheter</translation>
-    </message>
-    <message>
-        <source>Scanning failed: %1</source>
-        <translation>Skanning misslyckades: %1</translation>
-    </message>
-    <message>
-        <source>Scanning done</source>
-        <translation>Skanning klar</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n device(s) found</source>
-        <translation><numerusform>%n enhet hittades</numerusform><numerusform>%n enheter hittades</numerusform></translation>
-    </message>
-    <message>
-        <source>Scanning canceled</source>
-        <translation>Skanning avbruten</translation>
-    </message>
-    <message>
-        <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation>Använd Bluetooth Low Energy (BLE)</translation>
-    </message>
-    <message>
-        <source>Bluetooth device name:</source>
-        <translation>Bluetooth-enhetsnamn:</translation>
-    </message>
-    <message>
-        <source>Bluetooth device address:</source>
-        <translation>Bluetooth-enhetsadress:</translation>
-    </message>
-    <message>
-        <source>Bluetooth device configuration:</source>
-        <translation>Bluetooth-enhetskonfiguration:</translation>
-    </message>
-    <message>
-        <source>Low Energy (BLE)</source>
-        <translation>Low Energy (BLE)</translation>
-    </message>
-    <message>
-        <source>Classic (BT)</source>
-        <translation>Klassisk (BT)</translation>
-    </message>
-</context>
-<context>
-    <name>QfBluetoothDeviceModel</name>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Bluetooth-behörighet nekades</translation>
-    </message>
-    <message>
-        <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation>Bluetooth-tillstånd krävs för att skanna efter Bluetooth-enheter</translation>
-    </message>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Platsbehörighet nekad</translation>
-    </message>
-    <message>
-        <source>Location permission is required to scan for bluetooth devices</source>
-        <translation>Platsbehörighet krävs för att söka efter bluetooth-enheter</translation>
-    </message>
-</context>
-<context>
-    <name>QfBookmarkList</name>
-    <message>
-        <source>Bookmarks</source>
-        <translation>Bokmärken</translation>
-    </message>
-    <message>
-        <source>Bookmark List Menu</source>
-        <translation>Bokmärkeslistameny</translation>
-    </message>
-    <message>
-        <source>Toggle Bookmark Selection</source>
-        <translation>Växla bokmärkesval</translation>
-    </message>
-    <message>
-        <source>Export Selected Bookmark(s)</source>
-        <translation>Exportera valda bokmärken</translation>
-    </message>
-    <message>
-        <source>Export All User Bookmarks</source>
-        <translation>Exportera alla användarbokmärken</translation>
-    </message>
-    <message>
-        <source>Bookmarks exported</source>
-        <translation>Bokmärken exporterade</translation>
-    </message>
-    <message>
-        <source>Delete Selected Bookmark(s)</source>
-        <translation>Ta bort valda bokmärken</translation>
-    </message>
-    <message>
-        <source>Bookmark Actions</source>
-        <translation>Bokmärkesåtgärder</translation>
-    </message>
-    <message>
-        <source>Edit Bookmark</source>
-        <translation>Redigera bokmärke</translation>
-    </message>
-    <message>
-        <source>Navigate to bookmark</source>
-        <translation>Gå till bokmärket</translation>
-    </message>
-    <message>
-        <source>Copy Bookmark Details</source>
-        <translation>Kopiera bokmärkesdetaljer</translation>
-    </message>
-    <message>
-        <source>Bookmark details copied to clipboard</source>
-        <translation>Bokmärkesdetaljer kopierade till urklipp</translation>
-    </message>
-    <message>
-        <source>Delete Bookmark</source>
-        <translation>Ta bort bokmärket</translation>
-    </message>
-    <message>
-        <source>Remove bookmark</source>
-        <translation>Ta bort bokmärke</translation>
-    </message>
-    <message>
-        <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Du håller på att ta bort ett bokmärke. Vill du fortsätta?</translation>
-    </message>
-    <message>
-        <source>Delete bookmark(s)</source>
-        <translation>Ta bort bokmärken</translation>
-    </message>
-    <message numerus="yes">
-        <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation><numerusform>Vill du verkligen ta bort det %n valda bokmärket?</numerusform><numerusform>Vill du verkligen ta bort de %n valda bokmärkena?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Deleted %n bookmark(s)</source>
-        <translation><numerusform>%n bokmärke togs bort</numerusform><numerusform>%n bokmärken togs bort</numerusform></translation>
-    </message>
-    <message>
-        <source>Orange</source>
-        <translation>Orange</translation>
-    </message>
-    <message>
-        <source>Red</source>
-        <translation>Röd</translation>
-    </message>
-    <message>
-        <source>Blue</source>
-        <translation>Blå</translation>
-    </message>
-    <message>
-        <source>Project bookmarks</source>
-        <translation>Projektbokmärken</translation>
-    </message>
-    <message>
-        <source>Green</source>
-        <translation>Grön</translation>
-    </message>
-    <message>
-        <source>Untitled bookmark</source>
-        <translation>Bokmärke utan titel</translation>
-    </message>
-    <message>
-        <source>No bookmarks yet</source>
-        <translation>Inga bokmärken än</translation>
-    </message>
-</context>
-<context>
-    <name>QfBookmarkLocatorFilter</name>
-    <message>
-        <source>Navigate to bookmark</source>
-        <translation>Gå till bokmärket</translation>
-    </message>
-    <message>
-        <source>Spatial bookmarks</source>
-        <translation>Rumsliga bokmärken</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Returnerar en lista över användare och för tillfället öppna projektbokmärken med matchande namn.</translation>
-    </message>
-</context>
-<context>
-    <name>QfBookmarkProperties</name>
-    <message>
-        <source>Bookmark Properties</source>
-        <translation>Bokmärkesegenskaper</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Beskrivning</translation>
-    </message>
-    <message>
-        <source>Change color</source>
-        <translation>Byt färg</translation>
-    </message>
-    <message>
-        <source>Bookmark details copied to clipboard</source>
-        <translation>Bokmärkesdetaljer kopierade till urklipp</translation>
-    </message>
-    <message>
-        <source>Remove bookmark</source>
-        <translation>Ta bort bokmärke</translation>
-    </message>
-    <message>
-        <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Du håller på att ta bort ett bokmärke. Vill du fortsätta?</translation>
-    </message>
-</context>
-<context>
-    <name>QfBookmarkRenderer</name>
-    <message>
-        <source>Bookmark: %1</source>
-        <translation>Bokmärke: %1</translation>
-    </message>
-    <message>
-        <source>Project bookmarks cannot be edited</source>
-        <translation>Projektbokmärken kan inte redigeras</translation>
-    </message>
-</context>
-<context>
-    <name>QfBrowserPanel</name>
-    <message>
-        <source>Browser</source>
-        <translation>Utforskare</translation>
-    </message>
-</context>
-<context>
-    <name>QfCalendarPanel</name>
-    <message>
-        <source>Hours</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minutes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Seconds</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>January</source>
-        <translation>Januari</translation>
-    </message>
-    <message>
-        <source>February</source>
-        <translation>Februari</translation>
-    </message>
-    <message>
-        <source>March</source>
-        <translation>Mars</translation>
-    </message>
-    <message>
-        <source>April</source>
-        <translation>April</translation>
-    </message>
-    <message>
-        <source>May</source>
-        <translation>Maj</translation>
-    </message>
-    <message>
-        <source>June</source>
-        <translation>Juni</translation>
-    </message>
-    <message>
-        <source>July</source>
-        <translation>Juli</translation>
-    </message>
-    <message>
-        <source>August</source>
-        <translation>Augusti</translation>
-    </message>
-    <message>
-        <source>September</source>
-        <translation>September</translation>
-    </message>
-    <message>
-        <source>October</source>
-        <translation>Oktober</translation>
-    </message>
-    <message>
-        <source>November</source>
-        <translation>November</translation>
-    </message>
-    <message>
-        <source>December</source>
-        <translation>December</translation>
-    </message>
-</context>
-<context>
-    <name>QfCamera</name>
-    <message>
-        <source>Latitude</source>
-        <translation>Latitud</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Longitud</translation>
-    </message>
-    <message>
-        <source>Altitude</source>
-        <translation>Höjd</translation>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation>Hastighet</translation>
-    </message>
-    <message>
-        <source>Orientation</source>
-        <translation>Orientering</translation>
-    </message>
-    <message>
-        <source>Details stamping enabled</source>
-        <translation>Detaljstämpling aktiverad</translation>
-    </message>
-    <message>
-        <source>Details stamping disabled</source>
-        <translation>Detaljstämpling inaktiverad</translation>
-    </message>
-    <message>
-        <source>Geotagging enabled</source>
-        <translation>Geotaggning påslagen</translation>
-    </message>
-    <message>
-        <source>Geotagging disabled</source>
-        <translation>Geotaggning avstängd</translation>
-    </message>
-    <message>
-        <source>Grid enabled</source>
-        <translation>Rutnät aktiverat</translation>
-    </message>
-    <message>
-        <source>Grid disabled</source>
-        <translation>Rutnät inaktiverat</translation>
-    </message>
-    <message>
-        <source>front</source>
-        <translation>framsida</translation>
-    </message>
-    <message>
-        <source>back</source>
-        <translation>baksida</translation>
-    </message>
-</context>
-<context>
-    <name>QfChangelog</name>
-    <message>
-        <source>What&apos;s new in QField</source>
-        <translation>Nyheter i Qfield</translation>
-    </message>
-    <message>
-        <source>Error while fetching changelog, try again later.</source>
-        <translation>Fel vid hämtning av ändringslogg, försök igen senare.</translation>
-    </message>
-    <message>
-        <source>Support QField</source>
-        <translation>Stöd Qfield</translation>
-    </message>
-    <message>
-        <source>Check the latest QField changes on </source>
-        <translation>Kontrollera de senaste QField-ändringarna på </translation>
-    </message>
-    <message>
-        <source>QField releases page</source>
-        <translation>QField release sida</translation>
-    </message>
-</context>
-<context>
-    <name>QfChangelogContents</name>
-    <message>
-        <source>Previous releases on GitHub</source>
-        <translation>Tidigare releaser på GitHub</translation>
-    </message>
-</context>
-<context>
-    <name>QfClipboardManager</name>
-    <message>
-        <source>Geometry</source>
-        <translation>Geometri</translation>
-    </message>
-    <message>
-        <source>Paste failed: no destination layer provided</source>
-        <translation>Klistra in misslyckades: inget destinationslager angivet</translation>
-    </message>
-    <message>
-        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>Skäroperation: käll- och destinationslager är samma, hoppar över klistre.</translation>
-    </message>
-    <message>
-        <source>Paste failed: clipboard feature is invalid</source>
-        <translation>Det gick inte att klistra in: objektet i urklipp är ogiltigt</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>Det gick inte att klippa ut: redigeringen av källagret %1 kunde inte startas</translation>
-    </message>
-    <message>
-        <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>Det gick inte att klippa ut: originalobjektet kunde inte tas bort från källagret %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: no compatible features could be created</source>
-        <translation>Det gick inte att klistra in: inga kompatibla objekt kunde skapas</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not start editing on layer %1</source>
-        <translation>Det gick inte att klistra in: redigeringen av lagret %1 kunde inte startas</translation>
-    </message>
-    <message>
-        <source>Paste failed: could not add feature to layer %1</source>
-        <translation>Det gick inte att klistra in: objektet kunde inte läggas till i lagret %1</translation>
-    </message>
-    <message>
-        <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>Det gick inte att klistra in eftersom ändringarna inte kunde sparas i lagret %1</translation>
-    </message>
-    <message>
-        <source>Cut commit failed on source layer %1</source>
-        <translation>Det gick inte att spara utklippningen i källagret %1</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloseButton</name>
-    <message>
-        <source>close</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QfCloudConnection</name>
-    <message>
-        <source>Authentication provider missing</source>
-        <translation>Autentiseringsleverantör saknas</translation>
-    </message>
-    <message>
-        <source>Password missing</source>
-        <translation>Lösenord saknas</translation>
-    </message>
-    <message>
-        <source>Login error due to unexpected redirect, please retry later</source>
-        <translation>Inloggningsfel på grund av oväntad omdirigering, försök igen senare</translation>
-    </message>
-    <message>
-        <source>Server not found, please check the server URL</source>
-        <translation>Servern hittades inte. Kontrollera server-URL:en.</translation>
-    </message>
-    <message>
-        <source>Timeout error, please retry</source>
-        <translation>Tidsgränsen överskreds. Försök igen.</translation>
-    </message>
-    <message>
-        <source>Wrong username or password</source>
-        <translation>Fel användarnamn eller lösenord</translation>
-    </message>
-    <message>
-        <source>Session expired</source>
-        <translation>Sessionen har gått ut</translation>
-    </message>
-    <message>
-        <source>Login temporary unavailable</source>
-        <translation>Inloggningen är tillfälligt otillgänglig</translation>
-    </message>
-    <message>
-        <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation>[timeout] Begäran tog för lång tid att slutföra, försök igen.</translation>
-    </message>
-    <message>
-        <source>[aborted] The request has been aborted.</source>
-        <translation>[avbruten] Begäran har avbrutits.</translation>
-    </message>
-    <message>
-        <source>Server Error.</source>
-        <translation>Serverfel.</translation>
-    </message>
-    <message>
-        <source>Network Error.</source>
-        <translation>Nätverksfel.</translation>
-    </message>
-    <message>
-        <source>Failed to upload attachment stored at `%1`, reason:
-%2</source>
-        <translation>Det gick inte att ladda upp bilagan som lagras i `%1`. Orsak:
-%2</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudDangerZone</name>
-    <message>
-        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation>Åtgärden nedan är irreversibel och påverkar permanent dina lokala data. Fortsätt med försiktighet.</translation>
-    </message>
-    <message>
-        <source>Reset project</source>
-        <translation>Återställ projekt</translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation>Kassera lokala ändringar</translation>
-    </message>
-    <message>
-        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
-
-While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Den lokala kopian av molnprojektet är skadad. Om du återställer projektet hämtas molnversionen igen och alla lokala ändringar tas bort. Kopiera därför först de ändringar som behöver sparas.
-
-Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att det återställs för att undvika dataförlust. Inga nya ändringar kommer att laddas upp till molnet.</translation>
-    </message>
-    <message>
-        <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation>Tar bort alla lokala ändringar som ännu inte har laddats upp.</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>Återställ</translation>
-    </message>
-    <message>
-        <source>Discard</source>
-        <translation>Kassera</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudDeltaHistory</name>
-    <message>
-        <source>Upload History</source>
-        <translation>Uppladdningshistorik</translation>
-    </message>
-    <message>
-        <source>Fetching upload history…</source>
-        <translation>Hämtar uppladdningshistorik…</translation>
-    </message>
-    <message>
-        <source>No changes have been uploaded yet!</source>
-        <translation>Inga ändringar har laddats upp än!</translation>
-    </message>
-    <message>
-        <source>Uploaded by %1 on %2</source>
-        <translation>Uppladdad av %1 på %2</translation>
-    </message>
-    <message>
-        <source>Applied</source>
-        <translation>Tillämpad</translation>
-    </message>
-    <message>
-        <source>Pending</source>
-        <translation>Väntande</translation>
-    </message>
-    <message>
-        <source>Busy</source>
-        <translation>Upptagen</translation>
-    </message>
-    <message>
-        <source>Conflict</source>
-        <translation>Konflikt</translation>
-    </message>
-    <message>
-        <source>Not applied</source>
-        <translation>Inte tillämpad</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Fel</translation>
-    </message>
-    <message>
-        <source>Ignored</source>
-        <translation>Ignorerad</translation>
-    </message>
-    <message>
-        <source>Unpermitted</source>
-        <translation>Otillåtet</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation>Okänt</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudLogin</name>
-    <message>
-        <source>Failed to sign in</source>
-        <translation>Misslyckades med att logga in</translation>
-    </message>
-    <message>
-        <source>%1Server URL
-(Leave empty to use the default server)</source>
-        <translation>%1Server-URL
-(Lämna tomt om standardservern ska användas)</translation>
-    </message>
-    <message>
-        <source>Username or email</source>
-        <translation>Användarnamn eller e-post</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Lösenord</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Logga ut</translation>
-    </message>
-    <message>
-        <source>Signing in, please wait</source>
-        <translation>Loggar in, vänligen vänta</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Logga in</translation>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>eller</translation>
-    </message>
-    <message>
-        <source>Sign in using %1</source>
-        <translation>Logga in med %1</translation>
-    </message>
-    <message>
-        <source>Visit the %1settings page%2 to manage your account.</source>
-        <translation>Besök %1inställningssidan%2 för att hantera kontot.</translation>
-    </message>
-    <message>
-        <source>New user?</source>
-        <translation>Ny användare?</translation>
-    </message>
-    <message>
-        <source>Register an account</source>
-        <translation>Registrera ett konto</translation>
-    </message>
-    <message>
-        <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Det enklaste sättet att överföra ditt projekt från QGIS till dina enheter!</translation>
-    </message>
-    <message>
-        <source>Learn more about QFieldCloud</source>
-        <translation>Läs mer om QFieldCloud</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudPackageLayersFeedback</name>
-    <message>
-        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation>Vissa lager har inte förpackats korrekt. Dessa lager kan vara felkonfigurerade eller deras datakälla är inte åtkomlig från QFieldCloud-servern.</translation>
-    </message>
-    <message>
-        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation>Kontrollera den detaljerade feedbacken nedan och de senaste loggarna för paketeringsjobb på QFieldCloud-webbplatsen.</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudPendingChanges</name>
-    <message>
-        <source>added</source>
-        <translation>Tillagd</translation>
-    </message>
-    <message>
-        <source>edited</source>
-        <translation>redigerad</translation>
-    </message>
-    <message>
-        <source>deleted</source>
-        <translation>borttagen</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Tomt</translation>
-    </message>
-    <message>
-        <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>%1: %2 to %3</source>
-        <translation>%1: %2 till %3</translation>
-    </message>
-    <message>
-        <source>%1: %2</source>
-        <translation>%1: %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n change(s)</source>
-        <translation><numerusform>%n ändring</numerusform><numerusform>%n ändringar</numerusform></translation>
-    </message>
-    <message>
-        <source>Geometry modified</source>
-        <translation>Geometri ändrad</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudPopup</name>
-    <message>
-        <source>Danger Zone</source>
-        <translation>Riskzon</translation>
-    </message>
-    <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>Detta QFieldCloud-projekt laddades först ner med ett annat molnkonto. Logga in med det ursprungliga kontot för detta projekt för att använda QFieldCloud-funktionen.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud paketerar de senaste data endast för dig; detta kan ta lite tid, vänligen vänta</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Laddar ner, %1 % av %2 har hämtats</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Laddar ner, %1 % har hämtats</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Kontaktar QFieldCloud för att ladda ner projektet</translation>
-    </message>
-    <message>
-        <source>Pushing changes, %1%…</source>
-        <translation>Laddar upp ändringar, %1 %…</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation>QFieldCloud tillämpar de senast uppladdade ändringarna. Det kan ta en stund…</translation>
-    </message>
-    <message>
-        <source>Cloudify project</source>
-        <translation>Överför projekt till molnet</translation>
-    </message>
-    <message>
-        <source>Uploading the current project to QFieldCloud.</source>
-        <translation>Laddar upp det aktuella projektet till QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation>Det aktuella projektet är inte lagrat på QFieldCloud. Att lagra projekt på QFieldCloud erbjuder sömlös synkronisering, offline-redigering och teamhantering.</translation>
-    </message>
-    <message>
-        <source>Learn more about QFieldCloud</source>
-        <translation>Läs mer om QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Cloudifying %1%</source>
-        <translation>Överför till molnet, %1 %</translation>
-    </message>
-    <message>
-        <source>Cloudifying</source>
-        <translation>Överför till molnet</translation>
-    </message>
-    <message>
-        <source>The locally stored cloud project has been corrupted</source>
-        <translation>Det lokalt lagrade molnprojektet har blivit korrupt</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Ladda upp lokala ändringar</translation>
-    </message>
-    <message>
-        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation>Skickar dina ändringar och bilagor till molnet utan att ladda ner projektuppdateringar. Snabbt och låg datamängd.</translation>
-    </message>
-    <message>
-        <source>No changes uploaded yet</source>
-        <translation>Inga ändringar har laddats upp än</translation>
-    </message>
-    <message>
-        <source>Last uploaded just now</source>
-        <translation>Laddades upp nyss</translation>
-    </message>
-    <message>
-        <source>Last uploaded %1 minutes ago</source>
-        <translation>Laddades upp för %1 minuter sedan</translation>
-    </message>
-    <message>
-        <source>Last uploaded today at %1</source>
-        <translation>Laddades upp idag kl. %1</translation>
-    </message>
-    <message>
-        <source>Last uploaded on %1</source>
-        <translation>Senast uppladdad den %1</translation>
-    </message>
-    <message>
-        <source>Upload</source>
-        <translation>Ladda upp</translation>
-    </message>
-    <message numerus="yes">
-        <source>Auto-upload every %n minute(s)</source>
-        <translation><numerusform>Ladda upp automatiskt varje %n minut</numerusform><numerusform>Ladda upp automatiskt var %n:e minut</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation>Det aktuella projektet tillåter inte att automatisk uppladdning stängs av</translation>
-    </message>
-    <message>
-        <source>Synchronize project</source>
-        <translation>Synkronisera projekt</translation>
-    </message>
-    <message>
-        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation>Laddar upp dina redigeringar och laddar sedan ner det senaste projektet från QFieldCloud så att allt är uppdaterat.</translation>
-    </message>
-    <message>
-        <source>Last synchronized just now</source>
-        <translation>Synkroniserades nyss</translation>
-    </message>
-    <message>
-        <source>Last synchronized %1 minutes ago</source>
-        <translation>Synkroniserades för %1 minuter sedan</translation>
-    </message>
-    <message>
-        <source>Last synchronized today at %1</source>
-        <translation>Senast synkroniserad idag kl. %1</translation>
-    </message>
-    <message>
-        <source>Last synchronized on %1</source>
-        <translation>Senast synkroniserad den %1</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Synkronisera</translation>
-    </message>
-    <message>
-        <source>Upload history</source>
-        <translation>Uppladdningshistorik</translation>
-    </message>
-    <message>
-        <source>Danger zone</source>
-        <translation>Riskzon</translation>
-    </message>
-    <message>
-        <source>Uploading %1</source>
-        <translation>Ladda upp %1</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) remaining</source>
-        <translation><numerusform>%n fil återstår</numerusform><numerusform>%n filer återstår</numerusform></translation>
-    </message>
-    <message>
-        <source>Discard local changes</source>
-        <translation>Kassera lokala ändringar</translation>
-    </message>
-    <message>
-        <source>Should local changes be discarded?</source>
-        <translation>Ska lokala ändringar kasseras?</translation>
-    </message>
-    <message>
-        <source>Reset cloud project</source>
-        <translation>Återställ molnprojekt</translation>
-    </message>
-    <message>
-        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Sista varning, återställning av molnprojektet kommer att radera alla lokala ändringar, är du säker på att du vill fortsätta?</translation>
-    </message>
-    <message>
-        <source>Connecting cloud</source>
-        <translation>Ansluter till molnet</translation>
-    </message>
-    <message>
-        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Detta projekt har en uppdaterad projektfil i molnet, du rekommenderas att synkronisera.</translation>
-    </message>
-    <message>
-        <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>Detta projekt har uppdaterade data i molnet, du bör synkronisera.</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation>Projekt %1 kan inte paketeras eftersom din tillgängliga lagring är full.</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Uppgradera lagring</translation>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation>Projekt %1 kan inte paketeras eftersom projektägarens tillgängliga lagring är full.</translation>
-    </message>
-    <message>
-        <source>Local changes discarded</source>
-        <translation>Lokala ändringar har kasserats</translation>
-    </message>
-    <message>
-        <source>Failed to discard changes</source>
-        <translation>Det gick inte att kassera ändringarna</translation>
-    </message>
-    <message>
-        <source>No changes to discard</source>
-        <translation>Det finns inga ändringar att kassera</translation>
-    </message>
-    <message>
-        <source>Used %1 of %2</source>
-        <translation>Använt %1 av %2</translation>
-    </message>
-    <message>
-        <source>Local changes</source>
-        <translation>Lokala ändringar</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n addition(s)</source>
-        <translation><numerusform>%n tillägg</numerusform><numerusform>%n tillägg</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n edit(s)</source>
-        <translation><numerusform>%n redigering</numerusform><numerusform>%n redigeringar</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n deletion(s)</source>
-        <translation><numerusform>%n borttagning</numerusform><numerusform>%n borttagningar</numerusform></translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudProject</name>
-    <message>
-        <source>Failed to open temporary file for `%1`, reason:
-%2</source>
-        <translation>Det gick inte att öppna den tillfälliga filen för `%1`. Orsak:
-%2</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation>Filsystemfel. Kunde inte skriva bilaga till temporär plats `%1`.</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation>Filsystemfel. Kunde inte öppna bilaga för skrivning på temporär plats `%1`.</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download attachment `%1`.</source>
-        <translation>Nätverksfel. Misslyckades med att ladda ner bilagan `%1`.</translation>
-    </message>
-    <message>
-        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>Förpackningsjobb avslutades utan framgång för `%1`. %2</translation>
-    </message>
-    <message>
-        <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation>Misslyckades med att uppdatera senaste info för `%1`: %2</translation>
-    </message>
-    <message>
-        <source>Failed to get latest package data.</source>
-        <translation>Misslyckades med att hämta senaste paketdata.</translation>
-    </message>
-    <message>
-        <source>Latest package data response error.</source>
-        <translation>Senaste paketdata-svarsfel.</translation>
-    </message>
-    <message>
-        <source>Latest package data structure error.</source>
-        <translation>Senaste paketdata-strukturfel.</translation>
-    </message>
-    <message>
-        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation>Projekt %1: Paketerat lager `%2` är inte giltigt. Felkod %3, felmeddelande: %4</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation>Filsystemfel. Kunde inte skriva till partiell fil `%1`.</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to open partial file `%1`.</source>
-        <translation>Filsystemfel. Kunde inte öppna partiell fil `%1`.</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download file `%1`.</source>
-        <translation>Nätverksfel. Misslyckades med att ladda ner fil `%1`.</translation>
-    </message>
-    <message>
-        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Kunde inte kopiera vissa av de nedladdade filerna till din enhet. Kontrollera enhetens lagring.</translation>
-    </message>
-    <message>
-        <source>Project `%1`, file `%2`: %3</source>
-        <translation>Projekt `%1`, fil `%2`: %3</translation>
-    </message>
-    <message>
-        <source>System message: </source>
-        <translation>Systemmeddelande: </translation>
-    </message>
-    <message>
-        <source> (see more in the QField error log)…</source>
-        <translation> (mer information finns i QFields fellogg)…</translation>
-    </message>
-    <message>
-        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Jobbskapande avslutat, men serverns svar saknar obligatoriska fält: id(sträng)</translation>
-    </message>
-    <message>
-        <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Hämtning av jobstatus, men inget `%2`-jobb har startats ännu.</translation>
-    </message>
-    <message>
-        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>job(%1) statussvar innehåller inte alla förväntade nycklar: status(string)</translation>
-    </message>
-    <message>
-        <source>Job(%1) finished with a failed status.</source>
-        <translation>Jobb(%1) avslutades med status misslyckad.</translation>
-    </message>
-    <message>
-        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>projekt(%1) triggar svaruppdatering innehåller inte alla förväntade nycklar: namn(string), ägare(string), beskrivning(string), användarroll(string), är_offentlig(bool), kan_omförpackas(bool), behöver_omförpackning(bool)</translation>
-    </message>
-    <message>
-        <source>aborted</source>
-        <translation>avbrutet</translation>
-    </message>
-    <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Lokal sökväg finns inte</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Lokal sökväg för uppladdning kan inte användas eftersom den har flera projektfiler</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>Lokal sökväg för uppladdning saknar en giltig projektfil</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to upload file `%1`.</source>
-        <translation>Nätverksfel. Misslyckades med att ladda upp filen `%1`.</translation>
-    </message>
-    <message>
-        <source>One or more files could not be uploaded</source>
-        <translation>En eller flera filer kunde inte laddas upp</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudProjectDetails</name>
-    <message>
-        <source>Using %1 of %2</source>
-        <translation>Använder %1 av %2</translation>
-    </message>
-    <message>
-        <source>Storage size</source>
-        <translation>Lagringsstorlek</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Ägare</translation>
-    </message>
-    <message>
-        <source>Creation date</source>
-        <translation>Skapad</translation>
-    </message>
-    <message>
-        <source>Latest update date</source>
-        <translation>Senast uppdaterad</translation>
-    </message>
-    <message>
-        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>Denna QR-kod kan skannas av användare med lämplig åtkomst för att ladda ner och öppna detta projekt</translation>
-    </message>
-    <message>
-        <source>Synchronizing</source>
-        <translation>Synkroniserar</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Synkronisera</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Ladda upp lokala ändringar</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloud paketerar projektet, vänligen vänta</translation>
-    </message>
-    <message>
-        <source>Downloading project</source>
-        <translation>Laddar ner projekt</translation>
-    </message>
-    <message>
-        <source>Download project</source>
-        <translation>Ladda ner projekt</translation>
-    </message>
-    <message>
-        <source>Downloading project %1</source>
-        <translation>Nedladdning av projekt %1</translation>
-    </message>
-    <message>
-        <source>Open project</source>
-        <translation>Öppna projekt</translation>
-    </message>
-    <message>
-        <source>Clone project</source>
-        <translation>Klona projekt</translation>
-    </message>
-    <message>
-        <source>Creating project</source>
-        <translation>Skapar projekt</translation>
-    </message>
-    <message>
-        <source>Create project from template</source>
-        <translation>Skapa projekt från mall</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudProjectFilter</name>
-    <message>
-        <source>Predefined Filters</source>
-        <translation>Fördefinierade filter</translation>
-    </message>
-    <message>
-        <source>Criteria</source>
-        <translation>Kriterier</translation>
-    </message>
-    <message>
-        <source>Title or description contains</source>
-        <translation>Titel eller beskrivning innehåller</translation>
-    </message>
-    <message>
-        <source>Owner is</source>
-        <translation>Ägare är</translation>
-    </message>
-    <message>
-        <source>Include public projects</source>
-        <translation>Inkludera offentliga projekt</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Sök</translation>
-    </message>
-    <message>
-        <source>My own</source>
-        <translation>Min egen</translation>
-    </message>
-    <message>
-        <source>Owned by %1</source>
-        <translation>Ägs av %1</translation>
-    </message>
-    <message>
-        <source>Include public templates</source>
-        <translation>Inkludera offentliga mallar</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudProjectsModel</name>
-    <message>
-        <source>Project busy.</source>
-        <translation>Projektet är upptaget.</translation>
-    </message>
-    <message>
-        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation>Nätverket är för närvarande inte aktivt. Vi kommer att skicka ändringarna automatiskt när du är online igen.</translation>
-    </message>
-    <message>
-        <source>Project creation requires a name</source>
-        <translation>Projektet måste ha ett namn</translation>
-    </message>
-    <message>
-        <source>Cloud project could not be created.</source>
-        <translation>Molnprojektet kunde inte skapas.</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudScreen</name>
-    <message>
-        <source>QFieldCloud Projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnected from the cloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connecting to the cloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Projects</source>
-        <translation>Projekt</translation>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation>Sök efter projekt</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloud paketerar de senaste data endast för dig; detta kan ta lite tid, vänligen vänta</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation>Laddar ner, %1 % av %2 har hämtats</translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation>Laddar ner, %1 % har hämtats</translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation>Kontaktar QFieldCloud för att ladda ner projektet</translation>
-    </message>
-    <message>
-        <source>Uploading…</source>
-        <translation>Laddar upp…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Nedladdningsfel. </translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Uppladdningsfel. </translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation>Uppdaterar projektlistan…</translation>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation>Söker efter projekt...</translation>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation>Inga molnprojekt hittades.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation>Prova att %1inkludera offentliga projekt%2 och se vad communityn erbjuder.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation>Prova att %1inkludera offentliga projekt%2.</translation>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation>För att komma igång, %1läs dokumentationen%2.</translation>
-    </message>
-    <message>
-        <source>Refresh projects list</source>
-        <translation>Uppdatera projektlistan</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Logga ut</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Logga in</translation>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation>Inställningssida</translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation>Visa ogiltiga projekt</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Projektåtgärder</translation>
-    </message>
-    <message>
-        <source>Open Project</source>
-        <translation>Öppna Projekt</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Synkronisera</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation>Ladda upp lokala ändringar</translation>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation>Klona projekt</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Ta bort sparat projekt</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation>Visa projektdetaljer</translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation>Visa projektmapp</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation>Är du säker på att du vill ta bort `%1`?</translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Det gick inte att hämta projektinformation för QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Det gick inte att klona projektet: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Det gick inte att skapa projektet: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Uppdaterar projektlistan</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Mallar</translation>
-    </message>
-    <message>
-        <source>Project Creation</source>
-        <translation>Skapa projekt</translation>
-    </message>
-    <message>
-        <source>Enter your project name</source>
-        <translation>Ange ditt projektnamn</translation>
-    </message>
-    <message>
-        <source>Allowed characters: 0-9A-Za-z_-</source>
-        <translation>Tillåtna tecken: 0-9A-Za-z_-</translation>
-    </message>
-    <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
-        <translation>Sök efter mallar</translation>
-    </message>
-    <message>
-        <source>Refreshing templates list...</source>
-        <translation>Uppdaterar mallistan…</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>Söker efter mallar...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>Inga mallar hittades.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>Försök att %1include public templates%2 och se vad communityn har att erbjuda.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>Prova att %1inkludera offentliga mallar%2.</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>Uppdatera mallistan</translation>
-    </message>
-    <message>
-        <source>Creating project…</source>
-        <translation>Skapar projekt…</translation>
-    </message>
-    <message>
-        <source>Preparing project…</source>
-        <translation>Förbereder projekt…</translation>
-    </message>
-    <message>
-        <source>Project created but downloading failed: %1</source>
-        <translation>Projektet skapades, men det gick inte att ladda ner det: %1</translation>
-    </message>
-    <message>
-        <source>The newly-created project could not be prepared.</source>
-        <translation>Det nyskapade projektet kunde inte förberedas.</translation>
-    </message>
-    <message>
-        <source>Downloading project…</source>
-        <translation>Laddar ner projekt…</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudStatus</name>
-    <message>
-        <source>QFieldCloud server is not reachable</source>
-        <translation>QFieldCloud-servern är inte nåbar</translation>
-    </message>
-    <message>
-        <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation>Servern på %1 kunde inte nås. Vänligen kontrollera din internetanslutning.</translation>
-    </message>
-    <message>
-        <source>QFieldCloud is under maintenance</source>
-        <translation>QFieldCloud är under underhåll</translation>
-    </message>
-    <message>
-        <source>QFieldCloud service is degraded</source>
-        <translation>QFieldCloud-tjänsten har begränsad funktion</translation>
-    </message>
-    <message>
-        <source>There is an ongoing incident</source>
-        <translation>En incident pågår</translation>
-    </message>
-</context>
-<context>
-    <name>QfCloudUtils</name>
-    <message>
-        <source>A server error has occured, please try again.</source>
-        <translation>Ett serverfel har inträffat, försök igen.</translation>
-    </message>
-    <message>
-        <source>A network error has occured, please try again.</source>
-        <translation>Ett nätverksfel har inträffat, försök igen.</translation>
-    </message>
-    <message>
-        <source>The project owner&apos;s available storage is full.</source>
-        <translation>Projektägarens lagringsutrymme är fullt.</translation>
-    </message>
-    <message>
-        <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation>Projektägarens prenumerationsplan är otillräcklig.</translation>
-    </message>
-    <message>
-        <source>Expected the json document to be an array of delta status</source>
-        <translation>Förväntade att json dokumentet skulle vara en lista med delta status</translation>
-    </message>
-    <message>
-        <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>Förväntade att alla list-element skulle vara objekt, men elementet vid #%1 är det inte</translation>
-    </message>
-    <message>
-        <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>Förväntade att alla list-element skulle vara objekt med nyckel &quot;%1&quot;, men elementet vid #%2 är det inte</translation>
-    </message>
-    <message>
-        <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation>Okänd status &quot;%1&quot; för $%2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n feature(s) created</source>
-        <translation><numerusform>%n objekt skapades</numerusform><numerusform>%n objekt skapades</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n feature(s) edited</source>
-        <translation><numerusform>%n objekt redigerades</numerusform><numerusform>%n objekt redigerades</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n feature(s) deleted</source>
-        <translation><numerusform>%n objekt togs bort</numerusform><numerusform>%n objekt togs bort</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 in layer %2</source>
-        <translation>%1 i lager %2</translation>
-    </message>
-</context>
-<context>
-    <name>QfCodeReader</name>
-    <message>
-        <source>No readable code found in the selected image</source>
-        <translation>Ingen läsbar kod hittades i den valda bilden</translation>
-    </message>
-    <message>
-        <source>NFC text tag detected</source>
-        <translation>NFC-texttagg upptäcktes</translation>
-    </message>
-    <message>
-        <source>Code Reader</source>
-        <translation>Kodläsare</translation>
-    </message>
-    <message>
-        <source>Center your device on a code</source>
-        <translation>Centrera din enhet på en kod</translation>
-    </message>
-</context>
-<context>
-    <name>QfCogoParameterAngle</name>
-    <message>
-        <source>deg</source>
-        <translation>grader</translation>
-    </message>
-</context>
-<context>
-    <name>QfCogoParameterPoint</name>
-    <message>
-        <source>latitude</source>
-        <translation>Latitud</translation>
-    </message>
-    <message>
-        <source>longitude</source>
-        <translation>Longitud</translation>
-    </message>
-    <message>
-        <source>elevation</source>
-        <translation>Höjd över havet</translation>
-    </message>
-    <message>
-        <source>easting [X]</source>
-        <translation>östkoordinat [X]</translation>
-    </message>
-    <message>
-        <source>northing [Y]</source>
-        <translation>nordkoordinat [Y]</translation>
-    </message>
-    <message>
-        <source>elevation [Z]</source>
-        <translation>Höjd [Z]</translation>
-    </message>
-    <message>
-        <source>Point Feature Picker</source>
-        <translation>Välj punktobjekt</translation>
-    </message>
-</context>
-<context>
-    <name>QfDashBoard</name>
-    <message>
-        <source>The layer %1 is read only.</source>
-        <translation>Lagret %1 är skrivskyddat.</translation>
-    </message>
-    <message>
-        <source>Project Information</source>
-        <translation>Projektinformation</translation>
-    </message>
-    <message>
-        <source>Map Theme</source>
-        <translation>Karttema</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>Teckenförklaring</translation>
-    </message>
-    <message>
-        <source>Expand All</source>
-        <translation>Expandera alla</translation>
-    </message>
-    <message>
-        <source>Collapse All</source>
-        <translation>Komprimera alla</translation>
-    </message>
-    <message>
-        <source>Return home</source>
-        <translation>Återvänd hem</translation>
-    </message>
-    <message>
-        <source>The project is read-only.</source>
-        <translation>Projektet är skrivskyddat.</translation>
-    </message>
-</context>
-<context>
-    <name>QfDialog</name>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Avbryt</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation>Ja</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation>Nej</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Stäng</translation>
-    </message>
-</context>
-<context>
-    <name>QfDigitizingLogger</name>
-    <message>
-        <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation>Standard värdeuttryck för digitaliseringsloggens %2 fält har ett parser fel: %3</translation>
-    </message>
-    <message>
-        <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation>Standard värdeuttryck för digitaliseringsloggens %2 fält har ett utvärderingsfel: %3</translation>
-    </message>
-    <message>
-        <source>Digitizing logs layer feature addition failed</source>
-        <translation>Digitaliseringslogg misslyckades lägga till objekt</translation>
-    </message>
-    <message>
-        <source>Digitizing logs layer change commits failed</source>
-        <translation>Digitaliseringslogg misslyckades spara ändringar</translation>
-    </message>
-    <message>
-        <source>Digitizing logs layer editing failed</source>
-        <translation>Digitaliseringslogg misslyckades med lagereditering</translation>
-    </message>
-</context>
-<context>
-    <name>QfDigitizingToolbar</name>
-    <message>
-        <source>The collected positions count does not meet the requirement</source>
-        <translation>Antalet insamlade positioner uppfyller inte kravet</translation>
-    </message>
-    <message>
-        <source>Cancel digitizing</source>
-        <translation>Avbryt digitalisering</translation>
-    </message>
-    <message>
-        <source>Should the digitized geometry be discarded?</source>
-        <translation>Skall digitaliserad geometri kastas?</translation>
-    </message>
-    <message>
-        <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>Positionsnoggrannhet möter inte uppsatta krav, brytpunkt ej tillagd</translation>
-    </message>
-</context>
-<context>
-    <name>QfDrawingTemplateModel</name>
-    <message>
-        <source>Blank</source>
-        <translation>Tom</translation>
-    </message>
-</context>
-<context>
-    <name>QfEditorWidgetBase</name>
-    <message>
-        <source>Item Menu</source>
-        <translation>Objektmeny</translation>
-    </message>
-</context>
-<context>
-    <name>QfEditorWidgetBinary</name>
-    <message>
-        <source>(Blob)</source>
-        <translation>(Blob)</translation>
-    </message>
-</context>
-<context>
-    <name>QfEditorWidgetCheckBox</name>
-    <message>
-        <source>True</source>
-        <translation>Sann</translation>
-    </message>
-    <message>
-        <source>False</source>
-        <translation>Falsk</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Tomt</translation>
-    </message>
-    <message>
-        <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-</context>
-<context>
-    <name>QfEditorWidgetDateTime</name>
-    <message>
-        <source>(no date)</source>
-        <translation>(ingen datum)</translation>
-    </message>
-    <message>
-        <source>Date value set to today.</source>
-        <translation>Datum satt till idag.</translation>
-    </message>
-</context>
-<context>
-    <name>QfEditorWidgetExternalResource</name>
-    <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Den externa lagringens autentiseringskonfiguration ID saknas, vänligen se till att den importeras till %1</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Läs mer</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Tomt</translation>
-    </message>
-    <message>
-        <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>No Value</source>
-        <translation>Inget Värde</translation>
-    </message>
-    <message>
-        <source>Cannot handle this file type</source>
-        <translation>Kan inte hantera denna filtyp</translation>
-    </message>
-    <message>
-        <source>QFieldCloud on-demand attachment error: </source>
-        <translation>Fel vid efterfrågad bilaga i QFieldCloud: </translation>
-    </message>
-    <message>
-        <source>Take a photo</source>
-        <translation>Ta ett foto</translation>
-    </message>
-    <message>
-        <source>Take a video</source>
-        <translation>Ta en video</translation>
-    </message>
-    <message>
-        <source>Record an audio clip</source>
-        <translation>Spela in ett ljudklipp</translation>
-    </message>
-    <message>
-        <source>Attach a gallery item</source>
-        <translation>Bifoga ett galleriobjekt</translation>
-    </message>
-    <message>
-        <source>Attach a file</source>
-        <translation>Bifoga en fil</translation>
-    </message>
-    <message>
-        <source>Draw a sketch</source>
-        <translation>Rita en skiss</translation>
-    </message>
-</context>
-<context>
-    <name>QfEditorWidgetRange</name>
-    <message>
-        <source>Empty</source>
-        <translation>Tomt</translation>
-    </message>
-    <message>
-        <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-</context>
-<context>
-    <name>QfEditorWidgetTextEdit</name>
-    <message>
-        <source>Empty</source>
-        <translation>Tomt</translation>
-    </message>
-    <message>
-        <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>Copy Text</source>
-        <translation>Kopiera text</translation>
-    </message>
-    <message>
-        <source>Paste Text</source>
-        <translation>Klistra in text</translation>
-    </message>
-    <message>
-        <source>Scan Code</source>
-        <translation>Skanna kod</translation>
-    </message>
-</context>
-<context>
-    <name>QfEgenioussReceiver</name>
-    <message>
-        <source>Received data is too short to process</source>
-        <translation>Mottagen data är för kort för att bearbetas</translation>
-    </message>
-    <message>
-        <source>Invalid start byte</source>
-        <translation>Ogiltigt startbyte</translation>
-    </message>
-    <message>
-        <source>Received data is too short to contain the payload</source>
-        <translation>Mottagen data är för kort för att innehålla nyttolast</translation>
-    </message>
-    <message>
-        <source>Failed to parse JSON</source>
-        <translation>Misslyckades med att analysera JSON</translation>
-    </message>
-    <message>
-        <source>Could not find the remote host</source>
-        <translation>Kunde inte hitta fjärrvärden</translation>
-    </message>
-    <message>
-        <source>Attempt to read or write from socket returned an error</source>
-        <translation>Ett fel uppstod vid läsning från eller skrivning till socketen</translation>
-    </message>
-    <message>
-        <source>The connection was refused by the remote host</source>
-        <translation>Fjärrvärden avvisade anslutningen</translation>
-    </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
-        <translation>TCP-mottagningsfel (%1)</translation>
-    </message>
-    <message>
-        <source>Is the app running? HTTP request failed: %1</source>
-        <translation>Kör appen? HTTP-förfrågan misslyckades: %1</translation>
-    </message>
-    <message>
-        <source>Egeniouss service is not ready.</source>
-        <translation>Egeniouss tjänst är inte klar.</translation>
-    </message>
-    <message>
-        <source>Last fix</source>
-        <translation>Senaste fix</translation>
-    </message>
-    <message>
-        <source>Heading</source>
-        <translation>Kurs</translation>
-    </message>
-    <message>
-        <source>Roll</source>
-        <translation>Rullning</translation>
-    </message>
-    <message>
-        <source>Pitch</source>
-        <translation>Tippning</translation>
-    </message>
-    <message>
-        <source>Heading sigma</source>
-        <translation>Kursens sigma</translation>
-    </message>
-</context>
-<context>
-    <name>QfElevationProfile</name>
-    <message>
-        <source>Rendering elevation profile…</source>
-        <translation>Ritar höjdprofil…</translation>
-    </message>
-    <message>
-        <source>Digitize a path to render the elevation profile</source>
-        <translation>Digitalisera en sträcka för att visa höjdprofilen</translation>
-    </message>
-</context>
-<context>
-    <name>QfExpressionCalculatorLocatorFilter</name>
-    <message>
-        <source>Copy “%1” to clipboard</source>
-        <translation>Kopiera “%1” till urklipp</translation>
-    </message>
-    <message>
-        <source>Calculator</source>
-        <translation>Miniräknare</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Returnerar värdet av ett uttryck som skrivits in i sökfältet.</translation>
-    </message>
-</context>
-<context>
-    <name>QfExpressionVariableModel</name>
-    <message>
-        <source>Not Available</source>
-        <translation>Ej tillgänglig</translation>
-    </message>
-</context>
-<context>
-    <name>QfFeatureForm</name>
-    <message>
-        <source>Previous page</source>
-        <translation>Föregående sida</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Spara</translation>
-    </message>
-    <message>
-        <source>Next page</source>
-        <translation>Nästa sida</translation>
-    </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>Hårda villkor är inte uppfyllda</translation>
-    </message>
-    <message>
-        <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation>Det senast inmatade värdet för detta fält kommer att komma ihåg och återanvändas vid skapandet av nya objekt</translation>
-    </message>
-    <message>
-        <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation>Det senast inmatade värdet för detta fält kommer inte att återanvändas vid skapandet av nya objekt</translation>
-    </message>
-    <message>
-        <source>Value applied</source>
-        <translation>Värde applicerat</translation>
-    </message>
-    <message>
-        <source>Value skipped</source>
-        <translation>Värde överhoppat</translation>
-    </message>
-    <message>
-        <source> (click to toggle)</source>
-        <translation>(klicka för att växla)</translation>
-    </message>
-    <message>
-        <source>Soft constraints were not satisified</source>
-        <translation>Mjuka villkor är inte uppfyllda</translation>
-    </message>
-    <message>
-        <source>Feature addition disabled</source>
-        <translation>Tillägg av objekt inaktiverat</translation>
-    </message>
-    <message>
-        <source>Unable to save changes</source>
-        <translation>Kan inte spara ändringar</translation>
-    </message>
-    <message>
-        <source>Add feature on %1</source>
-        <translation>Lägg till objekt till %1</translation>
-    </message>
-    <message>
-        <source>Edit feature on %1</source>
-        <translation>Redigera objekt i %1</translation>
-    </message>
-    <message>
-        <source>View feature on %1</source>
-        <translation>Visa objekt i %1</translation>
-    </message>
-    <message>
-        <source>Feature Form Menu</source>
-        <translation>Objektsformulärmeny</translation>
-    </message>
-    <message>
-        <source>Remember All Reusable Values</source>
-        <translation>Kom ihåg alla återanvändbara värden</translation>
-    </message>
-    <message>
-        <source>Forget All Reusable Values</source>
-        <translation>Glöm alla återanvändbara värden</translation>
-    </message>
-    <message>
-        <source>Cancel editing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Du är på väg att avvisa den nya objektet, fortsätt?</translation>
-    </message>
-    <message>
-        <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>Du är på väg att lämna redigeringsläget, alla ändringar kommer att gå förlorade. Fortsätta?</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Avbryt</translation>
-    </message>
-    <message>
-        <source>You are about to cancel the feature setup, proceed?</source>
-        <translation>Du håller på att avbryta inställningen av objektet, fortsätta?</translation>
-    </message>
-</context>
-<context>
-    <name>QfFeatureHistory</name>
-    <message>
-        <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation>Det gick inte att ångra skapandet av objekt i lagret &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation>Det gick inte att ångra borttagningen av objekt i lagret &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation>Det gick inte att ångra uppdateringen av objekt i lagret &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation>Det gick inte att spara ångringen av objektändringen i lagret &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation>Det gick inte att återställa ångringen av objektändringar i lagret &quot;%1&quot;</translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation><numerusform>Ångra skapandet av %n objekt i lagret %1.</numerusform><numerusform>Ångra skapandet av %n objekt i lagret %1.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s).</source>
-        <translation><numerusform>Ångra skapandet av %n objekt.</numerusform><numerusform>Ångra skapandet av %n objekt.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation><numerusform>Ångra borttagningen av %n objekt i lagret %1.</numerusform><numerusform>Ångra borttagningen av %n objekt i lagret %1.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s).</source>
-        <translation><numerusform>Ångra borttagningen av %n objekt.</numerusform><numerusform>Ångra borttagningen av %n objekt.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation><numerusform>Ångra ändringarna av %n objekt i lagret %1.</numerusform><numerusform>Ångra ändringarna av %n objekt i lagret %1.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s).</source>
-        <translation><numerusform>Ångra ändringarna av %n objekt.</numerusform><numerusform>Ångra ändringarna av %n objekt.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation><numerusform>Gör om skapandet av %n objekt i lagret %1</numerusform><numerusform>Gör om skapandet av %n objekt i lagret %1</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s)</source>
-        <translation><numerusform>Gör om skapandet av %n objekt</numerusform><numerusform>Gör om skapandet av %n objekt</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation><numerusform>Gör om borttagningen av %n objekt i lagret %1</numerusform><numerusform>Gör om borttagningen av %n objekt i lagret %1</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s)</source>
-        <translation><numerusform>Gör om borttagningen av %n objekt</numerusform><numerusform>Gör om borttagningen av %n objekt</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation><numerusform>Gör om ändringarna av %n objekt i lagret %1</numerusform><numerusform>Gör om ändringarna av %n objekt i lagret %1</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s)</source>
-        <translation><numerusform>Gör om ändringarna av %n objekt</numerusform><numerusform>Gör om ändringarna av %n objekt</numerusform></translation>
-    </message>
-</context>
-<context>
-    <name>QfFeatureListForm</name>
-    <message>
-        <source>Features</source>
-        <translation>Objekt</translation>
-    </message>
-    <message>
-        <source>Processing Algorithms</source>
-        <translation>Bearbetningsalgoritmer</translation>
-    </message>
-    <message>
-        <source>Changes saved</source>
-        <translation>Ändringar sparade</translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation>Ändringar förkastades</translation>
-    </message>
-    <message>
-        <source>Stop tracking this feature to edit attributes</source>
-        <translation>Sluta spåra detta objekt för att redigera attributen</translation>
-    </message>
-    <message>
-        <source>Stop tracking this feature to edit geometry</source>
-        <translation>Sluta spåra detta objekt för att redigera geometrin</translation>
-    </message>
-    <message>
-        <source>Successfully duplicated feature</source>
-        <translation>Lyckad duplicering av objekt</translation>
-    </message>
-    <message>
-        <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>Ett antal objekt spåras, avbryt spårningen för att radera dem</translation>
-    </message>
-    <message>
-        <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>Ett antal objekt spåras, stoppa spårning för att slå samman dem</translation>
-    </message>
-    <message>
-        <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Lyckades duplicera valda objekt, lista uppdaterad för att visa nyligen skapade objekt</translation>
-    </message>
-    <message>
-        <source>No feature at this position</source>
-        <translation>Inga objekt vid denna position</translation>
-    </message>
-    <message>
-        <source>Merge feature(s)</source>
-        <translation>Slå samman objekt</translation>
-    </message>
-    <message numerus="yes">
-        <source>Should the %n feature(s) selected really be merge?
-
-The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
-        <comment>0</comment>
-        <translation><numerusform>Skall %n valt objekt verkligen läggas till?
-
-Objektets geometrier kommer att kombineras med objekt &apos;%1&apos;, som behåller sina attribut.</numerusform><numerusform>Skall de %n valda objekten verkligen läggas till?
-
-Objektens geometrier kommer att kombineras med objekt &apos;%1&apos;, som kommer att behålla sina attribut.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Successfully merged %n feature(s)</source>
-        <translation><numerusform>Lyckades lägga till %n objekt</numerusform><numerusform>Lyckades lägga till %n objekt</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to merge %n feature(s)</source>
-        <translation><numerusform>Misslyckades lägga till %n objekt</numerusform><numerusform>Misslyckades lägga till %n objekt</numerusform></translation>
-    </message>
-    <message>
-        <source>Transfer Feature Attributes</source>
-        <translation>Överför objektattribut</translation>
-    </message>
-    <message>
-        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation>Välj ett objekt nedan från vilket attribut kommer att överföras till det för närvarande öppna objektet.</translation>
-    </message>
-    <message>
-        <source>Feature attributes transferred</source>
-        <translation>Objektattribut överförda</translation>
-    </message>
-    <message>
-        <source>No feature attributes were transferred</source>
-        <translation>Inga objektattribut överfördes</translation>
-    </message>
-    <message>
-        <source>Delete feature(s)</source>
-        <translation>Radera objekt</translation>
-    </message>
-    <message numerus="yes">
-        <source>Should the %n feature(s) selected really be deleted?</source>
-        <comment>0</comment>
-        <translation><numerusform>Skall verkligen %n valt objekt raderas?</numerusform><numerusform>Skall verkligen %n valda objekt verkligen raderas?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Successfully deleted %n feature(s)</source>
-        <translation><numerusform>Lyckades radera %n objekt</numerusform><numerusform>Lyckades radera %n objekt</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n feature(s)</source>
-        <translation><numerusform>Misslyckades radera %n objekt</numerusform><numerusform>Misslyckades radera %n objekt</numerusform></translation>
-    </message>
-</context>
-<context>
-    <name>QfFeatureModel</name>
-    <message>
-        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>Värdet &quot;%1&quot; %4 kunde inte konverteras till ett kompatibelt värde för fält %2(%3).</translation>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>Standard värdeuttryck för %1:%2 har tolkningsfel: %3</translation>
-    </message>
-    <message>
-        <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>Standard värdeuttryck för %1:%2 har utvärderingsfel: %3</translation>
-    </message>
-    <message>
-        <source>Cannot update feature</source>
-        <translation>Kan inte uppdatera objekt</translation>
-    </message>
-    <message>
-        <source>Feature %1 could not be fetched after commit</source>
-        <translation>Objekt %1 kunde inte hämtas efter överlämnandet</translation>
-    </message>
-    <message>
-        <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation>Kan inte starta redigering av lager &quot;%1&quot; för att skapa objekt %2</translation>
-    </message>
-    <message>
-        <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>Lager &quot;%1&quot; har hanterats men det nyligen skapade objektet %2 kunde inte hämtas</translation>
-    </message>
-    <message>
-        <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
-%3</source>
-        <translation>Lager &quot;%1&quot; kan inte hanteras med det nyligen skapade objektet %2. Anledning:
-%3</translation>
-    </message>
-    <message>
-        <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation>Objekt %2 kunde inte läggas till lager &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Could not save changes. Rolling back.</source>
-        <translation>Kunde inte spara ändringar. Rullar tillbaka.</translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>Kan inte påbörja redigering</translation>
-    </message>
-</context>
-<context>
-    <name>QfFeaturesLocatorFilter</name>
-    <message>
-        <source>Open form</source>
-        <translation>Öppna formulär</translation>
-    </message>
-    <message>
-        <source>Set feature as destination</source>
-        <translation>Ange objekt som destination</translation>
-    </message>
-    <message>
-        <source>Feature has no geometry</source>
-        <translation>Objektet har ingen geometri</translation>
-    </message>
-    <message>
-        <source>Features in all layers</source>
-        <translation>Objekt i alla lager</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Returnerar en lista över objekt i alla sökbara lager med matchande visningsnamn.</translation>
-    </message>
-</context>
-<context>
-    <name>QfFileDeviceChooser</name>
-    <message>
-        <source>File path</source>
-        <translation>Filväg</translation>
-    </message>
-    <message>
-        <source>Interval (in milliseconds)</source>
-        <translation>Intervall (i millisekunder)</translation>
-    </message>
-</context>
-<context>
-    <name>QfFinlandLocatorFilter</name>
-    <message>
-        <source>Finnish address search</source>
-        <translation>Finsk adressökning</translation>
-    </message>
-</context>
-<context>
-    <name>QfGeometryEditorErase</name>
-    <message>
-        <source>The geometry could not be modified into multiple parts</source>
-        <translation>Geometrin kunde inte modifieras i flera delar</translation>
-    </message>
-    <message>
-        <source>The geometry could not be modified</source>
-        <translation>Geometrin kunde inte ändras</translation>
-    </message>
-</context>
-<context>
-    <name>QfGeometryEditorFillRing</name>
-    <message>
-        <source>The ring is not closed</source>
-        <translation>Ringen är inte stängd</translation>
-    </message>
-    <message>
-        <source>The ring is not valid</source>
-        <translation>Ringen är inte giltig</translation>
-    </message>
-    <message>
-        <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation>Ringen korsar existerande ringar (den är inte separat)</translation>
-    </message>
-    <message>
-        <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>Det finns ingen befintlig ring som ringen passar in i</translation>
-    </message>
-    <message>
-        <source>Unknown error when creating the ring</source>
-        <translation>Okänt fel vid skapandet av ringen</translation>
-    </message>
-    <message>
-        <source>Fill ring</source>
-        <translation>Fyll ring</translation>
-    </message>
-    <message>
-        <source>Would you like to fill the ring with a new polygon?</source>
-        <translation>Vill du fylla ringen med en ny polygon?</translation>
-    </message>
-</context>
-<context>
-    <name>QfGeometryEditorReshape</name>
-    <message>
-        <source>The geometry could not be reshaped</source>
-        <translation>Geometrin kunde inte omformas</translation>
-    </message>
-</context>
-<context>
-    <name>QfGeometryEditorSplitFeature</name>
-    <message>
-        <source>Feature could not be split</source>
-        <translation>Objekt kunde inte delas</translation>
-    </message>
-</context>
-<context>
-    <name>QfGeometryEditorVertexEditor</name>
-    <message>
-        <source>Failed to save feature!</source>
-        <translation>Det gick inte att spara objektet!</translation>
-    </message>
-</context>
-<context>
-    <name>QfGeometryEditorsToolbar</name>
-    <message>
-        <source>Vertex Tool</source>
-        <translation>Brytpunktsverktyg</translation>
-    </message>
-    <message>
-        <source>Split Tool</source>
-        <translation>Delningsverktyg</translation>
-    </message>
-    <message>
-        <source>Reshape Tool</source>
-        <translation>Omformningsverktyg</translation>
-    </message>
-    <message>
-        <source>Erase Tool</source>
-        <translation>Raderingsverktyg</translation>
-    </message>
-    <message>
-        <source>Fill Ring Tool</source>
-        <translation>Verktyg för att fylla ring</translation>
-    </message>
-</context>
-<context>
-    <name>QfGotoLocatorFilter</name>
-    <message>
-        <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation>Gå till %1%2 %3%4 (kartans CRS, %5)</translation>
-    </message>
-    <message>
-        <source>Set navigation point</source>
-        <translation>Ange navigeringspunkt</translation>
-    </message>
-    <message>
-        <source>Go to %1°N %2°E (%3)</source>
-        <translation>Gå till %1°N %2°E (%3)</translation>
-    </message>
-    <message>
-        <source>Go to coordinate</source>
-        <translation>Gå till koordinat</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Returnerar en punkt från ett par X- och Y-koordinater - eller WGS84 latitud och longitud - som skrivits in i sökfältet.</translation>
-    </message>
-</context>
-<context>
-    <name>QfGuide</name>
-    <message>
-        <source>Finish</source>
-        <translation>Slutför</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation>Nästa</translation>
-    </message>
-    <message>
-        <source>Previous</source>
-        <translation>Föregående</translation>
-    </message>
-</context>
-<context>
-    <name>QfHelpLocatorFilter</name>
-    <message>
-        <source>QField Documentation</source>
-        <translation>QField-dokumentation</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>Returnerar QField-dokumentationssidor som matchar sökorden.</translation>
-    </message>
-</context>
-<context>
-    <name>QfInformationDrawer</name>
-    <message>
-        <source>Navigation</source>
-        <translation>Navigering</translation>
-    </message>
-    <message>
-        <source>Positioning</source>
-        <translation>Positionering</translation>
-    </message>
-    <message>
-        <source>NTRIP</source>
-        <translation>NTRIP</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Sensorer</translation>
-    </message>
-    <message>
-        <source>Elevation profile</source>
-        <translation>Höjdprofil</translation>
-    </message>
-</context>
-<context>
-    <name>QfInformationPopup</name>
-    <message>
-        <source>Author</source>
-        <translation>Författare</translation>
-    </message>
-</context>
-<context>
-    <name>QfLayerLoginDialog</name>
-    <message>
-        <source>Credentials Details</source>
-        <translation>Autentiseringsuppgifter</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation>Användarnamn</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Lösenord</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Skicka</translation>
-    </message>
-</context>
-<context>
-    <name>QfLayerObserver</name>
-    <message>
-        <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation>Kunde inte hitta en lokal primärnyckelkolumn i lagret &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation>Kunde inte hitta en primärnyckelkolumn i källagret &quot;%1&quot;</translation>
-    </message>
-</context>
-<context>
-    <name>QfLayerTreeItemProperties</name>
-    <message>
-        <source>Expand group</source>
-        <translation>Expandera grupp</translation>
-    </message>
-    <message>
-        <source>Expand legend item</source>
-        <translation>Expandera objektet i teckenförklaringen</translation>
-    </message>
-    <message>
-        <source>Stop tracking</source>
-        <translation>Stoppa spårning</translation>
-    </message>
-    <message>
-        <source>Setup tracking</source>
-        <translation>Ställ in spårning</translation>
-    </message>
-    <message>
-        <source>Reload of layer %1 triggered</source>
-        <translation>Omladdning av lagret %1 har utlösts</translation>
-    </message>
-    <message>
-        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Detta lager är ogiltigt. Detta kan bero på ett nätverksproblem, en saknad fil eller en felkonfiguration av projektet.</translation>
-    </message>
-    <message>
-        <source>Show on map</source>
-        <translation>Visa på karta</translation>
-    </message>
-    <message>
-        <source>Show labels</source>
-        <translation>Visa etiketter</translation>
-    </message>
-    <message>
-        <source>Opacity</source>
-        <translation>Opacitet</translation>
-    </message>
-    <message>
-        <source>Zoom to group</source>
-        <translation>Zooma till gruppen</translation>
-    </message>
-    <message>
-        <source>Zoom to parent layer</source>
-        <translation>Zooma till föräldralagret</translation>
-    </message>
-    <message>
-        <source>Zoom to layer</source>
-        <translation>Zooma till lager</translation>
-    </message>
-    <message>
-        <source>Show features list</source>
-        <translation>Visa objektslista</translation>
-    </message>
-    <message>
-        <source>The layer has no features</source>
-        <translation>Lagret innehåller inga objekt</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>Spårningen i lagret %1 stoppades</translation>
-    </message>
-    <message>
-        <source>Read-only layer</source>
-        <translation>Skrivskyddat lager</translation>
-    </message>
-    <message>
-        <source>feature addition</source>
-        <translation>Tillägg av objekt</translation>
-    </message>
-    <message>
-        <source>attribute editing</source>
-        <translation>Attributredigering</translation>
-    </message>
-    <message>
-        <source>geometry editing</source>
-        <translation>Geometriredigering</translation>
-    </message>
-    <message>
-        <source>feature deletion</source>
-        <translation>Borttagning av objekt</translation>
-    </message>
-    <message>
-        <source>Disabled layer permissions: %1</source>
-        <translation>Inaktiverade lagerbehörigheter: %1</translation>
-    </message>
-    <message>
-        <source>Show Features Menu</source>
-        <translation>Visa menyn för objekt</translation>
-    </message>
-    <message>
-        <source>Show visible features list</source>
-        <translation>Visa lista över synliga objekt</translation>
-    </message>
-</context>
-<context>
-    <name>QfLayerUtils</name>
-    <message>
-        <source>Cannot start editing, no layer</source>
-        <translation>Kan inte börja redigera, inget lager</translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>Kan inte påbörja redigering</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>Det gick inte att spara borttagningen av objekt %2 i lagret &quot;%1&quot;. Orsak:
-%3</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>Det gick inte att spara borttagningen i lagret &quot;%1&quot;. Orsak:
-%3</translation>
-    </message>
-    <message>
-        <source>Cannot delete feature %1</source>
-        <translation>Kan inte ta bort objekt %1</translation>
-    </message>
-    <message>
-        <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Det gick inte att återställa ändringarna i lagret %1</translation>
-    </message>
-    <message>
-        <source>Cannot copy invalid feature</source>
-        <translation>Kan inte kopiera ogiltig objekt</translation>
-    </message>
-    <message>
-        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation>Det gick inte att lägga till ett nytt objekt i lagret &quot;%1&quot;. Orsak:
-%2</translation>
-    </message>
-</context>
-<context>
-    <name>QfLegend</name>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation>Spårning är aktiv på detta lager.</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Stoppa</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>Spårningen i lagret %1 stoppades</translation>
-    </message>
-    <message>
-        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Detta lager är ogiltigt. Detta kan bero på ett nätverksproblem, en saknad fil eller en felkonfiguration av projektet.</translation>
-    </message>
-    <message>
-        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Detta lager är konfigurerat som &quot;Endast läsning&quot; vilket inaktiverar att lägga till, ta bort och redigera objekt.</translation>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>Behörighetskonfigurationen för detta lager inaktiverar tillägg av objekt.</translation>
-    </message>
-</context>
-<context>
-    <name>QfLocalDataPickerScreen</name>
-    <message>
-        <source>Project Folder</source>
-        <translation>Projektmapp</translation>
-    </message>
-    <message>
-        <source>Local Projects &amp; Datasets</source>
-        <translation>Lokala projekt och datamängder</translation>
-    </message>
-    <message>
-        <source>Folders</source>
-        <translation>Mappar</translation>
-    </message>
-    <message>
-        <source>Projects</source>
-        <translation>Projekt</translation>
-    </message>
-    <message>
-        <source>Datasets</source>
-        <translation>Datamängder</translation>
-    </message>
-    <message>
-        <source>Files</source>
-        <translation>Filer</translation>
-    </message>
-    <message>
-        <source>Favorites</source>
-        <translation>Favoriter</translation>
-    </message>
-    <message>
-        <source>Project file</source>
-        <translation>Projektfil</translation>
-    </message>
-    <message>
-        <source>Vector dataset</source>
-        <translation>Vektordatamängd</translation>
-    </message>
-    <message>
-        <source>Raster dataset</source>
-        <translation>Rasterdatamängd</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Hem</translation>
-    </message>
-    <message>
-        <source>Item Actions</source>
-        <translation>Objektåtgärder</translation>
-    </message>
-    <message>
-        <source>View file</source>
-        <translation>Visa fil</translation>
-    </message>
-    <message>
-        <source>Send to...</source>
-        <translation>Skicka till...</translation>
-    </message>
-    <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Ladda upp till QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Exportera till mapp...</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Lägg till i favoriter</translation>
-    </message>
-    <message>
-        <source>Remove from favorites</source>
-        <translation>Ta bort från favoriter</translation>
-    </message>
-    <message>
-        <source>Send compressed folder to...</source>
-        <translation>Skicka komprimerad mapp till...</translation>
-    </message>
-    <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Ladda upp mappen till WebDAV-servern</translation>
-    </message>
-    <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Ladda ner mappen från WebDAV-servern</translation>
-    </message>
-    <message>
-        <source>Delete folder</source>
-        <translation>Ta bort mappen</translation>
-    </message>
-    <message>
-        <source>Delete file</source>
-        <translation>Ta bort fil</translation>
-    </message>
-    <message>
-        <source>Remove dataset</source>
-        <translation>Ta bort datamängd</translation>
-    </message>
-    <message>
-        <source>Import Actions</source>
-        <translation>Importåtgärder</translation>
-    </message>
-    <message>
-        <source>Import project from folder</source>
-        <translation>Importera projekt från mapp</translation>
-    </message>
-    <message>
-        <source>Import project from ZIP</source>
-        <translation>Importera projekt från ZIP</translation>
-    </message>
-    <message>
-        <source>Import dataset(s)</source>
-        <translation>Importera datamängder</translation>
-    </message>
-    <message>
-        <source>Import URL</source>
-        <translation>Importera URL</translation>
-    </message>
-    <message>
-        <source>Import WebDAV folder</source>
-        <translation>Importera WebDAV-mapp</translation>
-    </message>
-    <message>
-        <source>Storage management help</source>
-        <translation>Hjälp med lagringshantering</translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation>Projektåtgärder</translation>
-    </message>
-    <message>
-        <source>Update project from ZIP</source>
-        <translation>Uppdatera projektet från ZIP</translation>
-    </message>
-    <message>
-        <source>Compress project and send to...</source>
-        <translation>Komprimera projekt och skicka till...</translation>
-    </message>
-    <message>
-        <source>Upload project to WebDAV</source>
-        <translation>Ladda upp projektet till WebDAV</translation>
-    </message>
-    <message>
-        <source>Download project from WebDAV</source>
-        <translation>Ladda ner projektet från WebDAV</translation>
-    </message>
-    <message>
-        <source>Upload file(s) to WebDAV</source>
-        <translation>Ladda upp filer till WebDAV</translation>
-    </message>
-    <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Ladda upp filer till QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Välj en eller flera filer att ladda upp till QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Send compressed file(s) to...</source>
-        <translation>Skicka komprimerade filer till…</translation>
-    </message>
-    <message>
-        <source>Delete file(s)</source>
-        <translation>Ta bort filer</translation>
-    </message>
-    <message>
-        <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’ laddas upp till QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Objekt som laddas upp till QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Remove File(s)</source>
-        <translation>Ta bort filer</translation>
-    </message>
-    <message numerus="yes">
-        <source>Are you sure you want to remove %n files?</source>
-        <translation><numerusform>Vill du verkligen ta bort %n fil?</numerusform><numerusform>Vill du verkligen ta bort %n filer?</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>%n fil har tagits bort</numerusform><numerusform>%n filer har tagits bort</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>Det gick inte att ta bort %n fil</numerusform><numerusform>Det gick inte att ta bort %n filer</numerusform></translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>Skriv en URL nedan för att ladda ner och importera projektet eller datamängden:</translation>
-    </message>
-    <message>
-        <source>Importing WebDAV folder</source>
-        <translation>Importerar WebDAV-mapp</translation>
-    </message>
-    <message>
-        <source>Downloading WebDAV folder</source>
-        <translation>Laddar ner WebDAV-mapp</translation>
-    </message>
-    <message>
-        <source>Uploading WebDAV folder</source>
-        <translation>Laddar upp WebDAV-mapp</translation>
-    </message>
-    <message>
-        <source>WebDAV error: </source>
-        <translation>WebDAV-fel: </translation>
-    </message>
-    <message>
-        <source>WebDAV upload</source>
-        <translation>WebDAV-uppladdning</translation>
-    </message>
-    <message>
-        <source>WebDAV download</source>
-        <translation>WebDAV-nedladdning</translation>
-    </message>
-    <message>
-        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>Du är på väg att ladda upp modifierat innehåll till &lt;b&gt;%1&lt;/b&gt; med användarens &lt;b&gt;%2&lt;/b&gt;. &lt;br&gt;&lt;br&gt; Denna operation kommer att skriva över data som lagras på distans, se till att det är detta du vill göra.</translation>
-    </message>
-    <message>
-        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>Du håller på att ladda ner modifierat innehåll från &lt;b&gt;%1&lt;/b&gt; med användare &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;. Denna åtgärd kommer att skriva över data som lagras lokalt, se till att detta är vad du vill göra.</translation>
-    </message>
-    <message>
-        <source>Password (leave empty to use remembered)</source>
-        <translation>Lösenord (lämna tomt för att använda sparat)</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Lösenord</translation>
-    </message>
-    <message>
-        <source>Remember password</source>
-        <translation>Kom ihåg lösenord</translation>
-    </message>
-    <message>
-        <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>Skriv in WebDAV detaljer nedan för att importera en fjärrmapp:</translation>
-    </message>
-    <message>
-        <source>WebDAV server URL</source>
-        <translation>WebDAV-serverns URL</translation>
-    </message>
-    <message>
-        <source>User and password</source>
-        <translation>Användare och lösenord</translation>
-    </message>
-    <message>
-        <source>leave empty to use remembered</source>
-        <translation>lämna tomt om det sparade värdet ska användas</translation>
-    </message>
-    <message>
-        <source>Fetching remote folders</source>
-        <translation>Hämtar fjärrmappar</translation>
-    </message>
-    <message>
-        <source>Fetch remote folders</source>
-        <translation>Hämta fjärrmappar</translation>
-    </message>
-    <message>
-        <source>Select the remote folder to import:</source>
-        <translation>Välj den fjärrmapp som ska importeras:</translation>
-    </message>
-    <message>
-        <source>root folder</source>
-        <translation>rotmapp</translation>
-    </message>
-    <message>
-        <source>Available locally in ‘%1’</source>
-        <translation>Tillgänglig lokalt i ‘%1’</translation>
-    </message>
-    <message>
-        <source>Imported folder name</source>
-        <translation>Den importerade mappens namn</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>Bekräfta</translation>
-    </message>
-    <message>
-        <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>Du håller på att ta bort ett sparat WebDAV-objekt. Vill du fortsätta?</translation>
-    </message>
-</context>
-<context>
-    <name>QfLocalFilesModel</name>
-    <message>
-        <source>Home</source>
-        <translation>Hem</translation>
-    </message>
-    <message>
-        <source>QField files directory</source>
-        <translation>Katalog för QField-filer</translation>
-    </message>
-    <message>
-        <source>Created projects</source>
-        <translation>Skapade projekt</translation>
-    </message>
-    <message>
-        <source>Imported projects</source>
-        <translation>Importerade projekt</translation>
-    </message>
-    <message>
-        <source>Imported datasets</source>
-        <translation>Importerade datamängder</translation>
-    </message>
-    <message>
-        <source>Additional files directory</source>
-        <translation>Katalog för ytterligare filer</translation>
-    </message>
-</context>
-<context>
-    <name>QfLocatorFiltersModel</name>
-    <message>
-        <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation>Sökfilter för dina platser har aktiverats, anpassa resultat i inställningspanelen</translation>
-    </message>
-</context>
-<context>
-    <name>QfLocatorItem</name>
-    <message>
-        <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation>Välj ett vektorlager i teckenförklaringen för att söka efter objekt i det aktiva lagret.</translation>
-    </message>
-    <message>
-        <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation>Aktivera först ett vektorlager i teckenförklaringen för att använda funktionen</translation>
-    </message>
-</context>
-<context>
-    <name>QfLocatorSettings</name>
-    <message>
-        <source>Search Bar Settings</source>
-        <translation>Inställningar för sökfält</translation>
-    </message>
-    <message>
-        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation>När sökfiltret är inaktiverat kan det fortfarande användas genom att skriva prefixet %1 i sökfältet.</translation>
-    </message>
-    <message>
-        <source>Enable %1 locator by default</source>
-        <translation>Aktivera %1 lokaliseringsverktyg som standard</translation>
-    </message>
-</context>
-<context>
-    <name>QfMessageLog</name>
-    <message>
-        <source>Message Logs</source>
-        <translation>Meddelandeloggar</translation>
-    </message>
-    <message>
-        <source>Message text copied</source>
-        <translation>Meddelandetext kopierad</translation>
-    </message>
-    <message>
-        <source>Log runtime profiler</source>
-        <translation>Logga körningens profilerare</translation>
-    </message>
-    <message>
-        <source>Clear message log</source>
-        <translation>Rensa meddelandelogg</translation>
-    </message>
-    <message>
-        <source>Message log cleared</source>
-        <translation>Meddelandeloggen har rensats</translation>
-    </message>
-    <message>
-        <source>Send application log</source>
-        <translation>Skicka programlogg</translation>
-    </message>
-    <message>
-        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation>Detta kommer att skicka en logg av din nuvarande session till utvecklingsteamet. Du behöver endast göra detta när du blir ombedd.</translation>
-    </message>
-    <message>
-        <source>Type optional details</source>
-        <translation>Ange valfria uppgifter</translation>
-    </message>
-    <message>
-        <source>Include cloud user details</source>
-        <translation>Inkludera molnanvändardetaljer</translation>
-    </message>
-    <message>
-        <source>Your application log is being sent…</source>
-        <translation>Programloggen skickas…</translation>
-    </message>
-</context>
-<context>
-    <name>QfMeterBar</name>
-    <message>
-        <source>Storage</source>
-        <translation>Lagring</translation>
-    </message>
-    <message>
-        <source>Tap to upgrade storage</source>
-        <translation>Tryck för att uppgradera lagring</translation>
-    </message>
-    <message>
-        <source>Tap to manage storage</source>
-        <translation>Tryck för att hantera lagring</translation>
-    </message>
-</context>
-<context>
-    <name>QfMultiFeatureListModelBase</name>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>Kan inte påbörja redigering</translation>
-    </message>
-    <message>
-        <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Det gick inte att återställa ändringarna i lagret %1</translation>
-    </message>
-    <message>
-        <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>Kan inte ändra geometri för objektet %1 i %2</translation>
-    </message>
-</context>
-<context>
-    <name>QfNavigationBar</name>
-    <message>
-        <source>Features</source>
-        <translation>Objekt</translation>
-    </message>
-    <message>
-        <source>Feature List Menu</source>
-        <translation>Objektslistmeny</translation>
-    </message>
-    <message>
-        <source>Toggle Feature Selection</source>
-        <translation>Växla objektmarkering</translation>
-    </message>
-    <message>
-        <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Skriv ut atlasobjekt som PDF</translation>
-    </message>
-    <message>
-        <source>Merge Selected Features</source>
-        <translation>Slå samman valda objekt</translation>
-    </message>
-    <message>
-        <source>Move Selected Feature(s)</source>
-        <translation>Flytta valda objekt</translation>
-    </message>
-    <message>
-        <source>Duplicate Selected Feature(s)</source>
-        <translation>Duplicera valda objekt</translation>
-    </message>
-    <message>
-        <source>Delete Selected Feature(s)</source>
-        <translation>Ta bort valda objekt</translation>
-    </message>
-    <message>
-        <source>Process Selected Feature(s)</source>
-        <translation>Bearbeta valda objekt</translation>
-    </message>
-    <message>
-        <source>Feature Menu</source>
-        <translation>Objektsmeny</translation>
-    </message>
-    <message>
-        <source>Feature cut into clipboard</source>
-        <translation>Objekt klippt till urklipp</translation>
-    </message>
-    <message>
-        <source>Feature copied to clipboard</source>
-        <translation>Objekt kopierat till urklipp</translation>
-    </message>
-    <message>
-        <source>Feature attributes updated from clipboard</source>
-        <translation>Objektattribut uppdaterade från urklipp</translation>
-    </message>
-    <message>
-        <source>No feature attributes were updated from clipboard</source>
-        <translation>Inga objektattribut uppdaterades från urklippet</translation>
-    </message>
-    <message>
-        <source>Feature set as navigation destination</source>
-        <translation>Objektet har angetts som navigeringsmål</translation>
-    </message>
-    <message>
-        <source>Zoom to Feature</source>
-        <translation>Zooma till objekt</translation>
-    </message>
-    <message>
-        <source>Auto-Zoom to Feature</source>
-        <translation>Zooma automatiskt till objekt</translation>
-    </message>
-    <message>
-        <source>Process Feature</source>
-        <translation>Bearbeta objekt</translation>
-    </message>
-    <message>
-        <source>Move Feature</source>
-        <translation>Flytta objekt</translation>
-    </message>
-    <message>
-        <source>Duplicate Feature</source>
-        <translation>Duplicera objekt</translation>
-    </message>
-    <message>
-        <source>Rotate Feature</source>
-        <translation>Rotera objekt</translation>
-    </message>
-    <message>
-        <source>Update Attributes from Feature</source>
-        <translation>Uppdatera attribut från objektet</translation>
-    </message>
-    <message>
-        <source>Delete Feature</source>
-        <translation>Ta bort objekt</translation>
-    </message>
-    <message>
-        <source>Print Atlas Feature(s)</source>
-        <translation>Skriv ut atlasobjekt</translation>
-    </message>
-    <message>
-        <source>Select template below</source>
-        <translation>Välj mall nedan</translation>
-    </message>
-    <message>
-        <source>Printing...</source>
-        <translation>Skriver ut...</translation>
-    </message>
-    <message>
-        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlasobjekten har skrivits ut och sparats i projektmappen</translation>
-    </message>
-</context>
-<context>
-    <name>QfNavigationInformationView</name>
-    <message>
-        <source>Lon</source>
-        <translation>Lon</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>Lat</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
-    <message>
-        <source>Dist.</source>
-        <translation>Dist.</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Bearing</source>
-        <translation>Riktning</translation>
-    </message>
-</context>
-<context>
-    <name>QfNtripSourceTableFetcher</name>
-    <message>
-        <source>Unexpected response from NTRIP caster</source>
-        <translation>Oväntat svar från NTRIP-servern</translation>
-    </message>
-    <message>
-        <source>Disconnected before receiving source table</source>
-        <translation>Frånkopplad innan mottagande av källtabellen</translation>
-    </message>
-    <message>
-        <source>No mountpoints found in NTRIP source table</source>
-        <translation>Inga monteringspunkter hittades i NTRIP-källtabellen</translation>
-    </message>
-    <message>
-        <source>NTRIP source table fetch error: </source>
-        <translation>Fel vid hämtning av NTRIP-källtabellen: </translation>
-    </message>
-</context>
-<context>
-    <name>QfOrderedRelationModel</name>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>Kan inte påbörja redigering</translation>
-    </message>
-    <message>
-        <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Det gick inte att återställa ändringarna i lagret %1</translation>
-    </message>
-    <message>
-        <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Det gick inte att spara ändringarna i lagret %1.</translation>
-    </message>
-    <message>
-        <source>Cannot update features ordering</source>
-        <translation>Det gick inte att uppdatera objektens ordning</translation>
-    </message>
-</context>
-<context>
-    <name>QfOverlayContainer</name>
-    <message>
-        <source>Positioning</source>
-        <translation>Positionering</translation>
-    </message>
-</context>
-<context>
-    <name>QfOverlayFeatureFormDrawer</name>
-    <message>
-        <source>Changes saved</source>
-        <translation>Ändringar sparade</translation>
-    </message>
-    <message>
-        <source>Changes discarded</source>
-        <translation>Ändringar förkastades</translation>
-    </message>
-</context>
-<context>
-    <name>QfPlatformUtilities</name>
-    <message>
-        <source>Select ZIP Archive</source>
-        <translation>Välj ZIP-arkiv</translation>
-    </message>
-    <message>
-        <source>ZIP Archives (*.zip)</source>
-        <translation>ZIP Arkiv (*.zip)</translation>
-    </message>
-    <message>
-        <source>Select Destination Folder</source>
-        <translation>Välj målmapp</translation>
-    </message>
-    <message>
-        <source>Removal Confirmation</source>
-        <translation>Bekräftelse för borttagning</translation>
-    </message>
-    <message>
-        <source>The dataset will be deleted, proceed with removal?</source>
-        <translation>Datamängden kommer att tas bort. Vill du fortsätta?</translation>
-    </message>
-    <message>
-        <source>The project folder will be deleted, proceed with removal?</source>
-        <translation>Projektmappen kommer att raderas, ska vi gå vidare med borttagningen?</translation>
-    </message>
-    <message>
-        <source>Failed to save file resource</source>
-        <translation>Misslyckades med att spara filresurs</translation>
-    </message>
-    <message>
-        <source>Select Image File</source>
-        <translation>Välj bildfil</translation>
-    </message>
-    <message>
-        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation>Alla bilder (*.jpg *.jpeg *.png *.bmp);; JPEG bilder (*.jpg *.jpeg);; PNG bilder (*.jpg *.jpeg);; BMP bilder (*.bmp)</translation>
-    </message>
-    <message>
-        <source>Select Video File</source>
-        <translation>Välj videofil</translation>
-    </message>
-    <message>
-        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation>All video (*.mp4 *.mkv *.mov);; MP4 video (*.mp4);; MKV video(*.mkv);; MOV video (*.mov)</translation>
-    </message>
-    <message>
-        <source>Select File</source>
-        <translation>Välj fil</translation>
-    </message>
-    <message>
-        <source>Open File</source>
-        <translation>Öppna fil</translation>
-    </message>
-    <message>
-        <source>All Supported Files</source>
-        <translation>Alla stödda filer</translation>
-    </message>
-    <message>
-        <source>QGIS Project Files</source>
-        <translation>QGIS-projektfiler</translation>
-    </message>
-    <message>
-        <source>Vector Datasets</source>
-        <translation>Vektordatamängder</translation>
-    </message>
-    <message>
-        <source>Raster Datasets</source>
-        <translation>Rasterdatamängder</translation>
-    </message>
-</context>
-<context>
-    <name>QfPluginItem</name>
-    <message>
-        <source>Authored by %1%2%3</source>
-        <translation>Författad av %1%2%3</translation>
-    </message>
-    <message>
-        <source>Uninstall version %1</source>
-        <translation>Avinstallera version %1</translation>
-    </message>
-    <message>
-        <source>Uninstall plugin</source>
-        <translation>Avinstallera insticksprogrammet</translation>
-    </message>
-</context>
-<context>
-    <name>QfPluginManager</name>
-    <message>
-        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>Det begärda insticksprogrammet URL finns i listan över tillgängliga insticksprogram, vänligen installera via dess nedladdningsknapp</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>Den nedladdade zip-filen kunde inte dekomprimeras</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>Den nedladdade zip-filen innehåller inte den nödvändiga main.qml insticksprogram-filen</translation>
-    </message>
-    <message>
-        <source>Can&apos;t save the downloaded file</source>
-        <translation>Kan inte spara den nedladdade filen</translation>
-    </message>
-    <message>
-        <source>Download file is not an zipped plugin</source>
-        <translation>Den nedladdade filen är inte ett komprimerat insticksprogram</translation>
-    </message>
-    <message>
-        <source>Network error</source>
-        <translation>Nätverksfel</translation>
-    </message>
-</context>
-<context>
-    <name>QfPluginManagerSettings</name>
-    <message>
-        <source>Plugins</source>
-        <translation>Insticksprogram</translation>
-    </message>
-    <message>
-        <source>Local Plugins</source>
-        <translation>Lokala insticksprogram</translation>
-    </message>
-    <message>
-        <source>Available Plugins</source>
-        <translation>Tillgängliga insticksprogram</translation>
-    </message>
-    <message>
-        <source>Search for plugin</source>
-        <translation>Sök efter insticksprogram</translation>
-    </message>
-    <message>
-        <source>Fetching available plugins</source>
-        <translation>Hämtar tillgängliga insticksprogram</translation>
-    </message>
-    <message>
-        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>Inga insticksprogram har installerats än, byt till %1 tillgängliga insticksprogram%3-fliken för att prova några direkt.&lt;br&gt;&lt;br&gt; För mer information, %2 läs dokumentationen %3.</translation>
-    </message>
-    <message>
-        <source>Install plugin from URL</source>
-        <translation>Installera insticksprogram från URL</translation>
-    </message>
-    <message>
-        <source>The currently opened project has loaded a project plugin</source>
-        <translation>Det öppna projektet har läst in ett projektinsticksprogram</translation>
-    </message>
-    <message>
-        <source>Deny permission</source>
-        <translation>Neka tillstånd</translation>
-    </message>
-    <message>
-        <source>Plugins management menu</source>
-        <translation>Meny för hantering av insticksprogram</translation>
-    </message>
-    <message>
-        <source>Clear remembered permissions</source>
-        <translation>Rensa ihågda behörigheter</translation>
-    </message>
-    <message>
-        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>Författaruppgifterna ovan kommer från insticksprogrammet och har inte verifierats oberoende. Kontrollera att du litar på insticksprogrammets ursprung.</translation>
-    </message>
-    <message>
-        <source>Type a URL below to download and install a plugin:</source>
-        <translation>Skriv in en URL nedan för att ladda ner och installera ett insticksprogram:</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>Är du säker på att du vill avinstallera `%1`?</translation>
-    </message>
-    <message>
-        <source>Installing %1</source>
-        <translation>Installerar %1</translation>
-    </message>
-</context>
-<context>
-    <name>QfPositioningDeviceModel</name>
-    <message>
-        <source>Internal device</source>
-        <translation>Intern enhet</translation>
-    </message>
-</context>
-<context>
-    <name>QfPositioningDeviceSettings</name>
-    <message>
-        <source>Egeniouss</source>
-        <translation>Egeniouss</translation>
-    </message>
-    <message>
-        <source>Bluetooth BT + BLE (NMEA)</source>
-        <translation>Bluetooth BT + BLE (NMEA)</translation>
-    </message>
-    <message>
-        <source>Serial port (NMEA)</source>
-        <translation>Seriell port (NMEA)</translation>
-    </message>
-    <message>
-        <source>Logs file (NMEA)</source>
-        <translation>Loggfiler (NMEA)</translation>
-    </message>
-    <message>
-        <source>Positioning Device Settings</source>
-        <translation>Inställningar för positioneringsenhet</translation>
-    </message>
-    <message>
-        <source>Connection type</source>
-        <translation>Anslutningstyp</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Namn</translation>
-    </message>
-    <message>
-        <source> (leave empty to auto-fill)</source>
-        <translation> (lämna tomt för att fylla i automatiskt)</translation>
-    </message>
-    <message>
-        <source>Connection details</source>
-        <translation>Anslutningsdetaljer</translation>
-    </message>
-    <message>
-        <source>TCP (NMEA)</source>
-        <translation>TCP (NMEA)</translation>
-    </message>
-    <message>
-        <source>UDP (NMEA)</source>
-        <translation>UDP (NMEA)</translation>
-    </message>
-</context>
-<context>
-    <name>QfPositioningInformationModel</name>
-    <message>
-        <source>Altitude</source>
-        <translation>Höjd</translation>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation>Hastighet</translation>
-    </message>
-    <message>
-        <source>H. Accuracy</source>
-        <translation>H. Noggrannhet</translation>
-    </message>
-    <message>
-        <source>V. Accuracy</source>
-        <translation>V. Noggrannhet</translation>
-    </message>
-    <message>
-        <source>Lon</source>
-        <translation>Lon</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>Lat</source>
-        <translation>Lat</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>grid</source>
-        <translation>Rutnät</translation>
-    </message>
-    <message>
-        <source>ortho.</source>
-        <translation>orto.</translation>
-    </message>
-    <message>
-        <source>ant.</source>
-        <translation>ant.</translation>
-    </message>
-    <message>
-        <source>%1/s</source>
-        <translation>%1/s</translation>
-    </message>
-</context>
-<context>
-    <name>QfPositioningInformationView</name>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-</context>
-<context>
-    <name>QfPositioningNtripSettings</name>
-    <message>
-        <source>NTRIP Settings</source>
-        <translation>NTRIP-inställningar</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Värd</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation>Protokoll</translation>
-    </message>
-    <message>
-        <source>NTRIP Revision 1</source>
-        <translation>NTRIP Revision 1</translation>
-    </message>
-    <message>
-        <source>NTRIP Revision 2</source>
-        <translation>NTRIP Revision 2</translation>
-    </message>
-    <message>
-        <source>NTRIP SSL/TLS</source>
-        <translation>NTRIP SSL/TLS</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation>Användarnamn</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Lösenord</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation>Monteringspunkt</translation>
-    </message>
-    <message>
-        <source>Identifier:</source>
-        <translation>Identifierare:</translation>
-    </message>
-    <message>
-        <source>Data format:</source>
-        <translation>Dataformat:</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation>Avstånd:</translation>
-    </message>
-    <message>
-        <source>Forward position to NTRIP caster</source>
-        <translation>Skicka positionen till NTRIP-servern</translation>
-    </message>
-</context>
-<context>
-    <name>QfPositioningPreciseView</name>
-    <message>
-        <source>Dist.</source>
-        <translation>Dist.</translation>
-    </message>
-    <message>
-        <source>Positioning accuracy too low for this precision level</source>
-        <translation>Positioneringsnoggrannhet för låg för denna precisionnivå</translation>
-    </message>
-    <message>
-        <source>Audio proximity feedback</source>
-        <translation>Ljudnärhetsåterkoppling</translation>
-    </message>
-    <message>
-        <source>Rotate view</source>
-        <translation>Rotera vy</translation>
-    </message>
-    <message>
-        <source>Rotation source</source>
-        <translation>Rotationskälla</translation>
-    </message>
-    <message>
-        <source>Compass</source>
-        <translation>Kompass</translation>
-    </message>
-    <message>
-        <source>Movement</source>
-        <translation>Rörelse</translation>
-    </message>
-    <message>
-        <source>Precision</source>
-        <translation>Precision</translation>
-    </message>
-</context>
-<context>
-    <name>QfPositioningSettings</name>
-    <message>
-        <source>Internal device</source>
-        <translation>Intern enhet</translation>
-    </message>
-</context>
-<context>
-    <name>QfProcessingAlgorithmForm</name>
-    <message>
-        <source>General Parameters</source>
-        <translation>Allmänna parametrar</translation>
-    </message>
-    <message>
-        <source>Advanced Parameters</source>
-        <translation>Avancerade parametrar</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Hjälp</translation>
-    </message>
-    <message>
-        <source>There are no general parameters attached to this algorithm.</source>
-        <translation>Det finns inga allmänna parametrar kopplade till denna algoritm.</translation>
-    </message>
-    <message>
-        <source>Algorithm description</source>
-        <translation>Algoritmbeskrivning</translation>
-    </message>
-</context>
-<context>
-    <name>QfProcessingAlgorithmsList</name>
-    <message>
-        <source>Favorites</source>
-        <translation>Favoriter</translation>
-    </message>
-    <message>
-        <source>All Algorithms</source>
-        <translation>Alla algoritmer</translation>
-    </message>
-</context>
-<context>
-    <name>QfProcessingParameterArea</name>
-    <message>
-        <source>square degrees</source>
-        <translation>kvadratgrader</translation>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
-    </message>
-    <message>
-        <source>sqr. meters</source>
-        <translation>kvadratmeter</translation>
-    </message>
-    <message>
-        <source>sqr. kilometers</source>
-        <translation>kvadratkilometer</translation>
-    </message>
-    <message>
-        <source>sqr. feet</source>
-        <translation>kvadratfot</translation>
-    </message>
-    <message>
-        <source>sqr. yards</source>
-        <translation>kvadratyard</translation>
-    </message>
-    <message>
-        <source>sqr. miles</source>
-        <translation>kvadratmiles</translation>
-    </message>
-    <message>
-        <source>hectares</source>
-        <translation>hektar</translation>
-    </message>
-    <message>
-        <source>acres</source>
-        <translation>tunnland</translation>
-    </message>
-    <message>
-        <source>sqr. nautical miles</source>
-        <translation>kvadratsjömil</translation>
-    </message>
-    <message>
-        <source>sqr. centimeters</source>
-        <translation>kvadratcentimeter</translation>
-    </message>
-    <message>
-        <source>sqr. millimeters</source>
-        <translation>kvadratmillimeter</translation>
-    </message>
-    <message>
-        <source>sqr. inches</source>
-        <translation>kvadrattum</translation>
-    </message>
-</context>
-<context>
-    <name>QfProcessingParameterBoolean</name>
-    <message>
-        <source>True</source>
-        <translation>Sann</translation>
-    </message>
-    <message>
-        <source>False</source>
-        <translation>Falsk</translation>
-    </message>
-</context>
-<context>
-    <name>QfProcessingParameterDistance</name>
-    <message>
-        <source>degrees</source>
-        <translation>grader</translation>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation>meter</translation>
-    </message>
-    <message>
-        <source>kilometers</source>
-        <translation>kilometer</translation>
-    </message>
-    <message>
-        <source>feet</source>
-        <translation>fot</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation>yard</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation>engelska mil</translation>
-    </message>
-    <message>
-        <source>nautical miles</source>
-        <translation>sjömil</translation>
-    </message>
-    <message>
-        <source>centimeters</source>
-        <translation>centimeter</translation>
-    </message>
-    <message>
-        <source>millimeters</source>
-        <translation>millimeter</translation>
-    </message>
-    <message>
-        <source>inches</source>
-        <translation>tum</translation>
-    </message>
-</context>
-<context>
-    <name>QfProjectCreationScreen</name>
-    <message>
-        <source>Create a new project</source>
-        <translation>Skapa ett nytt projekt</translation>
-    </message>
-    <message>
-        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation>På den här sidan kan du skapa ett enkelt projekt med några grundläggande inställningar. För mer avancerade behov rekommenderar vi att du skapar projektet i QGIS med QFieldSync.</translation>
-    </message>
-    <message>
-        <source>New project name</source>
-        <translation>Nytt projektnamn</translation>
-    </message>
-    <message>
-        <source>Select your basemap</source>
-        <translation>Välj din baskarta</translation>
-    </message>
-    <message>
-        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation>Välj en baskarta för ditt projekt. Välj från de tillgängliga alternativen eller ange din egen anpassade URL.</translation>
-    </message>
-    <message>
-        <source>Colorful</source>
-        <translation>Färgglad</translation>
-    </message>
-    <message>
-        <source>Darkgray</source>
-        <translation>Mörkgrå</translation>
-    </message>
-    <message>
-        <source>Lightgray</source>
-        <translation>Ljusgrå</translation>
-    </message>
-    <message>
-        <source>Blank</source>
-        <translation>Tom</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Anpassad</translation>
-    </message>
-    <message>
-        <source>Custom basemap URL</source>
-        <translation>Anpassad URL för baskarta</translation>
-    </message>
-    <message>
-        <source>Take notes?</source>
-        <translation>Vill du göra anteckningar?</translation>
-    </message>
-    <message>
-        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation>Fånga snabbt anteckningar med datum, tid och kommentarer. Bifoga valfritt multimediaobjekt som bilder och videor för att berika dina anteckningar.</translation>
-    </message>
-    <message>
-        <source>Take image and video attachments</source>
-        <translation>Skapa bild- och videobilagor</translation>
-    </message>
-    <message>
-        <source>Allow notes on lines and polygons</source>
-        <translation>Tillåt anteckningar för linjer och polygoner</translation>
-    </message>
-    <message>
-        <source>Track your position?</source>
-        <translation>Spåra din position?</translation>
-    </message>
-    <message>
-        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation>Spela in din plats varje sekund tillsammans med datum och tid för att noggrant följa dina rörelser.</translation>
-    </message>
-    <message>
-        <source>Begin tracking automatically</source>
-        <translation>Börja spåra automatiskt</translation>
-    </message>
-    <message>
-        <source>Backup &amp; collaborate?</source>
-        <translation>Vill du säkerhetskopiera och samarbeta?</translation>
-    </message>
-    <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation>QFieldCloud låter synkronisera och slå samman de data som ditt team samlat in i %1. Från små individuella projekt till stora datainsamlingskampanjer. </translation>
-    </message>
-    <message>
-        <source>Learn more about QFieldCloud here</source>
-        <translation>Läs mer om QFieldCloud här</translation>
-    </message>
-    <message>
-        <source>Automatically upload changes on a regular interval</source>
-        <translation>Ladda automatiskt upp ändringar med jämna mellanrum</translation>
-    </message>
-    <message>
-        <source>Create Project</source>
-        <translation>Skapa projekt</translation>
-    </message>
-    <message>
-        <source>My Project</source>
-        <translation>Mitt projekt</translation>
-    </message>
-</context>
-<context>
-    <name>QfProjectUtils</name>
-    <message>
-        <source>Created Project</source>
-        <translation>Skapat projekt</translation>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation>Anteckningar</translation>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation>Punkt</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation>Linje</translation>
-    </message>
-    <message>
-        <source>Polygon</source>
-        <translation>Polygon</translation>
-    </message>
-    <message>
-        <source>Note attachments</source>
-        <translation>Anteckningsbilagor</translation>
-    </message>
-    <message>
-        <source>Media</source>
-        <translation>Media</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Beskrivning</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Tid</translation>
-    </message>
-    <message>
-        <source>Marker color</source>
-        <translation>Markörfärg</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation>Titel</translation>
-    </message>
-    <message>
-        <source>Note</source>
-        <translation>Anteckning</translation>
-    </message>
-    <message>
-        <source>Tracks</source>
-        <translation>Banor</translation>
-    </message>
-    <message>
-        <source>Track color</source>
-        <translation>Banfärg</translation>
-    </message>
-    <message>
-        <source>Basemap</source>
-        <translation>Baskarta</translation>
-    </message>
-    <message>
-        <source>Attachments</source>
-        <translation>Bilagor</translation>
-    </message>
-</context>
-<context>
-    <name>QfReferencingFeatureListModelBase</name>
-    <message>
-        <source>Invalid referencing layer</source>
-        <translation>Ogiltigt referenslager</translation>
-    </message>
-    <message>
-        <source>Cannot delete feature</source>
-        <translation>Kan inte ta bort objekt</translation>
-    </message>
-</context>
-<context>
-    <name>QfRelationCombobox</name>
-    <message>
-        <source>Empty</source>
-        <translation>Tomt</translation>
-    </message>
-    <message>
-        <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>Invalid relation</source>
-        <translation>Ogiltig relation</translation>
-    </message>
-</context>
-<context>
-    <name>QfRelationEditorBase</name>
-    <message numerus="yes">
-        <source>%n feature(s)</source>
-        <translation><numerusform>%n objekt</numerusform><numerusform>%n objekt</numerusform></translation>
-    </message>
-    <message>
-        <source>Adding child feature in layer %1</source>
-        <translation>Lägger till ett underordnat objekt i lagret %1</translation>
-    </message>
-    <message>
-        <source>Unlink Feature</source>
-        <translation>Koppla bort objekt</translation>
-    </message>
-    <message>
-        <source>Delete Feature</source>
-        <translation>Ta bort objekt</translation>
-    </message>
-    <message>
-        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Vill du koppla bort objektet &lt;b&gt;%1 (%2)&lt;/b&gt; i lagret &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(Kopplingen tas bort i lagret &lt;b&gt;%4&lt;/b&gt;.)&lt;/i&gt;</translation>
-    </message>
-    <message>
-        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Vill du ta bort objektet &lt;b&gt;%1 (%2)&lt;/b&gt; i lagret &lt;b&gt;%3&lt;/b&gt;?</translation>
-    </message>
-    <message>
-        <source>Failed to delete referencing feature</source>
-        <translation>Kunde inte ta bort refererande objekt</translation>
-    </message>
-    <message>
-        <source>Child Menu</source>
-        <translation>Underordnad meny</translation>
-    </message>
-    <message>
-        <source>Open Form</source>
-        <translation>Öppna formulär</translation>
-    </message>
-    <message>
-        <source>Copy Feature Attributes</source>
-        <translation>Kopiera objektattribut</translation>
-    </message>
-    <message>
-        <source>Print Atlas Feature to PDF</source>
-        <translation>Skriv ut atlasobjekt som PDF</translation>
-    </message>
-    <message>
-        <source>Print Atlas Feature(s)</source>
-        <translation>Skriv ut atlasobjekt</translation>
-    </message>
-    <message>
-        <source>Select template below</source>
-        <translation>Välj mall nedan</translation>
-    </message>
-    <message>
-        <source>Printing...</source>
-        <translation>Skriver ut...</translation>
-    </message>
-    <message>
-        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlasobjekten har skrivits ut och sparats i projektmappen</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>Det går inte att lägga till ett underordnat objekt. Kontrollera att det överordnade objektet uppfyller alla villkor och kan sparas.</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Det går inte att lägga till ett underordnat objekt eftersom attributvärdet som kopplar samman det överordnade och underordnade objektet inte har angetts.</translation>
-    </message>
-</context>
-<context>
-    <name>QfScaleBarMeasurement</name>
-    <message>
-        <source>Unknown</source>
-        <translation>Okänt</translation>
-    </message>
-</context>
-<context>
-    <name>QfSearchBar</name>
-    <message>
-        <source>Search</source>
-        <translation>Sök</translation>
-    </message>
-</context>
-<context>
-    <name>QfSensorInformationView</name>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-</context>
-<context>
-    <name>QfSerialPortDeviceChooser</name>
-    <message>
-        <source>Select the serial port from the list below:</source>
-        <translation>Välj seriell port från listan nedan:</translation>
-    </message>
-    <message>
-        <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation>Inga seriella portar upptäcktes, uppdatera listan när en enhet är ansluten.</translation>
-    </message>
-    <message>
-        <source>Refresh list</source>
-        <translation>Uppdatera lista</translation>
-    </message>
-    <message>
-        <source>Serial port display name:</source>
-        <translation>Den seriella portens visningsnamn:</translation>
-    </message>
-    <message>
-        <source>Serial port address:</source>
-        <translation>Seriell portadress:</translation>
-    </message>
-</context>
-<context>
-    <name>QfSerialPortReceiver</name>
-    <message>
-        <source>Could not find the serial port device</source>
-        <translation>Det gick inte att hitta enheten på den seriella porten</translation>
-    </message>
-    <message>
-        <source>Attempt to read from the serial port returned an error</source>
-        <translation>Ett fel uppstod vid läsning från den seriella porten</translation>
-    </message>
-    <message>
-        <source>The connection was refused due to not having enough permission</source>
-        <translation>Anslutningen avvisades på grund av otillräckliga behörigheter</translation>
-    </message>
-    <message>
-        <source>Serial port receiver error (%1)</source>
-        <translation>Mottagningsfel för seriell port (%1)</translation>
-    </message>
-</context>
-<context>
-    <name>QfSettings</name>
+    <name>QfAppSettings</name>
     <message>
         <source>Show scale bar</source>
         <translation>Visa skalstock</translation>
@@ -7869,6 +3767,4299 @@ Objektens geometrier kommer att kombineras med objekt &apos;%1&apos;, som kommer
     </message>
 </context>
 <context>
+    <name>QfAttributeFormModelBase</name>
+    <message>
+        <source>Expression constraint</source>
+        <translation>Begränsning för uttryck</translation>
+    </message>
+    <message>
+        <source>Not NULL</source>
+        <translation>Ej NULL</translation>
+    </message>
+    <message>
+        <source>Unique</source>
+        <translation>Unik</translation>
+    </message>
+</context>
+<context>
+    <name>QfAudioClipRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation>Ljudinspelare</translation>
+    </message>
+</context>
+<context>
+    <name>QfBadLayerItem</name>
+    <message>
+        <source>Unable to load some layers</source>
+        <translation>Kan inte ladda några lager</translation>
+    </message>
+    <message>
+        <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
+        <translation>Följande lager kunde inte läsas in, var vänlig kontrollera dem och konfigurera om QGIS projektet.</translation>
+    </message>
+    <message>
+        <source>You may check the %1Portable Project%2 documentation page for more help.</source>
+        <translation>Mer hjälp finns på dokumentationssidan %1Portabelt projekt%2.</translation>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceChooser</name>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation>Skanna efter närliggande enheter</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation>Välj Bluetooth-enheten från listan nedan:</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation>Inga Bluetooth-enheter upptäckta.</translation>
+    </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation>Skanningsfel: %1</translation>
+    </message>
+    <message>
+        <source>Scanning for paired devices</source>
+        <translation>Skannar efter parade enheter</translation>
+    </message>
+    <message>
+        <source>Scanning failed: %1</source>
+        <translation>Skanning misslyckades: %1</translation>
+    </message>
+    <message>
+        <source>Scanning done</source>
+        <translation>Skanning klar</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n device(s) found</source>
+        <translation><numerusform>%n enhet hittades</numerusform><numerusform>%n enheter hittades</numerusform></translation>
+    </message>
+    <message>
+        <source>Scanning canceled</source>
+        <translation>Skanning avbruten</translation>
+    </message>
+    <message>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation>Använd Bluetooth Low Energy (BLE)</translation>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation>Bluetooth-enhetsnamn:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation>Bluetooth-enhetsadress:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation>Bluetooth-enhetskonfiguration:</translation>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation>Low Energy (BLE)</translation>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation>Klassisk (BT)</translation>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceModel</name>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation>Bluetooth-behörighet nekades</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation>Bluetooth-tillstånd krävs för att skanna efter Bluetooth-enheter</translation>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Platsbehörighet nekad</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation>Platsbehörighet krävs för att söka efter bluetooth-enheter</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkList</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation>Bokmärken</translation>
+    </message>
+    <message>
+        <source>Bookmark List Menu</source>
+        <translation>Bokmärkeslistameny</translation>
+    </message>
+    <message>
+        <source>Toggle Bookmark Selection</source>
+        <translation>Växla bokmärkesval</translation>
+    </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation>Exportera valda bokmärken</translation>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation>Exportera alla användarbokmärken</translation>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation>Bokmärken exporterade</translation>
+    </message>
+    <message>
+        <source>Delete Selected Bookmark(s)</source>
+        <translation>Ta bort valda bokmärken</translation>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation>Bokmärkesåtgärder</translation>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation>Redigera bokmärke</translation>
+    </message>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation>Gå till bokmärket</translation>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation>Kopiera bokmärkesdetaljer</translation>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Bokmärkesdetaljer kopierade till urklipp</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation>Ta bort bokmärket</translation>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Ta bort bokmärke</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Du håller på att ta bort ett bokmärke. Vill du fortsätta?</translation>
+    </message>
+    <message>
+        <source>Delete bookmark(s)</source>
+        <translation>Ta bort bokmärken</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n selected bookmark(s) really be deleted?</source>
+        <translation><numerusform>Vill du verkligen ta bort det %n valda bokmärket?</numerusform><numerusform>Vill du verkligen ta bort de %n valda bokmärkena?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Deleted %n bookmark(s)</source>
+        <translation><numerusform>%n bokmärke togs bort</numerusform><numerusform>%n bokmärken togs bort</numerusform></translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation>Orange</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>Röd</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>Blå</translation>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation>Projektbokmärken</translation>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation>Grön</translation>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>Bokmärke utan titel</translation>
+    </message>
+    <message>
+        <source>No bookmarks yet</source>
+        <translation>Inga bokmärken än</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkLocatorFilter</name>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation>Gå till bokmärket</translation>
+    </message>
+    <message>
+        <source>Spatial bookmarks</source>
+        <translation>Rumsliga bokmärken</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Returnerar en lista över användare och för tillfället öppna projektbokmärken med matchande namn.</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkProperties</name>
+    <message>
+        <source>Bookmark Properties</source>
+        <translation>Bokmärkesegenskaper</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Beskrivning</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation>Byt färg</translation>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Bokmärkesdetaljer kopierade till urklipp</translation>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Ta bort bokmärke</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Du håller på att ta bort ett bokmärke. Vill du fortsätta?</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkRenderer</name>
+    <message>
+        <source>Bookmark: %1</source>
+        <translation>Bokmärke: %1</translation>
+    </message>
+    <message>
+        <source>Project bookmarks cannot be edited</source>
+        <translation>Projektbokmärken kan inte redigeras</translation>
+    </message>
+</context>
+<context>
+    <name>QfBrowserPanel</name>
+    <message>
+        <source>Browser</source>
+        <translation>Utforskare</translation>
+    </message>
+</context>
+<context>
+    <name>QfCalendarPanel</name>
+    <message>
+        <source>Hours</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Seconds</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>January</source>
+        <translation>Januari</translation>
+    </message>
+    <message>
+        <source>February</source>
+        <translation>Februari</translation>
+    </message>
+    <message>
+        <source>March</source>
+        <translation>Mars</translation>
+    </message>
+    <message>
+        <source>April</source>
+        <translation>April</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation>Maj</translation>
+    </message>
+    <message>
+        <source>June</source>
+        <translation>Juni</translation>
+    </message>
+    <message>
+        <source>July</source>
+        <translation>Juli</translation>
+    </message>
+    <message>
+        <source>August</source>
+        <translation>Augusti</translation>
+    </message>
+    <message>
+        <source>September</source>
+        <translation>September</translation>
+    </message>
+    <message>
+        <source>October</source>
+        <translation>Oktober</translation>
+    </message>
+    <message>
+        <source>November</source>
+        <translation>November</translation>
+    </message>
+    <message>
+        <source>December</source>
+        <translation>December</translation>
+    </message>
+</context>
+<context>
+    <name>QfCamera</name>
+    <message>
+        <source>Latitude</source>
+        <translation>Latitud</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Longitud</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Höjd</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Hastighet</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>Orientering</translation>
+    </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation>Detaljstämpling aktiverad</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation>Detaljstämpling inaktiverad</translation>
+    </message>
+    <message>
+        <source>Geotagging enabled</source>
+        <translation>Geotaggning påslagen</translation>
+    </message>
+    <message>
+        <source>Geotagging disabled</source>
+        <translation>Geotaggning avstängd</translation>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation>Rutnät aktiverat</translation>
+    </message>
+    <message>
+        <source>Grid disabled</source>
+        <translation>Rutnät inaktiverat</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation>framsida</translation>
+    </message>
+    <message>
+        <source>back</source>
+        <translation>baksida</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelog</name>
+    <message>
+        <source>What&apos;s new in QField</source>
+        <translation>Nyheter i Qfield</translation>
+    </message>
+    <message>
+        <source>Error while fetching changelog, try again later.</source>
+        <translation>Fel vid hämtning av ändringslogg, försök igen senare.</translation>
+    </message>
+    <message>
+        <source>Support QField</source>
+        <translation>Stöd Qfield</translation>
+    </message>
+    <message>
+        <source>Check the latest QField changes on </source>
+        <translation>Kontrollera de senaste QField-ändringarna på </translation>
+    </message>
+    <message>
+        <source>QField releases page</source>
+        <translation>QField release sida</translation>
+    </message>
+</context>
+<context>
+    <name>QfChangelogContents</name>
+    <message>
+        <source>Previous releases on GitHub</source>
+        <translation>Tidigare releaser på GitHub</translation>
+    </message>
+</context>
+<context>
+    <name>QfClipboardManager</name>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometri</translation>
+    </message>
+    <message>
+        <source>Paste failed: no destination layer provided</source>
+        <translation>Klistra in misslyckades: inget destinationslager angivet</translation>
+    </message>
+    <message>
+        <source>Cut operation: source and destination layers are the same, skipping paste.</source>
+        <translation>Skäroperation: käll- och destinationslager är samma, hoppar över klistre.</translation>
+    </message>
+    <message>
+        <source>Paste failed: clipboard feature is invalid</source>
+        <translation>Det gick inte att klistra in: objektet i urklipp är ogiltigt</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not start editing on source layer %1</source>
+        <translation>Det gick inte att klippa ut: redigeringen av källagret %1 kunde inte startas</translation>
+    </message>
+    <message>
+        <source>Cut failed: could not delete original feature from source layer %1</source>
+        <translation>Det gick inte att klippa ut: originalobjektet kunde inte tas bort från källagret %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: no compatible features could be created</source>
+        <translation>Det gick inte att klistra in: inga kompatibla objekt kunde skapas</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not start editing on layer %1</source>
+        <translation>Det gick inte att klistra in: redigeringen av lagret %1 kunde inte startas</translation>
+    </message>
+    <message>
+        <source>Paste failed: could not add feature to layer %1</source>
+        <translation>Det gick inte att klistra in: objektet kunde inte läggas till i lagret %1</translation>
+    </message>
+    <message>
+        <source>Paste failed: commitChanges failed on layer %1</source>
+        <translation>Det gick inte att klistra in eftersom ändringarna inte kunde sparas i lagret %1</translation>
+    </message>
+    <message>
+        <source>Cut commit failed on source layer %1</source>
+        <translation>Det gick inte att spara utklippningen i källagret %1</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloseButton</name>
+    <message>
+        <source>close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudConnection</name>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation>Autentiseringsleverantör saknas</translation>
+    </message>
+    <message>
+        <source>Password missing</source>
+        <translation>Lösenord saknas</translation>
+    </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation>Inloggningsfel på grund av en oväntad omdirigering. Försök igen senare.</translation>
+    </message>
+    <message>
+        <source>Server not found, please check the server URL</source>
+        <translation>Servern hittades inte. Kontrollera server-URL:en.</translation>
+    </message>
+    <message>
+        <source>Timeout error, please retry</source>
+        <translation>Tidsgränsen överskreds. Försök igen.</translation>
+    </message>
+    <message>
+        <source>Wrong username or password</source>
+        <translation>Fel användarnamn eller lösenord</translation>
+    </message>
+    <message>
+        <source>Session expired</source>
+        <translation>Sessionen har gått ut</translation>
+    </message>
+    <message>
+        <source>Login temporary unavailable</source>
+        <translation>Inloggningen är tillfälligt otillgänglig</translation>
+    </message>
+    <message>
+        <source>[timeout] The request took too long to finish, please retry.</source>
+        <translation>[timeout] Begäran tog för lång tid att slutföra, försök igen.</translation>
+    </message>
+    <message>
+        <source>[aborted] The request has been aborted.</source>
+        <translation>[avbruten] Begäran har avbrutits.</translation>
+    </message>
+    <message>
+        <source>Server Error.</source>
+        <translation>Serverfel.</translation>
+    </message>
+    <message>
+        <source>Network Error.</source>
+        <translation>Nätverksfel.</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Det gick inte att ladda upp bilagan som lagras i `%1`. Orsak:
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation>Åtgärden nedan är irreversibel och påverkar permanent dina lokala data. Fortsätt med försiktighet.</translation>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Återställ projekt</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Kassera lokala ändringar</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Den lokala kopian av molnprojektet är skadad. Om du återställer projektet hämtas molnversionen igen och alla lokala ändringar tas bort. Kopiera därför först de ändringar som behöver sparas.
+
+Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att det återställs för att undvika dataförlust. Inga nya ändringar kommer att laddas upp till molnet.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation>Tar bort alla lokala ändringar som ännu inte har laddats upp.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Återställ</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Kassera</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudDeltaHistory</name>
+    <message>
+        <source>Upload History</source>
+        <translation>Uppladdningshistorik</translation>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation>Hämtar uppladdningshistorik…</translation>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation>Inga ändringar har laddats upp än!</translation>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
+        <translation>Uppladdad av %1 på %2</translation>
+    </message>
+    <message>
+        <source>Applied</source>
+        <translation>Tillämpad</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>Väntande</translation>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation>Upptagen</translation>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation>Konflikt</translation>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation>Inte tillämpad</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fel</translation>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation>Ignorerad</translation>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation>Otillåtet</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Okänt</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudLogin</name>
+    <message>
+        <source>Failed to sign in</source>
+        <translation>Det gick inte att logga in</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation>%1Server-URL
+(Lämna tomt om standardservern ska användas)</translation>
+    </message>
+    <message>
+        <source>Username or email</source>
+        <translation>Användarnamn eller e-post</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Lösenord</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Logga ut</translation>
+    </message>
+    <message>
+        <source>Signing in, please wait</source>
+        <translation>Loggar in. Vänta.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Logga in</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>eller</translation>
+    </message>
+    <message>
+        <source>Sign in using %1</source>
+        <translation>Logga in med %1</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation>Besök %1inställningssidan%2 för att hantera kontot.</translation>
+    </message>
+    <message>
+        <source>New user?</source>
+        <translation>Ny användare?</translation>
+    </message>
+    <message>
+        <source>Register an account</source>
+        <translation>Registrera ett konto</translation>
+    </message>
+    <message>
+        <source>The easiest way to transfer you project from QGIS to your devices!</source>
+        <translation>Det enklaste sättet att överföra ditt projekt från QGIS till dina enheter!</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Läs mer om QFieldCloud</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPackageLayersFeedback</name>
+    <message>
+        <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
+        <translation>Vissa lager har inte paketerats korrekt. Lagren kan vara felkonfigurerade eller så är deras datakällor inte åtkomliga från QFieldCloud-servern.</translation>
+    </message>
+    <message>
+        <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
+        <translation>Kontrollera den detaljerade feedbacken nedan och de senaste loggarna för paketeringsjobb på QFieldCloud-webbplatsen.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPendingChanges</name>
+    <message>
+        <source>added</source>
+        <translation>Tillagd</translation>
+    </message>
+    <message>
+        <source>edited</source>
+        <translation>redigerad</translation>
+    </message>
+    <message>
+        <source>deleted</source>
+        <translation>borttagen</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Tomt</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>%1: %2 to %3</source>
+        <translation>%1: %2 till %3</translation>
+    </message>
+    <message>
+        <source>%1: %2</source>
+        <translation>%1: %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n change(s)</source>
+        <translation><numerusform>%n ändring</numerusform><numerusform>%n ändringar</numerusform></translation>
+    </message>
+    <message>
+        <source>Geometry modified</source>
+        <translation>Geometri ändrad</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPopup</name>
+    <message>
+        <source>Danger Zone</source>
+        <translation>Riskzon</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
+        <translation>Detta QFieldCloud-projekt laddades först ner med ett annat molnkonto. Logga in med det ursprungliga kontot för detta projekt för att använda QFieldCloud-funktionen.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud paketerar de senaste data åt dig. Det kan ta en stund – vänta.</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Hämtar, %1 % av %2 har hämtats</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Hämtar, %1 % har hämtats</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Kontaktar QFieldCloud för att hämta projektet</translation>
+    </message>
+    <message>
+        <source>Pushing changes, %1%…</source>
+        <translation>Laddar upp ändringar, %1 %…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
+        <translation>QFieldCloud tillämpar de senast uppladdade ändringarna. Det kan ta en stund…</translation>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation>Överför projekt till molnet</translation>
+    </message>
+    <message>
+        <source>Uploading the current project to QFieldCloud.</source>
+        <translation>Laddar upp det aktuella projektet till QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation>Det aktuella projektet är inte lagrat på QFieldCloud. Att lagra projekt på QFieldCloud erbjuder sömlös synkronisering, offline-redigering och teamhantering.</translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud</source>
+        <translation>Läs mer om QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation>Överför till molnet, %1 %</translation>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation>Överför till molnet</translation>
+    </message>
+    <message>
+        <source>The locally stored cloud project has been corrupted</source>
+        <translation>Det lokalt lagrade molnprojektet har blivit korrupt</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Ladda upp lokala ändringar</translation>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation>Skickar dina ändringar och bilagor till molnet utan att hämta projektuppdateringar. Snabbt och datasnålt.</translation>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation>Inga ändringar har laddats upp än</translation>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation>Laddades upp nyss</translation>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation>Laddades upp för %1 minuter sedan</translation>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation>Laddades upp idag kl. %1</translation>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation>Senast uppladdad den %1</translation>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation>Ladda upp</translation>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation><numerusform>Ladda upp automatiskt varje %n minut</numerusform><numerusform>Ladda upp automatiskt var %n:e minut</numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation>Det aktuella projektet tillåter inte att automatisk uppladdning stängs av</translation>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation>Synkronisera projekt</translation>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation>Laddar upp dina redigeringar och laddar sedan ner det senaste projektet från QFieldCloud så att allt är uppdaterat.</translation>
+    </message>
+    <message>
+        <source>Last synchronized just now</source>
+        <translation>Synkroniserades nyss</translation>
+    </message>
+    <message>
+        <source>Last synchronized %1 minutes ago</source>
+        <translation>Synkroniserades för %1 minuter sedan</translation>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation>Senast synkroniserad idag kl. %1</translation>
+    </message>
+    <message>
+        <source>Last synchronized on %1</source>
+        <translation>Senast synkroniserad den %1</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synkronisera</translation>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation>Uppladdningshistorik</translation>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation>Riskzon</translation>
+    </message>
+    <message>
+        <source>Uploading %1</source>
+        <translation>Ladda upp %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) remaining</source>
+        <translation><numerusform>%n fil återstår</numerusform><numerusform>%n filer återstår</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Kassera lokala ändringar</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation>Ska lokala ändringar kasseras?</translation>
+    </message>
+    <message>
+        <source>Reset cloud project</source>
+        <translation>Återställ molnprojekt</translation>
+    </message>
+    <message>
+        <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
+        <translation>Sista varning, återställning av molnprojektet kommer att radera alla lokala ändringar, är du säker på att du vill fortsätta?</translation>
+    </message>
+    <message>
+        <source>Connecting cloud</source>
+        <translation>Ansluter till molnet</translation>
+    </message>
+    <message>
+        <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
+        <translation>Detta projekt har en uppdaterad projektfil i molnet, du rekommenderas att synkronisera.</translation>
+    </message>
+    <message>
+        <source>This project has updated data on the cloud, you should synchronize.</source>
+        <translation>Detta projekt har uppdaterade data i molnet, du bör synkronisera.</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation>Projekt %1 kan inte paketeras eftersom ditt lagringsutrymme är fullt.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Uppgradera lagring</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation>Projekt %1 kan inte paketeras eftersom projektägarens lagringsutrymme är fullt.</translation>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>Lokala ändringar har kasserats</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>Det gick inte att kassera ändringarna</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>Det finns inga ändringar att kassera</translation>
+    </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>Använt %1 av %2</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Lokala ändringar</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n addition(s)</source>
+        <translation><numerusform>%n tillägg</numerusform><numerusform>%n tillägg</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n edit(s)</source>
+        <translation><numerusform>%n redigering</numerusform><numerusform>%n redigeringar</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n deletion(s)</source>
+        <translation><numerusform>%n borttagning</numerusform><numerusform>%n borttagningar</numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProject</name>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>Det gick inte att öppna den tillfälliga filen för `%1`. Orsak:
+%2</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation>Filsystemfel. Kunde inte skriva bilaga till temporär plats `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation>Filsystemfel. Kunde inte öppna bilaga för skrivning på temporär plats `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation>Nätverksfel. Det gick inte att hämta bilagan `%1`.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation>Paketeringsjobbet för `%1` misslyckades. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation>Det gick inte att uppdatera den senaste informationen för `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation>Det gick inte att hämta senaste paketeringsdata.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation>Fel i svaret vid hämtning av senaste paketeringsdata.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation>Strukturfel i senaste paketeringsdata.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation>Projekt %1: Det paketerade lagret `%2` är inte giltigt. Felkod %3, felmeddelande: %4</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation>Filsystemfel. Kunde inte skriva till partiell fil `%1`.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
+        <translation>Filsystemfel. Kunde inte öppna partiell fil `%1`.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Nätverksfel. Det gick inte att hämta filen `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Det gick inte att kopiera vissa av de hämtade filerna till din enhet. Kontrollera lagringsutrymmet på enheten.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>Projekt `%1`, fil `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>Systemmeddelande: </translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation> (mer information finns i QFields fellogg)…</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Jobbet skapades, men serversvaret saknar obligatoriska fält: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Jobbstatus hämtas, men inget `%2`-jobb har startats ännu.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>Statussvaret för jobb(%1) innehåller inte alla förväntade nycklar: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Jobb(%1) avslutades med statusen misslyckad.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>Uppdateringssvaret för projekt(%1) innehåller inte alla förväntade nycklar: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>avbrutet</translation>
+    </message>
+    <message>
+        <source>Local path doesn&apos;t exist</source>
+        <translation>Lokal sökväg finns inte</translation>
+    </message>
+    <message>
+        <source>Local path to upload cannot be used as it has multiple project files</source>
+        <translation>Lokal sökväg för uppladdning kan inte användas eftersom den har flera projektfiler</translation>
+    </message>
+    <message>
+        <source>Local path to upload is missing a valid project file</source>
+        <translation>Lokal sökväg för uppladdning saknar en giltig projektfil</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to upload file `%1`.</source>
+        <translation>Nätverksfel. Det gick inte att ladda upp filen `%1`.</translation>
+    </message>
+    <message>
+        <source>One or more files could not be uploaded</source>
+        <translation>En eller flera filer kunde inte laddas upp</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectDetails</name>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>Använder %1 av %2</translation>
+    </message>
+    <message>
+        <source>Storage size</source>
+        <translation>Lagringsstorlek</translation>
+    </message>
+    <message>
+        <source>Owner</source>
+        <translation>Ägare</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation>Skapad</translation>
+    </message>
+    <message>
+        <source>Latest update date</source>
+        <translation>Senast uppdaterad</translation>
+    </message>
+    <message>
+        <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
+        <translation>Användare med rätt behörighet kan skanna QR-koden för att hämta och öppna projektet.</translation>
+    </message>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Synkroniserar</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synkronisera</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Ladda upp lokala ändringar</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging project, hold tight</source>
+        <translation>QFieldCloud paketerar projektet. Vänta.</translation>
+    </message>
+    <message>
+        <source>Downloading project</source>
+        <translation>Hämtar projektet</translation>
+    </message>
+    <message>
+        <source>Download project</source>
+        <translation>Hämta projektet</translation>
+    </message>
+    <message>
+        <source>Downloading project %1</source>
+        <translation>Hämtar projekt %1</translation>
+    </message>
+    <message>
+        <source>Open project</source>
+        <translation>Öppna projekt</translation>
+    </message>
+    <message>
+        <source>Clone project</source>
+        <translation>Klona projekt</translation>
+    </message>
+    <message>
+        <source>Creating project</source>
+        <translation>Skapar projekt</translation>
+    </message>
+    <message>
+        <source>Create project from template</source>
+        <translation>Skapa projekt från mall</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectFilter</name>
+    <message>
+        <source>Predefined Filters</source>
+        <translation>Fördefinierade filter</translation>
+    </message>
+    <message>
+        <source>Criteria</source>
+        <translation>Kriterier</translation>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation>Titel eller beskrivning innehåller</translation>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation>Ägare är</translation>
+    </message>
+    <message>
+        <source>Include public projects</source>
+        <translation>Inkludera offentliga projekt</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Sök</translation>
+    </message>
+    <message>
+        <source>My own</source>
+        <translation>Min egen</translation>
+    </message>
+    <message>
+        <source>Owned by %1</source>
+        <translation>Ägs av %1</translation>
+    </message>
+    <message>
+        <source>Include public templates</source>
+        <translation>Inkludera offentliga mallar</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectsModel</name>
+    <message>
+        <source>Project busy.</source>
+        <translation>Projektet är upptaget.</translation>
+    </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation>Nätverket är för närvarande inte aktivt. Vi kommer att skicka ändringarna automatiskt när du är online igen.</translation>
+    </message>
+    <message>
+        <source>Project creation requires a name</source>
+        <translation>Projektet måste ha ett namn</translation>
+    </message>
+    <message>
+        <source>Cloud project could not be created.</source>
+        <translation>Molnprojektet kunde inte skapas.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudScreen</name>
+    <message>
+        <source>QFieldCloud Projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from the cloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to the cloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projekt</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation>Sök efter projekt</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
+        <translation>QFieldCloud paketerar de senaste data åt dig. Det kan ta en stund – vänta.</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% of %2 fetched</source>
+        <translation>Hämtar, %1 % av %2 har hämtats</translation>
+    </message>
+    <message>
+        <source>Downloading, %1% fetched</source>
+        <translation>Hämtar, %1 % har hämtats</translation>
+    </message>
+    <message>
+        <source>Reaching out to QFieldCloud to download project</source>
+        <translation>Kontaktar QFieldCloud för att hämta projektet</translation>
+    </message>
+    <message>
+        <source>Uploading…</source>
+        <translation>Laddar upp…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Hämtningsfel. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Uppladdningsfel. </translation>
+    </message>
+    <message>
+        <source>Refreshing projects list...</source>
+        <translation>Uppdaterar projektlistan…</translation>
+    </message>
+    <message>
+        <source>Searching for projects...</source>
+        <translation>Söker efter projekt...</translation>
+    </message>
+    <message>
+        <source>No cloud projects found.</source>
+        <translation>Inga molnprojekt hittades.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation>Prova att %1inkludera offentliga projekt%2 och se vad communityn erbjuder.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public projects%2.</source>
+        <translation>Prova att %1inkludera offentliga projekt%2.</translation>
+    </message>
+    <message>
+        <source>To get started, %1read the documentation%2.</source>
+        <translation>För att komma igång, %1läs dokumentationen%2.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Uppdatera projektlistan</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Logga ut</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Logga in</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation>Inställningssida</translation>
+    </message>
+    <message>
+        <source>Show invalid projects</source>
+        <translation>Visa ogiltiga projekt</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Projektåtgärder</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Öppna Projekt</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synkronisera</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Ladda upp lokala ändringar</translation>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation>Klona projekt</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Ta bort sparat projekt</translation>
+    </message>
+    <message>
+        <source>View Project Details</source>
+        <translation>Visa projektdetaljer</translation>
+    </message>
+    <message>
+        <source>View Project Folder</source>
+        <translation>Visa projektmapp</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Är du säker på att du vill ta bort `%1`?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Det gick inte att hämta projektinformation för QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Det gick inte att klona projektet: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Det gick inte att skapa projektet: %1</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Uppdaterar projektlistan</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Mallar</translation>
+    </message>
+    <message>
+        <source>Project Creation</source>
+        <translation>Skapa projekt</translation>
+    </message>
+    <message>
+        <source>Enter your project name</source>
+        <translation>Ange ditt projektnamn</translation>
+    </message>
+    <message>
+        <source>Allowed characters: 0-9A-Za-z_-</source>
+        <translation>Tillåtna tecken: 0-9A-Za-z_-</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Sök efter mallar</translation>
+    </message>
+    <message>
+        <source>Refreshing templates list...</source>
+        <translation>Uppdaterar mallistan…</translation>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
+        <translation>Söker efter mallar...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Inga mallar hittades.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Försök att %1include public templates%2 och se vad communityn har att erbjuda.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Prova att %1inkludera offentliga mallar%2.</translation>
+    </message>
+    <message>
+        <source>Refresh templates list</source>
+        <translation>Uppdatera mallistan</translation>
+    </message>
+    <message>
+        <source>Creating project…</source>
+        <translation>Skapar projekt…</translation>
+    </message>
+    <message>
+        <source>Preparing project…</source>
+        <translation>Förbereder projekt…</translation>
+    </message>
+    <message>
+        <source>Project created but downloading failed: %1</source>
+        <translation>Projektet skapades, men det gick inte att hämta det: %1</translation>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation>Det nyskapade projektet kunde inte förberedas.</translation>
+    </message>
+    <message>
+        <source>Downloading project…</source>
+        <translation>Hämtar projekt…</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation>QFieldCloud-servern är inte nåbar</translation>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation>Det gick inte att nå servern på %1. Kontrollera internetanslutningen.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation>QFieldCloud är under underhåll</translation>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation>QFieldCloud-tjänsten har begränsad funktion</translation>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation>En incident pågår</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Ett serverfel inträffade. Försök igen.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Ett nätverksfel inträffade. Försök igen.</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation>Projektägarens lagringsutrymme är fullt.</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation>Projektägarens prenumerationsplan är otillräcklig.</translation>
+    </message>
+    <message>
+        <source>Expected the json document to be an array of delta status</source>
+        <translation>JSON-dokumentet förväntades vara en lista med deltastatusar</translation>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object, but the element at #%1 is not</source>
+        <translation>Alla listelement förväntades vara objekt, men element #%1 är inte det</translation>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
+        <translation>Alla listelement förväntades vara objekt med nyckeln &quot;%1&quot;, men element #%2 är inte det</translation>
+    </message>
+    <message>
+        <source>Unrecognized status &quot;%1&quot; for $%2</source>
+        <translation>Okänd status &quot;%1&quot; för $%2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) created</source>
+        <translation><numerusform>%n objekt skapades</numerusform><numerusform>%n objekt skapades</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) edited</source>
+        <translation><numerusform>%n objekt redigerades</numerusform><numerusform>%n objekt redigerades</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) deleted</source>
+        <translation><numerusform>%n objekt togs bort</numerusform><numerusform>%n objekt togs bort</numerusform></translation>
+    </message>
+    <message>
+        <source>%1 in layer %2</source>
+        <translation>%1 i lagret %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCodeReader</name>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation>Ingen läsbar kod hittades i den valda bilden</translation>
+    </message>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation>NFC-texttagg upptäcktes</translation>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Kodläsare</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation>Centrera din enhet på en kod</translation>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterAngle</name>
+    <message>
+        <source>deg</source>
+        <translation>grader</translation>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterPoint</name>
+    <message>
+        <source>latitude</source>
+        <translation>Latitud</translation>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation>Longitud</translation>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation>Höjd över havet</translation>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation>östkoordinat [X]</translation>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation>nordkoordinat [Y]</translation>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation>Höjd [Z]</translation>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
+        <translation>Välj punktobjekt</translation>
+    </message>
+</context>
+<context>
+    <name>QfDashBoard</name>
+    <message>
+        <source>The layer %1 is read only.</source>
+        <translation>Lagret %1 är skrivskyddat.</translation>
+    </message>
+    <message>
+        <source>Project Information</source>
+        <translation>Projektinformation</translation>
+    </message>
+    <message>
+        <source>Map Theme</source>
+        <translation>Karttema</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Teckenförklaring</translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation>Expandera alla</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>Komprimera alla</translation>
+    </message>
+    <message>
+        <source>Return home</source>
+        <translation>Återvänd hem</translation>
+    </message>
+    <message>
+        <source>The project is read-only.</source>
+        <translation>Projektet är skrivskyddat.</translation>
+    </message>
+</context>
+<context>
+    <name>QfDialog</name>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Avbryt</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Ja</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Nej</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Stäng</translation>
+    </message>
+</context>
+<context>
+    <name>QfDigitizingLogger</name>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
+        <translation>Standardvärdeuttrycket för digitaliseringsloggens fält %2 har ett tolkningsfel: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
+        <translation>Standardvärdeuttrycket för digitaliseringsloggens fält %2 har ett utvärderingsfel: %3</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer feature addition failed</source>
+        <translation>Digitaliseringslogg misslyckades lägga till objekt</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer change commits failed</source>
+        <translation>Det gick inte att spara ändringarna i digitaliseringsloggens lager</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer editing failed</source>
+        <translation>Digitaliseringslogg misslyckades med lagereditering</translation>
+    </message>
+</context>
+<context>
+    <name>QfDigitizingToolbar</name>
+    <message>
+        <source>The collected positions count does not meet the requirement</source>
+        <translation>Antalet insamlade positioner uppfyller inte kravet</translation>
+    </message>
+    <message>
+        <source>Cancel digitizing</source>
+        <translation>Avbryt digitalisering</translation>
+    </message>
+    <message>
+        <source>Should the digitized geometry be discarded?</source>
+        <translation>Skall digitaliserad geometri kastas?</translation>
+    </message>
+    <message>
+        <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
+        <translation>Positionsnoggrannheten uppfyller inte minimikravet. Brytpunkten lades inte till</translation>
+    </message>
+</context>
+<context>
+    <name>QfDrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation>Tom</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBase</name>
+    <message>
+        <source>Item Menu</source>
+        <translation>Objektmeny</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBinary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation>(Blob)</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetCheckBox</name>
+    <message>
+        <source>True</source>
+        <translation>Sann</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Falsk</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Tomt</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetDateTime</name>
+    <message>
+        <source>(no date)</source>
+        <translation>(ingen datum)</translation>
+    </message>
+    <message>
+        <source>Date value set to today.</source>
+        <translation>Datum satt till idag.</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetExternalResource</name>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>Autentiseringskonfigurationens id för den externa lagringen saknas. Kontrollera att konfigurationen har importerats till %1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Läs mer</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Tomt</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>No Value</source>
+        <translation>Inget Värde</translation>
+    </message>
+    <message>
+        <source>Cannot handle this file type</source>
+        <translation>Kan inte hantera denna filtyp</translation>
+    </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>Fel vid efterfrågad bilaga i QFieldCloud: </translation>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation>Ta ett foto</translation>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation>Ta en video</translation>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation>Spela in ett ljudklipp</translation>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation>Bifoga ett galleriobjekt</translation>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation>Bifoga en fil</translation>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation>Rita en skiss</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetRange</name>
+    <message>
+        <source>Empty</source>
+        <translation>Tomt</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetTextEdit</name>
+    <message>
+        <source>Empty</source>
+        <translation>Tomt</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Copy Text</source>
+        <translation>Kopiera text</translation>
+    </message>
+    <message>
+        <source>Paste Text</source>
+        <translation>Klistra in text</translation>
+    </message>
+    <message>
+        <source>Scan Code</source>
+        <translation>Skanna kod</translation>
+    </message>
+</context>
+<context>
+    <name>QfEgenioussReceiver</name>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation>Mottagen data är för kort för att bearbetas</translation>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation>Ogiltigt startbyte</translation>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation>Mottagen data är för kort för att innehålla nyttolast</translation>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation>Det gick inte att tolka JSON</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Kunde inte hitta fjärrvärden</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Ett fel uppstod vid läsning från eller skrivning till socketen</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>Fjärrvärden avvisade anslutningen</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>TCP-mottagningsfel (%1)</translation>
+    </message>
+    <message>
+        <source>Is the app running? HTTP request failed: %1</source>
+        <translation>Kör appen? HTTP-förfrågan misslyckades: %1</translation>
+    </message>
+    <message>
+        <source>Egeniouss service is not ready.</source>
+        <translation>Egeniouss tjänst är inte klar.</translation>
+    </message>
+    <message>
+        <source>Last fix</source>
+        <translation>Senaste fix</translation>
+    </message>
+    <message>
+        <source>Heading</source>
+        <translation>Kurs</translation>
+    </message>
+    <message>
+        <source>Roll</source>
+        <translation>Rullning</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Tippning</translation>
+    </message>
+    <message>
+        <source>Heading sigma</source>
+        <translation>Kursens sigma</translation>
+    </message>
+</context>
+<context>
+    <name>QfElevationProfile</name>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation>Ritar höjdprofil…</translation>
+    </message>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation>Digitalisera en sträcka för att visa höjdprofilen</translation>
+    </message>
+</context>
+<context>
+    <name>QfExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation>Kopiera “%1” till urklipp</translation>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation>Miniräknare</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Returnerar värdet av ett uttryck som skrivits in i sökfältet.</translation>
+    </message>
+</context>
+<context>
+    <name>QfExpressionVariableModel</name>
+    <message>
+        <source>Not Available</source>
+        <translation>Inte tillgängligt</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureForm</name>
+    <message>
+        <source>Previous page</source>
+        <translation>Föregående sida</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Spara</translation>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation>Nästa sida</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation>Hårda villkor är inte uppfyllda</translation>
+    </message>
+    <message>
+        <source>The last entered value for this field will be remembered and reused when creating new features</source>
+        <translation>Det senast inmatade värdet för detta fält kommer att komma ihåg och återanvändas vid skapandet av nya objekt</translation>
+    </message>
+    <message>
+        <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation>Det senast inmatade värdet för detta fält kommer inte att återanvändas vid skapandet av nya objekt</translation>
+    </message>
+    <message>
+        <source>Value applied</source>
+        <translation>Värde applicerat</translation>
+    </message>
+    <message>
+        <source>Value skipped</source>
+        <translation>Värde överhoppat</translation>
+    </message>
+    <message>
+        <source> (click to toggle)</source>
+        <translation> (klicka för att växla)</translation>
+    </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation>Mjuka villkor är inte uppfyllda</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation>Tillägg av objekt inaktiverat</translation>
+    </message>
+    <message>
+        <source>Unable to save changes</source>
+        <translation>Kan inte spara ändringar</translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation>Lägg till objekt till %1</translation>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation>Redigera objekt i %1</translation>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation>Visa objekt i %1</translation>
+    </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation>Objektsformulärmeny</translation>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation>Kom ihåg alla återanvändbara värden</translation>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation>Glöm alla återanvändbara värden</translation>
+    </message>
+    <message>
+        <source>Cancel editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to dismiss the new feature, proceed?</source>
+        <translation>Du är på väg att avvisa den nya objektet, fortsätt?</translation>
+    </message>
+    <message>
+        <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
+        <translation>Du är på väg att lämna redigeringsläget, alla ändringar kommer att gå förlorade. Fortsätta?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Avbryt</translation>
+    </message>
+    <message>
+        <source>You are about to cancel the feature setup, proceed?</source>
+        <translation>Du håller på att avbryta inställningen av objektet, fortsätta?</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation>Det gick inte att ångra skapandet av objekt i lagret &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation>Det gick inte att ångra borttagningen av objekt i lagret &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation>Det gick inte att ångra uppdateringen av objekt i lagret &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation>Det gick inte att spara ångringen av objektändringen i lagret &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation>Det gick inte att återställa ångringen av objektändringar i lagret &quot;%1&quot;</translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation><numerusform>Ångra skapandet av %n objekt i lagret %1.</numerusform><numerusform>Ångra skapandet av %n objekt i lagret %1.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation><numerusform>Ångra skapandet av %n objekt.</numerusform><numerusform>Ångra skapandet av %n objekt.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation><numerusform>Ångra borttagningen av %n objekt i lagret %1.</numerusform><numerusform>Ångra borttagningen av %n objekt i lagret %1.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation><numerusform>Ångra borttagningen av %n objekt.</numerusform><numerusform>Ångra borttagningen av %n objekt.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation><numerusform>Ångra ändringarna av %n objekt i lagret %1.</numerusform><numerusform>Ångra ändringarna av %n objekt i lagret %1.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation><numerusform>Ångra ändringarna av %n objekt.</numerusform><numerusform>Ångra ändringarna av %n objekt.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation><numerusform>Gör om skapandet av %n objekt i lagret %1</numerusform><numerusform>Gör om skapandet av %n objekt i lagret %1</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation><numerusform>Gör om skapandet av %n objekt</numerusform><numerusform>Gör om skapandet av %n objekt</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation><numerusform>Gör om borttagningen av %n objekt i lagret %1</numerusform><numerusform>Gör om borttagningen av %n objekt i lagret %1</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation><numerusform>Gör om borttagningen av %n objekt</numerusform><numerusform>Gör om borttagningen av %n objekt</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation><numerusform>Gör om ändringarna av %n objekt i lagret %1</numerusform><numerusform>Gör om ändringarna av %n objekt i lagret %1</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation><numerusform>Gör om ändringarna av %n objekt</numerusform><numerusform>Gör om ändringarna av %n objekt</numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureListForm</name>
+    <message>
+        <source>Features</source>
+        <translation>Objekt</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation>Bearbetningsalgoritmer</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Ändringar sparade</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Ändringar förkastades</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit attributes</source>
+        <translation>Stoppa spårningen av objektet för att redigera attributen</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit geometry</source>
+        <translation>Stoppa spårningen av objektet för att redigera geometrin</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Objektet har duplicerats</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to delete those</source>
+        <translation>Flera objekt spåras. Stoppa spårningen för att ta bort dem</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to merge those</source>
+        <translation>Flera objekt spåras. Stoppa spårningen för att slå samman dem</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated selected features, list updated to show newly-created features</source>
+        <translation>De valda objekten duplicerades. Listan har uppdaterats med de nyskapade objekten</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Inget objekt på den här positionen</translation>
+    </message>
+    <message>
+        <source>Merge feature(s)</source>
+        <translation>Slå samman objekt</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be merge?
+
+The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
+        <comment>0</comment>
+        <translation><numerusform>Vill du verkligen slå samman det %n valda objektet?
+
+Objektets geometri kommer att slås samman med objektet &apos;%1&apos;, som behåller sina attribut.</numerusform><numerusform>Vill du verkligen slå samman de %n valda objekten?
+
+Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som behåller sina attribut.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully merged %n feature(s)</source>
+        <translation><numerusform>%n objekt har slagits samman</numerusform><numerusform>%n objekt har slagits samman</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to merge %n feature(s)</source>
+        <translation><numerusform>Det gick inte att slå samman %n objekt</numerusform><numerusform>Det gick inte att slå samman %n objekt</numerusform></translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation>Överför objektattribut</translation>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation>Välj ett objekt nedan vars attribut ska överföras till det öppna objektet.</translation>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation>Objektattributen har överförts</translation>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation>Inga objektattribut överfördes</translation>
+    </message>
+    <message>
+        <source>Delete feature(s)</source>
+        <translation>Ta bort objekt</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be deleted?</source>
+        <comment>0</comment>
+        <translation><numerusform>Vill du verkligen ta bort det %n valda objektet?</numerusform><numerusform>Vill du verkligen ta bort de %n valda objekten?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully deleted %n feature(s)</source>
+        <translation><numerusform>%n objekt har tagits bort</numerusform><numerusform>%n objekt har tagits bort</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n feature(s)</source>
+        <translation><numerusform>Det gick inte att ta bort %n objekt</numerusform><numerusform>Det gick inte att ta bort %n objekt</numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>Värdet &quot;%1&quot; %4 kunde inte omvandlas till ett kompatibelt värde för fältet %2(%3).</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>Standardvärdeuttrycket för %1:%2 har ett tolkningsfel: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation>Standardvärdeuttrycket för %1:%2 har ett utvärderingsfel: %3</translation>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>Det går inte att uppdatera objektet</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation>Objektet %1 kunde inte hämtas efter att ändringarna sparades</translation>
+    </message>
+    <message>
+        <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
+        <translation>Det går inte att börja redigera lagret &quot;%1&quot; för att skapa objektet %2</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
+        <translation>Ändringarna i lagret &quot;%1&quot; sparades, men det nyskapade objektet %2 kunde inte hämtas</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
+%3</source>
+        <translation>Ändringarna i lagret &quot;%1&quot; kan inte sparas tillsammans med det nyskapade objektet %2. Orsak:
+%3</translation>
+    </message>
+    <message>
+        <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
+        <translation>Objektet %2 kunde inte läggas till i lagret &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>Det gick inte att spara ändringarna. Återställer.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Kan inte påbörja redigering</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>Öppna formulär</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Ange objekt som destination</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Objektet har ingen geometri</translation>
+    </message>
+    <message>
+        <source>Features in all layers</source>
+        <translation>Objekt i alla lager</translation>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Returnerar en lista över objekt i alla sökbara lager med matchande visningsnamn.</translation>
+    </message>
+</context>
+<context>
+    <name>QfFileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation>Filväg</translation>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation>Intervall (i millisekunder)</translation>
+    </message>
+</context>
+<context>
+    <name>QfFinlandLocatorFilter</name>
+    <message>
+        <source>Finnish address search</source>
+        <translation>Finsk adressökning</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorErase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation>Geometrin kunde inte modifieras i flera delar</translation>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation>Geometrin kunde inte ändras</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorFillRing</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation>Ringen är inte stängd</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation>Ringen är inte giltig</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation>Ringen korsar befintliga ringar (den är inte åtskild)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation>Det finns ingen befintlig ring som ringen passar in i</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation>Okänt fel vid skapandet av ringen</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation>Fyll ring</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation>Vill du fylla ringen med en ny polygon?</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorReshape</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation>Geometrin kunde inte omformas</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorSplitFeature</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation>Objekt kunde inte delas</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorVertexEditor</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation>Det gick inte att spara objektet!</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorsToolbar</name>
+    <message>
+        <source>Vertex Tool</source>
+        <translation>Brytpunktsverktyg</translation>
+    </message>
+    <message>
+        <source>Split Tool</source>
+        <translation>Delningsverktyg</translation>
+    </message>
+    <message>
+        <source>Reshape Tool</source>
+        <translation>Omformningsverktyg</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation>Raderingsverktyg</translation>
+    </message>
+    <message>
+        <source>Fill Ring Tool</source>
+        <translation>Verktyg för att fylla ring</translation>
+    </message>
+</context>
+<context>
+    <name>QfGotoLocatorFilter</name>
+    <message>
+        <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
+        <translation>Gå till %1%2 %3%4 (kartans CRS, %5)</translation>
+    </message>
+    <message>
+        <source>Set navigation point</source>
+        <translation>Ange navigeringspunkt</translation>
+    </message>
+    <message>
+        <source>Go to %1°N %2°E (%3)</source>
+        <translation>Gå till %1°N %2°E (%3)</translation>
+    </message>
+    <message>
+        <source>Go to coordinate</source>
+        <translation>Gå till koordinat</translation>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Returnerar en punkt från ett par X- och Y-koordinater - eller WGS84 latitud och longitud - som skrivits in i sökfältet.</translation>
+    </message>
+</context>
+<context>
+    <name>QfGuide</name>
+    <message>
+        <source>Finish</source>
+        <translation>Slutför</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Nästa</translation>
+    </message>
+    <message>
+        <source>Previous</source>
+        <translation>Föregående</translation>
+    </message>
+</context>
+<context>
+    <name>QfHelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation>QField-dokumentation</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>Returnerar QField-dokumentationssidor som matchar sökorden.</translation>
+    </message>
+</context>
+<context>
+    <name>QfInformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation>Navigering</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Positionering</translation>
+    </message>
+    <message>
+        <source>NTRIP</source>
+        <translation>NTRIP</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Sensorer</translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation>Höjdprofil</translation>
+    </message>
+</context>
+<context>
+    <name>QfInformationPopup</name>
+    <message>
+        <source>Author</source>
+        <translation>Författare</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerLoginDialog</name>
+    <message>
+        <source>Credentials Details</source>
+        <translation>Autentiseringsuppgifter</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Användarnamn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Lösenord</translation>
+    </message>
+    <message>
+        <source>Submit</source>
+        <translation>Skicka</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerObserver</name>
+    <message>
+        <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
+        <translation>Kunde inte hitta en lokal primärnyckelkolumn i lagret &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
+        <translation>Kunde inte hitta en primärnyckelkolumn i källagret &quot;%1&quot;</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerTreeItemProperties</name>
+    <message>
+        <source>Expand group</source>
+        <translation>Expandera grupp</translation>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation>Expandera objektet i teckenförklaringen</translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation>Stoppa spårning</translation>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation>Ställ in spårning</translation>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation>Omladdning av lagret %1 har utlösts</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Detta lager är ogiltigt. Detta kan bero på ett nätverksproblem, en saknad fil eller en felkonfiguration av projektet.</translation>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation>Visa på karta</translation>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation>Visa etiketter</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacitet</translation>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation>Zooma till gruppen</translation>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation>Zooma till överordnat lager</translation>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation>Zooma till lager</translation>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>Visa objektslista</translation>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation>Lagret innehåller inga objekt</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>Spårningen i lagret %1 stoppades</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Skrivskyddat lager</translation>
+    </message>
+    <message>
+        <source>feature addition</source>
+        <translation>Tillägg av objekt</translation>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation>Attributredigering</translation>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation>Geometriredigering</translation>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation>Borttagning av objekt</translation>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation>Inaktiverade lagerbehörigheter: %1</translation>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation>Visa menyn för objekt</translation>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>Visa lista över synliga objekt</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>Kan inte börja redigera, inget lager</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Kan inte påbörja redigering</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Det gick inte att spara borttagningen av objekt %2 i lagret &quot;%1&quot;. Orsak:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Det gick inte att spara borttagningen i lagret &quot;%1&quot;. Orsak:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>Kan inte ta bort objekt %1</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Det gick inte att återställa ändringarna i lagret %1</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>Det går inte att kopiera ett ogiltigt objekt</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Det gick inte att lägga till ett nytt objekt i lagret &quot;%1&quot;. Orsak:
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation>Spårning är aktiv på detta lager.</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Stoppa</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>Spårningen i lagret %1 stoppades</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Detta lager är ogiltigt. Detta kan bero på ett nätverksproblem, en saknad fil eller en felkonfiguration av projektet.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Detta lager är konfigurerat som &quot;Endast läsning&quot; vilket inaktiverar att lägga till, ta bort och redigera objekt.</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation>Behörighetskonfigurationen för detta lager inaktiverar tillägg av objekt.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalDataPickerScreen</name>
+    <message>
+        <source>Project Folder</source>
+        <translation>Projektmapp</translation>
+    </message>
+    <message>
+        <source>Local Projects &amp; Datasets</source>
+        <translation>Lokala projekt och datamängder</translation>
+    </message>
+    <message>
+        <source>Folders</source>
+        <translation>Mappar</translation>
+    </message>
+    <message>
+        <source>Projects</source>
+        <translation>Projekt</translation>
+    </message>
+    <message>
+        <source>Datasets</source>
+        <translation>Datamängder</translation>
+    </message>
+    <message>
+        <source>Files</source>
+        <translation>Filer</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoriter</translation>
+    </message>
+    <message>
+        <source>Project file</source>
+        <translation>Projektfil</translation>
+    </message>
+    <message>
+        <source>Vector dataset</source>
+        <translation>Vektordatamängd</translation>
+    </message>
+    <message>
+        <source>Raster dataset</source>
+        <translation>Rasterdatamängd</translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation>Hem</translation>
+    </message>
+    <message>
+        <source>Item Actions</source>
+        <translation>Objektåtgärder</translation>
+    </message>
+    <message>
+        <source>View file</source>
+        <translation>Visa fil</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Skicka till...</translation>
+    </message>
+    <message>
+        <source>Push to QFieldCloud</source>
+        <translation>Ladda upp till QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exportera till mapp...</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Lägg till i favoriter</translation>
+    </message>
+    <message>
+        <source>Remove from favorites</source>
+        <translation>Ta bort från favoriter</translation>
+    </message>
+    <message>
+        <source>Send compressed folder to...</source>
+        <translation>Skicka komprimerad mapp till...</translation>
+    </message>
+    <message>
+        <source>Upload folder to WebDAV server</source>
+        <translation>Ladda upp mappen till WebDAV-servern</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV server</source>
+        <translation>Hämta mappen från WebDAV-servern</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation>Ta bort mappen</translation>
+    </message>
+    <message>
+        <source>Delete file</source>
+        <translation>Ta bort fil</translation>
+    </message>
+    <message>
+        <source>Remove dataset</source>
+        <translation>Ta bort datamängd</translation>
+    </message>
+    <message>
+        <source>Import Actions</source>
+        <translation>Importåtgärder</translation>
+    </message>
+    <message>
+        <source>Import project from folder</source>
+        <translation>Importera projekt från mapp</translation>
+    </message>
+    <message>
+        <source>Import project from ZIP</source>
+        <translation>Importera projekt från ZIP</translation>
+    </message>
+    <message>
+        <source>Import dataset(s)</source>
+        <translation>Importera datamängder</translation>
+    </message>
+    <message>
+        <source>Import URL</source>
+        <translation>Importera URL</translation>
+    </message>
+    <message>
+        <source>Import WebDAV folder</source>
+        <translation>Importera WebDAV-mapp</translation>
+    </message>
+    <message>
+        <source>Storage management help</source>
+        <translation>Hjälp med lagringshantering</translation>
+    </message>
+    <message>
+        <source>Project Actions</source>
+        <translation>Projektåtgärder</translation>
+    </message>
+    <message>
+        <source>Update project from ZIP</source>
+        <translation>Uppdatera projektet från ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation>Komprimera projekt och skicka till...</translation>
+    </message>
+    <message>
+        <source>Upload project to WebDAV</source>
+        <translation>Ladda upp projektet till WebDAV</translation>
+    </message>
+    <message>
+        <source>Download project from WebDAV</source>
+        <translation>Hämta projektet från WebDAV</translation>
+    </message>
+    <message>
+        <source>Upload file(s) to WebDAV</source>
+        <translation>Ladda upp filer till WebDAV</translation>
+    </message>
+    <message>
+        <source>Push file(s) to QFieldCloud</source>
+        <translation>Ladda upp filer till QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation>Välj en eller flera filer att ladda upp till QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation>Skicka komprimerade filer till…</translation>
+    </message>
+    <message>
+        <source>Delete file(s)</source>
+        <translation>Ta bort filer</translation>
+    </message>
+    <message>
+        <source>‘%1’ is being uploaded to QFieldCloud</source>
+        <translation>‘%1’ laddas upp till QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Objekt som laddas upp till QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Remove File(s)</source>
+        <translation>Ta bort filer</translation>
+    </message>
+    <message numerus="yes">
+        <source>Are you sure you want to remove %n files?</source>
+        <translation><numerusform>Vill du verkligen ta bort %n fil?</numerusform><numerusform>Vill du verkligen ta bort %n filer?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n file(s) deleted successfully</source>
+        <translation><numerusform>%n fil har tagits bort</numerusform><numerusform>%n filer har tagits bort</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n file(s)</source>
+        <translation><numerusform>Det gick inte att ta bort %n fil</numerusform><numerusform>Det gick inte att ta bort %n filer</numerusform></translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and import the project or dataset:</source>
+        <translation>Skriv en URL nedan för att hämta och importera projektet eller datamängden:</translation>
+    </message>
+    <message>
+        <source>Importing WebDAV folder</source>
+        <translation>Importerar WebDAV-mapp</translation>
+    </message>
+    <message>
+        <source>Downloading WebDAV folder</source>
+        <translation>Hämtar WebDAV-mapp</translation>
+    </message>
+    <message>
+        <source>Uploading WebDAV folder</source>
+        <translation>Laddar upp WebDAV-mapp</translation>
+    </message>
+    <message>
+        <source>WebDAV error: </source>
+        <translation>WebDAV-fel: </translation>
+    </message>
+    <message>
+        <source>WebDAV upload</source>
+        <translation>WebDAV-uppladdning</translation>
+    </message>
+    <message>
+        <source>WebDAV download</source>
+        <translation>WebDAV-hämtning</translation>
+    </message>
+    <message>
+        <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
+        <translation>Du håller på att ladda upp ändrat innehåll till &lt;b&gt;%1&lt;/b&gt; med användarkontot &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Åtgärden skriver över data som lagras på fjärrservern. Kontrollera att det är detta du vill göra.</translation>
+    </message>
+    <message>
+        <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
+        <translation>Du håller på att hämta ändrat innehåll från &lt;b&gt;%1&lt;/b&gt; med användarkontot &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Åtgärden skriver över lokalt lagrade data. Kontrollera att det är detta du vill göra.</translation>
+    </message>
+    <message>
+        <source>Password (leave empty to use remembered)</source>
+        <translation>Lösenord (lämna tomt för att använda det sparade lösenordet)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Lösenord</translation>
+    </message>
+    <message>
+        <source>Remember password</source>
+        <translation>Kom ihåg lösenord</translation>
+    </message>
+    <message>
+        <source>Type the WebDAV details below to import a remote folder:</source>
+        <translation>Ange WebDAV-uppgifterna nedan för att importera en fjärrmapp:</translation>
+    </message>
+    <message>
+        <source>WebDAV server URL</source>
+        <translation>WebDAV-serverns URL</translation>
+    </message>
+    <message>
+        <source>User and password</source>
+        <translation>Användarnamn och lösenord</translation>
+    </message>
+    <message>
+        <source>leave empty to use remembered</source>
+        <translation>lämna tomt om det sparade värdet ska användas</translation>
+    </message>
+    <message>
+        <source>Fetching remote folders</source>
+        <translation>Hämtar fjärrmappar</translation>
+    </message>
+    <message>
+        <source>Fetch remote folders</source>
+        <translation>Hämta fjärrmappar</translation>
+    </message>
+    <message>
+        <source>Select the remote folder to import:</source>
+        <translation>Välj den fjärrmapp som ska importeras:</translation>
+    </message>
+    <message>
+        <source>root folder</source>
+        <translation>rotmapp</translation>
+    </message>
+    <message>
+        <source>Available locally in ‘%1’</source>
+        <translation>Tillgänglig lokalt i ‘%1’</translation>
+    </message>
+    <message>
+        <source>Imported folder name</source>
+        <translation>Den importerade mappens namn</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Bekräfta</translation>
+    </message>
+    <message>
+        <source>You are about to remove a saved WebDAV item, proceed?</source>
+        <translation>Du håller på att ta bort ett sparat WebDAV-objekt. Vill du fortsätta?</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalFilesModel</name>
+    <message>
+        <source>Home</source>
+        <translation>Hem</translation>
+    </message>
+    <message>
+        <source>QField files directory</source>
+        <translation>Katalog för QField-filer</translation>
+    </message>
+    <message>
+        <source>Created projects</source>
+        <translation>Skapade projekt</translation>
+    </message>
+    <message>
+        <source>Imported projects</source>
+        <translation>Importerade projekt</translation>
+    </message>
+    <message>
+        <source>Imported datasets</source>
+        <translation>Importerade datamängder</translation>
+    </message>
+    <message>
+        <source>Additional files directory</source>
+        <translation>Katalog för ytterligare filer</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorFiltersModel</name>
+    <message>
+        <source>Search filters for your locations have been activated, customize results in the settings panel</source>
+        <translation>Sökfilter för dina platser har aktiverats. Anpassa resultaten i inställningspanelen</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorItem</name>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation>Välj ett vektorlager i teckenförklaringen för att söka efter objekt i det aktiva lagret.</translation>
+    </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation>Aktivera först ett vektorlager i teckenförklaringen för att använda funktionen</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorSettings</name>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation>Inställningar för sökfält</translation>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation>När sökfiltret är inaktiverat kan det fortfarande användas genom att skriva prefixet %1 i sökfältet.</translation>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation>Aktivera lokaliseringsverktyget %1 som standard</translation>
+    </message>
+</context>
+<context>
+    <name>QfMessageLog</name>
+    <message>
+        <source>Message Logs</source>
+        <translation>Meddelandeloggar</translation>
+    </message>
+    <message>
+        <source>Message text copied</source>
+        <translation>Meddelandetext kopierad</translation>
+    </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation>Logga körtidsprofilering</translation>
+    </message>
+    <message>
+        <source>Clear message log</source>
+        <translation>Rensa meddelandelogg</translation>
+    </message>
+    <message>
+        <source>Message log cleared</source>
+        <translation>Meddelandeloggen har rensats</translation>
+    </message>
+    <message>
+        <source>Send application log</source>
+        <translation>Skicka programlogg</translation>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation>Detta skickar en logg över din nuvarande session till utvecklingsteamet. Du behöver endast göra detta när du blir ombedd.</translation>
+    </message>
+    <message>
+        <source>Type optional details</source>
+        <translation>Ange valfria uppgifter</translation>
+    </message>
+    <message>
+        <source>Include cloud user details</source>
+        <translation>Inkludera uppgifter om molnanvändaren</translation>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
+        <translation>Programloggen skickas…</translation>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation>Lagring</translation>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation>Tryck för att uppgradera lagring</translation>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
+        <translation>Tryck för att hantera lagring</translation>
+    </message>
+</context>
+<context>
+    <name>QfMultiFeatureListModelBase</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Kan inte påbörja redigering</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Det gick inte att återställa ändringarna i lagret %1</translation>
+    </message>
+    <message>
+        <source>Cannot change geometry of feature %1 in %2</source>
+        <translation>Kan inte ändra geometri för objektet %1 i %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfNavigationBar</name>
+    <message>
+        <source>Features</source>
+        <translation>Objekt</translation>
+    </message>
+    <message>
+        <source>Feature List Menu</source>
+        <translation>Objektslistmeny</translation>
+    </message>
+    <message>
+        <source>Toggle Feature Selection</source>
+        <translation>Växla objektmarkering</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to PDF</source>
+        <translation>Skriv ut atlasobjekt som PDF</translation>
+    </message>
+    <message>
+        <source>Merge Selected Features</source>
+        <translation>Slå samman valda objekt</translation>
+    </message>
+    <message>
+        <source>Move Selected Feature(s)</source>
+        <translation>Flytta valda objekt</translation>
+    </message>
+    <message>
+        <source>Duplicate Selected Feature(s)</source>
+        <translation>Duplicera valda objekt</translation>
+    </message>
+    <message>
+        <source>Delete Selected Feature(s)</source>
+        <translation>Ta bort valda objekt</translation>
+    </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation>Bearbeta valda objekt</translation>
+    </message>
+    <message>
+        <source>Feature Menu</source>
+        <translation>Objektsmeny</translation>
+    </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation>Objektet har klippts ut till urklipp</translation>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation>Objekt kopierat till urklipp</translation>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation>Objektattribut uppdaterade från urklipp</translation>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation>Inga objektattribut uppdaterades från urklippet</translation>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation>Objektet har angetts som navigeringsmål</translation>
+    </message>
+    <message>
+        <source>Zoom to Feature</source>
+        <translation>Zooma till objekt</translation>
+    </message>
+    <message>
+        <source>Auto-Zoom to Feature</source>
+        <translation>Zooma automatiskt till objekt</translation>
+    </message>
+    <message>
+        <source>Process Feature</source>
+        <translation>Bearbeta objekt</translation>
+    </message>
+    <message>
+        <source>Move Feature</source>
+        <translation>Flytta objekt</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplicera objekt</translation>
+    </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation>Rotera objekt</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation>Uppdatera attribut från objektet</translation>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Ta bort objekt</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Skriv ut atlasobjekt</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Välj mall nedan</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Skriver ut...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>Atlasobjekten har skrivits ut och sparats i projektmappen</translation>
+    </message>
+</context>
+<context>
+    <name>QfNavigationInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>Dist.</source>
+        <translation>Dist.</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Riktning</translation>
+    </message>
+</context>
+<context>
+    <name>QfNtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation>Oväntat svar från NTRIP-servern</translation>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation>Anslutningen bröts innan källtabellen togs emot</translation>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation>Inga monteringspunkter hittades i NTRIP-källtabellen</translation>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation>Fel vid hämtning av NTRIP-källtabellen: </translation>
+    </message>
+</context>
+<context>
+    <name>QfOrderedRelationModel</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Kan inte påbörja redigering</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Det gick inte att återställa ändringarna i lagret %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation>Det gick inte att spara ändringarna i lagret %1.</translation>
+    </message>
+    <message>
+        <source>Cannot update features ordering</source>
+        <translation>Det gick inte att uppdatera objektens ordning</translation>
+    </message>
+</context>
+<context>
+    <name>QfOverlayContainer</name>
+    <message>
+        <source>Positioning</source>
+        <translation>Positionering</translation>
+    </message>
+</context>
+<context>
+    <name>QfOverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>Ändringar sparade</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Ändringar förkastades</translation>
+    </message>
+</context>
+<context>
+    <name>QfPlatformUtilities</name>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation>Välj ZIP-arkiv</translation>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation>ZIP-arkiv (*.zip)</translation>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation>Välj målmapp</translation>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Bekräfta borttagning</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation>Datamängden kommer att tas bort. Vill du fortsätta?</translation>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation>Projektmappen kommer att tas bort. Vill du fortsätta?</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation>Det gick inte att spara filresursen</translation>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation>Välj bildfil</translation>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation>Alla bilder (*.jpg *.jpeg *.png *.bmp);;JPEG-bilder (*.jpg *.jpeg);;PNG-bilder (*.jpg *.jpeg);;BMP-bilder (*.bmp)</translation>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation>Välj videofil</translation>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation>Alla videofiler (*.mp4 *.mkv *.mov);;MP4-video (*.mp4);;MKV-video(*.mkv);;MOV-video (*.mov)</translation>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation>Välj fil</translation>
+    </message>
+    <message>
+        <source>Open File</source>
+        <translation>Öppna fil</translation>
+    </message>
+    <message>
+        <source>All Supported Files</source>
+        <translation>Alla stödda filer</translation>
+    </message>
+    <message>
+        <source>QGIS Project Files</source>
+        <translation>QGIS-projektfiler</translation>
+    </message>
+    <message>
+        <source>Vector Datasets</source>
+        <translation>Vektordatamängder</translation>
+    </message>
+    <message>
+        <source>Raster Datasets</source>
+        <translation>Rasterdatamängder</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginItem</name>
+    <message>
+        <source>Authored by %1%2%3</source>
+        <translation>Författad av %1%2%3</translation>
+    </message>
+    <message>
+        <source>Uninstall version %1</source>
+        <translation>Avinstallera version %1</translation>
+    </message>
+    <message>
+        <source>Uninstall plugin</source>
+        <translation>Avinstallera insticksprogrammet</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManager</name>
+    <message>
+        <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
+        <translation>Det begärda insticksprogrammets URL finns i listan över tillgängliga insticksprogram. Installera det via hämtningsknappen.</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file could not be decompressed</source>
+        <translation>Den hämtade zip-filen kunde inte packas upp</translation>
+    </message>
+    <message>
+        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
+        <translation>Den hämtade zip-filen innehåller inte den obligatoriska insticksprogramfilen main.qml</translation>
+    </message>
+    <message>
+        <source>Can&apos;t save the downloaded file</source>
+        <translation>Kan inte spara den hämtade filen</translation>
+    </message>
+    <message>
+        <source>Download file is not an zipped plugin</source>
+        <translation>Den hämtade filen är inte ett zip-komprimerat insticksprogram</translation>
+    </message>
+    <message>
+        <source>Network error</source>
+        <translation>Nätverksfel</translation>
+    </message>
+</context>
+<context>
+    <name>QfPluginManagerSettings</name>
+    <message>
+        <source>Plugins</source>
+        <translation>Insticksprogram</translation>
+    </message>
+    <message>
+        <source>Local Plugins</source>
+        <translation>Lokala insticksprogram</translation>
+    </message>
+    <message>
+        <source>Available Plugins</source>
+        <translation>Tillgängliga insticksprogram</translation>
+    </message>
+    <message>
+        <source>Search for plugin</source>
+        <translation>Sök efter insticksprogram</translation>
+    </message>
+    <message>
+        <source>Fetching available plugins</source>
+        <translation>Hämtar tillgängliga insticksprogram</translation>
+    </message>
+    <message>
+        <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
+        <translation>Inga insticksprogram har installerats än. Byt till fliken %1Tillgängliga insticksprogram%3 för att prova några direkt.&lt;br&gt;&lt;br&gt;Mer information finns i %2dokumentationen%3.</translation>
+    </message>
+    <message>
+        <source>Install plugin from URL</source>
+        <translation>Installera insticksprogram från URL</translation>
+    </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation>Det öppna projektet har läst in ett projektinsticksprogram</translation>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation>Neka behörighet</translation>
+    </message>
+    <message>
+        <source>Plugins management menu</source>
+        <translation>Meny för hantering av insticksprogram</translation>
+    </message>
+    <message>
+        <source>Clear remembered permissions</source>
+        <translation>Rensa sparade behörigheter</translation>
+    </message>
+    <message>
+        <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
+        <translation>Författaruppgifterna ovan kommer från insticksprogrammet och har inte verifierats oberoende. Kontrollera att du litar på insticksprogrammets ursprung.</translation>
+    </message>
+    <message>
+        <source>Type a URL below to download and install a plugin:</source>
+        <translation>Ange en URL nedan för att hämta och installera ett insticksprogram:</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to uninstall `%1`?</source>
+        <translation>Är du säker på att du vill avinstallera `%1`?</translation>
+    </message>
+    <message>
+        <source>Installing %1</source>
+        <translation>Installerar %1</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Intern enhet</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceSettings</name>
+    <message>
+        <source>Egeniouss</source>
+        <translation>Egeniouss</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
+    </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation>Seriell port (NMEA)</translation>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation>Loggfil (NMEA)</translation>
+    </message>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation>Inställningar för positioneringsenhet</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation>Anslutningstyp</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Namn</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation> (lämna tomt för att fylla i automatiskt)</translation>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation>Anslutningsdetaljer</translation>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation>TCP (NMEA)</translation>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
+        <translation>UDP (NMEA)</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationModel</name>
+    <message>
+        <source>Altitude</source>
+        <translation>Höjd</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Hastighet</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>H. noggrannhet</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>V. noggrannhet</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation>rutnät</translation>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation>orto.</translation>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation>ant.</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation>%1/s</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation>NTRIP-inställningar</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Värd</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokoll</translation>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation>NTRIP Revision 1</translation>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation>NTRIP Revision 2</translation>
+    </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation>NTRIP SSL/TLS</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Användarnamn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Lösenord</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation>Monteringspunkt</translation>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation>Identifierare:</translation>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation>Dataformat:</translation>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation>Avstånd:</translation>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation>Skicka positionen till NTRIP-servern</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningPreciseView</name>
+    <message>
+        <source>Dist.</source>
+        <translation>Dist.</translation>
+    </message>
+    <message>
+        <source>Positioning accuracy too low for this precision level</source>
+        <translation>Positioneringsnoggrannheten är för låg för den här precisionsnivån</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation>Ljudåterkoppling för närhet</translation>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation>Rotera vy</translation>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation>Rotationskälla</translation>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation>Kompass</translation>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation>Rörelse</translation>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation>Precision</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningSettings</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Intern enhet</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation>Allmänna parametrar</translation>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation>Avancerade parametrar</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Hjälp</translation>
+    </message>
+    <message>
+        <source>There are no general parameters attached to this algorithm.</source>
+        <translation>Det finns inga allmänna parametrar kopplade till denna algoritm.</translation>
+    </message>
+    <message>
+        <source>Algorithm description</source>
+        <translation>Algoritmbeskrivning</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoriter</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation>Alla algoritmer</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterArea</name>
+    <message>
+        <source>square degrees</source>
+        <translation>kvadratgrader</translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>&lt;okänd&gt;</translation>
+    </message>
+    <message>
+        <source>sqr. meters</source>
+        <translation>kvadratmeter</translation>
+    </message>
+    <message>
+        <source>sqr. kilometers</source>
+        <translation>kvadratkilometer</translation>
+    </message>
+    <message>
+        <source>sqr. feet</source>
+        <translation>kvadratfot</translation>
+    </message>
+    <message>
+        <source>sqr. yards</source>
+        <translation>kvadratyard</translation>
+    </message>
+    <message>
+        <source>sqr. miles</source>
+        <translation>engelska kvadratmil</translation>
+    </message>
+    <message>
+        <source>hectares</source>
+        <translation>hektar</translation>
+    </message>
+    <message>
+        <source>acres</source>
+        <translation>tunnland</translation>
+    </message>
+    <message>
+        <source>sqr. nautical miles</source>
+        <translation>kvadratsjömil</translation>
+    </message>
+    <message>
+        <source>sqr. centimeters</source>
+        <translation>kvadratcentimeter</translation>
+    </message>
+    <message>
+        <source>sqr. millimeters</source>
+        <translation>kvadratmillimeter</translation>
+    </message>
+    <message>
+        <source>sqr. inches</source>
+        <translation>kvadrattum</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterBoolean</name>
+    <message>
+        <source>True</source>
+        <translation>Sant</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Falskt</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterDistance</name>
+    <message>
+        <source>degrees</source>
+        <translation>grader</translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>&lt;okänd&gt;</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>meter</translation>
+    </message>
+    <message>
+        <source>kilometers</source>
+        <translation>kilometer</translation>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation>fot</translation>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation>yard</translation>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation>engelska mil</translation>
+    </message>
+    <message>
+        <source>nautical miles</source>
+        <translation>sjömil</translation>
+    </message>
+    <message>
+        <source>centimeters</source>
+        <translation>centimeter</translation>
+    </message>
+    <message>
+        <source>millimeters</source>
+        <translation>millimeter</translation>
+    </message>
+    <message>
+        <source>inches</source>
+        <translation>tum</translation>
+    </message>
+</context>
+<context>
+    <name>QfProjectCreationScreen</name>
+    <message>
+        <source>Create a new project</source>
+        <translation>Skapa ett nytt projekt</translation>
+    </message>
+    <message>
+        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
+        <translation>På den här sidan kan du skapa ett enkelt projekt med några grundläggande inställningar. För mer avancerade behov rekommenderar vi att du skapar projektet i QGIS med QFieldSync.</translation>
+    </message>
+    <message>
+        <source>New project name</source>
+        <translation>Nytt projektnamn</translation>
+    </message>
+    <message>
+        <source>Select your basemap</source>
+        <translation>Välj din baskarta</translation>
+    </message>
+    <message>
+        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
+        <translation>Välj en baskarta för ditt projekt. Välj från de tillgängliga alternativen eller ange din egen anpassade URL.</translation>
+    </message>
+    <message>
+        <source>Colorful</source>
+        <translation>Färgglad</translation>
+    </message>
+    <message>
+        <source>Darkgray</source>
+        <translation>Mörkgrå</translation>
+    </message>
+    <message>
+        <source>Lightgray</source>
+        <translation>Ljusgrå</translation>
+    </message>
+    <message>
+        <source>Blank</source>
+        <translation>Tom</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>Anpassad</translation>
+    </message>
+    <message>
+        <source>Custom basemap URL</source>
+        <translation>Anpassad URL för baskarta</translation>
+    </message>
+    <message>
+        <source>Take notes?</source>
+        <translation>Vill du göra anteckningar?</translation>
+    </message>
+    <message>
+        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
+        <translation>Fånga snabbt anteckningar med datum, tid och kommentarer. Bifoga valfritt multimediaobjekt som bilder och videor för att berika dina anteckningar.</translation>
+    </message>
+    <message>
+        <source>Take image and video attachments</source>
+        <translation>Skapa bild- och videobilagor</translation>
+    </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation>Tillåt anteckningar för linjer och polygoner</translation>
+    </message>
+    <message>
+        <source>Track your position?</source>
+        <translation>Spåra din position?</translation>
+    </message>
+    <message>
+        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
+        <translation>Spela in din plats varje sekund tillsammans med datum och tid för att noggrant följa dina rörelser.</translation>
+    </message>
+    <message>
+        <source>Begin tracking automatically</source>
+        <translation>Börja spåra automatiskt</translation>
+    </message>
+    <message>
+        <source>Backup &amp; collaborate?</source>
+        <translation>Vill du säkerhetskopiera och samarbeta?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation>QFieldCloud låter synkronisera och slå samman de data som ditt team samlat in i %1. Från små individuella projekt till stora datainsamlingskampanjer. </translation>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud here</source>
+        <translation>Läs mer om QFieldCloud här</translation>
+    </message>
+    <message>
+        <source>Automatically upload changes on a regular interval</source>
+        <translation>Ladda automatiskt upp ändringar med jämna mellanrum</translation>
+    </message>
+    <message>
+        <source>Create Project</source>
+        <translation>Skapa projekt</translation>
+    </message>
+    <message>
+        <source>My Project</source>
+        <translation>Mitt projekt</translation>
+    </message>
+</context>
+<context>
+    <name>QfProjectUtils</name>
+    <message>
+        <source>Created Project</source>
+        <translation>Skapat projekt</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation>Anteckningar</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Punkt</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linje</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Polygon</translation>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation>Anteckningsbilagor</translation>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation>Media</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Beskrivning</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Tid</translation>
+    </message>
+    <message>
+        <source>Marker color</source>
+        <translation>Markörfärg</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Titel</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Anteckning</translation>
+    </message>
+    <message>
+        <source>Tracks</source>
+        <translation>Banor</translation>
+    </message>
+    <message>
+        <source>Track color</source>
+        <translation>Banfärg</translation>
+    </message>
+    <message>
+        <source>Basemap</source>
+        <translation>Baskarta</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation>Bilagor</translation>
+    </message>
+</context>
+<context>
+    <name>QfReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation>Ogiltigt referenslager</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation>Kan inte ta bort objekt</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationCombobox</name>
+    <message>
+        <source>Empty</source>
+        <translation>Tomt</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Invalid relation</source>
+        <translation>Ogiltig relation</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationEditorBase</name>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation><numerusform>%n objekt</numerusform><numerusform>%n objekt</numerusform></translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Lägger till ett underordnat objekt i lagret %1</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation>Koppla bort objekt</translation>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Ta bort objekt</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Vill du koppla bort objektet &lt;b&gt;%1 (%2)&lt;/b&gt; i lagret &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(Kopplingen tas bort i lagret &lt;b&gt;%4&lt;/b&gt;.)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Vill du ta bort objektet &lt;b&gt;%1 (%2)&lt;/b&gt; i lagret &lt;b&gt;%3&lt;/b&gt;?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Det gick inte att ta bort det refererande objektet</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation>Underordnad meny</translation>
+    </message>
+    <message>
+        <source>Open Form</source>
+        <translation>Öppna formulär</translation>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Kopiera objektattribut</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Skriv ut atlasobjekt som PDF</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Skriv ut atlasobjekt</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Välj mall nedan</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Skriver ut...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>Atlasobjekten har skrivits ut och sparats i projektmappen</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>Det går inte att lägga till ett underordnat objekt. Kontrollera att det överordnade objektet uppfyller alla villkor och kan sparas.</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>Det går inte att lägga till ett underordnat objekt eftersom attributvärdet som kopplar samman det överordnade och underordnade objektet inte har angetts.</translation>
+    </message>
+</context>
+<context>
+    <name>QfScaleBarMeasurement</name>
+    <message>
+        <source>Unknown</source>
+        <translation>Okänt</translation>
+    </message>
+</context>
+<context>
+    <name>QfSearchBar</name>
+    <message>
+        <source>Search</source>
+        <translation>Sök</translation>
+    </message>
+</context>
+<context>
+    <name>QfSensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation>Välj seriell port från listan nedan:</translation>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation>Inga seriella portar upptäcktes, uppdatera listan när en enhet är ansluten.</translation>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation>Uppdatera lista</translation>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation>Den seriella portens visningsnamn:</translation>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation>Seriell portadress:</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation>Det gick inte att hitta enheten på den seriella porten</translation>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation>Ett fel uppstod vid läsning från den seriella porten</translation>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation>Anslutningen avvisades på grund av otillräckliga behörigheter</translation>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation>Mottagningsfel för seriell port (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfSketcher</name>
     <message>
         <source>Select drawing template</source>
@@ -8122,11 +8313,11 @@ Objektens geometrier kommer att kombineras med objekt &apos;%1&apos;, som kommer
     <name>QfWebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation>Kunde inte ladda ner fil %1 på grund av nätverksfel (%2)</translation>
+        <translation>Det gick inte att hämta filen %1 på grund av ett nätverksfel (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation>Misslyckades med att ladda upp fil %1 på grund av nätverksfel (%2)</translation>
+        <translation>Det gick inte att ladda upp filen %1 på grund av ett nätverksfel (%2)</translation>
     </message>
     <message>
         <source>Upload finished.</source>
@@ -8189,7 +8380,7 @@ Objektens geometrier kommer att kombineras med objekt &apos;%1&apos;, som kommer
     <name>QfWelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>Vi är ledsna att höra det. Klicka på knappen nedan för att kommentera eller söka support.</translation>
+        <translation>Vi beklagar det. Klicka på knappen nedan för att lämna en kommentar eller få hjälp.</translation>
     </message>
     <message>
         <source>Reach out</source>
@@ -8247,7 +8438,7 @@ projekt</translation>
     </message>
     <message>
         <source>Last session</source>
-        <translation>Senaste session</translation>
+        <translation>Senaste sessionen</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -8271,11 +8462,11 @@ projekt</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation>Ladda standardprojekt vid start</translation>
+        <translation>Öppna standardprojektet vid start</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation>Ladda senast öppnade projekt vid start</translation>
+        <translation>Öppna det senast öppnade projektet vid start</translation>
     </message>
     <message>
         <source>Return to map</source>
@@ -8291,15 +8482,15 @@ projekt</translation>
     </message>
     <message>
         <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
-        <translation type="unfinished"/>
+        <translation>Det finns väntande ändringar. Vill du ladda upp dem nu eller låta dem ligga kvar och stänga molnprojektet och appen?</translation>
     </message>
     <message>
         <source>Don&apos;t show this again</source>
-        <translation type="unfinished"/>
+        <translation>Visa inte det här igen</translation>
     </message>
     <message>
         <source>Upload now</source>
-        <translation type="unfinished"/>
+        <translation>Ladda upp nu</translation>
     </message>
     <message>
         <source>Close</source>
@@ -8346,7 +8537,7 @@ projekt</translation>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation>Kunde inte ladda resursfont: %1</translation>
+        <translation>Kunde inte läsa in resursteckensnittet: %1</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -8378,7 +8569,7 @@ projekt</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation>Spelar upp insamlade positioner, vänta</translation>
+        <translation>Spelar upp insamlade positioner. Vänta.</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -8386,7 +8577,7 @@ projekt</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation>Misslyckades med att ladda 3D-vy</translation>
+        <translation>Det gick inte att läsa in 3D-vyn</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
@@ -8394,7 +8585,7 @@ projekt</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation>Långtryck på din positionsmarkör för att visa åtgärder</translation>
+        <translation>Håll positionsmarkören nedtryckt för att visa åtgärder</translation>
     </message>
     <message>
         <source>Tap on your location marker
@@ -8468,7 +8659,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation>Långtryck på destinationsmarkören för att visa åtgärder</translation>
+        <translation>Håll destinationsmarkören nedtryckt för att visa åtgärder</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
@@ -8512,19 +8703,19 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Område</translation>
+        <translation>Yta</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Stäng mätverktyg</translation>
+        <translation>Stäng mätverktyget</translation>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation>Stäng 3D-vy</translation>
+        <translation>Stäng 3D-vyn</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Stoppa redigering</translation>
+        <translation>Avsluta redigering</translation>
     </message>
     <message>
         <source>Cancel addition</source>
@@ -8532,11 +8723,11 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation>COGO digitalisering påslagen</translation>
+        <translation>COGO-digitalisering aktiverad</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation>COGO digitalisering avstängd</translation>
+        <translation>COGO-digitalisering inaktiverad</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
@@ -8548,7 +8739,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Topologisk redigering aktiverades</translation>
+        <translation>Topologisk redigering aktiverad</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
@@ -8556,11 +8747,11 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Frihandsdigitalisering påslagen</translation>
+        <translation>Frihandsdigitalisering aktiverad</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Frihandsdigitalisering avstängd</translation>
+        <translation>Frihandsdigitalisering inaktiverad</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
@@ -8624,7 +8815,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation>Kunde inte skapa objekt på grund av att tillåtelse för objekt-tillägg är inaktiverad</translation>
+        <translation>Kunde inte skapa objekt eftersom behörigheten att lägga till objekt är inaktiverad</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
@@ -8632,11 +8823,11 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
-        <translation>Aktivera positioneringstjänsten för att hämta punkter vid din position</translation>
+        <translation>Aktivera positioneringstjänsten för att registrera punkter vid din position</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation>Positioneringstjänsten har ännu inte erhållit en giltig plats</translation>
+        <translation>Positioneringstjänsten har ännu inte tagit emot en giltig position</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -8700,7 +8891,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>Ansluter sensor &apos;%1&apos;...</translation>
+        <translation>Ansluter sensorn &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Print</source>
@@ -8744,7 +8935,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation>Öppna objektformulär</translation>
+        <translation>Öppna objektformuläret</translation>
     </message>
     <message>
         <source>Cut Feature</source>
@@ -8760,11 +8951,11 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Lyckad duplicering av objekt</translation>
+        <translation>Objektet har duplicerats</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation>Objektduplicering ej tillgänglig</translation>
+        <translation>Objektduplicering är inte tillgänglig</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
@@ -8776,7 +8967,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation>Misslyckades med att klistra in objekt i lager</translation>
+        <translation>Det gick inte att klistra in objektet i lagret</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -8796,7 +8987,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Aktivera Positionering</translation>
+        <translation>Aktivera positionering</translation>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
@@ -8812,7 +9003,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation>Lås koordinatmarkör till plats</translation>
+        <translation>Lås koordinatmarkören till positionen</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
@@ -8828,7 +9019,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Nuvarande lager byttes till det som håller den valda geometrin.</translation>
+        <translation>Det aktiva lagret byttes till lagret som innehåller den valda geometrin.</translation>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
@@ -8848,7 +9039,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation>Import av URL misslyckades</translation>
+        <translation>Det gick inte att importera URL:en</translation>
     </message>
     <message>
         <source>Loading %1</source>
@@ -8868,7 +9059,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation>Projekt %1 kan inte paketeras eftersom din tillgängliga lagring är full.</translation>
+        <translation>Projekt %1 kan inte paketeras eftersom ditt lagringsutrymme är fullt.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
@@ -8876,11 +9067,11 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation>Projekt %1 kan inte paketeras eftersom projektägarens tillgängliga lagring är full.</translation>
+        <translation>Projekt %1 kan inte paketeras eftersom projektägarens lagringsutrymme är fullt.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation>Projekt %1 kan inte laddas ner eftersom din abonnemangsplan är otillräcklig.</translation>
+        <translation>Projekt %1 kan inte hämtas eftersom ditt abonnemang inte medger det.</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
@@ -8888,19 +9079,19 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation>Projekt %1 kan inte laddas ner eftersom projektägarens abonnemangsplan är otillräcklig.</translation>
+        <translation>Projekt %1 kan inte hämtas eftersom projektägarens abonnemang inte medger det.</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Det gick inte att ladda ner projektet %1</translation>
+        <translation>Det gick inte att hämta projektet %1</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Projektet %1 har laddats ner och kan nu öppnas</translation>
+        <translation>Projektet %1 har hämtats och kan nu öppnas</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Ändringar kunde inte nå QFieldCloud: %1</translation>
+        <translation>Ändringarna kunde inte skickas till QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
@@ -8908,15 +9099,15 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation>Lås upp skärmen för att stänga projekt och app</translation>
+        <translation>Lås upp skärmen för att stänga projektet och appen</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Tryck bakåt igen för att stänga projekt och app</translation>
+        <translation>Tryck på bakåt igen för att stänga projektet och appen</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation>Importbekräftelse</translation>
+        <translation>Bekräfta import</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
@@ -8944,11 +9135,11 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation>Avbryt algoritmoperation</translation>
+        <translation>Avbryt algoritmkörningen</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation>Du är på väg att avbryta den pågående algoritmoperationen, fortsätta?</translation>
+        <translation>Du är på väg att avbryta den pågående algoritmkörningen. Vill du fortsätta?</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
@@ -8968,7 +9159,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>Denna knapp växlar positioneringssystemet. När den är aktiverad kommer en positionsmarkör att visas längst upp på kartan. Långtryck på knappen öppnar positioneringsmenyn där ytterligare funktioner kan utforskas.</translation>
+        <translation>Den här knappen aktiverar eller inaktiverar positioneringssystemet. När det är aktiverat visas en positionsmarkör längst upp på kartan. Håll knappen nedtryckt för att öppna positioneringsmenyn med fler funktioner.</translation>
     </message>
     <message>
         <source>Search</source>
@@ -8976,15 +9167,15 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation>Sökfältet ger dig ett snabbt sätt att hitta objekt i ditt projekt, hoppa till en inskriven latitud- och longitudpunkt och mycket mer.</translation>
+        <translation>Med sökfältet kan du snabbt hitta objekt i projektet, gå till en angiven punkt med latitud och longitud och mycket mer.</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation>Digitaliseringsbrytare</translation>
+        <translation>Växla digitalisering</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation>Växla mellan bläddra- och digitaliseringslägen. Bläddraläget fokuserar på att ge den bästa upplevelsen vid visning av kartan och dess objekt, medan digitaliseringsläget gör det möjligt att skapa objekt och redigera geometrier.</translation>
+        <translation>Växla mellan bläddrings- och digitaliseringsläge. Bläddringsläget är anpassat för att visa kartan och dess objekt, medan du i digitaliseringsläget kan skapa objekt och redigera geometrier.</translation>
     </message>
     <message>
         <source>Legend</source>
@@ -9000,7 +9191,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation>Växla mätverktyget för att beräkna avstånd och områden på kartan.</translation>
+        <translation>Aktivera mätverktyget för att beräkna avstånd och ytor på kartan.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
@@ -9024,7 +9215,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
-        <translation type="unfinished"/>
+        <translation>Det finns väntande ändringar. Ladda upp dem nu, eller tryck på bakåt igen för att behålla dem som väntande och stänga molnprojektet och appen.</translation>
     </message>
     <message>
         <source>Upload local changes</source>
@@ -9036,11 +9227,11 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Det här projektet har väntande ändringar som ännu inte har laddats upp. Tryck på den blå molnknappen för att öppna molnprojektpanelen och ladda upp dem till QFieldCloud.</translation>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Det här molnprojektet har väntande ändringar som ännu inte har laddats upp. Öppna instrumentpanelen med den här knappen och tryck sedan på den blå molnikonen för att ladda upp dem till QFieldCloud.</translation>
     </message>
 </context>
 <context>
@@ -9802,7 +9993,7 @@ för att visa åtgärder</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Den externa lagringens autentiseringskonfiguration ID saknas, vänligen se till att den importeras till %1</translation>
+        <translation>Autentiseringskonfigurationens id för den externa lagringen saknas. Kontrollera att konfigurationen har importerats till %1</translation>
     </message>
     <message>
         <source>Learn more</source>

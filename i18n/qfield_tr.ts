@@ -3259,6 +3259,509 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Ölçek çubuğunu göster</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Yer imlerini göster</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Aktif olduğunda, kullanıcının kaydedilmiş ve şu anda açık olan proje yer imleri haritada görüntülenecektir.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Harita döndürmeyi etkinleştir</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Etkinleştirildiğinde, harita kullanıcı tarafından döndürülebilir.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Sayısallaştırma bilgisini gösterin.</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Açıldığında, yeni objeler sayısallaştırılırken veya ölçme aracı kullanılırken enlem ve boylam gibi koordinat bilgileri haritanın üzerine yerleştirilir.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Sayısallaştırma için ses tuşlarını kullan</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Etkinleştirildiğinde, cihazın ses açma tuşuna basmak bir köşe eklerken, ses kısma tuşuna basmak sayısallaştırma oturumları sırasında son girilen köşeyi kaldıracaktır.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Tuval üzerinde parmakla dokunarak köşe eklemeye izin ver</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Fareyi bir dokunmatik ekran cihazı olarak düşünün</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Etkinleştirildiğinde, fare parmak gibi davranacaktır. Devre dışı bırakıldığında, fare kalem davranışını yansıtacaktır.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Etkinleştirildiğinde, yalnızca bir özellik tanımlandığında özellik formu otomatik olarak açılacaktır; bu, özellik listesinin atlanması anlamına gelir.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Düzeltilmiş ölçek navigasyonu</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Düzeltilmiş ölçek navigasyonu aktif olduğunda, arama sonucuna odaklanır. Düzeltilmiş ölçek navigasyonu aktif olmadığından, ilgili kayıda yakınlaşılır da.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Görünür harita tuvali etrafında önizleme içeriğini işleyin</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Cihaz kamerasını kullan</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Anonimleştirilmiş metrikleri gönder</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Genel</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Konumlandırma</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Değişkenler</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Harita Tuvali</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Harita tuvali işleme kalitesi:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>En iyi kalite</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Daha düşük kalite</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>En düşük kalite</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Daha düşük bir kalite, daha düşük bellek kullanımı ve işleme süresi lehine işleme hassasiyetinden feragat eder.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Sayısallaştırma ve Düzenleme</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Kullanıcı Arayüzü</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Arama çubuğunu özelleştir</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Eklentileri yönet</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Ekranı boşta iken karart</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Ekran parlaklığının pil ömrünü korumak için kısılmadan önceki hareketsizlik süresi (saniye cinsinden).</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Görünüm:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Sistem görünümünü takip et</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Açık tema</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Koyu tema</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Yazı tipi boyutu:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Minik</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Büyük</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Ekstra büyük</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Dil:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>sistem</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Eksik veya tamamlanmamış bir dil mi buldunuz? %1Çevirmen topluluğuna katılın.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Kullanıcı adı</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Gelişmiş</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Konumlandırma cihazı kullanımda:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Eklemek</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Düzenlemek</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Çıkarmak</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>%1&apos;e bağlandı</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>%1&apos;e bağlan</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>%1&apos;e bağlanılıyor</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Konum bilgisi göster</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Vertex&apos;lere eklenen Ölçü (M) değeri:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Yer hızı</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Yön</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Yatay doğruluk</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Dikey doğruluk</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Koordinat imleci mevcut konuma kilitlendiğinde özellikleri dijitalleştirirken, yukarıda seçilen ölçüm türü, M boyutu varsa geometriye eklenecektir.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Doğruluk göstergesini etkinleştirin</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Doğruluk gereksinimini zorla</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Doğruluk göstergesi etkinleştirildiğinde, konum düğmesine bir rozet eklenir ve doğruluk değeri &lt;i&gt;kötü&lt;/i&gt; değerinden daha kötü ise &lt;span %1&gt;kırmızı&lt;/span&gt; renkte, &lt;i&gt;harika&lt;/i&gt; değerinden daha düşükse &lt;span %2&gt;sarı&lt;/span&gt; renkte veya &lt;span %3&gt;yeşil&lt;/span&gt; renkte olur.&lt;br&gt;&lt;br&gt;Ayrıca, doğruluk kısıtlama modu açılabilir, bu da koordinat imlecine kilitlendiğinde köşe eklemeyi kötü eşik değerinden daha kötü bir doğruluk değerine sahip konumlarla sınırlar.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Averaj konumlandırma gereksinimini etkinleştir</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Minimum sayıya ulaşıldığında toplama işlemini otomatik olarak sonlandır</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Etkinleştirildiğinde, konum kilitlenmiş bir imleç ile köşe dijitalleştirme yalnızca toplanan minimum konum sayısından bir ortalama konum kabul edecektir. Ortalama konumlar kullanılarak dijitalleştirme, ekle düğmesine basılı tutularak yapılır ve bu, basılı tutma işlemi bırakılana kadar konumları toplar. Doğruluk gereksinimi ayarları etkinleştirildiğinde dikkate alınır.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Anten yükseklik telafisi</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Yükseklik düzeltmesini atlayın.</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Yüksekliği, konumlandırma cihazının bildirdiği şekilde kullanın. Koordinat sistemi dönüşümünün gerektirebileceği herhangi bir yükseklik düzeltmesini atlayın.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Kullanımda dikey grid kaydırması:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Yok</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Aygıttan ortometrik</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Yükseklik doğruluğunu artırmak için dikey grid kaydırması kullanılır.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Aygıttan dosyaya NMEA cümlelerini kaydet</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7358,502 +7861,190 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Ölçek çubuğunu göster</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Yer imlerini göster</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Aktif olduğunda, kullanıcının kaydedilmiş ve şu anda açık olan proje yer imleri haritada görüntülenecektir.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Harita döndürmeyi etkinleştir</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Etkinleştirildiğinde, harita kullanıcı tarafından döndürülebilir.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Sayısallaştırma bilgisini gösterin.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Açıldığında, yeni objeler sayısallaştırılırken veya ölçme aracı kullanılırken enlem ve boylam gibi koordinat bilgileri haritanın üzerine yerleştirilir.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Sayısallaştırma için ses tuşlarını kullan</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Etkinleştirildiğinde, cihazın ses açma tuşuna basmak bir köşe eklerken, ses kısma tuşuna basmak sayısallaştırma oturumları sırasında son girilen köşeyi kaldıracaktır.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Tuval üzerinde parmakla dokunarak köşe eklemeye izin ver</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Fareyi bir dokunmatik ekran cihazı olarak düşünün</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Etkinleştirildiğinde, fare parmak gibi davranacaktır. Devre dışı bırakıldığında, fare kalem davranışını yansıtacaktır.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Etkinleştirildiğinde, yalnızca bir özellik tanımlandığında özellik formu otomatik olarak açılacaktır; bu, özellik listesinin atlanması anlamına gelir.</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Düzeltilmiş ölçek navigasyonu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Düzeltilmiş ölçek navigasyonu aktif olduğunda, arama sonucuna odaklanır. Düzeltilmiş ölçek navigasyonu aktif olmadığından, ilgili kayıda yakınlaşılır da.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Görünür harita tuvali etrafında önizleme içeriğini işleyin</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Cihaz kamerasını kullan</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Anonimleştirilmiş metrikleri gönder</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>Genel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Konumlandırma</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Değişkenler</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Harita Tuvali</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Harita tuvali işleme kalitesi:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>En iyi kalite</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Daha düşük kalite</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>En düşük kalite</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Daha düşük bir kalite, daha düşük bellek kullanımı ve işleme süresi lehine işleme hassasiyetinden feragat eder.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Sayısallaştırma ve Düzenleme</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Kullanıcı Arayüzü</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Arama çubuğunu özelleştir</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Eklentileri yönet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Ekranı boşta iken karart</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Ekran parlaklığının pil ömrünü korumak için kısılmadan önceki hareketsizlik süresi (saniye cinsinden).</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Görünüm:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Sistem görünümünü takip et</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Açık tema</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Koyu tema</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Yazı tipi boyutu:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Minik</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normal</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Büyük</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Ekstra büyük</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Dil:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>sistem</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Eksik veya tamamlanmamış bir dil mi buldunuz? %1Çevirmen topluluğuna katılın.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>Kullanıcı adı</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Gelişmiş</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Konumlandırma cihazı kullanımda:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Eklemek</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Düzenlemek</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Çıkarmak</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>%1&apos;e bağlandı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>%1&apos;e bağlan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>%1&apos;e bağlanılıyor</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Konum bilgisi göster</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Vertex&apos;lere eklenen Ölçü (M) değeri:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Yer hızı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Yön</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Yatay doğruluk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Dikey doğruluk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Koordinat imleci mevcut konuma kilitlendiğinde özellikleri dijitalleştirirken, yukarıda seçilen ölçüm türü, M boyutu varsa geometriye eklenecektir.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Doğruluk göstergesini etkinleştirin</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Doğruluk gereksinimini zorla</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Doğruluk göstergesi etkinleştirildiğinde, konum düğmesine bir rozet eklenir ve doğruluk değeri &lt;i&gt;kötü&lt;/i&gt; değerinden daha kötü ise &lt;span %1&gt;kırmızı&lt;/span&gt; renkte, &lt;i&gt;harika&lt;/i&gt; değerinden daha düşükse &lt;span %2&gt;sarı&lt;/span&gt; renkte veya &lt;span %3&gt;yeşil&lt;/span&gt; renkte olur.&lt;br&gt;&lt;br&gt;Ayrıca, doğruluk kısıtlama modu açılabilir, bu da koordinat imlecine kilitlendiğinde köşe eklemeyi kötü eşik değerinden daha kötü bir doğruluk değerine sahip konumlarla sınırlar.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Averaj konumlandırma gereksinimini etkinleştir</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Minimum sayıya ulaşıldığında toplama işlemini otomatik olarak sonlandır</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Etkinleştirildiğinde, konum kilitlenmiş bir imleç ile köşe dijitalleştirme yalnızca toplanan minimum konum sayısından bir ortalama konum kabul edecektir. Ortalama konumlar kullanılarak dijitalleştirme, ekle düğmesine basılı tutularak yapılır ve bu, basılı tutma işlemi bırakılana kadar konumları toplar. Doğruluk gereksinimi ayarları etkinleştirildiğinde dikkate alınır.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Anten yükseklik telafisi</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Yükseklik düzeltmesini atlayın.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Yüksekliği, konumlandırma cihazının bildirdiği şekilde kullanın. Koordinat sistemi dönüşümünün gerektirebileceği herhangi bir yükseklik düzeltmesini atlayın.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Kullanımda dikey grid kaydırması:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Yok</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Aygıttan ortometrik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Yükseklik doğruluğunu artırmak için dikey grid kaydırması kullanılır.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Aygıttan dosyaya NMEA cümlelerini kaydet</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>

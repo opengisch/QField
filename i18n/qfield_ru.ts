@@ -3266,6 +3266,509 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Показать масштабную линейку</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Показать закладки</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>При включении на карте будут отображаться сохраненные и открытые в данный момент закладки проекта.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Включить поворот карты</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Во включенном состоянии карта может быть повернута пользователем.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Показывать информацию оцифровки</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Когда этот параметр включен, информация о координатах, такая как широта и долгота, будет показана поверх карты во время оцифровки новых объектов или использования инструмента измерений</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Используйте клавиши громкости для оцифровки</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Если эта функция включена, нажатие клавиши увеличения громкости устройства добавит вершину, а нажатие клавиши уменьшения громкости удалит последнюю введенную вершину во время сеансов оцифровки.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Разрешить добавление вершин с помощью тапа</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Рассматривать мышку как устройство сенсорного ввода</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Если эта функция включена, мышь будет вести себя так, как будто это палец. Если отключить, мышь будет вести себя как стилус.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Навигация с фиксированным масштабом</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Когда навигация с фиксированным масштаб активна, фокусировка на результате поиска будет перемещаться к объекту. При отключенной навигации с фиксированным масштабом будет происходить  перемещение к объекту и увеличение до объекта.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Использовать родную камеру</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Отправлять анонимные метрики</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Основные</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Местоположение</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Переменные</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Карта-подложка</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Качество рендеринга подложки:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Наилучшее качество</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Сниженное качество</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Наихудшее качество</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>При более низком качестве точность рендеринга снижается в пользу меньшего использования памяти и времени рендеринга.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Оцифровка и редактирование</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Пользовательский интерфейс</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Настроить строку поиска</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Управление плагинами</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Приглушать подсветку во время простоя</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Время бездействия в секундах, после которого яркость экрана будет снижена для экономии заряда батареи.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Внешний вид:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>В соответствии с внешним видом системы</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Светлая тема</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Темная тема</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Размер шрифта:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Крошечный</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Обычный</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Большой</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Очень большой</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Язык:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>система</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Нашли отсутствующий или неполный язык? %1 Присоединяйтесь к сообществу переводчиков.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Порт</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Имя пользователя</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Расширенные:</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Используемое устройство позиционирования:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Добавить</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Редактировать</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Подключено к %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Подключиться к %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Подключение к %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Показывать информацию о местоположении</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Измеренное значение (M), прикреплено к вершинам:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Скорость</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Азимут</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Гор. точность</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Верт. точность</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>При оцифровке элементов с фиксацией координатного курсора в текущей позиции выбранный выше тип измерения будет добавлен к геометрии, если она имеет M-значение.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Включить индикатор точности</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Обеспечьте соблюдение требований к точности</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Когда индикатор точности включен, к кнопке локации прикрепляется значок, который окрашивается в  &lt;span %1&gt; красный цвет &lt;/span&gt; если значение точности хуже &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;желтый&lt;/span&gt;если менее, чем &lt;i&gt;excellent&lt;/i&gt;, или &lt;span %3&gt;зеленый&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Кроме того, можно включить режим ограничения точности, который ограничивает добавление вершин при фиксации координатного курсора к позициям со значением точности хуже порога &quot;плохости&quot;.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Включить усредненное позиционирование</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Автоматическое завершение сбора при достижении минимального количества</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Если эта функция включена, при оцифровке вершин с курсором, зафиксированным на позиции, будет приниматься только усредненная позиция из минимального количества собранных позиций. Оцифровка с использованием усредненных позиций выполняется нажатием и удержанием кнопки добавления вершины, которая будет собирать позиции до тех пор, пока нажатие не будет отпущено. При включении этой функции соблюдаются требования к точности.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Компенсация высоты антенны</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Пропустить коррекцию высоты</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Использовать значение высоты, полученное от устройства. Пропустить любые поправки высоты, которые могут подразумеваться трансформацией системы координат.  </translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Используемая сетка вертикального сдвига:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ничего</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ортометрически с устройства</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Сетка вертикального сдвига используется для повышения точности высоты. </translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Записывать NMEA-лог в файл</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7375,502 +7878,190 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Показать масштабную линейку</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Показать закладки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>При включении на карте будут отображаться сохраненные и открытые в данный момент закладки проекта.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Включить поворот карты</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Во включенном состоянии карта может быть повернута пользователем.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Показывать информацию оцифровки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Когда этот параметр включен, информация о координатах, такая как широта и долгота, будет показана поверх карты во время оцифровки новых объектов или использования инструмента измерений</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Используйте клавиши громкости для оцифровки</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Если эта функция включена, нажатие клавиши увеличения громкости устройства добавит вершину, а нажатие клавиши уменьшения громкости удалит последнюю введенную вершину во время сеансов оцифровки.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Разрешить добавление вершин с помощью тапа</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Рассматривать мышку как устройство сенсорного ввода</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Если эта функция включена, мышь будет вести себя так, как будто это палец. Если отключить, мышь будет вести себя как стилус.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Навигация с фиксированным масштабом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Когда навигация с фиксированным масштаб активна, фокусировка на результате поиска будет перемещаться к объекту. При отключенной навигации с фиксированным масштабом будет происходить  перемещение к объекту и увеличение до объекта.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Использовать родную камеру</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Отправлять анонимные метрики</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>Основные</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Местоположение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Переменные</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Карта-подложка</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Качество рендеринга подложки:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Наилучшее качество</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Сниженное качество</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Наихудшее качество</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>При более низком качестве точность рендеринга снижается в пользу меньшего использования памяти и времени рендеринга.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Оцифровка и редактирование</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Пользовательский интерфейс</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Настроить строку поиска</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Управление плагинами</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Приглушать подсветку во время простоя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Время бездействия в секундах, после которого яркость экрана будет снижена для экономии заряда батареи.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Внешний вид:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>В соответствии с внешним видом системы</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Светлая тема</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Темная тема</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Размер шрифта:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Крошечный</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Обычный</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Большой</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Очень большой</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Язык:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>система</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Нашли отсутствующий или неполный язык? %1 Присоединяйтесь к сообществу переводчиков.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Порт</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>Имя пользователя</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Расширенные:</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Используемое устройство позиционирования:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Редактировать</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Подключено к %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Подключиться к %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Подключение к %1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Показывать информацию о местоположении</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Измеренное значение (M), прикреплено к вершинам:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Скорость</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Азимут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Гор. точность</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Верт. точность</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>При оцифровке элементов с фиксацией координатного курсора в текущей позиции выбранный выше тип измерения будет добавлен к геометрии, если она имеет M-значение.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Включить индикатор точности</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Обеспечьте соблюдение требований к точности</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Когда индикатор точности включен, к кнопке локации прикрепляется значок, который окрашивается в  &lt;span %1&gt; красный цвет &lt;/span&gt; если значение точности хуже &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;желтый&lt;/span&gt;если менее, чем &lt;i&gt;excellent&lt;/i&gt;, или &lt;span %3&gt;зеленый&lt;/span&gt;.&lt;br&gt;&lt;br&gt; Кроме того, можно включить режим ограничения точности, который ограничивает добавление вершин при фиксации координатного курсора к позициям со значением точности хуже порога &quot;плохости&quot;.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Включить усредненное позиционирование</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Автоматическое завершение сбора при достижении минимального количества</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Если эта функция включена, при оцифровке вершин с курсором, зафиксированным на позиции, будет приниматься только усредненная позиция из минимального количества собранных позиций. Оцифровка с использованием усредненных позиций выполняется нажатием и удержанием кнопки добавления вершины, которая будет собирать позиции до тех пор, пока нажатие не будет отпущено. При включении этой функции соблюдаются требования к точности.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Компенсация высоты антенны</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Пропустить коррекцию высоты</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Использовать значение высоты, полученное от устройства. Пропустить любые поправки высоты, которые могут подразумеваться трансформацией системы координат.  </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Используемая сетка вертикального сдвига:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Ничего</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ортометрически с устройства</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Сетка вертикального сдвига используется для повышения точности высоты. </translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Записывать NMEA-лог в файл</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>

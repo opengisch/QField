@@ -3267,6 +3267,509 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Zobraziť mierku</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Zobraziť záložky</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Po zapnutí sa užívateľom uložené a aktuálne otvorené projektové záložky zobrazia na mape.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Povoliť rotáciu mapy</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Po zapnutí môže používateľ otáčať mapu</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Zobraziť informácie o digitalizácii</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Po zapnutí sa budú koordináty, ako zem. dĺžka a zem. šírka, zobrazovať priamo na mape počas procesu digitalizácie nových prvkov alebo počas používania nástroja merania.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Na digitalizáciu použite tlačidlá na zvýšenie/zníženie hlasitosti</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Po zapnutí môžete vrcholy pridávať tlačidlom zvýšenia hlasitosti na Vašom zariadení, alebo odstrániť posledný pridaný vrchol tlačidlom zníženia hlasitosti.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Povoliť pridanie vrcholov klepnutím na obrazovku</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Zvážte použitie myše ako zariadenia pre dotykovú obrazovku</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Po zapnutí sa bude myška správať ako prst, po vypnutí sa bude myška správať ako stylus pero.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navigácia v pevnej mierke</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Ak je aktívna navigácia v pevnej mierke, kliknutie na výsledok vyhľadávania posunie obrazovku na prvok vo fixnej mierke. Ak je navigácia v pevnej mierke vypnutá, kliknutie na výsledok vyhľadávania obrazovku posunie a priblíži.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Použiť natívny fotoaparát</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Odoslať anonymizované metriky</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Všeobecné</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Určenie polohy</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Premenné</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Mapa</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Kvalita vykresľovania mapového okna:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Vysoká</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Nízka</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Najnižšia</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Nižšia kvalita využíva menej pamäte a rýchlejšie sa načíta.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalizácia a úprava</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Používateľské rozhranie</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Prispôsobiť vyhľadávací panel</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Spravovať pluginy</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Stmaviť obrazovku pri nečinnosti</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Čas nečinnosti v sekundách než sa jas obrazovky stmaví pre úsporu batérie.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Vzhľad:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Použiť systémový vzhľad</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Svetlá téma</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Tmavá téma</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Výška fontu:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Malý</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normálny</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Veľký</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Veľmi veľký</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Jazyk:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>systémový</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Našli Ste chýbajúci alebo nekompletný jazyk? %1Pripojte sa ku komunite prekladateľov.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Užívateľské meno</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Heslo</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Rozšírené</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Používané polohovacie zariadenie:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Pridať</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Upraviť</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Odstrániť</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Pripojené k %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Pripojiť k 1%</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Pripájanie k 1%</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Zobraziť informácie o polohe</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Hodnota merania (M) pripojená k vrcholom:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Rýchlosť voči zemi</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Smerovník</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horizontálna presnosť</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Vertikálna presnosť</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Počas digitalizovania prvkov s kurzorom prichyteným na aktuálnu polohu sa ku geometrii pridá vyššie zvolený typ merania, ak má rozmer M.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Aktivovať indikátor presnosti</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Zapnúť požiadavku na priemerovanie polohy</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Automaticky ukončiť zaznamenávanie, ak je splnená požiadavka na minimálny počet pozícii.</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Po zapnutí bude digitalizácia vrcholov s kurzorom prichyteným na polohu akceptovať iba priemerovanú polohu z minimálneho počtu zaznamenaných pozícii. Digitalizácia s použitím priemerovaných polôh vykonáte stlačením a podržaním tlačidla pre pridanie vrcholu, čo bude zaznamenávať polohy dokiaľ tlačidlo nepustíte. Prípadné nastavenia požiadavky na presnosť budú rešpektované.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Kompenzácia výšky antény</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Preskočiť korekciu výšky</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Použiť nadmorskú výšku z polohovacieho zariadenia. Preskočiť akékoľvek korekcie, ktoré môže spôsobiť transformácia koordinačného systému.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Používa sa vertikálny posun mriežky:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Žiadny</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ortometricky od zariadenia</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Vertikálny posun mriežky sa používa pre zvýšenie presnosti nadmorskej výšky.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Zaznamenajte vety NMEA zo zariadenia do súboru</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7374,502 +7877,190 @@ Dôvod:
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Zobraziť mierku</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Zobraziť záložky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Po zapnutí sa užívateľom uložené a aktuálne otvorené projektové záložky zobrazia na mape.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Povoliť rotáciu mapy</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Po zapnutí môže používateľ otáčať mapu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Zobraziť informácie o digitalizácii</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Po zapnutí sa budú koordináty, ako zem. dĺžka a zem. šírka, zobrazovať priamo na mape počas procesu digitalizácie nových prvkov alebo počas používania nástroja merania.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Na digitalizáciu použite tlačidlá na zvýšenie/zníženie hlasitosti</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Po zapnutí môžete vrcholy pridávať tlačidlom zvýšenia hlasitosti na Vašom zariadení, alebo odstrániť posledný pridaný vrchol tlačidlom zníženia hlasitosti.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Povoliť pridanie vrcholov klepnutím na obrazovku</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Zvážte použitie myše ako zariadenia pre dotykovú obrazovku</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Po zapnutí sa bude myška správať ako prst, po vypnutí sa bude myška správať ako stylus pero.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navigácia v pevnej mierke</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Ak je aktívna navigácia v pevnej mierke, kliknutie na výsledok vyhľadávania posunie obrazovku na prvok vo fixnej mierke. Ak je navigácia v pevnej mierke vypnutá, kliknutie na výsledok vyhľadávania obrazovku posunie a priblíži.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Použiť natívny fotoaparát</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Odoslať anonymizované metriky</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>Všeobecné</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Určenie polohy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Premenné</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Mapa</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Kvalita vykresľovania mapového okna:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Vysoká</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Nízka</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Najnižšia</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Nižšia kvalita využíva menej pamäte a rýchlejšie sa načíta.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitalizácia a úprava</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Používateľské rozhranie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Prispôsobiť vyhľadávací panel</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Spravovať pluginy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Stmaviť obrazovku pri nečinnosti</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Čas nečinnosti v sekundách než sa jas obrazovky stmaví pre úsporu batérie.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Vzhľad:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Použiť systémový vzhľad</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Svetlá téma</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Tmavá téma</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Výška fontu:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Malý</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normálny</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Veľký</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Veľmi veľký</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Jazyk:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>systémový</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Našli Ste chýbajúci alebo nekompletný jazyk? %1Pripojte sa ku komunite prekladateľov.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>Užívateľské meno</translation>
-    </message>
-    <message>
-        <source>Optional</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Heslo</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Rozšírené</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Používané polohovacie zariadenie:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Pridať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Upraviť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Pripojené k %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Pripojiť k 1%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Pripájanie k 1%</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Zobraziť informácie o polohe</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Hodnota merania (M) pripojená k vrcholom:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Rýchlosť voči zemi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Smerovník</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Horizontálna presnosť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Vertikálna presnosť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Počas digitalizovania prvkov s kurzorom prichyteným na aktuálnu polohu sa ku geometrii pridá vyššie zvolený typ merania, ak má rozmer M.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Aktivovať indikátor presnosti</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Zapnúť požiadavku na priemerovanie polohy</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Automaticky ukončiť zaznamenávanie, ak je splnená požiadavka na minimálny počet pozícii.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Po zapnutí bude digitalizácia vrcholov s kurzorom prichyteným na polohu akceptovať iba priemerovanú polohu z minimálneho počtu zaznamenaných pozícii. Digitalizácia s použitím priemerovaných polôh vykonáte stlačením a podržaním tlačidla pre pridanie vrcholu, čo bude zaznamenávať polohy dokiaľ tlačidlo nepustíte. Prípadné nastavenia požiadavky na presnosť budú rešpektované.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Kompenzácia výšky antény</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Preskočiť korekciu výšky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Použiť nadmorskú výšku z polohovacieho zariadenia. Preskočiť akékoľvek korekcie, ktoré môže spôsobiť transformácia koordinačného systému.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Používa sa vertikálny posun mriežky:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Žiadny</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ortometricky od zariadenia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Vertikálny posun mriežky sa používa pre zvýšenie presnosti nadmorskej výšky.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Zaznamenajte vety NMEA zo zariadenia do súboru</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
