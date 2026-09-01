@@ -35,6 +35,28 @@ Popup {
   property alias currentLayer: stampExpressionEvaluator.layer
   property alias currentFeature: stampExpressionEvaluator.feature
 
+  property bool subtitleRecordingActive: false
+  property int recordedDuration: 0
+
+  /**
+   * Registers the details as they stand right now against the elapsed recording time. The
+   * writer discards a value identical to the one it already holds, so this can be called
+   * on every incoming position without producing a stream of repeated cues.
+   */
+  function recordSubtitleCue() {
+    if (!subtitleRecordingActive || !captureLoader.item) {
+      return;
+    }
+    if (positionSource.active) {
+      currentPosition = positionSource.positionInformation;
+      currentProjectedPosition = positionSource.projectedPosition;
+    } else {
+      currentPosition = QfPositioningUtils.createEmptyGnssPositionInformation();
+      currentProjectedPosition = undefined;
+    }
+    subtitleWriter.addCue(captureLoader.item.recorder.duration, stampExpressionEvaluator.evaluate());
+  }
+
   function requiredPermissionsGranted() {
     if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
       return false;
@@ -147,6 +169,18 @@ Popup {
     variables: {
       "corrected_elevation": currentProjectedPosition ? currentProjectedPosition.z : currentPosition.altitude,
       "corrected_elevation_unit": UnitTypes.toAbbreviatedString(positionSource.coordinateTransformer.destinationCrs.mapUnit)
+    }
+  }
+
+  QfSubtitleWriter {
+    id: subtitleWriter
+  }
+
+  Connections {
+    target: cameraItem.subtitleRecordingActive ? positionSource : null
+
+    function onPositionInformationChanged() {
+      cameraItem.recordSubtitleCue();
     }
   }
 
@@ -621,8 +655,20 @@ Popup {
                   }
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState) {
+                    subtitleWriter.clear();
+                    cameraItem.recordedDuration = 0;
+                    cameraItem.subtitleRecordingActive = cameraSettings.stamping || iface.readProjectBoolEntry("qfieldsync", "forceStamping");
+                    if (cameraItem.subtitleRecordingActive) {
+                      stampExpressionEvaluator.expressionText = iface.readProjectEntry("qfieldsync", "stampingDetailsTemplate", stampExpressionEvaluator.defaultTextTemplate);
+                      if (stampExpressionEvaluator.expressionText === "") {
+                        stampExpressionEvaluator.expressionText = stampExpressionEvaluator.defaultTextTemplate;
+                      }
+                    }
                     captureLoader.item.recorder.record();
+                    cameraItem.recordSubtitleCue();
                   } else {
+                    cameraItem.recordedDuration = captureLoader.item.recorder.duration;
+                    cameraItem.subtitleRecordingActive = false;
                     cameraItem.state = "VideoPreview";
                     captureLoader.item.recorder.stop();
                     const path = captureLoader.item.recorder.actualLocation.toString();
@@ -642,6 +688,8 @@ Popup {
                       }
                       QfFileUtils.addImageStamp(currentPath, stampExpressionEvaluator.evaluate(), iface.readProjectEntry("qfieldsync", "stampingFontStyle"), iface.readProjectNumEntry("qfieldsync", "stampingHorizontalAlignment", 0), iface.readProjectEntry("qfieldsync", "stampingImageDecoration"));
                     }
+                  } else {
+                    subtitleWriter.write(currentPath, cameraItem.recordedDuration);
                   }
                   if (cameraItem.userRotation !== 0 || cameraItem.userMirror) {
                     captureLoader.item.orientationNormalizer.applyEditsToImage(currentPath, cameraItem.userRotation, cameraItem.userMirror);
