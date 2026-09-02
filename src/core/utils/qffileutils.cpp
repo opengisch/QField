@@ -972,7 +972,7 @@ bool QfFileUtils::isDeletable( const QString &filePath )
 
   const QString suffix = fileInfo.suffix().toLower();
 
-  static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3" };
+  static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3", "srt" };
 
   return allowedExtensions.contains( suffix );
 }
@@ -1000,6 +1000,16 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
       continue;
     }
 
+    QString accompanyingSubtitleFilePath;
+    if ( fileInfo.isFile() && mimeTypeName( canonicalPath ).startsWith( QLatin1String( "video/" ) ) )
+    {
+      const QString subtitleFilePath = QfSubtitleWriter::subtitleFilePath( canonicalPath );
+      if ( !subtitleFilePath.isEmpty() && isDeletable( subtitleFilePath ) )
+      {
+        accompanyingSubtitleFilePath = subtitleFilePath;
+      }
+    }
+
     bool success = false;
     if ( fileInfo.isDir() )
     {
@@ -1017,6 +1027,15 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
       if ( !success )
       {
         QgsMessageLog::logMessage( QObject::tr( "Failed to delete file: %1 - %2" ).arg( filePath, file.errorString() ), QString(), Qgis::MessageLevel::Warning );
+      }
+    }
+
+    if ( success && !accompanyingSubtitleFilePath.isEmpty() )
+    {
+      QFile subtitleFile( accompanyingSubtitleFilePath );
+      if ( !subtitleFile.remove() )
+      {
+        QgsMessageLog::logMessage( QObject::tr( "Failed to delete subtitle file: %1 - %2" ).arg( accompanyingSubtitleFilePath, subtitleFile.errorString() ), QString(), Qgis::MessageLevel::Warning );
       }
     }
 
