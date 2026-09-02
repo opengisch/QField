@@ -3266,6 +3266,509 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Näytä mittakaavajana</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Näytä zoomausohjaimet</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Näytä kirjanmerkit</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Kun se on kytketty päälle, käyttäjän tallennetut ja parhaillaan avatut projektin kirjanmerkit näkyvät kartalla.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Ota kartan kierto käyttöön</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Kun päällä, karttaa voidaan kiertää käyttäjän toimesta</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Näytä digitointitiedot</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Kun päällä, koordinaattitiedot, kuten leveys- ja pituusaste, näkyvät karttapohjalla kun digitoidaan uusia kohteita tai käytetään mittatyökalua.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Käytä äänenvoimakkuuspainikkeita digitoidaksesi.</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Jos tämä asetus on päällä, painamalla laitteen ääni kovemmalle painiketta lisäät taitepisteen, kun taas painamalla ääni hiljemmalle painiketta poistat viimeisimmän lisätyn taitepisteen.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Salli taitepisteiden lisääminen sorminapautuksella</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Käytä hiirtä kuin kosketusnäyttölaitetta</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Kun tämä on käytössä, hiiri toimii kuin se olisi sormi. Kun hiiri ei ole käytössä, se vastaa kynän toimintaa.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Avaa kohdelomake koko näytölle</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Avaa kohdelomake automaattisesti, kun tunnistetaan yksi kohde</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Kun tämä on käytössä, kohdelomake avautuu automaattisesti. Jos tunnistetaan vain yksi kohde, kohdeluettelo ohitetaan.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Kiinteän mittakaavan navigointi</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Kun kiinteän mittakaavan navigointi on aktiivinen, hakutulokset panoroivat kohteeseen. Kiinteän mittakaavan navigoinnin ollessa pois käytöstä se panoroi ja zoomaa kohteeseen.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Zoomaa automaattisesti tunnistettuun kohteeseen/kohteisiin</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>Kun tämä on käytössä, kartta zoomaa automaattisesti niin, että kaikki tunnistetut kohteet näkyvät. Lisäksi kartta zoomaa valittuun yksittäiseen kohteeseen, kun kohdelomake avataan.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Piirrä esikatselu näkyvän kartan ympärille</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Jos tämä on käytössä, näkyvän kartta‑alueen ulkopuolella olevia alueita piirretään osittain, jotta zoomaus ja panorointi näyttävät esikatselun sujuvasti.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Ota automaattinen tallennus käyttöön</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Jos tämä on käytössä, uudet kohteet tallennetaan heti, kun niillä on kelvollinen geometria ja kaikki rajoitteet täyttyvät, ja muokatut ominaisuustiedot kirjataan välittömästi.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Käytä laitteen kameraa</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Jos tämä asetus on käytössä, käyttöjärjestelmän tarjoamaa oletuskameraa käytetään.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Lähetä anonymisoituja mittareita</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Jos tämä asetus on käytössä, anonyymejä käyttötietoja kerätään ja lähetetään käyttäjäkokemuksen parantamiseksi kaikille.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Yleistä</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Paikannus</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Muuttujat</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Karttapohja</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Karttapohjan tulostus laatu:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Paras laatu</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Matala laatu</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Matalin laatu</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Pienempi laatutarkkuus käyttää vähemmän muistia ja piirtää nopeammin.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitointi ja muokkaus</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Käyttäjäliittymä</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Muokkaa hakupalkkia</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Hallinnoi lisäosia</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Käyttämättömänä himmennä ruutua </translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Epäaktiivisuuden aika sekunteina ennen näytön kirkkauden alkamista himmennetään akun säästämiseksi.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Käyttöliittymän teema:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Seuraa järjestelmän ulkoasua</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Vaalea teema</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Tumma teema</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Kirjaimen koko:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Pieni</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normaali</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Iso</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Tosi iso</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Kieli:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>järjestelmä</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Löysitkö puuttuvan tai epätäydellisen kielen? %1Liity kääntäjäyhteisöön.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Verkkoasetukset</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Ota välityspalvelin käyttöön</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tyyppi</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Järjestelmän oletus</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Isäntä</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>esim. proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Portti</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>esim. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Käyttäjänimi</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Valinnainen</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Salasana</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>Välityspalvelimen ohittavat URL‑osoitteet (pilkulla eroteltuna)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>esim. localhost, 192.168.\*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Määritä verkon välityspalvelin, jotta QFieldin liikenne ohjataan proxy‑palvelimen kautta. Hyödyllinen yritysverkoissa ja VPN‑yhteyksissä.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Lisäasetukset</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Käytettävä paikannuslaite:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Lisää</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Muokkaa</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Poista</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Yhdistetty laitteeseen %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Yhdistä %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Yhdistetään laitteeseen %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Näytä sijainnin tiedot</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Toiminta, kun sijainti on lukittuna:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Seuraa vain sijaintia</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Seuraa sijaintia ja kompassin suuntaa</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Seuraa sijaintia ja liikesuuntaa</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Kun kartta seuraa sijaintia tai on lukittuna siihen, se voi myös kääntyä kompassin- tai liikesuunnan mukaan.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Taitepisteisiin liitetty mitta (M) arvo:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Maanopeus</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Suuntima</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horisontaalinen tarkkuus</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Vertikaalinen tarkkuus</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Kun piirteitä digitoidaan koordinaattikohdistimen ollessa lukittuna nykyiseen sijaintiin, yllä valittu mittaustyyppi lisätään geometriaan, jos sillä on M-mitta.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Aktivoi tarkkuusindikaattori</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Vaadi tarkkuusvaatimus</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Kun tarkkuusosoitin on käytössä, sijaintipainikkeeseen kiinnitetään merkki, joka värjätään &lt;span %1&gt;punaiseksi, jos tarkkuusarvo on huonompi, &lt;span %2&gt;keltaiseksi, jos se ei ole erinomainen, tai &lt;span %3. &gt;vihreä.Lisäksi voidaan kytkeä päälle tarkkuusrajoitustila, joka rajoittaa taitepisteiden lisäämistä kun koordinaattikursori lukittu  paikkoihin, joiden tarkkuusarvo on huonompi kuin huonon raja-arvo.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Ota käyttöön keskimääräinen paikannusvaatimus</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Lopeta keräys automaattisesti, kun vähimmäismäärä täyttyy</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Kun tämä on käytössä, digitointipisteet, joissa kohdistin on lukittu sijaintiin, hyväksyy vain keskiarvotetun sijainnin vähimmäismäärästä kerättyjä paikkoja. Digitointi keskimääräisillä sijainneilla tehdään painamalla ja pitämällä painettuna Lisää taitepiste -painiketta, joka kerää paikkoja, kunnes painallus vapautetaan. Tarkkuusvaatimusasetuksia noudatetaan, kun ne ovat käytössä.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Antennin korkeuden kompensaatio</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Tämä arvo korjaa paikannuslaitteelta tallennettavat Z‑arvot. Jos syötät arvon 1,6, järjestelmä vähentää automaattisesti 1,6 jokaisesta tallennetusta arvosta. Varmista, että syötät todellisen antennikorkeuden, eli kepin pituuden + antennin pohjan keskipisteestä mitattu laitteen korkeus</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Ohita korkeuden korjaus</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Käytä paikannuslaitteen ilmoittamaa korkeutta. Ohita korkeuden korjaukset, joita koordinaattijärjestelmän muutos voi aiheuttaa.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Käytössä oleva vertikaalinen ruudukon siirto:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ei yhtään</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Laitteen ortometrinen korkeus</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Käytetään vertikaalista ruudukon siirtoa korkeusarvojen tarkkuuden parantamiseksi.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Kirjaa NMEA lausekkeet laitteesta tiedostoon</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 Asetukset</translation>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7370,503 +7873,191 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Näytä mittakaavajana</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Näytä zoomausohjaimet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Näytä kirjanmerkit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Kun se on kytketty päälle, käyttäjän tallennetut ja parhaillaan avatut projektin kirjanmerkit näkyvät kartalla.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Ota kartan kierto käyttöön</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Kun päällä, karttaa voidaan kiertää käyttäjän toimesta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Näytä digitointitiedot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Kun päällä, koordinaattitiedot, kuten leveys- ja pituusaste, näkyvät karttapohjalla kun digitoidaan uusia kohteita tai käytetään mittatyökalua.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Käytä äänenvoimakkuuspainikkeita digitoidaksesi.</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Jos tämä asetus on päällä, painamalla laitteen ääni kovemmalle painiketta lisäät taitepisteen, kun taas painamalla ääni hiljemmalle painiketta poistat viimeisimmän lisätyn taitepisteen.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Salli taitepisteiden lisääminen sorminapautuksella</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Käytä hiirtä kuin kosketusnäyttölaitetta</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Kun tämä on käytössä, hiiri toimii kuin se olisi sormi. Kun hiiri ei ole käytössä, se vastaa kynän toimintaa.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Avaa kohdelomake koko näytölle</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Avaa kohdelomake automaattisesti, kun tunnistetaan yksi kohde</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Kun tämä on käytössä, kohdelomake avautuu automaattisesti. Jos tunnistetaan vain yksi kohde, kohdeluettelo ohitetaan.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Kiinteän mittakaavan navigointi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Kun kiinteän mittakaavan navigointi on aktiivinen, hakutulokset panoroivat kohteeseen. Kiinteän mittakaavan navigoinnin ollessa pois käytöstä se panoroi ja zoomaa kohteeseen.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Zoomaa automaattisesti tunnistettuun kohteeseen/kohteisiin</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>Kun tämä on käytössä, kartta zoomaa automaattisesti niin, että kaikki tunnistetut kohteet näkyvät. Lisäksi kartta zoomaa valittuun yksittäiseen kohteeseen, kun kohdelomake avataan.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Piirrä esikatselu näkyvän kartan ympärille</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Jos tämä on käytössä, näkyvän kartta‑alueen ulkopuolella olevia alueita piirretään osittain, jotta zoomaus ja panorointi näyttävät esikatselun sujuvasti.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Ota automaattinen tallennus käyttöön</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Jos tämä on käytössä, uudet kohteet tallennetaan heti, kun niillä on kelvollinen geometria ja kaikki rajoitteet täyttyvät, ja muokatut ominaisuustiedot kirjataan välittömästi.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Käytä laitteen kameraa</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Jos tämä asetus on käytössä, käyttöjärjestelmän tarjoamaa oletuskameraa käytetään.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Lähetä anonymisoituja mittareita</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Jos tämä asetus on käytössä, anonyymejä käyttötietoja kerätään ja lähetetään käyttäjäkokemuksen parantamiseksi kaikille.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>Yleistä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Paikannus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Muuttujat</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Karttapohja</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Karttapohjan tulostus laatu:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Paras laatu</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Matala laatu</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Matalin laatu</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Pienempi laatutarkkuus käyttää vähemmän muistia ja piirtää nopeammin.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitointi ja muokkaus</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Käyttäjäliittymä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Muokkaa hakupalkkia</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Hallinnoi lisäosia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Käyttämättömänä himmennä ruutua </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Epäaktiivisuuden aika sekunteina ennen näytön kirkkauden alkamista himmennetään akun säästämiseksi.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Käyttöliittymän teema:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Seuraa järjestelmän ulkoasua</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Vaalea teema</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Tumma teema</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Kirjaimen koko:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Pieni</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normaali</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Iso</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Tosi iso</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Kieli:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>järjestelmä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Löysitkö puuttuvan tai epätäydellisen kielen? %1Liity kääntäjäyhteisöön.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Verkkoasetukset</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Ota välityspalvelin käyttöön</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Tyyppi</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Järjestelmän oletus</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Isäntä</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>esim. proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Portti</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>esim. 8888</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Käyttäjänimi</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>Valinnainen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Salasana</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>Välityspalvelimen ohittavat URL‑osoitteet (pilkulla eroteltuna)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>esim. localhost, 192.168.\*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Määritä verkon välityspalvelin, jotta QFieldin liikenne ohjataan proxy‑palvelimen kautta. Hyödyllinen yritysverkoissa ja VPN‑yhteyksissä.</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Lisäasetukset</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Käytettävä paikannuslaite:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Lisää</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Muokkaa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Poista</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Yhdistetty laitteeseen %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Yhdistä %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Yhdistetään laitteeseen %1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Näytä sijainnin tiedot</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Toiminta, kun sijainti on lukittuna:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Seuraa vain sijaintia</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Seuraa sijaintia ja kompassin suuntaa</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Seuraa sijaintia ja liikesuuntaa</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Kun kartta seuraa sijaintia tai on lukittuna siihen, se voi myös kääntyä kompassin- tai liikesuunnan mukaan.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Taitepisteisiin liitetty mitta (M) arvo:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Maanopeus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Suuntima</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Horisontaalinen tarkkuus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Vertikaalinen tarkkuus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Kun piirteitä digitoidaan koordinaattikohdistimen ollessa lukittuna nykyiseen sijaintiin, yllä valittu mittaustyyppi lisätään geometriaan, jos sillä on M-mitta.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Aktivoi tarkkuusindikaattori</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>m</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Vaadi tarkkuusvaatimus</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Kun tarkkuusosoitin on käytössä, sijaintipainikkeeseen kiinnitetään merkki, joka värjätään &lt;span %1&gt;punaiseksi, jos tarkkuusarvo on huonompi, &lt;span %2&gt;keltaiseksi, jos se ei ole erinomainen, tai &lt;span %3. &gt;vihreä.Lisäksi voidaan kytkeä päälle tarkkuusrajoitustila, joka rajoittaa taitepisteiden lisäämistä kun koordinaattikursori lukittu  paikkoihin, joiden tarkkuusarvo on huonompi kuin huonon raja-arvo.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Ota käyttöön keskimääräinen paikannusvaatimus</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Lopeta keräys automaattisesti, kun vähimmäismäärä täyttyy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Kun tämä on käytössä, digitointipisteet, joissa kohdistin on lukittu sijaintiin, hyväksyy vain keskiarvotetun sijainnin vähimmäismäärästä kerättyjä paikkoja. Digitointi keskimääräisillä sijainneilla tehdään painamalla ja pitämällä painettuna Lisää taitepiste -painiketta, joka kerää paikkoja, kunnes painallus vapautetaan. Tarkkuusvaatimusasetuksia noudatetaan, kun ne ovat käytössä.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Antennin korkeuden kompensaatio</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Tämä arvo korjaa paikannuslaitteelta tallennettavat Z‑arvot. Jos syötät arvon 1,6, järjestelmä vähentää automaattisesti 1,6 jokaisesta tallennetusta arvosta. Varmista, että syötät todellisen antennikorkeuden, eli kepin pituuden + antennin pohjan keskipisteestä mitattu laitteen korkeus</translation>
-    </message>
-    <message>
         <source>Skip altitude correction</source>
-        <translation>Ohita korkeuden korjaus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Käytä paikannuslaitteen ilmoittamaa korkeutta. Ohita korkeuden korjaukset, joita koordinaattijärjestelmän muutos voi aiheuttaa.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Käytössä oleva vertikaalinen ruudukon siirto:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Ei yhtään</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Laitteen ortometrinen korkeus</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Käytetään vertikaalista ruudukon siirtoa korkeusarvojen tarkkuuden parantamiseksi.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Kirjaa NMEA lausekkeet laitteesta tiedostoon</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 Asetukset</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8282,6 +8473,26 @@ project</source>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Käytätkö sovellusta ensimmäistä kertaa? Kokeile alla listattuja esimerkkiprojekteja.</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Don&apos;t show this again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Sulje</translation>
     </message>
 </context>
 <context>
@@ -8998,6 +9209,26 @@ to show actions</source>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>Avaa projektikansio käyttääksesi projektitiedostoja, tietolähteitä ja niihin liittyviä dokumentteja. Hyödyllinen projektiresurssien hallintaan, tietojen manuaaliseen lataamiseen QFieldCloudiin sekä tietojoukkojen, liitteiden ja asettelujen jakamiseen.</translation>
+    </message>
+    <message>
+        <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
