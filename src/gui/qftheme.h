@@ -104,6 +104,7 @@ class QFIELD_GUI_EXPORT QfTheme final : public QObject
     Q_PROPERTY( QColor vertexNewColor READ vertexNewColor NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor vertexNewColorSemiOpaque READ vertexNewColorSemiOpaque NOTIFY themeDataLoaded )
     Q_PROPERTY( QColor processingPreview READ processingPreview NOTIFY themeDataLoaded )
+    Q_PROPERTY( QColor shadowColor READ shadowColor NOTIFY themeDataLoaded )
 
     Q_PROPERTY( qreal fontScale READ fontScale WRITE setFontScale NOTIFY fontScaleChanged )
 
@@ -289,6 +290,7 @@ class QFIELD_GUI_EXPORT QfTheme final : public QObject
     QColor vertexNewColor() const { return mVertexNewColor; }
     QColor vertexNewColorSemiOpaque() const { return mVertexNewColorSemiOpaque; }
     QColor processingPreview() const { return mProcessingPreview; }
+    QColor shadowColor() const { return mShadowColor; }
 
     QString appearance() const { return mAppearance; }
     void setAppearance( const QString &appearance );
@@ -413,6 +415,7 @@ class QFIELD_GUI_EXPORT QfTheme final : public QObject
     QColor mVertexNewColor;
     QColor mVertexNewColorSemiOpaque;
     QColor mProcessingPreview;
+    QColor mShadowColor;
 
     QString mAppearance;
     bool mDarkTheme = false;

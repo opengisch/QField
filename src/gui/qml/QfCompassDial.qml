@@ -5,7 +5,7 @@ import org.qfield.gui
 /**
  * A compass dial face made of a two-toned needle surrounded by evenly spaced
  * tick marks.
- * \ingroup qml
+ * \ingroup qml_gui
  */
 Item {
   id: compassDial
@@ -20,7 +20,7 @@ Item {
   property color southColor: QfTheme.gray
 
   //! Color of the tick marks
-  property color markingsColor: QfTheme.lightGray
+  property color tickColor: QfTheme.lightGray
 
   //! Color of the dial disc and the needle hub ring
   property color dialColor: QfTheme.darkGray
@@ -44,9 +44,9 @@ Item {
     layer.effect: QfDropShadow {
       transparentBorder: true
       samples: 16
-      color: "#66000000"
+      color: QfTheme.shadowColor
       horizontalOffset: 0
-      verticalOffset: 1
+      verticalOffset: 0
     }
   }
 
@@ -63,7 +63,7 @@ Item {
       height: compassDial.height * 0.055
       radius: width / 2
       rotation: angleDegrees
-      color: compassDial.markingsColor
+      color: compassDial.tickColor
       opacity: 0.45
       antialiasing: true
     }
