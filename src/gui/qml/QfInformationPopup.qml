@@ -85,27 +85,14 @@ QfPopup {
         }
 
         Label {
-          id: coordinateReferenceSystemChip
-          Layout.alignment: Qt.AlignLeft
-          Layout.maximumWidth: popupLayout.width
+          id: coordinateReferenceSystemText
+          Layout.fillWidth: true
           visible: popup.coordinateReferenceSystem !== ""
-
-          leftPadding: 10
-          rightPadding: 10
-          topPadding: 6
-          bottomPadding: 6
 
           wrapMode: Text.Wrap
           text: popup.coordinateReferenceSystem
           font: QfTheme.tipFont
           color: QfTheme.secondaryTextColor
-
-          background: Rectangle {
-            radius: 6
-            color: "transparent"
-            border.width: 1
-            border.color: QfTheme.controlBorderColor
-          }
         }
 
         ColumnLayout {

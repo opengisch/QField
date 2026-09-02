@@ -52,9 +52,6 @@ class QFIELD_CORE_EXPORT QfCoordinateReferenceSystemUtils : public QObject
 
     //! Returns whether the default coordinate order of a given \a crs is XY
     static Q_INVOKABLE bool defaultCoordinateOrderForCrsIsXY( const QgsCoordinateReferenceSystem &crs );
-
-    //! Returns a user friendly identifier for a given \a crs, such as "EPSG:4326 - WGS 84"
-    static Q_INVOKABLE QString userFriendlyIdentifier( const QgsCoordinateReferenceSystem &crs ) { return crs.userFriendlyIdentifier(); }
 };
 
 #endif // QFCOORDINATEREFERENCESYSTEMUTILS_H

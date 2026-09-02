@@ -348,7 +348,7 @@ Drawer {
           return "";
         }
 
-        property string projectCoordinateReferenceSystem: qgisProject ? QfCoordinateReferenceSystemUtils.userFriendlyIdentifier(qgisProject.crs) : ""
+        property string projectCoordinateReferenceSystem: qgisProject ? qgisProject.crs.authid + ": " + qgisProject.crs.description : ""
 
         Layout.alignment: Qt.AlignVCenter
         visible: true
