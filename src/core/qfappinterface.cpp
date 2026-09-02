@@ -451,18 +451,6 @@ void QfAppInterface::importUrl( const QString &url, const QString &title, bool l
     return;
   }
 
-  connect( reply, &QNetworkReply::redirected, this, [reply]( const QUrl &url ) {
-    const bool isOriginalHttps = reply->request().url().scheme() == QStringLiteral( "https" );
-    if ( !isOriginalHttps || url.scheme() == QStringLiteral( "https" ) )
-    {
-      emit reply->redirectAllowed();
-    }
-    else
-    {
-      reply->abort();
-    }
-  } );
-
   connect( reply, &QNetworkReply::downloadProgress, this, [this, reply, temporaryFile]( qint64 bytesReceived, qint64 bytesTotal ) {
     temporaryFile->write( reply->readAll() );
     if ( bytesTotal != 0 )
