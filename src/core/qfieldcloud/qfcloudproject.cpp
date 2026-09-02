@@ -1651,7 +1651,7 @@ void QfCloudProject::push( bool shouldDownloadUpdates )
     }
 
     // ? should we also check the checksums of the files being uploaded? they are available at deltaFile->attachmentFileNames()->values()
-    QfCloudUtils::addPendingAttachments( mUsername, mId, { absoluteFilePath } );
+    QfCloudUtils::addPendingAttachments( mUsername, mId, QfFileUtils::withSidecarFiles( { absoluteFilePath } ) );
   }
 
   QString deltaFileToUpload = mDeltaFileWrapper->toFileForPush();
