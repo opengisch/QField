@@ -6571,11 +6571,11 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message numerus="yes">
         <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>%n fitxer(s) suprimits correctament</numerusform><numerusform>%n fitxer(s) suprimits correctament</numerusform></translation>
+        <translation><numerusform>%n fitxer(s) suprimits correctament</numerusform><numerusform>%n fitxer(s) eliminats correctament</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform></translation>
+        <translation><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform><numerusform>No s&apos;ha pogut eliminar %n fitxer(s)</numerusform></translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
