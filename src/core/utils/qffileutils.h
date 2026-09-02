@@ -188,6 +188,14 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
      */
     static QSet<QString> sidecarFilesForPath( const QString &filePath );
 
+    /**
+     * Returns \a filePaths with the sidecar files accompanying each of them appended.
+     *
+     * Each file keeps its position and appears once, which makes this suitable to build
+     * the list of files handed over to an upload or a transfer.
+     */
+    Q_INVOKABLE static QStringList withSidecarFiles( const QStringList &filePaths );
+
   private:
     static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
 };

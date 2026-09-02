@@ -84,9 +84,9 @@ class QFIELD_CORE_EXPORT QfSubtitleWriter : public QObject
   private:
     struct Cue
     {
-      qint64 start = 0;
-      qint64 end = 0;
-      QString text;
+        qint64 start = 0;
+        qint64 end = 0;
+        QString text;
     };
 
     void closeOpenCue( qint64 endTime );

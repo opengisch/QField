@@ -1065,3 +1065,27 @@ QSet<QString> QfFileUtils::sidecarFilesForPath( const QString &filePath )
 
   return sidecarFiles;
 }
+
+QStringList QfFileUtils::withSidecarFiles( const QStringList &filePaths )
+{
+  QStringList filePathsWithSidecars;
+
+  for ( const QString &filePath : filePaths )
+  {
+    if ( !filePathsWithSidecars.contains( filePath ) )
+    {
+      filePathsWithSidecars << filePath;
+    }
+
+    const QSet<QString> sidecarFiles = sidecarFilesForPath( filePath );
+    for ( const QString &sidecarFile : sidecarFiles )
+    {
+      if ( !filePathsWithSidecars.contains( sidecarFile ) )
+      {
+        filePathsWithSidecars << sidecarFile;
+      }
+    }
+  }
+
+  return filePathsWithSidecars;
+}
