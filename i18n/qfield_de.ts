@@ -3261,6 +3261,509 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Maßstab anzeigen</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Zoomsteuerung anzeigen</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Lesezeichen anzeigen</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Wenn diese Funktion eingeschaltet ist, werden die gespeicherten und aktuell geöffneten Projekt-Lesezeichen des Benutzers auf der Karte angezeigt.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Kartendrehung erlauben</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Wenn aktiviert, kann die Kartenansicht gedreht werden.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Digitalisierungsinformationen anzeigen</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Wenn diese Funktion eingeschaltet ist, werden Informationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Objekte oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Verwende die Lautstärkentasten zum digitalisieren</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Wenn diese Option aktiviert ist, wird durch Drücken der Lauter-Taste des Geräts ein Knotenpunkt hinzugefügt, während durch Drücken der Leiser-Taste der während der Digitalisierungssitzungen zuletzt eingegebene Knotenpunkt entfernt wird.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Fingertippen auf die Karte erlauben, um Objekte und Knotenpunkte hinzuzufügen. </translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Eine Maus als Touchscreen-Gerät</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Wenn aktiviert, wird die Maus als Finger interpretiert, wenn deaktiviert, als Eingabe-Stift.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Maximiere Objekt-Formular</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Öffne das Objekt-Formular bei der Auswahl von einzelnen Objekten</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Wenn aktiviert, wird das Formular des Objektes automatisch geöffnet, wenn nur ein Objekt ausgewählt wurde. Die Auswahlliste wird übersprungen.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navigation mit festem Maßstab</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Wenn *Navigation mit festem Maßstab* aktiviert ist, wird beim Fokussieren auf ein Suchresultat der Maßstab nicht verändert. Wenn *Navigation mit festem Maßstab* deaktiviert ist, wird zum entsprechenden Objekt gezoomt.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Zoome automatisch zum identifizierten Objekt(en)</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>wenn aktiviert, wird die Karte so gezoomt, dass sowohl alle identifizierten Objekt, als auch individuell ausgewählt Objekte angezeigt werden, wenn das Objekt-Formular geöffnet wird.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Zeichne Inhalt außerhalb des sichtbaren Bereichs</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Wenn aktivierte, werden Bereiche direkt auserhalb der sichtbaren Karte teilweise gezeichnet, um beim Zoomen und Bewegen eine Vorschauen zu haben</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Aktiviere automatischen Speicher-Modus</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Wenn aktiviert, werden neu hinzugefügte Objekte gespeichert, sobald sie eine gültige Geometrie haben und die Bedigungen erfüllt sind, und bearbeitete Attribute werden sofort übernommen.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Native Kamera benutzen</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Wenn aktiviert, wird die standardmäßige Kamera des Betriebssystems verwendet.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Anonymisierte Metriken senden</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Wenn aktiviert, werden anonymisierte Metriken gesammelt, und versendet um die Nutzererfahrung von QField für alle zu verbessern.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Allgemein</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Positionierung</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variablen</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Kartenausschnitt</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Qualität der Kartendarstellung</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Beste Auflösung</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Niedrige Auflösung</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Niedrigste Auflösung</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Eine niedrigere Qualität mindert die Renderinggenauigkeit zugunsten einer geringeren Speicherauslastung und Rendering-Zeit ein.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalisieren und Editieren</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Benutzeroberfläche</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Anpassen der Suchleiste</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Plugins verwalten</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Bildschirm bei Inaktivität herunterdimmen.</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Zeit der Inaktivität in Sekunden, bevor die Bildschirmhelligkeit gedimmt wird, um die Batterie zu schonen.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Design:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Systemdarstellung folgen</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Helles Thema</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Dunkles Thema</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Schriftgröße:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Winzig</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Groß</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Extra-groß</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Sprache:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>System</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Fehlende oder unvollständige Sprachübersetzung gefunden? %1Machen Sie mit bei der Übersetzergruppe.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Netzwerk</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Authentifizierungs-Cache löschen</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>Authentifizierungs-Cache gelöscht</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Aktiviere Proxy</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Typ</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Systemvorgabe</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Host</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>z.B. proxy.beispiel.de</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>z.B. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Benutzername</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Optional</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Passwort</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>Vom Proxy ausgenommene URLs (Kommagetrennt)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>z.B. localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Konfiguriere einen Proxy um QFields Netzwerkverkehr durch den Proxyserver zu leiten. Hilfreich bei Firmennetzwerken und VPNs.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Erweiterte Einstellungen</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Positionierungsgerät</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Positionierungsgerät in Benutzung:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Hinzufügen</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Bearbeiten</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Verbunden mit %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Verbinden zu %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Verbindung zu %1 wird hergestellt</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>Aktiviere Ntrip Korrekturen</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>Ntrip Client getrennt</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>Ntrip Client wird verbunden</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>Ntrip Client verbunden</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>Bitte gib gültige Ntrip Einstellungen an</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Positionsinformationen anzeigen</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Verhalten, wenn auf den eigenen Standort fixiert wird:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Folge dem Standort</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Folge Standort und Kompassorientierung</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Folge Standort und Bewegungsrichtung</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Wenn der Karteninhalt dem Standort folgt, kann die Karte rotieren um der Kompassausrichtung oder der Bewgungsrichtung zu folgen</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Messe (M)-Werte der Knotenpunkte:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Zeitstempel (Sekunden seit Epoch)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Bodengeschwindigkeit</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Peilung</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horizontale Genauigkeit</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Vertikale Genauigkeit</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Wenn Objekte digitalisiert werden und das Fadenkreuz (Koordinaten-Cursor) auf die aktuelle Position fixiert ist, wird das Ergebnis der oben ausgewählten Messart zur Geometrie hinzugefügt, sofern sie einen M-Wert hat.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Aktivieren der Genauigkeitsanzeige</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Schwelle für schlechte Genauigkeit</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>Schwelle für exzellente Genauigkeit</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Erzwinge Genauigkeitsvorgabe </translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Wenn der Genauigkeitsindikator aktiviert ist, wird ein Abzeichen an die Positionsschaltfläche angehängt und &lt;span %1&gt;rot1 gefärbt, wenn der Genauigkeitswert schlecht ist, &lt;span %2&gt;gelb2, wenn er dazwischen liegt, oder &lt;span %3&gt;grün, wenn er exzellent ist3.45 Zusätzlich kann eine Genauigkeitseinschränkung gesetzt werden, die das Hinzufügen von Knotenpunkten an dem auf die aktuelle Position festgesetzten Fadenkreuz-Cursor, mit einem Genauigkeitswert über dem Schwellenwert, verhindert.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Aktivieren Sie die Positionsmittelung</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>Mindestanzahl an gemessenen Positionen</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Messung  automatisch beenden, wenn die Mindestanzahl erreicht ist.</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Wenn diese Funktion aktiviert ist, wird beim Digitalisieren von Knotenpunkten, mit einem auf eine Position fixierten Fadenkreuz-Cursor, nur die gemittelte Position aus einer Mindestanzahl von gemessenen Positionen akzeptiert. Das Digitalisieren unter Verwendung gemittelter Positionen erfolgt durch Drücken und Halten der Taste &quot;Knotenpunkt hinzufügen&quot;, wobei so lange Positionen gemessen werden, bis die Taste losgelassen wird. Die Einstellungen für die Genauigkeitsanforderungen werden beachtet, wenn sie aktiviert sind.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Höhenanpassung</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Höhenkompensation der Antenne</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Antennenhöhe</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Z-Werte, die vom GPS-Empfänger aufgezeichnet werden, werden um diesen Wert korrigiert. Wenn ein Wert von 1,6 eingegeben wird, führt dies zu einer Korrektur von -1,6 für jeden aufgezeichneten Wert. Vergewissern Sie sich, dass die komplette Antennenhöhe (Stabhöhe + Antenne-Phasenzentrum-Korrektur) richtig gesetzt ist.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Überspringe Höhenkorrektur</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Verwenden Sie die Höhe, wie sie vom GPS-Empfänger gemeldet wird. Überspringen Sie jede Höhenkorrektur, die durch die Transformation des Koordinatensystems geschehen könnte.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Vertikale Gitterverschiebung im Einsatz:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Keine</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Orthometrisch vom Gerät</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Die vertikale Gitterverschiebung wird verwendet, um die Höhengenauigkeit zu verbessern.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>NMEA-Sätze vom Gerät in eine Datei protokollieren</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 Einstellungen</translation>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7364,503 +7867,191 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Maßstab anzeigen</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Zoomsteuerung anzeigen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Lesezeichen anzeigen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Wenn diese Funktion eingeschaltet ist, werden die gespeicherten und aktuell geöffneten Projekt-Lesezeichen des Benutzers auf der Karte angezeigt.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Kartendrehung erlauben</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Wenn aktiviert, kann die Kartenansicht gedreht werden.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Digitalisierungsinformationen anzeigen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Wenn diese Funktion eingeschaltet ist, werden Informationen, wie z. B. Breiten- und Längengrad, beim Digitalisieren neuer Objekte oder bei der Verwendung des Messwerkzeugs in der Karte eingeblendet.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Verwende die Lautstärkentasten zum digitalisieren</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Wenn diese Option aktiviert ist, wird durch Drücken der Lauter-Taste des Geräts ein Knotenpunkt hinzugefügt, während durch Drücken der Leiser-Taste der während der Digitalisierungssitzungen zuletzt eingegebene Knotenpunkt entfernt wird.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Fingertippen auf die Karte erlauben, um Objekte und Knotenpunkte hinzuzufügen. </translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Eine Maus als Touchscreen-Gerät</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Wenn aktiviert, wird die Maus als Finger interpretiert, wenn deaktiviert, als Eingabe-Stift.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Maximiere Objekt-Formular</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Öffne das Objekt-Formular bei der Auswahl von einzelnen Objekten</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Wenn aktiviert, wird das Formular des Objektes automatisch geöffnet, wenn nur ein Objekt ausgewählt wurde. Die Auswahlliste wird übersprungen.</translation>
-    </message>
-    <message>
-        <source>Fixed scale navigation</source>
-        <translation>Navigation mit festem Maßstab</translation>
-    </message>
-    <message>
-        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Wenn *Navigation mit festem Maßstab* aktiviert ist, wird beim Fokussieren auf ein Suchresultat der Maßstab nicht verändert. Wenn *Navigation mit festem Maßstab* deaktiviert ist, wird zum entsprechenden Objekt gezoomt.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Zoome automatisch zum identifizierten Objekt(en)</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>wenn aktiviert, wird die Karte so gezoomt, dass sowohl alle identifizierten Objekt, als auch individuell ausgewählt Objekte angezeigt werden, wenn das Objekt-Formular geöffnet wird.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Zeichne Inhalt außerhalb des sichtbaren Bereichs</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Wenn aktivierte, werden Bereiche direkt auserhalb der sichtbaren Karte teilweise gezeichnet, um beim Zoomen und Bewegen eine Vorschauen zu haben</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Aktiviere automatischen Speicher-Modus</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Wenn aktiviert, werden neu hinzugefügte Objekte gespeichert, sobald sie eine gültige Geometrie haben und die Bedigungen erfüllt sind, und bearbeitete Attribute werden sofort übernommen.</translation>
-    </message>
-    <message>
-        <source>Use native camera</source>
-        <translation>Native Kamera benutzen</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Wenn aktiviert, wird die standardmäßige Kamera des Betriebssystems verwendet.</translation>
-    </message>
-    <message>
-        <source>Send anonymized metrics</source>
-        <translation>Anonymisierte Metriken senden</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Wenn aktiviert, werden anonymisierte Metriken gesammelt, und versendet um die Nutzererfahrung von QField für alle zu verbessern.</translation>
-    </message>
-    <message>
-        <source>General</source>
-        <translation>Allgemein</translation>
-    </message>
-    <message>
-        <source>Positioning</source>
-        <translation>Positionierung</translation>
-    </message>
-    <message>
-        <source>Variables</source>
-        <translation>Variablen</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Kartenausschnitt</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Qualität der Kartendarstellung</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Beste Auflösung</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Niedrige Auflösung</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Niedrigste Auflösung</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Eine niedrigere Qualität mindert die Renderinggenauigkeit zugunsten einer geringeren Speicherauslastung und Rendering-Zeit ein.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitalisieren und Editieren</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Benutzeroberfläche</translation>
-    </message>
-    <message>
-        <source>Customize search bar</source>
-        <translation>Anpassen der Suchleiste</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Plugins verwalten</translation>
-    </message>
-    <message>
-        <source>Dim screen when idling</source>
-        <translation>Bildschirm bei Inaktivität herunterdimmen.</translation>
-    </message>
-    <message>
-        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Zeit der Inaktivität in Sekunden, bevor die Bildschirmhelligkeit gedimmt wird, um die Batterie zu schonen.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Design:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Systemdarstellung folgen</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Helles Thema</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Dunkles Thema</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Schriftgröße:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Winzig</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normal</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Groß</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Extra-groß</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Sprache:</translation>
-    </message>
-    <message>
-        <source>system</source>
-        <translation>System</translation>
-    </message>
-    <message>
-        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Fehlende oder unvollständige Sprachübersetzung gefunden? %1Machen Sie mit bei der Übersetzergruppe.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Netzwerk</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Clear authentication cache</source>
-        <translation>Authentifizierungs-Cache löschen</translation>
+        <source>Fixed scale navigation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Authentication cache cleared</source>
-        <translation>Authentifizierungs-Cache gelöscht</translation>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enable proxy</source>
-        <translation>Aktiviere Proxy</translation>
+        <source>Use native camera</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Type</source>
-        <translation>Typ</translation>
+        <source>Send anonymized metrics</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>System default</source>
-        <translation>Systemvorgabe</translation>
+        <source>General</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Host</source>
-        <translation>Host</translation>
+        <source>Positioning</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>z.B. proxy.beispiel.de</translation>
+        <source>Variables</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Port</source>
-        <translation>Port</translation>
+        <source>Customize search bar</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>e.g. 8888</source>
-        <translation>z.B. 8888</translation>
+        <source>Dim screen when idling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>Benutzername</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>Optional</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Passwort</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>Vom Proxy ausgenommene URLs (Kommagetrennt)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>z.B. localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Konfiguriere einen Proxy um QFields Netzwerkverkehr durch den Proxyserver zu leiten. Hilfreich bei Firmennetzwerken und VPNs.</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Erweiterte Einstellungen</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Positionierungsgerät</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Positionierungsgerät in Benutzung:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Hinzufügen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Bearbeiten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Entfernen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Verbunden mit %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Verbinden zu %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Verbindung zu %1 wird hergestellt</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>Aktiviere Ntrip Korrekturen</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Ntrip Client getrennt</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>Ntrip Client wird verbunden</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Ntrip Client verbunden</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>Bitte gib gültige Ntrip Einstellungen an</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Positionsinformationen anzeigen</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Verhalten, wenn auf den eigenen Standort fixiert wird:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Folge dem Standort</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Folge Standort und Kompassorientierung</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Folge Standort und Bewegungsrichtung</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Wenn der Karteninhalt dem Standort folgt, kann die Karte rotieren um der Kompassausrichtung oder der Bewgungsrichtung zu folgen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Messe (M)-Werte der Knotenpunkte:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>Zeitstempel (Sekunden seit Epoch)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Bodengeschwindigkeit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Peilung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Horizontale Genauigkeit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Vertikale Genauigkeit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Wenn Objekte digitalisiert werden und das Fadenkreuz (Koordinaten-Cursor) auf die aktuelle Position fixiert ist, wird das Ergebnis der oben ausgewählten Messart zur Geometrie hinzugefügt, sofern sie einen M-Wert hat.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Aktivieren der Genauigkeitsanzeige</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Schwelle für schlechte Genauigkeit</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>Schwelle für exzellente Genauigkeit</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Erzwinge Genauigkeitsvorgabe </translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Wenn der Genauigkeitsindikator aktiviert ist, wird ein Abzeichen an die Positionsschaltfläche angehängt und &lt;span %1&gt;rot1 gefärbt, wenn der Genauigkeitswert schlecht ist, &lt;span %2&gt;gelb2, wenn er dazwischen liegt, oder &lt;span %3&gt;grün, wenn er exzellent ist3.45 Zusätzlich kann eine Genauigkeitseinschränkung gesetzt werden, die das Hinzufügen von Knotenpunkten an dem auf die aktuelle Position festgesetzten Fadenkreuz-Cursor, mit einem Genauigkeitswert über dem Schwellenwert, verhindert.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Aktivieren Sie die Positionsmittelung</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>Mindestanzahl an gemessenen Positionen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Messung  automatisch beenden, wenn die Mindestanzahl erreicht ist.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Wenn diese Funktion aktiviert ist, wird beim Digitalisieren von Knotenpunkten, mit einem auf eine Position fixierten Fadenkreuz-Cursor, nur die gemittelte Position aus einer Mindestanzahl von gemessenen Positionen akzeptiert. Das Digitalisieren unter Verwendung gemittelter Positionen erfolgt durch Drücken und Halten der Taste &quot;Knotenpunkt hinzufügen&quot;, wobei so lange Positionen gemessen werden, bis die Taste losgelassen wird. Die Einstellungen für die Genauigkeitsanforderungen werden beachtet, wenn sie aktiviert sind.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>Höhenanpassung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Höhenkompensation der Antenne</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Antennenhöhe</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Z-Werte, die vom GPS-Empfänger aufgezeichnet werden, werden um diesen Wert korrigiert. Wenn ein Wert von 1,6 eingegeben wird, führt dies zu einer Korrektur von -1,6 für jeden aufgezeichneten Wert. Vergewissern Sie sich, dass die komplette Antennenhöhe (Stabhöhe + Antenne-Phasenzentrum-Korrektur) richtig gesetzt ist.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Überspringe Höhenkorrektur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Verwenden Sie die Höhe, wie sie vom GPS-Empfänger gemeldet wird. Überspringen Sie jede Höhenkorrektur, die durch die Transformation des Koordinatensystems geschehen könnte.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Vertikale Gitterverschiebung im Einsatz:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Keine</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Orthometrisch vom Gerät</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Die vertikale Gitterverschiebung wird verwendet, um die Höhengenauigkeit zu verbessern.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>NMEA-Sätze vom Gerät in eine Datei protokollieren</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 Einstellungen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8279,6 +8470,26 @@ erstellen</translation>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Nutzt du diese Anwendung das erste mal? Probiere eins der Beispielprojekte unten in der Liste.</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Don&apos;t show this again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Schließen</translation>
     </message>
 </context>
 <context>
@@ -8996,6 +9207,26 @@ um Aktionen anzuzeigen</translation>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>Öffne den Projekt-Ordner um Zugriff auf die Projekt-Dateien, Datenquellen und zugehörige Dokumente zu bekommen. Dies ist hilfreich für die Organisation der Projekt-Ressourcen, um Daten manuell zur QFieldCloud hochzuladen und um Datensätze, Anlagen und Layouts zu teilen.</translation>
+    </message>
+    <message>
+        <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

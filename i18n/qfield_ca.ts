@@ -3168,7 +3168,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>QfActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation>Limita la cerca al camp «%1»</translation>
+        <translation>Limita la cerca al camp &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
@@ -3188,7 +3188,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Retorna una llista d&apos;objectes de la capa activa amb atributs coincidents. La restricció de la coincidència amb un únic atribut es fa identificant el seu nom prefixat amb una «@».</translation>
+        <translation>Retorna una llista d&apos;objectes de la capa activa amb atributs coincidents. La restricció de la coincidència amb un únic atribut es fa identificant el seu nom prefixat amb una &apos;@&apos;</translation>
     </message>
 </context>
 <context>
@@ -3262,6 +3262,509 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
         <translation>S&apos;ha utilitzat una transformació aproximada de %1 a %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Mostra la barra d&apos;escala</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Mostra els controls de zoom</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Mostra els marcadors</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Quan està activat, els marcadors de projecte desats i oberts actualment per l&apos;usuari es mostraran al mapa.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Activa la rotació del mapa</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Quan està activat, l&apos;usuari pot girar el mapa.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Mostra la informació de digitalització</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Quan està activada, la informació de coordenada, com ara la latitud i la longitud, es superposa al mapa mentre es digitalitzen nous objectes o s&apos;utilitza l&apos;eina de mesura.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Utilitza les tecles de volum per digitalitzar</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Si està habilitat, prémer el botó d&apos;augment de volum del dispositiu afegeix un vèrtex, mentre que prémer el botó de reducció de volum elimina l&apos;últim vèrtex introduït durant les sessions de digitalització.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Permet tocar el llenç amb el dit per afegir vèrtexs</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>Quan està activat, si toqueu el llenç del mapa amb el dit es mou el cursor de coordenada, mentre que si toqueu dues vegades s&apos;afegeix un vèrtex.</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Considereu el ratolí com un dispositiu de pantalla tàctil</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Quan està habilitat, el ratolí actuarà com si fos un dit. Quan està desactivat, el ratolí s&apos;ajustarà al comportament del llapis òptic.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Maximitzar el formulari d&apos;objecte</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Obre el formulari d&apos;objecte per a la identificació d&apos;un sol objecte</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Quan està habilitat, el formulari d&apos;objecte s&apos;obrirà automàticament si només s&apos;identifica una funció, ometent la llista d&apos;objecte.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Navegació amb escala fixa</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Quan la navegació d&apos;escala fixa està activa, enfocar un resultat de cerca desplaçarà la vista cap a l&apos;objecte. Amb la navegació d&apos;escala fixa desactivada, es desplaçarà i farà zoom a l&apos;objecte.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Zoom automàtic als objecte(s) identificats</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>Quan està activat, el mapa farà zoom automàticament per mostrar tots els objectes  identificats, així com l&apos;objecte seleccionat individualment quan s&apos;obre el formulari d&apos;objecte.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Renderitzar el contingut de la vista prèvia al voltant del llenç del mapa visible </translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Si s&apos;activa, les àrees just a l&apos;exterior del llenç del mapa visible es renderitzaran parcialment per permetre una previsualització en fer zoom i desplaçar-se.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Activa el mode de desat automàtic</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Si està habilitat, els objectes recentment afegits s&apos;emmagatzemen tan bon punt tinguin una geometria vàlida i es compleixin les restriccions, i els atributs editats es confirmen immediatament.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Utilitza la càmera nativa</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Si està activat, s&apos;utilitzarà la càmera nativa proporcionada pel sistema operatiu.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Envia mètriques anonimitzades</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Si s&apos;activa, es recopilaran i s&apos;enviaran mètriques anonimitzades per ajudar a millorar l&apos;experiència de l&apos;usuari per a tothom.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>General</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Posicionament</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Variables</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Llenç del mapa</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Qualitat de renderització del llenç del mapa:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Millor qualitat</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Qualitat inferior</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Qualitat més baixa</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Una qualitat inferior sacrifica la precisió del renderitzat a favor d&apos;un ús de memòria i un temps de renderitzat més baixos.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalització i edició</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Interfície d&apos;usuari</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Personalitza la barra de cerca</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Gestiona els connectors</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Atenua la pantalla quan estigui en repós</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Temps d&apos;inactivitat en segons abans que la brillantor de la pantalla es redueixi per estalviar bateria.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Aspecte:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Segueix l&apos;aspecte del sistema</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Tema clar</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Tema fosc</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Mida de la lletra:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Petit</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Gran</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Molt gran</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Idioma:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>sistema</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Heu trobat un idioma que falta o que està incomplet? %1Uniu-vos a la comunitat de traductors.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Xarxa</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>Configuracions d&apos;autenticació disponibles:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Esborrar la memòria cau d&apos;autenticació</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>S&apos;ha esborrat la memòria cau d&apos;autenticació</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Activa el servidor intermediari</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipus</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Per defecte del sistema</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Amfitrió</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>p. ex. proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>p. ex. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nom d&apos;usuari</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Opcional</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contrasenya</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>URL excloses del servidor intermediari (separades per comes)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>p. ex. localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Configura un servidor intermediari de xarxa per encaminar el trànsit de QField a través d&apos;un servidor intermediari. Útil per a xarxes corporatives i VPN.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Avançat</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Dispositiu de posicionament</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Dispositiu de posicionament en ús:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Afegeix</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Edita</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Eliminar</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Connectat a %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Conecta a %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>S&apos;està connectant a %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>Habilita les correccions NTRIP</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>Client NTRIP desconnectat</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>El client NTRIP s&apos;està connectant</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>Client NTRIP connectat</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>Si us plau, proporcioneu una configuració NTRIP vàlida.</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Mostrar informació de la posició</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Comportament quan està bloquejat a la posició:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Seguir només la posició</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Seguir la posició i l&apos;orientació de la brúixola</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Seguir la posició i la direcció del moviment</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Quan el llenç del mapa segueix o està bloquejat a una posició, també pot girar per coincidir amb l&apos;orientació de la brúixola o la direcció del moviment.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Valor de mesura (M) associat als vèrtexs:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Marca de temps (mil·lisegons des de l&apos;època)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Velocitat respecte al sòl</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Rumb</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Precisió horitzontal</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Precisió vertical</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>En digitalitzar objectes amb el cursor de coordenada bloquejat a la posició actual, el tipus de mesura seleccionat anteriorment s&apos;afegirà a la geometria sempre que tingui una dimensió M.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Activa l&apos;indicador de precisió</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Llindar de precisió dolent</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>Llindar de precisió excel·lent</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Fer complir el requisit de precisió</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Quan l&apos;indicador de precisió està habilitat, s&apos;afegeix una insígnia al botó d&apos;ubicació que és de color &lt;span %1&gt;vermell&lt;/span&gt; si el valor de precisió és pitjor que &lt;i&gt;dolent&lt;/i&gt;, &lt;span %2&gt;groc&lt;/span&gt; si no és &lt;i&gt;excel·lent&lt;/i&gt; o &lt;span %3&gt;verd&lt;/span&gt;. &lt;br&gt;&lt;br&gt;A més, es pot activar un mode de restricció de precisió, que limita l&apos;addició de vèrtex quan està bloquejat al cursor de coordenada a posicions amb un valor de precisió pitjor que el llindar dolent.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Habilita el requisit de posicionament mitjà</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>Nombre mínim de posicions</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>Finalitza automàticament la captura quan s&apos;arriba al nombre mínim</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Quan està habilitat, la digitalització de vèrtexs amb un cursor bloquejat a la posició només acceptarà una posició mitjana obtinguda a partir d&apos;un nombre mínim de posicions recollides. La digitalització mitjançant posicions mitjanes es realitza prement i mantenint premut el botó d&apos;afegir vèrtex, que recollirà posicions fins que es deixi anar el botó. La configuració del requisit de precisió es respecta quan està activat.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Ajust d&apos;elevació</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Compensació de l&apos;alçada de l&apos;antena</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Alçada de l&apos;antena</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Aquest valor corregirà els valors Z registrats pel dispositiu de posicionament. Si s&apos;introdueix un valor de 1,6, el sistema restarà automàticament 1,6 a cada valor registrat. Assegureu-vos d&apos;introduir l&apos;alçada efectiva de l&apos;antena, és a dir, la longitud del pal més el desplaçament del centre de fase de l&apos;antena.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Ometre la correcció d&apos;altitud</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Utilitza l&apos;altitud tal com l&apos;indica el dispositiu de posicionament. No apliquis cap correcció d&apos;altitud que pugui estar implícita en la transformació del sistema de coordenades.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Desplaçament de la quadrícula vertical en ús:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Cap</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ortomètrica des del dispositiu</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>El desplaçament vertical de la quadrícula s&apos;utilitza per augmentar la precisió de l&apos;altitud.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Registra les sentències NMEA des del dispositiu a un fitxer.</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 Configuració</translation>
     </message>
 </context>
 <context>
@@ -3411,7 +3914,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation>Suprimeix el(s) marcador(s) seleccionats</translation>
+        <translation>Suprimeix el marcador(s) seleccionats</translation>
     </message>
     <message>
         <source>Bookmark Actions</source>
@@ -3423,7 +3926,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Navigate to bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Navega fins al marcador</translation>
     </message>
     <message>
         <source>Copy Bookmark Details</source>
@@ -3451,11 +3954,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation><numerusform>Realment s&apos;haurien d&apos;eliminar els %n marcadors seleccionats?</numerusform><numerusform>Realment s&apos;haurien d&apos;eliminar %n marcador(s) seleccionat(s)?</numerusform></translation>
+        <translation><numerusform>Realment s&apos;haurien d&apos;eliminar els %n marcador(s) seleccionats?</numerusform><numerusform>Realment s&apos;haurien d&apos;eliminar %n marcador(s) seleccionat?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Deleted %n bookmark(s)</source>
-        <translation><numerusform>S&apos;han suprimit %n marcadors</numerusform><numerusform>S&apos;han suprimit %n marcador(s)</numerusform></translation>
+        <translation><numerusform>S&apos;han suprimit %n marcador(s)</numerusform><numerusform>S&apos;han suprimit %n marcador(s)</numerusform></translation>
     </message>
     <message>
         <source>Orange</source>
@@ -3490,7 +3993,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>QfBookmarkLocatorFilter</name>
     <message>
         <source>Navigate to bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Navega fins al marcador</translation>
     </message>
     <message>
         <source>Spatial bookmarks</source>
@@ -3498,7 +4001,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Retorna una llista de marcadors de projecte d&apos;usuari actualment oberts amb noms coincidents.</translation>
+        <translation>Retorna una llista de marcadors d&apos;usuari i de projecte actualment oberts amb noms coincidents.</translation>
     </message>
 </context>
 <context>
@@ -3625,7 +4128,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation>Alçada</translation>
+        <translation>Altitud</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -3768,7 +4271,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation>No s&apos;ha trobat el servidor, comproveu l&apos;URL del servidor</translation>
+        <translation>No s&apos;ha trobat el servidor, comproveu-ne l&apos;URL</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
@@ -3860,7 +4363,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Uploaded by %1 on %2</source>
-        <translation type="unfinished"/>
+        <translation>Pujat per %1 el %2</translation>
     </message>
     <message>
         <source>Applied</source>
@@ -3892,7 +4395,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Unpermitted</source>
-        <translation>Sense permís</translation>
+        <translation>No permès</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -3975,15 +4478,15 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <name>QfCloudPendingChanges</name>
     <message>
         <source>added</source>
-        <translation type="unfinished"/>
+        <translation>afegit</translation>
     </message>
     <message>
         <source>edited</source>
-        <translation type="unfinished"/>
+        <translation>editat</translation>
     </message>
     <message>
         <source>deleted</source>
-        <translation type="unfinished"/>
+        <translation>suprimit</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -3995,19 +4498,19 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>%1: %2 to %3</source>
-        <translation type="unfinished"/>
+        <translation>%1: %2 a %3</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished"/>
+        <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
         <source>%n change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n canvi(s)</numerusform><numerusform>%n canvi(s)</numerusform></translation>
     </message>
     <message>
         <source>Geometry modified</source>
-        <translation type="unfinished"/>
+        <translation>Geometria modificada</translation>
     </message>
 </context>
 <context>
@@ -4219,19 +4722,19 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Canvis locals</translation>
     </message>
     <message numerus="yes">
         <source>%n addition(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n addició(ns)</numerusform><numerusform>%n addició(ns)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n edit(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n edició(ns)</numerusform><numerusform>%n edició(ns)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n deletion(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n supressió(ns)</numerusform><numerusform>%n supressió(ns)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -4268,7 +4771,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation>Error de resposta de les dades del darrer paquet.</translation>
+        <translation>Error de resposta del darrer paquet de dades.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
@@ -4304,7 +4807,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation>(vegeu-ne més al registre d&apos;errors de QField)…</translation>
+        <translation>(vegeu-ne més al registre d&apos;error de QField)…</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
@@ -4415,11 +4918,11 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Creating project</source>
-        <translation type="unfinished"/>
+        <translation>Creant projecte</translation>
     </message>
     <message>
         <source>Create project from template</source>
-        <translation type="unfinished"/>
+        <translation>Crear projecte des de plantilla</translation>
     </message>
 </context>
 <context>
@@ -4450,15 +4953,15 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>My own</source>
-        <translation type="unfinished"/>
+        <translation>El meu propi</translation>
     </message>
     <message>
         <source>Owned by %1</source>
-        <translation type="unfinished"/>
+        <translation>Propietat de %1</translation>
     </message>
     <message>
         <source>Include public templates</source>
-        <translation type="unfinished"/>
+        <translation>Inclou plantilles públiques</translation>
     </message>
 </context>
 <context>
@@ -4632,19 +5135,19 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished"/>
+        <translation>Plantilles</translation>
     </message>
     <message>
         <source>Project Creation</source>
-        <translation type="unfinished"/>
+        <translation>Creació de projecte</translation>
     </message>
     <message>
         <source>Enter your project name</source>
-        <translation type="unfinished"/>
+        <translation>Introdueix el nom del teu projecte</translation>
     </message>
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
-        <translation type="unfinished"/>
+        <translation>Caràcters permesos: 0-9A-Za-z_-</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -4652,51 +5155,51 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Search for templates</source>
-        <translation type="unfinished"/>
+        <translation>Cerca plantilles</translation>
     </message>
     <message>
         <source>Refreshing templates list...</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;està actualitzant la llista de plantilles...</translation>
     </message>
     <message>
         <source>Searching for templates...</source>
-        <translation type="unfinished"/>
+        <translation>Cercant plantilles...</translation>
     </message>
     <message>
         <source>No templates found.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;han trobat plantilles.</translation>
     </message>
     <message>
         <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Intenta %1incloure plantilles públiques%2 i mira què ofereix la comunitat.</translation>
     </message>
     <message>
         <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
+        <translation>Intenta %1incloure plantilles públiques%2.</translation>
     </message>
     <message>
         <source>Refresh templates list</source>
-        <translation type="unfinished"/>
+        <translation>Actualitza la llista de plantilles</translation>
     </message>
     <message>
         <source>Creating project…</source>
-        <translation type="unfinished"/>
+        <translation>Creant projecte…</translation>
     </message>
     <message>
         <source>Preparing project…</source>
-        <translation type="unfinished"/>
+        <translation>Preparant projecte…</translation>
     </message>
     <message>
         <source>Project created but downloading failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Projecte creat però la descàrrega ha fallat: %1</translation>
     </message>
     <message>
         <source>The newly-created project could not be prepared.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut preparar el projecte recentment creat.</translation>
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;està descarregant el projecte…</translation>
     </message>
 </context>
 <context>
@@ -4758,19 +5261,19 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message numerus="yes">
         <source>%n feature(s) created</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n objecte(s) creat</numerusform><numerusform>%n objecte(s) creat</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) edited</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n objecte(s) editat</numerusform><numerusform>%n objecte(s) editat</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) deleted</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n objecte(s) creat</numerusform><numerusform>%n objecte(s) suprimit</numerusform></translation>
     </message>
     <message>
         <source>%1 in layer %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 a la capa %2</translation>
     </message>
 </context>
 <context>
@@ -4941,7 +5444,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <name>QfEditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation>Menú d&apos;ítems</translation>
+        <translation>Menú d&apos;element</translation>
     </message>
 </context>
 <context>
@@ -5025,7 +5528,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation>Adjunta un ítem de la galeria</translation>
+        <translation>Adjunta un element de la galeria</translation>
     </message>
     <message>
         <source>Attach a file</source>
@@ -5106,31 +5609,31 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Is the app running? HTTP request failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;aplicació està en execució? La sol·licitud HTTP ha fallat: %1</translation>
     </message>
     <message>
         <source>Egeniouss service is not ready.</source>
-        <translation type="unfinished"/>
+        <translation>El servei Egeniouss no està a punt.</translation>
     </message>
     <message>
         <source>Last fix</source>
-        <translation type="unfinished"/>
+        <translation>Última correcció</translation>
     </message>
     <message>
         <source>Heading</source>
-        <translation type="unfinished"/>
+        <translation>Direcció</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"/>
+        <translation>Guinyada</translation>
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"/>
+        <translation>Elevació</translation>
     </message>
     <message>
         <source>Heading sigma</source>
-        <translation type="unfinished"/>
+        <translation>Direcció sigma</translation>
     </message>
 </context>
 <context>
@@ -5198,7 +5701,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Value skipped</source>
-        <translation>S&apos;ha omès el valor</translation>
+        <translation>Valor omès</translation>
     </message>
     <message>
         <source> (click to toggle)</source>
@@ -5210,7 +5713,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation>Desactivat afegir objectes</translation>
+        <translation>Desactivat afegir objecte</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
@@ -5230,7 +5733,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation>Menú del formulari d&apos;objectes</translation>
+        <translation>Menú del formulari d&apos;objecte</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
@@ -5258,7 +5761,8 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>You are about to cancel the feature setup, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Esteu a punt de cancel·lar la configuració de l&apos;objecte. Voleu continuar? 
+ </translation>
     </message>
 </context>
 <context>
@@ -5269,7 +5773,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation>Ha fallat en desfer  la supressió d&apos;objectes a la capa &quot;%1&quot;</translation>
+        <translation>Ha fallat en desfer la supressió d&apos;objectes a la capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
@@ -5285,7 +5789,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation><numerusform>Desfés la creació de %n elements a la capa %1.</numerusform><numerusform>Desfés la creació de %n objecte(s) a la capa %1.</numerusform></translation>
+        <translation><numerusform>Desfés la creació de %n objecte(s) a la capa %1.</numerusform><numerusform>Desfés la creació de %n objecte(s) a la capa %1.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
@@ -5376,7 +5880,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>No hi ha objectes en aquest posició</translation>
+        <translation>No hi ha cap objecte en aquest posició</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
@@ -6067,11 +6571,11 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message numerus="yes">
         <source>%n file(s) deleted successfully</source>
-        <translation><numerusform>%n fitxer(s) suprimits correctament</numerusform><numerusform>%n fitxer(s) suprimits correctament</numerusform></translation>
+        <translation><numerusform>%n fitxer(s) suprimits correctament</numerusform><numerusform>%n fitxer(s) eliminats correctament</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n file(s)</source>
-        <translation><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform></translation>
+        <translation><numerusform>No s&apos;ha pogut suprimir %n fitxer(s)</numerusform><numerusform>No s&apos;ha pogut eliminar %n fitxer(s)</numerusform></translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
@@ -7371,503 +7875,191 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Mostra la barra d&apos;escala</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Mostra els controls de zoom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Mostra els marcadors</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Quan està activat, els marcadors de projecte desats i oberts actualment per l&apos;usuari es mostraran al mapa.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Activa la rotació del mapa</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Quan està activat, l&apos;usuari pot girar el mapa.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Mostra la informació de digitalització</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Quan està activada, la informació de coordenada, com ara la latitud i la longitud, se superposa al mapa mentre es digitalitzen nous objectes o s&apos;utilitza l&apos;eina de mesura.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Utilitza les tecles de volum per digitalitzar</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Si està habilitat, prémer el botó d&apos;augment de volum del dispositiu afegeix un vèrtex, mentre que prémer el botó de reducció de volum elimina l&apos;últim vèrtex introduït durant les sessions de digitalització.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Permet tocar el llenç amb el dit per afegir vèrtexs</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>Quan està activat, si toqueu el llenç del mapa amb el dit es mou el cursor de coordenades, mentre que si toqueu dues vegades s&apos;afegeix un vèrtex.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Considereu el ratolí com un dispositiu de pantalla tàctil</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Quan està habilitat, el ratolí actuarà com si fos un dit. Quan està desactivat, el ratolí s&apos;ajustarà al comportament del llapis òptic.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Maximitzar el formulari d&apos;objecte</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Obre el formulari d&apos;objecte per a la identificació d&apos;un sol objecte</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Quan està habilitat, el formulari d&apos;objecte s&apos;obrirà automàticament si només s&apos;identifica una funció, ometent la llista d&apos;objectes.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Navegació amb escala fixa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Quan la navegació d&apos;escala fixa està activa, enfocar un resultat de cerca desplaçarà la vista cap a l&apos;objecte. Amb la navegació d&apos;escala fixa desactivada, es desplaçarà i farà zoom a l&apos;objecte.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Zoom automàtic als objecte(s) identificats</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>Quan està activat, el mapa farà zoom automàticament per mostrar tots els objectes  identificats, així com l&apos;objecte seleccionat individualment quan s&apos;obre el formulari d&apos;objecte.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Renderitzar el contingut de la vista prèvia al voltant del llenç del mapa visible </translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Si s&apos;activa, les àrees just a l&apos;exterior del llenç del mapa visible es renderitzaran parcialment per permetre una previsualització en fer zoom i desplaçar-se.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Activa el mode de desat automàtic</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Si està habilitat, els objectes recentment afegits s&apos;emmagatzemen tan bon punt tinguin una geometria vàlida i es compleixin les restriccions, i els atributs editats es confirmen immediatament.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Utilitza la càmera nativa</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Si està activat, s&apos;utilitzarà la càmera nativa proporcionada pel sistema operatiu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Envia mètriques anonimitzades</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Si s&apos;activa, es recopilaran i s&apos;enviaran mètriques anonimitzades per ajudar a millorar l&apos;experiència de l&apos;usuari per a tothom.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Posicionament</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Llenç del mapa</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Qualitat de renderització del llenç del mapa:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Millor qualitat</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Qualitat inferior</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Qualitat més baixa</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Una qualitat inferior sacrifica la precisió del renderitzat a favor d&apos;un ús de memòria i un temps de renderitzat més baixos.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitalització i edició</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Interfície d&apos;usuari</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Personalitza la barra de cerca</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Gestiona els connectors</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Atenua la pantalla quan estigui en repós</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Temps d&apos;inactivitat en segons abans que la brillantor de la pantalla es redueixi per estalviar bateria.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Aspecte:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Segueix l&apos;aspecte del sistema</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Tema clar</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Tema fosc</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Mida de la lletra:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Petit</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normal</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Gran</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Molt gran</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Idioma:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>sistema</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Heu trobat un idioma que falta o que està incomplet? %1Uniu-vos a la comunitat de traductors.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Xarxa</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>Configuracions d&apos;autenticació disponibles:</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>Esborrar la memòria cau d&apos;autenticació</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>S&apos;ha esborrat la memòria cau d&apos;autenticació</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Activa el servidor intermediari</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Tipus</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Per defecte del sistema</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Amfitrió</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>p. ex. proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>p. ex. 8888</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nom d&apos;usuari</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>Opcional</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Contrasenya</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>URL excloses del servidor intermediari (separades per comes)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>p. ex. localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Configura un servidor intermediari de xarxa per encaminar el trànsit de QField a través d&apos;un servidor intermediari. Útil per a xarxes corporatives i VPN.</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Avançat</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Dispositiu de posicionament</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Dispositiu de posicionament en ús:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Afegeix</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Edita</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Eliminar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Connectat a %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Conecta a %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>S&apos;està connectant a %1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>Habilita les correccions NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Client NTRIP desconnectat</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>El client NTRIP s&apos;està connectant</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Client NTRIP connectat</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>Si us plau, proporcioneu una configuració NTRIP vàlida.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Mostrar informació de la posició</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Comportament quan està bloquejat a la posició:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Seguir només la posició</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Seguir la posició i l&apos;orientació de la brúixola</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Seguir la posició i la direcció del moviment</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Quan el llenç del mapa segueix o està bloquejat a una posició, també pot girar per coincidir amb l&apos;orientació de la brúixola o la direcció del moviment.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Valor de mesura (M) associat als vèrtexs:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>Marca de temps (mil·lisegons des de l&apos;època)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Velocitat respecte al sòl</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Rumb</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Precisió horitzontal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Precisió vertical</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>En digitalitzar objectes amb el cursor de coordenada bloquejat a la posició actual, el tipus de mesura seleccionat anteriorment s&apos;afegirà a la geometria sempre que tingui una dimensió M.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Activa l&apos;indicador de precisió</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Llindar de precisió dolent</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>Llindar de precisió excel·lent</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Fer complir el requisit de precisió</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Quan l&apos;indicador de precisió està habilitat, s&apos;afegeix una insígnia al botó d&apos;ubicació que és de color &lt;span %1&gt;vermell&lt;/span&gt; si el valor de precisió és pitjor que &lt;i&gt;dolent&lt;/i&gt;, &lt;span %2&gt;groc&lt;/span&gt; si no és &lt;i&gt;excel·lent&lt;/i&gt; o &lt;span %3&gt;verd&lt;/span&gt;. &lt;br&gt;&lt;br&gt;A més, es pot activar un mode de restricció de precisió, que limita l&apos;addició de vèrtex quan està bloquejat al cursor de coordenada a posicions amb un valor de precisió pitjor que el llindar dolent.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Habilita el requisit de posicionament mitjà</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>Nombre mínim de posicions</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>Finalitza automàticament la captura quan s&apos;arriba al nombre mínim</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Quan està habilitat, la digitalització de vèrtexs amb un cursor bloquejat a la posició només acceptarà una posició mitjana obtinguda a partir d&apos;un nombre mínim de posicions recollides. La digitalització mitjançant posicions mitjanes es realitza prement i mantenint premut el botó d&apos;afegir vèrtex, que recollirà posicions fins que es deixi anar el botó. La configuració del requisit de precisió es respecta quan està activat.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>Ajust d&apos;elevació</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Compensació de l&apos;alçada de l&apos;antena</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Alçada de l&apos;antena</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Aquest valor corregirà els valors Z registrats pel dispositiu de posicionament. Si s&apos;introdueix un valor de 1,6, el sistema restarà automàticament 1,6 a cada valor registrat. Assegureu-vos d&apos;introduir l&apos;alçada efectiva de l&apos;antena, és a dir, la longitud del pal més el desplaçament del centre de fase de l&apos;antena.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Ometre la correcció d&apos;altitud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Utilitza l&apos;altitud tal com l&apos;indica el dispositiu de posicionament. No apliquis cap correcció d&apos;altitud que pugui estar implícita en la transformació del sistema de coordenades.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Desplaçament de la quadrícula vertical en ús:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>Cap</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ortomètrica des del dispositiu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>El desplaçament vertical de la quadrícula s&apos;utilitza per augmentar la precisió de l&apos;altitud.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Registra les sentències NMEA des del dispositiu a un fitxer.</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 Configuració</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8286,6 +8478,26 @@ projecte</translation>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>La primera vegada que utilitzeu aquesta aplicació? Proveu els projectes de mostra que s&apos;indiquen a continuació.</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Canvis locals</translation>
+    </message>
+    <message>
+        <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
+        <translation>Hi ha canvis pendents. Voleu carregar-los ara o mantenir-los pendents i tancar el projecte i l&apos;aplicació al núvol?</translation>
+    </message>
+    <message>
+        <source>Don&apos;t show this again</source>
+        <translation>No ho tornis a mostrar</translation>
+    </message>
+    <message>
+        <source>Upload now</source>
+        <translation>Puja ara</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Tanca</translation>
     </message>
 </context>
 <context>
@@ -9003,6 +9215,26 @@ per mostrar les accions</translation>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>Obre la carpeta del projecte per accedir als fitxers del projecte, a les fonts de dades i als documents relacionats. És útil per gestionar els recursos del projecte, pujar manualment dades a QFieldCloud i compartir conjunts de dades, adjunts i dissenys.</translation>
+    </message>
+    <message>
+        <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
+        <translation>Hi ha canvis pendents. Puja&apos;ls ara o prem enrere per mantenir-los pendents i tancar el projecte i l&apos;aplicació al núvol.</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Puja els canvis locals</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation>Canvis locals</translation>
+    </message>
+    <message>
+        <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
+        <translation>Aquest projecte té canvis pendents que encara no s&apos;han carregat. Toqueu el botó blau del núvol per obrir el panell del projecte al núvol i enviar-los a QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation>Aquest projecte al núvol té canvis pendents que encara no s&apos;han carregat. Obriu el tauler de control amb aquest botó i, a continuació, toqueu la icona del núvol blau per enviar-los a QFieldCloud.</translation>
     </message>
 </context>
 <context>

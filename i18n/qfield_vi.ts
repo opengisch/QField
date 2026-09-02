@@ -3257,6 +3257,509 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Hiển thị dấu trang</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Bật xoay bản đồ</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Hiển thị thông tin số hóa</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Tối đa hóa biểu mẫu đối tượng</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Mở biểu mẫu đối tượng khi xác định một đối tượng duy nhất</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Tự động thu phóng đến đối tượng đã xác định</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Sử dụng camera gốc</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Tổng quan</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Định vị</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Biến</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Khung bản đồ</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Chất lượng tốt nhất</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Chất lượng thấp hơn</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Chất lượng thấp nhất</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Số hóa &amp; Chỉnh sửa</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Giao diện người dùng</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Quản lý plugin</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Giao diện:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Giao diện sáng</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Giao diện tối</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Kích thước phông chữ:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Nhỏ</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Bình thường</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Lớn</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Rất lớn</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Ngôn ngữ:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>hệ thống</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Phát hiện ngôn ngữ bị thiếu hoặc chưa hoàn chỉnh? %1Tham gia cộng đồng dịch thuật.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Mạng</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Bật proxy</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Loại</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Mặc định hệ thống</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Máy chủ</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>ví dụ proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Cổng</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>ví dụ 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Tên đăng nhập</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Tùy chọn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Mật khẩu</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>ví dụ localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Nâng cao</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Thiết bị định vị</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Thiết bị định vị đang sử dụng:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Thêm</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Chỉnh sửa</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Gỡ bỏ</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Đã kết nối với %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Kết nối tới %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Đang kết nối tới %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Hiển thị thông tin vị trí</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Theo dõi vị trí và hướng la bàn</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Theo dõi vị trí và hướng di chuyển</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Tốc độ mặt đất</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Phương vị</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Độ chính xác ngang</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Độ chính xác đứng</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Ngưỡng độ chính xác kém</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Điều chỉnh cao độ</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Bù chiều cao ăng-ten</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Chiều cao ăng-ten</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Bỏ qua hiệu chỉnh độ cao</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Không có</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>Cài đặt %1</translation>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7358,67 +7861,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Show zoom controls</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Show bookmarks</source>
-        <translation>Hiển thị dấu trang</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enable map rotation</source>
-        <translation>Bật xoay bản đồ</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Show digitizing information</source>
-        <translation>Hiển thị thông tin số hóa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Tối đa hóa biểu mẫu đối tượng</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Mở biểu mẫu đối tượng khi xác định một đối tượng duy nhất</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -7430,35 +7889,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Tự động thu phóng đến đối tượng đã xác định</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Use native camera</source>
-        <translation>Sử dụng camera gốc</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -7466,60 +7897,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>General</source>
-        <translation>Tổng quan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Định vị</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Biến</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Khung bản đồ</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Chất lượng tốt nhất</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Chất lượng thấp hơn</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Chất lượng thấp nhất</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Số hóa &amp; Chỉnh sửa</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Giao diện người dùng</translation>
     </message>
     <message>
         <source>Customize search bar</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Quản lý plugin</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
@@ -7530,199 +7921,51 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Appearance:</source>
-        <translation>Giao diện:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Giao diện sáng</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Giao diện tối</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Kích thước phông chữ:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Nhỏ</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Bình thường</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Lớn</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Rất lớn</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Ngôn ngữ:</translation>
-    </message>
-    <message>
         <source>system</source>
-        <translation>hệ thống</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Phát hiện ngôn ngữ bị thiếu hoặc chưa hoàn chỉnh? %1Tham gia cộng đồng dịch thuật.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Mạng</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Bật proxy</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Loại</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Mặc định hệ thống</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Máy chủ</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>ví dụ proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Cổng</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>ví dụ 8888</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Tên đăng nhập</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>Tùy chọn</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Mật khẩu</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>ví dụ localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Nâng cao</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Thiết bị định vị</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Thiết bị định vị đang sử dụng:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Thêm</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Chỉnh sửa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Gỡ bỏ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Đã kết nối với %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Kết nối tới %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Đang kết nối tới %1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Hiển thị thông tin vị trí</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Theo dõi vị trí và hướng la bàn</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Theo dõi vị trí và hướng di chuyển</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -7730,36 +7973,32 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Timestamp (seconds since epoch)</source>
+        <source>Ground speed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Ground speed</source>
-        <translation>Tốc độ mặt đất</translation>
-    </message>
-    <message>
         <source>Bearing</source>
-        <translation>Phương vị</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Độ chính xác ngang</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Độ chính xác đứng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
@@ -7770,31 +8009,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Ngưỡng độ chính xác kém</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -7806,24 +8021,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Elevation Adjustment</source>
-        <translation>Điều chỉnh cao độ</translation>
-    </message>
-    <message>
         <source>Antenna height compensation</source>
-        <translation>Bù chiều cao ăng-ten</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Chiều cao ăng-ten</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Bỏ qua hiệu chỉnh độ cao</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
@@ -7835,23 +8038,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>None</source>
-        <translation>Không có</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>Cài đặt %1</translation>
     </message>
 </context>
 <context>
@@ -8269,6 +8460,26 @@ mới</translation>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Lần đầu sử dụng ứng dụng này? Hãy thử các dự án mẫu được liệt kê bên dưới.</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Don&apos;t show this again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Đóng</translation>
     </message>
 </context>
 <context>
@@ -8984,6 +9195,26 @@ to show actions</source>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation type="unfinished"/>
     </message>
 </context>

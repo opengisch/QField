@@ -3259,6 +3259,510 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
 </context>
 <context>
+    <name>QfAppSettings</name>
+    <message>
+        <source>Show scale bar</source>
+        <translation>Léptékvonalzó megjelenítése</translation>
+    </message>
+    <message>
+        <source>Show zoom controls</source>
+        <translation>Zoom gombok megjelenítése</translation>
+    </message>
+    <message>
+        <source>Show bookmarks</source>
+        <translation>Könyvjelzők megjelenítése</translation>
+    </message>
+    <message>
+        <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
+        <translation>Bekapcsoláskor a felhasználó mentett és jelenleg megnyitott projektkönyvjelzői megjelennek a térképen.</translation>
+    </message>
+    <message>
+        <source>Enable map rotation</source>
+        <translation>Lehetséges a térkép forgatása</translation>
+    </message>
+    <message>
+        <source>When switched on, the map can be rotated by the user.</source>
+        <translation>Bekapcsolásakor, a térkép forgatható a felhasználó által.</translation>
+    </message>
+    <message>
+        <source>Show digitizing information</source>
+        <translation>Digitalizálási információ mutatása</translation>
+    </message>
+    <message>
+        <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
+        <translation>Ha be van kapcsolva, a koordináták, mint szélességi és hosszúsági értékek rákerülnek a térképre az új elemek digitalizálása vagy a mérőeszköz használata közben.</translation>
+    </message>
+    <message>
+        <source>Use volume keys to digitize</source>
+        <translation>Használja a hangerő gombot a digitalizáláshoz</translation>
+    </message>
+    <message>
+        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
+        <translation>Amennyiben engedélyezte, a hangerő növelés hozzáad egy  új töréspontot a hangerő csökkentés pedig eltávolítja a legutóbbi töréspontot a digitalizálás során.</translation>
+    </message>
+    <message>
+        <source>Allow finger tap on canvas to add vertices</source>
+        <translation>Lehetséges töréspont hozzáadása a térkép ujjal érintésével</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>Ha elérhető, akkor a térképen ujjal érintett pontra mozog a koordináta kurzor, míg a kétszeri érintés egy töréspontot hoz létre.</translation>
+    </message>
+    <message>
+        <source>Consider mouse as a touchscreen device</source>
+        <translation>Tekintsük az egeret érintőképernyős eszköznek</translation>
+    </message>
+    <message>
+        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
+        <translation>Ha engedélyezett, az egér úgy működik, mintha egy ujj lett volna. Ha tiltott, az egér egy toll viselkedését követi.</translation>
+    </message>
+    <message>
+        <source>Maximize feature form</source>
+        <translation>Teljes képernyős alakzat űrlap</translation>
+    </message>
+    <message>
+        <source>Open feature form for single feature identification</source>
+        <translation>Egyetlen alakzat kiválasztásakor az űrlap azonnali nyitása</translation>
+    </message>
+    <message>
+        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
+        <translation>Az alakzat űrlap automatikusan nyílik, ha csak egy alakzat került kiválasztásra, az alakzatlista nézet kimarad.</translation>
+    </message>
+    <message>
+        <source>Fixed scale navigation</source>
+        <translation>Rögzített méretarányú navigálás</translation>
+    </message>
+    <message>
+        <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
+        <translation>Amikor a rögzített méretarányú navigáció aktív, a keresési eredményekre fókuszálás az elemre mozgatással jár. A rögzített méretarányú navigálás kikapcsolásakor az elemre mozgat és nagyít a program.</translation>
+    </message>
+    <message>
+        <source>Auto-zoom to identified feature(s)</source>
+        <translation>Auto-zoom a kiválasztott alakzat(ok)ra</translation>
+    </message>
+    <message>
+        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation>Engedélyezve, a térkép automatikusan nagyít a kiválasztott alakzatokra, akárcsak az űrlap nézetben éppen megjelenített adatokhoz tartozó alakzatra.</translation>
+    </message>
+    <message>
+        <source>Render preview content around visible map canvas</source>
+        <translation>Előnézeti kép előállítása a látható térkép körül</translation>
+    </message>
+    <message>
+        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
+        <translation>Bekapcsolva, a látható térképvászon körüli kép is részleges előállításra kerül, előnézetet adva a nagyítás és mozgatás során.</translation>
+    </message>
+    <message>
+        <source>Enable auto-save mode</source>
+        <translation>Automatikus mentés mód</translation>
+    </message>
+    <message>
+        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
+        <translation>Bekapcsolva, a friss alakzatok azonnal mentődnek, amint érvényes a geometriájuk, teljesültek a megszorítások és az attribútum szerkesztés befejeződött.</translation>
+    </message>
+    <message>
+        <source>Use native camera</source>
+        <translation>Natív kamera használata</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>Bekapcsolva, a rendszer által biztosított, belső kamera lesz használva.</translation>
+    </message>
+    <message>
+        <source>Send anonymized metrics</source>
+        <translation>Névtelen mérőszámok küldése</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>Engedélyezve, névtelen mérőszámok kerülnek gyűjtésre és elküldésre,  segítve a használati érték fejlesztését.</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Általános</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Pozícionálás</translation>
+    </message>
+    <message>
+        <source>Variables</source>
+        <translation>Változók</translation>
+    </message>
+    <message>
+        <source>Map Canvas</source>
+        <translation>Térképvászon</translation>
+    </message>
+    <message>
+        <source>Map canvas rendering quality:</source>
+        <translation>Térképvászon megjelenítési minősége:</translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation>Legjobb minőség</translation>
+    </message>
+    <message>
+        <source>Lower quality</source>
+        <translation>Alacsonyabb minőség</translation>
+    </message>
+    <message>
+        <source>Lowest quality</source>
+        <translation>Legalacsonyabb minőség</translation>
+    </message>
+    <message>
+        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
+        <translation>Az alacsonyabb minőségű megjelenítés a kisebb memóriahasználatot és a gyorsabb frissítést részesíti előnyban a pontosság hátrányára.</translation>
+    </message>
+    <message>
+        <source>Digitizing &amp; Editing</source>
+        <translation>Digitalizálás és szerkesztés</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation>Felhasználói felület</translation>
+    </message>
+    <message>
+        <source>Customize search bar</source>
+        <translation>Keresés sor testreszabása</translation>
+    </message>
+    <message>
+        <source>Manage plugins</source>
+        <translation>Bővítmény kezelés</translation>
+    </message>
+    <message>
+        <source>Dim screen when idling</source>
+        <translation>Alapjáraton elsötétül a képernyő</translation>
+    </message>
+    <message>
+        <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
+        <translation>Az aktivitás nélküli idő hossza, mielőtt a képernyő elsötétülne, hogy kímélje az akkumulátort.</translation>
+    </message>
+    <message>
+        <source>Appearance:</source>
+        <translation>Megjelenítés:</translation>
+    </message>
+    <message>
+        <source>Follow system appearance</source>
+        <translation>Kövesd a rendszer megjelenést</translation>
+    </message>
+    <message>
+        <source>Light theme</source>
+        <translation>Világos téma</translation>
+    </message>
+    <message>
+        <source>Dark theme</source>
+        <translation>Sötét téma</translation>
+    </message>
+    <message>
+        <source>Font size:</source>
+        <translation>Betű méret:</translation>
+    </message>
+    <message>
+        <source>Tiny</source>
+        <translation>Apró</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Szokásos</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Nagy</translation>
+    </message>
+    <message>
+        <source>Extra-large</source>
+        <translation>Különösen nagy</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Nyelv:</translation>
+    </message>
+    <message>
+        <source>system</source>
+        <translation>rendszer</translation>
+    </message>
+    <message>
+        <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
+        <translation>Hiányzó vagy hiányos nyelvet talált? %1Csatlakozzon a fordítói közösséghez.%2</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Hálózat</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>Elérhető hitelesítési konfigurációk:</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Hitelesítési gyorsítótár kiürítése</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>Hitelesítési gyorsítótár kiürítve</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>Proxy engedélyezése</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Típus</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>Rendszer alapértelmezett</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Kiszolgáló</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>pl. proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>pl. 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Felhasználó név</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>Választható</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Jelszó</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>Proxyból kizárt URL-ek (vesszővel elválasztva)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>pl. localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>Hálózati proxy beállítása, a QField forgalom proxy szerveren keresztüli vezetésére. Hasznos vállalati hálózatokhoz és VPN-hez.</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Haladó</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>Pozícionáló eszköz</translation>
+    </message>
+    <message>
+        <source>Positioning device in use:</source>
+        <translation>Használt helymeghatározó eszköz:</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Hozzáad</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Szerkeszt</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Eltávolít</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Csatlakoztatva ide %1</translation>
+    </message>
+    <message>
+        <source>Connect to %1</source>
+        <translation>Csatlakozás ide %1</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Csatlakozom ide %1</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>NTRIP korrekciók fogadása</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>NTRIP kliens lecsatlakozott</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>NTRIP kliens csatlakozva</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>NTRIP kliens csatlakozva</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>Kérem adj érvényes NTRIP beállításokat</translation>
+    </message>
+    <message>
+        <source>Show position information</source>
+        <translation>Helyzetinformációk megjelenítése</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>Pozícióhoz kötött viselkedési mód:</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>Pozíció követés kizárólag</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>Pozíció és iránytű orientáció követése</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>Pozíció és mozgásirány követése</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>Ha a térképvászon követi, vagy rögzített is a pozícióhoz, ugyanakkor képes igazodni az iránytű orientációjához, vagy a mozgás irányához.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>A töréspontokhoz rendelt mérték (M) érték:</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Időbélyeg (másodperc Unix-idő)</translation>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Felszíni sebesség</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Irány</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Vízszintes pontosság</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Függőleges pontosság</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
+        <translation>Az aktuális pozícióhoz kötött koordináta kurzorral történő digitalizálás közben a fent kiválasztott mérési érték kerül hozzáadásra a geometriához, feltéve, hogy az rendelkezik M dimenzióval.</translation>
+    </message>
+    <message>
+        <source>Activate accuracy indicator</source>
+        <translation>Pontosság jelző aktiválása</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation>Rossz pontossági határérték</translation>
+    </message>
+    <message>
+        <source>m</source>
+        <translation>m</translation>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation>Kíváló pontossági határérték</translation>
+    </message>
+    <message>
+        <source>Enforce accuracy requirement</source>
+        <translation>Pontossági követelmény érvényesítése</translation>
+    </message>
+    <message>
+        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
+        <translation>Ha pontossági jelző be van kapcsolva, a helymeghatározó gomb oldalán egy színezett jelvény látható. Ami &lt;span %1&gt;vörös&lt;/span&gt; ha a pontosság értéke rosszabb, a &lt;i&gt;gyenge&lt;/i&gt;értékénél, &lt;span %2&gt;sárga&lt;/span&gt; ha rosszabb, mint a &lt;i&gt;kíváló&lt;/i&gt;, viszont ha jobb, akkor &lt;span %3&gt;zöld&lt;/span&gt;.&lt;br&gt;
+Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizálás a pozícióhoz van kötve.</translation>
+    </message>
+    <message>
+        <source>Enable averaged positioning requirement</source>
+        <translation>Átlagolt pozicionálási igény engedélyezése</translation>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation>Minimális pozíció szám</translation>
+    </message>
+    <message>
+        <source>Automatically end collection when minimum number is met</source>
+        <translation>A gyűjtemény automatikus befejezése, ha eléri a minimális számot</translation>
+    </message>
+    <message>
+        <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
+        <translation>Beállítása esetén a pozícióhoz rögzített kurzorral felvett töréspontok digitalizálása csak a minimális számú összegyűjtött pozíció átlagolt értékét fogadja el. Az átlagolt pozíciókkal történő digitalizálás során a művelet a töréspont hozzáadása gomb lenyomásával és nyomva tartásával történik, amely addig gyűjti a pozíciókat, amíg a gombot fel nem engedi. A pontossági követelmény beállítását a rendszer tiszteletben tartja, ha engedélyezve van.</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>Magasság beállítás</translation>
+    </message>
+    <message>
+        <source>Antenna height compensation</source>
+        <translation>Antenna magasság kompenzáció</translation>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Antenna magasság</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>Ez az érték módosítja a helymeghatározó eszköz által rögzített Z értéket. Ha pl. 1.6 kerül megadásra, a rendszer automatikusan kivon 1.6-ot minden rögzített értékből. Győződj meg a valós antenna magasságról, ami pl. a rúd magasság + antenna fázisközpont eltolás.</translation>
+    </message>
+    <message>
+        <source>Skip altitude correction</source>
+        <translation>Magasság korrekció kihagyása</translation>
+    </message>
+    <message>
+        <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
+        <translation>Használja a helymeghatározó eszköz által jelentett magasságot. Hagyjon ki minden olyan magassági korrekciót, amelyet a koordináta-rendszer transzformációja feltételezhet.</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift in use:</source>
+        <translation>Használt függőleges eltolás rács:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>egyik sem</translation>
+    </message>
+    <message>
+        <source>Orthometric from device</source>
+        <translation>Ortometrikus az eszköztől</translation>
+    </message>
+    <message>
+        <source>Vertical grid shift is used to increase the altitude accuracy.</source>
+        <translation>Függőleges eltolási rács  a magasság pontosságának növelésére. Függőleges eltolási rács fájl hozzáadás a dokumentáció szerint.</translation>
+    </message>
+    <message>
+        <source>Log NMEA sentences from device to file</source>
+        <translation>Az eszköz NMEA mondatainak fájlba naplózása</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1 beállítások</translation>
+    </message>
+</context>
+<context>
     <name>QfAttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
@@ -7360,504 +7864,191 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>QfSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>Léptékvonalzó megjelenítése</translation>
-    </message>
-    <message>
-        <source>Show zoom controls</source>
-        <translation>Zoom gombok megjelenítése</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Könyvjelzők megjelenítése</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Bekapcsoláskor a felhasználó mentett és jelenleg megnyitott projektkönyvjelzői megjelennek a térképen.</translation>
-    </message>
-    <message>
-        <source>Enable map rotation</source>
-        <translation>Lehetséges a térkép forgatása</translation>
-    </message>
-    <message>
-        <source>When switched on, the map can be rotated by the user.</source>
-        <translation>Bekapcsolásakor, a térkép forgatható a felhasználó által.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>Digitalizálási információ mutatása</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>Ha be van kapcsolva, a koordináták, mint szélességi és hosszúsági értékek rákerülnek a térképre az új elemek digitalizálása vagy a mérőeszköz használata közben.</translation>
-    </message>
-    <message>
-        <source>Use volume keys to digitize</source>
-        <translation>Használja a hangerő gombot a digitalizáláshoz</translation>
-    </message>
-    <message>
-        <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Amennyiben engedélyezte, a hangerő növelés hozzáad egy  új töréspontot a hangerő csökkentés pedig eltávolítja a legutóbbi töréspontot a digitalizálás során.</translation>
-    </message>
-    <message>
-        <source>Allow finger tap on canvas to add vertices</source>
-        <translation>Lehetséges töréspont hozzáadása a térkép ujjal érintésével</translation>
-    </message>
-    <message>
-        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>Ha elérhető, akkor a térképen ujjal érintett pontra mozog a koordináta kurzor, míg a kétszeri érintés egy töréspontot hoz létre.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>Tekintsük az egeret érintőképernyős eszköznek</translation>
-    </message>
-    <message>
-        <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>Ha engedélyezett, az egér úgy működik, mintha egy ujj lett volna. Ha tiltott, az egér egy toll viselkedését követi.</translation>
-    </message>
-    <message>
-        <source>Maximize feature form</source>
-        <translation>Teljes képernyős alakzat űrlap</translation>
-    </message>
-    <message>
-        <source>Open feature form for single feature identification</source>
-        <translation>Egyetlen alakzat kiválasztásakor az űrlap azonnali nyitása</translation>
-    </message>
-    <message>
-        <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>Az alakzat űrlap automatikusan nyílik, ha csak egy alakzat került kiválasztásra, az alakzatlista nézet kimarad.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>Rögzített méretarányú navigálás</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>Amikor a rögzített méretarányú navigáció aktív, a keresési eredményekre fókuszálás az elemre mozgatással jár. A rögzített méretarányú navigálás kikapcsolásakor az elemre mozgat és nagyít a program.</translation>
-    </message>
-    <message>
-        <source>Auto-zoom to identified feature(s)</source>
-        <translation>Auto-zoom a kiválasztott alakzat(ok)ra</translation>
-    </message>
-    <message>
-        <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation>Engedélyezve, a térkép automatikusan nagyít a kiválasztott alakzatokra, akárcsak az űrlap nézetben éppen megjelenített adatokhoz tartozó alakzatra.</translation>
-    </message>
-    <message>
-        <source>Render preview content around visible map canvas</source>
-        <translation>Előnézeti kép előállítása a látható térkép körül</translation>
-    </message>
-    <message>
-        <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation>Bekapcsolva, a látható térképvászon körüli kép is részleges előállításra kerül, előnézetet adva a nagyítás és mozgatás során.</translation>
-    </message>
-    <message>
-        <source>Enable auto-save mode</source>
-        <translation>Automatikus mentés mód</translation>
-    </message>
-    <message>
-        <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation>Bekapcsolva, a friss alakzatok azonnal mentődnek, amint érvényes a geometriájuk, teljesültek a megszorítások és az attribútum szerkesztés befejeződött.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Natív kamera használata</translation>
-    </message>
-    <message>
-        <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation>Bekapcsolva, a rendszer által biztosított, belső kamera lesz használva.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>Névtelen mérőszámok küldése</translation>
-    </message>
-    <message>
-        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation>Engedélyezve, névtelen mérőszámok kerülnek gyűjtésre és elküldésre,  segítve a használati érték fejlesztését.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>Általános</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Pozícionálás</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Változók</translation>
-    </message>
-    <message>
-        <source>Map Canvas</source>
-        <translation>Térképvászon</translation>
-    </message>
-    <message>
-        <source>Map canvas rendering quality:</source>
-        <translation>Térképvászon megjelenítési minősége:</translation>
-    </message>
-    <message>
-        <source>Best quality</source>
-        <translation>Legjobb minőség</translation>
-    </message>
-    <message>
-        <source>Lower quality</source>
-        <translation>Alacsonyabb minőség</translation>
-    </message>
-    <message>
-        <source>Lowest quality</source>
-        <translation>Legalacsonyabb minőség</translation>
-    </message>
-    <message>
-        <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>Az alacsonyabb minőségű megjelenítés a kisebb memóriahasználatot és a gyorsabb frissítést részesíti előnyban a pontosság hátrányára.</translation>
-    </message>
-    <message>
-        <source>Digitizing &amp; Editing</source>
-        <translation>Digitalizálás és szerkesztés</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation>Felhasználói felület</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>Keresés sor testreszabása</translation>
-    </message>
-    <message>
-        <source>Manage plugins</source>
-        <translation>Bővítmény kezelés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>Alapjáraton elsötétül a képernyő</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>Az aktivitás nélküli idő hossza, mielőtt a képernyő elsötétülne, hogy kímélje az akkumulátort.</translation>
-    </message>
-    <message>
-        <source>Appearance:</source>
-        <translation>Megjelenítés:</translation>
-    </message>
-    <message>
-        <source>Follow system appearance</source>
-        <translation>Kövesd a rendszer megjelenést</translation>
-    </message>
-    <message>
-        <source>Light theme</source>
-        <translation>Világos téma</translation>
-    </message>
-    <message>
-        <source>Dark theme</source>
-        <translation>Sötét téma</translation>
-    </message>
-    <message>
-        <source>Font size:</source>
-        <translation>Betű méret:</translation>
-    </message>
-    <message>
-        <source>Tiny</source>
-        <translation>Apró</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Szokásos</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Nagy</translation>
-    </message>
-    <message>
-        <source>Extra-large</source>
-        <translation>Különösen nagy</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation>Nyelv:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system</source>
-        <translation>rendszer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>Hiányzó vagy hiányos nyelvet talált? %1Csatlakozzon a fordítói közösséghez.%2</translation>
-    </message>
-    <message>
-        <source>Network</source>
-        <translation>Hálózat</translation>
-    </message>
-    <message>
-        <source>Available authentication configurations:</source>
-        <translation>Elérhető hitelesítési konfigurációk:</translation>
-    </message>
-    <message>
-        <source>Clear authentication cache</source>
-        <translation>Hitelesítési gyorsítótár kiürítése</translation>
-    </message>
-    <message>
-        <source>Authentication cache cleared</source>
-        <translation>Hitelesítési gyorsítótár kiürítve</translation>
-    </message>
-    <message>
-        <source>Enable proxy</source>
-        <translation>Proxy engedélyezése</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Típus</translation>
-    </message>
-    <message>
-        <source>System default</source>
-        <translation>Rendszer alapértelmezett</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation>Kiszolgáló</translation>
-    </message>
-    <message>
-        <source>e.g. proxy.example.com</source>
-        <translation>pl. proxy.example.com</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <source>e.g. 8888</source>
-        <translation>pl. 8888</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation>Felhasználó név</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>Választható</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <source>URLs excluded from proxy (comma-separated)</source>
-        <translation>Proxyból kizárt URL-ek (vesszővel elválasztva)</translation>
-    </message>
-    <message>
-        <source>e.g. localhost, 192.168.*</source>
-        <translation>pl. localhost, 192.168.*</translation>
-    </message>
-    <message>
-        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation>Hálózati proxy beállítása, a QField forgalom proxy szerveren keresztüli vezetésére. Hasznos vállalati hálózatokhoz és VPN-hez.</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation>Haladó</translation>
-    </message>
-    <message>
-        <source>Positioning Device</source>
-        <translation>Pozícionáló eszköz</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>Használt helymeghatározó eszköz:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>Hozzáad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Szerkeszt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Eltávolít</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Csatlakoztatva ide %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>Csatlakozás ide %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Csatlakozom ide %1</translation>
-    </message>
-    <message>
-        <source>Enable NTRIP corrections</source>
-        <translation>NTRIP korrekciók fogadása</translation>
-    </message>
-    <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP kliens lecsatlakozott</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP kliens csatlakozva</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP kliens csatlakozva</translation>
-    </message>
-    <message>
-        <source>Please provide valid NTRIP settings</source>
-        <translation>Kérem adj érvényes NTRIP beállításokat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>Helyzetinformációk megjelenítése</translation>
-    </message>
-    <message>
-        <source>Behavior when locked to position:</source>
-        <translation>Pozícióhoz kötött viselkedési mód:</translation>
-    </message>
-    <message>
-        <source>Follow position only</source>
-        <translation>Pozíció követés kizárólag</translation>
-    </message>
-    <message>
-        <source>Follow position and compass orientation</source>
-        <translation>Pozíció és iránytű orientáció követése</translation>
-    </message>
-    <message>
-        <source>Follow position and movement direction</source>
-        <translation>Pozíció és mozgásirány követése</translation>
-    </message>
-    <message>
-        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation>Ha a térképvászon követi, vagy rögzített is a pozícióhoz, ugyanakkor képes igazodni az iránytű orientációjához, vagy a mozgás irányához.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>A töréspontokhoz rendelt mérték (M) érték:</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation>Időbélyeg (másodperc Unix-idő)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Felszíni sebesség</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Irány</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Vízszintes pontosság</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Függőleges pontosság</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>Az aktuális pozícióhoz kötött koordináta kurzorral történő digitalizálás közben a fent kiválasztott mérési érték kerül hozzáadásra a geometriához, feltéve, hogy az rendelkezik M dimenzióval.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Pontosság jelző aktiválása</translation>
-    </message>
-    <message>
-        <source>Bad accuracy threshold</source>
-        <translation>Rossz pontossági határérték</translation>
-    </message>
-    <message>
-        <source>m</source>
-        <translation>m</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold</source>
-        <translation>Kíváló pontossági határérték</translation>
-    </message>
-    <message>
-        <source>Enforce accuracy requirement</source>
-        <translation>Pontossági követelmény érvényesítése</translation>
-    </message>
-    <message>
-        <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Ha pontossági jelző be van kapcsolva, a helymeghatározó gomb oldalán egy színezett jelvény látható. Ami &lt;span %1&gt;vörös&lt;/span&gt; ha a pontosság értéke rosszabb, a &lt;i&gt;gyenge&lt;/i&gt;értékénél, &lt;span %2&gt;sárga&lt;/span&gt; ha rosszabb, mint a &lt;i&gt;kíváló&lt;/i&gt;, viszont ha jobb, akkor &lt;span %3&gt;zöld&lt;/span&gt;.&lt;br&gt;
-Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gyenge küszöbértéknél rosszabb pontosságú töréspontok létrehozását, ha a digitalizálás a pozícióhoz van kötve.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>Átlagolt pozicionálási igény engedélyezése</translation>
-    </message>
-    <message>
-        <source>Minimum positions count</source>
-        <translation>Minimális pozíció szám</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>A gyűjtemény automatikus befejezése, ha eléri a minimális számot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Beállítása esetén a pozícióhoz rögzített kurzorral felvett töréspontok digitalizálása csak a minimális számú összegyűjtött pozíció átlagolt értékét fogadja el. Az átlagolt pozíciókkal történő digitalizálás során a művelet a töréspont hozzáadása gomb lenyomásával és nyomva tartásával történik, amely addig gyűjti a pozíciókat, amíg a gombot fel nem engedi. A pontossági követelmény beállítását a rendszer tiszteletben tartja, ha engedélyezve van.</translation>
-    </message>
-    <message>
-        <source>Elevation Adjustment</source>
-        <translation>Magasság beállítás</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Antenna magasság kompenzáció</translation>
-    </message>
-    <message>
-        <source>Antenna height</source>
-        <translation>Antenna magasság</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation>Ez az érték módosítja a helymeghatározó eszköz által rögzített Z értéket. Ha pl. 1.6 kerül megadásra, a rendszer automatikusan kivon 1.6-ot minden rögzített értékből. Győződj meg a valós antenna magasságról, ami pl. a rúd magasság + antenna fázisközpont eltolás.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Magasság korrekció kihagyása</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Használja a helymeghatározó eszköz által jelentett magasságot. Hagyjon ki minden olyan magassági korrekciót, amelyet a koordináta-rendszer transzformációja feltételezhet.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Használt függőleges eltolás rács:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>egyik sem</translation>
-    </message>
-    <message>
-        <source>Orthometric from device</source>
-        <translation>Ortometrikus az eszköztől</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Függőleges eltolási rács  a magasság pontosságának növelésére. Függőleges eltolási rács fájl hozzáadás a dokumentáció szerint.</translation>
-    </message>
-    <message>
-        <source>Log NMEA sentences from device to file</source>
-        <translation>Az eszköz NMEA mondatainak fájlba naplózása</translation>
-    </message>
-    <message>
-        <source>%1 Settings</source>
-        <translation>%1 beállítások</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8276,6 +8467,26 @@ készítése</translation>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Először használod az applikációt? Próbáld ki az alábbi mintaprojekteket.</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Don&apos;t show this again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Bezár</translation>
     </message>
 </context>
 <context>
@@ -8992,6 +9203,26 @@ to show actions</source>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation>Nyisd meg a projekt könyvtárat a fájlokhoz, adatforrásokhoz és kapcsolt dokumentumokhoz való hozzáférésért. Hasznos a projekt források kezelésében, a manuális adatfeltöltésben, megosztásban, csatolásban.</translation>
+    </message>
+    <message>
+        <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation>Helyi változások feltöltése</translation>
+    </message>
+    <message>
+        <source>Local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
