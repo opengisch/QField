@@ -1100,6 +1100,7 @@ ApplicationWindow {
     /** Tracking sessions **/
     Repeater {
       id: trackings
+
       model: trackingModel
 
       onCountChanged: {
@@ -1112,7 +1113,7 @@ ApplicationWindow {
       }
 
       QfTrackingSession {
-        positionSource: positionSource
+        positioning: positionSource
         filterAccuracy: positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement
         project: qgisProject
         mapSettings: mapCanvas.mapSettings
