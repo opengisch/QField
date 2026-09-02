@@ -211,11 +211,20 @@ class QFIELD_CORE_EXPORT QgsQuickMapSettings : public QObject
     /**
      * Convert a map coordinate to screen pixel coordinates
      *
-     * \param point A coordinate in map coordinates
+     * \param point A QgsPoint coordinate in map coordinates
      *
      * \return A coordinate in pixel / screen space
      */
     Q_INVOKABLE QPointF coordinateToScreen( const QgsPoint &point ) const;
+
+    /**
+     * Convert a map coordinate to screen pixel coordinates
+     *
+     * \param point A QgsPointXY coordinate in map coordinates
+     *
+     * \return A coordinate in pixel / screen space
+     */
+    Q_INVOKABLE QPointF coordinateToScreen( const QgsPointXY &point ) const;
 
     /**
      * Convert a screen coordinate to a map coordinate

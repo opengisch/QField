@@ -137,10 +137,13 @@ class QfRubberbandShape : public QQuickItem
     QColor mOutlineColor = QColor( 255, 255, 255, 100 );
     float mWidth = 4;
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Null;
-    QgsPoint mGeometryCorner;
+    QgsPointXY mGeometryCorner;
     double mGeometryMUPP = 0.0;
     QList<QPolygonF> mPolylines;
     Qgis::GeometryType mPolylinesType = Qgis::GeometryType::Null;
+
+    static constexpr double MAX_SIZE = 250000;
+    static constexpr double MAX_OFFSET = 200000;
 };
 
 

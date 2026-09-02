@@ -188,10 +188,16 @@ void QfRubberbandShape::updateTransform()
   if ( !mMapSettings )
     return;
 
+  if ( !mDirty && !mGeometryCorner.isEmpty() )
+  {
+    const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( mGeometryCorner );
+    mDirty = std::abs( x() ) > MAX_OFFSET || std::abs( y() ) > MAX_OFFSET;
+  }
+
   if ( mDirty )
   {
     const QgsRectangle extent = mMapSettings->visibleExtent();
-    mGeometryCorner = QgsPoint( extent.xMinimum(), extent.yMaximum() );
+    mGeometryCorner = QgsPointXY( extent.xMinimum(), extent.yMaximum() );
     mGeometryMUPP = mMapSettings->mapUnitsPerPoint();
 
     createPolylines();
@@ -253,6 +259,14 @@ void QfRubberbandShape::createPolylines()
   {
     polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
   }
+
+  const QRectF rect = polyline.boundingRect();
+  if ( std::max( { std::abs( rect.left() ), std::abs( rect.right() ), std::abs( rect.top() ), std::abs( rect.bottom() ) } ) > MAX_SIZE )
+  {
+    const QPolygonF boundingRect( QRectF( QPointF( -MAX_SIZE, -MAX_SIZE ), QPointF( MAX_SIZE, MAX_SIZE ) ) );
+    polyline = polyline.intersected( boundingRect );
+  }
+
   mPolylines.append( polyline );
 
   if ( geomType != mPolylinesType )

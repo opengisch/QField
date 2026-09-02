@@ -90,10 +90,13 @@ class QfLinePolygonShape : public QQuickItem
     bool mDirty = false;
     QgsQuickMapSettings *mMapSettings = nullptr;
     QfGeometryWrapper *mGeometry = nullptr;
-    QgsPoint mGeometryCorner;
+    QgsPointXY mGeometryCorner;
     double mGeometryMUPP = 0.0;
     QList<QPolygonF> mPolylines;
     Qgis::GeometryType mPolylinesType = Qgis::GeometryType::Null;
+
+    static constexpr double MAX_SIZE = 250000;
+    static constexpr double MAX_OFFSET = 200000;
 };
 
 #endif // QFLINEPOLYGONSHAPE_H
