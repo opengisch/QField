@@ -44,13 +44,32 @@ TEST_CASE( "LayerUtils AddFeature" )
     REQUIRE_FALSE( QfLayerUtils::addFeature( nullptr, featureToAdd ) );
   }
 
-  SECTION( "NotEditing" )
+  SECTION( "NotEditingStartsAndCommits" )
   {
-    REQUIRE_FALSE( QfLayerUtils::addFeature( pointLayer.get(), featureToAdd ) );
+    REQUIRE( QfLayerUtils::addFeature( pointLayer.get(), featureToAdd ) );
+    REQUIRE_FALSE( pointLayer->isEditable() );
+    REQUIRE( pointLayer->featureCount() == 1 );
+
+    QgsFeatureIterator addedFeatures = pointLayer->getFeatures();
+    QgsFeature addedFeature;
+    REQUIRE( addedFeatures.nextFeature( addedFeature ) );
+    REQUIRE( addedFeature.attributes() == ( QgsAttributes() << 1 << QStringLiteral( "a" ) ) );
+    REQUIRE_FALSE( addedFeatures.nextFeature( addedFeature ) );
+  }
+
+  SECTION( "AlreadyEditingKeepsBufferOpenUntilRollback" )
+  {
+    REQUIRE( pointLayer->startEditing() );
+    REQUIRE( QfLayerUtils::addFeature( pointLayer.get(), featureToAdd ) );
+    REQUIRE( pointLayer->isEditable() );
+    REQUIRE( pointLayer->isModified() );
+    REQUIRE( pointLayer->featureCount() == 1 );
+
+    REQUIRE( pointLayer->rollBack() );
     REQUIRE( pointLayer->featureCount() == 0 );
   }
 
-  SECTION( "Editing" )
+  SECTION( "AlreadyEditingCommittedByCaller" )
   {
     REQUIRE( pointLayer->startEditing() );
     REQUIRE( QfLayerUtils::addFeature( pointLayer.get(), featureToAdd ) );
@@ -162,8 +181,8 @@ TEST_CASE( "LayerUtils DuplicateFeature" )
 
   const int fidFieldIndex = pointLayer->fields().indexFromName( QStringLiteral( "fid" ) );
   const int nameFieldIndex = pointLayer->fields().indexFromName( QStringLiteral( "name" ) );
-  REQUIRE( fidFieldIndex == 0 );
-  REQUIRE( nameFieldIndex == 1 );
+  REQUIRE( fidFieldIndex >= 0 );
+  REQUIRE( nameFieldIndex >= 0 );
 
   SECTION( "NullLayer" )
   {

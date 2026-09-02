@@ -361,11 +361,36 @@ QString QfLayerUtils::fieldType( const QgsField &field )
 
 bool QfLayerUtils::addFeature( QgsVectorLayer *layer, QgsFeature feature )
 {
-  if ( layer )
+  if ( !layer )
   {
-    return layer->addFeature( feature );
+    return false;
   }
-  return false;
+
+  const bool wasEditing = layer->editBuffer();
+  if ( !wasEditing && !layer->startEditing() )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
+  }
+
+  if ( !layer->addFeature( feature ) )
+  {
+    QgsMessageLog::logMessage( tr( "Cannot add feature in layer \"%1\"" ).arg( layer->name() ), "QField", Qgis::Warning );
+    if ( !wasEditing && !layer->rollBack() )
+    {
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
+    }
+    return false;
+  }
+
+  if ( !wasEditing && !layer->commitChanges() )
+  {
+    const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
+    QgsMessageLog::logMessage( tr( "Cannot commit new feature in layer \"%1\". Reason:\n%2" ).arg( layer->name(), msgs ), "QField", Qgis::Warning );
+    return false;
+  }
+
+  return true;
 }
 
 bool QfLayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool flushBuffer )
