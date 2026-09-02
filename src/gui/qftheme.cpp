@@ -104,6 +104,7 @@ void QfTheme::loadFromJson()
   set( mVertexNewColor, "vertexNewColor" );
   set( mVertexNewColorSemiOpaque, "vertexNewColorSemiOpaque" );
   set( mProcessingPreview, "processingPreview" );
+  set( mShadowColor, "shadowColor" );
 
   emit themeDataLoaded();
 }

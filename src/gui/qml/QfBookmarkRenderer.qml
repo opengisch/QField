@@ -120,7 +120,7 @@ Item {
           layer.effect: QfDropShadow {
             transparentBorder: true
             radius: 8
-            color: "#99000000"
+            color: QfTheme.shadowColor
             horizontalOffset: 0
             verticalOffset: 0
           }

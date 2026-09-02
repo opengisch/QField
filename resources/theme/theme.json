@@ -80,6 +80,7 @@
     "vertexSelectedColorSemiOpaque": "#200000FF",
     "vertexNewColor": "#4CAF50",
     "vertexNewColorSemiOpaque": "#404CAF50",
-    "processingPreview": "#99000000"
+    "processingPreview": "#99000000",
+    "shadowColor": "#99000000"
   }
 }
