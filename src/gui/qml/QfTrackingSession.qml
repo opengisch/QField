@@ -12,9 +12,10 @@ Item {
 
   property var tracker: model.tracker
 
-  property QfPositioning positionSource
+  property QfPositioning positioning: undefined
+
   property bool filterAccuracy: false
-  property var project
+  property Project project
   property MapSettings mapSettings
   property var cloudUserInformation
 
@@ -31,12 +32,12 @@ Item {
   }
 
   Connections {
-    target: trackingSession.positionSource
+    target: trackingSession.positioning
     enabled: tracker.isActive
 
     function onPositionInformationChanged() {
-      featureModel.appExpressionContextScopesGenerator.positionInformation = trackingSession.positionSource.positionInformation;
-      tracker.processPositionInformation(trackingSession.positionSource.positionInformation, trackingSession.positionSource.projectedPosition);
+      featureModel.appExpressionContextScopesGenerator.positionInformation = trackingSession.positioning.positionInformation;
+      tracker.processPositionInformation(trackingSession.positioning.positionInformation, trackingSession.positioning.projectedPosition);
     }
   }
 
