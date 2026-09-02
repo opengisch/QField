@@ -72,6 +72,8 @@ void QfLinePolygonShape::createPolylines()
   Qgis::GeometryType geomType = Qgis::GeometryType::Null;
   if ( !geometry.isEmpty() && geometry.type() != Qgis::GeometryType::Point )
   {
+    const QPolygonF boundingRect = QPolygonF( QRectF( QPointF( -MAX_SIZE, -MAX_SIZE ), QPointF( MAX_SIZE, MAX_SIZE ) ) );
+
     geometry = geometry.simplify( mMapSettings->mapUnitsPerPoint() );
     geometry = geometry.makeValid();
     geomType = geometry.type();
@@ -86,6 +88,11 @@ void QfLinePolygonShape::createPolylines()
           for ( const QgsPointXY &point : line )
           {
             polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
+          }
+          const QRectF rect = polyline.boundingRect();
+          if ( std::max( { std::abs( rect.left() ), std::abs( rect.right() ), std::abs( rect.top() ), std::abs( rect.bottom() ) } ) > MAX_SIZE )
+          {
+            polyline = polyline.intersected( boundingRect );
           }
           mPolylines.append( polyline );
         }
@@ -105,9 +112,9 @@ void QfLinePolygonShape::createPolylines()
               polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
             }
             const QRectF rect = polyline.boundingRect();
-            if ( std::max( { std::abs( rect.left() ), std::abs( rect.right() ), std::abs( rect.top() ), std::abs( rect.bottom() ) } ) > 500000 )
+            if ( std::max( { std::abs( rect.left() ), std::abs( rect.right() ), std::abs( rect.top() ), std::abs( rect.bottom() ) } ) > MAX_SIZE )
             {
-              polyline = polyline.intersected( QPolygonF( QRectF( QPointF( -500000, -500000 ), QPointF( 500000, 500000 ) ) ) );
+              polyline = polyline.intersected( boundingRect );
             }
             mPolylines.append( polyline );
           }
@@ -200,7 +207,7 @@ void QfLinePolygonShape::updateTransform()
   if ( !mDirty && !mGeometryCorner.isEmpty() )
   {
     const QgsPointXY pixelCorner = mMapSettings->coordinateToScreen( mGeometryCorner );
-    mDirty = std::abs( x() ) > 250000 || std::abs( y() ) > 250000;
+    mDirty = std::abs( x() ) > MAX_OFFSET || std::abs( y() ) > MAX_OFFSET;
   }
 
   if ( mDirty )
