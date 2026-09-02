@@ -452,7 +452,6 @@ void QfAppInterface::importUrl( const QString &url, const QString &title, bool l
   }
 
   connect( reply, &QNetworkReply::redirected, this, [reply]( const QUrl &url ) {
-    qDebug() << url;
     const bool isOriginalHttps = reply->request().url().scheme() == QStringLiteral( "https" );
     if ( !isOriginalHttps || url.scheme() == QStringLiteral( "https" ) )
     {
