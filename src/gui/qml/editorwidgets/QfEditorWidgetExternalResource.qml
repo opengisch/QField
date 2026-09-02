@@ -720,7 +720,6 @@ QfEditorWidgetBase {
       onFinished: path => {
         const filepath = QfStringUtils.replaceFilenameTags(getResourceFilePath(), path);
         platformUtilities.renameFileWithSidecars(path, prefixToRelativePath + filepath);
-        console.log("QFSRT moved: srtAtSource=" + QfFileUtils.fileExists(path.replace(/\.[^.]+$/, ".srt")) + " videoAtDest=" + QfFileUtils.fileExists(prefixToRelativePath + filepath) + " srtAtDest=" + QfFileUtils.fileExists((prefixToRelativePath + filepath).replace(/\.[^.]+$/, ".srt")) + " dest=" + prefixToRelativePath + filepath);
         if (!QfFileUtils.mimeTypeName(path).startsWith("video/")) {
           const maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
           if (maximumWidhtHeight > 0) {

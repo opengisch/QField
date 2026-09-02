@@ -63,7 +63,6 @@ inline void runOnAndroidMainThread( const std::function<void()> &runnable )
 #include <QStandardPaths>
 #include <QString>
 #include <QTimer>
-#include <qgsfileutils.h>
 
 #include <android/bitmap.h>
 #include <android/log.h>
@@ -276,7 +275,7 @@ void QfAndroidPlatformUtilities::sendDatasetTo( const QString &path ) const
       if ( activity.isValid() )
       {
         QStringList paths = QStringList() << path;
-        const QSet<QString> files = QgsFileUtils::sidecarFilesForPath( path );
+        const QSet<QString> files = QfFileUtils::sidecarFilesForPath( path );
         for ( const QString &file : files )
         {
           paths << file;
@@ -302,7 +301,7 @@ void QfAndroidPlatformUtilities::exportDatasetTo( const QString &path ) const
       if ( activity.isValid() )
       {
         QStringList paths = QStringList() << path;
-        const QSet<QString> files = QgsFileUtils::sidecarFilesForPath( path );
+        const QSet<QString> files = QfFileUtils::sidecarFilesForPath( path );
         for ( const QString &file : files )
         {
           paths << file;

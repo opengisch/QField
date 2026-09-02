@@ -43,7 +43,6 @@
 #include <QTimer>
 #include <QUrl>
 #include <QtGui/qpa/qplatformwindow.h>
-#include <qgsfileutils.h>
 #include <qgsziputils.h>
 
 #if defined( Q_OS_ANDROID )
@@ -343,7 +342,7 @@ bool QfPlatformUtilities::renameFileWithSidecars( const QString &oldFilePath, co
     const QString newSidecarFilePath = QStringLiteral( "%1/%2" ).arg( newFileInfo.absolutePath(), newSidecarFileName );
     if ( !renameFile( sidecarFile, newSidecarFilePath, overwrite ) )
     {
-      QgsMessageLog::logMessage( QStringLiteral( "Could not move the sidecar file '%1' alongside '%2'" ).arg( sidecarFile, newFilePath ) );
+      QgsMessageLog::logMessage( tr( "Could not move the sidecar file '%1' alongside '%2'" ).arg( sidecarFile, newFilePath ), QStringLiteral( "QField" ), Qgis::Warning );
     }
   }
 
@@ -364,7 +363,7 @@ void QfPlatformUtilities::sendDatasetTo( const QString &path ) const
   }
 
   QStringList paths = QStringList() << path;
-  const QSet<QString> files = QgsFileUtils::sidecarFilesForPath( path );
+  const QSet<QString> files = QfFileUtils::sidecarFilesForPath( path );
   for ( const QString &file : files )
   {
     paths << file;
