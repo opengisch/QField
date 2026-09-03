@@ -21,6 +21,7 @@
 #include "qfield.h"
 #include "qfplatformutilities.h"
 #include "qftranslatormanager.h"
+#include "qfurlutils.h"
 #include "qfxmlhttprequest.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
@@ -436,7 +437,7 @@ void QfAppInterface::importUrl( const QString &url, const QString &title, bool l
 
   QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
   QNetworkRequest request( ( QUrl( sanitizedUrl ) ) );
-  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy );
 
   emit importTriggered( !title.isEmpty() ? title : request.url().fileName() );
 
@@ -458,7 +459,44 @@ void QfAppInterface::importUrl( const QString &url, const QString &title, bool l
     }
   } );
 
-  connect( reply, &QNetworkReply::finished, this, [this, url, reply, temporaryFile, applicationDirectory, loadOnImport]() {
+  connect( reply, &QNetworkReply::finished, this, [this, url, reply, temporaryFile, applicationDirectory, title, loadOnImport]() {
+    const int statusCode = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+
+    if ( statusCode >= 300 && statusCode < 400 )
+    {
+      QUrl redirectUrl = reply->attribute( QNetworkRequest::RedirectionTargetAttribute ).toUrl();
+      if ( redirectUrl.isRelative() )
+      {
+        redirectUrl = reply->url().resolved( redirectUrl );
+      }
+
+      if ( redirectUrl.scheme() == QStringLiteral( "qfield" ) )
+      {
+        const QVariantMap actionDetails = QfUrlUtils::getActionDetails( redirectUrl.toString() );
+        if ( actionDetails.value( QStringLiteral( "type" ) ).toString() == QStringLiteral( "local" ) )
+        {
+          redirectUrl = QUrl( actionDetails.value( QStringLiteral( "import" ) ).toString() );
+        }
+        else
+        {
+          redirectUrl = QUrl();
+        }
+      }
+
+      if ( !redirectUrl.isEmpty() )
+      {
+        const bool isOriginalHttps = reply->url().scheme() == QStringLiteral( "https" );
+        if ( !isOriginalHttps || redirectUrl.scheme() == QStringLiteral( "https" ) )
+        {
+          importUrl( redirectUrl.toString(), title, loadOnImport );
+          return;
+        }
+      }
+
+      emit importEnded();
+      return;
+    }
+
     if ( reply->error() == QNetworkReply::NoError )
     {
       QString fileName = reply->url().fileName();
