@@ -5684,7 +5684,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation>Kovia rajoitteita ei täytetty</translation>
+        <translation>Ehdottomia rajoitteita ei täytetty</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>

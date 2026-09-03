@@ -6815,7 +6815,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Feature List Menu</source>
-        <translation>Menu de la llista d&apos;objectes</translation>
+        <translation>Menu de la llista d&apos;objecte</translation>
     </message>
     <message>
         <source>Toggle Feature Selection</source>
@@ -6843,7 +6843,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation>Processar els objecte(s) seleccionats</translation>
+        <translation>Processa els objecte(s) seleccionats</translation>
     </message>
     <message>
         <source>Feature Menu</source>
@@ -7220,7 +7220,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation>(deixa en blanc perquè s&apos;ompli automàticament)</translation>
+        <translation>(deixeu-ho en blanc per que s&apos;ompli automàticament)</translation>
     </message>
     <message>
         <source>Connection details</source>
@@ -7239,7 +7239,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <name>QfPositioningInformationModel</name>
     <message>
         <source>Altitude</source>
-        <translation>Alçada</translation>
+        <translation>Altitud</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -7275,7 +7275,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>grid</source>
-        <translation>graella</translation>
+        <translation>quadrícula</translation>
     </message>
     <message>
         <source>ortho.</source>
@@ -7368,7 +7368,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation>Retroalimentació de retorn d&apos;àudio</translation>
+        <translation>Retroalimentació de proximitat d&apos;àudio</translation>
     </message>
     <message>
         <source>Rotate view</source>
@@ -7414,11 +7414,11 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation>No hi ha paràmetres generals associats a aquest algorisme.</translation>
+        <translation>No hi ha paràmetres generals associats a aquest algoritme.</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation>Descripció de l&apos;algorisme</translation>
+        <translation>Descripció de l&apos;algoritme</translation>
     </message>
 </context>
 <context>
@@ -7609,11 +7609,11 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Track your position?</source>
-        <translation>Seguir la vostra posició?</translation>
+        <translation>Traça la vostra posició?</translation>
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation>Registreu la vostra ubicació cada segon, juntament amb la data i l&apos;hora, per fer un seguiment precís dels vostres moviments.</translation>
+        <translation>Registreu la vostra ubicació cada segon, juntament amb la data i l&apos;hora, per tenir una traça precisa dels vostres moviments.</translation>
     </message>
     <message>
         <source>Begin tracking automatically</source>
@@ -7769,7 +7769,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Child Menu</source>
-        <translation>Menú infantil</translation>
+        <translation>Menú fill</translation>
     </message>
     <message>
         <source>Open Form</source>
@@ -7805,7 +7805,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>No es pot afegir unn objecte secundari: el valor de l&apos;atribut que enllaça el pare i els fills no està definit.</translation>
+        <translation>No es pot afegir un objecte secundari: el valor de l&apos;atribut que enllaça el pare i els fills no està definit.</translation>
     </message>
 </context>
 <context>
@@ -8399,7 +8399,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Valora&apos;ns</translation>
+        <translation>Valori&apos;ns</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
@@ -8420,8 +8420,8 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>QFieldCloud
 projects</source>
-        <translation>QFieldCloud
-projectes</translation>
+        <translation>Projectes
+QFieldCloud</translation>
     </message>
     <message>
         <source>Local projects and
@@ -8548,7 +8548,7 @@ projecte</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Acabeu o cancel·leu la funció de digitalització abans de canviar al mode de navegació.</translation>
+        <translation>Acabeu o cancel·leu l&apos;objecte de digitalització abans de canviar al mode de navegació.</translation>
     </message>
     <message>
         <source>You are now in browse mode</source>
@@ -8556,7 +8556,7 @@ projecte</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Ara esteu en mode de digitalització a la capa %1</translation>
+        <translation>Ara sou en mode de digitalització a la capa %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
@@ -8584,7 +8584,7 @@ projecte</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation>S&apos;està carregant el terreny...</translation>
+        <translation>Carregant el terreny...</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
@@ -8646,7 +8646,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Stop all</source>
-        <translation>Atureu-ho tot</translation>
+        <translation>Atura-ho tot</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
@@ -8734,11 +8734,11 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation>Encaix activat</translation>
+        <translation>Ajustament activat</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation>Encaix desactivat</translation>
+        <translation>Ajustament desactivat</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
@@ -8770,7 +8770,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation>Encaixa a cada</translation>
+        <translation>Ajustament a cada</translation>
     </message>
     <message>
         <source>%1°</source>
@@ -8778,7 +8778,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation>Tolerància d&apos;encaix</translation>
+        <translation>Tolerància d&apos;ajustament</translation>
     </message>
     <message>
         <source>Narrow</source>
@@ -8794,7 +8794,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation>Tolerància d&apos;encaix definida a %1</translation>
+        <translation>Tolerància d&apos;ajustament definida a %1</translation>
     </message>
     <message>
         <source>Waiting for location</source>
@@ -8818,7 +8818,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation>No s&apos;ha pogut crear un objecte perquè el permís d&apos;afegir objectes està desactivat.</translation>
+        <translation>No s&apos;ha pogut crear un objecte perquè el permís d&apos;afegir objecte està desactivat.</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
@@ -8866,7 +8866,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Opccions</translation>
+        <translation>Configuració</translation>
     </message>
     <message>
         <source>Message Log</source>
@@ -9078,7 +9078,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation>Pla de millora</translation>
+        <translation>Millora la subscripció</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
@@ -9106,7 +9106,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Preneu enrere un altre cop per tancar el projecte i l&apos;aplicació</translation>
+        <translation>Premeu enrere un altre cop per tancar el projecte i l&apos;aplicació</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
@@ -9142,7 +9142,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation>Esteu a punt de descartar l&apos;operació en curs de l&apos;algorisme, voleu continuar?</translation>
+        <translation>Esteu a punt de descartar l&apos;operació en curs de l&apos;algoritme, voleu continuar?</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
@@ -9194,7 +9194,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation>Activa l&apos;eina de mesura per calcular distàncies i àrees al mapa.</translation>
+        <translation>Alterna l&apos;eina de mesura per calcular distàncies i àrees al mapa.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
@@ -9206,7 +9206,7 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>Puja els canvis locals, sincronitza o descarta els canvis amb QFieldCloud quan s&apos;obre un projecte al núvol.</translation>
+        <translation>Puja els canvis locals, sincronitza o descarta els canvis a i des de QFieldCloud quan s&apos;obre un projecte al núvol.</translation>
     </message>
     <message>
         <source>Project folder</source>
