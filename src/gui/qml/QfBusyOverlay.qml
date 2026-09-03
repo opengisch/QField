@@ -55,8 +55,7 @@ Rectangle {
         }
         ScriptAction {
           script: {
-            busyProgress.value = 0.0;
-            busyOverlay.showProgress = false;
+            busyOverlay.reset();
           }
         }
         NumberAnimation {
@@ -85,6 +84,11 @@ Rectangle {
       }
     }
   ]
+
+  function reset() {
+    busyOverlay.showProgress = false;
+    busyOverlay.progress = 0.0;
+  }
 
   // Auto-enable progress tracking when progress value is set > 0
   onProgressChanged: {
@@ -156,6 +160,8 @@ Rectangle {
               color: QfTheme.mainColor
 
               Behavior on width {
+                enabled: busyOverlay.showProgress
+
                 NumberAnimation {
                   duration: 200
                   easing.type: Easing.OutCubic

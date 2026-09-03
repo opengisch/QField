@@ -265,6 +265,24 @@ class QfAppInterface : public QObject
      */
     void loadProjectEnded( const QString &path, const QString &name );
 
+    /**
+     * Emitted when a layout print has been triggered.
+     * \param name the name of the layout being printed
+     */
+    void printTriggered( const QString &name );
+
+    /**
+     * Emitted when an ongoing print reports its \a progress.
+     * \note only atlas prints report progress, others stay indefinite
+     */
+    void printProgress( double progress );
+
+    /**
+     * Emitted when a print has ended, \a success telling whether a PDF was written.
+     * \param folderPath the folder the output was written into, empty when the print failed
+     */
+    void printEnded( bool success, const QString &folderPath );
+
     //! Requests QField to set its map to the provided \a extent.
     void setMapExtent( const QgsRectangle &extent );
 
