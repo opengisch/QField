@@ -194,6 +194,28 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
      */
     void setMapExtent( const QgsRectangle &extent );
 
+    /**
+     * Emitted when a layout print has been triggered
+     *
+     * @param name The name of the layout being printed
+     */
+    void printTriggered( const QString &name );
+
+    /**
+     * Emitted when an ongoing print reports its progress
+     *
+     * @param progress The progress, between 0.0 and 1.0
+     */
+    void printProgress( double progress );
+
+    /**
+     * Emitted when a print has ended
+     *
+     * @param success Whether the layout made it to a PDF file
+     * @param folderPath The folder the output was written into, empty when the print failed
+     */
+    void printEnded( bool success, const QString &folderPath );
+
   private slots:
 
     void onAfterFirstRendering();
@@ -205,7 +227,10 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
     void loadProjectQuirks();
     void saveProjectPreviewImage();
     bool printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination );
+    QString layoutsFolder() const;
+    void waitForBusyOverlay();
 
+    bool mIsPrinting = false;
     QgsOfflineEditing *mOfflineEditing = nullptr;
     QfLayerTreeMapCanvasBridge *mLayerTreeCanvasBridge = nullptr;
     QfFlatLayerTreeModel *mFlatLayerTree = nullptr;
