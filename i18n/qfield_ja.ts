@@ -2464,11 +2464,11 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>%1をアップロードしています</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個のファイルが残っています</numerusform></translation>
     </message>
 </context>
 <context>
@@ -3017,94 +3017,94 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>円 #1: 半径</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>円 #2: 半径</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>候補</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>XYZパラメータ</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
-        <translation type="unfinished"/>
+        <translation>点からの距離/角度</translation>
     </message>
     <message>
         <source>Circles Intersection</source>
-        <translation type="unfinished"/>
+        <translation>円の交差</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>点</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"/>
+        <translation>距離</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"/>
+        <translation>角度</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"/>
+        <translation>標高</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>円 #1: 点</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>円 #2: 点</translation>
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished"/>
+        <translation>TB</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>ファイルを削除できません (許可されていません): %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>ファイルは存在しません: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>ディレクトリの削除に失敗しました: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>ファイルの削除に失敗しました: %1 - %2</translation>
     </message>
 </context>
 <context>
     <name>QfAbout</name>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>QFieldによって提供されています</translation>
     </message>
     <message>
         <source>Developed by</source>
@@ -3112,11 +3112,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 アプリディレクトリ</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>%1 アプリディレクトリ</translation>
     </message>
     <message>
         <source>Support QField</source>
@@ -3265,11 +3265,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfAppSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>縮尺を表示する</translation>
+        <translation>縮尺を表示</translation>
     </message>
     <message>
         <source>Show zoom controls</source>
-        <translation type="unfinished"/>
+        <translation>ズームコントロールを表示</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -3309,7 +3309,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、地図キャンバスを指でタップすると座標カーソルが移動し、ダブルタップすると頂点が追加されます。</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -3321,11 +3321,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>地物フォームを最大表示する</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>単一地物確認用の地物フォームを開く</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
@@ -3341,7 +3341,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>認識した地物に自動でズーム</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
@@ -4653,11 +4653,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>%1をアップロードしています</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個のファイルが残っています</numerusform></translation>
     </message>
     <message>
         <source>Discard local changes</source>
@@ -7648,7 +7648,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>点</translation>
     </message>
     <message>
         <source>Line</source>
