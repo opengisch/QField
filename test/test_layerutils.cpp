@@ -26,10 +26,49 @@
 #include <qgsgeometry.h>
 #include <qgspointxy.h>
 #include <qgsproject.h>
+#include <qgsrelation.h>
+#include <qgsrelationcontext.h>
+#include <qgsrelationmanager.h>
 #include <qgsvariantutils.h>
 #include <qgsvectorlayer.h>
 
 #include <memory>
+
+static void addParentChildRelation( QgsProject *project, QgsVectorLayer *referencedLayer, QgsVectorLayer *referencingLayer, Qgis::RelationshipStrength strength )
+{
+  const QgsRelationContext relationContext( project );
+  QgsRelation relation( relationContext );
+  relation.setId( QStringLiteral( "parent_child" ) );
+  relation.setName( QStringLiteral( "parent_child" ) );
+  relation.setReferencedLayer( referencedLayer->id() );
+  relation.setReferencingLayer( referencingLayer->id() );
+  relation.addFieldPair( QStringLiteral( "parent_pk" ), QStringLiteral( "pk" ) );
+  relation.setStrength( strength );
+  REQUIRE( relation.isValid() );
+
+  project->relationManager()->addRelation( relation );
+}
+
+static QMap<int, QgsAttributes> attributesByPrimaryKey( QgsVectorLayer *layer )
+{
+  QMap<int, QgsAttributes> attributesByKey;
+  QgsFeatureIterator features = layer->getFeatures();
+  QgsFeature feature;
+  while ( features.nextFeature( feature ) )
+  {
+    attributesByKey.insert( feature.attribute( QStringLiteral( "pk" ) ).toInt(), feature.attributes() );
+  }
+  return attributesByKey;
+}
+
+static QgsFeatureId featureIdByExpression( QgsVectorLayer *layer, const QString &expression )
+{
+  QgsFeatureRequest request;
+  request.setFilterExpression( expression );
+  QgsFeature feature;
+  REQUIRE( layer->getFeatures( request ).nextFeature( feature ) );
+  return feature.id();
+}
 
 TEST_CASE( "LayerUtils AddFeature" )
 {
@@ -158,6 +197,98 @@ TEST_CASE( "LayerUtils DeleteFeature" )
     const QgsFeatureId nonExistentFeatureId = 999;
     REQUIRE( QfLayerUtils::deleteFeature( project.get(), pointLayer.get(), nonExistentFeatureId ) );
     REQUIRE( pointLayer->featureCount() == 2 );
+  }
+}
+
+TEST_CASE( "LayerUtils DeleteFeature with related features" )
+{
+  std::unique_ptr<QgsVectorLayer> parentLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=pk:integer&field=name:string" ), QStringLiteral( "parent" ), QStringLiteral( "memory" ) );
+  std::unique_ptr<QgsVectorLayer> childLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=pk:integer&field=parent_pk:integer" ), QStringLiteral( "child" ), QStringLiteral( "memory" ) );
+  REQUIRE( parentLayer->isValid() );
+  REQUIRE( childLayer->isValid() );
+
+  std::unique_ptr<QgsProject> project = std::make_unique<QgsProject>();
+  project->addMapLayer( parentLayer.get(), false, false );
+  project->addMapLayer( childLayer.get(), false, false );
+
+  QgsFeature firstParent( parentLayer->fields() );
+  firstParent.setAttributes( QgsAttributes() << 1 << QStringLiteral( "a" ) );
+  QgsFeature secondParent( parentLayer->fields() );
+  secondParent.setAttributes( QgsAttributes() << 2 << QStringLiteral( "b" ) );
+
+  parentLayer->startEditing();
+  parentLayer->addFeature( firstParent );
+  parentLayer->addFeature( secondParent );
+  parentLayer->commitChanges();
+  REQUIRE( parentLayer->featureCount() == 2 );
+
+  QgsFeature firstParentChild( childLayer->fields() );
+  firstParentChild.setAttributes( QgsAttributes() << 10 << 1 );
+  QgsFeature firstParentOtherChild( childLayer->fields() );
+  firstParentOtherChild.setAttributes( QgsAttributes() << 11 << 1 );
+  QgsFeature secondParentChild( childLayer->fields() );
+  secondParentChild.setAttributes( QgsAttributes() << 12 << 2 );
+
+  childLayer->startEditing();
+  childLayer->addFeature( firstParentChild );
+  childLayer->addFeature( firstParentOtherChild );
+  childLayer->addFeature( secondParentChild );
+  childLayer->commitChanges();
+  REQUIRE( childLayer->featureCount() == 3 );
+
+  const QgsFeatureId firstParentId = featureIdByExpression( parentLayer.get(), QStringLiteral( "\"pk\" = 1" ) );
+
+  SECTION( "CompositionDeletesRelatedFeatures" )
+  {
+    addParentChildRelation( project.get(), parentLayer.get(), childLayer.get(), Qgis::RelationshipStrength::Composition );
+
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), parentLayer.get(), firstParentId ) );
+
+    REQUIRE_FALSE( parentLayer->isEditable() );
+
+    const QMap<int, QgsAttributes> remainingParents = attributesByPrimaryKey( parentLayer.get() );
+    REQUIRE( remainingParents.keys() == QList<int>( { 2 } ) );
+    REQUIRE( remainingParents.value( 2 ) == ( QgsAttributes() << 2 << QStringLiteral( "b" ) ) );
+
+    const QMap<int, QgsAttributes> remainingChildren = attributesByPrimaryKey( childLayer.get() );
+    REQUIRE( remainingChildren.keys() == QList<int>( { 12 } ) );
+    REQUIRE( remainingChildren.value( 12 ) == ( QgsAttributes() << 12 << 2 ) );
+  }
+
+  SECTION( "AssociationKeepsRelatedFeatures" )
+  {
+    addParentChildRelation( project.get(), parentLayer.get(), childLayer.get(), Qgis::RelationshipStrength::Association );
+
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), parentLayer.get(), firstParentId ) );
+
+    REQUIRE_FALSE( childLayer->isEditable() );
+
+    const QMap<int, QgsAttributes> remainingParents = attributesByPrimaryKey( parentLayer.get() );
+    REQUIRE( remainingParents.keys() == QList<int>( { 2 } ) );
+    REQUIRE( remainingParents.value( 2 ) == ( QgsAttributes() << 2 << QStringLiteral( "b" ) ) );
+
+    const QMap<int, QgsAttributes> remainingChildren = attributesByPrimaryKey( childLayer.get() );
+    REQUIRE( remainingChildren.keys() == QList<int>( { 10, 11, 12 } ) );
+    REQUIRE( remainingChildren.value( 10 ) == ( QgsAttributes() << 10 << 1 ) );
+    REQUIRE( remainingChildren.value( 11 ) == ( QgsAttributes() << 11 << 1 ) );
+    REQUIRE( remainingChildren.value( 12 ) == ( QgsAttributes() << 12 << 2 ) );
+  }
+
+  SECTION( "NoRelationKeepsOtherLayerUntouched" )
+  {
+    REQUIRE( QfLayerUtils::deleteFeature( project.get(), parentLayer.get(), firstParentId ) );
+
+    REQUIRE_FALSE( childLayer->isEditable() );
+
+    const QMap<int, QgsAttributes> remainingParents = attributesByPrimaryKey( parentLayer.get() );
+    REQUIRE( remainingParents.keys() == QList<int>( { 2 } ) );
+    REQUIRE( remainingParents.value( 2 ) == ( QgsAttributes() << 2 << QStringLiteral( "b" ) ) );
+
+    const QMap<int, QgsAttributes> remainingChildren = attributesByPrimaryKey( childLayer.get() );
+    REQUIRE( remainingChildren.keys() == QList<int>( { 10, 11, 12 } ) );
+    REQUIRE( remainingChildren.value( 10 ) == ( QgsAttributes() << 10 << 1 ) );
+    REQUIRE( remainingChildren.value( 11 ) == ( QgsAttributes() << 11 << 1 ) );
+    REQUIRE( remainingChildren.value( 12 ) == ( QgsAttributes() << 12 << 2 ) );
   }
 }
 
