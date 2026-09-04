@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#define QFIELDTEST_MAIN
 #include "catch2.h"
 #include "qfmultifeaturelistmodel.h"
 
