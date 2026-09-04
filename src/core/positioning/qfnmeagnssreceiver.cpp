@@ -17,6 +17,7 @@
 #include "qfnmeagnssreceiver.h"
 #include "qfpositioningsource.h"
 
+#include <QDebug>
 #include <QFileInfo>
 #include <QSettings>
 
@@ -90,6 +91,21 @@ void QfNmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
                                                                    info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
                                                                    info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
                                                                    0, QStringLiteral( "nmea" ) );
+
+  const QString fixStatusDescription = mCurrentNmeaGnssPositionInformation.fixStatusDescription();
+  const QString qualityDescription = mCurrentNmeaGnssPositionInformation.qualityDescription();
+  if ( fixStatusDescription != mLastLoggedFixStatusDescription || qualityDescription != mLastLoggedQualityDescription )
+  {
+    qInfo() << QStringLiteral( "NMEA receiver: position quality changed fix=%1 quality=%2 hacc=%3 vacc=%4 satellitesUsed=%5 pdop=%6" )
+                 .arg( fixStatusDescription,
+                       qualityDescription,
+                       QString::number( info.hacc, 'f', 3 ),
+                       QString::number( info.vacc, 'f', 3 ),
+                       QString::number( info.satellitesUsed ),
+                       QString::number( info.pdop, 'f', 1 ) );
+    mLastLoggedFixStatusDescription = fixStatusDescription;
+    mLastLoggedQualityDescription = qualityDescription;
+  }
 }
 
 void QfNmeaGnssReceiver::onNmeaSentenceReceived( const QString &substring )

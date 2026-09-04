@@ -63,6 +63,8 @@ class QfNmeaGnssReceiver : public QfAbstractGnssReceiver
     void processImuSentence( const QString &sentence );
 
     QTime mLastGnssPositionUtcTime;
+    QString mLastLoggedFixStatusDescription;
+    QString mLastLoggedQualityDescription;
 
     QFile mLogFile;
     QTextStream mLogStream;

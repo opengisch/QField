@@ -108,12 +108,16 @@ class QfNtripClient : public QObject
     QfNtripSocket *mSocket = nullptr;
     qint64 mBytesSent = 0;
     qint64 mBytesReceived = 0;
+    qint64 mCorrectionBlocksReceived = 0;
+    qint64 mLastCorrectionLogMs = 0;
+    qint64 mLastCorrectionLogBytes = 0;
 
     QFile mLogFile;
     QDataStream mLogStream;
     int mLogBlockCount = 0;
 
     qint64 mLastNtripGgaSent = 0;
+    qint64 mLastGgaLogMs = 0;
 
     QPointer<QfAbstractGnssReceiver> mReceiver;
 };
