@@ -92,6 +92,16 @@ class QfBluetoothLowEnergyReceiver : public QfNmeaGnssReceiver
     QByteArray mCorrectionData;
     QTimer mCorrectionTimer;
 
+    qint64 mBleRxBytes = 0;
+    qint64 mBleRxNotifications = 0;
+    qint64 mBleRxSentences = 0;
+    qint64 mCorrectionBytesReceived = 0;
+    qint64 mCorrectionBytesWritten = 0;
+    qint64 mCorrectionChunksWritten = 0;
+    qint64 mLastBleRxLogMs = 0;
+    qint64 mLastCorrectionLogMs = 0;
+    qsizetype mBleTxPayloadSize = 20;
+
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;
     int mConnectionFailureCount = 0;
