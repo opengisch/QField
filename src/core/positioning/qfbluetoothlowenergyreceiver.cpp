@@ -23,6 +23,14 @@
 #include <QTimer>
 #include <QtBluetooth/QLowEnergyConnectionParameters>
 
+namespace
+{
+  constexpr int CorrectionTimerIntervalMs = 20;
+  constexpr qsizetype CorrectionCatchUpThresholdBytes = 4096;
+  constexpr int NormalCorrectionChunksPerTick = 3;
+  constexpr int CatchUpCorrectionChunksPerTick = 6;
+} // namespace
+
 // Map of BLE service UUID (key) and a pair of RX (first, incoming) and TX (second, outgoing) characteristics
 QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> QfBluetoothLowEnergyReceiver::serviceChars = {
   { // Standard Nordic UART Service (NUS)
@@ -43,7 +51,7 @@ QfBluetoothLowEnergyReceiver::QfBluetoothLowEnergyReceiver( const QString &addre
 {
   qInfo() << "BluetoothLowEnergyReceiver: Creating the receiver";
 
-  mCorrectionTimer.setInterval( 20 );
+  mCorrectionTimer.setInterval( CorrectionTimerIntervalMs );
   connect( &mCorrectionTimer, &QTimer::timeout, this, &QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk );
 
   initNmeaConnection( mBuffer );
@@ -130,15 +138,9 @@ void QfBluetoothLowEnergyReceiver::doConnectDevice()
 
   setSocketState( QAbstractSocket::ConnectingState );
 
-  const int mtu = mController->mtu();
-  if ( mtu > 3 )
-  {
-    mBleTxPayloadSize = std::max<qsizetype>( 20, mtu - 3 );
-  }
-
   qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: connectToDevice requested, controller state %1, mtu=%2, txPayload=%3" )
                .arg( QMetaEnum::fromType<QLowEnergyController::ControllerState>().valueToKey( mController->state() ) )
-               .arg( mtu )
+               .arg( mController->mtu() )
                .arg( mBleTxPayloadSize );
   mController->connectToDevice();
 }
@@ -516,7 +518,10 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
   qsizetype bytesWrittenThisTick = 0;
   qsizetype lastChunkSize = 0;
   int chunksWrittenThisTick = 0;
-  const int maxChunksPerTick = mCorrectionData.size() > 4096 ? 6 : 3;
+  // With the default BLE MTU, each write carries 20 payload bytes. At a
+  // 20 ms timer interval, 3 chunks/tick keeps up with typical 2-3 KB/s RTCM
+  // streams while 6 chunks/tick allows catching up after short bursts.
+  const int maxChunksPerTick = mCorrectionData.size() > CorrectionCatchUpThresholdBytes ? CatchUpCorrectionChunksPerTick : NormalCorrectionChunksPerTick;
 
   while ( !mCorrectionData.isEmpty() && chunksWrittenThisTick < maxChunksPerTick )
   {
