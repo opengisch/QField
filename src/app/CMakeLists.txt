@@ -283,9 +283,12 @@ if(IOS)
     UPLOAD_SYMBOL
     VERBOSE)
 
-  set_target_properties(
-    qfield
-    PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
-               "${PROJECT_SOURCE_DIR}/platform/ios/qfield.entitlements"
-               XCODE_GENERATE_SCHEME TRUE)
+  set_target_properties(qfield PROPERTIES XCODE_GENERATE_SCHEME TRUE)
+
+  if(WITH_NFC)
+    set_target_properties(
+      qfield
+      PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
+                 "${PROJECT_SOURCE_DIR}/platform/ios/qfield.entitlements")
+  endif()
 endif()
