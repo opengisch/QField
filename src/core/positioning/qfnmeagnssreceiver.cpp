@@ -96,13 +96,13 @@ void QfNmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
   const QString qualityDescription = mCurrentNmeaGnssPositionInformation.qualityDescription();
   if ( fixStatusDescription != mLastLoggedFixStatusDescription || qualityDescription != mLastLoggedQualityDescription )
   {
-    qInfo() << QStringLiteral( "NMEA receiver: position quality changed fix=%1 quality=%2 hacc=%3 vacc=%4 satellitesUsed=%5 pdop=%6" )
-                 .arg( fixStatusDescription,
-                       qualityDescription,
-                       QString::number( info.hacc, 'f', 3 ),
-                       QString::number( info.vacc, 'f', 3 ),
-                       QString::number( info.satellitesUsed ),
-                       QString::number( info.pdop, 'f', 1 ) );
+    qDebug() << QStringLiteral( "NMEA receiver: position quality changed fix=%1 quality=%2 hacc=%3 vacc=%4 satellitesUsed=%5 pdop=%6" )
+                  .arg( fixStatusDescription,
+                        qualityDescription,
+                        QString::number( info.hacc, 'f', 3 ),
+                        QString::number( info.vacc, 'f', 3 ),
+                        QString::number( info.satellitesUsed ),
+                        QString::number( info.pdop, 'f', 1 ) );
     mLastLoggedFixStatusDescription = fixStatusDescription;
     mLastLoggedQualityDescription = qualityDescription;
   }
