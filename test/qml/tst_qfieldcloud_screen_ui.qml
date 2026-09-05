@@ -590,7 +590,7 @@ TestCase {
     projectCreatedSpy.clear();
 
     const sourceId = "some-source-id";
-    cloudProjectsModel.createProject("", sourceId);
+    cloudProjectsModel.createProject("", "", sourceId);
     tryCompare(projectCreatedSpy, "count", 1, 5000);
 
     // projectCreated(projectId, fromProjectId, hasError, errorString)
@@ -648,7 +648,7 @@ TestCase {
 
     projectCreatedSpy.clear();
     const cloneName = "TestClone_" + Date.now();
-    cloudProjectsModel.createProject(cloneName, sourceProjectId);
+    cloudProjectsModel.createProject(cloneName, "", sourceProjectId);
 
     tryCompare(projectCreatedSpy, "count", 1, 60000);
 
