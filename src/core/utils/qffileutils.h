@@ -48,6 +48,8 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
     Q_INVOKABLE static QString fileName( const QString &filePath, bool includeSuffix = true );
     //! Returns true if the \a filePath exists (false if it's a directory)
     Q_INVOKABLE static bool fileExists( const QString &filePath );
+    //! Returns the size in bytes of the \a filePath, or -1 if it does not exist
+    Q_INVOKABLE static qint64 fileSize( const QString &filePath );
     //! Returns the suffix (extension)
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
     //! Returns a human-friendly size from bytes

@@ -93,6 +93,12 @@ bool QfFileUtils::fileExists( const QString &filePath )
   return ( fileInfo.exists() && fileInfo.isFile() );
 }
 
+qint64 QfFileUtils::fileSize( const QString &filePath )
+{
+  QFileInfo fileInfo( filePath );
+  return fileInfo.exists() && fileInfo.isFile() ? fileInfo.size() : -1;
+}
+
 QString QfFileUtils::representFileSize( qint64 bytes, bool decimalRepresentation )
 {
   QStringList list;

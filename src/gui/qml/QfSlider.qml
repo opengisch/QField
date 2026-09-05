@@ -13,6 +13,7 @@ Item {
   property alias from: slider.from
   property alias to: slider.to
   property alias stepSize: slider.stepSize
+  property alias snapMode: slider.snapMode
   property alias value: slider.value
   property string prefixText: ""
   property string suffixText: ""
@@ -20,7 +21,7 @@ Item {
 
   signal moved
 
-  implicitHeight: childrenRect.height
+  implicitHeight: layout.implicitHeight
 
   RowLayout {
     id: layout
