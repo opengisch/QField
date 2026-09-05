@@ -215,7 +215,7 @@ TEST_CASE( "FeatureListModel behaviours" )
     }
 
     REQUIRE( featureListModel.rowCount() == 4 );
-    REQUIRE( featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "<i>NULL</i>" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "NULL" ) );
 
     // Current implementation, if key not found and addNull enabled -> returns 0
     REQUIRE( featureListModel.findKey( QVariant( 999 ) ) == 0 );
