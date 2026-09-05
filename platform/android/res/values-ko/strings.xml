@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg"></string>
-    <string name="unpacking_title"></string>
-    <string name="unpacking_msg"></string>
-    <string name="unpacking_msg_following"></string>
-    <string name="use_internal_storage"></string>
-    <string name="external_storage_unavailable"></string>
-    <string name="noexternalstorage_dialog"></string>
-    <string name="primary_storage"></string>
-    <string name="secondary_storage"></string>
-    <string name="secondary_storage_extra"></string>
-    <string name="secondary_storage_read_only"></string>
-    <string name="inaccessible"></string>
-    <string name="loading"></string>
-    <string name="select_project"></string>
-    <string name="recent_projects"></string>
-    <string name="rate_title"></string>
-    <string name="rate_message"></string>
-    <string name="rate_now"></string>
-    <string name="remind_later"></string>
-    <string name="no_thanks"></string>
-    <string name="favorite_directories"></string>
-    <string name="favorites_sample_projects"></string>
-    <string name="favorites_imported_projects"></string>
-    <string name="favorites_imported_datasets"></string>
-    <string name="added_to_favorites"></string>
-    <string name="removed_from_favorites"></string>
-    <string name="external_files_title"></string>
-    <string name="external_files_message"></string>
-    <string name="external_files_ok"></string>
     <string name="grant_permission"></string>
     <string name="grant_all_files_permission"></string>
     <string name="grant"></string>

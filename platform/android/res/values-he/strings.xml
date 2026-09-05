@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">הפריסה הושלמה</string>
-    <string name="unpacking_title">פורס קבצים</string>
-    <string name="unpacking_msg">מתבצעת פריסת הקבצים...</string>
-    <string name="unpacking_msg_following">מתבצעת פריסת הקבצים הבאים:</string>
-    <string name="use_internal_storage">השתמש באחסון פנימי</string>
-    <string name="external_storage_unavailable">האחסון החיצוני לא זמין</string>
-    <string name="noexternalstorage_dialog">לא נמצא אחסון חיצוני במכשיר</string>
-    <string name="primary_storage">אחסון ראשי</string>
-    <string name="secondary_storage">אחסון משני</string>
-    <string name="secondary_storage_extra">אחסון משני נוסף</string>
-    <string name="secondary_storage_read_only">אחסון משני לקריאה בלבד</string>
-    <string name="inaccessible">לא נגיש</string>
-    <string name="loading">טוען...</string>
-    <string name="select_project">בחר פרויקט</string>
-    <string name="recent_projects">פרויקטים אחרונים</string>
-    <string name="rate_title">דרג את QField</string>
-    <string name="rate_message">נהנית מהשימוש? נשמח לדירוג שלך!</string>
-    <string name="rate_now">דרג עכשיו</string>
-    <string name="remind_later">תזכיר לי מאוחר יותר</string>
-    <string name="no_thanks">לא, תודה</string>
-    <string name="favorite_directories">תיקיות מועדפות</string>
-    <string name="favorites_sample_projects">פרויקטים לדוגמה</string>
-    <string name="favorites_imported_projects">פרויקטים מיובאים</string>
-    <string name="favorites_imported_datasets">מערכי נתונים מיובאים</string>
-    <string name="added_to_favorites">נוסף למועדפים</string>
-    <string name="removed_from_favorites">הוסר מהמועדפים</string>
-    <string name="external_files_title">קבצים חיצוניים</string>
-    <string name="external_files_message">נדרשת הרשאה לגשת לקבצים חיצוניים</string>
-    <string name="external_files_ok">אישור</string>
     <string name="grant_permission">הענק הרשאה</string>
     <string name="grant_all_files_permission">הענק הרשאה לכל הקבצים</string>
     <string name="grant">אשר</string>

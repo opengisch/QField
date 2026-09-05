@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Završeno otpakiranje, pokreće se QGIS.</string>
-    <string name="unpacking_title">QField se priprema</string>
-    <string name="unpacking_msg">Ova jednokratna operacija će kratko potrajati</string>
-    <string name="unpacking_msg_following">Još samo malo, pričekajte!</string>
-    <string name="use_internal_storage">Koristi unutarnju pohranu</string>
-    <string name="external_storage_unavailable">Otpakiranje podataka nakon instalacije. Ovo može potrajati.</string>
-    <string name="noexternalstorage_dialog">Izgleda da vaša vanjska pohrana (/sdcard) nije dostupna. Ovo se događa kada je vaš uređaj spojen na PC preko USB.\nQGIS može raditi sa unutarnjom pohranom ali nije preporučljivo jer može biti premalo memorije.\nPredlažemo da otkažete, odspojite USB kabel i ponovo pokrenete QGIS.</string>
-    <string name="primary_storage">Unutarnja pohrana</string>
-    <string name="secondary_storage">QField mapa sa datotekama</string>
-    <string name="secondary_storage_extra">Dodatna mapa datoteka</string>
-    <string name="secondary_storage_read_only">Vanjska pohrana (samo za čitanje)</string>
-    <string name="inaccessible">nedostupno</string>
-    <string name="loading">Učitavanje</string>
-    <string name="select_project">Odaberi QGIS projekt ili skup podataka</string>
-    <string name="recent_projects">Nedavni projekti i skupovi podataka</string>
-    <string name="rate_title">Ocijeni Qfield</string>
-    <string name="rate_message">Ako uživate u korištenju QField molimo Vas ocijenite ga. Hvala na Vašoj podršci!</string>
-    <string name="rate_now">Ocijeni</string>
-    <string name="remind_later">Podsjeti me kasnije</string>
-    <string name="no_thanks">Ne, hvala!</string>
-    <string name="favorite_directories">Omiljene mape</string>
-    <string name="favorites_sample_projects">Primjeri projekata</string>
-    <string name="favorites_imported_projects">Uvezeni projekti</string>
-    <string name="favorites_imported_datasets">Uvezeni skupovi podataka</string>
-    <string name="added_to_favorites">Dodano u omiljene</string>
-    <string name="removed_from_favorites">Uklonjeno iz omiljenih</string>
-    <string name="external_files_title">Važna napomena</string>
-    <string name="external_files_message"><![CDATA[QField mapa sa datotekama može biti korištena za kopiranje datoteka i projekata na vaš uređaj putem USB kabela. Možete vidjeti putanju do direktorija u zaglavlju.<br/><br/>Budite svjesni da će sadržaj direktorija <i>biti izbrisan</i> ako deinstalirate QField sa vašeg uređaja.]]></string>
-    <string name="external_files_ok">OK</string>
     <string name="grant_permission">Pristup svim datotekama</string>
     <string name="grant_all_files_permission"><![CDATA[QField treba dozvolu za pristup svim datotekama da bi mogao otvarati lokalne projekte i skupove podataka kao i projekcije, fontove i osnovne karte. Iako nije neophodno, <i>dozvoljavanje pristupa je veoma preporučljvo</i>.<br/><br/>Na slijedećem ekranu, odaberite <b>QField</b> i odaberite opciju <b>Dozvoli pristup svim datotekama</b>.]]></string>
     <string name="grant">Dozvoli</string>

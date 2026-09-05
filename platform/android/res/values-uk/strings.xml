@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Розпакування завершено, запустіть QGIS.</string>
-    <string name="unpacking_title">QField готується</string>
-    <string name="unpacking_msg">Ця одноразова операція займе короткий час</string>
-    <string name="unpacking_msg_following">Майже готово, тримайтеся!</string>
-    <string name="use_internal_storage">Використовувати внутрішнє сховище.</string>
-    <string name="external_storage_unavailable">Розпакування даних після інсталювання. Цей процес може зайняти кілька хвилин.</string>
-    <string name="noexternalstorage_dialog">Швидше за все, Ваш зовнішній носій даних (/sdcard) недоступний. Це трапляється, коли Ваш пристрій підключено до комп\'ютера через USB-кабель. \nQGIS може працювати з внутрішнього сховища, проте це не рекомендавно через можливе обмеження пам\'яті. \nРадимо обрати СКАСУВАТИ, від\'єднати USB-кабель та перезапустити QGIS.</string>
-    <string name="primary_storage">Внутрішнє сховище</string>
-    <string name="secondary_storage">Каталог файлів QField</string>
-    <string name="secondary_storage_extra">Каталог додаткових файлів</string>
-    <string name="secondary_storage_read_only">Зовнішній носій даних (лише читання)</string>
-    <string name="inaccessible">недоступно</string>
-    <string name="loading">Завантаження</string>
-    <string name="select_project">Виберіть проект QGIS або набір даних</string>
-    <string name="recent_projects">Останні проекти та набори даних</string>
-    <string name="rate_title">Оцінити QField</string>
-    <string name="rate_message">Якщо Ви задоволені користувнням QField, будь ласка, виділіть кілька хвилин для оцінювання додатку. Зазделегідь вдячні за Вашу підтримку!</string>
-    <string name="rate_now">Оцінити</string>
-    <string name="remind_later">Нагадати пізніше</string>
-    <string name="no_thanks">Ні, дякую!</string>
-    <string name="favorite_directories">Обрані теки</string>
-    <string name="favorites_sample_projects">Зразкові проекти</string>
-    <string name="favorites_imported_projects">Імпортовані проекти</string>
-    <string name="favorites_imported_datasets">Імпортовані набори даних</string>
-    <string name="added_to_favorites">Додано до обраних</string>
-    <string name="removed_from_favorites">Видалено з обраних</string>
-    <string name="external_files_title">Важлива примітка</string>
-    <string name="external_files_message"><![CDATA[TКаталог файлів QField можна використовувати для копіювання файлів і проектів на ваш пристрій через кабель USB. Ви можете побачити абсолютний шлях до каталогу на панелі заголовка.<br/><br/>Майте на увазі, що вміст цього каталогу <i>буде видалено</i> якщо ви видалите QField зі свого пристрою.]]></string>
-    <string name="external_files_ok">ОК</string>
     <string name="grant_permission">Доступ до всіх файлів</string>
     <string name="grant_all_files_permission"><![CDATA[QField потрібен дозвіл на доступ до всіх файлів, щоб мати можливість відкривати локальні проекти та набори даних, а також підтримувати власні сітки проекцій, шрифти та базові карти. Хоча це не потрібно, <i>настійно рекомендується дозволити доступ</i>.<br/><br/>На наступному екрані виберіть <b>QField</b> і виберіть <b>Дозволити доступ до всіх файлів</b>варіант.]]></string>
     <string name="grant">Дозволити</string>

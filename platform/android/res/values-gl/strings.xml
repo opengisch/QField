@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Feito o desempaquetado, inicia QGIS.</string>
-    <string name="unpacking_title">QField está preparándose</string>
-    <string name="unpacking_msg">Esta única operación levará un breve momento</string>
-    <string name="unpacking_msg_following">Case está, aguanta un chisco!</string>
-    <string name="use_internal_storage">Utilizar Almacenamento Interno</string>
-    <string name="external_storage_unavailable">Desempaquetando datos postinstalación. Isto pode levar algún tempo.</string>
-    <string name="noexternalstorage_dialog">Semella que o almacenamento externo (/sdcard) non está dispoñible. Isto acontece cando conectas o dispositivo a un ordenador vía USB.\nQGIS pode funcionar dende o almacenamento interno pero non se recomenda xa que pode ser demasiado pequeno.\nSuxerimos que escollas CANCELAR, desconectes calquera cable USB e reinicies QGIS.</string>
-    <string name="primary_storage">Almacenamento interno</string>
-    <string name="secondary_storage">Directorio dos ficheiros de QField</string>
-    <string name="secondary_storage_extra">Directorio de ficheiros adicionais</string>
-    <string name="secondary_storage_read_only">Almacenamento externo (só lectura)</string>
-    <string name="inaccessible">inaccesible</string>
-    <string name="loading">Cargando</string>
-    <string name="select_project">Selecciona un proxecto ou conxunto de datos de QGIS</string>
-    <string name="recent_projects">Proxectos recentes e conxuntos de datos</string>
-    <string name="rate_title">Valora QField</string>
-    <string name="rate_message">Se desfrutas utilizando QField, por favor, toma un momento para valoralo. Grazas pola túa colaboración!</string>
-    <string name="rate_now">Valorar</string>
-    <string name="remind_later">Lémbramo despois</string>
-    <string name="no_thanks">Non, grazas!</string>
-    <string name="favorite_directories">Directorios favoritos</string>
-    <string name="favorites_sample_projects">Proxectos de mostra</string>
-    <string name="favorites_imported_projects">Proxectos importados</string>
-    <string name="favorites_imported_datasets">Conxuntos de datos importados</string>
-    <string name="added_to_favorites">Engadido a favoritos</string>
-    <string name="removed_from_favorites">Eliminado de favoritos</string>
-    <string name="external_files_title">Nota Importante</string>
-    <string name="external_files_message"><![CDATA[O directorio de ficheiros de QField pode utilizarse para copiar ficheiros e proxectos ó teu dispositivo a través dun cable USB. Podes ver a ruta absoluta do directorio na barra do encabezado.<br/><br/>Ten en conta que o contido deste directorio <i>se eliminará</i> se desinstalas QField do teu dispositivo.]]></string>
-    <string name="external_files_ok">OK</string>
     <string name="grant_permission">Acceso a tódolos ficheiros</string>
     <string name="grant_all_files_permission"><![CDATA[QField precisa permisos de acceso a tódolos ficheiros para poder abrir os proxectos e conxuntos de datos locais así como para admitir as grades de proxección, fontes, e mapas base personalizados. Aínda que non é obrigatorio, <i>permitir o acceso é altamente recomendado</i>.<br/><br/>Na seguinte pantalla, por favor, selecciona <b>QField</b> e selecciona a opción <b>Permitir acceso a tódolos ficheiros</b>.]]></string>
     <string name="grant">Permitir</string>

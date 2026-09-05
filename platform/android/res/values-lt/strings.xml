@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Išpakavimas baigtas, paleidžiama QGIS.</string>
-    <string name="unpacking_title">QField netrukus bus paruošta naudoti</string>
-    <string name="unpacking_msg">Tai vienkartinė operacija, ji netrukus bus baigta</string>
-    <string name="unpacking_msg_following">Jau beveik baigta, dar truputį palaukite!</string>
-    <string name="use_internal_storage">Naudoti vidinę atmintį</string>
-    <string name="external_storage_unavailable">Išpakuojami po įdiegimo reikalingi duomenys. Tai gali užtrukti.</string>
-    <string name="noexternalstorage_dialog">Panašu, kad išorinė atmintis (/sdcard) nepasiekiama. Taip gali nutikti, kai įrenginys prijungtas prie kompiuterio per USB.\nQGIS gali veikti ir vidinėje atmintyje, tačiau tai nerekomenduojama, nes programai joje gali nepakakti vietos.\nRekomenduojama ATŠAUKTI, atjungti USB kabelį ir iš naujo paleisti QGIS.</string>
-    <string name="primary_storage">Vidinė atmintis</string>
-    <string name="secondary_storage">QField failų katalogas</string>
-    <string name="secondary_storage_extra">Papildomų failų katalogas</string>
-    <string name="secondary_storage_read_only">Išorinė atmintis (tik skaityti)</string>
-    <string name="inaccessible">nepasiekiama</string>
-    <string name="loading">Įkeliama</string>
-    <string name="select_project">Pasirinkite QGIS projektą arba duomenų rinkinį</string>
-    <string name="recent_projects">Naujausi projektai ir duomenų rinkiniai</string>
-    <string name="rate_title">Įvertinti QField</string>
-    <string name="rate_message">Jei jums patinka QField, skirkite minutę ir įvertinkite programėlę. Dėkojame už palaikymą!</string>
-    <string name="rate_now">Įvertinti</string>
-    <string name="remind_later">Priminti vėliau</string>
-    <string name="no_thanks">Ne, ačiū!</string>
-    <string name="favorite_directories">Parankiniai katalogai</string>
-    <string name="favorites_sample_projects">Pavyzdiniai projektai</string>
-    <string name="favorites_imported_projects">Importuoti projektai</string>
-    <string name="favorites_imported_datasets">Importuoti duomenų rinkiniai</string>
-    <string name="added_to_favorites">Pridėta prie parankinių</string>
-    <string name="removed_from_favorites">Pašalinta iš parankinių</string>
-    <string name="external_files_title">Svarbi informacija</string>
-    <string name="external_files_message"><![CDATA[QField failų katalogą galima naudoti failams ir projektams kopijuoti į įrenginį USB kabeliu. Visą katalogo kelią galite matyti antraštės juostoje.<br/><br/>Atminkite, kad pašalinus QField iš įrenginio šio katalogo turinys <i>bus ištrintas</i>.]]></string>
-    <string name="external_files_ok">Gerai</string>
     <string name="grant_permission">Prieiga prie visų failų</string>
     <string name="grant_all_files_permission"><![CDATA[Kad galėtų atverti vietinius projektus ir duomenų rinkinius bei naudoti pasirinktines koordinačių sistemas, šriftus ir pagrindo žemėlapius, QField reikia prieigos prie visų failų leidimo. Nors jis nėra privalomas, <i>primygtinai rekomenduojama jį suteikti</i>.<br/><br/>Kitame ekrane pasirinkite <b>QField</b>, tada įjunkite parinktį <b>Leisti pasiekti visus failus</b>.]]></string>
     <string name="grant">Leisti</string>

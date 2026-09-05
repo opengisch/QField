@@ -1,36 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">İşlem tamamlandı, QGIS\'i başlatın.</string>
-    <string name="unpacking_title">QField hazırlanıyor</string>
-    <string name="unpacking_msg">Bu tek seferlik işlem kısa bir süre alacak</string>
-    <string name="unpacking_msg_following">Nearly there, hang tight!</string>
-    <string name="use_internal_storage">Dahili Hafızayı Kullanın</string>
-    <string name="external_storage_unavailable">İndirme sonrası veri işleniyor. Bu biraz vakit alabilir.</string>
-    <string name="noexternalstorage_dialog">Harici diskiniz (/sdcard) görünmüyor. Bu sorun genellikle mobil cihazınızı PC\'nize USB ile bağladığınızda oluşur. 
-QGIS dahili diskiniz üzerinden de çalışılabilir; ancak kısıtlı yerden dolayı bu tavsiye edilmemektedir. 
-\"İptal\" seçeneği tavsiye edilmektedir, bağlı USB kablonuzu çıkarın ve QGIS\'i yeniden başlatın.</string>
-    <string name="primary_storage">Dahili hafıza</string>
-    <string name="secondary_storage">QField dosyaları dizini</string>
-    <string name="secondary_storage_extra">Ek dosyalar dizini</string>
-    <string name="secondary_storage_read_only">Harici depolama (okuma)</string>
-    <string name="inaccessible">erişilemez</string>
-    <string name="loading">Yüklüyor</string>
-    <string name="select_project">Bir QGIS projesi veya veriseti seçin</string>
-    <string name="recent_projects">Son proje ve verisetleri</string>
-    <string name="rate_title">QField\'ı değerlendirin</string>
-    <string name="rate_message">QField\'ı kullanmaktan memnunsanız, lütfen değerlendirmek için vaktinizi ayırın. Desteğiniz için teşekkürler!</string>
-    <string name="rate_now">Değerlendir</string>
-    <string name="remind_later">Daha sonra hatırlat</string>
-    <string name="no_thanks">Hayır, teşekkürler!</string>
-    <string name="favorite_directories">Favori dizinler</string>
-    <string name="favorites_sample_projects">Örnek projeler</string>
-    <string name="favorites_imported_projects">İçe aktarılan projeler</string>
-    <string name="favorites_imported_datasets">İçe aktarılan veri setleri</string>
-    <string name="added_to_favorites">Favorilere eklendi</string>
-    <string name="removed_from_favorites">Favorilerden çıkarıldı</string>
-    <string name="external_files_title">Önemli Not</string>
-    <string name="external_files_message"><![CDATA[QField dosya dizini, USB kablosu aracılığıyla dosya ve projeleri cihazınıza kopyalamak için kullanılabilir. Dizinin mutlak yolunu başlık çubuğunda görebilirsiniz.<br/><br/>Cihazınızdan QField\'ı kaldırırsanız, bu dizinin içeriği <i>silinecektir</i>.]]></string>
-    <string name="external_files_ok">Tamam</string>
     <string name="grant_permission">Tüm dosyalara erişim</string>
     <string name="grant_all_files_permission"><![CDATA[QField, yerel projeleri ve veri kümelerini açabilmek ve özel projeksiyon ızgaraları, yazı tipleri ve temel haritaları destekleyebilmek için tüm dosyalara erişim iznine ihtiyaç duyar. <i>Zorunlu olmasa da, erişime izin verilmesi şiddetle tavsiye edilir. </i><br/><br/> Bir sonraki ekranda, lütfen <b>QField</b>\'ü seçin ve <b>Tüm dosyalara erişime izin ver</b> seçeneğini seçin.]]></string>
     <string name="grant">İzin ver</string>

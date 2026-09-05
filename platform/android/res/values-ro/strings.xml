@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">S-a încheiat despachetarea, start QGIS.</string>
-    <string name="unpacking_title">QField se pregătește</string>
-    <string name="unpacking_msg">Această operațiune unică nu va dura prea mult</string>
-    <string name="unpacking_msg_following">Aproape de destinație; încă puțin!</string>
-    <string name="use_internal_storage">Folosește Stocarea Internă</string>
-    <string name="external_storage_unavailable">Sr despachetează datele post instalare. Acest lucru poate dura ceva timp.</string>
-    <string name="noexternalstorage_dialog">Se pare că mediul de stocare extern (/sdcard) nu este disponibil. Acest lucru se întâmplă atunci când vă conectați dispozitivul la un PC prin USB.n\QGIS poate rula de pe mediul de stocare intern, deși nu este recomandabil deoarece acesta ar putea fi prea mic. n\Mai bine apăsați pe CANCEL, deconectați cablul USB și reporniți QGIS.</string>
-    <string name="primary_storage">Stocare internă</string>
-    <string name="secondary_storage">Fișierele Directorului QField</string>
-    <string name="secondary_storage_extra">Directorul cu fișiere suplimentare</string>
-    <string name="secondary_storage_read_only">Stocare externă (numai citire)</string>
-    <string name="inaccessible">inaccesibil</string>
-    <string name="loading">Încărcare</string>
-    <string name="select_project">Selectați un proiect sau un set de date QGIS</string>
-    <string name="recent_projects">Proiecte și seturi de date recente</string>
-    <string name="rate_title">Evaluare QField</string>
-    <string name="rate_message">Dacă vă place să utilizați QField, acordați o clipă evaluării sale. Mulțumiri pentru sprijin!</string>
-    <string name="rate_now">Evaluare</string>
-    <string name="remind_later">Amintește-mi mai târziu</string>
-    <string name="no_thanks">Nu, mulțumesc!</string>
-    <string name="favorite_directories">Directoare favorite</string>
-    <string name="favorites_sample_projects">Exemple de proiecte</string>
-    <string name="favorites_imported_projects">Proiecte Importate</string>
-    <string name="favorites_imported_datasets">Baze de date Importate</string>
-    <string name="added_to_favorites">Adăugat la favorite</string>
-    <string name="removed_from_favorites">Eliminat de la favorite</string>
-    <string name="external_files_title">Notițe Importante</string>
-    <string name="external_files_message"><![CDATA[Directorul de fișiere QField poate fi utilizat pentru a copia fișiere și proiecte pe dispozitivul, prin cablul USB. Puteți vedea calea absolută a directorului în bara de antet.<br/><br/>Atenție! Conținutul acestui director <i>o să fie șters</i> dacă dezinstalați QField de pe dispozitiv]]></string>
-    <string name="external_files_ok">OK</string>
     <string name="grant_permission">Acces la toate fișierele</string>
     <string name="grant_all_files_permission"><![CDATA[QField are nevoie de permisiunea de acces la toate fișierele pentru a putea deschide proiecte locale și seturi de date, precum și suport pentru rețele de proiecție personalizate, fonturi și hărți de bază. Chiar dacă nu este necesar, <i>accesul este foarte recomandat</i>.<br/><br/>Pe ecranul următor, selectați <b>QField</b> și apoi selectați <b>\"permite accesul la toate fișierele\"</b> .]]></string>
     <string name="grant">Permite</string>

@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Uitpakken gereed, start QGIS.</string>
-    <string name="unpacking_title">QField start op</string>
-    <string name="unpacking_msg">Deze eenmalige actie zal een kort moment duren</string>
-    <string name="unpacking_msg_following">Bijna klaar, hou vol!</string>
-    <string name="use_internal_storage">Gebruik Interne Opslag</string>
-    <string name="external_storage_unavailable">Uitpakken van post-installatiedata. Dit kan enige tijd duren.</string>
-    <string name="noexternalstorage_dialog">Het lijkt er op dat uw externe opslag (/sdcard) niet beschikbaar is. Dit gebeurt zodra u uw apparaat koppelt aan een PC via USB.\nQGIS kan draaien vanaf de interne opslag, maar dit wordt niet aanbevolen. Dit zou te klein kunnen zijn.\nHet wordt aangeraden om AFBREKEN te kiezen, elke USB-kabel loskoppelen en QGIS herstarten.</string>
-    <string name="primary_storage">Interne opslag</string>
-    <string name="secondary_storage">QField bestanden map</string>
-    <string name="secondary_storage_extra">Extra bestanden map</string>
-    <string name="secondary_storage_read_only">Externe opslag (alleen lezen)</string>
-    <string name="inaccessible">Ontoegankelijk</string>
-    <string name="loading">Laden</string>
-    <string name="select_project">Kies een QGIS-project of dataset</string>
-    <string name="recent_projects">Recente projecten en datasets</string>
-    <string name="rate_title">Beoordeel QField</string>
-    <string name="rate_message">Als u graag QField gebruikt, neem dan wat tijd om het te beoordelen. Dank voor uw ondersteuning!</string>
-    <string name="rate_now">Beoordeel</string>
-    <string name="remind_later">Herinner me later</string>
-    <string name="no_thanks">Nee, dank u!</string>
-    <string name="favorite_directories">Favoriete mappen</string>
-    <string name="favorites_sample_projects">Voorbeeldprojecten</string>
-    <string name="favorites_imported_projects">Geïmporteerde projecten</string>
-    <string name="favorites_imported_datasets">Geïmporteerde datasets</string>
-    <string name="added_to_favorites">Toegevoegd aan favorieten</string>
-    <string name="removed_from_favorites">Verwijderd van favorieten</string>
-    <string name="external_files_title">Belangrijke Notitie</string>
-    <string name="external_files_message"><![CDATA[De map QField-bestanden kan worden gebruikt om bestanden en projecten via een USB-kabel naar uw apparaat te kopiëren. U kunt het absolute pad van de map in de kopbalk zien. <br/><br/>Houd er rekening mee dat de inhoud van deze map <i>wordt verwijderd</i> als u QField van uw apparaat verwijdert.]]></string>
-    <string name="external_files_ok">OK</string>
     <string name="grant_permission">Toegang tot alle bestanden</string>
     <string name="grant_all_files_permission"><![CDATA[QField heeft toegangsrechten voor alle bestanden nodig om lokale projecten en datasets te kunnen openen en om aangepaste projectierasters, lettertypen en basiskaarten te ondersteunen. Hoewel dit niet vereist is, <i>wordt het ten zeerste aanbevolen om toegang te verlenen</i>. <br/><br/>Selecteer in het volgende scherm <b>QField</b> en selecteer de optie <b>Toegang tot alle bestanden toestaan</b>.]]></string>
     <string name="grant">Toestaan</string>

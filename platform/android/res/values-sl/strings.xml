@@ -1,34 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Razpakiranje je končano, zaženite QGIS.</string>
-    <string name="unpacking_title">QField se pripravlja</string>
-    <string name="unpacking_msg">Ta enkratna operacija bo trajala nekaj trenutkov</string>
-    <string name="unpacking_msg_following">Skoraj končano, zdrži še malo!</string>
-    <string name="use_internal_storage">Uporabi notranji pomnilnik</string>
-    <string name="external_storage_unavailable">Razpakiranje po-namestitvenih podatkov. To lahko traja nekaj časa.</string>
-    <string name="noexternalstorage_dialog">Zgleda, da tvoj zunanji pomnilnik (/sd kartica) ni na voljo. To se zgodi, ko napravo povežeš z računalnikom preko USB. \nQGIS se lahko zaganja iz notranjega pomnilnika, vendar to ni priporočljivo, ker je morda premajhen. \nlt Priporočeno je, da izbereš CANCEL, izklopiš vse USB kable in znova zaženeš QGIS.</string>
-    <string name="primary_storage">Notranji pomnilnik</string>
-    <string name="secondary_storage">QField direktorij datotek</string>
-    <string name="secondary_storage_extra">Direktorij dodatnih datotek</string>
-    <string name="secondary_storage_read_only">Zunanji pomnilnik (samo za branje)</string>
-    <string name="inaccessible">Nedostopno</string>
-    <string name="loading">Nalagam</string>
-    <string name="select_project">Izberi QGIS projekt ali zbirko podatkov</string>
-    <string name="recent_projects">Nedavni projekti in zbirke podatkov</string>
-    <string name="rate_title">Oceni QField</string>
-    <string name="rate_message">Če uživaš v uporabi QFielda, si vzemi trenutek in ga oceni. Hvala za tvojo podporo!</string>
-    <string name="rate_now">Oceni</string>
-    <string name="remind_later">Opomni me pozneje</string>
-    <string name="no_thanks">Ne, hvala!</string>
-    <string name="favorite_directories">Priljubljeni direktoriji</string>
-    <string name="favorites_sample_projects">Vzorčni projekti</string>
-    <string name="favorites_imported_projects">Uvoženi projekti</string>
-    <string name="favorites_imported_datasets">Uvožene zbirke podatkov</string>
-    <string name="added_to_favorites">Dodano med priljubljene</string>
-    <string name="removed_from_favorites">Odstranjeno iz priljubljenih</string>
-    <string name="external_files_title">Pomembna opomba</string>
-    <string name="external_files_message"><![CDATA[QField direktorij lahko uporabiš za kopiranje datotek in projektov v tvojo napravo prek USB kabla. Celotno pot direktorija lahko vidiš v naslovni vrstici. <br/><br/>Zavedaj se, da bo vsebina tega direktorija<i> izbrisana</i>, če QField odstraniš iz svoje naprave.]]></string>
-    <string name="external_files_ok">V redu</string>
     <string name="grant_permission">Dostop do vseh datotek</string>
     <string name="grant_all_files_permission"><![CDATA[QField potrebuje dovoljenje za dostop do vseh datotek, za zagon lokalnih projektov in dostop do zbirk podatkov ter podprtih projekcij, pisav in osnovnih kart po meri. Čeprav ni potrebno, <i>je dovoljenje dostopa zelo priporočljivo</i>.<br/><br/> Na naslednjem zaslonu izberite<b>QField</b> in izberite možnost <b>Dovoli dostop do vseh datotek</b>.]]></string>
     <string name="grant">Dovoli</string>

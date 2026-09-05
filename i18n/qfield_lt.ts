@@ -551,7 +551,7 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation type="vanished">Padėties tikslumas neatitinka minimalaus reikalavimo, todėl viršūnė nepridėta</translation>
+        <translation type="vanished">Padėties tikslumas neatitinka minimalaus reikalavimo, todėl taškas nepridėtas</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
@@ -2764,7 +2764,7 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="vanished">Įjungus tikslumo indikatorių, prie vietos mygtuko rodomas ženklelis: jis būna &lt;span %1&gt;raudonas&lt;/span&gt;, kai tikslumo reikšmė yra prastesnė už prasto tikslumo ribą, &lt;span %2&gt;geltonas&lt;/span&gt;, kai nepasiekia puikaus tikslumo, arba &lt;span %3&gt;žalias&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Be to, galima įjungti tikslumo apribojimo režimą. Kai koordinačių žymeklis užfiksuotas, šis režimas leidžia pridėti viršūnes tik tose padėtyse, kurių tikslumo reikšmė geresnė už prasto tikslumo ribą.</translation>
+        <translation type="vanished">Įjungus tikslumo indikatorių, prie vietos mygtuko rodomas ženklelis: jis būna &lt;span %1&gt;raudonas&lt;/span&gt;, kai tikslumo reikšmė yra prastesnė už prasto tikslumo ribą, &lt;span %2&gt;geltonas&lt;/span&gt;, kai nepasiekia puikaus tikslumo, arba &lt;span %3&gt;žalias&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Taip pat, galima įjungti tikslumo apribojimo režimą. Kai koordinačių žymeklis užfiksuotas, šis režimas leidžia pridėti taškus tik tose padėtyse, kurių tikslumo reikšmė geresnė už prasto tikslumo ribą.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -2780,7 +2780,7 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="vanished">Įjungus šią parinktį, skaitmeninant viršūnes padėtyje užfiksuotu žymekliu bus priimama tik vidutinė padėtis, apskaičiuota iš ne mažesnio nei nustatyta surinktų padėčių skaičiaus. Norėdami skaitmeninti naudodami vidutines padėtis, paspauskite ir palaikykite viršūnės pridėjimo mygtuką. Padėtys bus renkamos tol, kol mygtuką atleisite. Jei įjungti tikslumo reikalavimai, jų bus laikomasi.</translation>
+        <translation type="vanished">Įjungus šią parinktį, skaitmeninant taškus padėtyje užfiksuotu žymekliu bus priimama tik vidutinė padėtis, apskaičiuota iš ne mažesnio nei nustatyta surinktų padėčių skaičiaus. Norėdami skaitmeninti naudodami vidutines padėtis, paspauskite ir palaikykite taško pridėjimo mygtuką. Padėtys bus renkamos tol, kol mygtuką atleisite. Jei įjungti tikslumo reikalavimai, jų bus laikomasi.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -3307,7 +3307,7 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>Įjungus šią parinktį, skaitmeninant įrenginio garsumo didinimo mygtuku pridedama viršūnė, o garsumo mažinimo mygtuku pašalinama paskutinė įvesta viršūnė.</translation>
+        <translation>Įjungus šią parinktį, paspaudus įrenginio garsumo didinimo mygtuką pridedamas taškas, o garsumo mažinimo mygtuku pašalinamas paskutins įvestas taškas</translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
@@ -3315,7 +3315,7 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation>Įjungus šią parinktį, palietus žemėlapio drobę pirštu perkeliamas koordinačių žymeklis, o palietus dukart pridedama viršūnė.</translation>
+        <translation>Įjungus šią parinktį, palietus žemėlapį pirštu perkeliamas koordinačių žymeklis, o palietus dukart pridedamas taškas.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -3703,7 +3703,7 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>Įjungus tikslumo indikatorių, prie vietos mygtuko rodomas ženklelis: jis būna &lt;span %1&gt;raudonas&lt;/span&gt;, kai tikslumo reikšmė prastesnė už &lt;i&gt;prasto&lt;/i&gt; tikslumo ribą, &lt;span %2&gt;geltonas&lt;/span&gt;, kai nepasiekia &lt;i&gt;puikaus&lt;/i&gt; tikslumo, arba &lt;span %3&gt;žalias&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Be to, galima įjungti tikslumo apribojimo režimą. Kai koordinačių žymeklis užfiksuotas, šis režimas neleidžia pridėti viršūnių padėtyse, kurių tikslumo reikšmė prastesnė už prasto tikslumo ribą.</translation>
+        <translation>Įjungus tikslumo indikatorių, prie vietos mygtuko rodomas ženklelis: jis būna &lt;span %1&gt;raudonas&lt;/span&gt;, kai tikslumo reikšmė žemesnė už &lt;i&gt;prasto&lt;/i&gt; tikslumo ribą, &lt;span %2&gt;geltonas&lt;/span&gt;, kai nepasiekia &lt;i&gt;puikaus&lt;/i&gt; tikslumo, arba &lt;span %3&gt;žalias&lt;/span&gt;.&lt;br&gt;&lt;br&gt;Taip pat , galima įjungti tikslumo apribojimo režimą. Kai koordinačių žymeklis užfiksuotas, šis režimas neleidžia pridėti taškų padėtyse, kurių tikslumo reikšmė prastesnė už prasto tikslumo ribą.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>

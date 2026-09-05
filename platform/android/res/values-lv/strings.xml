@@ -1,33 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="done_unpacking_msg">Atarhivēšana pabeigta, startē QGIS.</string>
-    <string name="unpacking_title">QGIS gatavojas</string>
-    <string name="unpacking_msg">Šī vienreizējā operācija aizņems īsu brīdi</string>
-    <string name="unpacking_msg_following">Teju klāt, turies cieši!</string>
-    <string name="use_internal_storage">Lietot iekšējo atmiņu</string>
-    <string name="external_storage_unavailable">Atarhivē pēc instalācijas datus. Tas var aizņemt kādu laiku.</string>
-    <string name="noexternalstorage_dialog">Izskatās, ka ārējā atmiņa (/sdcard) nav pieejama. Tā notiek, ja pieslēdz iekārtu pie datora izmantojot USB. \n QGIS var darbināt no iekšējās datu glabātavas, bet tas netiek rekomendēts.\n Ieteikums atcelt darbību. atvienot USB un pārstartēt QGIS.</string>
-    <string name="primary_storage">Iekšējā atmiņa</string>
-    <string name="secondary_storage">Qfield failu direktorijs</string>
-    <string name="secondary_storage_extra">Papildu failu direktorijs</string>
-    <string name="secondary_storage_read_only">Ārējā atmiņa (tikai lasāma)</string>
-    <string name="inaccessible">nepieejams</string>
-    <string name="loading">Ielādē</string>
-    <string name="select_project">Atlasi QGIS projektu vai datu kopu</string>
-    <string name="recent_projects">Nesenie projekti un datu kopas</string>
-    <string name="rate_title">Novērtē QField</string>
-    <string name="rate_message">Ja jums patīk izmantot QField, lūdzu, veltiet nedaudz laika, lai to novērtētu. Paldies par atbalstu!</string>
-    <string name="rate_now">Novērtēt</string>
-    <string name="remind_later">Atgādini man vēlāk</string>
-    <string name="no_thanks">Nē, paldies!</string>
-    <string name="favorite_directories">Iecienītāko direktoriju izlase</string>
-    <string name="favorites_sample_projects">Projektu paraugi</string>
-    <string name="favorites_imported_projects">Importētie projekti</string>
-    <string name="favorites_imported_datasets">Importētās datu kopas</string>
-    <string name="added_to_favorites">Pievienots izlasei</string>
-    <string name="removed_from_favorites">Izņemts no izlases</string>
-    <string name="external_files_title">Svarīga piezīme</string>
-    <string name="external_files_ok">Labi</string>
     <string name="grant_permission">Piekļuve visām datnēm</string>
     <string name="grant">Atļaut</string>
     <string name="deny_always">Aizliegt neatgriezeniski</string>
