@@ -1129,7 +1129,7 @@ void QfCloudProjectsModel::setGpkgFlusher( QgsGpkgFlusher *flusher )
   emit gpkgFlusherChanged();
 }
 
-void QfCloudProjectsModel::createProject( const QString &name, const QString &fromProjectId )
+void QfCloudProjectsModel::createProject( const QString &name, const QString &description, const QString &fromProjectId )
 {
   if ( name.isEmpty() )
   {
@@ -1150,7 +1150,7 @@ void QfCloudProjectsModel::createProject( const QString &name, const QString &fr
   mCloudConnection->setAuthenticationDetails( request );
 
   const QfNetworkReply *listingreply = mCloudConnection->get( request, url );
-  connect( listingreply, &QfNetworkReply::finished, this, [this, sanitizedName, fromProjectId]() {
+  connect( listingreply, &QfNetworkReply::finished, this, [this, sanitizedName, description, fromProjectId]() {
     QfNetworkReply *reply = qobject_cast<QfNetworkReply *>( sender() );
     QNetworkReply *rawReply = reply->currentRawReply();
     Q_ASSERT( rawReply );
@@ -1183,7 +1183,7 @@ void QfCloudProjectsModel::createProject( const QString &name, const QString &fr
     QVariantMap params;
     params.insert( QStringLiteral( "name" ), finalizedName );
     params.insert( QStringLiteral( "owner" ), mUsername );
-    params.insert( QStringLiteral( "description" ), QString() );
+    params.insert( QStringLiteral( "description" ), description );
     params.insert( QStringLiteral( "private" ), true );
 
     if ( !fromProjectId.isEmpty() )

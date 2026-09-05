@@ -977,10 +977,12 @@ Page {
 
   QfDialog {
     id: cloneProjectDialog
+
+    property string sourceProjectId: ""
+
     parent: mainWindow.contentItem
     title: qsTr("Project Creation")
     width: mainWindow.width - 40
-    property string sourceProjectId: ""
 
     ColumnLayout {
       width: cloneProjectDialog.availableWidth
@@ -1004,6 +1006,24 @@ Page {
         font: QfTheme.tipFont
         color: QfTheme.secondaryTextColor
       }
+
+      Label {
+        Layout.fillWidth: true
+        wrapMode: Text.WordWrap
+        text: qsTr("Enter your project description")
+      }
+
+      ScrollView {
+        Layout.fillWidth: true
+        Layout.maximumHeight: 300
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        ScrollBar.vertical: QfScrollBar {}
+
+        TextArea {
+          id: cloneProjectDescription
+          wrapMode: TextEdit.Wrap
+        }
+      }
     }
 
     onAccepted: {
@@ -1011,7 +1031,7 @@ Page {
       if (trimmedName !== "") {
         busyOverlay.text = qsTr("Creating project…");
         busyOverlay.state = "visible";
-        cloudProjectsModel.createProject(trimmedName, sourceProjectId);
+        cloudProjectsModel.createProject(trimmedName, cloneProjectDescription.text.trim(), sourceProjectId);
       }
     }
   }
