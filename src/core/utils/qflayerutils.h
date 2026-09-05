@@ -165,7 +165,9 @@ class QfLayerUtils : public QObject
 
     /**
      * Adds a \a feature into the \a layer.
-     * \note The function will not call startEditing() and commitChanges()
+     * \note When the layer is not already being edited, the function will call startEditing()
+     * and commitChanges(). If editing was started outside of this function, the feature is left
+     * in the edit buffer for the caller to commit.
      */
     Q_INVOKABLE static bool addFeature( QgsVectorLayer *layer, QgsFeature feature );
 
