@@ -483,19 +483,19 @@ void QfCloudConnection::login( const QString &password )
         {
           emit loginFailed( tr( "Session expired" ) );
         }
+
+        if ( !mProvider.isEmpty() && !mProviderConfigId.isEmpty() )
+        {
+          QgsApplication::authManager()->removeAuthenticationConfig( mProviderConfigId );
+          mProviderConfigId.clear();
+          QSettings().remove( "/QFieldCloud/providerConfigId" );
+          emit providerConfigurationChanged();
+        }
       }
       else
       {
         QString message( errorString( rawReply ) );
         emit loginFailed( message );
-      }
-
-      if ( !mProvider.isEmpty() && !mProviderConfigId.isEmpty() )
-      {
-        QgsApplication::authManager()->removeAuthenticationConfig( mProviderConfigId );
-        mProviderConfigId.clear();
-        QSettings().remove( "/QFieldCloud/providerConfigId" );
-        emit providerConfigurationChanged();
       }
 
       setStatus( ConnectionStatus::Disconnected );
