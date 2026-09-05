@@ -104,36 +104,31 @@ void Qf3DTerrainProvider::setForceSquareSize( bool forceSquareSize )
 
 QSizeF Qf3DTerrainProvider::extentSizeInMeters( const QgsRectangle &extent ) const
 {
+  if ( extent.isEmpty() )
+  {
+    return QSizeF();
+  }
+
   const QgsCoordinateReferenceSystem mapCrs = mMapSettings ? mMapSettings->mapSettings().destinationCrs() : QgsCoordinateReferenceSystem();
-  if ( extent.isEmpty() || !mapCrs.isGeographic() )
+  if ( !mapCrs.isGeographic() )
   {
     return QSizeF( extent.width(), extent.height() );
   }
 
   const QgsCoordinateReferenceSystem mercatorCrs( QStringLiteral( "EPSG:3857" ) );
 
-  QgsRectangle degreeExtent = extent;
-  const QgsRectangle mercatorBounds = mercatorCrs.bounds();
-  if ( !mercatorBounds.isEmpty() )
-  {
-    degreeExtent.setYMinimum( std::max( degreeExtent.yMinimum(), mercatorBounds.yMinimum() ) );
-    degreeExtent.setYMaximum( std::min( degreeExtent.yMaximum(), mercatorBounds.yMaximum() ) );
-    if ( degreeExtent.isEmpty() )
-    {
-      return QSizeF( extent.width(), extent.height() );
-    }
-  }
-
+  QSizeF extentSize;
   try
   {
     const QgsCoordinateTransform transform( mapCrs, mercatorCrs, mMapSettings->mapSettings().transformContext() );
-    const QgsRectangle mercatorExtent = transform.transformBoundingBox( degreeExtent );
-    return QSizeF( mercatorExtent.width(), mercatorExtent.height() );
+    const QgsRectangle mercatorExtent = transform.transformBoundingBox( extent );
+    extentSize = QSizeF( mercatorExtent.width(), mercatorExtent.height() );
   }
   catch ( const QgsCsException & )
   {
-    return QSizeF( extent.width(), extent.height() );
+    extentSize = QSizeF( extent.width(), extent.height() );
   }
+  return extentSize;
 }
 
 void Qf3DTerrainProvider::setNormalizedDataExtent( const QgsRectangle &extent )
