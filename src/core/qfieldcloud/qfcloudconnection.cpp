@@ -1199,7 +1199,7 @@ void QfCloudConnection::saveCookies()
   {
     if ( !cookies[idx].isSessionCookie() && QDateTime::currentSecsSinceEpoch() < cookies[idx].expirationDate().toSecsSinceEpoch() )
     {
-      settings.setValue( QStringLiteral( "/QFieldCloud/cookies/%1" ), cookies[idx].toRawForm() );
+      settings.setValue( QStringLiteral( "/QFieldCloud/cookies/%1" ).arg( idx ), cookies[idx].toRawForm() );
     }
   }
 }
