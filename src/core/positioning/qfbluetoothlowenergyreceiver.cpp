@@ -16,10 +16,20 @@
 
 #include "qfbluetoothlowenergyreceiver.h"
 
+#include <QDateTime>
 #include <QDebug>
 #include <QGuiApplication>
 #include <QMetaEnum>
 #include <QTimer>
+#include <QtBluetooth/QLowEnergyConnectionParameters>
+
+namespace
+{
+  constexpr int CorrectionTimerIntervalMs = 20;
+  constexpr qsizetype CorrectionCatchUpThresholdBytes = 4096;
+  constexpr int NormalCorrectionChunksPerTick = 3;
+  constexpr int CatchUpCorrectionChunksPerTick = 6;
+} // namespace
 
 // Map of BLE service UUID (key) and a pair of RX (first, incoming) and TX (second, outgoing) characteristics
 QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> QfBluetoothLowEnergyReceiver::serviceChars = {
@@ -41,7 +51,7 @@ QfBluetoothLowEnergyReceiver::QfBluetoothLowEnergyReceiver( const QString &addre
 {
   qInfo() << "BluetoothLowEnergyReceiver: Creating the receiver";
 
-  mCorrectionTimer.setInterval( 20 );
+  mCorrectionTimer.setInterval( CorrectionTimerIntervalMs );
   connect( &mCorrectionTimer, &QTimer::timeout, this, &QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk );
 
   initNmeaConnection( mBuffer );
@@ -111,10 +121,27 @@ void QfBluetoothLowEnergyReceiver::doConnectDevice()
     connect( mController, qOverload<QLowEnergyController::Error>( &QLowEnergyController::errorOccurred ), this, &QfBluetoothLowEnergyReceiver::controllerErrorOccurred );
     connect( mController, &QLowEnergyController::serviceDiscovered, this, &QfBluetoothLowEnergyReceiver::serviceDiscovered );
     connect( mController, &QLowEnergyController::discoveryFinished, this, &QfBluetoothLowEnergyReceiver::serviceDiscoveryFinished );
+    connect( mController, &QLowEnergyController::mtuChanged, this, [this]( int mtu ) {
+      mBleTxPayloadSize = std::max<qsizetype>( 20, mtu - 3 );
+      qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: MTU changed to %1, BLE TX payload size set to %2" )
+                   .arg( mtu )
+                   .arg( mBleTxPayloadSize );
+    } );
+    connect( mController, &QLowEnergyController::connectionUpdated, this, []( const QLowEnergyConnectionParameters &parameters ) {
+      qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Connection parameters updated, interval=%1-%2 ms, latency=%3, supervisionTimeout=%4 ms" )
+                   .arg( parameters.minimumInterval() )
+                   .arg( parameters.maximumInterval() )
+                   .arg( parameters.latency() )
+                   .arg( parameters.supervisionTimeout() );
+    } );
   }
 
   setSocketState( QAbstractSocket::ConnectingState );
 
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: connectToDevice requested, controller state %1, mtu=%2, txPayload=%3" )
+               .arg( QMetaEnum::fromType<QLowEnergyController::ControllerState>().valueToKey( mController->state() ) )
+               .arg( mController->mtu() )
+               .arg( mBleTxPayloadSize );
   mController->connectToDevice();
 }
 
@@ -134,13 +161,41 @@ void QfBluetoothLowEnergyReceiver::doDisconnectDevice()
 
 void QfBluetoothLowEnergyReceiver::deviceConnected()
 {
-  qInfo() << "BluetoothLowEnergyReceiver: Connected, discovering services";
+  const int mtu = mController->mtu();
+  if ( mtu > 3 )
+  {
+    mBleTxPayloadSize = std::max<qsizetype>( 20, mtu - 3 );
+  }
+
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Connected, discovering services, controller state %1, mtu=%2, txPayload=%3" )
+               .arg( QMetaEnum::fromType<QLowEnergyController::ControllerState>().valueToKey( mController->state() ) )
+               .arg( mtu )
+               .arg( mBleTxPayloadSize );
+
+  QLowEnergyConnectionParameters parameters;
+  parameters.setIntervalRange( 15.0, 30.0 );
+  parameters.setLatency( 0 );
+  parameters.setSupervisionTimeout( 2000 );
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Requesting faster BLE connection parameters, interval=%1-%2 ms, latency=%3, supervisionTimeout=%4 ms" )
+               .arg( parameters.minimumInterval() )
+               .arg( parameters.maximumInterval() )
+               .arg( parameters.latency() )
+               .arg( parameters.supervisionTimeout() );
+  mController->requestConnectionUpdate( parameters );
+
   mController->discoverServices();
 }
 
 void QfBluetoothLowEnergyReceiver::deviceDisconnected()
 {
-  qInfo() << "BluetoothLowEnergyReceiver: Received disconnected signal.";
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Received disconnected signal. rxNotifications=%1 rxBytes=%2 rxSentences=%3 correctionReceived=%4 correctionWritten=%5 correctionPending=%6 chunksWritten=%7" )
+               .arg( mBleRxNotifications )
+               .arg( mBleRxBytes )
+               .arg( mBleRxSentences )
+               .arg( mCorrectionBytesReceived )
+               .arg( mCorrectionBytesWritten )
+               .arg( mCorrectionData.size() )
+               .arg( mCorrectionChunksWritten );
 
   if ( mDisconnecting )
   {
@@ -241,6 +296,11 @@ void QfBluetoothLowEnergyReceiver::serviceDiscoveryFinished()
 
 void QfBluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::ServiceState state )
 {
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Service %1 state changed to %2" )
+               .arg( sender() == mService && mService ? mService->serviceUuid().toString() : sender() == mBatteryService && mBatteryService ? mBatteryService->serviceUuid().toString()
+                                                                                                                                            : QStringLiteral( "unknown" ) )
+               .arg( QMetaEnum::fromType<QLowEnergyService::ServiceState>().valueToKey( state ) );
+
   if ( sender() == mService )
   {
     if ( state == QLowEnergyService::RemoteServiceDiscovered )
@@ -311,7 +371,10 @@ void QfBluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::Servi
 void QfBluetoothLowEnergyReceiver::serviceErrorOccurred( QLowEnergyService::ServiceError error )
 {
   mLastError = QStringLiteral( "Service Error: %1" ).arg( QMetaEnum::fromType<QLowEnergyService::ServiceError>().valueToKey( static_cast<int>( error ) ) );
-  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: %1" ).arg( mLastError );
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: %1, correctionPending=%2 correctionWritten=%3" )
+               .arg( mLastError )
+               .arg( mCorrectionData.size() )
+               .arg( mCorrectionBytesWritten );
   emit lastErrorChanged( mLastError );
 }
 
@@ -319,16 +382,34 @@ void QfBluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharac
 {
   if ( characteristic.uuid() == mRxCharacteristic.uuid() )
   {
+    mBleRxNotifications++;
+    mBleRxBytes += value.size();
+
     mBufferData.append( value );
     int endSentenceIndex = mBufferData.lastIndexOf( QLatin1String( "\r\n" ) );
     if ( endSentenceIndex > -1 )
     {
+      const QByteArray completedSentences = mBufferData.mid( 0, endSentenceIndex + 2 );
+      mBleRxSentences += completedSentences.count( "\r\n" );
+
       mBuffer->buffer().clear();
       mBuffer->seek( 0 );
-      mBuffer->write( mBufferData.mid( 0, endSentenceIndex + 2 ) );
+      mBuffer->write( completedSentences );
       mBuffer->seek( 0 );
 
       mBufferData = mBufferData.mid( endSentenceIndex + 2 );
+    }
+
+    const qint64 now = QDateTime::currentMSecsSinceEpoch();
+    if ( mLastBleRxLogMs == 0 || now - mLastBleRxLogMs >= 5000 )
+    {
+      qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: BLE RX stats notifications=%1 bytes=%2 nmeaSentences=%3 partialBuffer=%4 socketState=%5" )
+                   .arg( mBleRxNotifications )
+                   .arg( mBleRxBytes )
+                   .arg( mBleRxSentences )
+                   .arg( mBufferData.size() )
+                   .arg( socketStateString() );
+      mLastBleRxLogMs = now;
     }
   }
   else if ( characteristic.uuid() == mBatteryCharacteristic.uuid() )
@@ -344,6 +425,11 @@ void QfBluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharac
 
 void QfBluetoothLowEnergyReceiver::clearService()
 {
+  if ( !mCorrectionData.isEmpty() )
+  {
+    qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Clearing BLE service with %1 correction bytes still pending" ).arg( mCorrectionData.size() );
+  }
+
   if ( mBuffer->isOpen() )
   {
     mBuffer->close();
@@ -386,10 +472,27 @@ void QfBluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &d
 {
   if ( !mService || !mTxCharacteristic.isValid() )
   {
+    qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Dropping %1 correction bytes because BLE TX is not ready. service=%2 txValid=%3" )
+                 .arg( data.size() )
+                 .arg( mService ? mService->serviceUuid().toString() : QStringLiteral( "none" ) )
+                 .arg( mTxCharacteristic.isValid() ? QStringLiteral( "true" ) : QStringLiteral( "false" ) );
     return;
   }
 
+  mCorrectionBytesReceived += data.size();
   mCorrectionData.append( data );
+
+  const qint64 now = QDateTime::currentMSecsSinceEpoch();
+  if ( mLastCorrectionLogMs == 0 || now - mLastCorrectionLogMs >= 5000 )
+  {
+    qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: RTCM queued from NTRIP received=%1 written=%2 pending=%3 chunksWritten=%4 timerActive=%5" )
+                 .arg( mCorrectionBytesReceived )
+                 .arg( mCorrectionBytesWritten )
+                 .arg( mCorrectionData.size() )
+                 .arg( mCorrectionChunksWritten )
+                 .arg( mCorrectionTimer.isActive() ? QStringLiteral( "true" ) : QStringLiteral( "false" ) );
+    mLastCorrectionLogMs = now;
+  }
 
   if ( !mCorrectionTimer.isActive() )
   {
@@ -401,14 +504,55 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
 {
   if ( mCorrectionData.isEmpty() || !mService || !mTxCharacteristic.isValid() )
   {
+    if ( !mCorrectionData.isEmpty() )
+    {
+      qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Stopping correction forwarding with %1 bytes pending. service=%2 txValid=%3" )
+                   .arg( mCorrectionData.size() )
+                   .arg( mService ? mService->serviceUuid().toString() : QStringLiteral( "none" ) )
+                   .arg( mTxCharacteristic.isValid() ? QStringLiteral( "true" ) : QStringLiteral( "false" ) );
+    }
     mCorrectionTimer.stop();
     return;
   }
 
-  // Payloag must not be longer than 20 bytes
-  // https://doc.qt.io/qt-6/qlowenergyservice.html#WriteMode-enum
-  const qsizetype chunkSize = std::min( static_cast<qsizetype>( 20 ), mCorrectionData.size() );
-  QByteArray chunk = mCorrectionData.left( chunkSize );
-  mCorrectionData.remove( 0, chunkSize );
-  mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
+  qsizetype bytesWrittenThisTick = 0;
+  qsizetype lastChunkSize = 0;
+  int chunksWrittenThisTick = 0;
+  // With the default BLE MTU, each write carries 20 payload bytes. At a
+  // 20 ms timer interval, 3 chunks/tick keeps up with typical 2-3 KB/s RTCM
+  // streams while 6 chunks/tick allows catching up after short bursts.
+  const int maxChunksPerTick = mCorrectionData.size() > CorrectionCatchUpThresholdBytes ? CatchUpCorrectionChunksPerTick : NormalCorrectionChunksPerTick;
+
+  while ( !mCorrectionData.isEmpty() && chunksWrittenThisTick < maxChunksPerTick )
+  {
+    // BLE payload must not be longer than ATT MTU minus the 3-byte ATT header.
+    const qsizetype chunkSize = std::min( mBleTxPayloadSize, mCorrectionData.size() );
+    QByteArray chunk = mCorrectionData.left( chunkSize );
+    mCorrectionData.remove( 0, chunkSize );
+    mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
+    mCorrectionBytesWritten += chunk.size();
+    mCorrectionChunksWritten++;
+    bytesWrittenThisTick += chunk.size();
+    lastChunkSize = chunk.size();
+    chunksWrittenThisTick++;
+  }
+
+  if ( mCorrectionData.isEmpty() )
+  {
+    mCorrectionTimer.stop();
+  }
+
+  const qint64 now = QDateTime::currentMSecsSinceEpoch();
+  if ( mLastCorrectionLogMs == 0 || now - mLastCorrectionLogMs >= 5000 )
+  {
+    qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: RTCM forwarded over BLE written=%1 pending=%2 chunksWritten=%3 chunksThisTick=%4 bytesThisTick=%5 lastChunk=%6 serviceState=%7" )
+                 .arg( mCorrectionBytesWritten )
+                 .arg( mCorrectionData.size() )
+                 .arg( mCorrectionChunksWritten )
+                 .arg( chunksWrittenThisTick )
+                 .arg( bytesWrittenThisTick )
+                 .arg( lastChunkSize )
+                 .arg( mService ? QMetaEnum::fromType<QLowEnergyService::ServiceState>().valueToKey( mService->state() ) : "none" );
+    mLastCorrectionLogMs = now;
+  }
 }

@@ -24,6 +24,12 @@
 #include <QFileInfo>
 #include <QRegularExpression>
 
+namespace
+{
+  constexpr qint64 CorrectionStatsLogIntervalMs = 5000;
+  constexpr qint64 GgaForwardingLogIntervalMs = 30000;
+} // namespace
+
 
 QfNtripClient::QfNtripClient( QObject *parent )
   : QObject( parent )
@@ -68,14 +74,35 @@ void QfNtripClient::start( const QfNtripSettings &ntripSettings, QfAbstractGnssR
   }
 
   mLastNtripGgaSent = 0;
+  mLastGgaLogMs = 0;
   mBytesSent = 0;
   mBytesReceived = 0;
+  mCorrectionBlocksReceived = 0;
+  mLastCorrectionLogMs = 0;
+  mLastCorrectionLogBytes = 0;
 
   qInfo() << QStringLiteral( "Starting NTRIP client: host %1, port %2, mount point %3" ).arg( ntripSettings.host(), QString::number( ntripSettings.port() ), ntripSettings.mountPoint() );
   mSocket = new QfNtripSocket( this );
 
   connect( mSocket, &QfNtripSocket::correctionDataReceived, this, [this]( const QByteArray &data ) {
     mBytesReceived += data.size();
+    mCorrectionBlocksReceived++;
+
+    const qint64 now = QDateTime::currentMSecsSinceEpoch();
+    if ( mLastCorrectionLogMs == 0 || now - mLastCorrectionLogMs >= CorrectionStatsLogIntervalMs )
+    {
+      const qint64 deltaMs = mLastCorrectionLogMs == 0 ? 0 : now - mLastCorrectionLogMs;
+      const qint64 deltaBytes = mBytesReceived - mLastCorrectionLogBytes;
+      const double bytesPerSecond = deltaMs > 0 ? deltaBytes * 1000.0 / deltaMs : 0.0;
+      qDebug() << QStringLiteral( "NTRIP Client: correction stats bytesReceived=%1 blocks=%2 lastBlock=%3 approxRate=%4 B/s receiverReady=%5" )
+                    .arg( mBytesReceived )
+                    .arg( mCorrectionBlocksReceived )
+                    .arg( data.size() )
+                    .arg( bytesPerSecond, 0, 'f', 1 )
+                    .arg( mReceiver ? QStringLiteral( "true" ) : QStringLiteral( "false" ) );
+      mLastCorrectionLogMs = now;
+      mLastCorrectionLogBytes = mBytesReceived;
+    }
 
     emit correctionDataReceived( data );
     emit bytesReceivedChanged();
@@ -124,6 +151,11 @@ void QfNtripClient::sendNmeaSentence( const QString &sentence )
   {
     mBytesSent += bytesWritten;
     emit bytesSentChanged();
+    qDebug() << QStringLiteral( "NTRIP Client: Sent NMEA sentence to caster, bytesWritten=%1 totalBytesSent=%2 sentence=%3" ).arg( bytesWritten ).arg( mBytesSent ).arg( sentence.left( 6 ) );
+  }
+  else
+  {
+    qDebug() << QStringLiteral( "NTRIP Client: Failed to send NMEA sentence to caster, socket not connected or write failed" );
   }
 }
 
@@ -199,6 +231,13 @@ void QfNtripClient::nmeaSentenceReceived( const QString &sentence )
   if ( sentenceId != QStringLiteral( "GGA" ) )
   {
     return;
+  }
+
+  const qint64 now = QDateTime::currentMSecsSinceEpoch();
+  if ( mLastGgaLogMs == 0 || now - mLastGgaLogMs >= GgaForwardingLogIntervalMs )
+  {
+    qDebug() << QStringLiteral( "NTRIP Client: Received GGA from receiver for caster forwarding, talker=%1 length=%2" ).arg( talkerId, QString::number( sentence.size() ) );
+    mLastGgaLogMs = now;
   }
 
   QString sentenceToSend = sentence;
