@@ -4835,6 +4835,7 @@ ApplicationWindow {
     }
 
     function onImportTriggered(name) {
+      busyOverlay.reset();
       busyOverlay.text = qsTr("Importing %1").arg(name);
       busyOverlay.state = "visible";
     }
@@ -4862,6 +4863,32 @@ ApplicationWindow {
       }
     }
 
+    function onPrintTriggered(name) {
+      busyOverlay.isPrinting = true;
+      busyOverlay.reset();
+      busyOverlay.text = qsTr("Printing %1").arg(name);
+      busyOverlay.state = "visible";
+    }
+
+    function onPrintProgress(progress) {
+      busyOverlay.progress = progress;
+    }
+
+    function onPrintEnded(success, folderPath) {
+      busyOverlay.isPrinting = false;
+      busyOverlay.state = "hidden";
+      if (!success) {
+        displayToast(qsTr('Print failed'), 'error');
+      } else {
+        displayToast(qsTr('Printed and placed in your project layouts folder'), 'info', qsTr('Open folder'), () => {
+          dashBoard.close();
+          qfieldLocalDataPickerScreen.projectFolderView = true;
+          qfieldLocalDataPickerScreen.model.resetToPath(folderPath);
+          qfieldLocalDataPickerScreen.visible = true;
+        });
+      }
+    }
+
     function onLoadProjectTriggered(path, name) {
       qfieldAuthRequestHandler.isProjectLoading = true;
       messageLogModel.suppress({
@@ -4880,6 +4907,7 @@ ApplicationWindow {
       dashBoard.layerTree.freeze();
       mapCanvasMap.stopRendering();
       mapCanvasMap.freeze('projectload');
+      busyOverlay.reset();
       busyOverlay.text = qsTr("Loading %1").arg(name !== '' ? name : path);
       busyOverlay.state = "visible";
       navigation.clearDestinationFeature();
@@ -5623,12 +5651,22 @@ ApplicationWindow {
   QfBusyOverlay {
     id: busyOverlay
     objectName: 'busyOverlay'
+
+    parent: Overlay.overlay
+    z: dashBoard.z + 1
+
+    property bool isPrinting: false
+
     state: iface.hasProjectOnLaunch() ? "visible" : "hidden"
   }
 
   property bool closeAlreadyRequested: false
 
   onClosing: close => {
+    if (busyOverlay.isPrinting) {
+      close.accepted = false;
+      return;
+    }
     if (screenLocker.enabled) {
       close.accepted = false;
       displayToast(qsTr("Unlock the screen to close project and app"));

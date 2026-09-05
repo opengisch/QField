@@ -416,9 +416,7 @@ QfEditorWidgetBase {
           repeat: false
           onTriggered: {
             var ids = [childMenu.entryReferencingFeature.id];
-            if (iface.printAtlasFeatures(printName, ids)) {
-              displayToast(qsTr('Atlas feature(s) successfully printed and placed in your project folder'));
-            }
+            iface.printAtlasFeatures(printName, ids);
           }
         }
       }
