@@ -2178,70 +2178,17 @@ ApplicationWindow {
 
     QfToolButton {
       id: compassArrow
-      rotation: mapCanvas.mapSettings.rotation
-      visible: rotation !== 0 && stateMachine.state !== '3d'
+
+      visible: mapCanvas.mapSettings.rotation !== 0 && stateMachine.state !== '3d'
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.bottomMargin: 54
       round: true
-      bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
-      Shape {
-        width: compassArrow.width
-        height: compassArrow.height
-
-        ShapePath {
-          strokeWidth: 3
-          strokeColor: "transparent"
-          strokeStyle: ShapePath.SolidLine
-          fillColor: QfTheme.mainColor
-          joinStyle: ShapePath.MiterJoin
-          startX: compassArrow.width / 2
-          startY: 8
-          PathLine {
-            x: compassArrow.width / 2 + 6
-            y: compassArrow.height / 2
-          }
-          PathLine {
-            x: compassArrow.width / 2
-            y: compassArrow.height / 2 - 2
-          }
-          PathLine {
-            x: compassArrow.width / 2 - 6
-            y: compassArrow.height / 2
-          }
-          PathLine {
-            x: compassArrow.width / 2
-            y: 8
-          }
-        }
-
-        ShapePath {
-          strokeWidth: 3
-          strokeColor: "transparent"
-          strokeStyle: ShapePath.SolidLine
-          fillColor: QfTheme.toolButtonColor
-          joinStyle: ShapePath.MiterJoin
-          startX: compassArrow.width / 2
-          startY: compassArrow.height - 8
-          PathLine {
-            x: compassArrow.width / 2 + 6
-            y: compassArrow.height / 2
-          }
-          PathLine {
-            x: compassArrow.width / 2
-            y: compassArrow.height / 2 + 2
-          }
-          PathLine {
-            x: compassArrow.width / 2 - 6
-            y: compassArrow.height / 2
-          }
-          PathLine {
-            x: compassArrow.width / 2
-            y: compassArrow.height - 8
-          }
-        }
+      QfCompassDial {
+        anchors.fill: parent
+        mapRotation: mapCanvas.mapSettings.rotation
       }
 
       onClicked: {
