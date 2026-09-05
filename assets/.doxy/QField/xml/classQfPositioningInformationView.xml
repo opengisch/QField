@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPositioningInformationView" kind="class" language="C++" prot="public">
+    <compoundname>QfPositioningInformationView</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <derivedcompoundref refid="classPositioningInformationView" prot="public" virt="non-virtual">PositioningInformationView</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPositioningInformationView_1aec42269da7354e347df9dafde3f22575" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPositioningInformationView::positionSource</definition>
+        <argsstring></argsstring>
+        <name>positionSource</name>
+        <qualifiedname>QfPositioningInformationView::positionSource</qualifiedname>
+        <read>dummyGetter_positionSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="13" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationView_1a1285467c5133bfb84ae98003e1953ed3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPositioningInformationView::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>QfPositioningInformationView::antennaHeight</qualifiedname>
+        <read>dummyGetter_antennaHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="15" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationView_1a29d2eafbac4cb9c594b3dd0a83ecb57f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfPositioningInformationView::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QfPositioningInformationView::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="17" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationView_1af39a489fd482103acefe122e3d1b29ee" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfPositioningInformationView::alternateBackgroundColor</definition>
+        <argsstring></argsstring>
+        <name>alternateBackgroundColor</name>
+        <qualifiedname>QfPositioningInformationView::alternateBackgroundColor</qualifiedname>
+        <read>dummyGetter_alternateBackgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="19" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationView_1a847a264156fecc9e8441354cc2619535" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfPositioningInformationView::textColor</definition>
+        <argsstring></argsstring>
+        <name>textColor</name>
+        <qualifiedname>QfPositioningInformationView::textColor</qualifiedname>
+        <read>dummyGetter_textColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="21" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationView_1a5283314f852ce32982e6c025d49002c1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioningInformationView::cellHeight</definition>
+        <argsstring></argsstring>
+        <name>cellHeight</name>
+        <qualifiedname>QfPositioningInformationView::cellHeight</qualifiedname>
+        <read>dummyGetter_cellHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="23" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationView_1a1d6a8ba3f64ac9ca3066fefdec4a4832" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioningInformationView::cellPadding</definition>
+        <argsstring></argsstring>
+        <name>cellPadding</name>
+        <qualifiedname>QfPositioningInformationView::cellPadding</qualifiedname>
+        <read>dummyGetter_cellPadding_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="25" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationView_1a6d821070abbd2b25ab422a76e6099715" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfPositioningInformationView::contentHeight</definition>
+        <argsstring></argsstring>
+        <name>contentHeight</name>
+        <qualifiedname>QfPositioningInformationView::contentHeight</qualifiedname>
+        <read>dummyGetter_contentHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="27" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPositioningInformationView_1a2be3143a134dc0807106c46dc9e969c0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPositioningInformationView::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfPositioningInformationView::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="29" column="5" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioningInformationView_1a915e0c453372d61f2d4ccb67c445be41" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfPositioningInformationView::margins</definition>
+        <argsstring></argsstring>
+        <name>margins</name>
+        <qualifiedname>QfPositioningInformationView::margins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="30" column="12" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioningInformationView_1a49df4d493a790b41fe732efa1dbfc54a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPositioningInformationView::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfPositioningInformationView::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="31" column="5" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioningInformationView_1ab2b5b3b4c43faf129064440ee010493b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPositioningInformationView::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfPositioningInformationView::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="32" column="5" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioningInformationView_1afc6ff671754538ca20259f347181dbc2" prot="private" static="no" mutable="no">
+        <type>GridView</type>
+        <definition>GridView QfPositioningInformationView::grid</definition>
+        <argsstring></argsstring>
+        <name>grid</name>
+        <qualifiedname>QfPositioningInformationView::grid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPositioningInformationView.qml" line="33" column="10" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>PositioningInformationView</label>
+        <link refid="classPositioningInformationView"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfPositioningInformationView</label>
+        <link refid="classQfPositioningInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfPositioningInformationView</label>
+        <link refid="classQfPositioningInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfPositioningInformationView.qml" line="10" column="1" bodyfile="src/gui/qml/QfPositioningInformationView.qml" bodystart="10" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classQfPositioningInformationView_1af39a489fd482103acefe122e3d1b29ee" prot="public" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>alternateBackgroundColor</name></member>
+      <member refid="classQfPositioningInformationView_1a1285467c5133bfb84ae98003e1953ed3" prot="public" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>antennaHeight</name></member>
+      <member refid="classQfPositioningInformationView_1a29d2eafbac4cb9c594b3dd0a83ecb57f" prot="public" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>backgroundColor</name></member>
+      <member refid="classQfPositioningInformationView_1a5283314f852ce32982e6c025d49002c1" prot="public" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>cellHeight</name></member>
+      <member refid="classQfPositioningInformationView_1a1d6a8ba3f64ac9ca3066fefdec4a4832" prot="public" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>cellPadding</name></member>
+      <member refid="classQfPositioningInformationView_1ab2b5b3b4c43faf129064440ee010493b" prot="private" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>clip</name></member>
+      <member refid="classQfPositioningInformationView_1a2be3143a134dc0807106c46dc9e969c0" prot="private" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>color</name></member>
+      <member refid="classQfPositioningInformationView_1a6d821070abbd2b25ab422a76e6099715" prot="public" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>contentHeight</name></member>
+      <member refid="classQfPositioningInformationView_1afc6ff671754538ca20259f347181dbc2" prot="private" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>grid</name></member>
+      <member refid="classQfPositioningInformationView_1a915e0c453372d61f2d4ccb67c445be41" prot="private" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>margins</name></member>
+      <member refid="classQfPositioningInformationView_1aec42269da7354e347df9dafde3f22575" prot="public" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>positionSource</name></member>
+      <member refid="classQfPositioningInformationView_1a847a264156fecc9e8441354cc2619535" prot="public" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>textColor</name></member>
+      <member refid="classQfPositioningInformationView_1a49df4d493a790b41fe732efa1dbfc54a" prot="private" virt="non-virtual"><scope>QfPositioningInformationView</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

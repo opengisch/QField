@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qf3d_8cpp" kind="file" language="C++">
+    <compoundname>qf3d.cpp</compoundname>
+    <includes refid="qf3d_8h" local="yes">qf3d.h</includes>
+    <includes refid="qf3dgeometry_8h" local="yes">qf3dgeometry.h</includes>
+    <includes refid="qf3dgeometryconfiguration_8h" local="yes">qf3dgeometryconfiguration.h</includes>
+    <includes refid="qf3dmaptexturedata_8h" local="yes">qf3dmaptexturedata.h</includes>
+    <includes refid="qf3drubberbandgeometry_8h" local="yes">qf3drubberbandgeometry.h</includes>
+    <includes refid="qf3dterraingeometry_8h" local="yes">qf3dterraingeometry.h</includes>
+    <includes refid="qf3dterrainprovider_8h" local="yes">qf3dterrainprovider.h</includes>
+    <includes refid="qfmaptoview3d_8h" local="yes">qfmaptoview3d.h</includes>
+    <includes local="no">QtQml</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/3d/qf3d.cpp</label>
+        <link refid="qf3d_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qf3d.h</label>
+        <link refid="qf3d_8h_source"/>
+      </node>
+      <node id="3">
+        <label>qf3dgeometry.h</label>
+        <link refid="qf3dgeometry_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>qf3dgeometryconfiguration.h</label>
+        <link refid="qf3dgeometryconfiguration_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>qf3dmaptexturedata.h</label>
+        <link refid="qf3dmaptexturedata_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>qf3drubberbandgeometry.h</label>
+        <link refid="qf3drubberbandgeometry_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>qf3dterraingeometry.h</label>
+        <link refid="qf3dterraingeometry_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>qf3dterrainprovider.h</label>
+        <link refid="qf3dterrainprovider_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>qfmaptoview3d.h</label>
+        <link refid="qfmaptoview3d_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>qfrubberbandmodel.h</label>
+        <link refid="qfrubberbandmodel_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>QColor</label>
+      </node>
+      <node id="35">
+        <label>QDateTime</label>
+      </node>
+      <node id="14">
+        <label>QFutureWatcher</label>
+      </node>
+      <node id="29">
+        <label>QImage</label>
+      </node>
+      <node id="7">
+        <label>QObject</label>
+      </node>
+      <node id="36">
+        <label>QPointF</label>
+      </node>
+      <node id="15">
+        <label>QPointer</label>
+      </node>
+      <node id="22">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="27">
+        <label>QQuickItem</label>
+      </node>
+      <node id="16">
+        <label>QSize</label>
+      </node>
+      <node id="30">
+        <label>QTimer</label>
+      </node>
+      <node id="17">
+        <label>QVariantList</label>
+      </node>
+      <node id="37">
+        <label>QVector</label>
+      </node>
+      <node id="18">
+        <label>QVector3D</label>
+      </node>
+      <node id="43">
+        <label>QtQml</label>
+      </node>
+      <node id="31">
+        <label>QtQuick3D/QQuick3DTextureData</label>
+      </node>
+      <node id="20">
+        <label>memory</label>
+      </node>
+      <node id="6">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="38">
+        <label>qgis.h</label>
+      </node>
+      <node id="39">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="23">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="24">
+        <label>qgscoordinatetransform.h</label>
+      </node>
+      <node id="8">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="25">
+        <label>qgsgeometry.h</label>
+      </node>
+      <node id="9">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="10">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="11">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="12">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="19">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="13">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="32">
+        <label>qobjectuniqueptr.h</label>
+      </node>
+      <node id="42">
+        <label>qqmlintegration.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceQf3D">Qf3D</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qf3d.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>August<sp/>2026</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mohsen<sp/>Dehghanzadeh</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mohsen@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qf3d.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qf3dgeometry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qf3dgeometryconfiguration.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qf3dmaptexturedata.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qf3drubberbandgeometry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qf3dterraingeometry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qf3dterrainprovider.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfmaptoview3d.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtQml&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Qf3D</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerQmlTypes()</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfMapToView3D&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfMapToView3D&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DGeometry&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Qf3DGeometry&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DGeometryConfiguration&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Qf3DGeometryConfiguration&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DMapTextureData&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Qf3DMapTextureData&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DRubberbandGeometry&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Qf3DRubberbandGeometry&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DTerrainGeometry&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Qf3DTerrainGeometry&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DTerrainProvider&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Qf3DTerrainProvider&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Pre-Qf<sp/>names,<sp/>reached<sp/>through<sp/>org.qfield<sp/>or<sp/>the<sp/>legacy<sp/>Theme<sp/>module.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfMapToView3D&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MapToView3D&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DGeometry&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Quick3DGeometry&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DGeometryConfiguration&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Quick3DGeometryConfiguration&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DMapTextureData&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Quick3DMapTextureData&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DRubberbandGeometry&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Quick3DRubberbandGeometry&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DTerrainGeometry&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Quick3DTerrainGeometry&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Qf3DTerrainProvider&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Quick3DTerrainProvider&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Qf3D</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/3d/qf3d.cpp"/>
+  </compounddef>
+</doxygen>

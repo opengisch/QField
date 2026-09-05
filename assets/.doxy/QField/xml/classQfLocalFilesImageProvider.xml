@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLocalFilesImageProvider" kind="class" language="C++" prot="public">
+    <compoundname>QfLocalFilesImageProvider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickImageProvider</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLocalFilesImageProvider_1af261babdea1d65181a45187a12dfd61d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLocalFilesImageProvider::QfLocalFilesImageProvider</definition>
+        <argsstring>()</argsstring>
+        <name>QfLocalFilesImageProvider</name>
+        <qualifiedname>QfLocalFilesImageProvider::QfLocalFilesImageProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflocalfilesimageprovider.h" line="27" column="14" bodyfile="src/gui/qflocalfilesimageprovider.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocalFilesImageProvider_1a9f680e373f732f7d6353d9310a9f7695" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QQmlImageProviderBase::ImageType</type>
+        <definition>QQmlImageProviderBase::ImageType QfLocalFilesImageProvider::imageType</definition>
+        <argsstring>() const override</argsstring>
+        <name>imageType</name>
+        <qualifiedname>QfLocalFilesImageProvider::imageType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflocalfilesimageprovider.h" line="29" column="38" bodyfile="src/gui/qflocalfilesimageprovider.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocalFilesImageProvider_1ae2f83fe92867b97ff8a0727f58a6e13c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QImage</type>
+        <definition>QImage QfLocalFilesImageProvider::requestImage</definition>
+        <argsstring>(const QString &amp;id, QSize *size, const QSize &amp;requestedSize) override</argsstring>
+        <name>requestImage</name>
+        <qualifiedname>QfLocalFilesImageProvider::requestImage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>QSize *</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const QSize &amp;</type>
+          <declname>requestedSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflocalfilesimageprovider.h" line="30" column="12" bodyfile="src/gui/qflocalfilesimageprovider.cpp" bodystart="29" bodyend="71"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuickImageProvider</label>
+      </node>
+      <node id="1">
+        <label>QfLocalFilesImageProvider</label>
+        <link refid="classQfLocalFilesImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickImageProvider</label>
+      </node>
+      <node id="1">
+        <label>QfLocalFilesImageProvider</label>
+        <link refid="classQfLocalFilesImageProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qflocalfilesimageprovider.h" line="24" column="1" bodyfile="src/gui/qflocalfilesimageprovider.h" bodystart="25" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classQfLocalFilesImageProvider_1a9f680e373f732f7d6353d9310a9f7695" prot="public" virt="non-virtual"><scope>QfLocalFilesImageProvider</scope><name>imageType</name></member>
+      <member refid="classQfLocalFilesImageProvider_1af261babdea1d65181a45187a12dfd61d" prot="public" virt="non-virtual"><scope>QfLocalFilesImageProvider</scope><name>QfLocalFilesImageProvider</name></member>
+      <member refid="classQfLocalFilesImageProvider_1ae2f83fe92867b97ff8a0727f58a6e13c" prot="public" virt="non-virtual"><scope>QfLocalFilesImageProvider</scope><name>requestImage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTerrainMesh" kind="class" language="C++" prot="public">
+    <compoundname>QfTerrainMesh</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Node</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTerrainMesh_1ac075314dd9d0942d2dab88529a6326bf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfTerrainMesh::mapTerrainGeometry</definition>
+        <argsstring></argsstring>
+        <name>mapTerrainGeometry</name>
+        <qualifiedname>QfTerrainMesh::mapTerrainGeometry</qualifiedname>
+        <read>dummyGetter_mapTerrainGeometry_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTerrainMesh.qml" line="10" column="1" bodyfile="src/3d/qml/QfTerrainMesh.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTerrainMesh_1a8a62ff29828f6da00ad169c5e0aa4715" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfTerrainMesh::mapTexture</definition>
+        <argsstring></argsstring>
+        <name>mapTexture</name>
+        <qualifiedname>QfTerrainMesh::mapTexture</qualifiedname>
+        <read>dummyGetter_mapTexture_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTerrainMesh.qml" line="12" column="1" bodyfile="src/3d/qml/QfTerrainMesh.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTerrainMesh_1af8e7dd07e21bffd0b6030698ee271863" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQf3DMapTextureData" kindref="compound">Qf3DMapTextureData</ref></type>
+        <definition>Qf3DMapTextureData QfTerrainMesh::mapTextureData</definition>
+        <argsstring></argsstring>
+        <name>mapTextureData</name>
+        <qualifiedname>QfTerrainMesh::mapTextureData</qualifiedname>
+        <read>dummyGetter_mapTextureData_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTerrainMesh.qml" line="14" column="1" bodyfile="src/3d/qml/QfTerrainMesh.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTerrainMesh_1abe1ef5da997bef738483ce6f27def8d3" prot="private" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture QfTerrainMesh::neutralTexture</definition>
+        <argsstring></argsstring>
+        <name>neutralTexture</name>
+        <qualifiedname>QfTerrainMesh::neutralTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTerrainMesh.qml" line="16" column="9" bodyfile="src/3d/qml/QfTerrainMesh.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTerrainMesh_1a8d021939706b56b7d97490cb014882bf" prot="private" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture QfTerrainMesh::mapTexture</definition>
+        <argsstring></argsstring>
+        <name>mapTexture</name>
+        <qualifiedname>QfTerrainMesh::mapTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTerrainMesh.qml" line="17" column="9" bodyfile="src/3d/qml/QfTerrainMesh.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTerrainMesh_1af8f9036f514ec7319ed5c439e1bd781e" prot="private" static="no" mutable="no">
+        <type>Model</type>
+        <definition>Model QfTerrainMesh::terrainModel</definition>
+        <argsstring></argsstring>
+        <name>terrainModel</name>
+        <qualifiedname>QfTerrainMesh::terrainModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTerrainMesh.qml" line="18" column="7" bodyfile="src/3d/qml/QfTerrainMesh.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>QfTerrainMesh</label>
+        <link refid="classQfTerrainMesh"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>QfTerrainMesh</label>
+        <link refid="classQfTerrainMesh"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qml/QfTerrainMesh.qml" line="7" column="1" bodyfile="src/3d/qml/QfTerrainMesh.qml" bodystart="7" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classQfTerrainMesh_1ac075314dd9d0942d2dab88529a6326bf" prot="public" virt="non-virtual"><scope>QfTerrainMesh</scope><name>mapTerrainGeometry</name></member>
+      <member refid="classQfTerrainMesh_1a8a62ff29828f6da00ad169c5e0aa4715" prot="public" virt="non-virtual"><scope>QfTerrainMesh</scope><name>mapTexture</name></member>
+      <member refid="classQfTerrainMesh_1a8d021939706b56b7d97490cb014882bf" prot="private" virt="non-virtual"><scope>QfTerrainMesh</scope><name>mapTexture</name></member>
+      <member refid="classQfTerrainMesh_1af8e7dd07e21bffd0b6030698ee271863" prot="public" virt="non-virtual"><scope>QfTerrainMesh</scope><name>mapTextureData</name></member>
+      <member refid="classQfTerrainMesh_1abe1ef5da997bef738483ce6f27def8d3" prot="private" virt="non-virtual"><scope>QfTerrainMesh</scope><name>neutralTexture</name></member>
+      <member refid="classQfTerrainMesh_1af8f9036f514ec7319ed5c439e1bd781e" prot="private" virt="non-virtual"><scope>QfTerrainMesh</scope><name>terrainModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,567 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFeatureListForm" kind="class" language="C++" prot="public">
+    <compoundname>QfFeatureListForm</compoundname>
+    <basecompoundref refid="classQfPaneDrawer" prot="public" virt="non-virtual">QfPaneDrawer</basecompoundref>
+    <derivedcompoundref refid="classFeatureListForm" prot="public" virt="non-virtual">FeatureListForm</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfFeatureListForm_1a0423a37b4adf6d990717affc11f7c1aa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfProcessingAlgorithm" kindref="compound">QfProcessingAlgorithm</ref></type>
+        <definition>QfProcessingAlgorithm QfFeatureListForm::algorithm</definition>
+        <argsstring></argsstring>
+        <name>algorithm</name>
+        <qualifiedname>QfFeatureListForm::algorithm</qualifiedname>
+        <read>dummyGetter_algorithm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="30" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a085754d04336b77eb682f3126cec9720" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureListModelSelection" kindref="compound">QfFeatureListModelSelection</ref></type>
+        <definition>QfFeatureListModelSelection QfFeatureListForm::selection</definition>
+        <argsstring></argsstring>
+        <name>selection</name>
+        <qualifiedname>QfFeatureListForm::selection</qualifiedname>
+        <read>dummyGetter_selection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="32" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a9543128310d64c95d1405bfc8f4c67b3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfFeatureListForm::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfFeatureListForm::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="34" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a182432ded75b527488be6be250dcc12a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfDigitizingToolbar" kindref="compound">QfDigitizingToolbar</ref></type>
+        <definition>QfDigitizingToolbar QfFeatureListForm::digitizingToolbar</definition>
+        <argsstring></argsstring>
+        <name>digitizingToolbar</name>
+        <qualifiedname>QfFeatureListForm::digitizingToolbar</qualifiedname>
+        <read>dummyGetter_digitizingToolbar_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="36" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1ad2978a02f74ee887f71fe44ca063ce57" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfConfirmationToolbar" kindref="compound">QfConfirmationToolbar</ref></type>
+        <definition>QfConfirmationToolbar QfFeatureListForm::moveFeaturesToolbar</definition>
+        <argsstring></argsstring>
+        <name>moveFeaturesToolbar</name>
+        <qualifiedname>QfFeatureListForm::moveFeaturesToolbar</qualifiedname>
+        <read>dummyGetter_moveFeaturesToolbar_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="38" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a5dd0a013f15e14b1880c58da0e811f20" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfConfirmationToolbar" kindref="compound">QfConfirmationToolbar</ref></type>
+        <definition>QfConfirmationToolbar QfFeatureListForm::rotateFeaturesToolbar</definition>
+        <argsstring></argsstring>
+        <name>rotateFeaturesToolbar</name>
+        <qualifiedname>QfFeatureListForm::rotateFeaturesToolbar</qualifiedname>
+        <read>dummyGetter_rotateFeaturesToolbar_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="40" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a0b4ecb202087db3b03146ab9a64d1013" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCodeReader" kindref="compound">QfCodeReader</ref></type>
+        <definition>QfCodeReader QfFeatureListForm::codeReader</definition>
+        <argsstring></argsstring>
+        <name>codeReader</name>
+        <qualifiedname>QfFeatureListForm::codeReader</qualifiedname>
+        <read>dummyGetter_codeReader_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="42" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a76cede47bf5550d3f5f4ba53a497e6ad" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfFeatureListForm::selectionColor</definition>
+        <argsstring></argsstring>
+        <name>selectionColor</name>
+        <qualifiedname>QfFeatureListForm::selectionColor</qualifiedname>
+        <read>dummyGetter_selectionColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="44" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a1db359bd4f5a44b3e384a40df674ed06" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref></type>
+        <definition>QfMultiFeatureListModel QfFeatureListForm::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfFeatureListForm::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="46" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1ab8cbc10019de8771fa9818ed2562ea8a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureListExtentController" kindref="compound">QfFeatureListExtentController</ref></type>
+        <definition>QfFeatureListExtentController QfFeatureListForm::extentController</definition>
+        <argsstring></argsstring>
+        <name>extentController</name>
+        <qualifiedname>QfFeatureListForm::extentController</qualifiedname>
+        <read>dummyGetter_extentController_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="48" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1ae1f580552d6b6b6f19b2e29d8582f69e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListForm::allowEdit</definition>
+        <argsstring></argsstring>
+        <name>allowEdit</name>
+        <qualifiedname>QfFeatureListForm::allowEdit</qualifiedname>
+        <read>dummyGetter_allowEdit_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="50" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a2da1351b7362d25b534a7a21322cb1ab" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListForm::allowDelete</definition>
+        <argsstring></argsstring>
+        <name>allowDelete</name>
+        <qualifiedname>QfFeatureListForm::allowDelete</qualifiedname>
+        <read>dummyGetter_allowDelete_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="52" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1aeb18c9c3dc14649d44db4abafcbe7ed2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListForm::multiSelection</definition>
+        <argsstring></argsstring>
+        <name>multiSelection</name>
+        <qualifiedname>QfFeatureListForm::multiSelection</qualifiedname>
+        <read>dummyGetter_multiSelection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="54" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a4a43fd410893bde212cf21eb3a8e4db6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListForm::formOpenedFromSingleIdentify</definition>
+        <argsstring></argsstring>
+        <name>formOpenedFromSingleIdentify</name>
+        <qualifiedname>QfFeatureListForm::formOpenedFromSingleIdentify</qualifiedname>
+        <read>dummyGetter_formOpenedFromSingleIdentify_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="57" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListForm_1a308abbce85664ea8b0de62293883e03d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListForm::canvasOperationRequested</definition>
+        <argsstring></argsstring>
+        <name>canvasOperationRequested</name>
+        <qualifiedname>QfFeatureListForm::canvasOperationRequested</qualifiedname>
+        <read>dummyGetter_canvasOperationRequested_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="62" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFeatureListForm_1abfc89d95fb71976178194044650098de" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::isFullscreen</definition>
+        <argsstring></argsstring>
+        <name>isFullscreen</name>
+        <qualifiedname>QfFeatureListForm::isFullscreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="59" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1aa37d307db52b848d912f5aa286328d09" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::contentVisible</definition>
+        <argsstring></argsstring>
+        <name>contentVisible</name>
+        <qualifiedname>QfFeatureListForm::contentVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="64" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1aad7ded870c1f72d9f63e9b31565bb5f2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::freezeKey</definition>
+        <argsstring></argsstring>
+        <name>freezeKey</name>
+        <qualifiedname>QfFeatureListForm::freezeKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="65" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1a7f10512791edb9794962ec78f6fc3d83" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::headerHeight</definition>
+        <argsstring></argsstring>
+        <name>headerHeight</name>
+        <qualifiedname>QfFeatureListForm::headerHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="66" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1aa9227e1b3da9d8761a23175c78d91460" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::useDefaultMinHeight</definition>
+        <argsstring></argsstring>
+        <name>useDefaultMinHeight</name>
+        <qualifiedname>QfFeatureListForm::useDefaultMinHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="67" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1a7f1bff92b154aad42538255a030fcf84" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::minContentHeight</definition>
+        <argsstring></argsstring>
+        <name>minContentHeight</name>
+        <qualifiedname>QfFeatureListForm::minContentHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="68" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1a81eb3b85bdaccad95045b77723324ab7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::onCollapsed</definition>
+        <argsstring></argsstring>
+        <name>onCollapsed</name>
+        <qualifiedname>QfFeatureListForm::onCollapsed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="69" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1a8da6e4e9e73736fd44209681ce07f19d" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfFeatureListForm::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>QfFeatureListForm::bottomMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="80" column="12" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1a52d52f8c01ff4c12adfb9ada246c8d5e" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfFeatureListForm::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>QfFeatureListForm::rightMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="81" column="12" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1ad6fc318a23c85503fba2c055d250670e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::opacity</definition>
+        <argsstring></argsstring>
+        <name>opacity</name>
+        <qualifiedname>QfFeatureListForm::opacity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="82" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1a1eed70b333f2ccab6ae402aeb9c0f501" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfFeatureListForm::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="83" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListForm_1a5551cd9db7880e3090d011e5f794af12" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfFeatureListForm::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>QfFeatureListForm::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="84" column="5" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="84" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfFeatureListForm_1aa97889e55a0695d2ca15b07615fb0b6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListForm::showMessage</definition>
+        <argsstring>(string message)</argsstring>
+        <name>showMessage</name>
+        <qualifiedname>QfFeatureListForm::showMessage</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="72" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListForm_1aced1b840eea4182e7e7505b89638bc7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListForm::editGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>editGeometry</name>
+        <qualifiedname>QfFeatureListForm::editGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="74" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListForm_1a513639bf1af983af55e79dfc0d77c32d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListForm::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfFeatureListForm::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="76" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFeatureListForm_1a9e28a2d78ff971b3da7bff96c67bde9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListForm::requestCancel</definition>
+        <argsstring>()</argsstring>
+        <name>requestCancel</name>
+        <qualifiedname>QfFeatureListForm::requestCancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfFeatureListForm.qml" line="78" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>FeatureListForm</label>
+        <link refid="classFeatureListForm"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureListForm</label>
+        <link refid="classQfFeatureListForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPaneDrawer</label>
+        <link refid="classQfPaneDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureListForm</label>
+        <link refid="classQfFeatureListForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPaneDrawer</label>
+        <link refid="classQfPaneDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfFeatureListForm.qml" line="27" column="1" bodyfile="src/gui/qml/QfFeatureListForm.qml" bodystart="27" bodyend="85"/>
+    <listofallmembers>
+      <member refid="classQfFeatureListForm_1a0423a37b4adf6d990717affc11f7c1aa" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>algorithm</name></member>
+      <member refid="classQfFeatureListForm_1a2da1351b7362d25b534a7a21322cb1ab" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>allowDelete</name></member>
+      <member refid="classQfFeatureListForm_1ae1f580552d6b6b6f19b2e29d8582f69e" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>allowEdit</name></member>
+      <member refid="classQfFeatureListForm_1a8da6e4e9e73736fd44209681ce07f19d" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>bottomMargin</name></member>
+      <member refid="classQfFeatureListForm_1a308abbce85664ea8b0de62293883e03d" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>canvasOperationRequested</name></member>
+      <member refid="classQfFeatureListForm_1a0b4ecb202087db3b03146ab9a64d1013" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>codeReader</name></member>
+      <member refid="classQfPaneDrawer_1a3d87cc2208337720912d471f31698cfe" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>collapsed</name></member>
+      <member refid="classQfFeatureListForm_1aa37d307db52b848d912f5aa286328d09" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>contentVisible</name></member>
+      <member refid="classQfFeatureListForm_1a182432ded75b527488be6be250dcc12a" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>digitizingToolbar</name></member>
+      <member refid="classQfFeatureListForm_1aced1b840eea4182e7e7505b89638bc7a" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>editGeometry</name></member>
+      <member refid="classQfFeatureListForm_1a1eed70b333f2ccab6ae402aeb9c0f501" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>enabled</name></member>
+      <member refid="classQfFeatureListForm_1ab8cbc10019de8771fa9818ed2562ea8a" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>extentController</name></member>
+      <member refid="classQfFeatureListForm_1a4a43fd410893bde212cf21eb3a8e4db6" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>formOpenedFromSingleIdentify</name></member>
+      <member refid="classQfFeatureListForm_1aad7ded870c1f72d9f63e9b31565bb5f2" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>freezeKey</name></member>
+      <member refid="classQfFeatureListForm_1a7f10512791edb9794962ec78f6fc3d83" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>headerHeight</name></member>
+      <member refid="classQfPaneDrawer_1a2c058006b0d920db8b5ce16b98d35b7c" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>isDragging</name></member>
+      <member refid="classQfFeatureListForm_1abfc89d95fb71976178194044650098de" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>isFullscreen</name></member>
+      <member refid="classQfPaneDrawer_1a8f1662990e15603b5d732968edc40e71" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>isVertical</name></member>
+      <member refid="classQfFeatureListForm_1a9543128310d64c95d1405bfc8f4c67b3" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>mapSettings</name></member>
+      <member refid="classQfFeatureListForm_1a7f1bff92b154aad42538255a030fcf84" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>minContentHeight</name></member>
+      <member refid="classQfFeatureListForm_1a1db359bd4f5a44b3e384a40df674ed06" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>model</name></member>
+      <member refid="classQfFeatureListForm_1ad2978a02f74ee887f71fe44ca063ce57" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>moveFeaturesToolbar</name></member>
+      <member refid="classQfFeatureListForm_1aeb18c9c3dc14649d44db4abafcbe7ed2" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>multiSelection</name></member>
+      <member refid="classQfFeatureListForm_1a81eb3b85bdaccad95045b77723324ab7" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>onCollapsed</name></member>
+      <member refid="classQfFeatureListForm_1ad6fc318a23c85503fba2c055d250670e" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>opacity</name></member>
+      <member refid="classQfFeatureListForm_1a9e28a2d78ff971b3da7bff96c67bde9c" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>requestCancel</name></member>
+      <member refid="classQfFeatureListForm_1a513639bf1af983af55e79dfc0d77c32d" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfFeatureListForm_1a52d52f8c01ff4c12adfb9ada246c8d5e" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>rightMargin</name></member>
+      <member refid="classQfFeatureListForm_1a5dd0a013f15e14b1880c58da0e811f20" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>rotateFeaturesToolbar</name></member>
+      <member refid="classQfFeatureListForm_1a085754d04336b77eb682f3126cec9720" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>selection</name></member>
+      <member refid="classQfFeatureListForm_1a76cede47bf5550d3f5f4ba53a497e6ad" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>selectionColor</name></member>
+      <member refid="classQfFeatureListForm_1aa97889e55a0695d2ca15b07615fb0b6c" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>showMessage</name></member>
+      <member refid="classQfFeatureListForm_1a5551cd9db7880e3090d011e5f794af12" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>states</name></member>
+      <member refid="classQfPaneDrawer_1a4df2c713f02fe09c5de8ad1bd0e6c1ab" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>statusIndicatorDragged</name></member>
+      <member refid="classQfPaneDrawer_1a6ecf6a1796fff4e1930a6ceb46033514" prot="public" virt="non-virtual"><scope>QfFeatureListForm</scope><name>statusIndicatorDragReleased</name></member>
+      <member refid="classQfFeatureListForm_1aa9227e1b3da9d8761a23175c78d91460" prot="private" virt="non-virtual"><scope>QfFeatureListForm</scope><name>useDefaultMinHeight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

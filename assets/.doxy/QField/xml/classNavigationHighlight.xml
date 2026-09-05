@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNavigationHighlight" kind="class" language="C++" prot="public">
+    <compoundname>NavigationHighlight</compoundname>
+    <basecompoundref refid="classQfNavigationHighlight" prot="public" virt="non-virtual">QfNavigationHighlight</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NavigationHighlight</label>
+        <link refid="classNavigationHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNavigationHighlight</label>
+        <link refid="classQfNavigationHighlight"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NavigationHighlight</label>
+        <link refid="classNavigationHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNavigationHighlight</label>
+        <link refid="classQfNavigationHighlight"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/NavigationHighlight.qml" line="2" column="1" bodyfile="src/app/qml_compat/NavigationHighlight.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfNavigationHighlight_1a4073362209602cca4bd1ddeb0e8e6e2f" prot="public" virt="non-virtual"><scope>NavigationHighlight</scope><name>navigation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

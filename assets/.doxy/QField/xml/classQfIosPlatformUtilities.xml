@@ -1,0 +1,779 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfIosPlatformUtilities" kind="class" language="C++" prot="public">
+    <compoundname>QfIosPlatformUtilities</compoundname>
+    <basecompoundref refid="classQfPlatformUtilities" prot="public" virt="non-virtual">QfPlatformUtilities</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ae82adbd4e1505bfad551e38b011eec48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfIosPlatformUtilities::QfIosPlatformUtilities</definition>
+        <argsstring>()</argsstring>
+        <name>QfIosPlatformUtilities</name>
+        <qualifiedname>QfIosPlatformUtilities::QfIosPlatformUtilities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="29" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a88c8d3fcd75208da75b7ca99243e8b3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QfPlatformUtilities::Capabilities</type>
+        <definition>QfPlatformUtilities::Capabilities QfIosPlatformUtilities::capabilities</definition>
+        <argsstring>() const override</argsstring>
+        <name>capabilities</name>
+        <qualifiedname>QfIosPlatformUtilities::capabilities</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1aa89cf3ab89145c3fdf7139949a270ac1">capabilities</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns flags containing the supported capabilities of the platform. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="31" column="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a36b29120f177cf3abc7fb06fe46c440a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::afterUpdate</definition>
+        <argsstring>() override</argsstring>
+        <name>afterUpdate</name>
+        <qualifiedname>QfIosPlatformUtilities::afterUpdate</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ab7ceead53e265de96742bc697a681fb9">afterUpdate</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method can be used to implement platform specific initialization tasks to be performed after an app update. This is implemented for Android to extract app assets to location where it can be accessed via filesystem. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="32" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a16450600e1efebd1643639a905241679" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>QString QfIosPlatformUtilities::systemSharedDataLocation</definition>
+        <argsstring>() const override</argsstring>
+        <name>systemSharedDataLocation</name>
+        <qualifiedname>QfIosPlatformUtilities::systemSharedDataLocation</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a5c2691a753758483bac702f3a61c7d77">systemSharedDataLocation</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The path to share data location. Under this path, there should be the app specific directories qgis/ proj/ qfield/ ... Refers to /share or /usr/share on Linux. This path is assumed to be read only. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>By default, assume that we have a layout like this:</para>
+<para>[prefix_path] |<ndash/> bin | |<ndash/> qfield.exe |<ndash/> share | |<ndash/> qfield | | |<ndash/> sample_projects | |<ndash/> proj | | |<ndash/> data | | | |<ndash/> proj.db</para>
+<para><ref refid="classQfIosPlatformUtilities_1a16450600e1efebd1643639a905241679" kindref="member">systemSharedDataLocation()</ref>&apos;s return value will therefore be - relative to qfield.exe - &apos;../share&apos;. However it is possible to override this default logic through a environment variable named QFIELD_SYSTEM_SHARED_DATA_PATH. If present, its value will be used as the return value instead.</para>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="34" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a381988752d4dbda3fb40485dfd91f530" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>QString QfIosPlatformUtilities::applicationDirectory</definition>
+        <argsstring>() const override</argsstring>
+        <name>applicationDirectory</name>
+        <qualifiedname>QfIosPlatformUtilities::applicationDirectory</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a771f8472cb9bd6b4daa08dc54db66c56">applicationDirectory</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The main application directory within which projects and datasets can be imported. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="35" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ae3f57d3fd39e49e7a29551c3d0468025" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfIosPlatformUtilities::appDataDirs</definition>
+        <argsstring>() const override</argsstring>
+        <name>appDataDirs</name>
+        <qualifiedname>QfIosPlatformUtilities::appDataDirs</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ab8c9658b905bf6a4b7f5ff54eff9c9c1">appDataDirs</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a list of data directories where user data is searched. User data are pg_service.conf, authentication config, grids, ... </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="36" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1acdd193303a188446716e49f0aaa40652" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfIosPlatformUtilities::rootDirectories</definition>
+        <argsstring>() const override</argsstring>
+        <name>rootDirectories</name>
+        <qualifiedname>QfIosPlatformUtilities::rootDirectories</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a2f945de54a5bd6088b2ee89b39d89ef4">rootDirectories</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A list of root directories (e.g. root of an external storage) when system-wide access is available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="37" column="17" bodyfile="src/core/platforms/ios/qfiosplatformutilities.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ab8043cbd32f1836d33ecf1046e305e96" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::importProjectFolder</definition>
+        <argsstring>() const override</argsstring>
+        <name>importProjectFolder</name>
+        <qualifiedname>QfIosPlatformUtilities::importProjectFolder</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a7c3979d720d825b049ab669152c24225">importProjectFolder</reimplements>
+        <briefdescription>
+<para>Requests and imports a project folder into QField&apos;s application directory action. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="39" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ae50514f4c436041cbac04ff10ce7f979" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::importProjectArchive</definition>
+        <argsstring>() const override</argsstring>
+        <name>importProjectArchive</name>
+        <qualifiedname>QfIosPlatformUtilities::importProjectArchive</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1abbcaeb0e1683824a885f074cf1b4b9c7">importProjectArchive</reimplements>
+        <briefdescription>
+<para>Requests and imports a project archive into QField&apos;s application directory action. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="40" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a62e62b6768c853e69f33aee0d1a8770f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::importDatasets</definition>
+        <argsstring>() const override</argsstring>
+        <name>importDatasets</name>
+        <qualifiedname>QfIosPlatformUtilities::importDatasets</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a9116903e243287ed7c70b3a71cc1486a">importDatasets</reimplements>
+        <briefdescription>
+<para>Requests and imports one or more datasets into QField&apos;s application directory action. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="41" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1abb4462f0e1f4679c56820766a5dd7678" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::exportDatasetTo</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>exportDatasetTo</name>
+        <qualifiedname>QfIosPlatformUtilities::exportDatasetTo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a1e269c8f9aa5fc88350a09bae592e62d">exportDatasetTo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Exports a dataset <emphasis>path</emphasis> to a user-specified location. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="42" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ad1f88024867decbe07ae722337d19d26" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::exportFolderTo</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>exportFolderTo</name>
+        <qualifiedname>QfIosPlatformUtilities::exportFolderTo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a1d2c4f228ae500ccfbe2f3adeeffec60">exportFolderTo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Exports a folder <emphasis>path</emphasis> to a user-specified location. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="43" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1aff9b3826012b1110ed7cbbd6dd577e7b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::sendDatasetTo</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>sendDatasetTo</name>
+        <qualifiedname>QfIosPlatformUtilities::sendDatasetTo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a95416f0177c66fd73da4fa030fef85b2">sendDatasetTo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Sends a dataset <emphasis>path</emphasis> via the platform native API. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="44" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ab862f5fcefebb55bec5ab2cd0492f8d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::sendCompressedFolderTo</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>sendCompressedFolderTo</name>
+        <qualifiedname>QfIosPlatformUtilities::sendCompressedFolderTo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a6fc8626c9aee2033f16a5e502d03a89d">sendCompressedFolderTo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Compresses a folder <emphasis>path</emphasis> and sends it via the platform native API. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="45" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ae9e1665e65d0f98965a9e90d5e546440" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::updateProjectFromArchive</definition>
+        <argsstring>(const QString &amp;projectPath) const override</argsstring>
+        <name>updateProjectFromArchive</name>
+        <qualifiedname>QfIosPlatformUtilities::updateProjectFromArchive</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a19302c08a7b88c3bf949ac53a533e5e4">updateProjectFromArchive</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update a local project content from a user-picked archive file action <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>projectPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the project file path </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="46" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a3bc587e43551075e4ce866a66898b187" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::setScreenLockPermission</definition>
+        <argsstring>(const bool allowLock) override</argsstring>
+        <name>setScreenLockPermission</name>
+        <qualifiedname>QfIosPlatformUtilities::setScreenLockPermission</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a31471b6a790878bb4f91f93f1fad012c">setScreenLockPermission</reimplements>
+        <param>
+          <type>const bool</type>
+          <declname>allowLock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the device screen is allowed to go in lock mode. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>allowLock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if set to FALSE, the screen will not be allowed to lock. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="48" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a14dce8d28564cc8d7007a418fee19759" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>virtual QfResourceSource * QfIosPlatformUtilities::getCameraPicture</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;pictureFilePath, const QString &amp;suffix, QObject *parent=nullptr) override</argsstring>
+        <name>getCameraPicture</name>
+        <qualifiedname>QfIosPlatformUtilities::getCameraPicture</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a85de3bb37bac3df94b3c12ff5c580365">getCameraPicture</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pictureFilePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a picture from camera and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pictureFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the picture or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="49" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1afde0fd1a5eb3783edabcad22c85cb728" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>virtual QfResourceSource * QfIosPlatformUtilities::getCameraVideo</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;videoFilePath, const QString &amp;suffix, QObject *parent=nullptr) override</argsstring>
+        <name>getCameraVideo</name>
+        <qualifiedname>QfIosPlatformUtilities::getCameraVideo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ae18c56eb5028fc0e6b18d62335308a97">getCameraVideo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>videoFilePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a video from camera and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>videoFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the video or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="53" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ad91b6a8312f61ff9c85a45f3c9047f85" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>virtual QfResourceSource * QfIosPlatformUtilities::getGalleryPicture</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;pictureFilePath, QObject *parent=nullptr) override</argsstring>
+        <name>getGalleryPicture</name>
+        <qualifiedname>QfIosPlatformUtilities::getGalleryPicture</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a6ac7c222877bb34de09dd38bea521703">getGalleryPicture</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pictureFilePath</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a picture from gallery and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pictureFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the picture or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="58" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ab999ff37f1b4eb0e60f6b068c5045263" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>virtual QfResourceSource * QfIosPlatformUtilities::getGalleryVideo</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;videoFilePath, QObject *parent=nullptr) override</argsstring>
+        <name>getGalleryVideo</name>
+        <qualifiedname>QfIosPlatformUtilities::getGalleryVideo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a66ccffa930bba893680a2a5fed9b6b62">getGalleryVideo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>videoFilePath</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a video from gallery and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>videoFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the video </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the video or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="60" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a896ec8d09b71ec39cdbb74370a8e936c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfViewStatus" kindref="compound">QfViewStatus</ref> *</type>
+        <definition>virtual QfViewStatus * QfIosPlatformUtilities::open</definition>
+        <argsstring>(const QString &amp;uri, bool editing=false, QObject *parent=nullptr) override</argsstring>
+        <name>open</name>
+        <qualifiedname>QfIosPlatformUtilities::open</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a560429ae7b4491c98786ded42ccda52d">open</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uri</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>editing</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open the resource (file, image, ...) that is available under <emphasis>uri</emphasis>. The mimetype is detected to indicate the system how the file should be opened. An optional <emphasis>editing</emphasis> parameter can be set to true to indicate to supported systems the resource is expected to be edited. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="61" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a27b81c5794d5e727803d26e04af1418d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfProjectSource" kindref="compound">QfProjectSource</ref> *</type>
+        <definition>virtual QfProjectSource * QfIosPlatformUtilities::openProject</definition>
+        <argsstring>(QObject *parent=nullptr) override</argsstring>
+        <name>openProject</name>
+        <qualifiedname>QfIosPlatformUtilities::openProject</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1acbb7549d79189d5243b1a291b73f1275">openProject</reimplements>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates the system that we want to open a project. The system shall show a suitable user interface element (like a filebrowser) to let the user select a project. The call returns immediately and the returned <ref refid="classQfProjectSource" kindref="compound">QfProjectSource</ref> will notify when the project has actually been chosen. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="62" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a26d1a569c9eb05a6c75d90d3452db2b8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>double QfIosPlatformUtilities::systemFontPointSize</definition>
+        <argsstring>() const override</argsstring>
+        <name>systemFontPointSize</name>
+        <qualifiedname>QfIosPlatformUtilities::systemFontPointSize</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a51f0b66cf01358030beea0ff9d99d714">systemFontPointSize</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the default system font size. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="64" column="12" bodyfile="src/core/platforms/ios/qfiosplatformutilities.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1af56318e82b82bbe08c27b2779b430844" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfIosPlatformUtilities::isSystemDarkTheme</definition>
+        <argsstring>() const override</argsstring>
+        <name>isSystemDarkTheme</name>
+        <qualifiedname>QfIosPlatformUtilities::isSystemDarkTheme</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a661a73a79789d95e709a1b120865968c">isSystemDarkTheme</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE is the system uses a dark theme. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a593d936eaf788421b4d77623a4ef483f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus QfIosPlatformUtilities::checkCameraPermission</definition>
+        <argsstring>() const override</argsstring>
+        <name>checkCameraPermission</name>
+        <qualifiedname>QfIosPlatformUtilities::checkCameraPermission</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a33ae871249599699752a78dd03c42e5a">checkCameraPermission</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="67" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1ac64f5a83a098c1be9a1d6a98b66d9b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfIosPlatformUtilities::requestCameraPermission</definition>
+        <argsstring>(std::function&lt; void(Qt::PermissionStatus)&gt; func) override</argsstring>
+        <name>requestCameraPermission</name>
+        <qualifiedname>QfIosPlatformUtilities::requestCameraPermission</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1abb741c0753543fcb498c69cc0ad084b2">requestCameraPermission</reimplements>
+        <param>
+          <type>std::function&lt; void(Qt::PermissionStatus)&gt;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1a68c1e76651c0e213393cc62dc36da150" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>Qt::PermissionStatus</type>
+        <definition>virtual Qt::PermissionStatus QfIosPlatformUtilities::checkMicrophonePermission</definition>
+        <argsstring>() const override</argsstring>
+        <name>checkMicrophonePermission</name>
+        <qualifiedname>QfIosPlatformUtilities::checkMicrophonePermission</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a1b67a6035e752291a1df8c33feafad69">checkMicrophonePermission</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="69" column="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosPlatformUtilities_1aa4faa0e57086a5367c7349bb16fe9492" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void QfIosPlatformUtilities::requestMicrophonePermission</definition>
+        <argsstring>(std::function&lt; void(Qt::PermissionStatus)&gt; func) override</argsstring>
+        <name>requestMicrophonePermission</name>
+        <qualifiedname>QfIosPlatformUtilities::requestMicrophonePermission</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a51db46b241f8c6c7ab6151d283e629b0">requestMicrophonePermission</reimplements>
+        <param>
+          <type>std::function&lt; void(Qt::PermissionStatus)&gt;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="70" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfIosPlatformUtilities</label>
+        <link refid="classQfIosPlatformUtilities"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPlatformUtilities</label>
+        <link refid="classQfPlatformUtilities"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfIosPlatformUtilities</label>
+        <link refid="classQfIosPlatformUtilities"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPlatformUtilities</label>
+        <link refid="classQfPlatformUtilities"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/ios/qfiosplatformutilities.h" line="26" column="1" bodyfile="src/core/platforms/ios/qfiosplatformutilities.h" bodystart="27" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classQfPlatformUtilities_1a4b98f5f71ccc5e3d229c9b348a548045" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>additionalApplicationDirectories</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407bae72e13ed9eac60e160e15f3d19ddc7b7" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>AdjustBrightness</name></member>
+      <member refid="classQfIosPlatformUtilities_1a36b29120f177cf3abc7fb06fe46c440a" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>afterUpdate</name></member>
+      <member refid="classQfIosPlatformUtilities_1ae3f57d3fd39e49e7a29551c3d0468025" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>appDataDirs</name></member>
+      <member refid="classQfIosPlatformUtilities_1a381988752d4dbda3fb40485dfd91f530" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>applicationDirectory</name></member>
+      <member refid="classQfPlatformUtilities_1a89e89762f5ff3e132e0467106c367e43" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>availableGrids</name></member>
+      <member refid="classQfIosPlatformUtilities_1a88c8d3fcd75208da75b7ca99243e8b3a" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>capabilities</name></member>
+      <member refid="classQfPlatformUtilities_1a25bd93727afd7147d51181857c14a123" prot="public" virt="non-virtual" ambiguityscope="QfPlatformUtilities::"><scope>QfIosPlatformUtilities</scope><name>capabilities</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407b" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>Capability</name></member>
+      <member refid="classQfIosPlatformUtilities_1a593d936eaf788421b4d77623a4ef483f" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>checkCameraPermission</name></member>
+      <member refid="classQfPlatformUtilities_1a7a164844cae3780cde28b07a9dda552c" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>checkCameraPermissions</name></member>
+      <member refid="classQfIosPlatformUtilities_1a68c1e76651c0e213393cc62dc36da150" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>checkMicrophonePermission</name></member>
+      <member refid="classQfPlatformUtilities_1ac4ef794eda2d82e33815ea88bc66d59b" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>checkMicrophonePermissions</name></member>
+      <member refid="classQfPlatformUtilities_1a5f918965a0a40082ff641e8327458717" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>checkPositioningPermissions</name></member>
+      <member refid="classQfPlatformUtilities_1a1742f6c4204e456d0547362d9907ade0" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>copyTextToClipboard</name></member>
+      <member refid="classQfPlatformUtilities_1a33c7bf31583ec4a0dc3b100366958842" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>createDir</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407baa653f9223762e8b62b8508cb7f9463ee" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>CustomExport</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba8978374a9f02c5c2c0ac065ba4e459bc" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>CustomImport</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407bab603dcf1601b0a9e29b34f08c8642a9f" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>CustomSend</name></member>
+      <member refid="classQfPlatformUtilities_1aa83c4fa9cc41e540467fa4e4cdf0291c" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>dimBrightness</name></member>
+      <member refid="classQfPlatformUtilities_1af6010bb7380842e51fe2102f2d0ecef1" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>executeQfAction</name></member>
+      <member refid="classQfIosPlatformUtilities_1abb4462f0e1f4679c56820766a5dd7678" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>exportDatasetTo</name></member>
+      <member refid="classQfIosPlatformUtilities_1ad1f88024867decbe07ae722337d19d26" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>exportFolderTo</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407baa700ad84801d0371cb40244fc2c2efe3" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>FilePicker</name></member>
+      <member refid="classQfIosPlatformUtilities_1a14dce8d28564cc8d7007a418fee19759" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>getCameraPicture</name></member>
+      <member refid="classQfIosPlatformUtilities_1afde0fd1a5eb3783edabcad22c85cb728" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>getCameraVideo</name></member>
+      <member refid="classQfPlatformUtilities_1a8fa3d2d31291a0f00eef73487efd3e49" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>getFile</name></member>
+      <member refid="classQfIosPlatformUtilities_1ad91b6a8312f61ff9c85a45f3c9047f85" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>getGalleryPicture</name></member>
+      <member refid="classQfIosPlatformUtilities_1ab999ff37f1b4eb0e60f6b068c5045263" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>getGalleryVideo</name></member>
+      <member refid="classQfPlatformUtilities_1ad6274f540df55619a07226b5b689f3d8" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>getTextFromClipboard</name></member>
+      <member refid="classQfPlatformUtilities_1aca3c91414daaefa568521df19d8ebf56" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>hasQfAction</name></member>
+      <member refid="classQfPlatformUtilities_1a8cc115b57f3640ac6d01cf727693453b" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>hasQgsProject</name></member>
+      <member refid="classQfIosPlatformUtilities_1a62e62b6768c853e69f33aee0d1a8770f" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>importDatasets</name></member>
+      <member refid="classQfIosPlatformUtilities_1ae50514f4c436041cbac04ff10ce7f979" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>importProjectArchive</name></member>
+      <member refid="classQfIosPlatformUtilities_1ab8043cbd32f1836d33ecf1046e305e96" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>importProjectFolder</name></member>
+      <member refid="classQfPlatformUtilities_1a5706927c12627d2a57ddfbec3464fd2b" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>initSystem</name></member>
+      <member refid="classQfPlatformUtilities_1ad8f409f38ff28eb1a3643a42abb754a1" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>instance</name></member>
+      <member refid="classQfIosPlatformUtilities_1af56318e82b82bbe08c27b2779b430844" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>isSystemDarkTheme</name></member>
+      <member refid="classQfPlatformUtilities_1ae1ca66a84b867a7213b7e0da44b9ce6b" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>loadQgsProject</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407babe9013a1ef04980271d53c6cd0fdd022" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>NativeCamera</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba22175ca9589c7a93920a227fd97ffb80" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>NativeLocalDataPicker</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba2bd6616116ae84f817295ef2fceb326a" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>NoCapabilities</name></member>
+      <member refid="classQfIosPlatformUtilities_1a896ec8d09b71ec39cdbb74370a8e936c" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>open</name></member>
+      <member refid="classQfIosPlatformUtilities_1a27b81c5794d5e727803d26e04af1418d" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>openProject</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407bad5a3e5623b303916a43c7e643aa41a47" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>PositioningService</name></member>
+      <member refid="classQfIosPlatformUtilities_1ae82adbd4e1505bfad551e38b011eec48" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>QfIosPlatformUtilities</name></member>
+      <member refid="classQfPlatformUtilities_1ac0b81cc845fa508ef62cbdc85efa4c85" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>removeDataset</name></member>
+      <member refid="classQfPlatformUtilities_1ac840b152d9d5f87a934574ad40067fee" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>removeFolder</name></member>
+      <member refid="classQfPlatformUtilities_1a03f49f13baa5c32102848bfa16aa393e" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>renameFile</name></member>
+      <member refid="classQfPlatformUtilities_1a868b2c81c5198b2641e292dde896e5ac" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>requestBackgroundPositioningPermissions</name></member>
+      <member refid="classQfIosPlatformUtilities_1ac64f5a83a098c1be9a1d6a98b66d9b8d" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>requestCameraPermission</name></member>
+      <member refid="classQfIosPlatformUtilities_1aa4faa0e57086a5367c7349bb16fe9492" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>requestMicrophonePermission</name></member>
+      <member refid="classQfPlatformUtilities_1a2a3810b3cf1c683dbd8abb3d0d1722fc" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>requestStoragePermission</name></member>
+      <member refid="classQfPlatformUtilities_1a8bde7388e6b7353f779d4101d328009f" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>resourceCanceled</name></member>
+      <member refid="classQfPlatformUtilities_1afe37e797a8744dd4a73df1ab5b832157" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>resourceOpened</name></member>
+      <member refid="classQfPlatformUtilities_1ac660d8865018feaf6530e3e80f2b4d88" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>resourceReceived</name></member>
+      <member refid="classQfPlatformUtilities_1a5369a6bb61dbda70a2e8fe36a028e17e" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>restoreBrightness</name></member>
+      <member refid="classQfPlatformUtilities_1a6bbbac08c95055c7f4661fb58f08bcf0" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>rmFile</name></member>
+      <member refid="classQfIosPlatformUtilities_1acdd193303a188446716e49f0aaa40652" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>rootDirectories</name></member>
+      <member refid="classQfPlatformUtilities_1afe18359be4bfbd100fae0f8d06daca33" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>sendCompressedFilesTo</name></member>
+      <member refid="classQfIosPlatformUtilities_1ab862f5fcefebb55bec5ab2cd0492f8d6" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>sendCompressedFolderTo</name></member>
+      <member refid="classQfIosPlatformUtilities_1aff9b3826012b1110ed7cbbd6dd577e7b" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>sendDatasetTo</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba9d901653bb06f31128b27e6037268080" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>SentryFramework</name></member>
+      <member refid="classQfPlatformUtilities_1aed8c2a074c163004c5862453fbf270b4" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>setHandleVolumeKeys</name></member>
+      <member refid="classQfIosPlatformUtilities_1a3bc587e43551075e4ce866a66898b187" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>setScreenLockPermission</name></member>
+      <member refid="classQfPlatformUtilities_1af43265d546bfa08ab24216a04752921a" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>startPositioningService</name></member>
+      <member refid="classQfPlatformUtilities_1adfa88912ad29ff7ba5f27b70dc5d88b2" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>stopPositioningService</name></member>
+      <member refid="classQfIosPlatformUtilities_1a26d1a569c9eb05a6c75d90d3452db2b8" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>systemFontPointSize</name></member>
+      <member refid="classQfPlatformUtilities_1a76a46badbb9401022ec487f46970f6e6" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>systemLocalDataLocation</name></member>
+      <member refid="classQfIosPlatformUtilities_1a16450600e1efebd1643639a905241679" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>systemSharedDataLocation</name></member>
+      <member refid="classQfIosPlatformUtilities_1ae9e1665e65d0f98965a9e90d5e546440" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>updateProjectFromArchive</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba5e5912b5ce0ef80aca5ee0558fa290cf" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>UpdateProjectFromArchive</name></member>
+      <member refid="classQfPlatformUtilities_1a9b751bc030e1aba34afa834083123ce4" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>uploadPendingAttachments</name></member>
+      <member refid="classQfPlatformUtilities_1aec912cd761ef1cf64959efc47e25c730" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>vibrate</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba4b519d8d21c706144a665f136ca1f145" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>Vibrate</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba96c28a47a5fb72a19194e7306bdd1087" prot="public" virt="non-virtual"><scope>QfIosPlatformUtilities</scope><name>VolumeKeys</name></member>
+      <member refid="classQfPlatformUtilities_1aa4f3e386ea146ea934922a6a99754367" prot="public" virt="virtual"><scope>QfIosPlatformUtilities</scope><name>~QfPlatformUtilities</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

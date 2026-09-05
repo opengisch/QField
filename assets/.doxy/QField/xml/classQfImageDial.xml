@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfImageDial" kind="class" language="C++" prot="public">
+    <compoundname>QfImageDial</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Dial</basecompoundref>
+    <derivedcompoundref refid="classImageDial" prot="public" virt="non-virtual">ImageDial</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfImageDial_1ab919deebb8b3c872bd9e536b01cb717d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfImageDial::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <qualifiedname>QfImageDial::source</qualifiedname>
+        <read>dummyGetter_source_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfImageDial.qml" line="9" column="1" bodyfile="src/gui/qml/QfImageDial.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfImageDial_1a92010ea421bae589a3756d2a3b70445e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfImageDial::rotationOffset</definition>
+        <argsstring></argsstring>
+        <name>rotationOffset</name>
+        <qualifiedname>QfImageDial::rotationOffset</qualifiedname>
+        <read>dummyGetter_rotationOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfImageDial.qml" line="11" column="1" bodyfile="src/gui/qml/QfImageDial.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfImageDial_1a045cd7d4c6e4e11d3cf85e071e463aac" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfImageDial::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfImageDial::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfImageDial.qml" line="13" column="5" bodyfile="src/gui/qml/QfImageDial.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfImageDial_1a113bf3596e276533dd8a2226e279a73c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfImageDial::handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <qualifiedname>QfImageDial::handle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfImageDial.qml" line="14" column="5" bodyfile="src/gui/qml/QfImageDial.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Dial</label>
+      </node>
+      <node id="3">
+        <label>ImageDial</label>
+        <link refid="classImageDial"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfImageDial</label>
+        <link refid="classQfImageDial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Dial</label>
+      </node>
+      <node id="1">
+        <label>QfImageDial</label>
+        <link refid="classQfImageDial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfImageDial.qml" line="6" column="1" bodyfile="src/gui/qml/QfImageDial.qml" bodystart="6" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classQfImageDial_1a045cd7d4c6e4e11d3cf85e071e463aac" prot="private" virt="non-virtual"><scope>QfImageDial</scope><name>background</name></member>
+      <member refid="classQfImageDial_1a113bf3596e276533dd8a2226e279a73c" prot="private" virt="non-virtual"><scope>QfImageDial</scope><name>handle</name></member>
+      <member refid="classQfImageDial_1a92010ea421bae589a3756d2a3b70445e" prot="public" virt="non-virtual"><scope>QfImageDial</scope><name>rotationOffset</name></member>
+      <member refid="classQfImageDial_1ab919deebb8b3c872bd9e536b01cb717d" prot="public" virt="non-virtual"><scope>QfImageDial</scope><name>source</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfInformationPopup" kind="class" language="C++" prot="public">
+    <compoundname>QfInformationPopup</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classInformationPopup" prot="public" virt="non-virtual">InformationPopup</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfInformationPopup_1a40ea2554f8ec2f1882816507f1a202d1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfInformationPopup::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>QfInformationPopup::header</qualifiedname>
+        <read>dummyGetter_header_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="13" column="1" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationPopup_1a9b4c9b618ee69e854e3d143e352ee407" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfInformationPopup::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfInformationPopup::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="15" column="1" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationPopup_1a5b207476ada1fe6e6068d23546364e2f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfInformationPopup::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>QfInformationPopup::description</qualifiedname>
+        <read>dummyGetter_description_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="17" column="1" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationPopup_1acb84be352eba68ffe5f964b1ad9bb4e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfInformationPopup::descriptionFormat</definition>
+        <argsstring></argsstring>
+        <name>descriptionFormat</name>
+        <qualifiedname>QfInformationPopup::descriptionFormat</qualifiedname>
+        <read>dummyGetter_descriptionFormat_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="19" column="1" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationPopup_1aba4040f131c48df09a985453c117c353" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfInformationPopup::author</definition>
+        <argsstring></argsstring>
+        <name>author</name>
+        <qualifiedname>QfInformationPopup::author</qualifiedname>
+        <read>dummyGetter_author_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="21" column="1" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfInformationPopup_1a40ef3bd443afedfd97c4a6c3ab3ea2f1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfInformationPopup::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfInformationPopup::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="23" column="5" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1a2c3d9b553244a1f3eb7f19c806111350" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfInformationPopup::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfInformationPopup::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="24" column="5" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1a93fbb6a8562189c3405273e373beaabd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfInformationPopup::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfInformationPopup::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="25" column="5" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1aac684c00fc4fe059368530419fdde0d2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfInformationPopup::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfInformationPopup::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="26" column="5" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1ae28dce69512ff50c95aa8f499a2bcde8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfInformationPopup::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfInformationPopup::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="27" column="5" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1a92ec16452804cd41378848a3bb5fdc80" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfInformationPopup::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfInformationPopup::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="28" column="5" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1abac67a291dcd0037ff17d401fe905162" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfInformationPopup::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfInformationPopup::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="29" column="5" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1a69b6344aeaed44c95cdc4504e8ad9307" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfInformationPopup::popupContent</definition>
+        <argsstring></argsstring>
+        <name>popupContent</name>
+        <qualifiedname>QfInformationPopup::popupContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="30" column="6" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1a587d9410fafac4b03800add6b26a8ea4" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfInformationPopup::popupLayout</definition>
+        <argsstring></argsstring>
+        <name>popupLayout</name>
+        <qualifiedname>QfInformationPopup::popupLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="31" column="14" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1a869ba91a5e1515c1ae1c81711bc73031" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfInformationPopup::titleText</definition>
+        <argsstring></argsstring>
+        <name>titleText</name>
+        <qualifiedname>QfInformationPopup::titleText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="32" column="6" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1a330ac2a4707233f29b91de7c1dbb560b" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfInformationPopup::descriptionText</definition>
+        <argsstring></argsstring>
+        <name>descriptionText</name>
+        <qualifiedname>QfInformationPopup::descriptionText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="33" column="6" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1a803bb9d285f12dd3b084c82fc06b2dc5" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfInformationPopup::authorLabel</definition>
+        <argsstring></argsstring>
+        <name>authorLabel</name>
+        <qualifiedname>QfInformationPopup::authorLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="34" column="6" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationPopup_1ab5de3d1a03fdb0d3096dc86e3c7fe167" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfInformationPopup::authorText</definition>
+        <argsstring></argsstring>
+        <name>authorText</name>
+        <qualifiedname>QfInformationPopup::authorText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationPopup.qml" line="35" column="6" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>InformationPopup</label>
+        <link refid="classInformationPopup"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfInformationPopup</label>
+        <link refid="classQfInformationPopup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfInformationPopup</label>
+        <link refid="classQfInformationPopup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfInformationPopup.qml" line="10" column="1" bodyfile="src/gui/qml/QfInformationPopup.qml" bodystart="10" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classQfInformationPopup_1aba4040f131c48df09a985453c117c353" prot="public" virt="non-virtual"><scope>QfInformationPopup</scope><name>author</name></member>
+      <member refid="classQfInformationPopup_1a803bb9d285f12dd3b084c82fc06b2dc5" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>authorLabel</name></member>
+      <member refid="classQfInformationPopup_1ab5de3d1a03fdb0d3096dc86e3c7fe167" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>authorText</name></member>
+      <member refid="classQfInformationPopup_1a92ec16452804cd41378848a3bb5fdc80" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>closePolicy</name></member>
+      <member refid="classQfInformationPopup_1a5b207476ada1fe6e6068d23546364e2f" prot="public" virt="non-virtual"><scope>QfInformationPopup</scope><name>description</name></member>
+      <member refid="classQfInformationPopup_1acb84be352eba68ffe5f964b1ad9bb4e7" prot="public" virt="non-virtual"><scope>QfInformationPopup</scope><name>descriptionFormat</name></member>
+      <member refid="classQfInformationPopup_1a330ac2a4707233f29b91de7c1dbb560b" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>descriptionText</name></member>
+      <member refid="classQfInformationPopup_1abac67a291dcd0037ff17d401fe905162" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>focus</name></member>
+      <member refid="classQfInformationPopup_1a40ea2554f8ec2f1882816507f1a202d1" prot="public" virt="non-virtual"><scope>QfInformationPopup</scope><name>header</name></member>
+      <member refid="classQfInformationPopup_1a93fbb6a8562189c3405273e373beaabd" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>height</name></member>
+      <member refid="classQfInformationPopup_1a40ef3bd443afedfd97c4a6c3ab3ea2f1" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>parent</name></member>
+      <member refid="classQfInformationPopup_1a69b6344aeaed44c95cdc4504e8ad9307" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>popupContent</name></member>
+      <member refid="classQfInformationPopup_1a587d9410fafac4b03800add6b26a8ea4" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>popupLayout</name></member>
+      <member refid="classQfInformationPopup_1a9b4c9b618ee69e854e3d143e352ee407" prot="public" virt="non-virtual"><scope>QfInformationPopup</scope><name>title</name></member>
+      <member refid="classQfInformationPopup_1a869ba91a5e1515c1ae1c81711bc73031" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>titleText</name></member>
+      <member refid="classQfInformationPopup_1a2c3d9b553244a1f3eb7f19c806111350" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>width</name></member>
+      <member refid="classQfInformationPopup_1aac684c00fc4fe059368530419fdde0d2" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>x</name></member>
+      <member refid="classQfInformationPopup_1ae28dce69512ff50c95aa8f499a2bcde8" prot="private" virt="non-virtual"><scope>QfInformationPopup</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

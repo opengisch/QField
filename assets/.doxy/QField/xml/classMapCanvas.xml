@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMapCanvas" kind="class" language="C++" prot="public">
+    <compoundname>MapCanvas</compoundname>
+    <basecompoundref refid="classQfMapCanvas" prot="public" virt="non-virtual">QfMapCanvas</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MapCanvas</label>
+        <link refid="classMapCanvas"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfMapCanvas</label>
+        <link refid="classQfMapCanvas"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MapCanvas</label>
+        <link refid="classMapCanvas"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfMapCanvas</label>
+        <link refid="classQfMapCanvas"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/MapCanvas.qml" line="2" column="1" bodyfile="src/app/qml_compat/MapCanvas.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfMapCanvas_1aa4f149efc8c5482246ed4f027d947696" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>aboutToWheelZoom</name></member>
+      <member refid="classQfMapCanvas_1af78d568547937cedf2bf7d093e530a9d" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>bottomMargin</name></member>
+      <member refid="classQfMapCanvas_1a6f2a3e28a7becfadd4bd2d282a5a5628" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>clicked</name></member>
+      <member refid="classQfMapCanvas_1acecf8672d36efbe4da04a94ec924ba8e" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>confirmedClicked</name></member>
+      <member refid="classQfMapCanvas_1a7a3f58ca528fe451e9652e874c818efc" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>doubleClicked</name></member>
+      <member refid="classQfMapCanvas_1a286b958ec20fb9f398fce982b08aa1aa" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>forceDeferredLayersRepaint</name></member>
+      <member refid="classQfMapCanvas_1acd8e9ef925ca306ba3b226d9aa079cc0" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>freehandDigitizing</name></member>
+      <member refid="classQfMapCanvas_1a631ef3b9dd18516083c5bdab69594835" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>freeze</name></member>
+      <member refid="classQfMapCanvas_1aca2798f970523d71af7a6bf2e3ca4495" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>hovered</name></member>
+      <member refid="classQfMapCanvas_1ace33a27b8f0c80e70f518078cb058120" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>incrementalRendering</name></member>
+      <member refid="classQfMapCanvas_1a3c1050d0c7b3861eae49ae89e8074471" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>interactive</name></member>
+      <member refid="classQfMapCanvas_1ae9034a1b99146d69ca7a65f8a346be0d" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>isMapRotationEnabled</name></member>
+      <member refid="classQfMapCanvas_1a238df0c2b2da3a1ee14aa6682d7209de" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>isRendering</name></member>
+      <member refid="classQfMapCanvas_1ac371647bb3045e4a66b4c29b9ffc2371" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>jumping</name></member>
+      <member refid="classQfMapCanvas_1a9a784005b01aba9122db19ee7aace795" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>jumpTo</name></member>
+      <member refid="classQfMapCanvas_1a9613ab531692192b26e81ec5a079d003" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>jumpToPosition</name></member>
+      <member refid="classQfMapCanvas_1a80417d71355f1bb2a6dd5c2bd95c1795" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>longPressed</name></member>
+      <member refid="classQfMapCanvas_1a7f8ceaca48c2a8d16a2377ee3b7268f5" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>longPressReleased</name></member>
+      <member refid="classQfMapCanvas_1a46f6f3dfc8ee8a49c5cd149e55835b84" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>mapCanvasWrapper</name></member>
+      <member refid="classQfMapCanvas_1a3fb76d3b6629b954ba80b6636377d448" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>mapSettings</name></member>
+      <member refid="classQfMapCanvas_1a41c8d1459606e4becf3a5e99a61f874d" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>mouseAsTouchScreen</name></member>
+      <member refid="classQfMapCanvas_1ae164c940e031da587335ed6c39e6a5d6" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>pinched</name></member>
+      <member refid="classQfMapCanvas_1a3c85474663926b3255e05e89f2c2bbd1" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>previewJobsEnabled</name></member>
+      <member refid="classQfMapCanvas_1a5603c861bece0b4d02fbc6ffe34b459e" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>previewJobsQuadrants</name></member>
+      <member refid="classQfMapCanvas_1aad6f07200e5dc5b70dcbc34d029bac1f" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>quality</name></member>
+      <member refid="classQfMapCanvas_1a2d3198f0d51a3f9db09a9cb393a60574" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>refresh</name></member>
+      <member refid="classQfMapCanvas_1a88802a2bfd857df3572e004ab50c02cf" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>rightClicked</name></member>
+      <member refid="classQfMapCanvas_1ab04d8b60cfc876261a663c1f74b43b78" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>rightMargin</name></member>
+      <member refid="classQfMapCanvas_1af46229765c62f6add7b44e75d8d98868" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>smooth</name></member>
+      <member refid="classQfMapCanvas_1a0d9488da7d8aab3efca8491dade93b65" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>stopRendering</name></member>
+      <member refid="classQfMapCanvas_1a9360ec033ddd86cc07c1a15ba90d3a4a" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>unfreeze</name></member>
+      <member refid="classQfMapCanvas_1a7bb50e9d253ef11e0713fc7ce7c0b162" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>zoomIn</name></member>
+      <member refid="classQfMapCanvas_1a7773cc1e66339f7458ab087cdd52c3ec" prot="public" virt="non-virtual"><scope>MapCanvas</scope><name>zoomOut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

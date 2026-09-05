@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNmeaGnssReceiver" kind="class" language="C++" prot="public">
+    <compoundname>QfNmeaGnssReceiver</compoundname>
+    <basecompoundref refid="classQfAbstractGnssReceiver" prot="public" virt="non-virtual">QfAbstractGnssReceiver</basecompoundref>
+    <derivedcompoundref refid="classQfBluetoothLowEnergyReceiver" prot="public" virt="non-virtual">QfBluetoothLowEnergyReceiver</derivedcompoundref>
+    <derivedcompoundref refid="classQfBluetoothReceiver" prot="public" virt="non-virtual">QfBluetoothReceiver</derivedcompoundref>
+    <derivedcompoundref refid="classQfFileReceiver" prot="public" virt="non-virtual">QfFileReceiver</derivedcompoundref>
+    <derivedcompoundref refid="classQfSerialPortReceiver" prot="public" virt="non-virtual">QfSerialPortReceiver</derivedcompoundref>
+    <derivedcompoundref refid="classQfTcpReceiver" prot="public" virt="non-virtual">QfTcpReceiver</derivedcompoundref>
+    <derivedcompoundref refid="classQfUdpReceiver" prot="public" virt="non-virtual">QfUdpReceiver</derivedcompoundref>
+    <includes refid="qfnmeagnssreceiver_8h" local="no">qfnmeagnssreceiver.h</includes>
+    <innerclass refid="structQfNmeaGnssReceiver_1_1ImuPosition" prot="private">QfNmeaGnssReceiver::ImuPosition</innerclass>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classQfNmeaGnssReceiver_1a2553cea5efd8d8b6f0efc30529dccd05" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsNmeaConnection &gt;</type>
+        <definition>std::unique_ptr&lt;QgsNmeaConnection&gt; QfNmeaGnssReceiver::mNmeaConnection</definition>
+        <argsstring></argsstring>
+        <name>mNmeaConnection</name>
+        <qualifiedname>QfNmeaGnssReceiver::mNmeaConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="54" column="21" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNmeaGnssReceiver_1a6a79860a50f7fa69eb0e36129704a77e" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNmeaGnssReceiver::mLastGnssPositionValid</definition>
+        <argsstring></argsstring>
+        <name>mLastGnssPositionValid</name>
+        <qualifiedname>QfNmeaGnssReceiver::mLastGnssPositionValid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="56" column="10" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNmeaGnssReceiver_1ae9c76470ed51caf7244577b48b3faa50" prot="private" static="no" mutable="no">
+        <type>QTime</type>
+        <definition>QTime QfNmeaGnssReceiver::mLastGnssPositionUtcTime</definition>
+        <argsstring></argsstring>
+        <name>mLastGnssPositionUtcTime</name>
+        <qualifiedname>QfNmeaGnssReceiver::mLastGnssPositionUtcTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="65" column="11" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNmeaGnssReceiver_1a30054f4de5e020245147cf97ced396fe" prot="private" static="no" mutable="no">
+        <type>QFile</type>
+        <definition>QFile QfNmeaGnssReceiver::mLogFile</definition>
+        <argsstring></argsstring>
+        <name>mLogFile</name>
+        <qualifiedname>QfNmeaGnssReceiver::mLogFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="67" column="11" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNmeaGnssReceiver_1a4d9dba6f0c8f92855b34f643c030544a" prot="private" static="no" mutable="no">
+        <type>QTextStream</type>
+        <definition>QTextStream QfNmeaGnssReceiver::mLogStream</definition>
+        <argsstring></argsstring>
+        <name>mLogStream</name>
+        <qualifiedname>QfNmeaGnssReceiver::mLogStream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="68" column="17" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNmeaGnssReceiver_1a9e54aa01fd5a2940058d348cdcbc6dfd" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref></type>
+        <definition>QfGnssPositionInformation QfNmeaGnssReceiver::mCurrentNmeaGnssPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mCurrentNmeaGnssPositionInformation</name>
+        <qualifiedname>QfNmeaGnssReceiver::mCurrentNmeaGnssPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="70" column="31" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNmeaGnssReceiver_1ad494b1f0a1aa010c3a7c36cc6dc29a4b" prot="private" static="no" mutable="no">
+        <type>QIODevice *</type>
+        <definition>QIODevice* QfNmeaGnssReceiver::mIODevice</definition>
+        <argsstring></argsstring>
+        <name>mIODevice</name>
+        <qualifiedname>QfNmeaGnssReceiver::mIODevice</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="72" column="15" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNmeaGnssReceiver_1a56efdb0a67b3197921baa7de481e0cfe" prot="private" static="no" mutable="no">
+        <type>ImuPosition</type>
+        <definition>ImuPosition QfNmeaGnssReceiver::mImuPosition</definition>
+        <argsstring></argsstring>
+        <name>mImuPosition</name>
+        <qualifiedname>QfNmeaGnssReceiver::mImuPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="96" column="17" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfNmeaGnssReceiver_1afdffe6b403fc52ee5e29fd309ada3632" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNmeaGnssReceiver::QfNmeaGnssReceiver</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfNmeaGnssReceiver</name>
+        <qualifiedname>QfNmeaGnssReceiver::QfNmeaGnssReceiver</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="36" column="14" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="23" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNmeaGnssReceiver_1ab937d625faa2ec21a2bdbcc85d419349" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNmeaGnssReceiver::~QfNmeaGnssReceiver</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~QfNmeaGnssReceiver</name>
+        <qualifiedname>QfNmeaGnssReceiver::~QfNmeaGnssReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="37" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNmeaGnssReceiver_1aa7ce2c6965aa606add03e9141f55d80d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QfAbstractGnssReceiver::Capabilities</type>
+        <definition>QfAbstractGnssReceiver::Capabilities QfNmeaGnssReceiver::capabilities</definition>
+        <argsstring>() const override</argsstring>
+        <name>capabilities</name>
+        <qualifiedname>QfNmeaGnssReceiver::capabilities</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1a218f865acbb5c095cda95a6709ea08ed">capabilities</reimplements>
+        <reimplementedby refid="classQfTcpReceiver_1ab2387be63e336b1442362bf98e714479">capabilities</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="39" column="42" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNmeaGnssReceiver_1a9790d1624471555daa6f9458fd452162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNmeaGnssReceiver::initNmeaConnection</definition>
+        <argsstring>(QIODevice *ioDevice)</argsstring>
+        <name>initNmeaConnection</name>
+        <qualifiedname>QfNmeaGnssReceiver::initNmeaConnection</qualifiedname>
+        <param>
+          <type>QIODevice *</type>
+          <declname>ioDevice</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="41" column="10" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="34" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfNmeaGnssReceiver_1abeedff36d0f38a92107611c8d55ba912" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNmeaGnssReceiver::nmeaSentenceReceived</definition>
+        <argsstring>(const QString &amp;sentence)</argsstring>
+        <name>nmeaSentenceReceived</name>
+        <qualifiedname>QfNmeaGnssReceiver::nmeaSentenceReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sentence</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="44" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQfNmeaGnssReceiver_1a80c5495e9869643dc3d2ca95f604f3a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNmeaGnssReceiver::onCorrectionDataReceived</definition>
+        <argsstring>(const QByteArray &amp;data) override</argsstring>
+        <name>onCorrectionDataReceived</name>
+        <qualifiedname>QfNmeaGnssReceiver::onCorrectionDataReceived</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="47" column="10" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="218" bodyend="230"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfNmeaGnssReceiver_1a7d58cd56e11dc30793ddbef2004d8556" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNmeaGnssReceiver::stateChanged</definition>
+        <argsstring>(const QgsGpsInformation &amp;info)</argsstring>
+        <name>stateChanged</name>
+        <qualifiedname>QfNmeaGnssReceiver::stateChanged</qualifiedname>
+        <param>
+          <type>const QgsGpsInformation &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="50" column="10" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="44" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfNmeaGnssReceiver_1ae4989a42de55d482515cc8fa2c8201bd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNmeaGnssReceiver::onNmeaSentenceReceived</definition>
+        <argsstring>(const QString &amp;substring)</argsstring>
+        <name>onNmeaSentenceReceived</name>
+        <qualifiedname>QfNmeaGnssReceiver::onNmeaSentenceReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>substring</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="51" column="10" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="95" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfNmeaGnssReceiver_1acd4cc68c1bcad1b6f3b43dbc5b4ca483" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfNmeaGnssReceiver::handleStartLogging</definition>
+        <argsstring>(const QString &amp;path) override</argsstring>
+        <name>handleStartLogging</name>
+        <qualifiedname>QfNmeaGnssReceiver::handleStartLogging</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1a1248ac19a4595da8c973bc5def8f764b">handleStartLogging</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="59" column="10" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="110" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNmeaGnssReceiver_1a53cd53c3886a6c872dd5174f6fbbcdfa" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfNmeaGnssReceiver::handleStopLogging</definition>
+        <argsstring>() override</argsstring>
+        <name>handleStopLogging</name>
+        <qualifiedname>QfNmeaGnssReceiver::handleStopLogging</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1adedabda1e1baabec29dfa4b9122dc1a7">handleStopLogging</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="60" column="10" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNmeaGnssReceiver_1aad81cbe3e942c8bc924b5f126df4b184" prot="private" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfGnssPositionDetails" kindref="compound">QfGnssPositionDetails</ref></type>
+        <definition>QfGnssPositionDetails QfNmeaGnssReceiver::details</definition>
+        <argsstring>() const override</argsstring>
+        <name>details</name>
+        <qualifiedname>QfNmeaGnssReceiver::details</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1aa14976ad83a9cbb9cbace60afc0aca1b">details</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns extra details (such as hdop, vdop, pdop) provided by the positioning device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="61" column="27" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="130" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNmeaGnssReceiver_1a4ffa3c780a9d96c2c530bd36d125b811" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNmeaGnssReceiver::processImuSentence</definition>
+        <argsstring>(const QString &amp;sentence)</argsstring>
+        <name>processImuSentence</name>
+        <qualifiedname>QfNmeaGnssReceiver::processImuSentence</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>sentence</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="63" column="10" bodyfile="src/core/positioning/qfnmeagnssreceiver.cpp" bodystart="142" bodyend="216"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The nmeareceiver connects to a device and feeds the QgsNmeaConnection. It receives QgsGpsInformation and converts it to <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QfBluetoothLowEnergyReceiver</label>
+        <link refid="classQfBluetoothLowEnergyReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QfBluetoothReceiver</label>
+        <link refid="classQfBluetoothReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>QfFileReceiver</label>
+        <link refid="classQfFileReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfNmeaGnssReceiver</label>
+        <link refid="classQfNmeaGnssReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>QfSerialPortReceiver</label>
+        <link refid="classQfSerialPortReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>QfTcpReceiver</label>
+        <link refid="classQfTcpReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>QfUdpReceiver</label>
+        <link refid="classQfUdpReceiver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfNmeaGnssReceiver</label>
+        <link refid="classQfNmeaGnssReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qfnmeagnssreceiver.h" line="31" column="1" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="32" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classQfAbstractGnssReceiver_1aac097e8d39901f49bfba6633783ce784" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>batteryLevel</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa540bc95579e25facd7da0621a162cec" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>batteryLevelChanged</name></member>
+      <member refid="classQfNmeaGnssReceiver_1aa7ce2c6965aa606add03e9141f55d80d" prot="public" virt="virtual"><scope>QfNmeaGnssReceiver</scope><name>capabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>Capability</name></member>
+      <member refid="classQfAbstractGnssReceiver_1acd13344a5df00287f22cc4f1108b2505" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>connectDevice</name></member>
+      <member refid="classQfNmeaGnssReceiver_1aad81cbe3e942c8bc924b5f126df4b184" prot="private" virt="virtual"><scope>QfNmeaGnssReceiver</scope><name>details</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa3a6cd080093891093d85fd6500320f0" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classQfNmeaGnssReceiver_1acd4cc68c1bcad1b6f3b43dbc5b4ca483" prot="private" virt="virtual"><scope>QfNmeaGnssReceiver</scope><name>handleStartLogging</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a53cd53c3886a6c872dd5174f6fbbcdfa" prot="private" virt="virtual"><scope>QfNmeaGnssReceiver</scope><name>handleStopLogging</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a9790d1624471555daa6f9458fd452162" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>initNmeaConnection</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a76c09326f896a708603bcd38ca07d927" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>lastError</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a24a6fe2fb4dd37c5d0a17e606fe77c" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a757b5533e1968510d599257e7e359d9a" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aaf98efbbd5b1f4c3bfc153ec081a6cf7" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a32149f1fa2d70af22b8ea711b5f0f75e" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>Logging</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a9e54aa01fd5a2940058d348cdcbc6dfd" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>mCurrentNmeaGnssPositionInformation</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a56efdb0a67b3197921baa7de481e0cfe" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>mImuPosition</name></member>
+      <member refid="classQfNmeaGnssReceiver_1ad494b1f0a1aa010c3a7c36cc6dc29a4b" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>mIODevice</name></member>
+      <member refid="classQfNmeaGnssReceiver_1ae9c76470ed51caf7244577b48b3faa50" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>mLastGnssPositionUtcTime</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a6a79860a50f7fa69eb0e36129704a77e" prot="protected" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>mLastGnssPositionValid</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a30054f4de5e020245147cf97ced396fe" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>mLogFile</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a4d9dba6f0c8f92855b34f643c030544a" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>mLogStream</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a2553cea5efd8d8b6f0efc30529dccd05" prot="protected" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>mNmeaConnection</name></member>
+      <member refid="classQfNmeaGnssReceiver_1abeedff36d0f38a92107611c8d55ba912" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>nmeaSentenceReceived</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a8eb58b06d873c2e100d0b74ec9215238" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325af35004204d33f6a62fc45d6962ee2a58" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>NtripCorrection</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a80c5495e9869643dc3d2ca95f604f3a9" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>onCorrectionDataReceived</name></member>
+      <member refid="classQfNmeaGnssReceiver_1ae4989a42de55d482515cc8fa2c8201bd" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>onNmeaSentenceReceived</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a73d1b405c90412d84b32ec9e03e32f55" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a4ffa3c780a9d96c2c530bd36d125b811" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>processImuSentence</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab2303acc969f562c75ecabf988c64c62" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>QfAbstractGnssReceiver</name></member>
+      <member refid="classQfNmeaGnssReceiver_1afdffe6b403fc52ee5e29fd309ada3632" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>QfNmeaGnssReceiver</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af56b337ca8d29574f31d63892af25a07" prot="protected" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>setSocketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a6994043dce54d0ca8819344a88e234" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>setValid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8725d739983222c78dc93417c5afec45" prot="public" virt="virtual"><scope>QfNmeaGnssReceiver</scope><name>socketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af2ed915f4e3a0db45e29fde997f84c1c" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a95d28d113cc788e37d63bbef8a54fcef" prot="public" virt="virtual"><scope>QfNmeaGnssReceiver</scope><name>socketStateString</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab1b149cfbdd0c1d20cc4c2c055eecb05" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1add322c32a7897bba08ddd8f6aeec0e34" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>startLogging</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a7d58cd56e11dc30793ddbef2004d8556" prot="private" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>stateChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a0b03f384c24e5b473352d8c2de0dec23" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>stopLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a28ca8d6d79d1394da7b0e79521a0a845" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>valid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a26ee820f395b20f02ed32629d1dbb5c1" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>validChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a49b0d1da3fa61943bc6687f07b7b6f0f" prot="public" virt="virtual"><scope>QfNmeaGnssReceiver</scope><name>~QfAbstractGnssReceiver</name></member>
+      <member refid="classQfNmeaGnssReceiver_1ab937d625faa2ec21a2bdbcc85d419349" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver</scope><name>~QfNmeaGnssReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

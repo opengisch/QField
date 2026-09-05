@@ -1,0 +1,1824 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudProjectsModel" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudProjectsModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ColumnRole</name>
+        <qualifiedname>QfCloudProjectsModel::ColumnRole</qualifiedname>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a711d3fae8e463d974200a2e14b92d2d2" prot="public">
+          <name>IdRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a0dfe8a605d171d8e9417867cf30626db" prot="public">
+          <name>OwnerRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4273943b8d38e9855f7763a7a6b9e950" prot="public">
+          <name>PublicRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9aae8472b21325589678f1b08833c1a597" prot="public">
+          <name>FeaturedRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a102cc72ac49a5d26a789f13f94a686a1" prot="public">
+          <name>NameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9aeeecc16f705c274728d6e608bab88979" prot="public">
+          <name>DescriptionRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a0256c5fa4e281e6c30353ee8552bd244" prot="public">
+          <name>ModificationRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a05b984451e5ea09c3a491f38a91bc987" prot="public">
+          <name>CheckoutRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9af92d44f15c3d946f9ef8cd333985f4ed" prot="public">
+          <name>StatusRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9af41a488c858b5614210e14b9d680fc10" prot="public">
+          <name>ProjectOutdatedRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9ad4865a33fb91684dd1a034df8ec93192" prot="public">
+          <name>ProjectFileOutdatedRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9ad1734de0ed7c83ccb608fa757a9be526" prot="public">
+          <name>ErrorStatusRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a3d4d99802c5001e4cc737105ae5c5ba5" prot="public">
+          <name>ErrorStringRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a24e9218609cba51c1e02b4800b853fdf" prot="public">
+          <name>DownloadProgressRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9ab02da6c3d6c3a67c7b12e5b8b5f12dd0" prot="public">
+          <name>DownloadSizeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a6a51163eaaae4daf19868253cb3267a8" prot="public">
+          <name>PackagingStatusRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a07a866d31513e120fde5bedc4c2f3ed4" prot="public">
+          <name>PackagedLayerErrorsRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a9a558cdd920aa65b2be37bcb0c7237d3" prot="public">
+          <name>PushDeltaProgressRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4f55c25dbcdaf04494866442561587ef" prot="public">
+          <name>PushDeltaStatusRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4c1939155c2cc943e14dca805c8a2eb8" prot="public">
+          <name>PushDeltaStatusStringRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a21a97f777ad515ed551dcb2752b02e2b" prot="public">
+          <name>LocalDeltasCountRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a94374c5b042640fce55bea2c313d261d" prot="public">
+          <name>LocalPathRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a9df2384b516f6117c56620b1f701af93" prot="public">
+          <name>LastLocalExportedAtRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4d38502947052b7b25d341a8817ac03d" prot="public">
+          <name>LastLocalPushDeltasRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a6e22515da68b181da4fd5aec0c87e32c" prot="public">
+          <name>UserRoleRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4646764dfe1bbbd785ffebe9ddae7156" prot="public">
+          <name>UserRoleOriginRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a28116540d9bad47e451fae9b80732c6b" prot="public">
+          <name>ProjectTypeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="69" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="70" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ProjectsRequestAttribute</name>
+        <qualifiedname>QfCloudProjectsModel::ProjectsRequestAttribute</qualifiedname>
+        <enumvalue id="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5a19d344b74d6fee39b92cf78cf5e4abd6" prot="public">
+          <name>FetchPublicProjects</name>
+          <initializer>= QNetworkRequest::User + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5aaf9f97b0f79b7c32805b66abfe309f05" prot="public">
+          <name>ProjectsFetchOffset</name>
+          <initializer>= QNetworkRequest::User + 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5afd99263c1ecbc9aa2730bb467cb56768" prot="public">
+          <name>ResetModel</name>
+          <initializer>= QNetworkRequest::User + 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5a20679f3240a588674d5e5828dda63ac9" prot="public">
+          <name>ProjectId</name>
+          <initializer>= QNetworkRequest::User + 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5a678a9662ff562f8dff258548da5e8b1a" prot="public">
+          <name>ProjectOwnerName</name>
+          <initializer>= QNetworkRequest::User + 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5ac85aa7bb92724b3d8bfacb2ab54d6d42" prot="public">
+          <name>ProjectSearchTerm</name>
+          <initializer>= QNetworkRequest::User + 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5ac7d06de114a84f12f69d4554009c32d3" prot="public">
+          <name>FromProjectId</name>
+          <initializer>= QNetworkRequest::User + 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Attributes controlling fetching of projects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="101" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="102" bodyend="110"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudProjectsModel_1a0d776cb6810a8ea905360c17e0d3abef" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+        <definition>QfCloudConnection * QfCloudProjectsModel::cloudConnection</definition>
+        <argsstring></argsstring>
+        <name>cloudConnection</name>
+        <qualifiedname>QfCloudProjectsModel::cloudConnection</qualifiedname>
+        <read>cloudConnection</read>
+        <write>setCloudConnection</write>
+        <briefdescription>
+<para>The current cloud connection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="46" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsModel_1abb13a1231008f4430ab7cc9806661a03" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfLayerObserver" kindref="compound">QfLayerObserver</ref> *</type>
+        <definition>QfLayerObserver * QfCloudProjectsModel::layerObserver</definition>
+        <argsstring></argsstring>
+        <name>layerObserver</name>
+        <qualifiedname>QfCloudProjectsModel::layerObserver</qualifiedname>
+        <read>layerObserver</read>
+        <write>setLayerObserver</write>
+        <briefdescription>
+<para>The current layer observer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="48" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsModel_1ab29144ef3b2fb8f29c606ab23f19da54" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref> *</type>
+        <definition>QgsGpkgFlusher * QfCloudProjectsModel::gpkgFlusher</definition>
+        <argsstring></argsstring>
+        <name>gpkgFlusher</name>
+        <qualifiedname>QfCloudProjectsModel::gpkgFlusher</qualifiedname>
+        <read>gpkgFlusher</read>
+        <write>setGpkgFlusher</write>
+        <briefdescription>
+<para>The current geopackage flusher. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="50" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsModel_1a3f05809698b52cb19bcde4a293aaa901" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::isRefreshing</definition>
+        <argsstring></argsstring>
+        <name>isRefreshing</name>
+        <qualifiedname>QfCloudProjectsModel::isRefreshing</qualifiedname>
+        <read>isRefreshing</read>
+        <briefdescription>
+<para>Returns TRUE whether the model is being refreshed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="53" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsModel_1a8dafece0553e57b91633f874f34368d1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::isCreating</definition>
+        <argsstring></argsstring>
+        <name>isCreating</name>
+        <qualifiedname>QfCloudProjectsModel::isCreating</qualifiedname>
+        <read>isCreating</read>
+        <briefdescription>
+<para>Returns TRUE whether the model is creating a project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="56" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsModel_1a95cf31ca5dd350d8597357361780c083" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::hasTemplates</definition>
+        <argsstring></argsstring>
+        <name>hasTemplates</name>
+        <qualifiedname>QfCloudProjectsModel::hasTemplates</qualifiedname>
+        <read>hasTemplates</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="58" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsModel_1a850ad2d1bcc66c6080761ca70966f850" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; QfCloudProjectsModel::busyProjectIds</definition>
+        <argsstring></argsstring>
+        <name>busyProjectIds</name>
+        <qualifiedname>QfCloudProjectsModel::busyProjectIds</qualifiedname>
+        <read>busyProjectIds</read>
+        <briefdescription>
+<para>Currently busy project ids. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="61" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsModel_1a036478ebd89787ff005795aca4150d81" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsModel::currentProjectId</definition>
+        <argsstring></argsstring>
+        <name>currentProjectId</name>
+        <qualifiedname>QfCloudProjectsModel::currentProjectId</qualifiedname>
+        <read>currentProjectId</read>
+        <write>setCurrentProjectId</write>
+        <briefdescription>
+<para>The current cloud project id of the currently opened project (empty string for non-cloud projects). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="64" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsModel_1a53f1177c4647899f03679e0bab4f49af" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> *</type>
+        <definition>QfCloudProject * QfCloudProjectsModel::currentProject</definition>
+        <argsstring></argsstring>
+        <name>currentProject</name>
+        <qualifiedname>QfCloudProjectsModel::currentProject</qualifiedname>
+        <read>currentProject</read>
+        <briefdescription>
+<para>The current cloud project. (null for non-cloud projects). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="66" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1adb79bd7f52e34d776d7b6436621467d6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::mHasTemplates</definition>
+        <argsstring></argsstring>
+        <name>mHasTemplates</name>
+        <qualifiedname>QfCloudProjectsModel::mHasTemplates</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="255" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1ac3a4ccaf7e7c634af428992122fd1a7c" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> * &gt;</type>
+        <definition>QList&lt;QfCloudProject *&gt; QfCloudProjectsModel::mProjects</definition>
+        <argsstring></argsstring>
+        <name>mProjects</name>
+        <qualifiedname>QfCloudProjectsModel::mProjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="257" column="11" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1a3f71fd52d28ae7a2332ea4b57be6c9bd" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+        <definition>QfCloudConnection* QfCloudProjectsModel::mCloudConnection</definition>
+        <argsstring></argsstring>
+        <name>mCloudConnection</name>
+        <qualifiedname>QfCloudProjectsModel::mCloudConnection</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="258" column="23" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1a1db533bc93589a64984e65cd9f6b8d9d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::mIsRefreshing</definition>
+        <argsstring></argsstring>
+        <name>mIsRefreshing</name>
+        <qualifiedname>QfCloudProjectsModel::mIsRefreshing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="260" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1ac541151761bbdc05fe19ebfb6455fe48" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::mIsCreating</definition>
+        <argsstring></argsstring>
+        <name>mIsCreating</name>
+        <qualifiedname>QfCloudProjectsModel::mIsCreating</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="261" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1afd848d61017d2a87c94c4564509c9381" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsModel::mCurrentProjectId</definition>
+        <argsstring></argsstring>
+        <name>mCurrentProjectId</name>
+        <qualifiedname>QfCloudProjectsModel::mCurrentProjectId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="263" column="13" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1aef4d5e91175b21bc953dc6a93ac1e85d" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> &gt;</type>
+        <definition>QPointer&lt;QfCloudProject&gt; QfCloudProjectsModel::mCurrentProject</definition>
+        <argsstring></argsstring>
+        <name>mCurrentProject</name>
+        <qualifiedname>QfCloudProjectsModel::mCurrentProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="264" column="14" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1a6143d1f68944d8023284cbcfe95b896a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLayerObserver" kindref="compound">QfLayerObserver</ref> *</type>
+        <definition>QfLayerObserver* QfCloudProjectsModel::mLayerObserver</definition>
+        <argsstring></argsstring>
+        <name>mLayerObserver</name>
+        <qualifiedname>QfCloudProjectsModel::mLayerObserver</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="266" column="21" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1a3b437efe0e265b8b929c86b4b1cbc436" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref> *</type>
+        <definition>QgsGpkgFlusher* QfCloudProjectsModel::mGpkgFlusher</definition>
+        <argsstring></argsstring>
+        <name>mGpkgFlusher</name>
+        <qualifiedname>QfCloudProjectsModel::mGpkgFlusher</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="267" column="20" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1a3071acfcab36ac430bdba7eaa6bb5aca" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsModel::mUsername</definition>
+        <argsstring></argsstring>
+        <name>mUsername</name>
+        <qualifiedname>QfCloudProjectsModel::mUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="268" column="13" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1a7753475d71650580027a0ffce58f9382" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsModel::mUrl</definition>
+        <argsstring></argsstring>
+        <name>mUrl</name>
+        <qualifiedname>QfCloudProjectsModel::mUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="269" column="13" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsModel_1a9b4219e43ef2204a7fd31f04174d6dca" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int QfCloudProjectsModel::mProjectsPerFetch</definition>
+        <argsstring></argsstring>
+        <name>mProjectsPerFetch</name>
+        <qualifiedname>QfCloudProjectsModel::mProjectsPerFetch</qualifiedname>
+        <initializer>= 250</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="271" column="15" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a8fad8fe835064633a9b71df10aa0ad57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudProjectsModel::QfCloudProjectsModel</definition>
+        <argsstring>()</argsstring>
+        <name>QfCloudProjectsModel</name>
+        <qualifiedname>QfCloudProjectsModel::QfCloudProjectsModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="114" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="42" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a3650ae548805a5201fc6484644fda6ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+        <definition>QfCloudConnection * QfCloudProjectsModel::cloudConnection</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudConnection</name>
+        <qualifiedname>QfCloudProjectsModel::cloudConnection</qualifiedname>
+        <briefdescription>
+<para>Returns the currently used cloud connection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="117" column="23" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a66959f0fc916e51ccfc0e676bdadcaae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::setCloudConnection</definition>
+        <argsstring>(QfCloudConnection *cloudConnection)</argsstring>
+        <name>setCloudConnection</name>
+        <qualifiedname>QfCloudProjectsModel::setCloudConnection</qualifiedname>
+        <param>
+          <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+          <declname>cloudConnection</declname>
+        </param>
+        <briefdescription>
+<para>Sets the cloud connection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="120" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="61" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a790cd86fc622590f295abdc4d0b52b7a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfLayerObserver" kindref="compound">QfLayerObserver</ref> *</type>
+        <definition>QfLayerObserver * QfCloudProjectsModel::layerObserver</definition>
+        <argsstring>() const</argsstring>
+        <name>layerObserver</name>
+        <qualifiedname>QfCloudProjectsModel::layerObserver</qualifiedname>
+        <briefdescription>
+<para>Returns the currently used layer observer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="123" column="21" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1ae5d836a90b5cfb9d51dc6dec86ac401e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::setLayerObserver</definition>
+        <argsstring>(QfLayerObserver *layerObserver)</argsstring>
+        <name>setLayerObserver</name>
+        <qualifiedname>QfCloudProjectsModel::setLayerObserver</qualifiedname>
+        <param>
+          <type><ref refid="classQfLayerObserver" kindref="compound">QfLayerObserver</ref> *</type>
+          <declname>layerObserver</declname>
+        </param>
+        <briefdescription>
+<para>Sets the layer observer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="126" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="101" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a4f07fcf0b00ec107e049195546620ccb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::isRefreshing</definition>
+        <argsstring>() const</argsstring>
+        <name>isRefreshing</name>
+        <qualifiedname>QfCloudProjectsModel::isRefreshing</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE whether the model is being refreshed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="129" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="129" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1af391f9aa7bc259167a766bfc80c2990a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::isCreating</definition>
+        <argsstring>() const</argsstring>
+        <name>isCreating</name>
+        <qualifiedname>QfCloudProjectsModel::isCreating</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE whether the model is being refreshed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="132" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a50036d4e977426fe56864b19d1a18473" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsModel::currentProjectId</definition>
+        <argsstring>() const</argsstring>
+        <name>currentProjectId</name>
+        <qualifiedname>QfCloudProjectsModel::currentProjectId</qualifiedname>
+        <briefdescription>
+<para>Returns the cloud project id of the currently opened project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="135" column="13" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1abd49dbc66b723f9a7b7aa8ff2920a131" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::setCurrentProjectId</definition>
+        <argsstring>(const QString &amp;currentProjectId)</argsstring>
+        <name>setCurrentProjectId</name>
+        <qualifiedname>QfCloudProjectsModel::setCurrentProjectId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>currentProjectId</declname>
+        </param>
+        <briefdescription>
+<para>Sets the cloud project id of the currently opened project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="138" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="123" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a8ec61c7070c4381fb5598074a2a99769" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> *</type>
+        <definition>QfCloudProject * QfCloudProjectsModel::currentProject</definition>
+        <argsstring>() const</argsstring>
+        <name>currentProject</name>
+        <qualifiedname>QfCloudProjectsModel::currentProject</qualifiedname>
+        <briefdescription>
+<para>Returns the cloud project of the currently oepened project or NULL for non-cloud projects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="141" column="20" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a2ee8ee1e1fba1228aab47ca73747287b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref> *</type>
+        <definition>QgsGpkgFlusher * QfCloudProjectsModel::gpkgFlusher</definition>
+        <argsstring>() const</argsstring>
+        <name>gpkgFlusher</name>
+        <qualifiedname>QfCloudProjectsModel::gpkgFlusher</qualifiedname>
+        <briefdescription>
+<para>Returns the geopackage flusher. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="144" column="20" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a2e5a8ed6103b2d5d12bb636e08604835" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::setGpkgFlusher</definition>
+        <argsstring>(QgsGpkgFlusher *flusher)</argsstring>
+        <name>setGpkgFlusher</name>
+        <qualifiedname>QfCloudProjectsModel::setGpkgFlusher</qualifiedname>
+        <param>
+          <type><ref refid="classQgsGpkgFlusher" kindref="compound">QgsGpkgFlusher</ref> *</type>
+          <declname>flusher</declname>
+        </param>
+        <briefdescription>
+<para>Sets the geopackage flusher. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="147" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1120" bodyend="1130"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1aae7255c6c872babc16857273572654a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt; QString &gt; QfCloudProjectsModel::busyProjectIds</definition>
+        <argsstring>() const</argsstring>
+        <name>busyProjectIds</name>
+        <qualifiedname>QfCloudProjectsModel::busyProjectIds</qualifiedname>
+        <briefdescription>
+<para>Returns a set containing the currently busy project ids. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="150" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="147" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1af41618fb91d9f10886ba9602e0e4a3b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudProjectsModel::refreshProjectsList</definition>
+        <argsstring>(bool shouldResetModel=true, int projectFetchOffset=0)</argsstring>
+        <name>refreshProjectsList</name>
+        <qualifiedname>QfCloudProjectsModel::refreshProjectsList</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>shouldResetModel</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>projectFetchOffset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Requests the cloud projects list from the server. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shouldResetModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to reset the model </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>projectFetchOffset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>offset for pagination </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="157" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="162" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a1818262d27e0c90505a8cdd4a1e88839" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudProjectsModel::projectPush</definition>
+        <argsstring>(const QString &amp;projectId, const bool shouldDownloadUpdates)</argsstring>
+        <name>projectPush</name>
+        <qualifiedname>QfCloudProjectsModel::projectPush</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>shouldDownloadUpdates</declname>
+        </param>
+        <briefdescription>
+<para>Pushes all local deltas for given <emphasis>projectId</emphasis>. If <emphasis>shouldDownloadUpdates</emphasis> is true, also calls <computeroutput>downloadProject</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="160" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="434" bodyend="468"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1aef8fc3c81dd57f9a35bf257ccb7b6590" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudProjectsModel::removeLocalProject</definition>
+        <argsstring>(const QString &amp;projectId)</argsstring>
+        <name>removeLocalProject</name>
+        <qualifiedname>QfCloudProjectsModel::removeLocalProject</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+<para>Remove local cloud project with given <emphasis>projectId</emphasis> from the device storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="163" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="347" bodyend="371"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a1374dfb9b1e15e98da568b1ca6d495c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfCloudProjectsModel::revertLocalChangesFromCurrentProject</definition>
+        <argsstring>()</argsstring>
+        <name>revertLocalChangesFromCurrentProject</name>
+        <qualifiedname>QfCloudProjectsModel::revertLocalChangesFromCurrentProject</qualifiedname>
+        <briefdescription>
+<para>Reverts the deltas of the current cloud project. The changes would applied in reverse order and opposite methods, e.g. &quot;delete&quot; becomes &quot;create&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="166" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1062" bodyend="1092"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1aca457757db52d6799a1f6e5957ad4426" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfCloudProjectsModel::discardLocalChangesFromCurrentProject</definition>
+        <argsstring>()</argsstring>
+        <name>discardLocalChangesFromCurrentProject</name>
+        <qualifiedname>QfCloudProjectsModel::discardLocalChangesFromCurrentProject</qualifiedname>
+        <briefdescription>
+<para>Discards the delta records of the current cloud project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="169" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1094" bodyend="1118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a7f2191b97747779dea03ce9be96baf45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfCloudProjectsModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfCloudProjectsModel::roleNames</qualifiedname>
+        <briefdescription>
+<para>Returns the model role names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="172" column="11" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="642" bodyend="674"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a33dabc3a7e6870d7e77267f7e6906a39" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfCloudProjectsModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfCloudProjectsModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+<para>Returns number of rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="175" column="9" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="944" bodyend="947"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a6955a537ef3b622a664c3784f3712863" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfCloudProjectsModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfCloudProjectsModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+<para>Returns the data at given <emphasis>index</emphasis> with given <emphasis>role</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="178" column="14" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="949" bodyend="1060"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1af5f06b81721bf2cc1d056c333f04654c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudProjectsModel::projectPackageAndDownload</definition>
+        <argsstring>(const QString &amp;projectId)</argsstring>
+        <name>projectPackageAndDownload</name>
+        <qualifiedname>QfCloudProjectsModel::projectPackageAndDownload</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+<para>Downloads a cloud project with given <emphasis>projectId</emphasis> and all of its files. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="181" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="404" bodyend="432"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a6c1a2092b614f5300beefdb4db0d0e71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudProjectsModel::projectCancelDownload</definition>
+        <argsstring>(const QString &amp;projectId)</argsstring>
+        <name>projectCancelDownload</name>
+        <qualifiedname>QfCloudProjectsModel::projectCancelDownload</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+<para>Cancels ongoing cloud project download with <emphasis>projectId</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="184" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="378" bodyend="402"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a6d159ef9f683d3a051e2a4c0ba33f869" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> *</type>
+        <definition>QfCloudProject * QfCloudProjectsModel::findProject</definition>
+        <argsstring>(const QString &amp;projectId) const</argsstring>
+        <name>findProject</name>
+        <qualifiedname>QfCloudProjectsModel::findProject</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+<para>Return the cloud project for a given <emphasis>projectId</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="187" column="32" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="230" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a5154e7ccc6f5c2ef0b7cea68687f7318" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudProjectsModel::appendProject</definition>
+        <argsstring>(const QString &amp;projectId, bool forceRefresh=false)</argsstring>
+        <name>appendProject</name>
+        <qualifiedname>QfCloudProjectsModel::appendProject</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>forceRefresh</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Fetches a cloud project for a given <emphasis>projectId</emphasis> and appends it to the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="190" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="242" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a8c2c0c4b28d6106f03c1b00d72be89ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudProjectsModel::appendProjects</definition>
+        <argsstring>(const QString &amp;owner, const QString &amp;search, int projectFetchOffset=0)</argsstring>
+        <name>appendProjects</name>
+        <qualifiedname>QfCloudProjectsModel::appendProjects</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>projectFetchOffset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Fetches all cloud projects tied to a given <emphasis>search</emphasis> term and/or <emphasis>owner</emphasis> name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="193" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="292" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1ae94c7eeb4add99ff467c8b8b446a14c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QStringList</type>
+        <definition>QStringList QfCloudProjectsModel::uniqueOwners</definition>
+        <argsstring>() const</argsstring>
+        <name>uniqueOwners</name>
+        <qualifiedname>QfCloudProjectsModel::uniqueOwners</qualifiedname>
+        <briefdescription>
+<para>Returns a list of unique project owners, excluding projects where the user has access only through public visibility. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="196" column="29" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="328" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a33176c541f73e361aa254749d0ce9ebe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudProjectsModel::createProject</definition>
+        <argsstring>(const QString &amp;name, const QString &amp;fromProjectId=QString())</argsstring>
+        <name>createProject</name>
+        <qualifiedname>QfCloudProjectsModel::createProject</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fromProjectId</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Transform a locally-stored project into a cloud project by uploading its content to the QFieldCloud server.</para>
+<para>The converted project will then be removed from the local storage in favor of a newly packaged cloud project downloaded from the server. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="205" column="22" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1132" bodyend="1199"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1aa822fe9d74cae0b27fff6350a7ba16e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsModel::hasTemplates</definition>
+        <argsstring>() const</argsstring>
+        <name>hasTemplates</name>
+        <qualifiedname>QfCloudProjectsModel::hasTemplates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the source model contains at least one template project, regardless of the currently applied filters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="211" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1242" bodyend="1245"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a698fe809081ce7c8c246b763a1bb9fb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::cloudConnectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudConnectionChanged</name>
+        <qualifiedname>QfCloudProjectsModel::cloudConnectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="214" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a928c605758de409984fbd93c817ddd6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::layerObserverChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layerObserverChanged</name>
+        <qualifiedname>QfCloudProjectsModel::layerObserverChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="215" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1ad9b558047ea78d7c0e6e316dcad5bbf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::isRefreshingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isRefreshingChanged</name>
+        <qualifiedname>QfCloudProjectsModel::isRefreshingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="216" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1acafb26a0ff172663e3b731106d08700d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::isCreatingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isCreatingChanged</name>
+        <qualifiedname>QfCloudProjectsModel::isCreatingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="217" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a216ebe694008f2feef634326ce063a5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::currentProjectIdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentProjectIdChanged</name>
+        <qualifiedname>QfCloudProjectsModel::currentProjectIdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="218" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a96843f3a308f0b77b361f5faf8c131b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::currentProjectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentProjectChanged</name>
+        <qualifiedname>QfCloudProjectsModel::currentProjectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="219" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a7f5a649b99dd7f847ccc6e4fd5a8735f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::busyProjectIdsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>busyProjectIdsChanged</name>
+        <qualifiedname>QfCloudProjectsModel::busyProjectIdsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="220" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a36b7b36db4e385bcea34e9c35348ee76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::gpkgFlusherChanged</definition>
+        <argsstring>()</argsstring>
+        <name>gpkgFlusherChanged</name>
+        <qualifiedname>QfCloudProjectsModel::gpkgFlusherChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="221" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a7e97242033b7cb736099a133476afb8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::warning</definition>
+        <argsstring>(const QString &amp;message)</argsstring>
+        <name>warning</name>
+        <qualifiedname>QfCloudProjectsModel::warning</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="222" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a84bff800d6778dff8b19c1cd29f7fee1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::projectCreated</definition>
+        <argsstring>(const QString &amp;projectId, const QString &amp;fromProjectId, const bool hasError, const QString &amp;errorString)</argsstring>
+        <name>projectCreated</name>
+        <qualifiedname>QfCloudProjectsModel::projectCreated</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fromProjectId</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>hasError</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="224" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a56ef7ca6af3d968c3a13845ba6cd7c47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::projectAppended</definition>
+        <argsstring>(const QString &amp;projectId, const bool hasError=false, const QString &amp;errorString=QString())</argsstring>
+        <name>projectAppended</name>
+        <qualifiedname>QfCloudProjectsModel::projectAppended</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>hasError</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="225" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1afbe5b49675467ce32e907aa57f4f233c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::projectsAppended</definition>
+        <argsstring>(const QString &amp;owner, const QString &amp;search, const bool hasError=false, const QString &amp;errorString=QString())</argsstring>
+        <name>projectsAppended</name>
+        <qualifiedname>QfCloudProjectsModel::projectsAppended</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>hasError</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="226" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a46e7ca3420e7c6e8856324f210605825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::projectDownloaded</definition>
+        <argsstring>(const QString &amp;projectId, const QString &amp;projectName, const QString &amp;projectOwner, const bool hasError=false, const QString &amp;errorString=QString())</argsstring>
+        <name>projectDownloaded</name>
+        <qualifiedname>QfCloudProjectsModel::projectDownloaded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectOwner</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>hasError</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="227" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1acdaddf4fd42ae203f8f550a796574709" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::pushFinished</definition>
+        <argsstring>(const QString &amp;projectId, bool isDownloadingProject, bool hasError=false, const QString &amp;errorString=QString())</argsstring>
+        <name>pushFinished</name>
+        <qualifiedname>QfCloudProjectsModel::pushFinished</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isDownloadingProject</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>hasError</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="228" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1a59589ae0071eb792b46346b756b2bd80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::projectUploaded</definition>
+        <argsstring>(const QString &amp;projectId)</argsstring>
+        <name>projectUploaded</name>
+        <qualifiedname>QfCloudProjectsModel::projectUploaded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="230" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsModel_1ae10f98428ea831ef3438a745b29975f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::hasTemplatesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasTemplatesChanged</name>
+        <qualifiedname>QfCloudProjectsModel::hasTemplatesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="232" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfCloudProjectsModel_1a05c8311a089230ab1dc3520692208bd3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::connectionStatusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>connectionStatusChanged</name>
+        <qualifiedname>QfCloudProjectsModel::connectionStatusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="235" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="470" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfCloudProjectsModel_1ae5028baa07a710ba3db99e4f253c83cf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::usernameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>usernameChanged</name>
+        <qualifiedname>QfCloudProjectsModel::usernameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="236" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="475" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfCloudProjectsModel_1ad1c555bb83d146a241035593a5f5b212" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::urlChanged</definition>
+        <argsstring>()</argsstring>
+        <name>urlChanged</name>
+        <qualifiedname>QfCloudProjectsModel::urlChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="237" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="486" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfCloudProjectsModel_1a653421eba750f9c9a231a7f94ac088c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::projectListReceived</definition>
+        <argsstring>()</argsstring>
+        <name>projectListReceived</name>
+        <qualifiedname>QfCloudProjectsModel::projectListReceived</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="239" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="556" bodyend="640"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfCloudProjectsModel_1a1608dbdddbe9e92ee9e78db56896fc10" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::projectReceived</definition>
+        <argsstring>()</argsstring>
+        <name>projectReceived</name>
+        <qualifiedname>QfCloudProjectsModel::projectReceived</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="240" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="510" bodyend="554"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfCloudProjectsModel_1a92c4303e80dab1f41073063b5070c10c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::projectCreationReceived</definition>
+        <argsstring>()</argsstring>
+        <name>projectCreationReceived</name>
+        <qualifiedname>QfCloudProjectsModel::projectCreationReceived</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="241" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1201" bodyend="1240"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfCloudProjectsModel_1aa093bda82c939bf676c53a01397ebfc1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::setupProjectConnections</definition>
+        <argsstring>(QfCloudProject *project)</argsstring>
+        <name>setupProjectConnections</name>
+        <qualifiedname>QfCloudProjectsModel::setupProjectConnections</qualifiedname>
+        <param>
+          <type><ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="244" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="732" bodyend="871"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1ac2258b4ca66fef1f659506350c3e3d0c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfCloudProjectsModel::findProjectIndex</definition>
+        <argsstring>(const QString &amp;projectId) const</argsstring>
+        <name>findProjectIndex</name>
+        <qualifiedname>QfCloudProjectsModel::findProjectIndex</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="246" column="17" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="200" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a46194764a06681bc88161ac15037b7a1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::loadProjects</definition>
+        <argsstring>(const QJsonArray &amp;remoteProjects=QJsonArray(), bool skipLocalProjects=false)</argsstring>
+        <name>loadProjects</name>
+        <qualifiedname>QfCloudProjectsModel::loadProjects</qualifiedname>
+        <param>
+          <type>const QJsonArray &amp;</type>
+          <declname>remoteProjects</declname>
+          <defval>QJsonArray()</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>skipLocalProjects</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="248" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="873" bodyend="942"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a2cd03740828abc9ebc2afa812ad859d0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::insertProjects</definition>
+        <argsstring>(const QList&lt; QfCloudProject * &gt; &amp;projects)</argsstring>
+        <name>insertProjects</name>
+        <qualifiedname>QfCloudProjectsModel::insertProjects</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> * &gt; &amp;</type>
+          <declname>projects</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="249" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="676" bodyend="730"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a37e4144c0eef76ab8989dc1405a77fbb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::resetProjects</definition>
+        <argsstring>()</argsstring>
+        <name>resetProjects</name>
+        <qualifiedname>QfCloudProjectsModel::resetProjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="250" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="496" bodyend="508"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1a9f76bffaf97efd2beec52d8528d1afbd" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsModel::layerFileName</definition>
+        <argsstring>(const QgsMapLayer *layer) const</argsstring>
+        <name>layerFileName</name>
+        <qualifiedname>QfCloudProjectsModel::layerFileName</qualifiedname>
+        <param>
+          <type>const QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="252" column="20" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="373" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsModel_1aa8320caff1c9f3761dd7ba1a8d46c945" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsModel::updateHasTemplates</definition>
+        <argsstring>()</argsstring>
+        <name>updateHasTemplates</name>
+        <qualifiedname>QfCloudProjectsModel::updateHasTemplates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="254" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1247" bodyend="1255"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfCloudProjectsModel</label>
+        <link refid="classQfCloudProjectsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfCloudProjectsModel</label>
+        <link refid="classQfCloudProjectsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="38" column="1" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="39" bodyend="272"/>
+    <listofallmembers>
+      <member refid="classQfCloudProjectsModel_1a5154e7ccc6f5c2ef0b7cea68687f7318" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>appendProject</name></member>
+      <member refid="classQfCloudProjectsModel_1a8c2c0c4b28d6106f03c1b00d72be89ee" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>appendProjects</name></member>
+      <member refid="classQfCloudProjectsModel_1a850ad2d1bcc66c6080761ca70966f850" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>busyProjectIds</name></member>
+      <member refid="classQfCloudProjectsModel_1aae7255c6c872babc16857273572654a7" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>busyProjectIds</name></member>
+      <member refid="classQfCloudProjectsModel_1a7f5a649b99dd7f847ccc6e4fd5a8735f" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>busyProjectIdsChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a05b984451e5ea09c3a491f38a91bc987" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>CheckoutRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a0d776cb6810a8ea905360c17e0d3abef" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>cloudConnection</name></member>
+      <member refid="classQfCloudProjectsModel_1a3650ae548805a5201fc6484644fda6ac" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>cloudConnection</name></member>
+      <member refid="classQfCloudProjectsModel_1a698fe809081ce7c8c246b763a1bb9fb9" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>cloudConnectionChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>ColumnRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a05c8311a089230ab1dc3520692208bd3" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>connectionStatusChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a33176c541f73e361aa254749d0ce9ebe" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>createProject</name></member>
+      <member refid="classQfCloudProjectsModel_1a53f1177c4647899f03679e0bab4f49af" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>currentProject</name></member>
+      <member refid="classQfCloudProjectsModel_1a8ec61c7070c4381fb5598074a2a99769" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>currentProject</name></member>
+      <member refid="classQfCloudProjectsModel_1a96843f3a308f0b77b361f5faf8c131b2" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>currentProjectChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a036478ebd89787ff005795aca4150d81" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>currentProjectId</name></member>
+      <member refid="classQfCloudProjectsModel_1a50036d4e977426fe56864b19d1a18473" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>currentProjectId</name></member>
+      <member refid="classQfCloudProjectsModel_1a216ebe694008f2feef634326ce063a5d" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>currentProjectIdChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a6955a537ef3b622a664c3784f3712863" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>data</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9aeeecc16f705c274728d6e608bab88979" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>DescriptionRole</name></member>
+      <member refid="classQfCloudProjectsModel_1aca457757db52d6799a1f6e5957ad4426" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>discardLocalChangesFromCurrentProject</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a24e9218609cba51c1e02b4800b853fdf" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>DownloadProgressRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9ab02da6c3d6c3a67c7b12e5b8b5f12dd0" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>DownloadSizeRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9ad1734de0ed7c83ccb608fa757a9be526" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>ErrorStatusRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a3d4d99802c5001e4cc737105ae5c5ba5" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>ErrorStringRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9aae8472b21325589678f1b08833c1a597" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>FeaturedRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a6d159ef9f683d3a051e2a4c0ba33f869" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>findProject</name></member>
+      <member refid="classQfCloudProjectsModel_1ac2258b4ca66fef1f659506350c3e3d0c" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>findProjectIndex</name></member>
+      <member refid="classQfCloudProjectsModel_1ab29144ef3b2fb8f29c606ab23f19da54" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>gpkgFlusher</name></member>
+      <member refid="classQfCloudProjectsModel_1a2ee8ee1e1fba1228aab47ca73747287b" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>gpkgFlusher</name></member>
+      <member refid="classQfCloudProjectsModel_1a36b7b36db4e385bcea34e9c35348ee76" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>gpkgFlusherChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a95cf31ca5dd350d8597357361780c083" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>hasTemplates</name></member>
+      <member refid="classQfCloudProjectsModel_1aa822fe9d74cae0b27fff6350a7ba16e7" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>hasTemplates</name></member>
+      <member refid="classQfCloudProjectsModel_1ae10f98428ea831ef3438a745b29975f2" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>hasTemplatesChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a711d3fae8e463d974200a2e14b92d2d2" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>IdRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a2cd03740828abc9ebc2afa812ad859d0" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>insertProjects</name></member>
+      <member refid="classQfCloudProjectsModel_1a8dafece0553e57b91633f874f34368d1" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>isCreating</name></member>
+      <member refid="classQfCloudProjectsModel_1af391f9aa7bc259167a766bfc80c2990a" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>isCreating</name></member>
+      <member refid="classQfCloudProjectsModel_1acafb26a0ff172663e3b731106d08700d" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>isCreatingChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a3f05809698b52cb19bcde4a293aaa901" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>isRefreshing</name></member>
+      <member refid="classQfCloudProjectsModel_1a4f07fcf0b00ec107e049195546620ccb" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>isRefreshing</name></member>
+      <member refid="classQfCloudProjectsModel_1ad9b558047ea78d7c0e6e316dcad5bbf9" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>isRefreshingChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a9df2384b516f6117c56620b1f701af93" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>LastLocalExportedAtRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4d38502947052b7b25d341a8817ac03d" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>LastLocalPushDeltasRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a9f76bffaf97efd2beec52d8528d1afbd" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>layerFileName</name></member>
+      <member refid="classQfCloudProjectsModel_1abb13a1231008f4430ab7cc9806661a03" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>layerObserver</name></member>
+      <member refid="classQfCloudProjectsModel_1a790cd86fc622590f295abdc4d0b52b7a" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>layerObserver</name></member>
+      <member refid="classQfCloudProjectsModel_1a928c605758de409984fbd93c817ddd6d" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>layerObserverChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a46194764a06681bc88161ac15037b7a1" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>loadProjects</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a21a97f777ad515ed551dcb2752b02e2b" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>LocalDeltasCountRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a94374c5b042640fce55bea2c313d261d" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>LocalPathRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a3f71fd52d28ae7a2332ea4b57be6c9bd" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mCloudConnection</name></member>
+      <member refid="classQfCloudProjectsModel_1aef4d5e91175b21bc953dc6a93ac1e85d" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mCurrentProject</name></member>
+      <member refid="classQfCloudProjectsModel_1afd848d61017d2a87c94c4564509c9381" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mCurrentProjectId</name></member>
+      <member refid="classQfCloudProjectsModel_1a3b437efe0e265b8b929c86b4b1cbc436" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mGpkgFlusher</name></member>
+      <member refid="classQfCloudProjectsModel_1adb79bd7f52e34d776d7b6436621467d6" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mHasTemplates</name></member>
+      <member refid="classQfCloudProjectsModel_1ac541151761bbdc05fe19ebfb6455fe48" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mIsCreating</name></member>
+      <member refid="classQfCloudProjectsModel_1a1db533bc93589a64984e65cd9f6b8d9d" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mIsRefreshing</name></member>
+      <member refid="classQfCloudProjectsModel_1a6143d1f68944d8023284cbcfe95b896a" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mLayerObserver</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a0256c5fa4e281e6c30353ee8552bd244" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>ModificationRole</name></member>
+      <member refid="classQfCloudProjectsModel_1ac3a4ccaf7e7c634af428992122fd1a7c" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mProjects</name></member>
+      <member refid="classQfCloudProjectsModel_1a9b4219e43ef2204a7fd31f04174d6dca" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mProjectsPerFetch</name></member>
+      <member refid="classQfCloudProjectsModel_1a7753475d71650580027a0ffce58f9382" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mUrl</name></member>
+      <member refid="classQfCloudProjectsModel_1a3071acfcab36ac430bdba7eaa6bb5aca" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>mUsername</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a102cc72ac49a5d26a789f13f94a686a1" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>NameRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a0dfe8a605d171d8e9417867cf30626db" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>OwnerRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a07a866d31513e120fde5bedc4c2f3ed4" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>PackagedLayerErrorsRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a6a51163eaaae4daf19868253cb3267a8" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>PackagingStatusRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a56ef7ca6af3d968c3a13845ba6cd7c47" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectAppended</name></member>
+      <member refid="classQfCloudProjectsModel_1a6c1a2092b614f5300beefdb4db0d0e71" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectCancelDownload</name></member>
+      <member refid="classQfCloudProjectsModel_1a84bff800d6778dff8b19c1cd29f7fee1" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectCreated</name></member>
+      <member refid="classQfCloudProjectsModel_1a92c4303e80dab1f41073063b5070c10c" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectCreationReceived</name></member>
+      <member refid="classQfCloudProjectsModel_1a46e7ca3420e7c6e8856324f210605825" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectDownloaded</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9ad4865a33fb91684dd1a034df8ec93192" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>ProjectFileOutdatedRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a653421eba750f9c9a231a7f94ac088c6" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectListReceived</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9af41a488c858b5614210e14b9d680fc10" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>ProjectOutdatedRole</name></member>
+      <member refid="classQfCloudProjectsModel_1af5f06b81721bf2cc1d056c333f04654c" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectPackageAndDownload</name></member>
+      <member refid="classQfCloudProjectsModel_1a1818262d27e0c90505a8cdd4a1e88839" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectPush</name></member>
+      <member refid="classQfCloudProjectsModel_1a1608dbdddbe9e92ee9e78db56896fc10" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectReceived</name></member>
+      <member refid="classQfCloudProjectsModel_1afbe5b49675467ce32e907aa57f4f233c" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectsAppended</name></member>
+      <member refid="classQfCloudProjectsModel_1ae155b63f24d986047bc284330857d5e5" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>ProjectsRequestAttribute</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a28116540d9bad47e451fae9b80732c6b" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>ProjectTypeRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a59589ae0071eb792b46346b756b2bd80" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>projectUploaded</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4273943b8d38e9855f7763a7a6b9e950" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>PublicRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a9a558cdd920aa65b2be37bcb0c7237d3" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>PushDeltaProgressRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4f55c25dbcdaf04494866442561587ef" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>PushDeltaStatusRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4c1939155c2cc943e14dca805c8a2eb8" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>PushDeltaStatusStringRole</name></member>
+      <member refid="classQfCloudProjectsModel_1acdaddf4fd42ae203f8f550a796574709" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>pushFinished</name></member>
+      <member refid="classQfCloudProjectsModel_1a8fad8fe835064633a9b71df10aa0ad57" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>QfCloudProjectsModel</name></member>
+      <member refid="classQfCloudProjectsModel_1af41618fb91d9f10886ba9602e0e4a3b8" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>refreshProjectsList</name></member>
+      <member refid="classQfCloudProjectsModel_1aef8fc3c81dd57f9a35bf257ccb7b6590" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>removeLocalProject</name></member>
+      <member refid="classQfCloudProjectsModel_1a37e4144c0eef76ab8989dc1405a77fbb" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>resetProjects</name></member>
+      <member refid="classQfCloudProjectsModel_1a1374dfb9b1e15e98da568b1ca6d495c1" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>revertLocalChangesFromCurrentProject</name></member>
+      <member refid="classQfCloudProjectsModel_1a7f2191b97747779dea03ce9be96baf45" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>roleNames</name></member>
+      <member refid="classQfCloudProjectsModel_1a33dabc3a7e6870d7e77267f7e6906a39" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>rowCount</name></member>
+      <member refid="classQfCloudProjectsModel_1a66959f0fc916e51ccfc0e676bdadcaae" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>setCloudConnection</name></member>
+      <member refid="classQfCloudProjectsModel_1abd49dbc66b723f9a7b7aa8ff2920a131" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>setCurrentProjectId</name></member>
+      <member refid="classQfCloudProjectsModel_1a2e5a8ed6103b2d5d12bb636e08604835" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>setGpkgFlusher</name></member>
+      <member refid="classQfCloudProjectsModel_1ae5d836a90b5cfb9d51dc6dec86ac401e" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>setLayerObserver</name></member>
+      <member refid="classQfCloudProjectsModel_1aa093bda82c939bf676c53a01397ebfc1" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>setupProjectConnections</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9af92d44f15c3d946f9ef8cd333985f4ed" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>StatusRole</name></member>
+      <member refid="classQfCloudProjectsModel_1ae94c7eeb4add99ff467c8b8b446a14c2" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>uniqueOwners</name></member>
+      <member refid="classQfCloudProjectsModel_1aa8320caff1c9f3761dd7ba1a8d46c945" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>updateHasTemplates</name></member>
+      <member refid="classQfCloudProjectsModel_1ad1c555bb83d146a241035593a5f5b212" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>urlChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1ae5028baa07a710ba3db99e4f253c83cf" prot="private" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>usernameChanged</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a4646764dfe1bbbd785ffebe9ddae7156" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>UserRoleOriginRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a4ab5971bcfdb6200aba5b7ad18f9f2b9a6e22515da68b181da4fd5aec0c87e32c" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>UserRoleRole</name></member>
+      <member refid="classQfCloudProjectsModel_1a7e97242033b7cb736099a133476afb8e" prot="public" virt="non-virtual"><scope>QfCloudProjectsModel</scope><name>warning</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

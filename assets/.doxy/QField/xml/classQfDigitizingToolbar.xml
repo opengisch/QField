@@ -1,0 +1,642 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDigitizingToolbar" kind="class" language="C++" prot="public">
+    <compoundname>QfDigitizingToolbar</compoundname>
+    <basecompoundref refid="classQfVisibilityFadingRow" prot="public" virt="non-virtual">QfVisibilityFadingRow</basecompoundref>
+    <derivedcompoundref refid="classDigitizingToolbar" prot="public" virt="non-virtual">DigitizingToolbar</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a2e7e624489aceb24fded4e2943b8dd5f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref></type>
+        <definition>QfRubberbandModel QfDigitizingToolbar::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfDigitizingToolbar::rubberbandModel</qualifiedname>
+        <read>dummyGetter_rubberbandModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="12" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1ab538234d4e1ed560466702e046e05394" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>MapSettings</type>
+        <definition>MapSettings QfDigitizingToolbar::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfDigitizingToolbar::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="14" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a5c7e5aa5ceeb7f223db4769ad8120071" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingToolbar::cogoEnabled</definition>
+        <argsstring></argsstring>
+        <name>cogoEnabled</name>
+        <qualifiedname>QfDigitizingToolbar::cogoEnabled</qualifiedname>
+        <read>dummyGetter_cogoEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="16" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a4a564d1e8e5851ff6aad1e90212f23fc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfDigitizingToolbar::cogoOperationSettings</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationSettings</name>
+        <qualifiedname>QfDigitizingToolbar::cogoOperationSettings</qualifiedname>
+        <read>dummyGetter_cogoOperationSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="18" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1ac5b520d63068886f22b2ed288e505534" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfDigitizingToolbar::cogoExecutor</definition>
+        <argsstring></argsstring>
+        <name>cogoExecutor</name>
+        <qualifiedname>QfDigitizingToolbar::cogoExecutor</qualifiedname>
+        <read>dummyGetter_cogoExecutor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="20" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a29fff03f1298672db271f4797c4a99a9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingToolbar::showConfirmButton</definition>
+        <argsstring></argsstring>
+        <name>showConfirmButton</name>
+        <qualifiedname>QfDigitizingToolbar::showConfirmButton</qualifiedname>
+        <read>dummyGetter_showConfirmButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="22" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a0c03e0d21ba42feedf063bb6d1e3a899" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingToolbar::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>QfDigitizingToolbar::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="24" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a2b40fe47deb8e925380936bf7d8ae9ea" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingToolbar::geometryRequested</definition>
+        <argsstring></argsstring>
+        <name>geometryRequested</name>
+        <qualifiedname>QfDigitizingToolbar::geometryRequested</qualifiedname>
+        <read>dummyGetter_geometryRequested_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="26" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a9a35d30acc9472c76b7d23bc83fe6882" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfDigitizingToolbar::geometryRequestedItem</definition>
+        <argsstring></argsstring>
+        <name>geometryRequestedItem</name>
+        <qualifiedname>QfDigitizingToolbar::geometryRequestedItem</qualifiedname>
+        <read>dummyGetter_geometryRequestedItem_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="28" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1ae1dbb38f190a038cedd3a7741b49607f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>VectorLayer</type>
+        <definition>VectorLayer QfDigitizingToolbar::geometryRequestedLayer</definition>
+        <argsstring></argsstring>
+        <name>geometryRequestedLayer</name>
+        <qualifiedname>QfDigitizingToolbar::geometryRequestedLayer</qualifiedname>
+        <read>dummyGetter_geometryRequestedLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="30" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a144de97c41c8b4ec1f00ca4bbaa2b43a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfDigitizingToolbar::digitizingLogger</definition>
+        <argsstring></argsstring>
+        <name>digitizingLogger</name>
+        <qualifiedname>QfDigitizingToolbar::digitizingLogger</qualifiedname>
+        <read>dummyGetter_digitizingLogger_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="32" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a77ac24ab98fa2645f2a535f87d72c409" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfDigitizingToolbar::cancelDialog</definition>
+        <argsstring></argsstring>
+        <name>cancelDialog</name>
+        <qualifiedname>QfDigitizingToolbar::cancelDialog</qualifiedname>
+        <read>dummyGetter_cancelDialog_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="34" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a2fe385cf174358b07284af657faa712c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingToolbar::isDigitizing</definition>
+        <argsstring></argsstring>
+        <name>isDigitizing</name>
+        <qualifiedname>QfDigitizingToolbar::isDigitizing</qualifiedname>
+        <read>dummyGetter_isDigitizing_ignore</read>
+        <briefdescription>
+<para>Readonly. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="36" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingToolbar_1a98a9ae88e3f758f9b4c5b95e1a8f91ec" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingToolbar::geometryValid</definition>
+        <argsstring></argsstring>
+        <name>geometryValid</name>
+        <qualifiedname>QfDigitizingToolbar::geometryValid</qualifiedname>
+        <read>dummyGetter_geometryValid_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="38" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1a88456d0bbe079af6df9f936b2ee01b72" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDigitizingToolbar::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfDigitizingToolbar::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="44" column="5" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1a635f2633e4259db976f4fcb8d8489156" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDigitizingLogger" kindref="compound">QfDigitizingLogger</ref></type>
+        <definition>QfDigitizingLogger QfDigitizingToolbar::digitizingLogger</definition>
+        <argsstring></argsstring>
+        <name>digitizingLogger</name>
+        <qualifiedname>QfDigitizingToolbar::digitizingLogger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="59" column="20" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1a9b0d9723fec96ea815ce8b73767cf8bc" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDigitizingToolbar::cancelButton</definition>
+        <argsstring></argsstring>
+        <name>cancelButton</name>
+        <qualifiedname>QfDigitizingToolbar::cancelButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="60" column="14" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1a236bdbb9b3d49991cb13c3c7a0b94cf9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDigitizingToolbar::confirmButton</definition>
+        <argsstring></argsstring>
+        <name>confirmButton</name>
+        <qualifiedname>QfDigitizingToolbar::confirmButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="61" column="14" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1a7fc27d00d8dc7e11cdeecc9f5be657a1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCogoOperations" kindref="compound">QfCogoOperations</ref></type>
+        <definition>QfCogoOperations QfDigitizingToolbar::cogoOperations</definition>
+        <argsstring></argsstring>
+        <name>cogoOperations</name>
+        <qualifiedname>QfDigitizingToolbar::cogoOperations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="62" column="18" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1a61b23d5406779b0d5e7abe195818ddf2" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCogoExecutor" kindref="compound">QfCogoExecutor</ref></type>
+        <definition>QfCogoExecutor QfDigitizingToolbar::cogoExecutor</definition>
+        <argsstring></argsstring>
+        <name>cogoExecutor</name>
+        <qualifiedname>QfDigitizingToolbar::cogoExecutor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="63" column="16" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1a634ec275fd73cce3000babf288713155" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfDigitizingToolbar::removeVertexTimer</definition>
+        <argsstring></argsstring>
+        <name>removeVertexTimer</name>
+        <qualifiedname>QfDigitizingToolbar::removeVertexTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="64" column="7" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1af2e0b158444bb44f71d0afbf6f9f361c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDigitizingToolbar::removeVertexButton</definition>
+        <argsstring></argsstring>
+        <name>removeVertexButton</name>
+        <qualifiedname>QfDigitizingToolbar::removeVertexButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="65" column="14" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1abce8f0b7d3aee75f864a0b2fdd357488" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDigitizingToolbar::addVertexButton</definition>
+        <argsstring></argsstring>
+        <name>addVertexButton</name>
+        <qualifiedname>QfDigitizingToolbar::addVertexButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="66" column="14" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingToolbar_1a154c58e8bf9e2fecf05d33048af632b1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfDigitizingToolbar::cancelDialog</definition>
+        <argsstring></argsstring>
+        <name>cancelDialog</name>
+        <qualifiedname>QfDigitizingToolbar::cancelDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="67" column="10" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfDigitizingToolbar_1ad7ea8c313c06ed5fa8c6ffbc08db6003" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfDigitizingToolbar::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="40" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingToolbar_1a345ec0c597a123bdb39808e1cf338fd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::requestPosition</definition>
+        <argsstring>(var item, bool fromCoordinateLocator)</argsstring>
+        <name>requestPosition</name>
+        <qualifiedname>QfDigitizingToolbar::requestPosition</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fromCoordinateLocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="42" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingToolbar_1a3f2c62683e6c9b343010a8fd3add8486" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::confirmed</definition>
+        <argsstring>()</argsstring>
+        <name>confirmed</name>
+        <qualifiedname>QfDigitizingToolbar::confirmed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="49" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingToolbar_1a1b664240dc165b2603a04c7d358b7e0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>QfDigitizingToolbar::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="53" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingToolbar_1a60b7e923026c571ccc0113d0c91488e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::vertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexCountChanged</name>
+        <qualifiedname>QfDigitizingToolbar::vertexCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="55" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfDigitizingToolbar_1a675eedd6ccd0e1e6155042d6e84a97e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::processVertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>processVertexCountChanged</name>
+        <qualifiedname>QfDigitizingToolbar::processVertexCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="57" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingToolbar_1a83ca878d90c9558283b91478008439f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::checkAccuracyRequirement</definition>
+        <argsstring>()</argsstring>
+        <name>checkAccuracyRequirement</name>
+        <qualifiedname>QfDigitizingToolbar::checkAccuracyRequirement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="70" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingToolbar_1af4036795bfe99127199ef9332bfda997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::checkGeometryValidity</definition>
+        <argsstring>()</argsstring>
+        <name>checkGeometryValidity</name>
+        <qualifiedname>QfDigitizingToolbar::checkGeometryValidity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="72" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingToolbar_1accd97732223cb3f859ae12e0c30205a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::triggerAddVertex</definition>
+        <argsstring>()</argsstring>
+        <name>triggerAddVertex</name>
+        <qualifiedname>QfDigitizingToolbar::triggerAddVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="74" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingToolbar_1a74ab5df98a32b3e61bf8e05db4fbe3b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::addVertex</definition>
+        <argsstring>()</argsstring>
+        <name>addVertex</name>
+        <qualifiedname>QfDigitizingToolbar::addVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="76" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingToolbar_1a7916a7b38ac4c19f7a1b596683be37bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::removeVertex</definition>
+        <argsstring>()</argsstring>
+        <name>removeVertex</name>
+        <qualifiedname>QfDigitizingToolbar::removeVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="78" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingToolbar_1a38ee689da90338345efb4c1893173b9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingToolbar::confirm</definition>
+        <argsstring>()</argsstring>
+        <name>confirm</name>
+        <qualifiedname>QfDigitizingToolbar::confirm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingToolbar.qml" line="80" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>DigitizingToolbar</label>
+        <link refid="classDigitizingToolbar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfDigitizingToolbar</label>
+        <link refid="classQfDigitizingToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfDigitizingToolbar</label>
+        <link refid="classQfDigitizingToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfDigitizingToolbar.qml" line="9" column="1" bodyfile="src/gui/qml/QfDigitizingToolbar.qml" bodystart="9" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classQfDigitizingToolbar_1a74ab5df98a32b3e61bf8e05db4fbe3b3" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>addVertex</name></member>
+      <member refid="classQfDigitizingToolbar_1abce8f0b7d3aee75f864a0b2fdd357488" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>addVertexButton</name></member>
+      <member refid="classQfDigitizingToolbar_1a1b664240dc165b2603a04c7d358b7e0c" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cancel</name></member>
+      <member refid="classQfDigitizingToolbar_1a9b0d9723fec96ea815ce8b73767cf8bc" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cancelButton</name></member>
+      <member refid="classQfDigitizingToolbar_1a77ac24ab98fa2645f2a535f87d72c409" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cancelDialog</name></member>
+      <member refid="classQfDigitizingToolbar_1a154c58e8bf9e2fecf05d33048af632b1" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cancelDialog</name></member>
+      <member refid="classQfDigitizingToolbar_1a83ca878d90c9558283b91478008439f7" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>checkAccuracyRequirement</name></member>
+      <member refid="classQfDigitizingToolbar_1af4036795bfe99127199ef9332bfda997" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>checkGeometryValidity</name></member>
+      <member refid="classQfDigitizingToolbar_1a5c7e5aa5ceeb7f223db4769ad8120071" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cogoEnabled</name></member>
+      <member refid="classQfDigitizingToolbar_1ac5b520d63068886f22b2ed288e505534" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cogoExecutor</name></member>
+      <member refid="classQfDigitizingToolbar_1a61b23d5406779b0d5e7abe195818ddf2" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cogoExecutor</name></member>
+      <member refid="classQfDigitizingToolbar_1a7fc27d00d8dc7e11cdeecc9f5be657a1" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cogoOperations</name></member>
+      <member refid="classQfDigitizingToolbar_1a4a564d1e8e5851ff6aad1e90212f23fc" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>cogoOperationSettings</name></member>
+      <member refid="classQfDigitizingToolbar_1a38ee689da90338345efb4c1893173b9b" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>confirm</name></member>
+      <member refid="classQfDigitizingToolbar_1a236bdbb9b3d49991cb13c3c7a0b94cf9" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>confirmButton</name></member>
+      <member refid="classQfDigitizingToolbar_1a3f2c62683e6c9b343010a8fd3add8486" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>confirmed</name></member>
+      <member refid="classQfDigitizingToolbar_1a144de97c41c8b4ec1f00ca4bbaa2b43a" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>digitizingLogger</name></member>
+      <member refid="classQfDigitizingToolbar_1a635f2633e4259db976f4fcb8d8489156" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>digitizingLogger</name></member>
+      <member refid="classQfDigitizingToolbar_1a2b40fe47deb8e925380936bf7d8ae9ea" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>geometryRequested</name></member>
+      <member refid="classQfDigitizingToolbar_1a9a35d30acc9472c76b7d23bc83fe6882" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>geometryRequestedItem</name></member>
+      <member refid="classQfDigitizingToolbar_1ae1dbb38f190a038cedd3a7741b49607f" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>geometryRequestedLayer</name></member>
+      <member refid="classQfDigitizingToolbar_1a98a9ae88e3f758f9b4c5b95e1a8f91ec" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>geometryValid</name></member>
+      <member refid="classQfDigitizingToolbar_1a2fe385cf174358b07284af657faa712c" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>isDigitizing</name></member>
+      <member refid="classQfDigitizingToolbar_1ab538234d4e1ed560466702e046e05394" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>mapSettings</name></member>
+      <member refid="classQfDigitizingToolbar_1a675eedd6ccd0e1e6155042d6e84a97e8" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>processVertexCountChanged</name></member>
+      <member refid="classQfDigitizingToolbar_1a7916a7b38ac4c19f7a1b596683be37bc" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>removeVertex</name></member>
+      <member refid="classQfDigitizingToolbar_1af2e0b158444bb44f71d0afbf6f9f361c" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>removeVertexButton</name></member>
+      <member refid="classQfDigitizingToolbar_1a634ec275fd73cce3000babf288713155" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>removeVertexTimer</name></member>
+      <member refid="classQfDigitizingToolbar_1ad7ea8c313c06ed5fa8c6ffbc08db6003" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfDigitizingToolbar_1a345ec0c597a123bdb39808e1cf338fd9" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>requestPosition</name></member>
+      <member refid="classQfDigitizingToolbar_1a2e7e624489aceb24fded4e2943b8dd5f" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>rubberbandModel</name></member>
+      <member refid="classQfDigitizingToolbar_1a0c03e0d21ba42feedf063bb6d1e3a899" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>screenHovering</name></member>
+      <member refid="classQfDigitizingToolbar_1a29fff03f1298672db271f4797c4a99a9" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>showConfirmButton</name></member>
+      <member refid="classQfDigitizingToolbar_1a88456d0bbe079af6df9f936b2ee01b72" prot="private" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>spacing</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>stateVisible</name></member>
+      <member refid="classQfDigitizingToolbar_1accd97732223cb3f859ae12e0c30205a3" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>triggerAddVertex</name></member>
+      <member refid="classQfDigitizingToolbar_1a60b7e923026c571ccc0113d0c91488e9" prot="public" virt="non-virtual"><scope>QfDigitizingToolbar</scope><name>vertexCountChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

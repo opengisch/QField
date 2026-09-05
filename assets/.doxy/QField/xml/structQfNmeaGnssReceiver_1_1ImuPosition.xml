@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfNmeaGnssReceiver_1_1ImuPosition" kind="struct" language="C++" prot="private">
+    <compoundname>QfNmeaGnssReceiver::ImuPosition</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a0cfe8d307c7a93430c794a8e0c4fc280" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNmeaGnssReceiver::ImuPosition::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::valid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="76" column="14" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a4df9bda894e8a5d712e995c54e8cca92" prot="public" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfNmeaGnssReceiver::ImuPosition::utcDateTime</definition>
+        <argsstring></argsstring>
+        <name>utcDateTime</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::utcDateTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="77" column="19" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a14073949b8c4fa3a73c4f9bcbaff0339" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::latitude</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="78" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a9fe42423f82e9533539950f5577d76d9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::longitude</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="79" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1ab94941b45671de9d48947e84d656793e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::altitude</definition>
+        <argsstring></argsstring>
+        <name>altitude</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::altitude</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="80" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a9af768bbc1d990ec30363e31b336813e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::speed</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="81" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1af374fca4d25be49ed2a3f17a559f3dec" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::speedDown</definition>
+        <argsstring></argsstring>
+        <name>speedDown</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::speedDown</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="82" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a9fe6706e2d1ef621cea9796fdf69f432" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::direction</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="83" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1ae9a5d6af874164114051eda926f725f4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::roll</definition>
+        <argsstring></argsstring>
+        <name>roll</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::roll</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="84" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1ad614877b593e4c948416ac2992c4ca1e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::pitch</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="85" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1ab5677a7fdb836b2aeff679ae8a203f5f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::heading</definition>
+        <argsstring></argsstring>
+        <name>heading</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::heading</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="86" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a9fe82eecc7cd8bd4dc78d01d672c98b8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::steering</definition>
+        <argsstring></argsstring>
+        <name>steering</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::steering</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="87" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a7e389cc9bf62f4026205ebb24f8ee79c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::accelerometerX</definition>
+        <argsstring></argsstring>
+        <name>accelerometerX</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::accelerometerX</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="88" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1ab687a084e431f082bb25957d45765c60" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::accelerometerY</definition>
+        <argsstring></argsstring>
+        <name>accelerometerY</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::accelerometerY</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="89" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a03286ea3336e2c8ed404357d91f71e02" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::accelerometerZ</definition>
+        <argsstring></argsstring>
+        <name>accelerometerZ</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::accelerometerZ</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="90" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a5d3bd65c166acc03fa9d247bfaadeacb" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::gyroX</definition>
+        <argsstring></argsstring>
+        <name>gyroX</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::gyroX</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="91" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a12776c9e8b43306555f280a19a1ccf7b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::gyroY</definition>
+        <argsstring></argsstring>
+        <name>gyroY</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::gyroY</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="92" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a67c9bfae62cebf5c0c7b6c8152abf69a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::gyroZ</definition>
+        <argsstring></argsstring>
+        <name>gyroZ</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::gyroZ</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="93" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfNmeaGnssReceiver_1_1ImuPosition_1a50cd3d8af235d0eddf3818455b1ca68d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNmeaGnssReceiver::ImuPosition::steeringZ</definition>
+        <argsstring></argsstring>
+        <name>steeringZ</name>
+        <qualifiedname>QfNmeaGnssReceiver::ImuPosition::steeringZ</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfnmeagnssreceiver.h" line="94" column="16" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/qfnmeagnssreceiver.h" line="74" column="5" bodyfile="src/core/positioning/qfnmeagnssreceiver.h" bodystart="75" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a7e389cc9bf62f4026205ebb24f8ee79c" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>accelerometerX</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1ab687a084e431f082bb25957d45765c60" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>accelerometerY</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a03286ea3336e2c8ed404357d91f71e02" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>accelerometerZ</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1ab94941b45671de9d48947e84d656793e" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>altitude</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a9fe6706e2d1ef621cea9796fdf69f432" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>direction</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a5d3bd65c166acc03fa9d247bfaadeacb" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>gyroX</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a12776c9e8b43306555f280a19a1ccf7b" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>gyroY</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a67c9bfae62cebf5c0c7b6c8152abf69a" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>gyroZ</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1ab5677a7fdb836b2aeff679ae8a203f5f" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>heading</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a14073949b8c4fa3a73c4f9bcbaff0339" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>latitude</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a9fe42423f82e9533539950f5577d76d9" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>longitude</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1ad614877b593e4c948416ac2992c4ca1e" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>pitch</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1ae9a5d6af874164114051eda926f725f4" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>roll</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a9af768bbc1d990ec30363e31b336813e" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>speed</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1af374fca4d25be49ed2a3f17a559f3dec" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>speedDown</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a9fe82eecc7cd8bd4dc78d01d672c98b8" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>steering</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a50cd3d8af235d0eddf3818455b1ca68d" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>steeringZ</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a4df9bda894e8a5d712e995c54e8cca92" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>utcDateTime</name></member>
+      <member refid="structQfNmeaGnssReceiver_1_1ImuPosition_1a0cfe8d307c7a93430c794a8e0c4fc280" prot="public" virt="non-virtual"><scope>QfNmeaGnssReceiver::ImuPosition</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

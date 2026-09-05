@@ -1,0 +1,1232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCamera" kind="class" language="C++" prot="public">
+    <compoundname>QfCamera</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Popup</basecompoundref>
+    <derivedcompoundref refid="classQFieldCamera" prot="public" virt="non-virtual">QFieldCamera</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCamera_1a6f36b407163eb930c5f718b8b14b1c27" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>QfCamera::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="13" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a61986cec3ad3122838ac36106bdef3db" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfCamera::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="63" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a514ad362a61978c094e4fe33c12b6e07" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfCamera::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="64" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a420cfdbe867fc0924406f857b2ac007d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCamera::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="65" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ab722c318cfee24320f59ec84e3fc23c7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCamera::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="66" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ac82935176b960e96c7756a60f798b9bc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfCamera::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="67" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ad0b65208e18820d22d04eaf9a30d218b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfCamera::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="68" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a74836a293ed7fe5c77690f750bb51f5d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::modal</definition>
+        <argsstring></argsstring>
+        <name>modal</name>
+        <qualifiedname>QfCamera::modal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="69" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1adbcc2ce749f3983a4bbe38837a6665ac" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfCamera::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="70" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a8cbaf3cd0c4e917816b5be1a1c337c00" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfCamera::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="71" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1af290b212750884874b0ce5e2df5f027a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::onStateChanged</definition>
+        <argsstring></argsstring>
+        <name>onStateChanged</name>
+        <qualifiedname>QfCamera::onStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="76" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a0acd68208f04159cf8e0b950a549dd4f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfCamera::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="77" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a8631dd2df191b3e5ccd8272dc4fafa76" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCamera::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>QfCamera::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="78" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a96f4a565b14f5ab734905d4bfbff5ee6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCameraPermission" kindref="compound">QfCameraPermission</ref></type>
+        <definition>QfCameraPermission QfCamera::cameraPermission</definition>
+        <argsstring></argsstring>
+        <name>cameraPermission</name>
+        <qualifiedname>QfCamera::cameraPermission</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="79" column="20" bodyfile="src/gui/qml/QfCamera.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a07d4b4c69c5d5a72e3f3120341cf6418" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMicrophonePermission" kindref="compound">QfMicrophonePermission</ref></type>
+        <definition>QfMicrophonePermission QfCamera::microphonePermission</definition>
+        <argsstring></argsstring>
+        <name>microphonePermission</name>
+        <qualifiedname>QfCamera::microphonePermission</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="80" column="24" bodyfile="src/gui/qml/QfCamera.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1af09749fb6093fb710f4fbec2c390757b" prot="private" static="no" mutable="no">
+        <type>Settings</type>
+        <definition>Settings QfCamera::cameraSettings</definition>
+        <argsstring></argsstring>
+        <name>cameraSettings</name>
+        <qualifiedname>QfCamera::cameraSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="81" column="10" bodyfile="src/gui/qml/QfCamera.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1aa0d34511a13455e699c5c6ab6b91a85b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExpressionEvaluator" kindref="compound">QfExpressionEvaluator</ref></type>
+        <definition>QfExpressionEvaluator QfCamera::stampExpressionEvaluator</definition>
+        <argsstring></argsstring>
+        <name>stampExpressionEvaluator</name>
+        <qualifiedname>QfCamera::stampExpressionEvaluator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="82" column="23" bodyfile="src/gui/qml/QfCamera.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ae032c1942f5aae96c3d44d7671ca72f9" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfCamera::captureFocusTimer</definition>
+        <argsstring></argsstring>
+        <name>captureFocusTimer</name>
+        <qualifiedname>QfCamera::captureFocusTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="83" column="7" bodyfile="src/gui/qml/QfCamera.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1abf2fb4ab42d5a8f9cd94a571a3068284" prot="private" static="no" mutable="no">
+        <type>MediaDevices</type>
+        <definition>MediaDevices QfCamera::mediaDevices</definition>
+        <argsstring></argsstring>
+        <name>mediaDevices</name>
+        <qualifiedname>QfCamera::mediaDevices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="84" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a47ae3fb60ad0e40963da2b0752891c1e" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfCamera::captureLoader</definition>
+        <argsstring></argsstring>
+        <name>captureLoader</name>
+        <qualifiedname>QfCamera::captureLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="85" column="8" bodyfile="src/gui/qml/QfCamera.qml" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a7fdcdfb930d455a37808afc0ad8bcbc5" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfCamera::grid</definition>
+        <argsstring></argsstring>
+        <name>grid</name>
+        <qualifiedname>QfCamera::grid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="86" column="7" bodyfile="src/gui/qml/QfCamera.qml" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a21eac070c379cfbc7a7ceb3f5b7a5014" prot="private" static="no" mutable="no">
+        <type>Video</type>
+        <definition>Video QfCamera::videoPreview</definition>
+        <argsstring></argsstring>
+        <name>videoPreview</name>
+        <qualifiedname>QfCamera::videoPreview</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="87" column="7" bodyfile="src/gui/qml/QfCamera.qml" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1afbf5d6def2e06e45927fb33458c17d54" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfCamera::photoPreview</definition>
+        <argsstring></argsstring>
+        <name>photoPreview</name>
+        <qualifiedname>QfCamera::photoPreview</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="88" column="7" bodyfile="src/gui/qml/QfCamera.qml" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1af6ebf5a5d409eb1753527c05e8809d61" prot="private" static="no" mutable="no">
+        <type>PinchArea</type>
+        <definition>PinchArea QfCamera::pinchArea</definition>
+        <argsstring></argsstring>
+        <name>pinchArea</name>
+        <qualifiedname>QfCamera::pinchArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="89" column="11" bodyfile="src/gui/qml/QfCamera.qml" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1aa9f1a85f75fef5ce3dfd11c430f99d7c" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCamera::captureFlash</definition>
+        <argsstring></argsstring>
+        <name>captureFlash</name>
+        <qualifiedname>QfCamera::captureFlash</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="90" column="11" bodyfile="src/gui/qml/QfCamera.qml" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a31687c4281c4218f3f4ac6bad6ce256d" prot="private" static="no" mutable="no">
+        <type>SequentialAnimation</type>
+        <definition>SequentialAnimation QfCamera::captureFlashAnimation</definition>
+        <argsstring></argsstring>
+        <name>captureFlashAnimation</name>
+        <qualifiedname>QfCamera::captureFlashAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="91" column="21" bodyfile="src/gui/qml/QfCamera.qml" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a39d979c774f7723737c42189bc0f382e" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCamera::captureBar</definition>
+        <argsstring></argsstring>
+        <name>captureBar</name>
+        <qualifiedname>QfCamera::captureBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="92" column="11" bodyfile="src/gui/qml/QfCamera.qml" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a389a5fa6bf2ba5da759cae074126b1af" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCamera::captureRing</definition>
+        <argsstring></argsstring>
+        <name>captureRing</name>
+        <qualifiedname>QfCamera::captureRing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="93" column="11" bodyfile="src/gui/qml/QfCamera.qml" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ac229d2997aa998461f0e10cb4c1b7705" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::captureButton</definition>
+        <argsstring></argsstring>
+        <name>captureButton</name>
+        <qualifiedname>QfCamera::captureButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="94" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ac9833d424a3e5d7db707696b1248e13e" prot="private" static="no" mutable="no">
+        <type>SequentialAnimation</type>
+        <definition>SequentialAnimation QfCamera::captureButtonAnimation</definition>
+        <argsstring></argsstring>
+        <name>captureButtonAnimation</name>
+        <qualifiedname>QfCamera::captureButtonAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="95" column="21" bodyfile="src/gui/qml/QfCamera.qml" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1aa29d64f6569eb5a7f66f8013dcc21133" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCamera::photoEditButtons</definition>
+        <argsstring></argsstring>
+        <name>photoEditButtons</name>
+        <qualifiedname>QfCamera::photoEditButtons</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="96" column="11" bodyfile="src/gui/qml/QfCamera.qml" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a277f12acd24ac3319fd9f304656002a3" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row QfCamera::photoEditButtonsRow</definition>
+        <argsstring></argsstring>
+        <name>photoEditButtonsRow</name>
+        <qualifiedname>QfCamera::photoEditButtonsRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="97" column="5" bodyfile="src/gui/qml/QfCamera.qml" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a44f6d7c14a8219c71d712ab6cf4bc2b6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::rotateLeftButton</definition>
+        <argsstring></argsstring>
+        <name>rotateLeftButton</name>
+        <qualifiedname>QfCamera::rotateLeftButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="98" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ac585750dc5fce12c640e3a769887e4e5" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::reflectButton</definition>
+        <argsstring></argsstring>
+        <name>reflectButton</name>
+        <qualifiedname>QfCamera::reflectButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="99" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a3a36748aea84da98fa3ec44c08ff7dd2" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::rotateRightButton</definition>
+        <argsstring></argsstring>
+        <name>rotateRightButton</name>
+        <qualifiedname>QfCamera::rotateRightButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="100" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a247c59d4dad2b2a98f41f8f90e967b7c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfCamera::modeSwitch</definition>
+        <argsstring></argsstring>
+        <name>modeSwitch</name>
+        <qualifiedname>QfCamera::modeSwitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="101" column="10" bodyfile="src/gui/qml/QfCamera.qml" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ae966024c0135b3ee7bd17e2ce487ee21" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::zoomButton</definition>
+        <argsstring></argsstring>
+        <name>zoomButton</name>
+        <qualifiedname>QfCamera::zoomButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="102" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a4aae588cd0a2ae2c7fccded1c25feb8a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::flashButton</definition>
+        <argsstring></argsstring>
+        <name>flashButton</name>
+        <qualifiedname>QfCamera::flashButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="103" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a95a84d5d71274fe1a25ad9f3b51f2167" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCamera::recordingIndicator</definition>
+        <argsstring></argsstring>
+        <name>recordingIndicator</name>
+        <qualifiedname>QfCamera::recordingIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="104" column="11" bodyfile="src/gui/qml/QfCamera.qml" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a5085c1fb107153d4c22ea8c8c8adf66d" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCamera::durationLabel</definition>
+        <argsstring></argsstring>
+        <name>durationLabel</name>
+        <qualifiedname>QfCamera::durationLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="105" column="6" bodyfile="src/gui/qml/QfCamera.qml" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1acfb139214498b3b638b60c4ceba5dc80" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfCamera::durationLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>durationLabelMetrics</name>
+        <qualifiedname>QfCamera::durationLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="106" column="13" bodyfile="src/gui/qml/QfCamera.qml" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1af4d1a2f649cca29cd2f1fa7abf5b6f89" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCamera::previewSizeLabel</definition>
+        <argsstring></argsstring>
+        <name>previewSizeLabel</name>
+        <qualifiedname>QfCamera::previewSizeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="107" column="6" bodyfile="src/gui/qml/QfCamera.qml" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a6ddb63688a7d7a82ccfae8c8c87764df" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfCamera::videoQualityPanel</definition>
+        <argsstring></argsstring>
+        <name>videoQualityPanel</name>
+        <qualifiedname>QfCamera::videoQualityPanel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="108" column="6" bodyfile="src/gui/qml/QfCamera.qml" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a217d9443ec531de8368257b9524a9ab5" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfCamera::videoQualityColumn</definition>
+        <argsstring></argsstring>
+        <name>videoQualityColumn</name>
+        <qualifiedname>QfCamera::videoQualityColumn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="109" column="8" bodyfile="src/gui/qml/QfCamera.qml" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a5ed9589aeb297544cc47c2e7beeb2cfb" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCamera::qualityLabel</definition>
+        <argsstring></argsstring>
+        <name>qualityLabel</name>
+        <qualifiedname>QfCamera::qualityLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="110" column="6" bodyfile="src/gui/qml/QfCamera.qml" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a15764eab59b146f07210c3e9470dd37d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSlider" kindref="compound">QfSlider</ref></type>
+        <definition>QfSlider QfCamera::qualitySlider</definition>
+        <argsstring></argsstring>
+        <name>qualitySlider</name>
+        <qualifiedname>QfCamera::qualitySlider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="111" column="10" bodyfile="src/gui/qml/QfCamera.qml" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a9aa4a2aa53305c784a5a3e7375d9f5b4" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::backButton</definition>
+        <argsstring></argsstring>
+        <name>backButton</name>
+        <qualifiedname>QfCamera::backButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="112" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a94dc643d7d23eec54849a97b36ee7f70" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::cameraSelectionButton</definition>
+        <argsstring></argsstring>
+        <name>cameraSelectionButton</name>
+        <qualifiedname>QfCamera::cameraSelectionButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="113" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1acc498dc87a151b574005cb69ff53e849" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::resolutionSelectionButton</definition>
+        <argsstring></argsstring>
+        <name>resolutionSelectionButton</name>
+        <qualifiedname>QfCamera::resolutionSelectionButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="114" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a608b19f32ba64aff1d3fe63020e71407" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::stampingButton</definition>
+        <argsstring></argsstring>
+        <name>stampingButton</name>
+        <qualifiedname>QfCamera::stampingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="115" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1ada09649a3dfaaa4ec1ecbdb483c36d0e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::geotagButton</definition>
+        <argsstring></argsstring>
+        <name>geotagButton</name>
+        <qualifiedname>QfCamera::geotagButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="116" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a502138619346019db4741f336d645445" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCamera::gridButton</definition>
+        <argsstring></argsstring>
+        <name>gridButton</name>
+        <qualifiedname>QfCamera::gridButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="117" column="14" bodyfile="src/gui/qml/QfCamera.qml" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a56095fc47a9d9d889fac02c6dbd793b4" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfCamera::cameraSelectionMenu</definition>
+        <argsstring></argsstring>
+        <name>cameraSelectionMenu</name>
+        <qualifiedname>QfCamera::cameraSelectionMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="118" column="8" bodyfile="src/gui/qml/QfCamera.qml" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCamera_1a5ec130a4392eec4d4c901be30669aba7" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfCamera::resolutionSelectionMenu</definition>
+        <argsstring></argsstring>
+        <name>resolutionSelectionMenu</name>
+        <qualifiedname>QfCamera::resolutionSelectionMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="119" column="8" bodyfile="src/gui/qml/QfCamera.qml" bodystart="119" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCamera_1a6c68f208423561f5274c53d4bcc8cca8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCamera::isCapturing</definition>
+        <argsstring></argsstring>
+        <name>isCapturing</name>
+        <qualifiedname>QfCamera::isCapturing</qualifiedname>
+        <read>dummyGetter_isCapturing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="16" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1af03c4c79efab9d6c9b14598453a010c4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCamera::isReady</definition>
+        <argsstring></argsstring>
+        <name>isReady</name>
+        <qualifiedname>QfCamera::isReady</qualifiedname>
+        <read>dummyGetter_isReady_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="19" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1ace6da15869d8509f75b787758fa7ea67" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCamera::isPortraitMode</definition>
+        <argsstring></argsstring>
+        <name>isPortraitMode</name>
+        <qualifiedname>QfCamera::isPortraitMode</qualifiedname>
+        <read>dummyGetter_isPortraitMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="22" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a59c36b040b418a453db580d9000752c2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCamera::shieldColor</definition>
+        <argsstring></argsstring>
+        <name>shieldColor</name>
+        <qualifiedname>QfCamera::shieldColor</qualifiedname>
+        <read>dummyGetter_shieldColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="25" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a3b55457492ce915051181ed812785fda" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCamera::currentPath</definition>
+        <argsstring></argsstring>
+        <name>currentPath</name>
+        <qualifiedname>QfCamera::currentPath</qualifiedname>
+        <read>dummyGetter_currentPath_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="27" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a9146b91817a1d2cfbb52d701c1d323b7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCamera::currentPosition</definition>
+        <argsstring></argsstring>
+        <name>currentPosition</name>
+        <qualifiedname>QfCamera::currentPosition</qualifiedname>
+        <read>dummyGetter_currentPosition_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="29" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a68ee05192d861ba7d947c2b8dc8fe448" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCamera::currentProjectedPosition</definition>
+        <argsstring></argsstring>
+        <name>currentProjectedPosition</name>
+        <qualifiedname>QfCamera::currentProjectedPosition</qualifiedname>
+        <read>dummyGetter_currentProjectedPosition_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="31" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1acb39060f9ec3197a83c5105e0ea29906" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCamera::captureLoaderActivated</definition>
+        <argsstring></argsstring>
+        <name>captureLoaderActivated</name>
+        <qualifiedname>QfCamera::captureLoaderActivated</qualifiedname>
+        <read>dummyGetter_captureLoaderActivated_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="33" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a9688dd267990aad5f0ac8fc626deec31" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCamera::allowCaptureModeToggle</definition>
+        <argsstring></argsstring>
+        <name>allowCaptureModeToggle</name>
+        <qualifiedname>QfCamera::allowCaptureModeToggle</qualifiedname>
+        <read>dummyGetter_allowCaptureModeToggle_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="35" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a964a6cdd91f92b388edf8a50d74b7f94" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfCamera::panelExtraSpace</definition>
+        <argsstring></argsstring>
+        <name>panelExtraSpace</name>
+        <qualifiedname>QfCamera::panelExtraSpace</qualifiedname>
+        <read>dummyGetter_panelExtraSpace_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="38" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1af03f8b51d055c0857626c8291b9289d4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfCamera::captureOffset</definition>
+        <argsstring></argsstring>
+        <name>captureOffset</name>
+        <qualifiedname>QfCamera::captureOffset</qualifiedname>
+        <read>dummyGetter_captureOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="41" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a693630c67f4fe09bceb9ff2d0add51ec" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfCamera::userRotation</definition>
+        <argsstring></argsstring>
+        <name>userRotation</name>
+        <qualifiedname>QfCamera::userRotation</qualifiedname>
+        <read>dummyGetter_userRotation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="43" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a5f7ad0502001ea7661889d20d516b39a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCamera::userMirror</definition>
+        <argsstring></argsstring>
+        <name>userMirror</name>
+        <qualifiedname>QfCamera::userMirror</qualifiedname>
+        <read>dummyGetter_userMirror_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="45" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a5b8ccc700dbfc44b23fd7eb1171e295a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCamera::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>QfCamera::currentLayer</qualifiedname>
+        <read>dummyGetter_currentLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="47" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a1d187a876cabb5bfe836e790ff53b506" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCamera::currentFeature</definition>
+        <argsstring></argsstring>
+        <name>currentFeature</name>
+        <qualifiedname>QfCamera::currentFeature</qualifiedname>
+        <read>dummyGetter_currentFeature_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="49" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCamera_1a77f57f3b53e3a75cab94a791a12a61e2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCamera::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>QfCamera::state</qualifiedname>
+        <read>dummyGetter_state_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="74" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCamera_1a88a07a99d96d07e5f53c69fe53c97a2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCamera::requiredPermissionsGranted</definition>
+        <argsstring>()</argsstring>
+        <name>requiredPermissionsGranted</name>
+        <qualifiedname>QfCamera::requiredPermissionsGranted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="51" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCamera_1a633bbf723a3818869f1ddd359c5bdf03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCamera::tryActivateCaptureLoader</definition>
+        <argsstring>()</argsstring>
+        <name>tryActivateCaptureLoader</name>
+        <qualifiedname>QfCamera::tryActivateCaptureLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="53" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCamera_1abfc54eff66a4a0ea60f96f3e1d52f1d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCamera::discardCapture</definition>
+        <argsstring>()</argsstring>
+        <name>discardCapture</name>
+        <qualifiedname>QfCamera::discardCapture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="55" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCamera_1ac60593c5b020c26c5ae143cdbdef70f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCamera::videoResolutionForQuality</definition>
+        <argsstring>(cameraResolution, quality)</argsstring>
+        <name>videoResolutionForQuality</name>
+        <qualifiedname>QfCamera::videoResolutionForQuality</qualifiedname>
+        <param>
+          <type>cameraResolution</type>
+        </param>
+        <param>
+          <type>quality</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="57" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCamera_1ad06f91bd5bec2f6cec271bfcc5712f0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCamera::finished</definition>
+        <argsstring>(string path)</argsstring>
+        <name>finished</name>
+        <qualifiedname>QfCamera::finished</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="59" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCamera_1a2b3b57cc51aaf72228491e1c48370d06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCamera::canceled</definition>
+        <argsstring>()</argsstring>
+        <name>canceled</name>
+        <qualifiedname>QfCamera::canceled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCamera.qml" line="61" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="3">
+        <label>QFieldCamera</label>
+        <link refid="classQFieldCamera"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfCamera</label>
+        <link refid="classQfCamera"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfCamera</label>
+        <link refid="classQfCamera"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfCamera.qml" line="12" column="1" bodyfile="src/gui/qml/QfCamera.qml" bodystart="12" bodyend="120"/>
+    <listofallmembers>
+      <member refid="classQfCamera_1a9688dd267990aad5f0ac8fc626deec31" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>allowCaptureModeToggle</name></member>
+      <member refid="classQfCamera_1a9aa4a2aa53305c784a5a3e7375d9f5b4" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>backButton</name></member>
+      <member refid="classQfCamera_1a96f4a565b14f5ab734905d4bfbff5ee6" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>cameraPermission</name></member>
+      <member refid="classQfCamera_1a94dc643d7d23eec54849a97b36ee7f70" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>cameraSelectionButton</name></member>
+      <member refid="classQfCamera_1a56095fc47a9d9d889fac02c6dbd793b4" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>cameraSelectionMenu</name></member>
+      <member refid="classQfCamera_1af09749fb6093fb710f4fbec2c390757b" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>cameraSettings</name></member>
+      <member refid="classQfCamera_1a2b3b57cc51aaf72228491e1c48370d06" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>canceled</name></member>
+      <member refid="classQfCamera_1a39d979c774f7723737c42189bc0f382e" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>captureBar</name></member>
+      <member refid="classQfCamera_1ac229d2997aa998461f0e10cb4c1b7705" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>captureButton</name></member>
+      <member refid="classQfCamera_1ac9833d424a3e5d7db707696b1248e13e" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>captureButtonAnimation</name></member>
+      <member refid="classQfCamera_1aa9f1a85f75fef5ce3dfd11c430f99d7c" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>captureFlash</name></member>
+      <member refid="classQfCamera_1a31687c4281c4218f3f4ac6bad6ce256d" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>captureFlashAnimation</name></member>
+      <member refid="classQfCamera_1ae032c1942f5aae96c3d44d7671ca72f9" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>captureFocusTimer</name></member>
+      <member refid="classQfCamera_1a47ae3fb60ad0e40963da2b0752891c1e" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>captureLoader</name></member>
+      <member refid="classQfCamera_1acb39060f9ec3197a83c5105e0ea29906" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>captureLoaderActivated</name></member>
+      <member refid="classQfCamera_1af03f8b51d055c0857626c8291b9289d4" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>captureOffset</name></member>
+      <member refid="classQfCamera_1a389a5fa6bf2ba5da759cae074126b1af" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>captureRing</name></member>
+      <member refid="classQfCamera_1a8cbaf3cd0c4e917816b5be1a1c337c00" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>closePolicy</name></member>
+      <member refid="classQfCamera_1a1d187a876cabb5bfe836e790ff53b506" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>currentFeature</name></member>
+      <member refid="classQfCamera_1a5b8ccc700dbfc44b23fd7eb1171e295a" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>currentLayer</name></member>
+      <member refid="classQfCamera_1a3b55457492ce915051181ed812785fda" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>currentPath</name></member>
+      <member refid="classQfCamera_1a9146b91817a1d2cfbb52d701c1d323b7" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>currentPosition</name></member>
+      <member refid="classQfCamera_1a68ee05192d861ba7d947c2b8dc8fe448" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>currentProjectedPosition</name></member>
+      <member refid="classQfCamera_1abfc54eff66a4a0ea60f96f3e1d52f1d5" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>discardCapture</name></member>
+      <member refid="classQfCamera_1a5085c1fb107153d4c22ea8c8c8adf66d" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>durationLabel</name></member>
+      <member refid="classQfCamera_1acfb139214498b3b638b60c4ceba5dc80" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>durationLabelMetrics</name></member>
+      <member refid="classQfCamera_1ad06f91bd5bec2f6cec271bfcc5712f0f" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>finished</name></member>
+      <member refid="classQfCamera_1a4aae588cd0a2ae2c7fccded1c25feb8a" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>flashButton</name></member>
+      <member refid="classQfCamera_1adbcc2ce749f3983a4bbe38837a6665ac" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>focus</name></member>
+      <member refid="classQfCamera_1ada09649a3dfaaa4ec1ecbdb483c36d0e" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>geotagButton</name></member>
+      <member refid="classQfCamera_1a7fdcdfb930d455a37808afc0ad8bcbc5" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>grid</name></member>
+      <member refid="classQfCamera_1a502138619346019db4741f336d645445" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>gridButton</name></member>
+      <member refid="classQfCamera_1ab722c318cfee24320f59ec84e3fc23c7" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>height</name></member>
+      <member refid="classQfCamera_1a6c68f208423561f5274c53d4bcc8cca8" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>isCapturing</name></member>
+      <member refid="classQfCamera_1ace6da15869d8509f75b787758fa7ea67" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>isPortraitMode</name></member>
+      <member refid="classQfCamera_1af03c4c79efab9d6c9b14598453a010c4" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>isReady</name></member>
+      <member refid="classQfCamera_1abf2fb4ab42d5a8f9cd94a571a3068284" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>mediaDevices</name></member>
+      <member refid="classQfCamera_1a07d4b4c69c5d5a72e3f3120341cf6418" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>microphonePermission</name></member>
+      <member refid="classQfCamera_1a74836a293ed7fe5c77690f750bb51f5d" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>modal</name></member>
+      <member refid="classQfCamera_1a247c59d4dad2b2a98f41f8f90e967b7c" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>modeSwitch</name></member>
+      <member refid="classQfCamera_1a8631dd2df191b3e5ccd8272dc4fafa76" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>onAboutToHide</name></member>
+      <member refid="classQfCamera_1a0acd68208f04159cf8e0b950a549dd4f" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>onAboutToShow</name></member>
+      <member refid="classQfCamera_1af290b212750884874b0ce5e2df5f027a" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>onStateChanged</name></member>
+      <member refid="classQfCamera_1ac82935176b960e96c7756a60f798b9bc" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>padding</name></member>
+      <member refid="classQfCamera_1a964a6cdd91f92b388edf8a50d74b7f94" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>panelExtraSpace</name></member>
+      <member refid="classQfCamera_1ad0b65208e18820d22d04eaf9a30d218b" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>parent</name></member>
+      <member refid="classQfCamera_1aa29d64f6569eb5a7f66f8013dcc21133" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>photoEditButtons</name></member>
+      <member refid="classQfCamera_1a277f12acd24ac3319fd9f304656002a3" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>photoEditButtonsRow</name></member>
+      <member refid="classQfCamera_1afbf5d6def2e06e45927fb33458c17d54" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>photoPreview</name></member>
+      <member refid="classQfCamera_1af6ebf5a5d409eb1753527c05e8809d61" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>pinchArea</name></member>
+      <member refid="classQfCamera_1af4d1a2f649cca29cd2f1fa7abf5b6f89" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>previewSizeLabel</name></member>
+      <member refid="classQfCamera_1a5ed9589aeb297544cc47c2e7beeb2cfb" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>qualityLabel</name></member>
+      <member refid="classQfCamera_1a15764eab59b146f07210c3e9470dd37d" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>qualitySlider</name></member>
+      <member refid="classQfCamera_1a95a84d5d71274fe1a25ad9f3b51f2167" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>recordingIndicator</name></member>
+      <member refid="classQfCamera_1ac585750dc5fce12c640e3a769887e4e5" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>reflectButton</name></member>
+      <member refid="classQfCamera_1a88a07a99d96d07e5f53c69fe53c97a2e" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>requiredPermissionsGranted</name></member>
+      <member refid="classQfCamera_1acc498dc87a151b574005cb69ff53e849" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>resolutionSelectionButton</name></member>
+      <member refid="classQfCamera_1a5ec130a4392eec4d4c901be30669aba7" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>resolutionSelectionMenu</name></member>
+      <member refid="classQfCamera_1a44f6d7c14a8219c71d712ab6cf4bc2b6" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>rotateLeftButton</name></member>
+      <member refid="classQfCamera_1a3a36748aea84da98fa3ec44c08ff7dd2" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>rotateRightButton</name></member>
+      <member refid="classQfCamera_1a59c36b040b418a453db580d9000752c2" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>shieldColor</name></member>
+      <member refid="classQfCamera_1aa0d34511a13455e699c5c6ab6b91a85b" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>stampExpressionEvaluator</name></member>
+      <member refid="classQfCamera_1a608b19f32ba64aff1d3fe63020e71407" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>stampingButton</name></member>
+      <member refid="classQfCamera_1a77f57f3b53e3a75cab94a791a12a61e2" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>state</name></member>
+      <member refid="classQfCamera_1a633bbf723a3818869f1ddd359c5bdf03" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>tryActivateCaptureLoader</name></member>
+      <member refid="classQfCamera_1a5f7ad0502001ea7661889d20d516b39a" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>userMirror</name></member>
+      <member refid="classQfCamera_1a693630c67f4fe09bceb9ff2d0add51ec" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>userRotation</name></member>
+      <member refid="classQfCamera_1a21eac070c379cfbc7a7ceb3f5b7a5014" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>videoPreview</name></member>
+      <member refid="classQfCamera_1a217d9443ec531de8368257b9524a9ab5" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>videoQualityColumn</name></member>
+      <member refid="classQfCamera_1a6ddb63688a7d7a82ccfae8c8c87764df" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>videoQualityPanel</name></member>
+      <member refid="classQfCamera_1ac60593c5b020c26c5ae143cdbdef70f8" prot="public" virt="non-virtual"><scope>QfCamera</scope><name>videoResolutionForQuality</name></member>
+      <member refid="classQfCamera_1a420cfdbe867fc0924406f857b2ac007d" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>width</name></member>
+      <member refid="classQfCamera_1a61986cec3ad3122838ac36106bdef3db" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>x</name></member>
+      <member refid="classQfCamera_1a514ad362a61978c094e4fe33c12b6e07" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>y</name></member>
+      <member refid="classQfCamera_1a6f36b407163eb930c5f718b8b14b1c27" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>z</name></member>
+      <member refid="classQfCamera_1ae966024c0135b3ee7bd17e2ce487ee21" prot="private" virt="non-virtual"><scope>QfCamera</scope><name>zoomButton</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classInformationDrawer" kind="class" language="C++" prot="public">
+    <compoundname>InformationDrawer</compoundname>
+    <basecompoundref refid="classQfInformationDrawer" prot="public" virt="non-virtual">QfInformationDrawer</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>InformationDrawer</label>
+        <link refid="classInformationDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfInformationDrawer</label>
+        <link refid="classQfInformationDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>InformationDrawer</label>
+        <link refid="classInformationDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfInformationDrawer</label>
+        <link refid="classQfInformationDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/InformationDrawer.qml" line="2" column="1" bodyfile="src/app/qml_compat/InformationDrawer.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfInformationDrawer_1a47c4d48eb856d09e0d05c86154b0cde0" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>cogoOperationSettings</name></member>
+      <member refid="classQfInformationDrawer_1a1691aaab1b9c17895fca8701690dcf3e" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>elevationProfile</name></member>
+      <member refid="classQfInformationDrawer_1addb4ee607425d74ee12e102c82a0078c" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>navigation</name></member>
+      <member refid="classQfInformationDrawer_1a82ba00a2a238a7ac001cc013b07f512a" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>navigationInformationViewEnabled</name></member>
+      <member refid="classQfInformationDrawer_1ab2dec416dc36f14dd090cc6a69bf4c52" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningInformationViewEnabled</name></member>
+      <member refid="classQfInformationDrawer_1aed95d314cdf07300369d3477c29d4876" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningPreciseEnabled</name></member>
+      <member refid="classQfInformationDrawer_1a90ce3feb034acb09b4b90efd82a5a016" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningPreciseView</name></member>
+      <member refid="classQfInformationDrawer_1a03f381559072ec3c25a880acf9803d86" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positioningSettings</name></member>
+      <member refid="classQfInformationDrawer_1acc289dba5a69f81db1000ee82f30cceb" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>positionSource</name></member>
+      <member refid="classQfInformationDrawer_1a58dffe905281f541feb9c79724f93abf" prot="public" virt="non-virtual"><scope>InformationDrawer</scope><name>sensorInformationViewEnabled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

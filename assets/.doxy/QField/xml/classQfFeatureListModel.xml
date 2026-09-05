@@ -1,0 +1,1679 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFeatureListModel" kind="class" language="C++" prot="public">
+    <compoundname>QfFeatureListModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractItemModel</basecompoundref>
+    <derivedcompoundref refid="classQfFeatureCheckListModelBase" prot="public" virt="non-virtual">QfFeatureCheckListModelBase</derivedcompoundref>
+    <includes refid="qffeaturelistmodel_8h" local="no">qffeaturelistmodel.h</includes>
+    <innerclass refid="structQfFeatureListModel_1_1Entry" prot="private">QfFeatureListModel::Entry</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FeatureListRoles</name>
+        <qualifiedname>QfFeatureListModel::FeatureListRoles</qualifiedname>
+        <enumvalue id="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fbad62f6071da1491c8f27ec41cf09e2476" prot="public">
+          <name>KeyFieldRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fba9fd194465fd82fdc0e20959cd9a05b9c" prot="public">
+          <name>DisplayStringRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fbaf9fc53ef24716fc3b4ed7cf5c516a221" prot="public">
+          <name>GroupFieldRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fba1afbc1f1530544594bbb2038dbbd6deb" prot="public">
+          <name>FeatureIdRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="108" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="109" bodyend="114"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfFeatureListModel_1acd6f8858bc936bf7b54d71c6860e65df" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfFeatureListModel::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>QfFeatureListModel::currentLayer</qualifiedname>
+        <read>currentLayer</read>
+        <write>setCurrentLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The vector layer to list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="45" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1a0ca0d5d1e06fc27ccd7b274831fd5978" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::keyField</definition>
+        <argsstring></argsstring>
+        <name>keyField</name>
+        <qualifiedname>QfFeatureListModel::keyField</qualifiedname>
+        <read>keyField</read>
+        <write>setKeyField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The primary key field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="50" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1aaeec71b4d4fed969193bf6ff383b57dc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::displayValueField</definition>
+        <argsstring></argsstring>
+        <name>displayValueField</name>
+        <qualifiedname>QfFeatureListModel::displayValueField</qualifiedname>
+        <read>displayValueField</read>
+        <write>setDisplayValueField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The display value field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="55" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1aef2d8b95599eed281a428da2c9d90b07" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::groupField</definition>
+        <argsstring></argsstring>
+        <name>groupField</name>
+        <qualifiedname>QfFeatureListModel::groupField</qualifiedname>
+        <read>groupField</read>
+        <write>setGroupField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The grouping key field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="60" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1af62147f4d5e347051f3f49234a5a891e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::displayGroupName</definition>
+        <argsstring></argsstring>
+        <name>displayGroupName</name>
+        <qualifiedname>QfFeatureListModel::displayGroupName</qualifiedname>
+        <read>displayGroupName</read>
+        <write>setDisplayGroupName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to TRUE if the group name will be displayed in the list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="65" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1abd1dfd6f6f9bbe0359aeaa6e8baf2ad3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::orderByValue</definition>
+        <argsstring></argsstring>
+        <name>orderByValue</name>
+        <qualifiedname>QfFeatureListModel::orderByValue</qualifiedname>
+        <read>orderByValue</read>
+        <write>setOrderByValue</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to TRUE if features should be ordered by value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="70" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1af2037b6f7185df26d84223b422403d0d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::orderByField</definition>
+        <argsstring></argsstring>
+        <name>orderByField</name>
+        <qualifiedname>QfFeatureListModel::orderByField</qualifiedname>
+        <read>orderByField</read>
+        <write>setOrderByField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to TRUE if features should be ordered by a field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="75" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1a6b35f03f113df854d381b9ad8291efec" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::orderByFieldName</definition>
+        <argsstring></argsstring>
+        <name>orderByFieldName</name>
+        <qualifiedname>QfFeatureListModel::orderByFieldName</qualifiedname>
+        <read>orderByFieldName</read>
+        <write>setOrderByFieldName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Name of field to order features by </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="80" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1ae4f21b4e1851d51176fb3718b654ed42" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::addNull</definition>
+        <argsstring></argsstring>
+        <name>addNull</name>
+        <qualifiedname>QfFeatureListModel::addNull</qualifiedname>
+        <read>addNull</read>
+        <write>setAddNull</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to TRUE if null values are allowed in the list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="85" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1aa4c54ddb9ef1e186dcf7b3f0f19f873c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::filterExpression</definition>
+        <argsstring></argsstring>
+        <name>filterExpression</name>
+        <qualifiedname>QfFeatureListModel::filterExpression</qualifiedname>
+        <read>filterExpression</read>
+        <write>setFilterExpression</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Expression to filter features with. Empty string if no filter is applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="90" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1a9a05dbc9e0e14649dc49ac41c15b9ad3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::searchTerm</definition>
+        <argsstring></argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>QfFeatureListModel::searchTerm</qualifiedname>
+        <read>searchTerm</read>
+        <write>setSearchTerm</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current search term used to filter items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="95" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1af768477301d218f891588b915276b4bc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureListModel::currentFormFeature</definition>
+        <argsstring></argsstring>
+        <name>currentFormFeature</name>
+        <qualifiedname>QfFeatureListModel::currentFormFeature</qualifiedname>
+        <read>currentFormFeature</read>
+        <write>setCurrentFormFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current form feature, used to evaluate expressions such as <lsquo/>current_value(&apos;attr1<rsquo/>)` </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="100" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListModel_1a0cacc73428fc334a3042d1ec3d0e7964" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+        <definition>QfAppExpressionContextScopesGenerator * QfFeatureListModel::appExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>QfFeatureListModel::appExpressionContextScopesGenerator</qualifiedname>
+        <read>appExpressionContextScopesGenerator</read>
+        <write>setAppExpressionContextScopesGenerator</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The application expression context scope generator used when filtering by expression </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="105" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFeatureListModel_1a014eb05979ff22a9a5fb2bad9c3dd6e2" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfFeatureListModel::mCurrentLayer</definition>
+        <argsstring></argsstring>
+        <name>mCurrentLayer</name>
+        <qualifiedname>QfFeatureListModel::mCurrentLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="308" column="14" bodyfile="src/core/qffeaturelistmodel.h" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1af1ef3fe7e937788bb765e9d37947d65e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureExpressionValuesGatherer" kindref="compound">QfFeatureExpressionValuesGatherer</ref> *</type>
+        <definition>QfFeatureExpressionValuesGatherer* QfFeatureListModel::mGatherer</definition>
+        <argsstring></argsstring>
+        <name>mGatherer</name>
+        <qualifiedname>QfFeatureListModel::mGatherer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="310" column="39" bodyfile="src/core/qffeaturelistmodel.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a5364e712f1c55dd98eb024bcea5f7a23" prot="private" static="no" mutable="no">
+        <type>QList&lt; Entry &gt;</type>
+        <definition>QList&lt;Entry&gt; QfFeatureListModel::mEntries</definition>
+        <argsstring></argsstring>
+        <name>mEntries</name>
+        <qualifiedname>QfFeatureListModel::mEntries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="312" column="11" bodyfile="src/core/qffeaturelistmodel.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1addbfe7a7d709f5980cc4b2af469b1048" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::mKeyField</definition>
+        <argsstring></argsstring>
+        <name>mKeyField</name>
+        <qualifiedname>QfFeatureListModel::mKeyField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="313" column="13" bodyfile="src/core/qffeaturelistmodel.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a5758b43fbe25d9f3e2a216022e595f68" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::mDisplayValueField</definition>
+        <argsstring></argsstring>
+        <name>mDisplayValueField</name>
+        <qualifiedname>QfFeatureListModel::mDisplayValueField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="314" column="13" bodyfile="src/core/qffeaturelistmodel.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1ad693fb8c285b65783287876491a54578" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::mGroupField</definition>
+        <argsstring></argsstring>
+        <name>mGroupField</name>
+        <qualifiedname>QfFeatureListModel::mGroupField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="315" column="13" bodyfile="src/core/qffeaturelistmodel.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1adf19c68d725343a887f57b242d99ddfa" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::mDisplayGroupName</definition>
+        <argsstring></argsstring>
+        <name>mDisplayGroupName</name>
+        <qualifiedname>QfFeatureListModel::mDisplayGroupName</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="316" column="10" bodyfile="src/core/qffeaturelistmodel.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a556f8dc0aa524d27b9ee6e4db78da038" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::mOrderByValue</definition>
+        <argsstring></argsstring>
+        <name>mOrderByValue</name>
+        <qualifiedname>QfFeatureListModel::mOrderByValue</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="317" column="10" bodyfile="src/core/qffeaturelistmodel.h" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a5f55572683e70026975d0bf1a8e886d9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::mOrderByField</definition>
+        <argsstring></argsstring>
+        <name>mOrderByField</name>
+        <qualifiedname>QfFeatureListModel::mOrderByField</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="318" column="10" bodyfile="src/core/qffeaturelistmodel.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a927b9fccb3656cff239c0642aca7bc55" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::mOrderByFieldName</definition>
+        <argsstring></argsstring>
+        <name>mOrderByFieldName</name>
+        <qualifiedname>QfFeatureListModel::mOrderByFieldName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="319" column="13" bodyfile="src/core/qffeaturelistmodel.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a6743c3f7bce34544ddbe969a6be2ffda" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::mAddNull</definition>
+        <argsstring></argsstring>
+        <name>mAddNull</name>
+        <qualifiedname>QfFeatureListModel::mAddNull</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="320" column="10" bodyfile="src/core/qffeaturelistmodel.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1abab41f16e047d886e0c14c595ff50e35" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::mFilterExpression</definition>
+        <argsstring></argsstring>
+        <name>mFilterExpression</name>
+        <qualifiedname>QfFeatureListModel::mFilterExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="321" column="13" bodyfile="src/core/qffeaturelistmodel.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a085683b44ac00fa8f636d88ade792f3f" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::mSearchTerm</definition>
+        <argsstring></argsstring>
+        <name>mSearchTerm</name>
+        <qualifiedname>QfFeatureListModel::mSearchTerm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="322" column="13" bodyfile="src/core/qffeaturelistmodel.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a58921f4babdd69d4034d91e2fd6c19c2" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureListModel::mCurrentFormFeature</definition>
+        <argsstring></argsstring>
+        <name>mCurrentFormFeature</name>
+        <qualifiedname>QfFeatureListModel::mCurrentFormFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="323" column="16" bodyfile="src/core/qffeaturelistmodel.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1ae766ea0f29d45de96d47963715b045d5" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> &gt;</type>
+        <definition>QPointer&lt;QfAppExpressionContextScopesGenerator&gt; QfFeatureListModel::mAppExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>mAppExpressionContextScopesGenerator</name>
+        <qualifiedname>QfFeatureListModel::mAppExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="324" column="14" bodyfile="src/core/qffeaturelistmodel.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListModel_1a2c1e09f22447c22f61e438706a09c494" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfFeatureListModel::mReloadTimer</definition>
+        <argsstring></argsstring>
+        <name>mReloadTimer</name>
+        <qualifiedname>QfFeatureListModel::mReloadTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="326" column="12" bodyfile="src/core/qffeaturelistmodel.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classQfFeatureListModel_1a12eaca9e24ab888c4c792a414ce63706" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class QfFeatureCheckListModel</definition>
+        <argsstring></argsstring>
+        <name>QfFeatureCheckListModel</name>
+        <qualifiedname>QfFeatureListModel::QfFeatureCheckListModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfFeatureCheckListModel" kindref="compound">QfFeatureCheckListModel</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="328" column="18" bodyfile="src/core/qffeaturelistmodel.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classQfFeatureListModel_1ad59188126ab97d0ad8a8d9f61968ff6f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class QfFeatureCheckListModelBase</definition>
+        <argsstring></argsstring>
+        <name>QfFeatureCheckListModelBase</name>
+        <qualifiedname>QfFeatureListModel::QfFeatureCheckListModelBase</qualifiedname>
+        <param>
+          <type><ref refid="classQfFeatureCheckListModelBase" kindref="compound">QfFeatureCheckListModelBase</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="329" column="18" bodyfile="src/core/qffeaturelistmodel.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFeatureListModel_1af10c60d3eb16790446d4f29d058b0a25" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureListModel::QfFeatureListModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfFeatureListModel</name>
+        <qualifiedname>QfFeatureListModel::QfFeatureListModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="118" column="14" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="29" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a850e91b007649bd659965f2ff6fbc46d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureListModel::~QfFeatureListModel</definition>
+        <argsstring>()</argsstring>
+        <name>~QfFeatureListModel</name>
+        <qualifiedname>QfFeatureListModel::~QfFeatureListModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="119" column="5" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a988389dcd22ed47894d887d443b07346" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfFeatureListModel::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>QfFeatureListModel::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="121" column="25" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a0d8031e383f074ca4df238dced1bec0d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfFeatureListModel::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>QfFeatureListModel::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="122" column="25" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="61" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1aee856ba8cc371a37236a97a1235c7ebd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>int</type>
+        <definition>int QfFeatureListModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfFeatureListModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="123" column="17" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1aeafdc5fe1490730078e42b947f9e45b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>int</type>
+        <definition>int QfFeatureListModel::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>QfFeatureListModel::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="124" column="17" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="75" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1abe0597f1959539944ef69a6178b86465" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfFeatureListModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfFeatureListModel::data</qualifiedname>
+        <reimplementedby refid="classQfFeatureCheckListModelBase_1ad323819493d3ca589f17f99667168e78">data</reimplementedby>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="125" column="22" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="81" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a5095688d34d14a4304caa8b740a2d49e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>Q_INVOKABLE QVariant QfFeatureListModel::dataFromRowIndex</definition>
+        <argsstring>(int row, int role)</argsstring>
+        <name>dataFromRowIndex</name>
+        <qualifiedname>QfFeatureListModel::dataFromRowIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="127" column="26" bodyfile="src/core/qffeaturelistmodel.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a66e792606f5b9036457c550accd9f58f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>QgsFeature QfFeatureListModel::getFeatureFromKeyValue</definition>
+        <argsstring>(const QVariant &amp;value) const</argsstring>
+        <name>getFeatureFromKeyValue</name>
+        <qualifiedname>QfFeatureListModel::getFeatureFromKeyValue</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the first feature matching the key <emphasis>value</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="132" column="28" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="292" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a256718f68a0008d37b1e2d41bddfcffd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>QgsFeature QfFeatureListModel::getFeatureById</definition>
+        <argsstring>(QgsFeatureId id) const</argsstring>
+        <name>getFeatureById</name>
+        <qualifiedname>QfFeatureListModel::getFeatureById</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the first feature matching the key <emphasis>id</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="137" column="28" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="311" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a869f6d13935a9f82344f4d81589a53fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfFeatureListModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfFeatureListModel::roleNames</qualifiedname>
+        <reimplementedby refid="classQfFeatureCheckListModelBase_1a98cffd20c6997b8e07ed09b4065e099e">roleNames</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="139" column="19" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="107" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a5382269de7e5527928915e5a1155b0d8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfFeatureListModel::currentLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>QfFeatureListModel::currentLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="141" column="20" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="119" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a6255a0488b2dea2bd213ea1a089c8970" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setCurrentLayer</definition>
+        <argsstring>(QgsVectorLayer *currentLayer)</argsstring>
+        <name>setCurrentLayer</name>
+        <qualifiedname>QfFeatureListModel::setCurrentLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>currentLayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="142" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="124" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1ac3f15e85174251398d309ca39a46e37a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::keyField</definition>
+        <argsstring>() const</argsstring>
+        <name>keyField</name>
+        <qualifiedname>QfFeatureListModel::keyField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="144" column="13" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1afb12bb836d3d413319fda85a7f52555a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setKeyField</definition>
+        <argsstring>(const QString &amp;keyField)</argsstring>
+        <name>setKeyField</name>
+        <qualifiedname>QfFeatureListModel::setKeyField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>keyField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="145" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="159" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1aed8e2595945d039709db72ea6446626e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::displayValueField</definition>
+        <argsstring>() const</argsstring>
+        <name>displayValueField</name>
+        <qualifiedname>QfFeatureListModel::displayValueField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="147" column="13" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a2f9e7c3ae1d0783bb375f57e3c453c8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setDisplayValueField</definition>
+        <argsstring>(const QString &amp;displayValueField)</argsstring>
+        <name>setDisplayValueField</name>
+        <qualifiedname>QfFeatureListModel::setDisplayValueField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>displayValueField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="148" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="178" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1ac7eae5600ff1423772ab19732a81e25b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::groupField</definition>
+        <argsstring>() const</argsstring>
+        <name>groupField</name>
+        <qualifiedname>QfFeatureListModel::groupField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="150" column="13" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="192" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a789aad2587174a17c19c67c8593ee43e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setGroupField</definition>
+        <argsstring>(const QString &amp;groupField)</argsstring>
+        <name>setGroupField</name>
+        <qualifiedname>QfFeatureListModel::setGroupField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>groupField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="151" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="197" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a77ed4f8b9554d5e9a813aac6784fad75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::displayGroupName</definition>
+        <argsstring>() const</argsstring>
+        <name>displayGroupName</name>
+        <qualifiedname>QfFeatureListModel::displayGroupName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="153" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="211" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a337ed199ebf16a70a0a772142888b9f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setDisplayGroupName</definition>
+        <argsstring>(bool displayGroupName)</argsstring>
+        <name>setDisplayGroupName</name>
+        <qualifiedname>QfFeatureListModel::setDisplayGroupName</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>displayGroupName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="154" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="216" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a8f861cc8a7b8f2ba52851ef9f24ef5eb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfFeatureListModel::findKey</definition>
+        <argsstring>(const QVariant &amp;key) const</argsstring>
+        <name>findKey</name>
+        <qualifiedname>QfFeatureListModel::findKey</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the row for a given key value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="159" column="21" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="228" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a622e1dda441c344c790610451271050d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; int &gt;</type>
+        <definition>QList&lt; int &gt; QfFeatureListModel::findDisplayValueMatches</definition>
+        <argsstring>(const QString &amp;filter) const</argsstring>
+        <name>findDisplayValueMatches</name>
+        <qualifiedname>QfFeatureListModel::findDisplayValueMatches</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get rows for a given filter string used to match display values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="164" column="23" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="249" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a71f7e14db014a27309b7945a670441dd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::orderByValue</definition>
+        <argsstring>() const</argsstring>
+        <name>orderByValue</name>
+        <qualifiedname>QfFeatureListModel::orderByValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orders all the values alphabethically by their displayString. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="169" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="547" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a7e1f650212f9fe51830e448e53af8a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setOrderByValue</definition>
+        <argsstring>(bool orderByValue)</argsstring>
+        <name>setOrderByValue</name>
+        <qualifiedname>QfFeatureListModel::setOrderByValue</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>orderByValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orders all the values alphabethically by their displayString. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="174" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="552" bodyend="562"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1aeca7dadee8d1c79745937b673666c9a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::orderByField</definition>
+        <argsstring>() const</argsstring>
+        <name>orderByField</name>
+        <qualifiedname>QfFeatureListModel::orderByField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orders all the values alphabethically by a field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="179" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="564" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a8bf8591d7c23b89a9f4d5bc3e8d73b8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setOrderByField</definition>
+        <argsstring>(bool orderByField)</argsstring>
+        <name>setOrderByField</name>
+        <qualifiedname>QfFeatureListModel::setOrderByField</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>orderByField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orders all the values alphabethically by a field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="184" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="569" bodyend="579"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a366638abd7e558562015dd0016963590" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::orderByFieldName</definition>
+        <argsstring>() const</argsstring>
+        <name>orderByFieldName</name>
+        <qualifiedname>QfFeatureListModel::orderByFieldName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orders all the values by another field. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="189" column="13" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="581" bodyend="584"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1ad08e0cb749c3a96dd91eb60e45c6786c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setOrderByFieldName</definition>
+        <argsstring>(const QString &amp;orderByFieldName)</argsstring>
+        <name>setOrderByFieldName</name>
+        <qualifiedname>QfFeatureListModel::setOrderByFieldName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>orderByFieldName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Orders all the values by another field. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="194" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="586" bodyend="596"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a48042ea36831ba8fa3b18469e66fc4c7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureListModel::addNull</definition>
+        <argsstring>() const</argsstring>
+        <name>addNull</name>
+        <qualifiedname>QfFeatureListModel::addNull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a NULL value as the first entry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="199" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="529" bodyend="532"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a81b1a3b8ec542fc77d626aba45c003f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setAddNull</definition>
+        <argsstring>(bool addNull)</argsstring>
+        <name>setAddNull</name>
+        <qualifiedname>QfFeatureListModel::setAddNull</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>addNull</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a NULL value as the first entry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="204" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="534" bodyend="545"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a5125a548f4a7fc689db9be90e3594868" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::filterExpression</definition>
+        <argsstring>() const</argsstring>
+        <name>filterExpression</name>
+        <qualifiedname>QfFeatureListModel::filterExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Expression to filter features with. Empty string if no filter is applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="209" column="13" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="598" bodyend="601"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a7c6c3645cac5465dc0b68ec1e7e643a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setFilterExpression</definition>
+        <argsstring>(const QString &amp;filterExpression)</argsstring>
+        <name>setFilterExpression</name>
+        <qualifiedname>QfFeatureListModel::setFilterExpression</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filterExpression</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets an expression to filter features with. Empty string if no filter is applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="214" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="603" bodyend="613"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a1fde1bd92ef9cac5529b81262c372965" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::searchTerm</definition>
+        <argsstring>() const</argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>QfFeatureListModel::searchTerm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current search term used to filter items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="219" column="13" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="615" bodyend="618"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a6b3ee7318b12d9905ea113287231d313" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setSearchTerm</definition>
+        <argsstring>(const QString &amp;searchTerm)</argsstring>
+        <name>setSearchTerm</name>
+        <qualifiedname>QfFeatureListModel::setSearchTerm</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>searchTerm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the search term for filtering and updates the filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="224" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="620" bodyend="631"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1afcb09a8a653fabd6c7558636c61db61e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureListModel::currentFormFeature</definition>
+        <argsstring>() const</argsstring>
+        <name>currentFormFeature</name>
+        <qualifiedname>QfFeatureListModel::currentFormFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current form feature, used to evaluate expressions such as <lsquo/>current_value(&apos;attr1<rsquo/>)` </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="229" column="16" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="633" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a7997053e74c1a9d2051d32a64049df36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setCurrentFormFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setCurrentFormFeature</name>
+        <qualifiedname>QfFeatureListModel::setCurrentFormFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current form feature, used to evaluate expressions such as <lsquo/>current_value(&apos;attr1<rsquo/>)` </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="234" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="638" bodyend="653"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1ae921ea417b60a804f13163cbe38d0d45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+        <definition>QfAppExpressionContextScopesGenerator * QfFeatureListModel::appExpressionContextScopesGenerator</definition>
+        <argsstring>() const</argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>QfFeatureListModel::appExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the application expression context scope generator used when filtering by expression </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="239" column="43" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="655" bodyend="658"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a52768af5e2c83a2806dcf3ffdcdfbeb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::setAppExpressionContextScopesGenerator</definition>
+        <argsstring>(QfAppExpressionContextScopesGenerator *generator)</argsstring>
+        <name>setAppExpressionContextScopesGenerator</name>
+        <qualifiedname>QfFeatureListModel::setAppExpressionContextScopesGenerator</qualifiedname>
+        <param>
+          <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+          <declname>generator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the application expression context scope generator used when filtering by expression </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="244" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="660" bodyend="675"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfFeatureListModel_1a6daffb43965c7ca506d3c00d6ce19e8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::currentLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentLayerChanged</name>
+        <qualifiedname>QfFeatureListModel::currentLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="247" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a5ef9ef9dd05171db76c2e63c380a7902" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::keyFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>keyFieldChanged</name>
+        <qualifiedname>QfFeatureListModel::keyFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="248" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a2bc61b5328aab6851595956856b51581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::displayValueFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>displayValueFieldChanged</name>
+        <qualifiedname>QfFeatureListModel::displayValueFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="249" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a0d1d39e8ac2d27f210828daf19d6b3e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::groupFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>groupFieldChanged</name>
+        <qualifiedname>QfFeatureListModel::groupFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="250" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a0b2bc3f139f4a76b5656c544fcc58624" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::displayGroupNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>displayGroupNameChanged</name>
+        <qualifiedname>QfFeatureListModel::displayGroupNameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="251" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a251ac86e5083b3c5f84593d69697a050" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::orderByValueChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orderByValueChanged</name>
+        <qualifiedname>QfFeatureListModel::orderByValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="252" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a31cf37c458d1c5e821749a70132dabcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::orderByFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orderByFieldChanged</name>
+        <qualifiedname>QfFeatureListModel::orderByFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="253" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1ad10d7ac201b343d7a5e474a36c036c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::orderByFieldNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orderByFieldNameChanged</name>
+        <qualifiedname>QfFeatureListModel::orderByFieldNameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="254" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a3d956f9353a4253f254fb1a4f50058cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::addNullChanged</definition>
+        <argsstring>()</argsstring>
+        <name>addNullChanged</name>
+        <qualifiedname>QfFeatureListModel::addNullChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="255" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1afd30353175ffaa4ef95fdad2230076fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::filterExpressionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filterExpressionChanged</name>
+        <qualifiedname>QfFeatureListModel::filterExpressionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="256" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a715f6200b781967bc03890412920a1b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::searchTermChanged</definition>
+        <argsstring>()</argsstring>
+        <name>searchTermChanged</name>
+        <qualifiedname>QfFeatureListModel::searchTermChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="257" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1a8167dcd78b72d65a71d045f1d3f27f3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::currentFormFeatureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentFormFeatureChanged</name>
+        <qualifiedname>QfFeatureListModel::currentFormFeatureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="258" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListModel_1acb2e31a5e3afbbd2b86bda20bb95324d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::appExpressionContextScopesGeneratorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>appExpressionContextScopesGeneratorChanged</name>
+        <qualifiedname>QfFeatureListModel::appExpressionContextScopesGeneratorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="259" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfFeatureListModel_1a8d6dbd52ee5a25fcd1cd31cf348bc08b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::onFeatureAdded</definition>
+        <argsstring>()</argsstring>
+        <name>onFeatureAdded</name>
+        <qualifiedname>QfFeatureListModel::onFeatureAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="262" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="268" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureListModel_1ac90069b3ad4289c12bca8f927040070c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::onAttributeValueChanged</definition>
+        <argsstring>(QgsFeatureId fid, int idx, const QVariant &amp;value)</argsstring>
+        <name>onAttributeValueChanged</name>
+        <qualifiedname>QfFeatureListModel::onAttributeValueChanged</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="263" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="273" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureListModel_1aef2e7bfb8c2361c7ed26a1458ea036dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::onFeatureDeleted</definition>
+        <argsstring>()</argsstring>
+        <name>onFeatureDeleted</name>
+        <qualifiedname>QfFeatureListModel::onFeatureDeleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="264" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="287" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureListModel_1afd529d4d1748ce07cccb4e740390c888" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::gatherFeatureList</definition>
+        <argsstring>()</argsstring>
+        <name>gatherFeatureList</name>
+        <qualifiedname>QfFeatureListModel::gatherFeatureList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="266" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="321" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureListModel_1ae54120eb39faaf480130bbb3e89b175b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::processFeatureList</definition>
+        <argsstring>()</argsstring>
+        <name>processFeatureList</name>
+        <qualifiedname>QfFeatureListModel::processFeatureList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reloads a layer. This will normally be triggered by <simplesect kind="see"><para>reloadLayer and should not be called directly. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="272" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="419" bodyend="516"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfFeatureListModel_1a370052db53b2db2b897c10f728530e36" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Entry</type>
+        <definition>QfFeatureListModel::Entry QfFeatureListModel::entryFromRow</definition>
+        <argsstring>(int row)</argsstring>
+        <name>entryFromRow</name>
+        <qualifiedname>QfFeatureListModel::entryFromRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="295" column="11" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="518" bodyend="521"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a195768375ba1755f7b9b74f77b2fff74" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::reloadLayer</definition>
+        <argsstring>()</argsstring>
+        <name>reloadLayer</name>
+        <qualifiedname>QfFeatureListModel::reloadLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Triggers a reload of the values from the layer. To avoid having the (expensive) reload operation happening for every property change, it will only execute this after a very short delay. This allows changing multiple properties at once and have a single reload in the end. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="304" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="523" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListModel_1a15ab6779b77c20c54183cb411b236e40" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListModel::cleanupGatherer</definition>
+        <argsstring>()</argsstring>
+        <name>cleanupGatherer</name>
+        <qualifiedname>QfFeatureListModel::cleanupGatherer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="306" column="10" bodyfile="src/core/qffeaturelistmodel.cpp" bodystart="43" bodyend="52"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides access to a list of features from a layer. For each feature, the display expression is exposed as DisplayRole and a keyField as KeyFieldRole for a unique identifier. If a displayValueField is set it replaces the display expression of the layer. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="3">
+        <label>QfFeatureCheckListModelBase</label>
+        <link refid="classQfFeatureCheckListModelBase"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfFeatureListModel</label>
+        <link refid="classQfFeatureListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureListModel</label>
+        <link refid="classQfFeatureListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qffeaturelistmodel.h" line="38" column="1" bodyfile="src/core/qffeaturelistmodel.h" bodystart="39" bodyend="330"/>
+    <listofallmembers>
+      <member refid="classQfFeatureListModel_1ae4f21b4e1851d51176fb3718b654ed42" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>addNull</name></member>
+      <member refid="classQfFeatureListModel_1a48042ea36831ba8fa3b18469e66fc4c7" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>addNull</name></member>
+      <member refid="classQfFeatureListModel_1a3d956f9353a4253f254fb1a4f50058cf" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>addNullChanged</name></member>
+      <member refid="classQfFeatureListModel_1a0cacc73428fc334a3042d1ec3d0e7964" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureListModel_1ae921ea417b60a804f13163cbe38d0d45" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureListModel_1acb2e31a5e3afbbd2b86bda20bb95324d" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>appExpressionContextScopesGeneratorChanged</name></member>
+      <member refid="classQfFeatureListModel_1a15ab6779b77c20c54183cb411b236e40" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>cleanupGatherer</name></member>
+      <member refid="classQfFeatureListModel_1aeafdc5fe1490730078e42b947f9e45b7" prot="public" virt="virtual"><scope>QfFeatureListModel</scope><name>columnCount</name></member>
+      <member refid="classQfFeatureListModel_1af768477301d218f891588b915276b4bc" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>currentFormFeature</name></member>
+      <member refid="classQfFeatureListModel_1afcb09a8a653fabd6c7558636c61db61e" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>currentFormFeature</name></member>
+      <member refid="classQfFeatureListModel_1a8167dcd78b72d65a71d045f1d3f27f3a" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>currentFormFeatureChanged</name></member>
+      <member refid="classQfFeatureListModel_1acd6f8858bc936bf7b54d71c6860e65df" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>currentLayer</name></member>
+      <member refid="classQfFeatureListModel_1a5382269de7e5527928915e5a1155b0d8" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>currentLayer</name></member>
+      <member refid="classQfFeatureListModel_1a6daffb43965c7ca506d3c00d6ce19e8b" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>currentLayerChanged</name></member>
+      <member refid="classQfFeatureListModel_1abe0597f1959539944ef69a6178b86465" prot="public" virt="virtual"><scope>QfFeatureListModel</scope><name>data</name></member>
+      <member refid="classQfFeatureListModel_1a5095688d34d14a4304caa8b740a2d49e" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>dataFromRowIndex</name></member>
+      <member refid="classQfFeatureListModel_1af62147f4d5e347051f3f49234a5a891e" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>displayGroupName</name></member>
+      <member refid="classQfFeatureListModel_1a77ed4f8b9554d5e9a813aac6784fad75" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>displayGroupName</name></member>
+      <member refid="classQfFeatureListModel_1a0b2bc3f139f4a76b5656c544fcc58624" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>displayGroupNameChanged</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fba9fd194465fd82fdc0e20959cd9a05b9c" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>DisplayStringRole</name></member>
+      <member refid="classQfFeatureListModel_1aaeec71b4d4fed969193bf6ff383b57dc" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>displayValueField</name></member>
+      <member refid="classQfFeatureListModel_1aed8e2595945d039709db72ea6446626e" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>displayValueField</name></member>
+      <member refid="classQfFeatureListModel_1a2bc61b5328aab6851595956856b51581" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>displayValueFieldChanged</name></member>
+      <member refid="classQfFeatureListModel_1a370052db53b2db2b897c10f728530e36" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>entryFromRow</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fba1afbc1f1530544594bbb2038dbbd6deb" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>FeatureIdRole</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fb" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>FeatureListRoles</name></member>
+      <member refid="classQfFeatureListModel_1aa4c54ddb9ef1e186dcf7b3f0f19f873c" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>filterExpression</name></member>
+      <member refid="classQfFeatureListModel_1a5125a548f4a7fc689db9be90e3594868" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>filterExpression</name></member>
+      <member refid="classQfFeatureListModel_1afd30353175ffaa4ef95fdad2230076fc" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>filterExpressionChanged</name></member>
+      <member refid="classQfFeatureListModel_1a622e1dda441c344c790610451271050d" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>findDisplayValueMatches</name></member>
+      <member refid="classQfFeatureListModel_1a8f861cc8a7b8f2ba52851ef9f24ef5eb" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>findKey</name></member>
+      <member refid="classQfFeatureListModel_1afd529d4d1748ce07cccb4e740390c888" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>gatherFeatureList</name></member>
+      <member refid="classQfFeatureListModel_1a256718f68a0008d37b1e2d41bddfcffd" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>getFeatureById</name></member>
+      <member refid="classQfFeatureListModel_1a66e792606f5b9036457c550accd9f58f" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>getFeatureFromKeyValue</name></member>
+      <member refid="classQfFeatureListModel_1aef2d8b95599eed281a428da2c9d90b07" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>groupField</name></member>
+      <member refid="classQfFeatureListModel_1ac7eae5600ff1423772ab19732a81e25b" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>groupField</name></member>
+      <member refid="classQfFeatureListModel_1a0d1d39e8ac2d27f210828daf19d6b3e9" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>groupFieldChanged</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fbaf9fc53ef24716fc3b4ed7cf5c516a221" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>GroupFieldRole</name></member>
+      <member refid="classQfFeatureListModel_1a988389dcd22ed47894d887d443b07346" prot="public" virt="virtual"><scope>QfFeatureListModel</scope><name>index</name></member>
+      <member refid="classQfFeatureListModel_1a0ca0d5d1e06fc27ccd7b274831fd5978" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>keyField</name></member>
+      <member refid="classQfFeatureListModel_1ac3f15e85174251398d309ca39a46e37a" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>keyField</name></member>
+      <member refid="classQfFeatureListModel_1a5ef9ef9dd05171db76c2e63c380a7902" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>keyFieldChanged</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fbad62f6071da1491c8f27ec41cf09e2476" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>KeyFieldRole</name></member>
+      <member refid="classQfFeatureListModel_1a6743c3f7bce34544ddbe969a6be2ffda" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mAddNull</name></member>
+      <member refid="classQfFeatureListModel_1ae766ea0f29d45de96d47963715b045d5" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mAppExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureListModel_1a58921f4babdd69d4034d91e2fd6c19c2" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mCurrentFormFeature</name></member>
+      <member refid="classQfFeatureListModel_1a014eb05979ff22a9a5fb2bad9c3dd6e2" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mCurrentLayer</name></member>
+      <member refid="classQfFeatureListModel_1adf19c68d725343a887f57b242d99ddfa" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mDisplayGroupName</name></member>
+      <member refid="classQfFeatureListModel_1a5758b43fbe25d9f3e2a216022e595f68" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mDisplayValueField</name></member>
+      <member refid="classQfFeatureListModel_1a5364e712f1c55dd98eb024bcea5f7a23" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mEntries</name></member>
+      <member refid="classQfFeatureListModel_1abab41f16e047d886e0c14c595ff50e35" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mFilterExpression</name></member>
+      <member refid="classQfFeatureListModel_1af1ef3fe7e937788bb765e9d37947d65e" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mGatherer</name></member>
+      <member refid="classQfFeatureListModel_1ad693fb8c285b65783287876491a54578" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mGroupField</name></member>
+      <member refid="classQfFeatureListModel_1addbfe7a7d709f5980cc4b2af469b1048" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mKeyField</name></member>
+      <member refid="classQfFeatureListModel_1a5f55572683e70026975d0bf1a8e886d9" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mOrderByField</name></member>
+      <member refid="classQfFeatureListModel_1a927b9fccb3656cff239c0642aca7bc55" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mOrderByFieldName</name></member>
+      <member refid="classQfFeatureListModel_1a556f8dc0aa524d27b9ee6e4db78da038" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mOrderByValue</name></member>
+      <member refid="classQfFeatureListModel_1a2c1e09f22447c22f61e438706a09c494" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mReloadTimer</name></member>
+      <member refid="classQfFeatureListModel_1a085683b44ac00fa8f636d88ade792f3f" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>mSearchTerm</name></member>
+      <member refid="classQfFeatureListModel_1ac90069b3ad4289c12bca8f927040070c" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>onAttributeValueChanged</name></member>
+      <member refid="classQfFeatureListModel_1a8d6dbd52ee5a25fcd1cd31cf348bc08b" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>onFeatureAdded</name></member>
+      <member refid="classQfFeatureListModel_1aef2e7bfb8c2361c7ed26a1458ea036dd" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>onFeatureDeleted</name></member>
+      <member refid="classQfFeatureListModel_1af2037b6f7185df26d84223b422403d0d" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByField</name></member>
+      <member refid="classQfFeatureListModel_1aeca7dadee8d1c79745937b673666c9a0" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByField</name></member>
+      <member refid="classQfFeatureListModel_1a31cf37c458d1c5e821749a70132dabcb" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByFieldChanged</name></member>
+      <member refid="classQfFeatureListModel_1a6b35f03f113df854d381b9ad8291efec" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByFieldName</name></member>
+      <member refid="classQfFeatureListModel_1a366638abd7e558562015dd0016963590" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByFieldName</name></member>
+      <member refid="classQfFeatureListModel_1ad10d7ac201b343d7a5e474a36c036c10" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByFieldNameChanged</name></member>
+      <member refid="classQfFeatureListModel_1abd1dfd6f6f9bbe0359aeaa6e8baf2ad3" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByValue</name></member>
+      <member refid="classQfFeatureListModel_1a71f7e14db014a27309b7945a670441dd" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByValue</name></member>
+      <member refid="classQfFeatureListModel_1a251ac86e5083b3c5f84593d69697a050" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>orderByValueChanged</name></member>
+      <member refid="classQfFeatureListModel_1a0d8031e383f074ca4df238dced1bec0d" prot="public" virt="virtual"><scope>QfFeatureListModel</scope><name>parent</name></member>
+      <member refid="classQfFeatureListModel_1ae54120eb39faaf480130bbb3e89b175b" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>processFeatureList</name></member>
+      <member refid="classQfFeatureListModel_1a12eaca9e24ab888c4c792a414ce63706" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>QfFeatureCheckListModel</name></member>
+      <member refid="classQfFeatureListModel_1ad59188126ab97d0ad8a8d9f61968ff6f" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>QfFeatureCheckListModelBase</name></member>
+      <member refid="classQfFeatureListModel_1af10c60d3eb16790446d4f29d058b0a25" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>QfFeatureListModel</name></member>
+      <member refid="classQfFeatureListModel_1a195768375ba1755f7b9b74f77b2fff74" prot="private" virt="non-virtual"><scope>QfFeatureListModel</scope><name>reloadLayer</name></member>
+      <member refid="classQfFeatureListModel_1a869f6d13935a9f82344f4d81589a53fc" prot="public" virt="virtual"><scope>QfFeatureListModel</scope><name>roleNames</name></member>
+      <member refid="classQfFeatureListModel_1aee856ba8cc371a37236a97a1235c7ebd" prot="public" virt="virtual"><scope>QfFeatureListModel</scope><name>rowCount</name></member>
+      <member refid="classQfFeatureListModel_1a9a05dbc9e0e14649dc49ac41c15b9ad3" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>searchTerm</name></member>
+      <member refid="classQfFeatureListModel_1a1fde1bd92ef9cac5529b81262c372965" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>searchTerm</name></member>
+      <member refid="classQfFeatureListModel_1a715f6200b781967bc03890412920a1b3" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>searchTermChanged</name></member>
+      <member refid="classQfFeatureListModel_1a81b1a3b8ec542fc77d626aba45c003f3" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setAddNull</name></member>
+      <member refid="classQfFeatureListModel_1a52768af5e2c83a2806dcf3ffdcdfbeb1" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setAppExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureListModel_1a7997053e74c1a9d2051d32a64049df36" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setCurrentFormFeature</name></member>
+      <member refid="classQfFeatureListModel_1a6255a0488b2dea2bd213ea1a089c8970" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setCurrentLayer</name></member>
+      <member refid="classQfFeatureListModel_1a337ed199ebf16a70a0a772142888b9f1" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setDisplayGroupName</name></member>
+      <member refid="classQfFeatureListModel_1a2f9e7c3ae1d0783bb375f57e3c453c8c" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setDisplayValueField</name></member>
+      <member refid="classQfFeatureListModel_1a7c6c3645cac5465dc0b68ec1e7e643a2" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setFilterExpression</name></member>
+      <member refid="classQfFeatureListModel_1a789aad2587174a17c19c67c8593ee43e" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setGroupField</name></member>
+      <member refid="classQfFeatureListModel_1afb12bb836d3d413319fda85a7f52555a" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setKeyField</name></member>
+      <member refid="classQfFeatureListModel_1a8bf8591d7c23b89a9f4d5bc3e8d73b8e" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setOrderByField</name></member>
+      <member refid="classQfFeatureListModel_1ad08e0cb749c3a96dd91eb60e45c6786c" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setOrderByFieldName</name></member>
+      <member refid="classQfFeatureListModel_1a7e1f650212f9fe51830e448e53af8a13" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setOrderByValue</name></member>
+      <member refid="classQfFeatureListModel_1a6b3ee7318b12d9905ea113287231d313" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>setSearchTerm</name></member>
+      <member refid="classQfFeatureListModel_1a850e91b007649bd659965f2ff6fbc46d" prot="public" virt="non-virtual"><scope>QfFeatureListModel</scope><name>~QfFeatureListModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

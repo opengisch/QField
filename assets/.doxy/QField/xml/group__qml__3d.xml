@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__qml__3d" kind="group">
+    <compoundname>qml_3d</compoundname>
+    <title>QML 3D</title>
+    <innerclass refid="classQfFeatureListSelectionHighlight3D" prot="public">QfFeatureListSelectionHighlight3D</innerclass>
+    <innerclass refid="classQfMapCanvas3D" prot="public">QfMapCanvas3D</innerclass>
+    <innerclass refid="classQfRubberband3D" prot="public">QfRubberband3D</innerclass>
+    <innerclass refid="classQfTerrainMesh" prot="public">QfTerrainMesh</innerclass>
+    <innerclass refid="classQfTouchCameraController" prot="public">QfTouchCameraController</innerclass>
+    <briefdescription>
+<para>QField 3D QML items available through import org.qfield._3d. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

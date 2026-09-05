@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfExpressionCalculatorLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>QfExpressionCalculatorLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="qfexpressioncalculatorlocatorfilter_8h" local="no">qfexpressioncalculatorlocatorfilter.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfExpressionCalculatorLocatorFilter_1a116b57325d551872e83ec36de5b9f10e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionOrigin</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::ActionOrigin</qualifiedname>
+        <enumvalue id="classQfExpressionCalculatorLocatorFilter_1a116b57325d551872e83ec36de5b9f10ea2134617867d70af4373bc22a795f3c8d" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Origin of the action which triggers the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="38" column="5" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="39" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfExpressionCalculatorLocatorFilter_1adb9c3ca89762b0f95bd2edec710ee704" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+        <definition>QfLocatorModelSuperBridge* QfExpressionCalculatorLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="57" column="31" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a276d061e0aa1321882134e72e7ff6724" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfExpressionCalculatorLocatorFilter::QfExpressionCalculatorLocatorFilter</definition>
+        <argsstring>(QfLocatorModelSuperBridge *locatorBridge, QObject *parent=nullptr)</argsstring>
+        <name>QfExpressionCalculatorLocatorFilter</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::QfExpressionCalculatorLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="43" column="14" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.cpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a443a5382430214125067149132a9e361" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfExpressionCalculatorLocatorFilter" kindref="compound">QfExpressionCalculatorLocatorFilter</ref> *</type>
+        <definition>QfExpressionCalculatorLocatorFilter * QfExpressionCalculatorLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="44" column="41" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a69a808da7862b90560d8d0751becccf1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfExpressionCalculatorLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="45" column="13" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a0879de69eba7a269f9d9a10f093fc870" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfExpressionCalculatorLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="46" column="13" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a663bd0ea4dfa3afa1b521fd2a34d9dd3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfExpressionCalculatorLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="47" column="13" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a379918ae3254c457e283cdc22128b1e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority QfExpressionCalculatorLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="48" column="14" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a05afed144704f748799b68d82624b4cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfExpressionCalculatorLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="49" column="13" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1ad1051a9aef2988e3fd918bc76082c5ff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsLocatorFilter::Flags</type>
+        <definition>QgsLocatorFilter::Flags QfExpressionCalculatorLocatorFilter::flags</definition>
+        <argsstring>() const override</argsstring>
+        <name>flags</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="50" column="29" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a1bad4055c66738961e95a68898450cc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionCalculatorLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="52" column="10" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.cpp" bodystart="43" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a9135f35497876f56582836a6687f9242" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionCalculatorLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="53" column="10" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionCalculatorLocatorFilter_1a1c2e25ffe88425e11a3036747d3ae297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionCalculatorLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>QfExpressionCalculatorLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="54" column="10" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.cpp" bodystart="73" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQfExpressionCalculatorLocatorFilter" kindref="compound">QfExpressionCalculatorLocatorFilter</ref> is a locator filter to type in expressions and copy their returned value. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfExpressionCalculatorLocatorFilter</label>
+        <link refid="classQfExpressionCalculatorLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfExpressionCalculatorLocatorFilter</label>
+        <link refid="classQfExpressionCalculatorLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/qfexpressioncalculatorlocatorfilter.h" line="32" column="1" bodyfile="src/core/locator/qfexpressioncalculatorlocatorfilter.h" bodystart="33" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a116b57325d551872e83ec36de5b9f10e" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>ActionOrigin</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a443a5382430214125067149132a9e361" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>clone</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a663bd0ea4dfa3afa1b521fd2a34d9dd3" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>description</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a0879de69eba7a269f9d9a10f093fc870" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a1bad4055c66738961e95a68898450cc0" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1ad1051a9aef2988e3fd918bc76082c5ff" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>flags</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1adb9c3ca89762b0f95bd2edec710ee704" prot="private" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a69a808da7862b90560d8d0751becccf1" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>name</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a116b57325d551872e83ec36de5b9f10ea2134617867d70af4373bc22a795f3c8d" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>Normal</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a05afed144704f748799b68d82624b4cc" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a379918ae3254c457e283cdc22128b1e5" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>priority</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a276d061e0aa1321882134e72e7ff6724" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>QfExpressionCalculatorLocatorFilter</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a9135f35497876f56582836a6687f9242" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classQfExpressionCalculatorLocatorFilter_1a1c2e25ffe88425e11a3036747d3ae297" prot="public" virt="non-virtual"><scope>QfExpressionCalculatorLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

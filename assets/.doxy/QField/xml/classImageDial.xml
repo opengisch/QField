@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImageDial" kind="class" language="C++" prot="public">
+    <compoundname>ImageDial</compoundname>
+    <basecompoundref refid="classQfImageDial" prot="public" virt="non-virtual">QfImageDial</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Dial</label>
+      </node>
+      <node id="1">
+        <label>ImageDial</label>
+        <link refid="classImageDial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfImageDial</label>
+        <link refid="classQfImageDial"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Dial</label>
+      </node>
+      <node id="1">
+        <label>ImageDial</label>
+        <link refid="classImageDial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfImageDial</label>
+        <link refid="classQfImageDial"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/ImageDial.qml" line="2" column="1" bodyfile="src/app/qml_compat/ImageDial.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfImageDial_1a92010ea421bae589a3756d2a3b70445e" prot="public" virt="non-virtual"><scope>ImageDial</scope><name>rotationOffset</name></member>
+      <member refid="classQfImageDial_1ab919deebb8b3c872bd9e536b01cb717d" prot="public" virt="non-virtual"><scope>ImageDial</scope><name>source</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

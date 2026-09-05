@@ -1,0 +1,640 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLayerTreeItemProperties" kind="class" language="C++" prot="public">
+    <compoundname>QfLayerTreeItemProperties</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classLayerTreeItemProperties" prot="public" virt="non-virtual">LayerTreeItemProperties</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1a3a8c6650f77296ff0f9f167788d2180d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::layerTree</definition>
+        <argsstring></argsstring>
+        <name>layerTree</name>
+        <qualifiedname>QfLayerTreeItemProperties::layerTree</qualifiedname>
+        <read>dummyGetter_layerTree_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="13" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1a4994b2a94f65731e5a794fe5492965a4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>QfLayerTreeItemProperties::index</qualifiedname>
+        <read>dummyGetter_index_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="15" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1a31e855607d4fb1e65b425ce88b734b13" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeItemProperties::zoomToButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>zoomToButtonVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::zoomToButtonVisible</qualifiedname>
+        <read>dummyGetter_zoomToButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="17" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1a1cf00301b2dea1d6f43b2c1e5f61bb1a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeItemProperties::showFeaturesListButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesListButtonVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::showFeaturesListButtonVisible</qualifiedname>
+        <read>dummyGetter_showFeaturesListButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="19" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1a4b042d181af9f92c517dc416f86ba26a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeItemProperties::showVisibleFeaturesListDropdownVisible</definition>
+        <argsstring></argsstring>
+        <name>showVisibleFeaturesListDropdownVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::showVisibleFeaturesListDropdownVisible</qualifiedname>
+        <read>dummyGetter_showVisibleFeaturesListDropdownVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="21" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1ac2cbd5563a9cc7069e392608b30b2d2c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeItemProperties::reloadDataButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>reloadDataButtonVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::reloadDataButtonVisible</qualifiedname>
+        <read>dummyGetter_reloadDataButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="23" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1a747fa6da5948b841aa78b5958c6e8605" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeItemProperties::trackingButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>trackingButtonVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::trackingButtonVisible</qualifiedname>
+        <read>dummyGetter_trackingButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="25" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1a67d2da6627cef071c10158e60125b1c0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::trackingButtonText</definition>
+        <argsstring></argsstring>
+        <name>trackingButtonText</name>
+        <qualifiedname>QfLayerTreeItemProperties::trackingButtonText</qualifiedname>
+        <read>dummyGetter_trackingButtonText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="27" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerTreeItemProperties_1a43837280f791a4888a6fbb6ead613b4a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeItemProperties::opacitySliderVisible</definition>
+        <argsstring></argsstring>
+        <name>opacitySliderVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::opacitySliderVisible</qualifiedname>
+        <read>dummyGetter_opacitySliderVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="29" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a8caf168b55018abb00ffafc366c8ee42" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfLayerTreeItemProperties::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="31" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1af669b39fa750e84b895eb987f3e5178f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfLayerTreeItemProperties::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="32" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1ad4060ee3ead1253c2b51e425d392247d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfLayerTreeItemProperties::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="33" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a6e64d277660c4c62a3373113aa244f05" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfLayerTreeItemProperties::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="34" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1af25622a1ae693931c54b41936829aebc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfLayerTreeItemProperties::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="35" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a3988debe182fc692a4bf11e4bfb73388" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfLayerTreeItemProperties::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="36" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a8cd426ace17ca772aefdaa235da76743" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfLayerTreeItemProperties::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="37" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a0e190f0d0bed64ea174e13ddcc75c740" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>QfLayerTreeItemProperties::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="38" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1add459f33a215464a0381385af973eab7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerTreeItemProperties::onIndexChanged</definition>
+        <argsstring></argsstring>
+        <name>onIndexChanged</name>
+        <qualifiedname>QfLayerTreeItemProperties::onIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="39" column="5" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a8ee5da42cd74e6e7e9c29f6006d7b838" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfLayerTreeItemProperties::popupContent</definition>
+        <argsstring></argsstring>
+        <name>popupContent</name>
+        <qualifiedname>QfLayerTreeItemProperties::popupContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="40" column="6" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a173b63d9b52338e00e2e9c06592c692d" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfLayerTreeItemProperties::popupLayout</definition>
+        <argsstring></argsstring>
+        <name>popupLayout</name>
+        <qualifiedname>QfLayerTreeItemProperties::popupLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="41" column="14" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a83e408445964edad37aa638a347c0f75" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfLayerTreeItemProperties::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfLayerTreeItemProperties::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="42" column="13" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a00877581cb055423595482006c658c39" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLayerTreeItemProperties::invalidText</definition>
+        <argsstring></argsstring>
+        <name>invalidText</name>
+        <qualifiedname>QfLayerTreeItemProperties::invalidText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="43" column="6" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a7c39c98530746a6586741a180373127d" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfLayerTreeItemProperties::expandCheckBox</definition>
+        <argsstring></argsstring>
+        <name>expandCheckBox</name>
+        <qualifiedname>QfLayerTreeItemProperties::expandCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="44" column="10" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a649e484d6a8905f280f185c73608211f" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfLayerTreeItemProperties::itemVisibleCheckBox</definition>
+        <argsstring></argsstring>
+        <name>itemVisibleCheckBox</name>
+        <qualifiedname>QfLayerTreeItemProperties::itemVisibleCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="45" column="10" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a785b314f4bd863cf9732ffd1a2675a5f" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfLayerTreeItemProperties::itemLabelsVisibleCheckBox</definition>
+        <argsstring></argsstring>
+        <name>itemLabelsVisibleCheckBox</name>
+        <qualifiedname>QfLayerTreeItemProperties::itemLabelsVisibleCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="46" column="10" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a19dc0c34defd0b55d193633aaf083be1" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfLayerTreeItemProperties::opacitySlider</definition>
+        <argsstring></argsstring>
+        <name>opacitySlider</name>
+        <qualifiedname>QfLayerTreeItemProperties::opacitySlider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="47" column="11" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a0ca6f8b42b2e9d8629aae335f22aac4c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSlider" kindref="compound">QfSlider</ref></type>
+        <definition>QfSlider QfLayerTreeItemProperties::slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <qualifiedname>QfLayerTreeItemProperties::slider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="48" column="10" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a813a23c18391290e287035ee9aa50fd9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfLayerTreeItemProperties::zoomToButton</definition>
+        <argsstring></argsstring>
+        <name>zoomToButton</name>
+        <qualifiedname>QfLayerTreeItemProperties::zoomToButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="49" column="10" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1aa856b1ea06d4cf4b89a8c24afb3f97af" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfLayerTreeItemProperties::showFeaturesList</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesList</name>
+        <qualifiedname>QfLayerTreeItemProperties::showFeaturesList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="50" column="10" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a9dc8061d76df5a114117d2a2331e35bb" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfLayerTreeItemProperties::trackingButton</definition>
+        <argsstring></argsstring>
+        <name>trackingButton</name>
+        <qualifiedname>QfLayerTreeItemProperties::trackingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="51" column="10" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1a39b63c9fb35dbda347f8b37dc1bb6215" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLayerTreeItemProperties::lockText</definition>
+        <argsstring></argsstring>
+        <name>lockText</name>
+        <qualifiedname>QfLayerTreeItemProperties::lockText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="52" column="6" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1ac9e6a11193aef3b980815f362fd00d25" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLayerTreeItemProperties::creditsText</definition>
+        <argsstring></argsstring>
+        <name>creditsText</name>
+        <qualifiedname>QfLayerTreeItemProperties::creditsText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="53" column="6" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeItemProperties_1ac144fbaa5203a39a9ea70b4e1fc09c4b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfLayerTreeItemProperties::showFeaturesMenu</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesMenu</name>
+        <qualifiedname>QfLayerTreeItemProperties::showFeaturesMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="54" column="8" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLayerTreeItemProperties_1ac8aa1e3bb431110fb5d2f9ec59cbcbae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeItemProperties::updateTitle</definition>
+        <argsstring>()</argsstring>
+        <name>updateTitle</name>
+        <qualifiedname>QfLayerTreeItemProperties::updateTitle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="57" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeItemProperties_1ae1e3eee14fd29adb28b9cf83f740ef4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeItemProperties::updateCredits</definition>
+        <argsstring>()</argsstring>
+        <name>updateCredits</name>
+        <qualifiedname>QfLayerTreeItemProperties::updateCredits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="59" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeItemProperties_1a4d388faecbece769800cfd9369113829" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeItemProperties::isTrackingButtonVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isTrackingButtonVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::isTrackingButtonVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="61" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeItemProperties_1ab1cc59b2ac661fb508ea352da95b98c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeItemProperties::isShowFeaturesListButtonVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isShowFeaturesListButtonVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::isShowFeaturesListButtonVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="63" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeItemProperties_1a40cedb4241df11e12cbd1671c3613740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeItemProperties::isShowVisibleFeaturesListDropdownVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isShowVisibleFeaturesListDropdownVisible</name>
+        <qualifiedname>QfLayerTreeItemProperties::isShowVisibleFeaturesListDropdownVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="65" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfLayerTreeItemProperties</label>
+        <link refid="classQfLayerTreeItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfLayerTreeItemProperties</label>
+        <link refid="classQfLayerTreeItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfLayerTreeItemProperties.qml" line="10" column="1" bodyfile="src/gui/qml/QfLayerTreeItemProperties.qml" bodystart="10" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classQfLayerTreeItemProperties_1a3988debe182fc692a4bf11e4bfb73388" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>closePolicy</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ac9e6a11193aef3b980815f362fd00d25" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>creditsText</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a7c39c98530746a6586741a180373127d" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>expandCheckBox</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a8cd426ace17ca772aefdaa235da76743" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>focus</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a83e408445964edad37aa638a347c0f75" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>fontMetrics</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ad4060ee3ead1253c2b51e425d392247d" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>height</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a4994b2a94f65731e5a794fe5492965a4" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>index</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a00877581cb055423595482006c658c39" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>invalidText</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ab1cc59b2ac661fb508ea352da95b98c6" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>isShowFeaturesListButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a40cedb4241df11e12cbd1671c3613740" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>isShowVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a4d388faecbece769800cfd9369113829" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>isTrackingButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a785b314f4bd863cf9732ffd1a2675a5f" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>itemLabelsVisibleCheckBox</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a649e484d6a8905f280f185c73608211f" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>itemVisibleCheckBox</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a3a8c6650f77296ff0f9f167788d2180d" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>layerTree</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a39b63c9fb35dbda347f8b37dc1bb6215" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>lockText</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a0e190f0d0bed64ea174e13ddcc75c740" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>onClosed</name></member>
+      <member refid="classQfLayerTreeItemProperties_1add459f33a215464a0381385af973eab7" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>onIndexChanged</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a19dc0c34defd0b55d193633aaf083be1" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>opacitySlider</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a43837280f791a4888a6fbb6ead613b4a" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>opacitySliderVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a8caf168b55018abb00ffafc366c8ee42" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>parent</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a8ee5da42cd74e6e7e9c29f6006d7b838" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>popupContent</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a173b63d9b52338e00e2e9c06592c692d" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>popupLayout</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ac2cbd5563a9cc7069e392608b30b2d2c" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>reloadDataButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1aa856b1ea06d4cf4b89a8c24afb3f97af" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>showFeaturesList</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a1cf00301b2dea1d6f43b2c1e5f61bb1a" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>showFeaturesListButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ac144fbaa5203a39a9ea70b4e1fc09c4b" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>showFeaturesMenu</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a4b042d181af9f92c517dc416f86ba26a" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>showVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a0ca6f8b42b2e9d8629aae335f22aac4c" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>slider</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a9dc8061d76df5a114117d2a2331e35bb" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>trackingButton</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a67d2da6627cef071c10158e60125b1c0" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>trackingButtonText</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a747fa6da5948b841aa78b5958c6e8605" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>trackingButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ae1e3eee14fd29adb28b9cf83f740ef4c" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>updateCredits</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ac8aa1e3bb431110fb5d2f9ec59cbcbae" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>updateTitle</name></member>
+      <member refid="classQfLayerTreeItemProperties_1af669b39fa750e84b895eb987f3e5178f" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>width</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a6e64d277660c4c62a3373113aa244f05" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>x</name></member>
+      <member refid="classQfLayerTreeItemProperties_1af25622a1ae693931c54b41936829aebc" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>y</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a813a23c18391290e287035ee9aa50fd9" prot="private" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>zoomToButton</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a31e855607d4fb1e65b425ce88b734b13" prot="public" virt="non-virtual"><scope>QfLayerTreeItemProperties</scope><name>zoomToButtonVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNavigation" kind="class" language="C++" prot="public">
+    <compoundname>QfNavigation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfNavigation_1a738b54a07eec679e5b942ac6508894ee" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfNavigation::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfNavigation::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="35" column="5" bodyfile="src/core/qfnavigation.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a95aee38b9fba952651489fe3f8679ad0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfNavigationModel" kindref="compound">QfNavigationModel</ref> *</type>
+        <definition>QfNavigationModel * QfNavigation::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfNavigation::model</qualifiedname>
+        <read>model</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="36" column="5" bodyfile="src/core/qfnavigation.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a37d6fea8c819f498d19e72b8f536452a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>modelChanged QgsPoint</type>
+        <definition>modelChanged QgsPoint QfNavigation::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <qualifiedname>QfNavigation::location</qualifiedname>
+        <read>location</read>
+        <write>setLocation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="38" column="5" bodyfile="src/core/qfnavigation.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a953fa871cd48d7aa19802d941191683f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfNavigation::destination</definition>
+        <argsstring></argsstring>
+        <name>destination</name>
+        <qualifiedname>QfNavigation::destination</qualifiedname>
+        <read>destination</read>
+        <write>setDestination</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="39" column="5" bodyfile="src/core/qfnavigation.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a75be7c0170fcfb946980cf2803ec3179" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNavigation::destinationName</definition>
+        <argsstring></argsstring>
+        <name>destinationName</name>
+        <qualifiedname>QfNavigation::destinationName</qualifiedname>
+        <read>destinationName</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="40" column="5" bodyfile="src/core/qfnavigation.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a1fc0960c9269d515c10af80fb7452354" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfNavigation::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>QfNavigation::path</qualifiedname>
+        <read>path</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="42" column="5" bodyfile="src/core/qfnavigation.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a8688f17e46dbf963ea265df5707d3e10" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigation::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <qualifiedname>QfNavigation::distance</qualifiedname>
+        <read>distance</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="43" column="5" bodyfile="src/core/qfnavigation.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a8b1865b9091ca3cf66350aaa2ef480d9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigation::verticalDistance</definition>
+        <argsstring></argsstring>
+        <name>verticalDistance</name>
+        <qualifiedname>QfNavigation::verticalDistance</qualifiedname>
+        <read>verticalDistance</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="44" column="5" bodyfile="src/core/qfnavigation.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1acb274d2db10615cf1bc4a3a4e189cfe1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit QfNavigation::distanceUnits</definition>
+        <argsstring></argsstring>
+        <name>distanceUnits</name>
+        <qualifiedname>QfNavigation::distanceUnits</qualifiedname>
+        <read>distanceUnits</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="45" column="5" bodyfile="src/core/qfnavigation.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1adb620d47d1c4a03eac0ee16647947295" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigation::bearing</definition>
+        <argsstring></argsstring>
+        <name>bearing</name>
+        <qualifiedname>QfNavigation::bearing</qualifiedname>
+        <read>bearing</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="46" column="5" bodyfile="src/core/qfnavigation.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a4c561b35f247c1f5ad24a8d40923a386" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfNavigation::destinationFeatureCurrentVertex</definition>
+        <argsstring></argsstring>
+        <name>destinationFeatureCurrentVertex</name>
+        <qualifiedname>QfNavigation::destinationFeatureCurrentVertex</qualifiedname>
+        <read>destinationFeatureCurrentVertex</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="48" column="5" bodyfile="src/core/qfnavigation.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1ad9b7b8c57003ab61320f915f20e5049b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfNavigation::destinationFeatureVertexCount</definition>
+        <argsstring></argsstring>
+        <name>destinationFeatureVertexCount</name>
+        <qualifiedname>QfNavigation::destinationFeatureVertexCount</qualifiedname>
+        <read>destinationFeatureVertexCount</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="49" column="5" bodyfile="src/core/qfnavigation.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a7e7e8d896afb62e6f225413eec25e034" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNavigation::proximityAlarm</definition>
+        <argsstring></argsstring>
+        <name>proximityAlarm</name>
+        <qualifiedname>QfNavigation::proximityAlarm</qualifiedname>
+        <read>proximityAlarm</read>
+        <write>setProximityAlarm</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="51" column="5" bodyfile="src/core/qfnavigation.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1a637582222aa7a47086956714d14bace3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigation::proximityAlarmThreshold</definition>
+        <argsstring></argsstring>
+        <name>proximityAlarmThreshold</name>
+        <qualifiedname>QfNavigation::proximityAlarmThreshold</qualifiedname>
+        <read>proximityAlarmThreshold</read>
+        <write>setProximityAlarmThreshold</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="52" column="5" bodyfile="src/core/qfnavigation.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigation_1aad6095cdd27e4e9f9c915c41258fa7f3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNavigation::isActive</definition>
+        <argsstring></argsstring>
+        <name>isActive</name>
+        <qualifiedname>QfNavigation::isActive</qualifiedname>
+        <read>isActive</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="54" column="5" bodyfile="src/core/qfnavigation.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNavigation_1abeb6ab6f57da57f1363bf32ea1b2ed02" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classQfNavigationModel" kindref="compound">QfNavigationModel</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;QfNavigationModel&gt; QfNavigation::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>QfNavigation::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="227" column="21" bodyfile="src/core/qfnavigation.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1af23ded8377e5a6592ae6009028ce5384" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfNavigation::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfNavigation::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="228" column="25" bodyfile="src/core/qfnavigation.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a4c7e1a77d45c08932e7783227715901c" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfNavigation::mLocation</definition>
+        <argsstring></argsstring>
+        <name>mLocation</name>
+        <qualifiedname>QfNavigation::mLocation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="229" column="14" bodyfile="src/core/qfnavigation.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1af5caf6fbaa3ff3439b82a02481d4aeec" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfNavigation::mPath</definition>
+        <argsstring></argsstring>
+        <name>mPath</name>
+        <qualifiedname>QfNavigation::mPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="230" column="17" bodyfile="src/core/qfnavigation.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1ad8408190481e12990cf8860d079af361" prot="private" static="no" mutable="no">
+        <type>QgsDistanceArea</type>
+        <definition>QgsDistanceArea QfNavigation::mDa</definition>
+        <argsstring></argsstring>
+        <name>mDa</name>
+        <qualifiedname>QfNavigation::mDa</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="231" column="21" bodyfile="src/core/qfnavigation.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a9b449ab0a3edfb5c0bb5d8984e193ec4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNavigation::mDistance</definition>
+        <argsstring></argsstring>
+        <name>mDistance</name>
+        <qualifiedname>QfNavigation::mDistance</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="232" column="12" bodyfile="src/core/qfnavigation.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a7ec59d11a8efcb0288903ae99032ab99" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNavigation::mVerticalDistance</definition>
+        <argsstring></argsstring>
+        <name>mVerticalDistance</name>
+        <qualifiedname>QfNavigation::mVerticalDistance</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="233" column="12" bodyfile="src/core/qfnavigation.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a81480eab780a08c764f8e0509dfb407e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNavigation::mBearing</definition>
+        <argsstring></argsstring>
+        <name>mBearing</name>
+        <qualifiedname>QfNavigation::mBearing</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="234" column="12" bodyfile="src/core/qfnavigation.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a1f09721cf734a69c9e49270fe040bf01" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfNavigation::mDestinationName</definition>
+        <argsstring></argsstring>
+        <name>mDestinationName</name>
+        <qualifiedname>QfNavigation::mDestinationName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="235" column="13" bodyfile="src/core/qfnavigation.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1ab6f21ed4dee98bc909261f9c2d50a2c4" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfNavigation::mFeatureName</definition>
+        <argsstring></argsstring>
+        <name>mFeatureName</name>
+        <qualifiedname>QfNavigation::mFeatureName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="237" column="13" bodyfile="src/core/qfnavigation.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a93428a6238386af94c133b9f143cf5d0" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfNavigation::mGeometry</definition>
+        <argsstring></argsstring>
+        <name>mGeometry</name>
+        <qualifiedname>QfNavigation::mGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="238" column="17" bodyfile="src/core/qfnavigation.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a418cd3bc8cfbbdf09aba7fc91a01a48f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfNavigation::mCurrentVertex</definition>
+        <argsstring></argsstring>
+        <name>mCurrentVertex</name>
+        <qualifiedname>QfNavigation::mCurrentVertex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="239" column="9" bodyfile="src/core/qfnavigation.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a77ff32adc91edb4c8adf00af7e5b4f37" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfNavigation::mVertexCount</definition>
+        <argsstring></argsstring>
+        <name>mVertexCount</name>
+        <qualifiedname>QfNavigation::mVertexCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="240" column="9" bodyfile="src/core/qfnavigation.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1aa9cddc597ed3bcdd07b658984c8d76cf" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNavigation::mProximityAlarm</definition>
+        <argsstring></argsstring>
+        <name>mProximityAlarm</name>
+        <qualifiedname>QfNavigation::mProximityAlarm</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="242" column="10" bodyfile="src/core/qfnavigation.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a8d1eaeaac4c78af32b0b9ad94d08e9b1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfNavigation::mProximityAlarmThreshold</definition>
+        <argsstring></argsstring>
+        <name>mProximityAlarmThreshold</name>
+        <qualifiedname>QfNavigation::mProximityAlarmThreshold</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="243" column="12" bodyfile="src/core/qfnavigation.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a086cb590ab2002e8eca34cef510760b3" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfNavigation::mProximityAlarmTimer</definition>
+        <argsstring></argsstring>
+        <name>mProximityAlarmTimer</name>
+        <qualifiedname>QfNavigation::mProximityAlarmTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="244" column="12" bodyfile="src/core/qfnavigation.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a6e16427e2973959b97c57d91cbfa63e0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfNavigation::mProximityAlarmInterval</definition>
+        <argsstring></argsstring>
+        <name>mProximityAlarmInterval</name>
+        <qualifiedname>QfNavigation::mProximityAlarmInterval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="245" column="9" bodyfile="src/core/qfnavigation.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1a22fca95ff07978dc4e7c500f11129216" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 QfNavigation::mLastProximityAlarm</definition>
+        <argsstring></argsstring>
+        <name>mLastProximityAlarm</name>
+        <qualifiedname>QfNavigation::mLastProximityAlarm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="246" column="12" bodyfile="src/core/qfnavigation.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigation_1adadcc4ef6c3b7874adbac4c720affd81" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QSoundEffect &gt;</type>
+        <definition>std::unique_ptr&lt;QSoundEffect&gt; QfNavigation::mProximitySound</definition>
+        <argsstring></argsstring>
+        <name>mProximitySound</name>
+        <qualifiedname>QfNavigation::mProximitySound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="248" column="21" bodyfile="src/core/qfnavigation.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfNavigation_1af614d2ba91bc2571acc119a07439e384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNavigation::QfNavigation</definition>
+        <argsstring>()</argsstring>
+        <name>QfNavigation</name>
+        <qualifiedname>QfNavigation::QfNavigation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="57" column="5" bodyfile="src/core/qfnavigation.cpp" bodystart="25" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1ab893fac809f612e7523d4359f5fb386a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNavigation::~QfNavigation</definition>
+        <argsstring>()</argsstring>
+        <name>~QfNavigation</name>
+        <qualifiedname>QfNavigation::~QfNavigation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="59" column="5" bodyfile="src/core/qfnavigation.cpp" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1aa56984571e8b3f1e853f73ed5f95fc4a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNavigation::isActive</definition>
+        <argsstring>() const</argsstring>
+        <name>isActive</name>
+        <qualifiedname>QfNavigation::isActive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when navigation is active. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="64" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a6cda5939094350ee7a0142d2835d6b4e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfNavigation::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfNavigation::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the map settings object used to project points and calculate navigation details. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="69" column="25" bodyfile="src/core/qfnavigation.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1af810441ece877c73b1928135461843d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfNavigation::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the map settings object used to project points and calculate navigation details. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="73" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="57" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1ad25f9aba6d34ce2f3510976b28445173" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfNavigationModel" kindref="compound">QfNavigationModel</ref> *</type>
+        <definition>QfNavigationModel * QfNavigation::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>QfNavigation::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the navigation model containing the destination point. <simplesect kind="note"><para>In the future, the model could contain intermediary stops </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="79" column="23" bodyfile="src/core/qfnavigation.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a5e01771d840d17beb4fb7c3776527cfc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfNavigation::location</definition>
+        <argsstring>() const</argsstring>
+        <name>location</name>
+        <qualifiedname>QfNavigation::location</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current location point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="84" column="14" bodyfile="src/core/qfnavigation.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a1294aeba9b7b337f92637410feadbb4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::setLocation</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setLocation</name>
+        <qualifiedname>QfNavigation::setLocation</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current location <emphasis>point</emphasis>. <simplesect kind="note"><para>A null/empty geometry will be threated as a lack of available location information </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="90" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="88" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a8a1048f7c3dde5565e2ab98bc88092c7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfNavigation::destination</definition>
+        <argsstring>() const</argsstring>
+        <name>destination</name>
+        <qualifiedname>QfNavigation::destination</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current destination point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="95" column="14" bodyfile="src/core/qfnavigation.cpp" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1ae9dfb554b6d2687c11c5a05bd1d57f5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::setDestination</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setDestination</name>
+        <qualifiedname>QfNavigation::setDestination</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current destination <emphasis>point</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="100" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="104" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1aa2cc59799b7b9a3efacc493b740878e9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfNavigation::destinationName</definition>
+        <argsstring>() const</argsstring>
+        <name>destinationName</name>
+        <qualifiedname>QfNavigation::destinationName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current destination name. <simplesect kind="see"><para><ref refid="classQfNavigation_1a896bbc450b221d467a7bc84bef18a82f" kindref="member">setDestinationFeature</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="106" column="13" bodyfile="src/core/qfnavigation.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a896bbc450b221d467a7bc84bef18a82f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfNavigation::setDestinationFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature, QgsVectorLayer *layer)</argsstring>
+        <name>setDestinationFeature</name>
+        <qualifiedname>QfNavigation::setDestinationFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a provided feature as navigation destination, which allows for users to cycle through the feature centroid and its individual vertices as destination point. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature used as destination </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer associated to the feature </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="114" column="22" bodyfile="src/core/qfnavigation.cpp" bodystart="115" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1af6dd13b3afe484a9a0ff71d27379896e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfNavigation::clearDestinationFeature</definition>
+        <argsstring>()</argsstring>
+        <name>clearDestinationFeature</name>
+        <qualifiedname>QfNavigation::clearDestinationFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the current destination feature, as well as the current destination point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="119" column="22" bodyfile="src/core/qfnavigation.cpp" bodystart="152" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a83f8b69c4ea2c2c65fd89b8d1fb81207" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfNavigation::nextDestinationVertex</definition>
+        <argsstring>()</argsstring>
+        <name>nextDestinationVertex</name>
+        <qualifiedname>QfNavigation::nextDestinationVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the destination point to the next vertex or centroid of the current destination feature. <simplesect kind="note"><para>if a destination feature has not been provided, calling this function does nothing </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="125" column="22" bodyfile="src/core/qfnavigation.cpp" bodystart="167" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a8f972b89902299053928e15c5110cd21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfNavigation::previousDestinationVertex</definition>
+        <argsstring>()</argsstring>
+        <name>previousDestinationVertex</name>
+        <qualifiedname>QfNavigation::previousDestinationVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the destination point to the previous vertex or centroid of the current destination feature. <simplesect kind="note"><para>if a destination feature has not been provided, calling this function does nothing </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="131" column="22" bodyfile="src/core/qfnavigation.cpp" bodystart="187" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1ae1e0c6cea7965a63c1f85143bb9193a1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfNavigation::destinationFeatureCurrentVertex</definition>
+        <argsstring>() const</argsstring>
+        <name>destinationFeatureCurrentVertex</name>
+        <qualifiedname>QfNavigation::destinationFeatureCurrentVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current focused vertex serving as destination point when a feature is used as destination. <simplesect kind="note"><para>for line and polygon geometries, vertex &apos;0&apos; represents the centroid of the geometry while it presents the first (or only) vertex in point geometries </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="138" column="9" bodyfile="src/core/qfnavigation.cpp" bodystart="246" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1ac36d353f6cbd6a4b333a2c92fbbc20a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfNavigation::destinationFeatureVertexCount</definition>
+        <argsstring>() const</argsstring>
+        <name>destinationFeatureVertexCount</name>
+        <qualifiedname>QfNavigation::destinationFeatureVertexCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the vertex count available to cycle through as destination points when a feature is used as destination. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="143" column="9" bodyfile="src/core/qfnavigation.cpp" bodystart="251" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a26af597c41de45421f6558918b68bd32" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfNavigation::path</definition>
+        <argsstring>() const</argsstring>
+        <name>path</name>
+        <qualifiedname>QfNavigation::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the path between the current location and the destination points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="148" column="17" bodyfile="src/core/qfnavigation.h" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1af98047c7532a725ad4bcdcbb5e55a3e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfNavigation::distance</definition>
+        <argsstring>() const</argsstring>
+        <name>distance</name>
+        <qualifiedname>QfNavigation::distance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the 2D distance between the current location and the destination points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="153" column="12" bodyfile="src/core/qfnavigation.h" bodystart="153" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a4a640b5928e3d69728297b56fd7d94e6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfNavigation::verticalDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>verticalDistance</name>
+        <qualifiedname>QfNavigation::verticalDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retuens the vertical distance between the current location and the destination points <simplesect kind="note"><para>if either points miss a Z value, the returned vertical distance value will be NaN </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="159" column="12" bodyfile="src/core/qfnavigation.h" bodystart="159" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1ab6f76ae99a35f929f99e0e5222d425c4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit QfNavigation::distanceUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>distanceUnits</name>
+        <qualifiedname>QfNavigation::distanceUnits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the distance unit used </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="164" column="24" bodyfile="src/core/qfnavigation.h" bodystart="164" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1aaeb02c5fd457d9ad88b87b855527666b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfNavigation::bearing</definition>
+        <argsstring>() const</argsstring>
+        <name>bearing</name>
+        <qualifiedname>QfNavigation::bearing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the bearing between the current location and the destination points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="169" column="12" bodyfile="src/core/qfnavigation.h" bodystart="169" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a4ecfbe366b791d5f57ec3d23cf460645" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNavigation::proximityAlarm</definition>
+        <argsstring>() const</argsstring>
+        <name>proximityAlarm</name>
+        <qualifiedname>QfNavigation::proximityAlarm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the proximity alarm is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="174" column="10" bodyfile="src/core/qfnavigation.h" bodystart="174" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1ade5658907d053113433339a670cf6fe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::setProximityAlarm</definition>
+        <argsstring>(const bool enabled)</argsstring>
+        <name>setProximityAlarm</name>
+        <qualifiedname>QfNavigation::setProximityAlarm</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the proximity alarm is <emphasis>enabled</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="179" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="330" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a8016b370872b2f313f7c635ad367e246" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfNavigation::proximityAlarmThreshold</definition>
+        <argsstring>() const</argsstring>
+        <name>proximityAlarmThreshold</name>
+        <qualifiedname>QfNavigation::proximityAlarmThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current distance threshold below which the proximity alarm will turn on when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="185" column="12" bodyfile="src/core/qfnavigation.h" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a937e31cc127394410cf76730301b84a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::setProximityAlarmThreshold</definition>
+        <argsstring>(const double &amp;threshold)</argsstring>
+        <name>setProximityAlarmThreshold</name>
+        <qualifiedname>QfNavigation::setProximityAlarmThreshold</qualifiedname>
+        <param>
+          <type>const double &amp;</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the distance <emphasis>threshold</emphasis> below which the proximity alarm will turn on when enabled. Once the distance threshold is met, the alarm sound will loop at a varying interval based on the distance between the device&apos;s current location and the destination. The closer to the destination, the shorter the interval. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="193" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="343" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1af2d5b97a682f47e93a8293ba3d5b95c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfNavigation::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfNavigation::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears any existing destination point and feature. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="198" column="22" bodyfile="src/core/qfnavigation.cpp" bodystart="356" bodyend="360"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfNavigation_1a9d54abf560956409d9622ce7b535d32f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::isActiveChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isActiveChanged</name>
+        <qualifiedname>QfNavigation::isActiveChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="201" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1a664a625da7f8c9c67b6e12fdebe26ce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfNavigation::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="203" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1accbf2927f7f0d6dd92f48999728ee855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>QfNavigation::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="204" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1a36439ac29f441b97e66c727755e67847" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::locationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>locationChanged</name>
+        <qualifiedname>QfNavigation::locationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="206" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1afc69de11c5dec53e32270309db18bb58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::destinationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationChanged</name>
+        <qualifiedname>QfNavigation::destinationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="207" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1aac9e9f80ede9f0643cbca353c5ba594e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::destinationNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationNameChanged</name>
+        <qualifiedname>QfNavigation::destinationNameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="208" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1ae08c896588b8cd1f7b1b8ef261946091" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::destinationFeatureCurrentVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationFeatureCurrentVertexChanged</name>
+        <qualifiedname>QfNavigation::destinationFeatureCurrentVertexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="210" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1a5e30e0cc00c5cb46f761971ac55e92ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::destinationFeatureVertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationFeatureVertexCountChanged</name>
+        <qualifiedname>QfNavigation::destinationFeatureVertexCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="211" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1a49a2a46b62018d92027544a4165f2546" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::detailsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>detailsChanged</name>
+        <qualifiedname>QfNavigation::detailsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="213" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1acfc15139e2624695de151d3d6c0e1905" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::proximityAlarmChanged</definition>
+        <argsstring>()</argsstring>
+        <name>proximityAlarmChanged</name>
+        <qualifiedname>QfNavigation::proximityAlarmChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="215" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigation_1ab85e215460dd074208bbdcbef9a9e5b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::proximityAlarmThresholdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>proximityAlarmThresholdChanged</name>
+        <qualifiedname>QfNavigation::proximityAlarmThresholdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="216" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfNavigation_1ab35ed92f02d58d24e3c020f91d2597af" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>QfNavigation::crsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="219" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="75" bodyend="81"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfNavigation_1a8c1e678c8fa962037d927d0b5de0a8cc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::updateDetails</definition>
+        <argsstring>()</argsstring>
+        <name>updateDetails</name>
+        <qualifiedname>QfNavigation::updateDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="222" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="256" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1af741a90bfd14971362ff9677c5e102bf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::setDestinationFromCurrentVertex</definition>
+        <argsstring>()</argsstring>
+        <name>setDestinationFromCurrentVertex</name>
+        <qualifiedname>QfNavigation::setDestinationFromCurrentVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="223" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="207" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a3f066cba7fcd9c832192c816cd5b02ba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::updateProximityAlarmState</definition>
+        <argsstring>()</argsstring>
+        <name>updateProximityAlarmState</name>
+        <qualifiedname>QfNavigation::updateProximityAlarmState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="224" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="300" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigation_1a877201670b2c9647e482116ac5ddc227" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigation::triggerProximityAlarm</definition>
+        <argsstring>()</argsstring>
+        <name>triggerProximityAlarm</name>
+        <qualifiedname>QfNavigation::triggerProximityAlarm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigation.h" line="225" column="10" bodyfile="src/core/qfnavigation.cpp" bodystart="362" bodyend="371"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfNavigation</label>
+        <link refid="classQfNavigation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfNavigation</label>
+        <link refid="classQfNavigation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfnavigation.h" line="31" column="1" bodyfile="src/core/qfnavigation.h" bodystart="32" bodyend="249"/>
+    <listofallmembers>
+      <member refid="classQfNavigation_1adb620d47d1c4a03eac0ee16647947295" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>bearing</name></member>
+      <member refid="classQfNavigation_1aaeb02c5fd457d9ad88b87b855527666b" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>bearing</name></member>
+      <member refid="classQfNavigation_1af2d5b97a682f47e93a8293ba3d5b95c1" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>clear</name></member>
+      <member refid="classQfNavigation_1af6dd13b3afe484a9a0ff71d27379896e" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>clearDestinationFeature</name></member>
+      <member refid="classQfNavigation_1ab35ed92f02d58d24e3c020f91d2597af" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>crsChanged</name></member>
+      <member refid="classQfNavigation_1a953fa871cd48d7aa19802d941191683f" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destination</name></member>
+      <member refid="classQfNavigation_1a8a1048f7c3dde5565e2ab98bc88092c7" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destination</name></member>
+      <member refid="classQfNavigation_1afc69de11c5dec53e32270309db18bb58" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationChanged</name></member>
+      <member refid="classQfNavigation_1a4c561b35f247c1f5ad24a8d40923a386" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationFeatureCurrentVertex</name></member>
+      <member refid="classQfNavigation_1ae1e0c6cea7965a63c1f85143bb9193a1" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationFeatureCurrentVertex</name></member>
+      <member refid="classQfNavigation_1ae08c896588b8cd1f7b1b8ef261946091" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationFeatureCurrentVertexChanged</name></member>
+      <member refid="classQfNavigation_1ad9b7b8c57003ab61320f915f20e5049b" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationFeatureVertexCount</name></member>
+      <member refid="classQfNavigation_1ac36d353f6cbd6a4b333a2c92fbbc20a6" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationFeatureVertexCount</name></member>
+      <member refid="classQfNavigation_1a5e30e0cc00c5cb46f761971ac55e92ab" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationFeatureVertexCountChanged</name></member>
+      <member refid="classQfNavigation_1a75be7c0170fcfb946980cf2803ec3179" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationName</name></member>
+      <member refid="classQfNavigation_1aa2cc59799b7b9a3efacc493b740878e9" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationName</name></member>
+      <member refid="classQfNavigation_1aac9e9f80ede9f0643cbca353c5ba594e" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>destinationNameChanged</name></member>
+      <member refid="classQfNavigation_1a49a2a46b62018d92027544a4165f2546" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>detailsChanged</name></member>
+      <member refid="classQfNavigation_1a8688f17e46dbf963ea265df5707d3e10" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>distance</name></member>
+      <member refid="classQfNavigation_1af98047c7532a725ad4bcdcbb5e55a3e8" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>distance</name></member>
+      <member refid="classQfNavigation_1acb274d2db10615cf1bc4a3a4e189cfe1" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>distanceUnits</name></member>
+      <member refid="classQfNavigation_1ab6f76ae99a35f929f99e0e5222d425c4" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>distanceUnits</name></member>
+      <member refid="classQfNavigation_1aad6095cdd27e4e9f9c915c41258fa7f3" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>isActive</name></member>
+      <member refid="classQfNavigation_1aa56984571e8b3f1e853f73ed5f95fc4a" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>isActive</name></member>
+      <member refid="classQfNavigation_1a9d54abf560956409d9622ce7b535d32f" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>isActiveChanged</name></member>
+      <member refid="classQfNavigation_1a37d6fea8c819f498d19e72b8f536452a" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>location</name></member>
+      <member refid="classQfNavigation_1a5e01771d840d17beb4fb7c3776527cfc" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>location</name></member>
+      <member refid="classQfNavigation_1a36439ac29f441b97e66c727755e67847" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>locationChanged</name></member>
+      <member refid="classQfNavigation_1a738b54a07eec679e5b942ac6508894ee" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>mapSettings</name></member>
+      <member refid="classQfNavigation_1a6cda5939094350ee7a0142d2835d6b4e" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>mapSettings</name></member>
+      <member refid="classQfNavigation_1a664a625da7f8c9c67b6e12fdebe26ce7" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfNavigation_1a81480eab780a08c764f8e0509dfb407e" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mBearing</name></member>
+      <member refid="classQfNavigation_1a418cd3bc8cfbbdf09aba7fc91a01a48f" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mCurrentVertex</name></member>
+      <member refid="classQfNavigation_1ad8408190481e12990cf8860d079af361" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mDa</name></member>
+      <member refid="classQfNavigation_1a1f09721cf734a69c9e49270fe040bf01" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mDestinationName</name></member>
+      <member refid="classQfNavigation_1a9b449ab0a3edfb5c0bb5d8984e193ec4" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mDistance</name></member>
+      <member refid="classQfNavigation_1ab6f21ed4dee98bc909261f9c2d50a2c4" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mFeatureName</name></member>
+      <member refid="classQfNavigation_1a93428a6238386af94c133b9f143cf5d0" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mGeometry</name></member>
+      <member refid="classQfNavigation_1a22fca95ff07978dc4e7c500f11129216" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mLastProximityAlarm</name></member>
+      <member refid="classQfNavigation_1a4c7e1a77d45c08932e7783227715901c" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mLocation</name></member>
+      <member refid="classQfNavigation_1af23ded8377e5a6592ae6009028ce5384" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mMapSettings</name></member>
+      <member refid="classQfNavigation_1abeb6ab6f57da57f1363bf32ea1b2ed02" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mModel</name></member>
+      <member refid="classQfNavigation_1a95aee38b9fba952651489fe3f8679ad0" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>model</name></member>
+      <member refid="classQfNavigation_1ad25f9aba6d34ce2f3510976b28445173" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>model</name></member>
+      <member refid="classQfNavigation_1accbf2927f7f0d6dd92f48999728ee855" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>modelChanged</name></member>
+      <member refid="classQfNavigation_1af5caf6fbaa3ff3439b82a02481d4aeec" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mPath</name></member>
+      <member refid="classQfNavigation_1aa9cddc597ed3bcdd07b658984c8d76cf" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mProximityAlarm</name></member>
+      <member refid="classQfNavigation_1a6e16427e2973959b97c57d91cbfa63e0" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mProximityAlarmInterval</name></member>
+      <member refid="classQfNavigation_1a8d1eaeaac4c78af32b0b9ad94d08e9b1" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mProximityAlarmThreshold</name></member>
+      <member refid="classQfNavigation_1a086cb590ab2002e8eca34cef510760b3" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mProximityAlarmTimer</name></member>
+      <member refid="classQfNavigation_1adadcc4ef6c3b7874adbac4c720affd81" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mProximitySound</name></member>
+      <member refid="classQfNavigation_1a77ff32adc91edb4c8adf00af7e5b4f37" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mVertexCount</name></member>
+      <member refid="classQfNavigation_1a7ec59d11a8efcb0288903ae99032ab99" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>mVerticalDistance</name></member>
+      <member refid="classQfNavigation_1a83f8b69c4ea2c2c65fd89b8d1fb81207" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>nextDestinationVertex</name></member>
+      <member refid="classQfNavigation_1a1fc0960c9269d515c10af80fb7452354" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>path</name></member>
+      <member refid="classQfNavigation_1a26af597c41de45421f6558918b68bd32" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>path</name></member>
+      <member refid="classQfNavigation_1a8f972b89902299053928e15c5110cd21" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>previousDestinationVertex</name></member>
+      <member refid="classQfNavigation_1a7e7e8d896afb62e6f225413eec25e034" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>proximityAlarm</name></member>
+      <member refid="classQfNavigation_1a4ecfbe366b791d5f57ec3d23cf460645" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>proximityAlarm</name></member>
+      <member refid="classQfNavigation_1acfc15139e2624695de151d3d6c0e1905" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>proximityAlarmChanged</name></member>
+      <member refid="classQfNavigation_1a637582222aa7a47086956714d14bace3" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>proximityAlarmThreshold</name></member>
+      <member refid="classQfNavigation_1a8016b370872b2f313f7c635ad367e246" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>proximityAlarmThreshold</name></member>
+      <member refid="classQfNavigation_1ab85e215460dd074208bbdcbef9a9e5b6" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>proximityAlarmThresholdChanged</name></member>
+      <member refid="classQfNavigation_1af614d2ba91bc2571acc119a07439e384" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>QfNavigation</name></member>
+      <member refid="classQfNavigation_1ae9dfb554b6d2687c11c5a05bd1d57f5f" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>setDestination</name></member>
+      <member refid="classQfNavigation_1a896bbc450b221d467a7bc84bef18a82f" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>setDestinationFeature</name></member>
+      <member refid="classQfNavigation_1af741a90bfd14971362ff9677c5e102bf" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>setDestinationFromCurrentVertex</name></member>
+      <member refid="classQfNavigation_1a1294aeba9b7b337f92637410feadbb4a" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>setLocation</name></member>
+      <member refid="classQfNavigation_1af810441ece877c73b1928135461843d1" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>setMapSettings</name></member>
+      <member refid="classQfNavigation_1ade5658907d053113433339a670cf6fe2" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>setProximityAlarm</name></member>
+      <member refid="classQfNavigation_1a937e31cc127394410cf76730301b84a6" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>setProximityAlarmThreshold</name></member>
+      <member refid="classQfNavigation_1a877201670b2c9647e482116ac5ddc227" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>triggerProximityAlarm</name></member>
+      <member refid="classQfNavigation_1a8c1e678c8fa962037d927d0b5de0a8cc" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>updateDetails</name></member>
+      <member refid="classQfNavigation_1a3f066cba7fcd9c832192c816cd5b02ba" prot="private" virt="non-virtual"><scope>QfNavigation</scope><name>updateProximityAlarmState</name></member>
+      <member refid="classQfNavigation_1a8b1865b9091ca3cf66350aaa2ef480d9" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>verticalDistance</name></member>
+      <member refid="classQfNavigation_1a4a640b5928e3d69728297b56fd7d94e6" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>verticalDistance</name></member>
+      <member refid="classQfNavigation_1ab893fac809f612e7523d4359f5fb386a" prot="public" virt="non-virtual"><scope>QfNavigation</scope><name>~QfNavigation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFinlandLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>QfFinlandLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsAbstractGeocoderLocatorFilter</basecompoundref>
+    <includes refid="qffinlandlocatorfilter_8h" local="no">qffinlandlocatorfilter.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFinlandLocatorFilter_1a1e8b93473a890d81a1fdf576c36595e3" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+        <definition>QfLocatorModelSuperBridge* QfFinlandLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>QfFinlandLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffinlandlocatorfilter.h" line="45" column="31" bodyfile="src/core/locator/qffinlandlocatorfilter.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFinlandLocatorFilter_1a7ecc5899dac637b046a10ad54855306a" prot="private" static="no" mutable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle QfFinlandLocatorFilter::mBoundingBox</definition>
+        <argsstring></argsstring>
+        <name>mBoundingBox</name>
+        <qualifiedname>QfFinlandLocatorFilter::mBoundingBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffinlandlocatorfilter.h" line="46" column="18" bodyfile="src/core/locator/qffinlandlocatorfilter.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFinlandLocatorFilter_1a74455a96f9af1b9fbdb3ee9258f03d7c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFinlandLocatorFilter::QfFinlandLocatorFilter</definition>
+        <argsstring>(QgsGeocoderInterface *geocoder, QfLocatorModelSuperBridge *locatorBridge)</argsstring>
+        <name>QfFinlandLocatorFilter</name>
+        <qualifiedname>QfFinlandLocatorFilter::QfFinlandLocatorFilter</qualifiedname>
+        <param>
+          <type>QgsGeocoderInterface *</type>
+          <declname>geocoder</declname>
+        </param>
+        <param>
+          <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffinlandlocatorfilter.h" line="36" column="14" bodyfile="src/core/locator/qffinlandlocatorfilter.cpp" bodystart="26" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFinlandLocatorFilter_1a34f9b3696f4ce7cd09df1e33c303c8af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfFinlandLocatorFilter" kindref="compound">QfFinlandLocatorFilter</ref> *</type>
+        <definition>QfFinlandLocatorFilter * QfFinlandLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>QfFinlandLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffinlandlocatorfilter.h" line="37" column="28" bodyfile="src/core/locator/qffinlandlocatorfilter.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFinlandLocatorFilter_1ab55e52ebbe479338f04b1e06f5da3c27" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const QgsRectangle</type>
+        <definition>const QgsRectangle QfFinlandLocatorFilter::boundingBox</definition>
+        <argsstring>() const</argsstring>
+        <name>boundingBox</name>
+        <qualifiedname>QfFinlandLocatorFilter::boundingBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffinlandlocatorfilter.h" line="39" column="24" bodyfile="src/core/locator/qffinlandlocatorfilter.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFinlandLocatorFilter_1a657e6df06f23f321d76f868ac7310001" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFinlandLocatorFilter::setBoundingBox</definition>
+        <argsstring>(const QgsRectangle boundingBox)</argsstring>
+        <name>setBoundingBox</name>
+        <qualifiedname>QfFinlandLocatorFilter::setBoundingBox</qualifiedname>
+        <param>
+          <type>const QgsRectangle</type>
+          <declname>boundingBox</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffinlandlocatorfilter.h" line="40" column="10" bodyfile="src/core/locator/qffinlandlocatorfilter.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfFinlandLocatorFilter_1a542bbc68c3c88be95a3dc100dd7848fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFinlandLocatorFilter::handleGeocodeResult</definition>
+        <argsstring>(const QgsGeocoderResult &amp;result) override</argsstring>
+        <name>handleGeocodeResult</name>
+        <qualifiedname>QfFinlandLocatorFilter::handleGeocodeResult</qualifiedname>
+        <param>
+          <type>const QgsGeocoderResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffinlandlocatorfilter.h" line="43" column="10" bodyfile="src/core/locator/qffinlandlocatorfilter.cpp" bodystart="40" bodyend="66"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQfFinlandLocatorFilter" kindref="compound">QfFinlandLocatorFilter</ref> is a locator filter to search for addresses in Finland through Digitrans&apos;s API. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfFinlandLocatorFilter</label>
+        <link refid="classQfFinlandLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsAbstractGeocoderLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfFinlandLocatorFilter</label>
+        <link refid="classQfFinlandLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsAbstractGeocoderLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/qffinlandlocatorfilter.h" line="31" column="1" bodyfile="src/core/locator/qffinlandlocatorfilter.h" bodystart="32" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classQfFinlandLocatorFilter_1ab55e52ebbe479338f04b1e06f5da3c27" prot="public" virt="non-virtual"><scope>QfFinlandLocatorFilter</scope><name>boundingBox</name></member>
+      <member refid="classQfFinlandLocatorFilter_1a34f9b3696f4ce7cd09df1e33c303c8af" prot="public" virt="non-virtual"><scope>QfFinlandLocatorFilter</scope><name>clone</name></member>
+      <member refid="classQfFinlandLocatorFilter_1a542bbc68c3c88be95a3dc100dd7848fa" prot="private" virt="non-virtual"><scope>QfFinlandLocatorFilter</scope><name>handleGeocodeResult</name></member>
+      <member refid="classQfFinlandLocatorFilter_1a7ecc5899dac637b046a10ad54855306a" prot="private" virt="non-virtual"><scope>QfFinlandLocatorFilter</scope><name>mBoundingBox</name></member>
+      <member refid="classQfFinlandLocatorFilter_1a1e8b93473a890d81a1fdf576c36595e3" prot="private" virt="non-virtual"><scope>QfFinlandLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classQfFinlandLocatorFilter_1a74455a96f9af1b9fbdb3ee9258f03d7c" prot="public" virt="non-virtual"><scope>QfFinlandLocatorFilter</scope><name>QfFinlandLocatorFilter</name></member>
+      <member refid="classQfFinlandLocatorFilter_1a657e6df06f23f321d76f868ac7310001" prot="public" virt="non-virtual"><scope>QfFinlandLocatorFilter</scope><name>setBoundingBox</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

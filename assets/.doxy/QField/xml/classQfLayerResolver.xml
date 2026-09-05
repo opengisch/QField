@@ -1,0 +1,575 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLayerResolver" kind="class" language="C++" prot="public">
+    <compoundname>QfLayerResolver</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qflayerresolver_8h" local="no">qflayerresolver.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLayerResolver_1a7d27c74111912392259e8169a08ec307" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::layerId</definition>
+        <argsstring></argsstring>
+        <name>layerId</name>
+        <qualifiedname>QfLayerResolver::layerId</qualifiedname>
+        <read>layerId</read>
+        <write>setLayerId</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The layer id to resolve </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="38" column="5" bodyfile="src/core/qflayerresolver.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerResolver_1ab0457a39838066ca092e9085cac5a4c8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::layerName</definition>
+        <argsstring></argsstring>
+        <name>layerName</name>
+        <qualifiedname>QfLayerResolver::layerName</qualifiedname>
+        <read>layerName</read>
+        <write>setLayerName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The layer name to resolve </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="43" column="5" bodyfile="src/core/qflayerresolver.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerResolver_1afc281c9d6193c3de8ef781520f37cb9a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::layerSource</definition>
+        <argsstring></argsstring>
+        <name>layerSource</name>
+        <qualifiedname>QfLayerResolver::layerSource</qualifiedname>
+        <read>layerSource</read>
+        <write>setLayerSource</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The layer source to resolve </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="48" column="5" bodyfile="src/core/qflayerresolver.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerResolver_1adb5015b56d04b7a682f48ab91edbea70" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::layerProviderName</definition>
+        <argsstring></argsstring>
+        <name>layerProviderName</name>
+        <qualifiedname>QfLayerResolver::layerProviderName</qualifiedname>
+        <read>layerProviderName</read>
+        <write>setLayerProviderName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The layer provider name to resolve </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="53" column="5" bodyfile="src/core/qflayerresolver.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerResolver_1a7258fefc269df7c743aa8f4a8da992e0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfLayerResolver::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfLayerResolver::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The qgis project from which layers will be acquired </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="58" column="5" bodyfile="src/core/qflayerresolver.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerResolver_1ae9ddb5275f0416cc8c29b3f2db239eb5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfLayerResolver::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>QfLayerResolver::currentLayer</qualifiedname>
+        <read>currentLayer</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the layer after a successful resolving process </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="63" column="5" bodyfile="src/core/qflayerresolver.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLayerResolver_1a9739b865f35525f7f467bc5e08ee9e2c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::mLayerId</definition>
+        <argsstring></argsstring>
+        <name>mLayerId</name>
+        <qualifiedname>QfLayerResolver::mLayerId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="98" column="13" bodyfile="src/core/qflayerresolver.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerResolver_1ab788aeaaa86d4c6d2888a7bb48f1619e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::mLayerName</definition>
+        <argsstring></argsstring>
+        <name>mLayerName</name>
+        <qualifiedname>QfLayerResolver::mLayerName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="99" column="13" bodyfile="src/core/qflayerresolver.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerResolver_1abf63afa102e549041fbf0ac583feaba5" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::mLayerSource</definition>
+        <argsstring></argsstring>
+        <name>mLayerSource</name>
+        <qualifiedname>QfLayerResolver::mLayerSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="100" column="13" bodyfile="src/core/qflayerresolver.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerResolver_1a2c873fcdef9134ff688aa6b27503c18c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::mLayerProviderName</definition>
+        <argsstring></argsstring>
+        <name>mLayerProviderName</name>
+        <qualifiedname>QfLayerResolver::mLayerProviderName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="101" column="13" bodyfile="src/core/qflayerresolver.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerResolver_1a5e8271e8a64859541b5d5e5eb2ed284a" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfLayerResolver::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfLayerResolver::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="102" column="16" bodyfile="src/core/qflayerresolver.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerResolver_1af50a2932708bcdaf31e60490faeb55d6" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfLayerResolver::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>QfLayerResolver::mLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="103" column="14" bodyfile="src/core/qflayerresolver.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLayerResolver_1a13bca6ca99569ac0c3054317e90eedf0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLayerResolver::QfLayerResolver</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfLayerResolver</name>
+        <qualifiedname>QfLayerResolver::QfLayerResolver</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="66" column="14" bodyfile="src/core/qflayerresolver.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1a09548af164e99e4b376c14cd550bd124" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::resolve</definition>
+        <argsstring>()</argsstring>
+        <name>resolve</name>
+        <qualifiedname>QfLayerResolver::resolve</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="68" column="10" bodyfile="src/core/qflayerresolver.cpp" bodystart="27" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1a9d8879b34b48c7f007c4e54d13f4489a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::layerId</definition>
+        <argsstring>() const</argsstring>
+        <name>layerId</name>
+        <qualifiedname>QfLayerResolver::layerId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="70" column="13" bodyfile="src/core/qflayerresolver.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1a6eb51559b8cb3ca7ae2aab4b968f1e39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::setLayerId</definition>
+        <argsstring>(const QString &amp;layerId)</argsstring>
+        <name>setLayerId</name>
+        <qualifiedname>QfLayerResolver::setLayerId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="71" column="10" bodyfile="src/core/qflayerresolver.cpp" bodystart="47" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1ad376c4307e22d5bf8edadf18fceabbb5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::layerName</definition>
+        <argsstring>() const</argsstring>
+        <name>layerName</name>
+        <qualifiedname>QfLayerResolver::layerName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="73" column="13" bodyfile="src/core/qflayerresolver.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1a9042c39f5170c22071a22eeea9f018f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::setLayerName</definition>
+        <argsstring>(const QString &amp;layerName)</argsstring>
+        <name>setLayerName</name>
+        <qualifiedname>QfLayerResolver::setLayerName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="74" column="10" bodyfile="src/core/qflayerresolver.cpp" bodystart="62" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1a16ae958edc6f934c1b6020045d5c2c18" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::layerSource</definition>
+        <argsstring>() const</argsstring>
+        <name>layerSource</name>
+        <qualifiedname>QfLayerResolver::layerSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="76" column="13" bodyfile="src/core/qflayerresolver.cpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1ae4c2ca07955a3f823402328aae4d4c49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::setLayerSource</definition>
+        <argsstring>(const QString &amp;layerSource)</argsstring>
+        <name>setLayerSource</name>
+        <qualifiedname>QfLayerResolver::setLayerSource</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerSource</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="77" column="10" bodyfile="src/core/qflayerresolver.cpp" bodystart="77" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1adf1a5c4a3ea85ab5c19e5222877fcd4a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfLayerResolver::layerProviderName</definition>
+        <argsstring>() const</argsstring>
+        <name>layerProviderName</name>
+        <qualifiedname>QfLayerResolver::layerProviderName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="79" column="13" bodyfile="src/core/qflayerresolver.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1a33d5a2717ed9a618b81ddd3bef800f3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::setLayerProviderName</definition>
+        <argsstring>(const QString &amp;layerProviderName)</argsstring>
+        <name>setLayerProviderName</name>
+        <qualifiedname>QfLayerResolver::setLayerProviderName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerProviderName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="80" column="10" bodyfile="src/core/qflayerresolver.cpp" bodystart="91" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1ace5d17f73738a1ef5116b67f520c4871" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfLayerResolver::currentLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>QfLayerResolver::currentLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="82" column="20" bodyfile="src/core/qflayerresolver.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1a63d1316f01106cc9519a1e14ebaa0e79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfLayerResolver::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfLayerResolver::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="84" column="16" bodyfile="src/core/qflayerresolver.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerResolver_1a05e45b364be5f58e31e7fc130cfecbc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfLayerResolver::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="85" column="10" bodyfile="src/core/qflayerresolver.cpp" bodystart="120" bodyend="128"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfLayerResolver_1afc9f3b1c5e941e9074e222726b7bac85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::layerIdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layerIdChanged</name>
+        <qualifiedname>QfLayerResolver::layerIdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="88" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLayerResolver_1ad895c45efc78d6ba5808f8dc513a517c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::layerNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layerNameChanged</name>
+        <qualifiedname>QfLayerResolver::layerNameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="89" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLayerResolver_1ae3761878a20621f6968bebf323ae133c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::layerSourceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layerSourceChanged</name>
+        <qualifiedname>QfLayerResolver::layerSourceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="90" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLayerResolver_1a4a667f4596cbaf391d60e1523fa5e4da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::layerProviderNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layerProviderNameChanged</name>
+        <qualifiedname>QfLayerResolver::layerProviderNameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="91" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLayerResolver_1a6c78c6f6898978171c9f2ba053215fd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::currentLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentLayerChanged</name>
+        <qualifiedname>QfLayerResolver::currentLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="92" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLayerResolver_1afd7da180b6cf1e55e1904aea1bd03069" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfLayerResolver::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="93" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfLayerResolver_1aa313b523bb9c746b314f77706dad8ed8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerResolver::setLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setLayer</name>
+        <qualifiedname>QfLayerResolver::setLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayerresolver.h" line="96" column="10" bodyfile="src/core/qflayerresolver.cpp" bodystart="106" bodyend="113"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Helper class to resolve layers by id, name, source and provider. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfLayerResolver</label>
+        <link refid="classQfLayerResolver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfLayerResolver</label>
+        <link refid="classQfLayerResolver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qflayerresolver.h" line="31" column="1" bodyfile="src/core/qflayerresolver.h" bodystart="32" bodyend="104"/>
+    <listofallmembers>
+      <member refid="classQfLayerResolver_1ae9ddb5275f0416cc8c29b3f2db239eb5" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>currentLayer</name></member>
+      <member refid="classQfLayerResolver_1ace5d17f73738a1ef5116b67f520c4871" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>currentLayer</name></member>
+      <member refid="classQfLayerResolver_1a6c78c6f6898978171c9f2ba053215fd3" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>currentLayerChanged</name></member>
+      <member refid="classQfLayerResolver_1a7d27c74111912392259e8169a08ec307" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerId</name></member>
+      <member refid="classQfLayerResolver_1a9d8879b34b48c7f007c4e54d13f4489a" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerId</name></member>
+      <member refid="classQfLayerResolver_1afc9f3b1c5e941e9074e222726b7bac85" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerIdChanged</name></member>
+      <member refid="classQfLayerResolver_1ab0457a39838066ca092e9085cac5a4c8" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerName</name></member>
+      <member refid="classQfLayerResolver_1ad376c4307e22d5bf8edadf18fceabbb5" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerName</name></member>
+      <member refid="classQfLayerResolver_1ad895c45efc78d6ba5808f8dc513a517c" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerNameChanged</name></member>
+      <member refid="classQfLayerResolver_1adb5015b56d04b7a682f48ab91edbea70" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerProviderName</name></member>
+      <member refid="classQfLayerResolver_1adf1a5c4a3ea85ab5c19e5222877fcd4a" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerProviderName</name></member>
+      <member refid="classQfLayerResolver_1a4a667f4596cbaf391d60e1523fa5e4da" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerProviderNameChanged</name></member>
+      <member refid="classQfLayerResolver_1afc281c9d6193c3de8ef781520f37cb9a" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerSource</name></member>
+      <member refid="classQfLayerResolver_1a16ae958edc6f934c1b6020045d5c2c18" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerSource</name></member>
+      <member refid="classQfLayerResolver_1ae3761878a20621f6968bebf323ae133c" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>layerSourceChanged</name></member>
+      <member refid="classQfLayerResolver_1af50a2932708bcdaf31e60490faeb55d6" prot="private" virt="non-virtual"><scope>QfLayerResolver</scope><name>mLayer</name></member>
+      <member refid="classQfLayerResolver_1a9739b865f35525f7f467bc5e08ee9e2c" prot="private" virt="non-virtual"><scope>QfLayerResolver</scope><name>mLayerId</name></member>
+      <member refid="classQfLayerResolver_1ab788aeaaa86d4c6d2888a7bb48f1619e" prot="private" virt="non-virtual"><scope>QfLayerResolver</scope><name>mLayerName</name></member>
+      <member refid="classQfLayerResolver_1a2c873fcdef9134ff688aa6b27503c18c" prot="private" virt="non-virtual"><scope>QfLayerResolver</scope><name>mLayerProviderName</name></member>
+      <member refid="classQfLayerResolver_1abf63afa102e549041fbf0ac583feaba5" prot="private" virt="non-virtual"><scope>QfLayerResolver</scope><name>mLayerSource</name></member>
+      <member refid="classQfLayerResolver_1a5e8271e8a64859541b5d5e5eb2ed284a" prot="private" virt="non-virtual"><scope>QfLayerResolver</scope><name>mProject</name></member>
+      <member refid="classQfLayerResolver_1a7258fefc269df7c743aa8f4a8da992e0" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>project</name></member>
+      <member refid="classQfLayerResolver_1a63d1316f01106cc9519a1e14ebaa0e79" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>project</name></member>
+      <member refid="classQfLayerResolver_1afd7da180b6cf1e55e1904aea1bd03069" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>projectChanged</name></member>
+      <member refid="classQfLayerResolver_1a13bca6ca99569ac0c3054317e90eedf0" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>QfLayerResolver</name></member>
+      <member refid="classQfLayerResolver_1a09548af164e99e4b376c14cd550bd124" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>resolve</name></member>
+      <member refid="classQfLayerResolver_1aa313b523bb9c746b314f77706dad8ed8" prot="private" virt="non-virtual"><scope>QfLayerResolver</scope><name>setLayer</name></member>
+      <member refid="classQfLayerResolver_1a6eb51559b8cb3ca7ae2aab4b968f1e39" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>setLayerId</name></member>
+      <member refid="classQfLayerResolver_1a9042c39f5170c22071a22eeea9f018f0" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>setLayerName</name></member>
+      <member refid="classQfLayerResolver_1a33d5a2717ed9a618b81ddd3bef800f3e" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>setLayerProviderName</name></member>
+      <member refid="classQfLayerResolver_1ae4c2ca07955a3f823402328aae4d4c49" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>setLayerSource</name></member>
+      <member refid="classQfLayerResolver_1a05e45b364be5f58e31e7fc130cfecbc1" prot="public" virt="non-virtual"><scope>QfLayerResolver</scope><name>setProject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

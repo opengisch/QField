@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAppMissingGridHandler" kind="class" language="C++" prot="public">
+    <compoundname>QfAppMissingGridHandler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfappcoordinateoperationhandlers_8h" local="no">qfappcoordinateoperationhandlers.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAppMissingGridHandler_1aafeada99cbeb539b36bc60369c5d3ba8" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPair&lt; QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem &gt; &gt;</type>
+        <definition>QList&lt;QPair&lt;QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem&gt; &gt; QfAppMissingGridHandler::mAlreadyWarnedPairs</definition>
+        <argsstring></argsstring>
+        <name>mAlreadyWarnedPairs</name>
+        <qualifiedname>QfAppMissingGridHandler::mAlreadyWarnedPairs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="86" column="11" bodyfile="src/app/qfappcoordinateoperationhandlers.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAppMissingGridHandler_1a87c3ee96c2d31f0d52fff426d7be1504" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPair&lt; QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem &gt; &gt;</type>
+        <definition>QList&lt;QPair&lt;QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem&gt; &gt; QfAppMissingGridHandler::mAlreadyWarnedPairsForProject</definition>
+        <argsstring></argsstring>
+        <name>mAlreadyWarnedPairsForProject</name>
+        <qualifiedname>QfAppMissingGridHandler::mAlreadyWarnedPairsForProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="87" column="11" bodyfile="src/app/qfappcoordinateoperationhandlers.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAppMissingGridHandler_1a8584a6263cd4a4f1e25c88dd8895ef66" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPair&lt; QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem &gt; &gt;</type>
+        <definition>QList&lt;QPair&lt;QgsCoordinateReferenceSystem, QgsCoordinateReferenceSystem&gt; &gt; QfAppMissingGridHandler::mAlreadyWarnedBallparkPairsForProject</definition>
+        <argsstring></argsstring>
+        <name>mAlreadyWarnedBallparkPairsForProject</name>
+        <qualifiedname>QfAppMissingGridHandler::mAlreadyWarnedBallparkPairsForProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="88" column="11" bodyfile="src/app/qfappcoordinateoperationhandlers.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAppMissingGridHandler_1a71a2c22eb152fc661dad92b8cc55888b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAppMissingGridHandler::QfAppMissingGridHandler</definition>
+        <argsstring>(QObject *parent)</argsstring>
+        <name>QfAppMissingGridHandler</name>
+        <qualifiedname>QfAppMissingGridHandler::QfAppMissingGridHandler</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="33" column="14" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="25" bodyend="69"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfAppMissingGridHandler_1a1414b891d68687222debefdee94db081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::missingRequiredGrid</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QgsDatumTransform::GridDetails &amp;grid)</argsstring>
+        <name>missingRequiredGrid</name>
+        <qualifiedname>QfAppMissingGridHandler::missingRequiredGrid</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QgsDatumTransform::GridDetails &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="37" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppMissingGridHandler_1ad6b22f55f9379e5c3dab72637220dd9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::missingPreferredGrid</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QgsDatumTransform::TransformDetails &amp;preferredOperation, const QgsDatumTransform::TransformDetails &amp;availableOperation)</argsstring>
+        <name>missingPreferredGrid</name>
+        <qualifiedname>QfAppMissingGridHandler::missingPreferredGrid</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QgsDatumTransform::TransformDetails &amp;</type>
+          <declname>preferredOperation</declname>
+        </param>
+        <param>
+          <type>const QgsDatumTransform::TransformDetails &amp;</type>
+          <declname>availableOperation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="41" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppMissingGridHandler_1a8af1b3b7eb6e21510878a2db72d27c9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::coordinateOperationCreationError</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QString &amp;error)</argsstring>
+        <name>coordinateOperationCreationError</name>
+        <qualifiedname>QfAppMissingGridHandler::coordinateOperationCreationError</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="46" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppMissingGridHandler_1a24ec1fcc32147ee1e8215ee64a2ec596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::missingGridUsedByContextHandler</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QgsDatumTransform::TransformDetails &amp;desired)</argsstring>
+        <name>missingGridUsedByContextHandler</name>
+        <qualifiedname>QfAppMissingGridHandler::missingGridUsedByContextHandler</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QgsDatumTransform::TransformDetails &amp;</type>
+          <declname>desired</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="50" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppMissingGridHandler_1a5c520e074135f2bdbf7497946758a5ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::fallbackOperationOccurred</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QString &amp;desired)</argsstring>
+        <name>fallbackOperationOccurred</name>
+        <qualifiedname>QfAppMissingGridHandler::fallbackOperationOccurred</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>desired</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="54" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfAppMissingGridHandler_1acc81fa235013a1809195c5450e4d873d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::onMissingRequiredGrid</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QgsDatumTransform::GridDetails &amp;grid)</argsstring>
+        <name>onMissingRequiredGrid</name>
+        <qualifiedname>QfAppMissingGridHandler::onMissingRequiredGrid</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QgsDatumTransform::GridDetails &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="60" column="10" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="71" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfAppMissingGridHandler_1a780313947d1f444a4aa70bf766d34254" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::onMissingPreferredGrid</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QgsDatumTransform::TransformDetails &amp;preferredOperation, const QgsDatumTransform::TransformDetails &amp;availableOperation)</argsstring>
+        <name>onMissingPreferredGrid</name>
+        <qualifiedname>QfAppMissingGridHandler::onMissingPreferredGrid</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QgsDatumTransform::TransformDetails &amp;</type>
+          <declname>preferredOperation</declname>
+        </param>
+        <param>
+          <type>const QgsDatumTransform::TransformDetails &amp;</type>
+          <declname>availableOperation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="64" column="10" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="92" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfAppMissingGridHandler_1ab79ce6057b6102d0202095c6f96771dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::onCoordinateOperationCreationError</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QString &amp;error)</argsstring>
+        <name>onCoordinateOperationCreationError</name>
+        <qualifiedname>QfAppMissingGridHandler::onCoordinateOperationCreationError</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="69" column="10" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="135" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfAppMissingGridHandler_1a7d3513968dd76fa5fa770ec846460c90" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::onMissingGridUsedByContextHandler</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QgsDatumTransform::TransformDetails &amp;desired)</argsstring>
+        <name>onMissingGridUsedByContextHandler</name>
+        <qualifiedname>QfAppMissingGridHandler::onMissingGridUsedByContextHandler</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QgsDatumTransform::TransformDetails &amp;</type>
+          <declname>desired</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="73" column="10" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="145" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfAppMissingGridHandler_1ad288376c229cf31e752396bad8e8859a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppMissingGridHandler::onFallbackOperationOccurred</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs, const QgsCoordinateReferenceSystem &amp;destinationCrs, const QString &amp;desired)</argsstring>
+        <name>onFallbackOperationOccurred</name>
+        <qualifiedname>QfAppMissingGridHandler::onFallbackOperationOccurred</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>desired</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="77" column="10" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="176" bodyend="184"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfAppMissingGridHandler_1ab0dc80444f1a79f0c2e822a9959cdcbb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAppMissingGridHandler::shouldWarnAboutPair</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;source, const QgsCoordinateReferenceSystem &amp;dest)</argsstring>
+        <name>shouldWarnAboutPair</name>
+        <qualifiedname>QfAppMissingGridHandler::shouldWarnAboutPair</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="82" column="10" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="186" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppMissingGridHandler_1acc239695a9970e0d77021a034b6ee9bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAppMissingGridHandler::shouldWarnAboutPairForCurrentProject</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;source, const QgsCoordinateReferenceSystem &amp;dest)</argsstring>
+        <name>shouldWarnAboutPairForCurrentProject</name>
+        <qualifiedname>QfAppMissingGridHandler::shouldWarnAboutPairForCurrentProject</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="83" column="10" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="197" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppMissingGridHandler_1ae68e823fe2a0efba9a98f0b4f707647a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAppMissingGridHandler::shouldWarnAboutBallparkPairForCurrentProject</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;source, const QgsCoordinateReferenceSystem &amp;dest)</argsstring>
+        <name>shouldWarnAboutBallparkPairForCurrentProject</name>
+        <qualifiedname>QfAppMissingGridHandler::shouldWarnAboutBallparkPairForCurrentProject</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappcoordinateoperationhandlers.h" line="84" column="10" bodyfile="src/app/qfappcoordinateoperationhandlers.cpp" bodystart="208" bodyend="217"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Alerts users when a transform grids are required (or desired) for an operation between two CRSes, yet they are not available on the current system. Derived from the QgsAppCoordinateOperationHandlers class created by QGIS developer Nyall Dawson. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAppMissingGridHandler</label>
+        <link refid="classQfAppMissingGridHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAppMissingGridHandler</label>
+        <link refid="classQfAppMissingGridHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qfappcoordinateoperationhandlers.h" line="29" column="1" bodyfile="src/app/qfappcoordinateoperationhandlers.h" bodystart="30" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classQfAppMissingGridHandler_1a8af1b3b7eb6e21510878a2db72d27c9f" prot="public" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>coordinateOperationCreationError</name></member>
+      <member refid="classQfAppMissingGridHandler_1a5c520e074135f2bdbf7497946758a5ed" prot="public" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>fallbackOperationOccurred</name></member>
+      <member refid="classQfAppMissingGridHandler_1a8584a6263cd4a4f1e25c88dd8895ef66" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>mAlreadyWarnedBallparkPairsForProject</name></member>
+      <member refid="classQfAppMissingGridHandler_1aafeada99cbeb539b36bc60369c5d3ba8" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>mAlreadyWarnedPairs</name></member>
+      <member refid="classQfAppMissingGridHandler_1a87c3ee96c2d31f0d52fff426d7be1504" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>mAlreadyWarnedPairsForProject</name></member>
+      <member refid="classQfAppMissingGridHandler_1a24ec1fcc32147ee1e8215ee64a2ec596" prot="public" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>missingGridUsedByContextHandler</name></member>
+      <member refid="classQfAppMissingGridHandler_1ad6b22f55f9379e5c3dab72637220dd9c" prot="public" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>missingPreferredGrid</name></member>
+      <member refid="classQfAppMissingGridHandler_1a1414b891d68687222debefdee94db081" prot="public" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>missingRequiredGrid</name></member>
+      <member refid="classQfAppMissingGridHandler_1ab79ce6057b6102d0202095c6f96771dc" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>onCoordinateOperationCreationError</name></member>
+      <member refid="classQfAppMissingGridHandler_1ad288376c229cf31e752396bad8e8859a" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>onFallbackOperationOccurred</name></member>
+      <member refid="classQfAppMissingGridHandler_1a7d3513968dd76fa5fa770ec846460c90" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>onMissingGridUsedByContextHandler</name></member>
+      <member refid="classQfAppMissingGridHandler_1a780313947d1f444a4aa70bf766d34254" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>onMissingPreferredGrid</name></member>
+      <member refid="classQfAppMissingGridHandler_1acc81fa235013a1809195c5450e4d873d" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>onMissingRequiredGrid</name></member>
+      <member refid="classQfAppMissingGridHandler_1a71a2c22eb152fc661dad92b8cc55888b" prot="public" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>QfAppMissingGridHandler</name></member>
+      <member refid="classQfAppMissingGridHandler_1ae68e823fe2a0efba9a98f0b4f707647a" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>shouldWarnAboutBallparkPairForCurrentProject</name></member>
+      <member refid="classQfAppMissingGridHandler_1ab0dc80444f1a79f0c2e822a9959cdcbb" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>shouldWarnAboutPair</name></member>
+      <member refid="classQfAppMissingGridHandler_1acc239695a9970e0d77021a034b6ee9bb" prot="private" virt="non-virtual"><scope>QfAppMissingGridHandler</scope><name>shouldWarnAboutPairForCurrentProject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

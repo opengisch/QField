@@ -1,0 +1,766 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudPopup" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudPopup</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Popup</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudPopup_1aa970f52baca86b7ec70d4a3423ac8650" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPopup::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfCloudPopup::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="11" column="5" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a187e1eb5f777ab48a6ca4ab7bbca6a45" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPopup::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QfCloudPopup::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="12" column="5" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1aa272165be882aef5b8af24f0787c7078" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPopup::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QfCloudPopup::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="13" column="5" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a9dad1805b048baa099df6c2cf9907df8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPopup::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfCloudPopup::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="14" column="5" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a2265205c01d963045e09e3aa1fe41945" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPopup::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfCloudPopup::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="29" column="5" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a55557037b5c0590b48710526169a731a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPopup::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>QfCloudPopup::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="30" column="5" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a742d2a11d117a9147d142d15f2af3ebe" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfCloudPopup::page</definition>
+        <argsstring></argsstring>
+        <name>page</name>
+        <qualifiedname>QfCloudPopup::page</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="31" column="6" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a500988f3be3d88ad51b153b03746adcb" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfCloudPopup::connectionInformation</definition>
+        <argsstring></argsstring>
+        <name>connectionInformation</name>
+        <qualifiedname>QfCloudPopup::connectionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="32" column="11" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a790a3449c851a94ec40669caaecf45b9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMeterBar" kindref="compound">QfMeterBar</ref></type>
+        <definition>QfMeterBar QfCloudPopup::storageMeterBar</definition>
+        <argsstring></argsstring>
+        <name>storageMeterBar</name>
+        <qualifiedname>QfCloudPopup::storageMeterBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="33" column="12" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a7a8edee3328f9f1bad90a35e4b560737" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudPopup::cloudAvatarRect</definition>
+        <argsstring></argsstring>
+        <name>cloudAvatarRect</name>
+        <qualifiedname>QfCloudPopup::cloudAvatarRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="34" column="11" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a40af4ad2efc8f382f80165df81d3126f" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudPopup::cloudAvatarMask</definition>
+        <argsstring></argsstring>
+        <name>cloudAvatarMask</name>
+        <qualifiedname>QfCloudPopup::cloudAvatarMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="35" column="11" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1acb3f1bf8cf3f73d9b2d4092ed13f2dd2" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfCloudPopup::cloudAvatar</definition>
+        <argsstring></argsstring>
+        <name>cloudAvatar</name>
+        <qualifiedname>QfCloudPopup::cloudAvatar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="36" column="7" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1afdb3aedafad13a93c72a7fe7e8f40644" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView QfCloudPopup::swipeView</definition>
+        <argsstring></argsstring>
+        <name>swipeView</name>
+        <qualifiedname>QfCloudPopup::swipeView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="37" column="11" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1abce7815617cc7c40dee0e9a5584604cf" prot="private" static="no" mutable="no">
+        <type>ScrollView</type>
+        <definition>ScrollView QfCloudPopup::scrollView</definition>
+        <argsstring></argsstring>
+        <name>scrollView</name>
+        <qualifiedname>QfCloudPopup::scrollView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="38" column="12" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1ac280153576cc28bf38013f3cdc8f8f59" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout QfCloudPopup::mainGrid</definition>
+        <argsstring></argsstring>
+        <name>mainGrid</name>
+        <qualifiedname>QfCloudPopup::mainGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="39" column="12" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1aecb46c1f0603beba407fd60a951f61c7" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudPopup::wrongAccountText</definition>
+        <argsstring></argsstring>
+        <name>wrongAccountText</name>
+        <qualifiedname>QfCloudPopup::wrongAccountText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="40" column="6" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a9c33daa1376c154c4e24f42aec0fadf7" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudPopup::statusText</definition>
+        <argsstring></argsstring>
+        <name>statusText</name>
+        <qualifiedname>QfCloudPopup::statusText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="41" column="6" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1ac24da6e1553144f5eb4d433d4a3977d7" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudPopup::cloudAnimation</definition>
+        <argsstring></argsstring>
+        <name>cloudAnimation</name>
+        <qualifiedname>QfCloudPopup::cloudAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="42" column="11" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1acc39f468a3543e25fa2b3ce5d548e835" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfCloudPopup::statusIcon</definition>
+        <argsstring></argsstring>
+        <name>statusIcon</name>
+        <qualifiedname>QfCloudPopup::statusIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="43" column="7" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1af8b56c7951aaf8442f4085feca43a361" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCollapsibleMessage" kindref="compound">QfCollapsibleMessage</ref></type>
+        <definition>QfCollapsibleMessage QfCloudPopup::transferError</definition>
+        <argsstring></argsstring>
+        <name>transferError</name>
+        <qualifiedname>QfCloudPopup::transferError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="44" column="22" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1accb24f8a96d6974ed0096ca2ad8d0e6e" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudPopup::localProjectGrid</definition>
+        <argsstring></argsstring>
+        <name>localProjectGrid</name>
+        <qualifiedname>QfCloudPopup::localProjectGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="45" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1aa79b50a3737300a41213ba4487b013a9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfContainerCard" kindref="compound">QfContainerCard</ref></type>
+        <definition>QfContainerCard QfCloudPopup::cloudifyCard</definition>
+        <argsstring></argsstring>
+        <name>cloudifyCard</name>
+        <qualifiedname>QfCloudPopup::cloudifyCard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="46" column="17" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1aaf21a2a593de318e89daa7688bab3920" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudPopup::cloudProjectGrid</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectGrid</name>
+        <qualifiedname>QfCloudPopup::cloudProjectGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="47" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a22e9b0de62ef82d228a452a6df56418f" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudPopup::changesText</definition>
+        <argsstring></argsstring>
+        <name>changesText</name>
+        <qualifiedname>QfCloudPopup::changesText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="48" column="6" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1ac8359ac403f988f9d3abf483436d772d" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudPopup::cloudActions</definition>
+        <argsstring></argsstring>
+        <name>cloudActions</name>
+        <qualifiedname>QfCloudPopup::cloudActions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="49" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a15d6ab1fd4f8db9f1fedaf3f9ec5b873" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudPopup::localChanges</definition>
+        <argsstring></argsstring>
+        <name>localChanges</name>
+        <qualifiedname>QfCloudPopup::localChanges</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="50" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a63396f6c364349d0ed75fc50fcbc740d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCloudPopup::showLocalChangesDetails</definition>
+        <argsstring></argsstring>
+        <name>showLocalChangesDetails</name>
+        <qualifiedname>QfCloudPopup::showLocalChangesDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="51" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a1084a88d9803ce152a5bb041d6b60210" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfContainerCard" kindref="compound">QfContainerCard</ref></type>
+        <definition>QfContainerCard QfCloudPopup::uploadCard</definition>
+        <argsstring></argsstring>
+        <name>uploadCard</name>
+        <qualifiedname>QfCloudPopup::uploadCard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="52" column="17" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a3d72f76ad83936d300d990b3010f69f6" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfCloudPopup::autoPushText</definition>
+        <argsstring></argsstring>
+        <name>autoPushText</name>
+        <qualifiedname>QfCloudPopup::autoPushText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="53" column="7" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a6601fcb63b24db435482ae70a866a210" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfCloudPopup::autoPush</definition>
+        <argsstring></argsstring>
+        <name>autoPush</name>
+        <qualifiedname>QfCloudPopup::autoPush</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="54" column="10" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1af09404c62d05cf308cf09f0c13f0c850" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfContainerCard" kindref="compound">QfContainerCard</ref></type>
+        <definition>QfContainerCard QfCloudPopup::synchronizeCard</definition>
+        <argsstring></argsstring>
+        <name>synchronizeCard</name>
+        <qualifiedname>QfCloudPopup::synchronizeCard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="55" column="17" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a18417e1232292b54522ba035bae2d378" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfCloudPopup::autoPushTimer</definition>
+        <argsstring></argsstring>
+        <name>autoPushTimer</name>
+        <qualifiedname>QfCloudPopup::autoPushTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="56" column="7" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a42dd59ff527ef5c367e256b45a8b4097" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCloudPopup::uploadHistoryEntryButton</definition>
+        <argsstring></argsstring>
+        <name>uploadHistoryEntryButton</name>
+        <qualifiedname>QfCloudPopup::uploadHistoryEntryButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="57" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a23b6c3a6d1ba2b505e4397e3f7bc4b7c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCloudPopup::dangerZoneEntryButton</definition>
+        <argsstring></argsstring>
+        <name>dangerZoneEntryButton</name>
+        <qualifiedname>QfCloudPopup::dangerZoneEntryButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="58" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a14cf76714228bec7de80eac31766fe8b" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudPopup::connectionSettings</definition>
+        <argsstring></argsstring>
+        <name>connectionSettings</name>
+        <qualifiedname>QfCloudPopup::connectionSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="59" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a82dcc600a8309bcffb3830c5f2b101c7" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCloudLogin" kindref="compound">QfCloudLogin</ref></type>
+        <definition>QfCloudLogin QfCloudPopup::qfieldCloudLogin</definition>
+        <argsstring></argsstring>
+        <name>qfieldCloudLogin</name>
+        <qualifiedname>QfCloudPopup::qfieldCloudLogin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="60" column="14" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a07020f972df5c55485c56b429bc56fa9" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudPopup::uploadFeedback</definition>
+        <argsstring></argsstring>
+        <name>uploadFeedback</name>
+        <qualifiedname>QfCloudPopup::uploadFeedback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="61" column="11" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1ad814773f47690c1d137119d6819d6d07" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudPopup::uploadLabel</definition>
+        <argsstring></argsstring>
+        <name>uploadLabel</name>
+        <qualifiedname>QfCloudPopup::uploadLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="62" column="6" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a0b448c936854dcefe85e01fcbbe74553" prot="private" static="no" mutable="no">
+        <type>ProgressBar</type>
+        <definition>ProgressBar QfCloudPopup::uploadProgress</definition>
+        <argsstring></argsstring>
+        <name>uploadProgress</name>
+        <qualifiedname>QfCloudPopup::uploadProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="63" column="13" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1aa1823569ebfa27dc9f90572898f59105" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections QfCloudPopup::cloudProjectCreationConnection</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectCreationConnection</name>
+        <qualifiedname>QfCloudPopup::cloudProjectCreationConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="64" column="13" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1abaaed9b308b46419dc7d29c9c4903797" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfCloudPopup::revertDialog</definition>
+        <argsstring></argsstring>
+        <name>revertDialog</name>
+        <qualifiedname>QfCloudPopup::revertDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="65" column="10" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPopup_1a597dc1c57a2ea8ebef5f859e9e7059ab" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfCloudPopup::resetDialog</definition>
+        <argsstring></argsstring>
+        <name>resetDialog</name>
+        <qualifiedname>QfCloudPopup::resetDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="66" column="10" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudPopup_1a2e9615b37facb8f3f0a6941b8336712a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudStatus" kindref="compound">QfCloudStatus</ref></type>
+        <definition>QfCloudStatus QfCloudPopup::cloudServiceStatus</definition>
+        <argsstring></argsstring>
+        <name>cloudServiceStatus</name>
+        <qualifiedname>QfCloudPopup::cloudServiceStatus</qualifiedname>
+        <read>dummyGetter_cloudServiceStatus_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="17" column="1" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudPopup_1a8c5b1fd7eb54d37f5faadf687b73296c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudPopup::pendingAction</definition>
+        <argsstring></argsstring>
+        <name>pendingAction</name>
+        <qualifiedname>QfCloudPopup::pendingAction</qualifiedname>
+        <read>dummyGetter_pendingAction_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="19" column="1" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudPopup_1a45b8362da52259a0e0876c6b564db1bf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudPopup::pendingCreationTitle</definition>
+        <argsstring></argsstring>
+        <name>pendingCreationTitle</name>
+        <qualifiedname>QfCloudPopup::pendingCreationTitle</qualifiedname>
+        <read>dummyGetter_pendingCreationTitle_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="21" column="1" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudPopup_1ab4b603581097e263668bce77f89e2937" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudPopup::pendingUploadPath</definition>
+        <argsstring></argsstring>
+        <name>pendingUploadPath</name>
+        <qualifiedname>QfCloudPopup::pendingUploadPath</qualifiedname>
+        <read>dummyGetter_pendingUploadPath_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="23" column="1" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudPopup_1a69506ff1f3074617769bd8be23567925" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudPopup::lastSubscriptionUser</definition>
+        <argsstring></argsstring>
+        <name>lastSubscriptionUser</name>
+        <qualifiedname>QfCloudPopup::lastSubscriptionUser</qualifiedname>
+        <read>dummyGetter_lastSubscriptionUser_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="25" column="1" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudPopup_1ac8b6f52a922a09978a91e7722b39b190" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>date</type>
+        <definition>date QfCloudPopup::currentDateTime</definition>
+        <argsstring></argsstring>
+        <name>currentDateTime</name>
+        <qualifiedname>QfCloudPopup::currentDateTime</qualifiedname>
+        <read>dummyGetter_currentDateTime_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPopup.qml" line="27" column="1" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfCloudPopup</label>
+        <link refid="classQfCloudPopup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfCloudPopup</label>
+        <link refid="classQfCloudPopup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudPopup.qml" line="10" column="1" bodyfile="src/app/qml/QfCloudPopup.qml" bodystart="10" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classQfCloudPopup_1a6601fcb63b24db435482ae70a866a210" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>autoPush</name></member>
+      <member refid="classQfCloudPopup_1a3d72f76ad83936d300d990b3010f69f6" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>autoPushText</name></member>
+      <member refid="classQfCloudPopup_1a18417e1232292b54522ba035bae2d378" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>autoPushTimer</name></member>
+      <member refid="classQfCloudPopup_1a22e9b0de62ef82d228a452a6df56418f" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>changesText</name></member>
+      <member refid="classQfCloudPopup_1a9dad1805b048baa099df6c2cf9907df8" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>closePolicy</name></member>
+      <member refid="classQfCloudPopup_1ac8359ac403f988f9d3abf483436d772d" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudActions</name></member>
+      <member refid="classQfCloudPopup_1ac24da6e1553144f5eb4d433d4a3977d7" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudAnimation</name></member>
+      <member refid="classQfCloudPopup_1acb3f1bf8cf3f73d9b2d4092ed13f2dd2" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudAvatar</name></member>
+      <member refid="classQfCloudPopup_1a40af4ad2efc8f382f80165df81d3126f" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudAvatarMask</name></member>
+      <member refid="classQfCloudPopup_1a7a8edee3328f9f1bad90a35e4b560737" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudAvatarRect</name></member>
+      <member refid="classQfCloudPopup_1aa79b50a3737300a41213ba4487b013a9" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudifyCard</name></member>
+      <member refid="classQfCloudPopup_1aa1823569ebfa27dc9f90572898f59105" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudProjectCreationConnection</name></member>
+      <member refid="classQfCloudPopup_1aaf21a2a593de318e89daa7688bab3920" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudProjectGrid</name></member>
+      <member refid="classQfCloudPopup_1a2e9615b37facb8f3f0a6941b8336712a" prot="public" virt="non-virtual"><scope>QfCloudPopup</scope><name>cloudServiceStatus</name></member>
+      <member refid="classQfCloudPopup_1a500988f3be3d88ad51b153b03746adcb" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>connectionInformation</name></member>
+      <member refid="classQfCloudPopup_1a14cf76714228bec7de80eac31766fe8b" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>connectionSettings</name></member>
+      <member refid="classQfCloudPopup_1ac8b6f52a922a09978a91e7722b39b190" prot="public" virt="non-virtual"><scope>QfCloudPopup</scope><name>currentDateTime</name></member>
+      <member refid="classQfCloudPopup_1a23b6c3a6d1ba2b505e4397e3f7bc4b7c" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>dangerZoneEntryButton</name></member>
+      <member refid="classQfCloudPopup_1a69506ff1f3074617769bd8be23567925" prot="public" virt="non-virtual"><scope>QfCloudPopup</scope><name>lastSubscriptionUser</name></member>
+      <member refid="classQfCloudPopup_1a187e1eb5f777ab48a6ca4ab7bbca6a45" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>leftPadding</name></member>
+      <member refid="classQfCloudPopup_1a15d6ab1fd4f8db9f1fedaf3f9ec5b873" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>localChanges</name></member>
+      <member refid="classQfCloudPopup_1accb24f8a96d6974ed0096ca2ad8d0e6e" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>localProjectGrid</name></member>
+      <member refid="classQfCloudPopup_1ac280153576cc28bf38013f3cdc8f8f59" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>mainGrid</name></member>
+      <member refid="classQfCloudPopup_1a55557037b5c0590b48710526169a731a" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>onAboutToHide</name></member>
+      <member refid="classQfCloudPopup_1a2265205c01d963045e09e3aa1fe41945" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>onAboutToShow</name></member>
+      <member refid="classQfCloudPopup_1aa970f52baca86b7ec70d4a3423ac8650" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>padding</name></member>
+      <member refid="classQfCloudPopup_1a742d2a11d117a9147d142d15f2af3ebe" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>page</name></member>
+      <member refid="classQfCloudPopup_1a8c5b1fd7eb54d37f5faadf687b73296c" prot="public" virt="non-virtual"><scope>QfCloudPopup</scope><name>pendingAction</name></member>
+      <member refid="classQfCloudPopup_1a45b8362da52259a0e0876c6b564db1bf" prot="public" virt="non-virtual"><scope>QfCloudPopup</scope><name>pendingCreationTitle</name></member>
+      <member refid="classQfCloudPopup_1ab4b603581097e263668bce77f89e2937" prot="public" virt="non-virtual"><scope>QfCloudPopup</scope><name>pendingUploadPath</name></member>
+      <member refid="classQfCloudPopup_1a82dcc600a8309bcffb3830c5f2b101c7" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>qfieldCloudLogin</name></member>
+      <member refid="classQfCloudPopup_1a597dc1c57a2ea8ebef5f859e9e7059ab" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>resetDialog</name></member>
+      <member refid="classQfCloudPopup_1abaaed9b308b46419dc7d29c9c4903797" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>revertDialog</name></member>
+      <member refid="classQfCloudPopup_1aa272165be882aef5b8af24f0787c7078" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>rightPadding</name></member>
+      <member refid="classQfCloudPopup_1abce7815617cc7c40dee0e9a5584604cf" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>scrollView</name></member>
+      <member refid="classQfCloudPopup_1a63396f6c364349d0ed75fc50fcbc740d" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>showLocalChangesDetails</name></member>
+      <member refid="classQfCloudPopup_1acc39f468a3543e25fa2b3ce5d548e835" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>statusIcon</name></member>
+      <member refid="classQfCloudPopup_1a9c33daa1376c154c4e24f42aec0fadf7" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>statusText</name></member>
+      <member refid="classQfCloudPopup_1a790a3449c851a94ec40669caaecf45b9" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>storageMeterBar</name></member>
+      <member refid="classQfCloudPopup_1afdb3aedafad13a93c72a7fe7e8f40644" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>swipeView</name></member>
+      <member refid="classQfCloudPopup_1af09404c62d05cf308cf09f0c13f0c850" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>synchronizeCard</name></member>
+      <member refid="classQfCloudPopup_1af8b56c7951aaf8442f4085feca43a361" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>transferError</name></member>
+      <member refid="classQfCloudPopup_1a1084a88d9803ce152a5bb041d6b60210" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>uploadCard</name></member>
+      <member refid="classQfCloudPopup_1a07020f972df5c55485c56b429bc56fa9" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>uploadFeedback</name></member>
+      <member refid="classQfCloudPopup_1a42dd59ff527ef5c367e256b45a8b4097" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>uploadHistoryEntryButton</name></member>
+      <member refid="classQfCloudPopup_1ad814773f47690c1d137119d6819d6d07" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>uploadLabel</name></member>
+      <member refid="classQfCloudPopup_1a0b448c936854dcefe85e01fcbbe74553" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>uploadProgress</name></member>
+      <member refid="classQfCloudPopup_1aecb46c1f0603beba407fd60a951f61c7" prot="private" virt="non-virtual"><scope>QfCloudPopup</scope><name>wrongAccountText</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPrintLayoutListModel" kind="class" language="C++" prot="public">
+    <compoundname>QfPrintLayoutListModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="structQfPrintLayoutListModel_1_1PrintLayout" prot="private">QfPrintLayoutListModel::PrintLayout</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classQfPrintLayoutListModel_1a916bcd86b662b9fb97bc7d679f532dff" prot="private" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfPrintLayoutListModel::Roles</qualifiedname>
+        <enumvalue id="classQfPrintLayoutListModel_1a916bcd86b662b9fb97bc7d679f532dffa5b838a7ffdf6e0d8137c48fa258f08ac" prot="private">
+          <name>TitleRow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfPrintLayoutListModel_1a916bcd86b662b9fb97bc7d679f532dffa61fd7c8bb556f8f4522d920b735ee41a" prot="private">
+          <name>IndexRow</name>
+          <briefdescription>
+<para>the name of the print layout </para>
+          </briefdescription>
+          <detaileddescription>
+<para>the position of the print layout in list </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Roles to get the data of the model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="40" column="5" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="41" bodyend="44"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPrintLayoutListModel_1aa481c3a0e8d1730879c8fe65c0514379" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfPrintLayoutListModel::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfPrintLayoutListModel::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="34" column="5" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPrintLayoutListModel_1aaa20c8f9d6b0a51a06e247fec8c31667" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfPrintLayoutListModel::atlasCoverageLayer</definition>
+        <argsstring></argsstring>
+        <name>atlasCoverageLayer</name>
+        <qualifiedname>QfPrintLayoutListModel::atlasCoverageLayer</qualifiedname>
+        <read>atlasCoverageLayer</read>
+        <write>setAtlasCoverageLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="35" column="5" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPrintLayoutListModel_1aee71d3f7eb4e2b9b36bf14cf46b58d2c" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfPrintLayoutListModel::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfPrintLayoutListModel::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="86" column="16" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPrintLayoutListModel_1a69fd2ce81a541cb828d21910d8a77e43" prot="private" static="no" mutable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer* QfPrintLayoutListModel::mAtlasCoverageLayr</definition>
+        <argsstring></argsstring>
+        <name>mAtlasCoverageLayr</name>
+        <qualifiedname>QfPrintLayoutListModel::mAtlasCoverageLayr</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="87" column="20" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPrintLayoutListModel_1a601b39b867a54457898b7ea7c7e39889" prot="private" static="no" mutable="no">
+        <type>QList&lt; PrintLayout &gt;</type>
+        <definition>QList&lt;PrintLayout&gt; QfPrintLayoutListModel::mPrintLayouts</definition>
+        <argsstring></argsstring>
+        <name>mPrintLayouts</name>
+        <qualifiedname>QfPrintLayoutListModel::mPrintLayouts</qualifiedname>
+        <briefdescription>
+<para>List of PrintLayouts of current project to display. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="90" column="11" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1a9f32a218de366637a231cd5369c6969d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfPrintLayoutListModel::QfPrintLayoutListModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfPrintLayoutListModel</name>
+        <qualifiedname>QfPrintLayoutListModel::QfPrintLayoutListModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="59" column="14" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1aee4b3322a374b5168252981a08de955c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfPrintLayoutListModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfPrintLayoutListModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="61" column="11" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="26" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1a3337f7f4c64938d515cbf0724d86e51b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfPrintLayoutListModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfPrintLayoutListModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="63" column="9" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1a9ff77dc3a2714a6c2c27ffb6b7e5ea9a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfPrintLayoutListModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfPrintLayoutListModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="64" column="14" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="96" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1a5780c96ec8854ab599891e422bc0cb69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfPrintLayoutListModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfPrintLayoutListModel::project</qualifiedname>
+        <briefdescription>
+<para>Returns the current project from which layouts are retrieved. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="67" column="16" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1a25983e316fca91266ecdddfe702aefbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPrintLayoutListModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfPrintLayoutListModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the project to be used to retrieve layouts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="69" column="10" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="40" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1a2df1fab7c646a27fe1b24a8cac265d8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfPrintLayoutListModel::atlasCoverageLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>atlasCoverageLayer</name>
+        <qualifiedname>QfPrintLayoutListModel::atlasCoverageLayer</qualifiedname>
+        <briefdescription>
+<para>Returns the vector layer used to filter layouts to match atlas coverage layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="72" column="20" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1ad6ce1ae50771d1491fbad7af7620709d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPrintLayoutListModel::setAtlasCoverageLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setAtlasCoverageLayer</name>
+        <qualifiedname>QfPrintLayoutListModel::setAtlasCoverageLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Sets the vector layer used to filter layouts to match atlas coverage layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="74" column="10" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="54" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1ad531112120259a29e43d77e5319015f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE const QString</type>
+        <definition>const QString QfPrintLayoutListModel::titleAt</definition>
+        <argsstring>(int row) const</argsstring>
+        <name>titleAt</name>
+        <qualifiedname>QfPrintLayoutListModel::titleAt</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="76" column="31" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="109" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPrintLayoutListModel_1ae3042cb05653c07b7d61a462f8ceab5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPrintLayoutListModel::reloadModel</definition>
+        <argsstring>()</argsstring>
+        <name>reloadModel</name>
+        <qualifiedname>QfPrintLayoutListModel::reloadModel</qualifiedname>
+        <briefdescription>
+<para>triggered when set another project </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="79" column="22" bodyfile="src/gui/qfprintlayoutlistmodel.cpp" bodystart="65" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfPrintLayoutListModel_1a530d60a375cbfc69b67b5f8ba27ee8ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPrintLayoutListModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfPrintLayoutListModel::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="82" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPrintLayoutListModel_1a6794f92dd2ba65d121c494abf6a81aa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPrintLayoutListModel::atlasCoverageLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>atlasCoverageLayerChanged</name>
+        <qualifiedname>QfPrintLayoutListModel::atlasCoverageLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="83" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfPrintLayoutListModel</label>
+        <link refid="classQfPrintLayoutListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfPrintLayoutListModel</label>
+        <link refid="classQfPrintLayoutListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfprintlayoutlistmodel.h" line="30" column="1" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="31" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classQfPrintLayoutListModel_1aaa20c8f9d6b0a51a06e247fec8c31667" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>atlasCoverageLayer</name></member>
+      <member refid="classQfPrintLayoutListModel_1a2df1fab7c646a27fe1b24a8cac265d8b" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>atlasCoverageLayer</name></member>
+      <member refid="classQfPrintLayoutListModel_1a6794f92dd2ba65d121c494abf6a81aa7" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>atlasCoverageLayerChanged</name></member>
+      <member refid="classQfPrintLayoutListModel_1a9ff77dc3a2714a6c2c27ffb6b7e5ea9a" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>data</name></member>
+      <member refid="classQfPrintLayoutListModel_1a916bcd86b662b9fb97bc7d679f532dffa61fd7c8bb556f8f4522d920b735ee41a" prot="private" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>IndexRow</name></member>
+      <member refid="classQfPrintLayoutListModel_1a69fd2ce81a541cb828d21910d8a77e43" prot="private" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>mAtlasCoverageLayr</name></member>
+      <member refid="classQfPrintLayoutListModel_1a601b39b867a54457898b7ea7c7e39889" prot="private" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>mPrintLayouts</name></member>
+      <member refid="classQfPrintLayoutListModel_1aee71d3f7eb4e2b9b36bf14cf46b58d2c" prot="private" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>mProject</name></member>
+      <member refid="classQfPrintLayoutListModel_1aa481c3a0e8d1730879c8fe65c0514379" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>project</name></member>
+      <member refid="classQfPrintLayoutListModel_1a5780c96ec8854ab599891e422bc0cb69" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>project</name></member>
+      <member refid="classQfPrintLayoutListModel_1a530d60a375cbfc69b67b5f8ba27ee8ea" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>projectChanged</name></member>
+      <member refid="classQfPrintLayoutListModel_1a9f32a218de366637a231cd5369c6969d" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>QfPrintLayoutListModel</name></member>
+      <member refid="classQfPrintLayoutListModel_1ae3042cb05653c07b7d61a462f8ceab5e" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>reloadModel</name></member>
+      <member refid="classQfPrintLayoutListModel_1aee4b3322a374b5168252981a08de955c" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>roleNames</name></member>
+      <member refid="classQfPrintLayoutListModel_1a916bcd86b662b9fb97bc7d679f532dff" prot="private" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>Roles</name></member>
+      <member refid="classQfPrintLayoutListModel_1a3337f7f4c64938d515cbf0724d86e51b" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>rowCount</name></member>
+      <member refid="classQfPrintLayoutListModel_1ad6ce1ae50771d1491fbad7af7620709d" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>setAtlasCoverageLayer</name></member>
+      <member refid="classQfPrintLayoutListModel_1a25983e316fca91266ecdddfe702aefbf" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>setProject</name></member>
+      <member refid="classQfPrintLayoutListModel_1ad531112120259a29e43d77e5319015f9" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>titleAt</name></member>
+      <member refid="classQfPrintLayoutListModel_1a916bcd86b662b9fb97bc7d679f532dffa5b838a7ffdf6e0d8137c48fa258f08ac" prot="private" virt="non-virtual"><scope>QfPrintLayoutListModel</scope><name>TitleRow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

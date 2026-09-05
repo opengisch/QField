@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProcessingParameterNumber" kind="class" language="C++" prot="public">
+    <compoundname>QfProcessingParameterNumber</compoundname>
+    <basecompoundref refid="classQfProcessingParameterWidgetBase" prot="public" virt="non-virtual">QfProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfProcessingParameterNumber_1ad4574b3268ba577b8ab20c0f8fcabd1e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfProcessingParameterNumber::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <qualifiedname>QfProcessingParameterNumber::step</qualifiedname>
+        <read>dummyGetter_step_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="9" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingParameterNumber_1ad515fd6a110224ba26b3507a41a5cc02" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfProcessingParameterNumber::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <qualifiedname>QfProcessingParameterNumber::min</qualifiedname>
+        <read>dummyGetter_min_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="11" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingParameterNumber_1ace647c5bcef820302f65925d45170f41" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfProcessingParameterNumber::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <qualifiedname>QfProcessingParameterNumber::max</qualifiedname>
+        <read>dummyGetter_max_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="13" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingParameterNumber_1a6cea256676555ef166d03c33df40190f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfProcessingParameterNumber::isDouble</definition>
+        <argsstring></argsstring>
+        <name>isDouble</name>
+        <qualifiedname>QfProcessingParameterNumber::isDouble</qualifiedname>
+        <read>dummyGetter_isDouble_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="15" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProcessingParameterNumber_1a478d112076a69ebe832c428d15243f5b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProcessingParameterNumber::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfProcessingParameterNumber::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="17" column="5" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterNumber_1a3157340e7b3b2f6a29a6e3be7dc00896" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfProcessingParameterNumber::textField</definition>
+        <argsstring></argsstring>
+        <name>textField</name>
+        <qualifiedname>QfProcessingParameterNumber::textField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="18" column="13" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterNumber_1a34d6886afb6eb643fab25a16d4828890" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfProcessingParameterNumber::decreaseButton</definition>
+        <argsstring></argsstring>
+        <name>decreaseButton</name>
+        <qualifiedname>QfProcessingParameterNumber::decreaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="19" column="14" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterNumber_1a61e9c35b853052dabd84df6757c7f263" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfProcessingParameterNumber::increaseButton</definition>
+        <argsstring></argsstring>
+        <name>increaseButton</name>
+        <qualifiedname>QfProcessingParameterNumber::increaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="20" column="14" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterNumber_1a89798261ea43eeca36d1c2a030838d9d" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfProcessingParameterNumber::changeValueTimer</definition>
+        <argsstring></argsstring>
+        <name>changeValueTimer</name>
+        <qualifiedname>QfProcessingParameterNumber::changeValueTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="21" column="7" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterNumber_1aa0ad9a9c6bafc9b82d53776f2847281f" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfProcessingParameterNumber::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfProcessingParameterNumber::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="26" column="13" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterNumber_1a9fcc16d9e13b8dea5afa6773655b3300" prot="private" static="no" mutable="no">
+        <type>IntValidator</type>
+        <definition>IntValidator QfProcessingParameterNumber::intValidator</definition>
+        <argsstring></argsstring>
+        <name>intValidator</name>
+        <qualifiedname>QfProcessingParameterNumber::intValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="27" column="14" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterNumber_1a04bf89886359640e03d3bd43e0161d3a" prot="private" static="no" mutable="no">
+        <type>DoubleValidator</type>
+        <definition>DoubleValidator QfProcessingParameterNumber::doubleValidator</definition>
+        <argsstring></argsstring>
+        <name>doubleValidator</name>
+        <qualifiedname>QfProcessingParameterNumber::doubleValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="28" column="17" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfProcessingParameterNumber_1ad56fa0de56727bf76d82a510e002a9d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingParameterNumber::adjustValue</definition>
+        <argsstring>(direction)</argsstring>
+        <name>adjustValue</name>
+        <qualifiedname>QfProcessingParameterNumber::adjustValue</qualifiedname>
+        <param>
+          <type>direction</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="24" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfProcessingParameterNumber</label>
+        <link refid="classQfProcessingParameterNumber"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingParameterWidgetBase</label>
+        <link refid="classQfProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfProcessingParameterNumber</label>
+        <link refid="classQfProcessingParameterNumber"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingParameterWidgetBase</label>
+        <link refid="classQfProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" line="6" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterNumber.qml" bodystart="6" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classQfProcessingParameterNumber_1ad56fa0de56727bf76d82a510e002a9d7" prot="public" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>adjustValue</name></member>
+      <member refid="classQfProcessingParameterNumber_1a89798261ea43eeca36d1c2a030838d9d" prot="private" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>changeValueTimer</name></member>
+      <member refid="classQfProcessingParameterNumber_1a34d6886afb6eb643fab25a16d4828890" prot="private" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>decreaseButton</name></member>
+      <member refid="classQfProcessingParameterNumber_1a04bf89886359640e03d3bd43e0161d3a" prot="private" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>doubleValidator</name></member>
+      <member refid="classQfProcessingParameterNumber_1aa0ad9a9c6bafc9b82d53776f2847281f" prot="private" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>fontMetrics</name></member>
+      <member refid="classQfProcessingParameterNumber_1a478d112076a69ebe832c428d15243f5b" prot="private" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>height</name></member>
+      <member refid="classQfProcessingParameterNumber_1a61e9c35b853052dabd84df6757c7f263" prot="private" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>increaseButton</name></member>
+      <member refid="classQfProcessingParameterNumber_1a9fcc16d9e13b8dea5afa6773655b3300" prot="private" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>intValidator</name></member>
+      <member refid="classQfProcessingParameterNumber_1a6cea256676555ef166d03c33df40190f" prot="public" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>isDouble</name></member>
+      <member refid="classQfProcessingParameterNumber_1ace647c5bcef820302f65925d45170f41" prot="public" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>max</name></member>
+      <member refid="classQfProcessingParameterNumber_1ad515fd6a110224ba26b3507a41a5cc02" prot="public" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>min</name></member>
+      <member refid="classQfProcessingParameterNumber_1ad4574b3268ba577b8ab20c0f8fcabd1e" prot="public" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>step</name></member>
+      <member refid="classQfProcessingParameterNumber_1a3157340e7b3b2f6a29a6e3be7dc00896" prot="private" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>textField</name></member>
+      <member refid="classQfProcessingParameterWidgetBase_1af72f29e097a532553a57fa4752397fe3" prot="public" virt="non-virtual"><scope>QfProcessingParameterNumber</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

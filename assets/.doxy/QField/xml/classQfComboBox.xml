@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfComboBox" kind="class" language="C++" prot="public">
+    <compoundname>QfComboBox</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ComboBox</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfComboBox_1a5b2b60e3eb2d01fdd4d1451e4742fc6e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfComboBox::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>QfComboBox::text</qualifiedname>
+        <read>dummyGetter_text_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfComboBox.qml" line="14" column="1" bodyfile="src/gui/qml/QfComboBox.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfComboBox_1a7fa60a54d02758d1e5213b19365ae747" prot="private" static="no" mutable="no">
+        <type>var Material</type>
+        <definition>var Material QfComboBox::accent</definition>
+        <argsstring></argsstring>
+        <name>accent</name>
+        <qualifiedname>QfComboBox::accent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfComboBox.qml" line="16" column="13" bodyfile="src/gui/qml/QfComboBox.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfComboBox_1aa0888f75c8c168bcb8bfe19c858e380c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfComboBox::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>QfComboBox::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfComboBox.qml" line="17" column="5" bodyfile="src/gui/qml/QfComboBox.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ComboBox</label>
+      </node>
+      <node id="1">
+        <label>QfComboBox</label>
+        <link refid="classQfComboBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ComboBox</label>
+      </node>
+      <node id="1">
+        <label>QfComboBox</label>
+        <link refid="classQfComboBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfComboBox.qml" line="11" column="1" bodyfile="src/gui/qml/QfComboBox.qml" bodystart="11" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classQfComboBox_1a7fa60a54d02758d1e5213b19365ae747" prot="private" virt="non-virtual"><scope>QfComboBox</scope><name>accent</name></member>
+      <member refid="classQfComboBox_1aa0888f75c8c168bcb8bfe19c858e380c" prot="private" virt="non-virtual"><scope>QfComboBox</scope><name>contentItem</name></member>
+      <member refid="classQfComboBox_1a5b2b60e3eb2d01fdd4d1451e4742fc6e" prot="public" virt="non-virtual"><scope>QfComboBox</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

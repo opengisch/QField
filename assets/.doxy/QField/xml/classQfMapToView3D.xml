@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMapToView3D" kind="class" language="C++" prot="public">
+    <compoundname>QfMapToView3D</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfmaptoview3d_8h" local="no">qfmaptoview3d.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMapToView3D_1aeb9755c2589c797ea4deb710a14b7f57" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider * QfMapToView3D::terrainProvider</definition>
+        <argsstring></argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>QfMapToView3D::terrainProvider</qualifiedname>
+        <read>terrainProvider</read>
+        <write>setTerrainProvider</write>
+        <briefdescription>
+<para>The terrain provider used for geo-to-3D coordinate conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="41" column="5" bodyfile="src/3d/qfmaptoview3d.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapToView3D_1ad616dd2f7eaac36469a4295602f033c3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfMapToView3D::mapPoint</definition>
+        <argsstring></argsstring>
+        <name>mapPoint</name>
+        <qualifiedname>QfMapToView3D::mapPoint</qualifiedname>
+        <read>mapPoint</read>
+        <write>setMapPoint</write>
+        <briefdescription>
+<para>The point in map coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="44" column="5" bodyfile="src/3d/qfmaptoview3d.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapToView3D_1a90b1b92024763b24c3cbef6a0f1ed021" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float QfMapToView3D::heightOffset</definition>
+        <argsstring></argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>QfMapToView3D::heightOffset</qualifiedname>
+        <read>heightOffset</read>
+        <write>setHeightOffset</write>
+        <briefdescription>
+<para>Additional vertical offset above the terrain surface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="47" column="5" bodyfile="src/3d/qfmaptoview3d.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapToView3D_1a26b74021a1c6af0639b1963d54627125" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVector3D</type>
+        <definition>QVector3D QfMapToView3D::viewPoint</definition>
+        <argsstring></argsstring>
+        <name>viewPoint</name>
+        <qualifiedname>QfMapToView3D::viewPoint</qualifiedname>
+        <read>viewPoint</read>
+        <briefdescription>
+<para>The point in 3D coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="50" column="5" bodyfile="src/3d/qfmaptoview3d.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMapToView3D_1a9cfbe765e12d65ae6caee859384aff6e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider* QfMapToView3D::mTerrainProvider</definition>
+        <argsstring></argsstring>
+        <name>mTerrainProvider</name>
+        <qualifiedname>QfMapToView3D::mTerrainProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="76" column="25" bodyfile="src/3d/qfmaptoview3d.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapToView3D_1ade24db9d63058d5c6a02a734be3b4d10" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfMapToView3D::mMapPoint</definition>
+        <argsstring></argsstring>
+        <name>mMapPoint</name>
+        <qualifiedname>QfMapToView3D::mMapPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="77" column="14" bodyfile="src/3d/qfmaptoview3d.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapToView3D_1a17721123797a9e9a8dd3fd7e6e9d3ab4" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float QfMapToView3D::mHeightOffset</definition>
+        <argsstring></argsstring>
+        <name>mHeightOffset</name>
+        <qualifiedname>QfMapToView3D::mHeightOffset</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="78" column="11" bodyfile="src/3d/qfmaptoview3d.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapToView3D_1a71f1a7e327eca048d4441dadad065d3b" prot="private" static="no" mutable="no">
+        <type>QVector3D</type>
+        <definition>QVector3D QfMapToView3D::mViewPoint</definition>
+        <argsstring></argsstring>
+        <name>mViewPoint</name>
+        <qualifiedname>QfMapToView3D::mViewPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="79" column="15" bodyfile="src/3d/qfmaptoview3d.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfMapToView3D_1a33349070f07bdc3d78d5560aa2023ea2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfMapToView3D::QfMapToView3D</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfMapToView3D</name>
+        <qualifiedname>QfMapToView3D::QfMapToView3D</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="53" column="14" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapToView3D_1a07352e8bb0fac501bbd25852d3ad9fde" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider * QfMapToView3D::terrainProvider</definition>
+        <argsstring>() const</argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>QfMapToView3D::terrainProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="55" column="25" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapToView3D_1a18a079a7d997fde06b9ee52d101cd5e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapToView3D::setTerrainProvider</definition>
+        <argsstring>(Qf3DTerrainProvider *provider)</argsstring>
+        <name>setTerrainProvider</name>
+        <qualifiedname>QfMapToView3D::setTerrainProvider</qualifiedname>
+        <param>
+          <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="56" column="10" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="29" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapToView3D_1a44ebf7e003e7fa8f51564bc259e50c63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfMapToView3D::mapPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>mapPoint</name>
+        <qualifiedname>QfMapToView3D::mapPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="58" column="14" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapToView3D_1a1c7fb91f957ec900bf9b1d3f4ad5811c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapToView3D::setMapPoint</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setMapPoint</name>
+        <qualifiedname>QfMapToView3D::setMapPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="59" column="10" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="57" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapToView3D_1abe6b197701c54f1c1f8f9f5194c19e5e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float QfMapToView3D::heightOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>QfMapToView3D::heightOffset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="61" column="11" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapToView3D_1a49a3b66e8c2f6d19ff49446085f9fcef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapToView3D::setHeightOffset</definition>
+        <argsstring>(float offset)</argsstring>
+        <name>setHeightOffset</name>
+        <qualifiedname>QfMapToView3D::setHeightOffset</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="62" column="10" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="74" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapToView3D_1a287b36b70dabe6eb9547f77360b53bef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector3D</type>
+        <definition>QVector3D QfMapToView3D::viewPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>viewPoint</name>
+        <qualifiedname>QfMapToView3D::viewPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="64" column="15" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfMapToView3D_1aea51243551d1808c3781890cabf6cc97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapToView3D::terrainProviderChanged</definition>
+        <argsstring>()</argsstring>
+        <name>terrainProviderChanged</name>
+        <qualifiedname>QfMapToView3D::terrainProviderChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMapToView3D_1a2ae248a093312ad8605ca0a8148f7d48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapToView3D::mapPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapPointChanged</name>
+        <qualifiedname>QfMapToView3D::mapPointChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMapToView3D_1adca1f7e1927a671e36a8bc274dbe2fee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapToView3D::heightOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>heightOffsetChanged</name>
+        <qualifiedname>QfMapToView3D::heightOffsetChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMapToView3D_1a919df350656e50d6c974d14a35d9214a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapToView3D::viewPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>viewPointChanged</name>
+        <qualifiedname>QfMapToView3D::viewPointChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="70" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfMapToView3D_1ad707c9b23b0a5b5259390ece277d9079" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapToView3D::transformPoint</definition>
+        <argsstring>()</argsstring>
+        <name>transformPoint</name>
+        <qualifiedname>QfMapToView3D::transformPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qfmaptoview3d.h" line="73" column="10" bodyfile="src/3d/qfmaptoview3d.cpp" bodystart="91" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Transforms a map point to a 3D position using a terrain provider.</para>
+<para>The 3D point is automatically updated when the map point or terrain provider extent changes, enabling dynamic positioning of 3D elements.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQfMapToView3D" kindref="compound">QfMapToView3D</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfMapToView3D</label>
+        <link refid="classQfMapToView3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfMapToView3D</label>
+        <link refid="classQfMapToView3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qfmaptoview3d.h" line="36" column="1" bodyfile="src/3d/qfmaptoview3d.h" bodystart="37" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classQfMapToView3D_1a90b1b92024763b24c3cbef6a0f1ed021" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>heightOffset</name></member>
+      <member refid="classQfMapToView3D_1abe6b197701c54f1c1f8f9f5194c19e5e" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>heightOffset</name></member>
+      <member refid="classQfMapToView3D_1adca1f7e1927a671e36a8bc274dbe2fee" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>heightOffsetChanged</name></member>
+      <member refid="classQfMapToView3D_1ad616dd2f7eaac36469a4295602f033c3" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>mapPoint</name></member>
+      <member refid="classQfMapToView3D_1a44ebf7e003e7fa8f51564bc259e50c63" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>mapPoint</name></member>
+      <member refid="classQfMapToView3D_1a2ae248a093312ad8605ca0a8148f7d48" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>mapPointChanged</name></member>
+      <member refid="classQfMapToView3D_1a17721123797a9e9a8dd3fd7e6e9d3ab4" prot="private" virt="non-virtual"><scope>QfMapToView3D</scope><name>mHeightOffset</name></member>
+      <member refid="classQfMapToView3D_1ade24db9d63058d5c6a02a734be3b4d10" prot="private" virt="non-virtual"><scope>QfMapToView3D</scope><name>mMapPoint</name></member>
+      <member refid="classQfMapToView3D_1a9cfbe765e12d65ae6caee859384aff6e" prot="private" virt="non-virtual"><scope>QfMapToView3D</scope><name>mTerrainProvider</name></member>
+      <member refid="classQfMapToView3D_1a71f1a7e327eca048d4441dadad065d3b" prot="private" virt="non-virtual"><scope>QfMapToView3D</scope><name>mViewPoint</name></member>
+      <member refid="classQfMapToView3D_1a33349070f07bdc3d78d5560aa2023ea2" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>QfMapToView3D</name></member>
+      <member refid="classQfMapToView3D_1a49a3b66e8c2f6d19ff49446085f9fcef" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>setHeightOffset</name></member>
+      <member refid="classQfMapToView3D_1a1c7fb91f957ec900bf9b1d3f4ad5811c" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>setMapPoint</name></member>
+      <member refid="classQfMapToView3D_1a18a079a7d997fde06b9ee52d101cd5e3" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>setTerrainProvider</name></member>
+      <member refid="classQfMapToView3D_1aeb9755c2589c797ea4deb710a14b7f57" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>terrainProvider</name></member>
+      <member refid="classQfMapToView3D_1a07352e8bb0fac501bbd25852d3ad9fde" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>terrainProvider</name></member>
+      <member refid="classQfMapToView3D_1aea51243551d1808c3781890cabf6cc97" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>terrainProviderChanged</name></member>
+      <member refid="classQfMapToView3D_1ad707c9b23b0a5b5259390ece277d9079" prot="private" virt="non-virtual"><scope>QfMapToView3D</scope><name>transformPoint</name></member>
+      <member refid="classQfMapToView3D_1a26b74021a1c6af0639b1963d54627125" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>viewPoint</name></member>
+      <member refid="classQfMapToView3D_1a287b36b70dabe6eb9547f77360b53bef" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>viewPoint</name></member>
+      <member refid="classQfMapToView3D_1a919df350656e50d6c974d14a35d9214a" prot="public" virt="non-virtual"><scope>QfMapToView3D</scope><name>viewPointChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

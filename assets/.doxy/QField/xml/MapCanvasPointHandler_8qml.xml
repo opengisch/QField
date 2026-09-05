@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="MapCanvasPointHandler_8qml" kind="file" language="C++">
+    <compoundname>MapCanvasPointHandler.qml</compoundname>
+    <innerclass refid="classMapCanvasPointHandler" prot="public">MapCanvasPointHandler</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.qfield.core</highlight></codeline>
+<codeline lineno="2" refid="classMapCanvasPointHandler" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">QfMapCanvasPointHandler<sp/>{}</highlight></codeline>
+    </programlisting>
+    <location file="src/app/qml_compat/MapCanvasPointHandler.qml"/>
+  </compounddef>
+</doxygen>

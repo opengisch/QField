@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfAttributeFormModelBase_1_1CodeRequirements" kind="struct" language="C++" prot="private">
+    <compoundname>QfAttributeFormModelBase::CodeRequirements</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfAttributeFormModelBase_1_1CodeRequirements_1a03b01688881848e7aa5cfda56a7f7d9e" prot="public" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; QfAttributeFormModelBase::CodeRequirements::referencedColumns</definition>
+        <argsstring></argsstring>
+        <name>referencedColumns</name>
+        <qualifiedname>QfAttributeFormModelBase::CodeRequirements::referencedColumns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="108" column="14" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfAttributeFormModelBase_1_1CodeRequirements_1a5c92d4ebe9907e91cf0d2126257db249" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::CodeRequirements::formScope</definition>
+        <argsstring></argsstring>
+        <name>formScope</name>
+        <qualifiedname>QfAttributeFormModelBase::CodeRequirements::formScope</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="109" column="14" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui/qfattributeformmodelbase.h" line="106" column="5" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="107" bodyend="110"/>
+    <listofallmembers>
+      <member refid="structQfAttributeFormModelBase_1_1CodeRequirements_1a5c92d4ebe9907e91cf0d2126257db249" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase::CodeRequirements</scope><name>formScope</name></member>
+      <member refid="structQfAttributeFormModelBase_1_1CodeRequirements_1a03b01688881848e7aa5cfda56a7f7d9e" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase::CodeRequirements</scope><name>referencedColumns</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

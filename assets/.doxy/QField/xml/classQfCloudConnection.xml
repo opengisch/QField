@@ -1,0 +1,1957 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudConnection" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudConnection</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <innerclass refid="classQfCloudConnection_1_1CloudError" prot="public">QfCloudConnection::CloudError</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfCloudConnection_1ad87c61b5630a0e5dec2a075667e66f6e" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ConnectionStatus</name>
+        <qualifiedname>QfCloudConnection::ConnectionStatus</qualifiedname>
+        <enumvalue id="classQfCloudConnection_1ad87c61b5630a0e5dec2a075667e66f6eaef70e46fd3bbc21e3e1f0b6815e750c0" prot="public">
+          <name>Disconnected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudConnection_1ad87c61b5630a0e5dec2a075667e66f6eae321c53b354930ba96f0243e652df458" prot="public">
+          <name>Connecting</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudConnection_1ad87c61b5630a0e5dec2a075667e66f6eafebcd1edf6010db4858e623d1dd2f3bc" prot="public">
+          <name>LoggedIn</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="93" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="94" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfCloudConnection_1aea60dd04c88e85ae18dae674fc7458d9" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ConnectionState</name>
+        <qualifiedname>QfCloudConnection::ConnectionState</qualifiedname>
+        <enumvalue id="classQfCloudConnection_1aea60dd04c88e85ae18dae674fc7458d9ae599161956d626eda4cb0a5ffb85271c" prot="public">
+          <name>Idle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudConnection_1aea60dd04c88e85ae18dae674fc7458d9ad8a942ef2b04672adfafef0ad817a407" prot="public">
+          <name>Busy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="101" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="102" bodyend="105"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudConnection_1a63be6746ac1712b07fe756464f00ce2c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::provider</definition>
+        <argsstring></argsstring>
+        <name>provider</name>
+        <qualifiedname>QfCloudConnection::provider</qualifiedname>
+        <read>provider</read>
+        <write>setProvider</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="71" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1a634ee6025936896c37688ac373c14679" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>QfCloudConnection::username</qualifiedname>
+        <read>username</read>
+        <write>setUsername</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="72" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1aac5549f356acd9826ec1e92428de486c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>QfCloudConnection::password</qualifiedname>
+        <read>password</read>
+        <write>setPassword</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="73" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1aa1fd92b0e3d5dd39bc07ffe34911f22e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::avatarUrl</definition>
+        <argsstring></argsstring>
+        <name>avatarUrl</name>
+        <qualifiedname>QfCloudConnection::avatarUrl</qualifiedname>
+        <read>avatarUrl</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="74" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1a391d90e765d9495e3a473a6755b98666" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>QfCloudConnection::url</qualifiedname>
+        <read>url</read>
+        <write>setUrl</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="75" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1a605a10ace8d97ac874305d57b63a8a5d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::defaultUrl</definition>
+        <argsstring></argsstring>
+        <name>defaultUrl</name>
+        <qualifiedname>QfCloudConnection::defaultUrl</qualifiedname>
+        <read>defaultUrl</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="76" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1a32e693e71ebd25b21f83ede4f533021d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QStringList</type>
+        <definition>QStringList QfCloudConnection::urls</definition>
+        <argsstring></argsstring>
+        <name>urls</name>
+        <qualifiedname>QfCloudConnection::urls</qualifiedname>
+        <read>urls</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="77" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1a49b8c59462f8eb4f092f1f2051822c59" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>ConnectionStatus</type>
+        <definition>ConnectionStatus QfCloudConnection::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QfCloudConnection::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="79" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1aa41a1f7760db9326d90cc9cb3f050793" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>ConnectionState</type>
+        <definition>ConnectionState QfCloudConnection::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>QfCloudConnection::state</qualifiedname>
+        <read>state</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="80" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1a606e261bf15d227bc9d836d5c04ef4fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::hasToken</definition>
+        <argsstring></argsstring>
+        <name>hasToken</name>
+        <qualifiedname>QfCloudConnection::hasToken</qualifiedname>
+        <read>hasToken</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="81" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1ac200073e0e1f24593425b52f6a096af2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::hasProviderConfiguration</definition>
+        <argsstring></argsstring>
+        <name>hasProviderConfiguration</name>
+        <qualifiedname>QfCloudConnection::hasProviderConfiguration</qualifiedname>
+        <read>hasProviderConfiguration</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="82" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1a9c2cbeff1d8a2e7ac2bcd88d885a519b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfAuthenticationProvider" kindref="compound">QfAuthenticationProvider</ref> &gt;</type>
+        <definition>QList&lt;QfAuthenticationProvider&gt; QfCloudConnection::availableProviders</definition>
+        <argsstring></argsstring>
+        <name>availableProviders</name>
+        <qualifiedname>QfCloudConnection::availableProviders</qualifiedname>
+        <read>availableProviders</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="84" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1ae6943768a75de9dc5cc7bb94d8f78dce" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::isFetchingAvailableProviders</definition>
+        <argsstring></argsstring>
+        <name>isFetchingAvailableProviders</name>
+        <qualifiedname>QfCloudConnection::isFetchingAvailableProviders</qualifiedname>
+        <read>isFetchingAvailableProviders</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="85" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1afa9f11ddc1e17d6d40fe98bba343b851" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></type>
+        <definition>QfCloudUserInformation QfCloudConnection::userInformation</definition>
+        <argsstring></argsstring>
+        <name>userInformation</name>
+        <qualifiedname>QfCloudConnection::userInformation</qualifiedname>
+        <read>userInformation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="87" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1acbee245a0c2b1a8495cb5e10638bccf3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref></type>
+        <definition>QfCloudServerInformation QfCloudConnection::serverInformation</definition>
+        <argsstring></argsstring>
+        <name>serverInformation</name>
+        <qualifiedname>QfCloudConnection::serverInformation</qualifiedname>
+        <read>serverInformation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="88" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudConnection_1a69d23c304c126ebf739918006338c2fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::isReachable</definition>
+        <argsstring></argsstring>
+        <name>isReachable</name>
+        <qualifiedname>QfCloudConnection::isReachable</qualifiedname>
+        <read>isReachable</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="90" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classQfCloudConnection_1a7e09d51072c2cf184aee80e8d7f309e4" prot="public" static="yes" mutable="no">
+        <type>QMap&lt; QString, QString &gt;</type>
+        <definition>QMap&lt; QString, QString &gt; QfCloudConnection::sErrors</definition>
+        <argsstring></argsstring>
+        <name>sErrors</name>
+        <qualifiedname>QfCloudConnection::sErrors</qualifiedname>
+        <initializer>= QMap&lt;QString, QString&gt;(
+  {
+    { &quot;unknown_error&quot;, QObject::tr( &quot;QFieldCloud Unknown Error&quot; ) },
+    { &quot;status_not_ok&quot;, QObject::tr( &quot;Status not ok&quot; ) },
+    { &quot;empty_content&quot;, QObject::tr( &quot;Empty content&quot; ) },
+    { &quot;object_not_found&quot;, QObject::tr( &quot;Object not found&quot; ) },
+    { &quot;api_error&quot;, QObject::tr( &quot;API Error&quot; ) },
+    { &quot;validation_error&quot;, QObject::tr( &quot;Validation Error&quot; ) },
+    { &quot;multiple_projects&quot;, QObject::tr( &quot;Multiple Projects&quot; ) },
+    { &quot;invalid_deltafile&quot;, QObject::tr( &quot;Invalid delta file&quot; ) },
+    { &quot;no_qgis_project&quot;, QObject::tr( &quot;The project does not contain a valid QGIS project file&quot; ) },
+    { &quot;invalid_job&quot;, QObject::tr( &quot;Invalid job&quot; ) },
+    { &quot;qgis_export_error&quot;, QObject::tr( &quot;QGIS export failed&quot; ) },
+    { &quot;qgis_cannot_open_project&quot;, QObject::tr( &quot;QGIS is unable to open the QGIS project&quot; ) },
+  } )</initializer>
+        <briefdescription>
+<para>Contains a map of error codes and translated messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="133" column="17" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudConnection_1a50c406b0e5c3ea17f83786e909611351" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::mUrl</definition>
+        <argsstring></argsstring>
+        <name>mUrl</name>
+        <qualifiedname>QfCloudConnection::mUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="288" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a45f9ab3e39efc10bf456b4d59e766f49" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::mUsername</definition>
+        <argsstring></argsstring>
+        <name>mUsername</name>
+        <qualifiedname>QfCloudConnection::mUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="290" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1ab2f8b42ead6ab4e71e01ce08b3603d5c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::mPassword</definition>
+        <argsstring></argsstring>
+        <name>mPassword</name>
+        <qualifiedname>QfCloudConnection::mPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="291" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a3589eafc4288536c29df53b50e33c8d3" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray QfCloudConnection::mToken</definition>
+        <argsstring></argsstring>
+        <name>mToken</name>
+        <qualifiedname>QfCloudConnection::mToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="292" column="16" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a0fb4344ba982bd5685d57953ae5b1288" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::mTokenConfigId</definition>
+        <argsstring></argsstring>
+        <name>mTokenConfigId</name>
+        <qualifiedname>QfCloudConnection::mTokenConfigId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="293" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1ae9ad79252ebd1b2831a6f08557ecbadd" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, <ref refid="classQfAuthenticationProvider" kindref="compound">QfAuthenticationProvider</ref> &gt;</type>
+        <definition>QMap&lt;QString, QfAuthenticationProvider&gt; QfCloudConnection::mAvailableProviders</definition>
+        <argsstring></argsstring>
+        <name>mAvailableProviders</name>
+        <qualifiedname>QfCloudConnection::mAvailableProviders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="295" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1ad9156c6bcdbee1447e849c08378ee958" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::mIsFetchingAvailableProviders</definition>
+        <argsstring></argsstring>
+        <name>mIsFetchingAvailableProviders</name>
+        <qualifiedname>QfCloudConnection::mIsFetchingAvailableProviders</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="296" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a104c264845225b7eced3bd129632a80a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::mProvider</definition>
+        <argsstring></argsstring>
+        <name>mProvider</name>
+        <qualifiedname>QfCloudConnection::mProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="297" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="297" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a36e7f10a39190b7b730f534f7333e4b4" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::mProviderConfigId</definition>
+        <argsstring></argsstring>
+        <name>mProviderConfigId</name>
+        <qualifiedname>QfCloudConnection::mProviderConfigId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="298" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a55596da975c8bc5f57fe7c547370d39b" prot="private" static="no" mutable="no">
+        <type><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref></type>
+        <definition>QfCloudServerInformation QfCloudConnection::mServerInformation</definition>
+        <argsstring></argsstring>
+        <name>mServerInformation</name>
+        <qualifiedname>QfCloudConnection::mServerInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="300" column="30" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a7aa9f96ebef658acbb279300454eb86d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::mAvatarUrl</definition>
+        <argsstring></argsstring>
+        <name>mAvatarUrl</name>
+        <qualifiedname>QfCloudConnection::mAvatarUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="302" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1ae9387cf13826ea34dc43b3cda0a2d6c2" prot="private" static="no" mutable="no">
+        <type><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></type>
+        <definition>QfCloudUserInformation QfCloudConnection::mUserInformation</definition>
+        <argsstring></argsstring>
+        <name>mUserInformation</name>
+        <qualifiedname>QfCloudConnection::mUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="303" column="28" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a386dda610eb486abe97d2e1c9561a75e" prot="private" static="no" mutable="no">
+        <type>ConnectionStatus</type>
+        <definition>ConnectionStatus QfCloudConnection::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>QfCloudConnection::mStatus</qualifiedname>
+        <initializer>= ConnectionStatus::Disconnected</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="304" column="22" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a20e44fcd72cb0a49aca9e5ec3a438e4d" prot="private" static="no" mutable="no">
+        <type>ConnectionState</type>
+        <definition>ConnectionState QfCloudConnection::mState</definition>
+        <argsstring></argsstring>
+        <name>mState</name>
+        <qualifiedname>QfCloudConnection::mState</qualifiedname>
+        <initializer>= ConnectionState::Idle</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="305" column="21" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a492abe719321f574606a2646702b6674" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfCloudConnection::mPendingRequests</definition>
+        <argsstring></argsstring>
+        <name>mPendingRequests</name>
+        <qualifiedname>QfCloudConnection::mPendingRequests</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="307" column="9" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a47155e74354292df4a1a983c0c4801ee" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfCloudConnection::mUploadPendingCount</definition>
+        <argsstring></argsstring>
+        <name>mUploadPendingCount</name>
+        <qualifiedname>QfCloudConnection::mUploadPendingCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="309" column="15" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a9792560d50313d08761dd4ccb9d3fbe4" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfCloudConnection::mUploadDoneCount</definition>
+        <argsstring></argsstring>
+        <name>mUploadDoneCount</name>
+        <qualifiedname>QfCloudConnection::mUploadDoneCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="310" column="15" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a5ebf212e317aa7636cb777b8930a79c8" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfCloudConnection::mUploadFailingCount</definition>
+        <argsstring></argsstring>
+        <name>mUploadFailingCount</name>
+        <qualifiedname>QfCloudConnection::mUploadFailingCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="311" column="15" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a3d084a04887ef240b76770012fa39068" prot="private" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; QfCloudConnection::mQueuedProjectPushes</definition>
+        <argsstring></argsstring>
+        <name>mQueuedProjectPushes</name>
+        <qualifiedname>QfCloudConnection::mQueuedProjectPushes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="315" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1af2ad4a618f3c054239b2732c8b567801" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::mIsFlushingQueuedProjectPushes</definition>
+        <argsstring></argsstring>
+        <name>mIsFlushingQueuedProjectPushes</name>
+        <qualifiedname>QfCloudConnection::mIsFlushingQueuedProjectPushes</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="316" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1a34dd2d66fb4f2761c63fe334bfcb4f13" prot="private" static="no" mutable="no">
+        <type>const QNetworkInformation *</type>
+        <definition>const QNetworkInformation* QfCloudConnection::mNetworkInformation</definition>
+        <argsstring></argsstring>
+        <name>mNetworkInformation</name>
+        <qualifiedname>QfCloudConnection::mNetworkInformation</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="318" column="31" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudConnection_1a3364c23c9b441b4ed4d1996dc3a2a263" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudConnection::QfCloudConnection</definition>
+        <argsstring>()</argsstring>
+        <name>QfCloudConnection</name>
+        <qualifiedname>QfCloudConnection::QfCloudConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="126" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="38" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a05fab7523356f5535f23ecf3d5413d24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudConnection::~QfCloudConnection</definition>
+        <argsstring>()</argsstring>
+        <name>~QfCloudConnection</name>
+        <qualifiedname>QfCloudConnection::~QfCloudConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="127" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1ae6771167eb3b07fc9f131f0f9c844f83" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::url</definition>
+        <argsstring>() const</argsstring>
+        <name>url</name>
+        <qualifiedname>QfCloudConnection::url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the currently set server connection URL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="138" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="179" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a851fc6a617b234d1020eea42aaa898aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>setUrl</name>
+        <qualifiedname>QfCloudConnection::setUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current server connection URL and saves it into QSettings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="143" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="184" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1af7746c9429ccbea5c270e59e5bbb80a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfCloudConnection::urls</definition>
+        <argsstring>() const</argsstring>
+        <name>urls</name>
+        <qualifiedname>QfCloudConnection::urls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the connections URLs successfully logged in in the past. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="153" column="17" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="215" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1acf42180680eec9c179e83472a19a2f5b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::provider</definition>
+        <argsstring>() const</argsstring>
+        <name>provider</name>
+        <qualifiedname>QfCloudConnection::provider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="155" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="234" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a1b49e54852d6146b5529eb9e6dba8b6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setProvider</definition>
+        <argsstring>(const QString &amp;provider)</argsstring>
+        <name>setProvider</name>
+        <qualifiedname>QfCloudConnection::setProvider</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="156" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="239" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a4cf6a2c3e3fcf11c9dfe2432594316e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::username</definition>
+        <argsstring>() const</argsstring>
+        <name>username</name>
+        <qualifiedname>QfCloudConnection::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="158" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="252" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a24a4b05bc66d1326970fa675afaea4be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setUsername</definition>
+        <argsstring>(const QString &amp;username)</argsstring>
+        <name>setUsername</name>
+        <qualifiedname>QfCloudConnection::setUsername</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="159" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="257" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a742f29fd55e18f8495ecbf690c341915" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::password</definition>
+        <argsstring>() const</argsstring>
+        <name>password</name>
+        <qualifiedname>QfCloudConnection::password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="161" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="276" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a8d43d2df75155928d6946009817bd91b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setPassword</definition>
+        <argsstring>(const QString &amp;password)</argsstring>
+        <name>setPassword</name>
+        <qualifiedname>QfCloudConnection::setPassword</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="162" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="281" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1acf5625947d181a6ed52780e379a64fb6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::token</definition>
+        <argsstring>() const</argsstring>
+        <name>token</name>
+        <qualifiedname>QfCloudConnection::token</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="164" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="292" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a2703c8e850e5528bd3adf3b840e7d0d9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::avatarUrl</definition>
+        <argsstring>() const</argsstring>
+        <name>avatarUrl</name>
+        <qualifiedname>QfCloudConnection::avatarUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="166" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="229" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1af8ad669594e65312308876aa59950deb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></type>
+        <definition>QfCloudUserInformation QfCloudConnection::userInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>userInformation</name>
+        <qualifiedname>QfCloudConnection::userInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="168" column="28" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="297" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a103282f148633d7772711fc8174238da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudConnection::login</definition>
+        <argsstring>(const QString &amp;password=QString())</argsstring>
+        <name>login</name>
+        <qualifiedname>QfCloudConnection::login</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>password</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="170" column="22" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="411" bodyend="542"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a69753d660a50d125243af1aae243fe0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudConnection::logout</definition>
+        <argsstring>()</argsstring>
+        <name>logout</name>
+        <qualifiedname>QfCloudConnection::logout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="171" column="22" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="544" bodyend="579"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a584c0c4f991b954cae95de4d44b24e3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudConnection::getUserOrganizations</definition>
+        <argsstring>(const QString &amp;user)</argsstring>
+        <name>getUserOrganizations</name>
+        <qualifiedname>QfCloudConnection::getUserOrganizations</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="173" column="22" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="581" bodyend="615"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a6289b77c6073cc3c7ddb689b3a011e11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudConnection::getSubscriptionInformation</definition>
+        <argsstring>(const QString &amp;user)</argsstring>
+        <name>getSubscriptionInformation</name>
+        <qualifiedname>QfCloudConnection::getSubscriptionInformation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="174" column="22" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="617" bodyend="642"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1afb05ecd63ff3898a9bb3df671fb83fd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudConnection::getServerInformation</definition>
+        <argsstring>()</argsstring>
+        <name>getServerInformation</name>
+        <qualifiedname>QfCloudConnection::getServerInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="176" column="22" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="312" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a874e8a85d99352babe577305fe1e6a7d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfAuthenticationProvider" kindref="compound">QfAuthenticationProvider</ref> &gt;</type>
+        <definition>QList&lt; QfAuthenticationProvider &gt; QfCloudConnection::availableProviders</definition>
+        <argsstring>() const</argsstring>
+        <name>availableProviders</name>
+        <qualifiedname>QfCloudConnection::availableProviders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="177" column="11" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="307" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1ad5c9d634f3b91e0582f1b62e1d9f651f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::isFetchingAvailableProviders</definition>
+        <argsstring>() const</argsstring>
+        <name>isFetchingAvailableProviders</name>
+        <qualifiedname>QfCloudConnection::isFetchingAvailableProviders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="178" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="302" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1ab0cd4b96def42c1d6163249b648a999a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref></type>
+        <definition>QfCloudServerInformation QfCloudConnection::serverInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>serverInformation</name>
+        <qualifiedname>QfCloudConnection::serverInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="180" column="30" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="180" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a8ca9a2b71ea99464b57c76621dfed70e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ConnectionStatus</type>
+        <definition>QfCloudConnection::ConnectionStatus QfCloudConnection::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <qualifiedname>QfCloudConnection::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="182" column="22" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="644" bodyend="647"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a3ad6bc3006af5468cb33abb1c1977471" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ConnectionState</type>
+        <definition>QfCloudConnection::ConnectionState QfCloudConnection::state</definition>
+        <argsstring>() const</argsstring>
+        <name>state</name>
+        <qualifiedname>QfCloudConnection::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="183" column="21" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="649" bodyend="652"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a0f1887d8924cf45165f4f54915014568" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::hasToken</definition>
+        <argsstring>()</argsstring>
+        <name>hasToken</name>
+        <qualifiedname>QfCloudConnection::hasToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="185" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a89a5e93bf15659579e59c6e3ffb39bcf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::hasProviderConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>hasProviderConfiguration</name>
+        <qualifiedname>QfCloudConnection::hasProviderConfiguration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="186" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="186" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a0716e51c300046c6ac19898c7a6c90fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfCloudConnection::post</definition>
+        <argsstring>(const QString &amp;endpoint, const QVariantMap &amp;params=QVariantMap(), const QStringList &amp;fileNames=QStringList())</argsstring>
+        <name>post</name>
+        <qualifiedname>QfCloudConnection::post</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>fileNames</declname>
+          <defval>QStringList()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a post request with the given <emphasis>parameters</emphasis> to the given <emphasis>endpoint</emphasis>.</para>
+<para>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="194" column="20" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="654" bodyend="658"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a0c45d2befac3b038ed7c7efeb64a0338" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfCloudConnection::post</definition>
+        <argsstring>(QNetworkRequest &amp;request, const QString &amp;endpoint, const QVariantMap &amp;params=QVariantMap(), const QStringList &amp;fileNames=QStringList())</argsstring>
+        <name>post</name>
+        <qualifiedname>QfCloudConnection::post</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>fileNames</declname>
+          <defval>QStringList()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a post <emphasis>request</emphasis> with the given <emphasis>parameters</emphasis> to the given <emphasis>endpoint</emphasis>.</para>
+<para>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="202" column="20" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="660" bodyend="728"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a807aef05b760ac22484575ab5904bbdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfCloudConnection::get</definition>
+        <argsstring>(const QString &amp;endpoint, const QVariantMap &amp;params=QVariantMap())</argsstring>
+        <name>get</name>
+        <qualifiedname>QfCloudConnection::get</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a get request to the given <emphasis>endpoint</emphasis>. Query can be passed via <emphasis>params</emphasis>, empty by default.</para>
+<para>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="210" column="20" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="730" bodyend="739"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1ab644172182b73398dd495c21f45cb3ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfCloudConnection::get</definition>
+        <argsstring>(QNetworkRequest &amp;request, const QString &amp;endpoint, const QVariantMap &amp;params=QVariantMap())</argsstring>
+        <name>get</name>
+        <qualifiedname>QfCloudConnection::get</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a get <emphasis>request</emphasis> to a given <emphasis>endpoint</emphasis>. Additional query can be passed via <emphasis>params</emphasis>, empty by default.</para>
+<para>If this connection is not logged in, will return nullptr. The returned reply needs to be deleted by the caller. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="218" column="20" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="742" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a47427be63359b7f0c2a314b8e5c0888b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfCloudConnection::get</definition>
+        <argsstring>(QNetworkRequest &amp;request, const QUrl &amp;url, const QVariantMap &amp;params=QVariantMap())</argsstring>
+        <name>get</name>
+        <qualifiedname>QfCloudConnection::get</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>params</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="219" column="20" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="754" bodyend="801"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a5a60433a5d251dedd1f5f094060340c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setAuthenticationDetails</definition>
+        <argsstring>(QNetworkRequest &amp;request)</argsstring>
+        <name>setAuthenticationDetails</name>
+        <qualifiedname>QfCloudConnection::setAuthenticationDetails</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets authentication details on a <emphasis>request</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="224" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="890" bodyend="954"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a2a86cc7c3b3c001ef1051f7f753754c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qsizetype</type>
+        <definition>qsizetype QfCloudConnection::uploadPendingAttachments</definition>
+        <argsstring>()</argsstring>
+        <name>uploadPendingAttachments</name>
+        <qualifiedname>QfCloudConnection::uploadPendingAttachments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uploads any pending attachments linked to the logged in user account. <simplesect kind="return"><para>the number of attachments to be uploaded. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="230" column="15" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="1056" bodyend="1075"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1adf9f8858b2fe96f4b7e97d3d8fe48335" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::queueProjectPush</definition>
+        <argsstring>(const QString &amp;projectId)</argsstring>
+        <name>queueProjectPush</name>
+        <qualifiedname>QfCloudConnection::queueProjectPush</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Queues a project push request when the network is not reachable.</para>
+<para>The push will be automatically triggered once the connection is back online and the user is logged in. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="238" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="89" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a8c68d77cf6df6078555c86a84fc6ed9a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudConnection::isReachable</definition>
+        <argsstring>() const</argsstring>
+        <name>isReachable</name>
+        <qualifiedname>QfCloudConnection::isReachable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the network is currently reachable.</para>
+<para>If reachability information is not available, this returns true to keep the existing behavior unchanged. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="246" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="135" bodyend="156"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfCloudConnection_1ad08231d88669236e9ef57123cac23389" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::errorString</definition>
+        <argsstring>(QNetworkReply *reply)</argsstring>
+        <name>errorString</name>
+        <qualifiedname>QfCloudConnection::errorString</qualifiedname>
+        <param>
+          <type>QNetworkReply *</type>
+          <declname>reply</declname>
+        </param>
+        <briefdescription>
+<para>Returns an error string to be shown to the user if <emphasis>reply</emphasis> has an error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="130" column="20" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="174" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a4b9ed0feaf264cf94229922c5df5601e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>static QString QfCloudConnection::defaultUrl</definition>
+        <argsstring>()</argsstring>
+        <name>defaultUrl</name>
+        <qualifiedname>QfCloudConnection::defaultUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default server connection URL, pointing to the production server. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="148" column="20"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudConnection_1ac229df4ef5f0356cda5e8bc1be9f25d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::providerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>providerChanged</name>
+        <qualifiedname>QfCloudConnection::providerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="249" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1ae1379c68ac5c0307d6c38fe443f1a5ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::usernameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>usernameChanged</name>
+        <qualifiedname>QfCloudConnection::usernameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="250" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a0dad638208163d0ac7f8e1abf9c52dc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::passwordChanged</definition>
+        <argsstring>()</argsstring>
+        <name>passwordChanged</name>
+        <qualifiedname>QfCloudConnection::passwordChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="251" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1ae1dd47c272e41d88078a8872b6edc6c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::avatarUrlChanged</definition>
+        <argsstring>()</argsstring>
+        <name>avatarUrlChanged</name>
+        <qualifiedname>QfCloudConnection::avatarUrlChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="252" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a1510e188d81ddb86318b93807a61870f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::urlChanged</definition>
+        <argsstring>()</argsstring>
+        <name>urlChanged</name>
+        <qualifiedname>QfCloudConnection::urlChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="253" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a3bce75c70170b1c8986d5c1105d2064b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::urlsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>urlsChanged</name>
+        <qualifiedname>QfCloudConnection::urlsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="254" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a509d4f824ba989b757efd6e67bbe3369" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::statusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusChanged</name>
+        <qualifiedname>QfCloudConnection::statusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="255" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a40886e299f7fdbc001409535b4e6e77b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::stateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>stateChanged</name>
+        <qualifiedname>QfCloudConnection::stateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="256" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1aaff84db3ebbbdfc23bb5648991d7ba2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::tokenChanged</definition>
+        <argsstring>()</argsstring>
+        <name>tokenChanged</name>
+        <qualifiedname>QfCloudConnection::tokenChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="257" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a7d25dc84856823f394b8f2bf9c18c60e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::providerConfigurationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>providerConfigurationChanged</name>
+        <qualifiedname>QfCloudConnection::providerConfigurationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="258" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1aa72479c0edea17249cc937fa8cec65c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::userInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>userInformationChanged</name>
+        <qualifiedname>QfCloudConnection::userInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="259" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1af9e3f21eb6d711fd4ed656d0f3b33c5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::pendingAttachmentsUploadFinished</definition>
+        <argsstring>(const QString &amp;error=QString())</argsstring>
+        <name>pendingAttachmentsUploadFinished</name>
+        <qualifiedname>QfCloudConnection::pendingAttachmentsUploadFinished</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="260" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1ae3921d1df4eb0eb6ebffaa9ae8c97377" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::pendingAttachmentsUploadStatus</definition>
+        <argsstring>(const QString &amp;fileName, double fileProgress, qsizetype uploadPending)</argsstring>
+        <name>pendingAttachmentsUploadStatus</name>
+        <qualifiedname>QfCloudConnection::pendingAttachmentsUploadStatus</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fileProgress</declname>
+        </param>
+        <param>
+          <type>qsizetype</type>
+          <declname>uploadPending</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="261" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a644153f0b12996ddb0340780acd2b29a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::pendingAttachmentsAdded</definition>
+        <argsstring>()</argsstring>
+        <name>pendingAttachmentsAdded</name>
+        <qualifiedname>QfCloudConnection::pendingAttachmentsAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="262" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1ab48b558fbe6f87df33cbef00e57f3fbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::error</definition>
+        <argsstring>()</argsstring>
+        <name>error</name>
+        <qualifiedname>QfCloudConnection::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="263" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a934b893cbe845eccb4f3bea96fc2609d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::loginFailed</definition>
+        <argsstring>(const QString &amp;reason)</argsstring>
+        <name>loginFailed</name>
+        <qualifiedname>QfCloudConnection::loginFailed</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>reason</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="265" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a9ac0ac42d1addf29ed7db36b46af74f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::availableProvidersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>availableProvidersChanged</name>
+        <qualifiedname>QfCloudConnection::availableProvidersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="267" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1ad90d8acc2f3a52baac9e0045885f6792" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::isFetchingAvailableProvidersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isFetchingAvailableProvidersChanged</name>
+        <qualifiedname>QfCloudConnection::isFetchingAvailableProvidersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="268" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1afa8a17c4af3889c8d2365744b903ac2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::serverInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>serverInformationChanged</name>
+        <qualifiedname>QfCloudConnection::serverInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="269" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1ad85316d9e92ba3a079089c7065e81b8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::isReachableChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isReachableChanged</name>
+        <qualifiedname>QfCloudConnection::isReachableChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="271" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a5a75c3fca55f0722da1bcc0957e6ffdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::queuedProjectPushRequested</definition>
+        <argsstring>(const QString &amp;projectId)</argsstring>
+        <name>queuedProjectPushRequested</name>
+        <qualifiedname>QfCloudConnection::queuedProjectPushRequested</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="272" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1ac61fedfd7c78de859d2592b6bdf5a2ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::userOrganizationsReceived</definition>
+        <argsstring>(const QStringList &amp;organizations)</argsstring>
+        <name>userOrganizationsReceived</name>
+        <qualifiedname>QfCloudConnection::userOrganizationsReceived</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>organizations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="274" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudConnection_1a2012060ad984a9776bc4edbc3331a6d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::subscriptionInformationReceived</definition>
+        <argsstring>(const QfCloudSubscriptionInformation &amp;subscriptionInformation)</argsstring>
+        <name>subscriptionInformationReceived</name>
+        <qualifiedname>QfCloudConnection::subscriptionInformationReceived</qualifiedname>
+        <param>
+          <type>const <ref refid="structQfCloudSubscriptionInformation" kindref="compound">QfCloudSubscriptionInformation</ref> &amp;</type>
+          <declname>subscriptionInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="275" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfCloudConnection_1a7a398c3a40aa1301417d4b751980d6c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setStatus</definition>
+        <argsstring>(ConnectionStatus status)</argsstring>
+        <name>setStatus</name>
+        <qualifiedname>QfCloudConnection::setStatus</qualifiedname>
+        <param>
+          <type>ConnectionStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="278" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="861" bodyend="877"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a6c73b9ee650e90538214eec7427bb9a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setState</definition>
+        <argsstring>(ConnectionState state)</argsstring>
+        <name>setState</name>
+        <qualifiedname>QfCloudConnection::setState</qualifiedname>
+        <param>
+          <type>ConnectionState</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="279" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="879" bodyend="888"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a36edfdc538b5a5d8a6d22f8849963e17" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setToken</definition>
+        <argsstring>(const QByteArray &amp;token)</argsstring>
+        <name>setToken</name>
+        <qualifiedname>QfCloudConnection::setToken</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="280" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="803" bodyend="839"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a8b0915506ffdc4f790ece9de013a6880" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::invalidateToken</definition>
+        <argsstring>()</argsstring>
+        <name>invalidateToken</name>
+        <qualifiedname>QfCloudConnection::invalidateToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="281" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="841" bodyend="859"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1abb6c8d5e9435301cece6443e87b8dc2e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::processPendingAttachments</definition>
+        <argsstring>()</argsstring>
+        <name>processPendingAttachments</name>
+        <qualifiedname>QfCloudConnection::processPendingAttachments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="282" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="1077" bodyend="1173"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1ae4ceb5a44f87e391681ec6b53b22c06f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::fetchLegacyAuthenticationProviders</definition>
+        <argsstring>()</argsstring>
+        <name>fetchLegacyAuthenticationProviders</name>
+        <qualifiedname>QfCloudConnection::fetchLegacyAuthenticationProviders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="283" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="376" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a4f12d244b9ece934d53472b45da3630c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::saveCookies</definition>
+        <argsstring>()</argsstring>
+        <name>saveCookies</name>
+        <qualifiedname>QfCloudConnection::saveCookies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="285" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="1193" bodyend="1205"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1ad714a49b977fefa603a41f4dc217b53d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::restoreCookies</definition>
+        <argsstring>()</argsstring>
+        <name>restoreCookies</name>
+        <qualifiedname>QfCloudConnection::restoreCookies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="286" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="1175" bodyend="1191"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1ae992ba8ab16c8d070d03b112bd9eab21" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::setClientHeaders</definition>
+        <argsstring>(QNetworkRequest &amp;request)</argsstring>
+        <name>setClientHeaders</name>
+        <qualifiedname>QfCloudConnection::setClientHeaders</qualifiedname>
+        <param>
+          <type>QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="313" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="956" bodyend="964"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1a6196fbdd7b8df8876886f8439270c578" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudConnection::tryFlushQueuedProjectPushes</definition>
+        <argsstring>()</argsstring>
+        <name>tryFlushQueuedProjectPushes</name>
+        <qualifiedname>QfCloudConnection::tryFlushQueuedProjectPushes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="319" column="10" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="100" bodyend="133"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCloudConnection</label>
+        <link refid="classQfCloudConnection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCloudConnection</label>
+        <link refid="classQfCloudConnection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfcloudconnection.h" line="67" column="1" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="68" bodyend="320"/>
+    <listofallmembers>
+      <member refid="classQfCloudConnection_1a9c2cbeff1d8a2e7ac2bcd88d885a519b" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>availableProviders</name></member>
+      <member refid="classQfCloudConnection_1a874e8a85d99352babe577305fe1e6a7d" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>availableProviders</name></member>
+      <member refid="classQfCloudConnection_1a9ac0ac42d1addf29ed7db36b46af74f1" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>availableProvidersChanged</name></member>
+      <member refid="classQfCloudConnection_1aa1fd92b0e3d5dd39bc07ffe34911f22e" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>avatarUrl</name></member>
+      <member refid="classQfCloudConnection_1a2703c8e850e5528bd3adf3b840e7d0d9" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>avatarUrl</name></member>
+      <member refid="classQfCloudConnection_1ae1dd47c272e41d88078a8872b6edc6c5" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>avatarUrlChanged</name></member>
+      <member refid="classQfCloudConnection_1aea60dd04c88e85ae18dae674fc7458d9" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>ConnectionState</name></member>
+      <member refid="classQfCloudConnection_1ad87c61b5630a0e5dec2a075667e66f6e" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>ConnectionStatus</name></member>
+      <member refid="classQfCloudConnection_1a605a10ace8d97ac874305d57b63a8a5d" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>defaultUrl</name></member>
+      <member refid="classQfCloudConnection_1a4b9ed0feaf264cf94229922c5df5601e" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>defaultUrl</name></member>
+      <member refid="classQfCloudConnection_1ab48b558fbe6f87df33cbef00e57f3fbd" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>error</name></member>
+      <member refid="classQfCloudConnection_1ad08231d88669236e9ef57123cac23389" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>errorString</name></member>
+      <member refid="classQfCloudConnection_1ae4ceb5a44f87e391681ec6b53b22c06f" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>fetchLegacyAuthenticationProviders</name></member>
+      <member refid="classQfCloudConnection_1a807aef05b760ac22484575ab5904bbdc" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>get</name></member>
+      <member refid="classQfCloudConnection_1ab644172182b73398dd495c21f45cb3ab" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>get</name></member>
+      <member refid="classQfCloudConnection_1a47427be63359b7f0c2a314b8e5c0888b" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>get</name></member>
+      <member refid="classQfCloudConnection_1afb05ecd63ff3898a9bb3df671fb83fd5" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>getServerInformation</name></member>
+      <member refid="classQfCloudConnection_1a6289b77c6073cc3c7ddb689b3a011e11" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>getSubscriptionInformation</name></member>
+      <member refid="classQfCloudConnection_1a584c0c4f991b954cae95de4d44b24e3c" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>getUserOrganizations</name></member>
+      <member refid="classQfCloudConnection_1ac200073e0e1f24593425b52f6a096af2" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>hasProviderConfiguration</name></member>
+      <member refid="classQfCloudConnection_1a89a5e93bf15659579e59c6e3ffb39bcf" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>hasProviderConfiguration</name></member>
+      <member refid="classQfCloudConnection_1a606e261bf15d227bc9d836d5c04ef4fa" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>hasToken</name></member>
+      <member refid="classQfCloudConnection_1a0f1887d8924cf45165f4f54915014568" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>hasToken</name></member>
+      <member refid="classQfCloudConnection_1a8b0915506ffdc4f790ece9de013a6880" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>invalidateToken</name></member>
+      <member refid="classQfCloudConnection_1ae6943768a75de9dc5cc7bb94d8f78dce" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>isFetchingAvailableProviders</name></member>
+      <member refid="classQfCloudConnection_1ad5c9d634f3b91e0582f1b62e1d9f651f" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>isFetchingAvailableProviders</name></member>
+      <member refid="classQfCloudConnection_1ad90d8acc2f3a52baac9e0045885f6792" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>isFetchingAvailableProvidersChanged</name></member>
+      <member refid="classQfCloudConnection_1a69d23c304c126ebf739918006338c2fa" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>isReachable</name></member>
+      <member refid="classQfCloudConnection_1a8c68d77cf6df6078555c86a84fc6ed9a" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>isReachable</name></member>
+      <member refid="classQfCloudConnection_1ad85316d9e92ba3a079089c7065e81b8a" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>isReachableChanged</name></member>
+      <member refid="classQfCloudConnection_1a103282f148633d7772711fc8174238da" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>login</name></member>
+      <member refid="classQfCloudConnection_1a934b893cbe845eccb4f3bea96fc2609d" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>loginFailed</name></member>
+      <member refid="classQfCloudConnection_1a69753d660a50d125243af1aae243fe0d" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>logout</name></member>
+      <member refid="classQfCloudConnection_1ae9ad79252ebd1b2831a6f08557ecbadd" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mAvailableProviders</name></member>
+      <member refid="classQfCloudConnection_1a7aa9f96ebef658acbb279300454eb86d" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mAvatarUrl</name></member>
+      <member refid="classQfCloudConnection_1ad9156c6bcdbee1447e849c08378ee958" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mIsFetchingAvailableProviders</name></member>
+      <member refid="classQfCloudConnection_1af2ad4a618f3c054239b2732c8b567801" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mIsFlushingQueuedProjectPushes</name></member>
+      <member refid="classQfCloudConnection_1a34dd2d66fb4f2761c63fe334bfcb4f13" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mNetworkInformation</name></member>
+      <member refid="classQfCloudConnection_1ab2f8b42ead6ab4e71e01ce08b3603d5c" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mPassword</name></member>
+      <member refid="classQfCloudConnection_1a492abe719321f574606a2646702b6674" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mPendingRequests</name></member>
+      <member refid="classQfCloudConnection_1a104c264845225b7eced3bd129632a80a" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mProvider</name></member>
+      <member refid="classQfCloudConnection_1a36e7f10a39190b7b730f534f7333e4b4" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mProviderConfigId</name></member>
+      <member refid="classQfCloudConnection_1a3d084a04887ef240b76770012fa39068" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mQueuedProjectPushes</name></member>
+      <member refid="classQfCloudConnection_1a55596da975c8bc5f57fe7c547370d39b" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mServerInformation</name></member>
+      <member refid="classQfCloudConnection_1a20e44fcd72cb0a49aca9e5ec3a438e4d" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mState</name></member>
+      <member refid="classQfCloudConnection_1a386dda610eb486abe97d2e1c9561a75e" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mStatus</name></member>
+      <member refid="classQfCloudConnection_1a3589eafc4288536c29df53b50e33c8d3" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mToken</name></member>
+      <member refid="classQfCloudConnection_1a0fb4344ba982bd5685d57953ae5b1288" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mTokenConfigId</name></member>
+      <member refid="classQfCloudConnection_1a9792560d50313d08761dd4ccb9d3fbe4" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mUploadDoneCount</name></member>
+      <member refid="classQfCloudConnection_1a5ebf212e317aa7636cb777b8930a79c8" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mUploadFailingCount</name></member>
+      <member refid="classQfCloudConnection_1a47155e74354292df4a1a983c0c4801ee" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mUploadPendingCount</name></member>
+      <member refid="classQfCloudConnection_1a50c406b0e5c3ea17f83786e909611351" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mUrl</name></member>
+      <member refid="classQfCloudConnection_1ae9387cf13826ea34dc43b3cda0a2d6c2" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mUserInformation</name></member>
+      <member refid="classQfCloudConnection_1a45f9ab3e39efc10bf456b4d59e766f49" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>mUsername</name></member>
+      <member refid="classQfCloudConnection_1aac5549f356acd9826ec1e92428de486c" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>password</name></member>
+      <member refid="classQfCloudConnection_1a742f29fd55e18f8495ecbf690c341915" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>password</name></member>
+      <member refid="classQfCloudConnection_1a0dad638208163d0ac7f8e1abf9c52dc7" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>passwordChanged</name></member>
+      <member refid="classQfCloudConnection_1a644153f0b12996ddb0340780acd2b29a" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>pendingAttachmentsAdded</name></member>
+      <member refid="classQfCloudConnection_1af9e3f21eb6d711fd4ed656d0f3b33c5e" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>pendingAttachmentsUploadFinished</name></member>
+      <member refid="classQfCloudConnection_1ae3921d1df4eb0eb6ebffaa9ae8c97377" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>pendingAttachmentsUploadStatus</name></member>
+      <member refid="classQfCloudConnection_1a0716e51c300046c6ac19898c7a6c90fa" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>post</name></member>
+      <member refid="classQfCloudConnection_1a0c45d2befac3b038ed7c7efeb64a0338" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>post</name></member>
+      <member refid="classQfCloudConnection_1abb6c8d5e9435301cece6443e87b8dc2e" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>processPendingAttachments</name></member>
+      <member refid="classQfCloudConnection_1a63be6746ac1712b07fe756464f00ce2c" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>provider</name></member>
+      <member refid="classQfCloudConnection_1acf42180680eec9c179e83472a19a2f5b" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>provider</name></member>
+      <member refid="classQfCloudConnection_1ac229df4ef5f0356cda5e8bc1be9f25d3" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>providerChanged</name></member>
+      <member refid="classQfCloudConnection_1a7d25dc84856823f394b8f2bf9c18c60e" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>providerConfigurationChanged</name></member>
+      <member refid="classQfCloudConnection_1a3364c23c9b441b4ed4d1996dc3a2a263" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>QfCloudConnection</name></member>
+      <member refid="classQfCloudConnection_1a5a75c3fca55f0722da1bcc0957e6ffdf" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>queuedProjectPushRequested</name></member>
+      <member refid="classQfCloudConnection_1adf9f8858b2fe96f4b7e97d3d8fe48335" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>queueProjectPush</name></member>
+      <member refid="classQfCloudConnection_1ad714a49b977fefa603a41f4dc217b53d" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>restoreCookies</name></member>
+      <member refid="classQfCloudConnection_1a4f12d244b9ece934d53472b45da3630c" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>saveCookies</name></member>
+      <member refid="classQfCloudConnection_1a7e09d51072c2cf184aee80e8d7f309e4" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>sErrors</name></member>
+      <member refid="classQfCloudConnection_1acbee245a0c2b1a8495cb5e10638bccf3" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>serverInformation</name></member>
+      <member refid="classQfCloudConnection_1ab0cd4b96def42c1d6163249b648a999a" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>serverInformation</name></member>
+      <member refid="classQfCloudConnection_1afa8a17c4af3889c8d2365744b903ac2b" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>serverInformationChanged</name></member>
+      <member refid="classQfCloudConnection_1a5a60433a5d251dedd1f5f094060340c1" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>setAuthenticationDetails</name></member>
+      <member refid="classQfCloudConnection_1ae992ba8ab16c8d070d03b112bd9eab21" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>setClientHeaders</name></member>
+      <member refid="classQfCloudConnection_1a8d43d2df75155928d6946009817bd91b" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>setPassword</name></member>
+      <member refid="classQfCloudConnection_1a1b49e54852d6146b5529eb9e6dba8b6d" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>setProvider</name></member>
+      <member refid="classQfCloudConnection_1a6c73b9ee650e90538214eec7427bb9a2" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>setState</name></member>
+      <member refid="classQfCloudConnection_1a7a398c3a40aa1301417d4b751980d6c6" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>setStatus</name></member>
+      <member refid="classQfCloudConnection_1a36edfdc538b5a5d8a6d22f8849963e17" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>setToken</name></member>
+      <member refid="classQfCloudConnection_1a851fc6a617b234d1020eea42aaa898aa" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>setUrl</name></member>
+      <member refid="classQfCloudConnection_1a24a4b05bc66d1326970fa675afaea4be" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>setUsername</name></member>
+      <member refid="classQfCloudConnection_1aa41a1f7760db9326d90cc9cb3f050793" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>state</name></member>
+      <member refid="classQfCloudConnection_1a3ad6bc3006af5468cb33abb1c1977471" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>state</name></member>
+      <member refid="classQfCloudConnection_1a40886e299f7fdbc001409535b4e6e77b" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>stateChanged</name></member>
+      <member refid="classQfCloudConnection_1a49b8c59462f8eb4f092f1f2051822c59" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>status</name></member>
+      <member refid="classQfCloudConnection_1a8ca9a2b71ea99464b57c76621dfed70e" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>status</name></member>
+      <member refid="classQfCloudConnection_1a509d4f824ba989b757efd6e67bbe3369" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>statusChanged</name></member>
+      <member refid="classQfCloudConnection_1a2012060ad984a9776bc4edbc3331a6d2" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>subscriptionInformationReceived</name></member>
+      <member refid="classQfCloudConnection_1acf5625947d181a6ed52780e379a64fb6" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>token</name></member>
+      <member refid="classQfCloudConnection_1aaff84db3ebbbdfc23bb5648991d7ba2f" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>tokenChanged</name></member>
+      <member refid="classQfCloudConnection_1a6196fbdd7b8df8876886f8439270c578" prot="private" virt="non-virtual"><scope>QfCloudConnection</scope><name>tryFlushQueuedProjectPushes</name></member>
+      <member refid="classQfCloudConnection_1a2a86cc7c3b3c001ef1051f7f753754c7" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>uploadPendingAttachments</name></member>
+      <member refid="classQfCloudConnection_1a391d90e765d9495e3a473a6755b98666" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>url</name></member>
+      <member refid="classQfCloudConnection_1ae6771167eb3b07fc9f131f0f9c844f83" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>url</name></member>
+      <member refid="classQfCloudConnection_1a1510e188d81ddb86318b93807a61870f" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>urlChanged</name></member>
+      <member refid="classQfCloudConnection_1a32e693e71ebd25b21f83ede4f533021d" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>urls</name></member>
+      <member refid="classQfCloudConnection_1af7746c9429ccbea5c270e59e5bbb80a6" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>urls</name></member>
+      <member refid="classQfCloudConnection_1a3bce75c70170b1c8986d5c1105d2064b" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>urlsChanged</name></member>
+      <member refid="classQfCloudConnection_1afa9f11ddc1e17d6d40fe98bba343b851" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>userInformation</name></member>
+      <member refid="classQfCloudConnection_1af8ad669594e65312308876aa59950deb" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>userInformation</name></member>
+      <member refid="classQfCloudConnection_1aa72479c0edea17249cc937fa8cec65c1" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>userInformationChanged</name></member>
+      <member refid="classQfCloudConnection_1a634ee6025936896c37688ac373c14679" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>username</name></member>
+      <member refid="classQfCloudConnection_1a4cf6a2c3e3fcf11c9dfe2432594316e7" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>username</name></member>
+      <member refid="classQfCloudConnection_1ae1379c68ac5c0307d6c38fe443f1a5ca" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>usernameChanged</name></member>
+      <member refid="classQfCloudConnection_1ac61fedfd7c78de859d2592b6bdf5a2ec" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>userOrganizationsReceived</name></member>
+      <member refid="classQfCloudConnection_1a05fab7523356f5535f23ecf3d5413d24" prot="public" virt="non-virtual"><scope>QfCloudConnection</scope><name>~QfCloudConnection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

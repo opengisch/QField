@@ -1,0 +1,1212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAppInterface" kind="class" language="C++" prot="public">
+    <compoundname>QfAppInterface</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfappinterface_8h" local="no">qfappinterface.h</includes>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQfAppInterface_1abf6aa9fbcef76ec1e5cf804ad829374b" prot="private" static="yes" mutable="no">
+        <type><ref refid="classQfAppInterface" kindref="compound">QfAppInterface</ref> *</type>
+        <definition>QfAppInterface * QfAppInterface::sAppInterface</definition>
+        <argsstring></argsstring>
+        <name>sAppInterface</name>
+        <qualifiedname>QfAppInterface::sAppInterface</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="286" column="27" bodyfile="src/core/qfappinterface.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAppInterface_1a54e28e70aca8a535101026c0dc587d82" prot="private" static="no" mutable="no">
+        <type>QQmlEngine *</type>
+        <definition>QQmlEngine* QfAppInterface::mEngine</definition>
+        <argsstring></argsstring>
+        <name>mEngine</name>
+        <qualifiedname>QfAppInterface::mEngine</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="288" column="16" bodyfile="src/core/qfappinterface.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAppInterface_1ad76a449a5c0ad4fad14439703e8ad598" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfAppController" kindref="compound">QfAppController</ref> *</type>
+        <definition>QfAppController* QfAppInterface::mController</definition>
+        <argsstring></argsstring>
+        <name>mController</name>
+        <qualifiedname>QfAppInterface::mController</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="289" column="21" bodyfile="src/core/qfappinterface.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAppInterface_1a2061e6f53559586af94c5cc9dbb66405" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAppInterface::QfAppInterface</definition>
+        <argsstring>(QQmlEngine *engine, QfAppController *controller=nullptr)</argsstring>
+        <name>QfAppInterface</name>
+        <qualifiedname>QfAppInterface::QfAppInterface</qualifiedname>
+        <param>
+          <type>QQmlEngine *</type>
+          <declname>engine</declname>
+        </param>
+        <param>
+          <type><ref refid="classQfAppController" kindref="compound">QfAppController</ref> *</type>
+          <declname>controller</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="42" column="14" bodyfile="src/core/qfappinterface.cpp" bodystart="51" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1ac2d2d369f42e07c7e8046c6206868047" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfAppInterface::QfAppInterface</definition>
+        <argsstring>()</argsstring>
+        <name>QfAppInterface</name>
+        <qualifiedname>QfAppInterface::QfAppInterface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="43" column="5" bodyfile="src/core/qfappinterface.h" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1aedc078d14f625879b849389450a74558" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::importUrl</definition>
+        <argsstring>(const QString &amp;url, const QString &amp;title=QString(), bool loadOnImport=false)</argsstring>
+        <name>importUrl</name>
+        <qualifiedname>QfAppInterface::importUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>title</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>loadOnImport</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Imports a compressed project from a given URL and place the content into the Imported Projects folder. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the http/https URL where the project&apos;s compressed ZIP file is </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the title of the project being imported </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loadOnImport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to load the project on successful import </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="56" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="418" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1abe66241a8792d23d52e876561b76c8c1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAppInterface::hasProjectOnLaunch</definition>
+        <argsstring>() const</argsstring>
+        <name>hasProjectOnLaunch</name>
+        <qualifiedname>QfAppInterface::hasProjectOnLaunch</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE is a project was passed on when launching QField. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="59" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="193" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a961fb676b06607fb0d11f6618b3d73f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAppInterface::loadFile</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;name=QString())</argsstring>
+        <name>loadFile</name>
+        <qualifiedname>QfAppInterface::loadFile</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads a project file or standalone dataset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the project file (.qgs or .qgz) or standalone dataset path </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a project name (if left empty, the project file will be used instead) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="67" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="213" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1acb4a3b9342484a1577fc5d3732dbc65c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::reloadProject</definition>
+        <argsstring>()</argsstring>
+        <name>reloadProject</name>
+        <qualifiedname>QfAppInterface::reloadProject</qualifiedname>
+        <briefdescription>
+<para>Reloads the currently opened project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="70" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="229" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a68addeca63c2443b9cc06bd5065e9773" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfAppInterface::readProjectEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, const QString &amp;def=QString()) const</argsstring>
+        <name>readProjectEntry</name>
+        <qualifiedname>QfAppInterface::readProjectEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>def</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a string from the specified scope and key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified key does not exist within the scope </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="78" column="25" bodyfile="src/core/qfappinterface.cpp" bodystart="245" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1aaa8561c4962b7077b7974c1e4f6c84f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfAppInterface::readProjectNumEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, int def=0) const</argsstring>
+        <name>readProjectNumEntry</name>
+        <qualifiedname>QfAppInterface::readProjectNumEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>def</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads an integer from the specified scope and key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified key does not exist within the scope </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="86" column="21" bodyfile="src/core/qfappinterface.cpp" bodystart="250" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a77fd8a83c6fa3d1c69854bfd3538d368" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double QfAppInterface::readProjectDoubleEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, double def=0.0) const</argsstring>
+        <name>readProjectDoubleEntry</name>
+        <qualifiedname>QfAppInterface::readProjectDoubleEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>def</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a double from the specified scope and key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified key does not exist within the scope </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="94" column="24" bodyfile="src/core/qfappinterface.cpp" bodystart="255" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a7d0f9453752022c93ebedf43e79b2c55" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAppInterface::readProjectBoolEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, bool def=false) const</argsstring>
+        <name>readProjectBoolEntry</name>
+        <qualifiedname>QfAppInterface::readProjectBoolEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>def</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a double from the specified scope and key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry scope (group) name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>entry key name. Keys are &apos;/&apos;-delimited entries, implying a hierarchy of keys and corresponding values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value to return if the specified key does not exist within the scope </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="102" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="260" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1aff78f9cb7cb2eaac79c11d70cbdf1f2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAppInterface::print</definition>
+        <argsstring>(const QString &amp;layoutName)</argsstring>
+        <name>print</name>
+        <qualifiedname>QfAppInterface::print</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layoutName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints a project layout to PDF. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layoutName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layout name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="108" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="265" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1ad3bc10d71a55a723490d7351b05bd27f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAppInterface::printAtlasFeatures</definition>
+        <argsstring>(const QString &amp;layoutName, const QList&lt; long long &gt; &amp;featureIds)</argsstring>
+        <name>printAtlasFeatures</name>
+        <qualifiedname>QfAppInterface::printAtlasFeatures</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layoutName</declname>
+        </param>
+        <param>
+          <type>const QList&lt; long long &gt; &amp;</type>
+          <declname>featureIds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints an atlas-driven project layout to PDF. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layoutName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the layout name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>featureIds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list of atlas feature IDs </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="115" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="270" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1acb937ca65561c5bc9b1c7c639b556df2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::setScreenDimmerTimeout</definition>
+        <argsstring>(int timeoutSeconds)</argsstring>
+        <name>setScreenDimmerTimeout</name>
+        <qualifiedname>QfAppInterface::setScreenDimmerTimeout</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timeoutSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the screen drimmer timeout. Dimming can be disabled by setting the timeout to zero. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeoutSeconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>timeout in seconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="121" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="275" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1adcfbe58eea2818665c58cdb8c6905242" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfAppInterface::availableLanguages</definition>
+        <argsstring>() const</argsstring>
+        <name>availableLanguages</name>
+        <qualifiedname>QfAppInterface::availableLanguages</qualifiedname>
+        <briefdescription>
+<para>Returns a list of available UI translation languages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="124" column="29" bodyfile="src/core/qfappinterface.cpp" bodystart="288" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a401287e1d623d2aea77618c2121526ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::changeLanguage</definition>
+        <argsstring>(const QString &amp;languageCode)</argsstring>
+        <name>changeLanguage</name>
+        <qualifiedname>QfAppInterface::changeLanguage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>languageCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Changes the application language to the specified <emphasis>languageCode</emphasis>. This will reload translators and refresh all QML translations without restarting the app. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>languageCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The language code (e.g., &quot;en&quot;, &quot;de&quot;) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfAppInterface_1adcfbe58eea2818665c58cdb8c6905242" kindref="member">availableLanguages</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="132" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="322" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a230db851c241cf7204c6ec03acb0aece" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAppInterface::isFileExtensionSupported</definition>
+        <argsstring>(const QString &amp;filename) const</argsstring>
+        <name>isFileExtensionSupported</name>
+        <qualifiedname>QfAppInterface::isFileExtensionSupported</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if a given <emphasis>filename</emphasis> can be opened as a project or standalone dataset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="135" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="372" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1ad371c79d6ca1086fd10ed2bb0688ab75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::logMessage</definition>
+        <argsstring>(const QString &amp;message)</argsstring>
+        <name>logMessage</name>
+        <qualifiedname>QfAppInterface::logMessage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a log <emphasis>message</emphasis> that will be visible to the user through the message log panel, as well as added into the device&apos;s system logs which will be captured by the sentry&apos;s reporting framework when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="142" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="379" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a4924ae86ac35858ca47deb8ea0af4fe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::logRuntimeProfiler</definition>
+        <argsstring>()</argsstring>
+        <name>logRuntimeProfiler</name>
+        <qualifiedname>QfAppInterface::logRuntimeProfiler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs the current runtime profiler model content into the message log panel, as well as added into the device&apos;s system logs which will be captured by the sentry&apos;s reporting framework when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="149" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="384" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a770597f2c6eda940877c12154220de3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::sendLog</definition>
+        <argsstring>(const QString &amp;message, const QString &amp;cloudUser)</argsstring>
+        <name>sendLog</name>
+        <qualifiedname>QfAppInterface::sendLog</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>cloudUser</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a logs reporting through to sentry when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="154" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="389" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1afa532a21374dc39bacfc1f8137c4239d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::initiateSentry</definition>
+        <argsstring>() const</argsstring>
+        <name>initiateSentry</name>
+        <qualifiedname>QfAppInterface::initiateSentry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initalizes sentry connection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="159" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="396" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1af6f821cff42f63ea4987321bf4c1552f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::closeSentry</definition>
+        <argsstring>() const</argsstring>
+        <name>closeSentry</name>
+        <qualifiedname>QfAppInterface::closeSentry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Closes active sentry connection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="164" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="403" bodyend="408"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1ae35e8c5e76e004e985a16d38156b9772" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::clearProject</definition>
+        <argsstring>() const</argsstring>
+        <name>clearProject</name>
+        <qualifiedname>QfAppInterface::clearProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the currently opened project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="169" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="410" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1ac9966af04d58bfe4f0d87c1a3a14214d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * QfAppInterface::findItemByObjectName</definition>
+        <argsstring>(const QString &amp;name) const</argsstring>
+        <name>findItemByObjectName</name>
+        <qualifiedname>QfAppInterface::findItemByObjectName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the item matching the provided object <emphasis>name</emphasis> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="174" column="25" bodyfile="src/core/qfappinterface.cpp" bodystart="97" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a377a5f5715e740e2da42a8dd323e355d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::addItemToPluginsToolbar</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToPluginsToolbar</name>
+        <qualifiedname>QfAppInterface::addItemToPluginsToolbar</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> in the plugins toolbar container </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="179" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="103" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a4dee5de2de0bd63cfbe175371441e322" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::addItemToMapCanvas3D</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToMapCanvas3D</name>
+        <qualifiedname>QfAppInterface::addItemToMapCanvas3D</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a geometry <emphasis>configuration</emphasis> to the persistent plugin 3D container. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="184" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="118" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a092cc89b451807914d561a72db26ecd1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::addItemToCanvasActionsToolbar</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToCanvasActionsToolbar</name>
+        <qualifiedname>QfAppInterface::addItemToCanvasActionsToolbar</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> in the map canvas menu&apos;s action toolbar container </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="189" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="131" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a3b7c04a3bccaf9fe5062a29cd267d27d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::addItemToDashboardActionsToolbar</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToDashboardActionsToolbar</name>
+        <qualifiedname>QfAppInterface::addItemToDashboardActionsToolbar</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> in the dashboard&apos;s action toolbar container </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="194" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="146" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a134fe8c73b592cf2440c7e05ea9c7bf6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::addItemToMainMenuActionsToolbar</definition>
+        <argsstring>(QQuickItem *item) const</argsstring>
+        <name>addItemToMainMenuActionsToolbar</name>
+        <qualifiedname>QfAppInterface::addItemToMainMenuActionsToolbar</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> in the dashboard&apos;s action toolbar container <simplesect kind="note"><para>This function is deprecated and will be removed in the future, use the addItemToDashboardActionsToolbar function instead </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="201" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1aad709bdd747ccb9f334867bb3e6f193b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * QfAppInterface::mainWindow</definition>
+        <argsstring>() const</argsstring>
+        <name>mainWindow</name>
+        <qualifiedname>QfAppInterface::mainWindow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the main window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="206" column="25" bodyfile="src/core/qfappinterface.cpp" bodystart="166" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1afaff9fc5c6adec44f83f0b51b0229d29" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * QfAppInterface::mapCanvas</definition>
+        <argsstring>() const</argsstring>
+        <name>mapCanvas</name>
+        <qualifiedname>QfAppInterface::mapCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the main map canvas item. <simplesect kind="see"><para><ref refid="classMapCanvas" kindref="compound">MapCanvas</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="212" column="25" bodyfile="src/core/qfappinterface.cpp" bodystart="171" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a535e081bfa1cd8bac12ca3b870bfef1e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * QfAppInterface::positioning</definition>
+        <argsstring>() const</argsstring>
+        <name>positioning</name>
+        <qualifiedname>QfAppInterface::positioning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the positioning item. <simplesect kind="see"><para><ref refid="classQfPositioning" kindref="compound">QfPositioning</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="218" column="25" bodyfile="src/core/qfappinterface.cpp" bodystart="182" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a28f3db0a770b3630d3466d5b18aa96c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppInterface::setupNetworkProxy</definition>
+        <argsstring>() const</argsstring>
+        <name>setupNetworkProxy</name>
+        <qualifiedname>QfAppInterface::setupNetworkProxy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies network proxy settings stored in QSettings to the network access manager. Call this after updating the proxy/ settings keys. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="225" column="22" bodyfile="src/core/qfappinterface.cpp" bodystart="283" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppInterface_1a1d32c19a827020fb3b05d1ad03cb5f3b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QObject *</type>
+        <definition>QObject * QfAppInterface::createHttpRequest</definition>
+        <argsstring>() const</argsstring>
+        <name>createHttpRequest</name>
+        <qualifiedname>QfAppInterface::createHttpRequest</qualifiedname>
+        <briefdescription>
+<para>One-shot xmlhttp request. Defaults to autoDelete = true. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="228" column="25" bodyfile="src/core/qfappinterface.cpp" bodystart="84" bodyend="95"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfAppInterface_1aa972312d83577a1fd7f0434b84f2cd87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::importTriggered</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>importTriggered</name>
+        <qualifiedname>QfAppInterface::importTriggered</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a dataset or project import has been triggered. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a indentifier-friendly string (e.g. a file being imported) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="243" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1a2165c17b498f7931761b5d78d291f618" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::importProgress</definition>
+        <argsstring>(double progress)</argsstring>
+        <name>importProgress</name>
+        <qualifiedname>QfAppInterface::importProgress</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>progress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when an ongoing import reports its <emphasis>progress</emphasis>. <simplesect kind="note"><para>when an import is started, its progress will be indefinite by default </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="249" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1ad88fd3ec6a941949989b6bab0a61ee82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::importEnded</definition>
+        <argsstring>(const QString &amp;path=QString(), const QString &amp;originalUrl=QString())</argsstring>
+        <name>importEnded</name>
+        <qualifiedname>QfAppInterface::importEnded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>originalUrl</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when an import has ended. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the path within which the imported dataset or project has been copied into </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>if the import was not successful, the path value will be an empty string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="256" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1a2b1d58b815efcc770f65b1cdd3a98097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::loadProjectTriggered</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;name)</argsstring>
+        <name>loadProjectTriggered</name>
+        <qualifiedname>QfAppInterface::loadProjectTriggered</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a project has begin loading. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="261" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1afe2abc2266b2077d5dc2c2006386966e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::loadProjectEnded</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;name)</argsstring>
+        <name>loadProjectEnded</name>
+        <qualifiedname>QfAppInterface::loadProjectEnded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a project loading has ended. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="266" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1aa6407f2222644e90bf447c9c592d99f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::setMapExtent</definition>
+        <argsstring>(const QgsRectangle &amp;extent)</argsstring>
+        <name>setMapExtent</name>
+        <qualifiedname>QfAppInterface::setMapExtent</qualifiedname>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>extent</declname>
+        </param>
+        <briefdescription>
+<para>Requests QField to set its map to the provided <emphasis>extent</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="269" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1a1d50e0b36e6a4676a9f108bffa319135" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::openPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>openPath</name>
+        <qualifiedname>QfAppInterface::openPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Requests QField to open its local data picker screen to show the <emphasis>path</emphasis> content. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="272" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1a2c6943fafd3a9a99e1e946a4ac4b9ac9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::executeAction</definition>
+        <argsstring>(const QString &amp;action)</argsstring>
+        <name>executeAction</name>
+        <qualifiedname>QfAppInterface::executeAction</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>Requests QField to execute a given <emphasis>action</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="275" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1a8a3ab413674b2f7e1b80df499349c140" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::volumeKeyDown</definition>
+        <argsstring>(int volumeKeyCode)</argsstring>
+        <name>volumeKeyDown</name>
+        <qualifiedname>QfAppInterface::volumeKeyDown</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>volumeKeyCode</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a volume key is pressed while QField is set to handle those keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="278" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppInterface_1a725df8b701777ec187098d106fca6294" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppInterface::volumeKeyUp</definition>
+        <argsstring>(int volumeKeyCode)</argsstring>
+        <name>volumeKeyUp</name>
+        <qualifiedname>QfAppInterface::volumeKeyUp</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>volumeKeyCode</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a volume key is pressed while QField is set to handle those keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="281" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfAppInterface_1aaa144a64521ded4b92da63a618414ce4" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QObject *</type>
+        <definition>QObject * QfAppInterface::rootObject</definition>
+        <argsstring>() const</argsstring>
+        <name>rootObject</name>
+        <qualifiedname>QfAppInterface::rootObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfappinterface.h" line="284" column="13" bodyfile="src/core/qfappinterface.cpp" bodystart="57" bodyend="82"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>App interface made available in QML as <computeroutput>iface</computeroutput>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAppInterface</label>
+        <link refid="classQfAppInterface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAppInterface</label>
+        <link refid="classQfAppInterface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfappinterface.h" line="37" column="1" bodyfile="src/core/qfappinterface.h" bodystart="38" bodyend="290"/>
+    <listofallmembers>
+      <member refid="classQfAppInterface_1a092cc89b451807914d561a72db26ecd1" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>addItemToCanvasActionsToolbar</name></member>
+      <member refid="classQfAppInterface_1a3b7c04a3bccaf9fe5062a29cd267d27d" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>addItemToDashboardActionsToolbar</name></member>
+      <member refid="classQfAppInterface_1a134fe8c73b592cf2440c7e05ea9c7bf6" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>addItemToMainMenuActionsToolbar</name></member>
+      <member refid="classQfAppInterface_1a4dee5de2de0bd63cfbe175371441e322" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>addItemToMapCanvas3D</name></member>
+      <member refid="classQfAppInterface_1a377a5f5715e740e2da42a8dd323e355d" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>addItemToPluginsToolbar</name></member>
+      <member refid="classQfAppInterface_1adcfbe58eea2818665c58cdb8c6905242" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>availableLanguages</name></member>
+      <member refid="classQfAppInterface_1a401287e1d623d2aea77618c2121526ec" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>changeLanguage</name></member>
+      <member refid="classQfAppInterface_1ae35e8c5e76e004e985a16d38156b9772" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>clearProject</name></member>
+      <member refid="classQfAppInterface_1af6f821cff42f63ea4987321bf4c1552f" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>closeSentry</name></member>
+      <member refid="classQfAppInterface_1a1d32c19a827020fb3b05d1ad03cb5f3b" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>createHttpRequest</name></member>
+      <member refid="classQfAppInterface_1a2c6943fafd3a9a99e1e946a4ac4b9ac9" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>executeAction</name></member>
+      <member refid="classQfAppInterface_1ac9966af04d58bfe4f0d87c1a3a14214d" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>findItemByObjectName</name></member>
+      <member refid="classQfAppInterface_1abe66241a8792d23d52e876561b76c8c1" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>hasProjectOnLaunch</name></member>
+      <member refid="classQfAppInterface_1ad88fd3ec6a941949989b6bab0a61ee82" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>importEnded</name></member>
+      <member refid="classQfAppInterface_1a2165c17b498f7931761b5d78d291f618" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>importProgress</name></member>
+      <member refid="classQfAppInterface_1aa972312d83577a1fd7f0434b84f2cd87" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>importTriggered</name></member>
+      <member refid="classQfAppInterface_1aedc078d14f625879b849389450a74558" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>importUrl</name></member>
+      <member refid="classQfAppInterface_1afa532a21374dc39bacfc1f8137c4239d" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>initiateSentry</name></member>
+      <member refid="classQfAppInterface_1a230db851c241cf7204c6ec03acb0aece" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>isFileExtensionSupported</name></member>
+      <member refid="classQfAppInterface_1a961fb676b06607fb0d11f6618b3d73f6" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>loadFile</name></member>
+      <member refid="classQfAppInterface_1afe2abc2266b2077d5dc2c2006386966e" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>loadProjectEnded</name></member>
+      <member refid="classQfAppInterface_1a2b1d58b815efcc770f65b1cdd3a98097" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>loadProjectTriggered</name></member>
+      <member refid="classQfAppInterface_1ad371c79d6ca1086fd10ed2bb0688ab75" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>logMessage</name></member>
+      <member refid="classQfAppInterface_1a4924ae86ac35858ca47deb8ea0af4fe6" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>logRuntimeProfiler</name></member>
+      <member refid="classQfAppInterface_1aad709bdd747ccb9f334867bb3e6f193b" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>mainWindow</name></member>
+      <member refid="classQfAppInterface_1afaff9fc5c6adec44f83f0b51b0229d29" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>mapCanvas</name></member>
+      <member refid="classQfAppInterface_1ad76a449a5c0ad4fad14439703e8ad598" prot="private" virt="non-virtual"><scope>QfAppInterface</scope><name>mController</name></member>
+      <member refid="classQfAppInterface_1a54e28e70aca8a535101026c0dc587d82" prot="private" virt="non-virtual"><scope>QfAppInterface</scope><name>mEngine</name></member>
+      <member refid="classQfAppInterface_1a1d50e0b36e6a4676a9f108bffa319135" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>openPath</name></member>
+      <member refid="classQfAppInterface_1a535e081bfa1cd8bac12ca3b870bfef1e" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>positioning</name></member>
+      <member refid="classQfAppInterface_1aff78f9cb7cb2eaac79c11d70cbdf1f2f" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>print</name></member>
+      <member refid="classQfAppInterface_1ad3bc10d71a55a723490d7351b05bd27f" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>printAtlasFeatures</name></member>
+      <member refid="classQfAppInterface_1a2061e6f53559586af94c5cc9dbb66405" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>QfAppInterface</name></member>
+      <member refid="classQfAppInterface_1ac2d2d369f42e07c7e8046c6206868047" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>QfAppInterface</name></member>
+      <member refid="classQfAppInterface_1a7d0f9453752022c93ebedf43e79b2c55" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>readProjectBoolEntry</name></member>
+      <member refid="classQfAppInterface_1a77fd8a83c6fa3d1c69854bfd3538d368" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>readProjectDoubleEntry</name></member>
+      <member refid="classQfAppInterface_1a68addeca63c2443b9cc06bd5065e9773" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>readProjectEntry</name></member>
+      <member refid="classQfAppInterface_1aaa8561c4962b7077b7974c1e4f6c84f0" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>readProjectNumEntry</name></member>
+      <member refid="classQfAppInterface_1acb4a3b9342484a1577fc5d3732dbc65c" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>reloadProject</name></member>
+      <member refid="classQfAppInterface_1aaa144a64521ded4b92da63a618414ce4" prot="private" virt="non-virtual"><scope>QfAppInterface</scope><name>rootObject</name></member>
+      <member refid="classQfAppInterface_1abf6aa9fbcef76ec1e5cf804ad829374b" prot="private" virt="non-virtual"><scope>QfAppInterface</scope><name>sAppInterface</name></member>
+      <member refid="classQfAppInterface_1a770597f2c6eda940877c12154220de3f" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>sendLog</name></member>
+      <member refid="classQfAppInterface_1aa6407f2222644e90bf447c9c592d99f9" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>setMapExtent</name></member>
+      <member refid="classQfAppInterface_1acb937ca65561c5bc9b1c7c639b556df2" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>setScreenDimmerTimeout</name></member>
+      <member refid="classQfAppInterface_1a28f3db0a770b3630d3466d5b18aa96c6" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>setupNetworkProxy</name></member>
+      <member refid="classQfAppInterface_1a8a3ab413674b2f7e1b80df499349c140" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>volumeKeyDown</name></member>
+      <member refid="classQfAppInterface_1a725df8b701777ec187098d106fca6294" prot="public" virt="non-virtual"><scope>QfAppInterface</scope><name>volumeKeyUp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

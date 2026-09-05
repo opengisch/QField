@@ -1,0 +1,1262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAndroidPlatformUtilities" kind="class" language="C++" prot="public">
+    <compoundname>QfAndroidPlatformUtilities</compoundname>
+    <basecompoundref refid="classQfPlatformUtilities" prot="public" virt="non-virtual">QfPlatformUtilities</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAndroidPlatformUtilities_1a0b048446322b7ad0f9231dbee8fb0654" prot="private" static="no" mutable="no">
+        <type>QJniObject</type>
+        <definition>QJniObject QfAndroidPlatformUtilities::mActivity</definition>
+        <argsstring></argsstring>
+        <name>mActivity</name>
+        <qualifiedname>QfAndroidPlatformUtilities::mActivity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="103" column="16" bodyfile="src/core/platforms/android/qfandroidplatformutilities.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAndroidPlatformUtilities_1a934b9efb26acdc83763e85adf6ec63f7" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfAndroidPlatformUtilities::mSystemGenericDataLocation</definition>
+        <argsstring></argsstring>
+        <name>mSystemGenericDataLocation</name>
+        <qualifiedname>QfAndroidPlatformUtilities::mSystemGenericDataLocation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="104" column="13" bodyfile="src/core/platforms/android/qfandroidplatformutilities.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1afdb2ac4fe6e71a5f475347604df71eab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAndroidPlatformUtilities::QfAndroidPlatformUtilities</definition>
+        <argsstring>()</argsstring>
+        <name>QfAndroidPlatformUtilities</name>
+        <qualifiedname>QfAndroidPlatformUtilities::QfAndroidPlatformUtilities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="29" column="5" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a6713eb7ad7b664d7fa3db70d023bf8f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QfPlatformUtilities::Capabilities</type>
+        <definition>QfPlatformUtilities::Capabilities QfAndroidPlatformUtilities::capabilities</definition>
+        <argsstring>() const override</argsstring>
+        <name>capabilities</name>
+        <qualifiedname>QfAndroidPlatformUtilities::capabilities</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1aa89cf3ab89145c3fdf7139949a270ac1">capabilities</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns flags containing the supported capabilities of the platform. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="31" column="39" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="83" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ad12fe0fce2428c381e0ae02414b1b8f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::afterUpdate</definition>
+        <argsstring>() override</argsstring>
+        <name>afterUpdate</name>
+        <qualifiedname>QfAndroidPlatformUtilities::afterUpdate</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ab7ceead53e265de96742bc697a681fb9">afterUpdate</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method can be used to implement platform specific initialization tasks to be performed after an app update. This is implemented for Android to extract app assets to location where it can be accessed via filesystem. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="32" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="92" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a99c20af2000ba73ee142b9dd33611c51" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>QString QfAndroidPlatformUtilities::systemSharedDataLocation</definition>
+        <argsstring>() const override</argsstring>
+        <name>systemSharedDataLocation</name>
+        <qualifiedname>QfAndroidPlatformUtilities::systemSharedDataLocation</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a5c2691a753758483bac702f3a61c7d77">systemSharedDataLocation</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The path to share data location. Under this path, there should be the app specific directories qgis/ proj/ qfield/ ... Refers to /share or /usr/share on Linux. This path is assumed to be read only. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>By default, assume that we have a layout like this:</para>
+<para>[prefix_path] |<ndash/> bin | |<ndash/> qfield.exe |<ndash/> share | |<ndash/> qfield | | |<ndash/> sample_projects | |<ndash/> proj | | |<ndash/> data | | | |<ndash/> proj.db</para>
+<para><ref refid="classQfAndroidPlatformUtilities_1a99c20af2000ba73ee142b9dd33611c51" kindref="member">systemSharedDataLocation()</ref>&apos;s return value will therefore be - relative to qfield.exe - &apos;../share&apos;. However it is possible to override this default logic through a environment variable named QFIELD_SYSTEM_SHARED_DATA_PATH. If present, its value will be used as the return value instead.</para>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="33" column="13" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a85072df768a7567e39375785806d2581" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfAndroidPlatformUtilities::hasQgsProject</definition>
+        <argsstring>() const override</argsstring>
+        <name>hasQgsProject</name>
+        <qualifiedname>QfAndroidPlatformUtilities::hasQgsProject</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a8cc115b57f3640ac6d01cf727693453b">hasQgsProject</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE is a project file has been provided and should be opened at launch. <simplesect kind="see"><para><ref refid="classQfAndroidPlatformUtilities_1a519329c9b95e504b596ce584218d2313" kindref="member">loadQgsProject</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="35" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a519329c9b95e504b596ce584218d2313" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::loadQgsProject</definition>
+        <argsstring>() const override</argsstring>
+        <name>loadQgsProject</name>
+        <qualifiedname>QfAndroidPlatformUtilities::loadQgsProject</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ae1ca66a84b867a7213b7e0da44b9ce6b">loadQgsProject</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads the project file provided during launch. <simplesect kind="see"><para><ref refid="classQfAndroidPlatformUtilities_1a85072df768a7567e39375785806d2581" kindref="member">hasQgsProject</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="36" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="132" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1acd1d3b324f7b33793f31c1d458a94fbd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfAndroidPlatformUtilities::hasQfAction</definition>
+        <argsstring>() const override</argsstring>
+        <name>hasQfAction</name>
+        <qualifiedname>QfAndroidPlatformUtilities::hasQfAction</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1aca3c91414daaefa568521df19d8ebf56">hasQfAction</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current action string <simplesect kind="see"><para>loadQfAction </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="38" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="146" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1aa9f5144a07b7b7668e210f4168c4961b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::executeQfAction</definition>
+        <argsstring>() const override</argsstring>
+        <name>executeQfAction</name>
+        <qualifiedname>QfAndroidPlatformUtilities::executeQfAction</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1af6010bb7380842e51fe2102f2d0ecef1">executeQfAction</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads the action provided during launch. <simplesect kind="see"><para><ref refid="classQfAndroidPlatformUtilities_1acd1d3b324f7b33793f31c1d458a94fbd" kindref="member">hasQfAction</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="39" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="151" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a1122352cdc0fedcac6275d6d69e1f56f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfAndroidPlatformUtilities::appDataDirs</definition>
+        <argsstring>() const override</argsstring>
+        <name>appDataDirs</name>
+        <qualifiedname>QfAndroidPlatformUtilities::appDataDirs</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ab8c9658b905bf6a4b7f5ff54eff9c9c1">appDataDirs</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a list of data directories where user data is searched. User data are pg_service.conf, authentication config, grids, ... </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="41" column="17" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="165" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a9649ad91289b6bd5f60ded855afee061" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>QString QfAndroidPlatformUtilities::applicationDirectory</definition>
+        <argsstring>() const override</argsstring>
+        <name>applicationDirectory</name>
+        <qualifiedname>QfAndroidPlatformUtilities::applicationDirectory</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a771f8472cb9bd6b4daa08dc54db66c56">applicationDirectory</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The main application directory within which projects and datasets can be imported. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="42" column="13" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="171" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a731d888bd34e9d4a9fa27499c024b32c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfAndroidPlatformUtilities::additionalApplicationDirectories</definition>
+        <argsstring>() const override</argsstring>
+        <name>additionalApplicationDirectories</name>
+        <qualifiedname>QfAndroidPlatformUtilities::additionalApplicationDirectories</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a4b98f5f71ccc5e3d229c9b348a548045">additionalApplicationDirectories</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Secondary application directories which can be used by individual platforms. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="43" column="17" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="185" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ad22bdb2982e48132039b58227f7dcc40" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfAndroidPlatformUtilities::rootDirectories</definition>
+        <argsstring>() const override</argsstring>
+        <name>rootDirectories</name>
+        <qualifiedname>QfAndroidPlatformUtilities::rootDirectories</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a2f945de54a5bd6088b2ee89b39d89ef4">rootDirectories</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A list of root directories (e.g. root of an external storage) when system-wide access is available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="44" column="17" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="199" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ae0a5a1b91d536bb6682b02d8ab880d81" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::importProjectFolder</definition>
+        <argsstring>() const override</argsstring>
+        <name>importProjectFolder</name>
+        <qualifiedname>QfAndroidPlatformUtilities::importProjectFolder</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a7c3979d720d825b049ab669152c24225">importProjectFolder</reimplements>
+        <briefdescription>
+<para>Requests and imports a project folder into QField&apos;s application directory action. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="46" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="213" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1afa54da4f9e669e3151a073bb04eed0a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::importProjectArchive</definition>
+        <argsstring>() const override</argsstring>
+        <name>importProjectArchive</name>
+        <qualifiedname>QfAndroidPlatformUtilities::importProjectArchive</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1abbcaeb0e1683824a885f074cf1b4b9c7">importProjectArchive</reimplements>
+        <briefdescription>
+<para>Requests and imports a project archive into QField&apos;s application directory action. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="47" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="227" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a29610966ba28aed06baa78a1ccdcf26e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::importDatasets</definition>
+        <argsstring>() const override</argsstring>
+        <name>importDatasets</name>
+        <qualifiedname>QfAndroidPlatformUtilities::importDatasets</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a9116903e243287ed7c70b3a71cc1486a">importDatasets</reimplements>
+        <briefdescription>
+<para>Requests and imports one or more datasets into QField&apos;s application directory action. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="48" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="241" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a77594f5ed88b7de08b53e5a4c3b01a83" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::updateProjectFromArchive</definition>
+        <argsstring>(const QString &amp;projectPath) const override</argsstring>
+        <name>updateProjectFromArchive</name>
+        <qualifiedname>QfAndroidPlatformUtilities::updateProjectFromArchive</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a19302c08a7b88c3bf949ac53a533e5e4">updateProjectFromArchive</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update a local project content from a user-picked archive file action <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>projectPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the project file path </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="50" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="255" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a43806b884f39e46f6c4d9a39af5f08cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::sendDatasetTo</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>sendDatasetTo</name>
+        <qualifiedname>QfAndroidPlatformUtilities::sendDatasetTo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a95416f0177c66fd73da4fa030fef85b2">sendDatasetTo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Sends a dataset <emphasis>path</emphasis> via the platform native API. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="52" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="270" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ac43f931af215774125177d181742233b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::exportDatasetTo</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>exportDatasetTo</name>
+        <qualifiedname>QfAndroidPlatformUtilities::exportDatasetTo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a1e269c8f9aa5fc88350a09bae592e62d">exportDatasetTo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Exports a dataset <emphasis>path</emphasis> to a user-specified location. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="53" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="291" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a592750c18208f016a9a5dc23791672df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::removeDataset</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>removeDataset</name>
+        <qualifiedname>QfAndroidPlatformUtilities::removeDataset</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ac0b81cc845fa508ef62cbdc85efa4c85">removeDataset</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Removes a given dataset <emphasis>path</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="54" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="317" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a7c06dbe88d07f4d7c222d1e58f0d7b2b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::exportFolderTo</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>exportFolderTo</name>
+        <qualifiedname>QfAndroidPlatformUtilities::exportFolderTo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a1d2c4f228ae500ccfbe2f3adeeffec60">exportFolderTo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Exports a folder <emphasis>path</emphasis> to a user-specified location. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="56" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="345" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1addd3ce7c4d03185e9958e0e41e600e6a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::sendCompressedFolderTo</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>sendCompressedFolderTo</name>
+        <qualifiedname>QfAndroidPlatformUtilities::sendCompressedFolderTo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a6fc8626c9aee2033f16a5e502d03a89d">sendCompressedFolderTo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Compresses a folder <emphasis>path</emphasis> and sends it via the platform native API. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="57" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="365" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ab2f271ad5d65a5c6c5adc838a9795b1b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::removeFolder</definition>
+        <argsstring>(const QString &amp;path) const override</argsstring>
+        <name>removeFolder</name>
+        <qualifiedname>QfAndroidPlatformUtilities::removeFolder</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ac840b152d9d5f87a934574ad40067fee">removeFolder</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Removes a given folder <emphasis>path</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="58" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="380" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1aec9300db3a262ee081fe6a017accaf14" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>QfResourceSource * QfAndroidPlatformUtilities::getCameraPicture</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;pictureFilePath, const QString &amp;suffix, QObject *parent=nullptr) override</argsstring>
+        <name>getCameraPicture</name>
+        <qualifiedname>QfAndroidPlatformUtilities::getCameraPicture</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a85de3bb37bac3df94b3c12ff5c580365">getCameraPicture</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pictureFilePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a picture from camera and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pictureFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the picture or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="60" column="22" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="482" bodyend="485"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1afb45d6e7a3c5140dee7b242269be2716" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>QfResourceSource * QfAndroidPlatformUtilities::getCameraVideo</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;videoFilePath, const QString &amp;suffix, QObject *parent=nullptr) override</argsstring>
+        <name>getCameraVideo</name>
+        <qualifiedname>QfAndroidPlatformUtilities::getCameraVideo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ae18c56eb5028fc0e6b18d62335308a97">getCameraVideo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>videoFilePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a video from camera and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>videoFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the video or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="61" column="22" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="487" bodyend="490"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a3b50fca100eb1412db649b4521aa3bf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>QfResourceSource * QfAndroidPlatformUtilities::getGalleryPicture</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;pictureFilePath, QObject *parent=nullptr) override</argsstring>
+        <name>getGalleryPicture</name>
+        <qualifiedname>QfAndroidPlatformUtilities::getGalleryPicture</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a6ac7c222877bb34de09dd38bea521703">getGalleryPicture</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pictureFilePath</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a picture from gallery and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pictureFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the picture or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="62" column="22" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="522" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a9da10f19f8938a175211e83ba877a17a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>QfResourceSource * QfAndroidPlatformUtilities::getGalleryVideo</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;videoFilePath, QObject *parent=nullptr) override</argsstring>
+        <name>getGalleryVideo</name>
+        <qualifiedname>QfAndroidPlatformUtilities::getGalleryVideo</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a66ccffa930bba893680a2a5fed9b6b62">getGalleryVideo</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>videoFilePath</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a video from gallery and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>videoFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the video </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the video or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="63" column="22" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="527" bodyend="530"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1aa0f270e8324a7b2654f0c474781b0703" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>QfResourceSource * QfAndroidPlatformUtilities::getFile</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;filePath, const QString &amp;mimeType, QObject *parent=nullptr) override</argsstring>
+        <name>getFile</name>
+        <qualifiedname>QfAndroidPlatformUtilities::getFile</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a8fa3d2d31291a0f00eef73487efd3e49">getFile</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mimeType</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a file from the operating system and copy it to the requested prefix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path (including subfolders and name) of the file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The filter string (e.g. *.mp3) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the file or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="64" column="22" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="532" bodyend="559"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a02f6117300a8958865d4927892c56b6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfViewStatus" kindref="compound">QfViewStatus</ref> *</type>
+        <definition>QfViewStatus * QfAndroidPlatformUtilities::open</definition>
+        <argsstring>(const QString &amp;filePath, bool isEditing, QObject *parent=nullptr) override</argsstring>
+        <name>open</name>
+        <qualifiedname>QfAndroidPlatformUtilities::open</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a560429ae7b4491c98786ded42ccda52d">open</reimplements>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uri</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>editing</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open the resource (file, image, ...) that is available under <emphasis>uri</emphasis>. The mimetype is detected to indicate the system how the file should be opened. An optional <emphasis>editing</emphasis> parameter can be set to true to indicate to supported systems the resource is expected to be edited. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="66" column="18" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="561" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a8dee06cfe7b856fda3a95510219e0843" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::requestStoragePermission</definition>
+        <argsstring>() const override</argsstring>
+        <name>requestStoragePermission</name>
+        <qualifiedname>QfAndroidPlatformUtilities::requestStoragePermission</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a2a3810b3cf1c683dbd8abb3d0d1722fc">requestStoragePermission</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="68" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="595" bodyend="607"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ace5c63fbd6a5b7a9fdafc4bd65cb79b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfAndroidPlatformUtilities::checkPositioningPermissions</definition>
+        <argsstring>() const override</argsstring>
+        <name>checkPositioningPermissions</name>
+        <qualifiedname>QfAndroidPlatformUtilities::checkPositioningPermissions</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a5f918965a0a40082ff641e8327458717">checkPositioningPermissions</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks for positioning (GPS etc) permissions on the device. If the permissions are not given, the user will be asked to grant permissions. It will return true, if at least coarse permissions are granted. It will ask for fine permissions if none are granted. <xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Since QField 3.1 </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="69" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="609" bodyend="619"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a35661ae816778dced8dc238647dc9c80" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfAndroidPlatformUtilities::checkCameraPermissions</definition>
+        <argsstring>() const override</argsstring>
+        <name>checkCameraPermissions</name>
+        <qualifiedname>QfAndroidPlatformUtilities::checkCameraPermissions</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a7a164844cae3780cde28b07a9dda552c">checkCameraPermissions</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks for camera permissions on the device. If the permissions are not given, the user will be asked to grant permissions. <xrefsect id="deprecated_1_deprecated000002"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Since QField 3.1 </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="70" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="621" bodyend="624"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a71d92f36b957ca456da539fdebce12c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfAndroidPlatformUtilities::checkMicrophonePermissions</definition>
+        <argsstring>() const override</argsstring>
+        <name>checkMicrophonePermissions</name>
+        <qualifiedname>QfAndroidPlatformUtilities::checkMicrophonePermissions</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1ac4ef794eda2d82e33815ea88bc66d59b">checkMicrophonePermissions</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks for camera microphone on the device. If the permissions are not given, the user will be asked to grant permissions. <xrefsect id="deprecated_1_deprecated000003"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Since QField 3.1 </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="71" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="626" bodyend="629"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a79ec047bc0f43a90464a1471b3e0b205" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::setScreenLockPermission</definition>
+        <argsstring>(const bool allowLock) override</argsstring>
+        <name>setScreenLockPermission</name>
+        <qualifiedname>QfAndroidPlatformUtilities::setScreenLockPermission</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a31471b6a790878bb4f91f93f1fad012c">setScreenLockPermission</reimplements>
+        <param>
+          <type>const bool</type>
+          <declname>allowLock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the device screen is allowed to go in lock mode. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>allowLock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if set to FALSE, the screen will not be allowed to lock. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="73" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="661" bodyend="692"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a4ee882a4ae7605055d38518ac9d24dd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::dimBrightness</definition>
+        <argsstring>() override</argsstring>
+        <name>dimBrightness</name>
+        <qualifiedname>QfAndroidPlatformUtilities::dimBrightness</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1aa83c4fa9cc41e540467fa4e4cdf0291c">dimBrightness</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dims the brightness of the screen on supported devices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="75" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="694" bodyend="706"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1aff88bba1f495e4c744aadff4363da93c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::restoreBrightness</definition>
+        <argsstring>() override</argsstring>
+        <name>restoreBrightness</name>
+        <qualifiedname>QfAndroidPlatformUtilities::restoreBrightness</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a5369a6bb61dbda70a2e8fe36a028e17e">restoreBrightness</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restores the brightness of the screen to its original value on supported devices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="76" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="708" bodyend="720"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a09f75e9489b9e837169e27d7aecae589" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::setHandleVolumeKeys</definition>
+        <argsstring>(const bool handle) override</argsstring>
+        <name>setHandleVolumeKeys</name>
+        <qualifiedname>QfAndroidPlatformUtilities::setHandleVolumeKeys</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1aed8c2a074c163004c5862453fbf270b4">setHandleVolumeKeys</reimplements>
+        <param>
+          <type>const bool</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the device volume keys are handled by QField. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="78" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="722" bodyend="734"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ad09fa25ec2d6fb3ab18cd6607a67720f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>double QfAndroidPlatformUtilities::systemFontPointSize</definition>
+        <argsstring>() const override</argsstring>
+        <name>systemFontPointSize</name>
+        <qualifiedname>QfAndroidPlatformUtilities::systemFontPointSize</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a51f0b66cf01358030beea0ff9d99d714">systemFontPointSize</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the default system font size. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="80" column="12" bodyfile="src/core/platforms/android/qfandroidplatformutilities.h" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a20222f518f54f1b261f10c2ef855a11a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::uploadPendingAttachments</definition>
+        <argsstring>(QfCloudConnection *connection) const override</argsstring>
+        <name>uploadPendingAttachments</name>
+        <qualifiedname>QfAndroidPlatformUtilities::uploadPendingAttachments</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a9b751bc030e1aba34afa834083123ce4">uploadPendingAttachments</reimplements>
+        <param>
+          <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+          <declname>connection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uploads any pending attachments linked to the logged in user account. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="82" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="736" bodyend="751"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ae315f5df8b27a6ae508c1980397af247" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfAndroidPlatformUtilities::isSystemDarkTheme</definition>
+        <argsstring>() const override</argsstring>
+        <name>isSystemDarkTheme</name>
+        <qualifiedname>QfAndroidPlatformUtilities::isSystemDarkTheme</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a661a73a79789d95e709a1b120865968c">isSystemDarkTheme</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE is the system uses a dark theme. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="84" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="753" bodyend="761"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a43b921efca6a402e49656badbc1497ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::vibrate</definition>
+        <argsstring>(int milliseconds) const override</argsstring>
+        <name>vibrate</name>
+        <qualifiedname>QfAndroidPlatformUtilities::vibrate</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1aec912cd761ef1cf64959efc47e25c730">vibrate</reimplements>
+        <param>
+          <type>int</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vibrates the device on supported platforms. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="86" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="763" bodyend="775"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1af5eede332c315057c7ee111a6f53d689" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QString</type>
+        <definition>QString QfAndroidPlatformUtilities::startPositioningService</definition>
+        <argsstring>() const override</argsstring>
+        <name>startPositioningService</name>
+        <qualifiedname>QfAndroidPlatformUtilities::startPositioningService</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1af43265d546bfa08ab24216a04752921a">startPositioningService</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts a positioning service on supported platforms and returns the remote object URL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="88" column="13" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="782" bodyend="796"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a14bcec23835162a4e42c03a056e48d5b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::stopPositioningService</definition>
+        <argsstring>() const override</argsstring>
+        <name>stopPositioningService</name>
+        <qualifiedname>QfAndroidPlatformUtilities::stopPositioningService</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1adfa88912ad29ff7ba5f27b70dc5d88b2">stopPositioningService</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stops a positioning service on supported platforms. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="89" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="798" bodyend="805"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a64e1eee5feac789759e692c013474a9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfAndroidPlatformUtilities::requestBackgroundPositioningPermissions</definition>
+        <argsstring>() override</argsstring>
+        <name>requestBackgroundPositioningPermissions</name>
+        <qualifiedname>QfAndroidPlatformUtilities::requestBackgroundPositioningPermissions</qualifiedname>
+        <reimplements refid="classQfPlatformUtilities_1a868b2c81c5198b2641e292dde896e5ac">requestBackgroundPositioningPermissions</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="91" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="777" bodyend="780"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ad9ed9f07117b3d56fdfef6229b20d3c5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAndroidPlatformUtilities::checkAndAcquirePermissions</definition>
+        <argsstring>(QStringList permissions, bool forceAsk=false) const</argsstring>
+        <name>checkAndAcquirePermissions</name>
+        <qualifiedname>QfAndroidPlatformUtilities::checkAndAcquirePermissions</qualifiedname>
+        <param>
+          <type>QStringList</type>
+          <declname>permissions</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>forceAsk</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="95" column="10" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="631" bodyend="659"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a6fb04237390a4d30486727a04c9a8b78" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>QfResourceSource * QfAndroidPlatformUtilities::processCameraActivity</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;filePath, const QString &amp;suffix, bool isVideo, QObject *parent=nullptr)</argsstring>
+        <name>processCameraActivity</name>
+        <qualifiedname>QfAndroidPlatformUtilities::processCameraActivity</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isVideo</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="96" column="22" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="448" bodyend="480"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1aa27d3f77231bdbfa0f4d460057dda3fb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfResourceSource" kindref="compound">QfResourceSource</ref> *</type>
+        <definition>QfResourceSource * QfAndroidPlatformUtilities::processGalleryActivity</definition>
+        <argsstring>(const QString &amp;prefix, const QString &amp;filePath, const QString &amp;mimeType, QObject *parent=nullptr)</argsstring>
+        <name>processGalleryActivity</name>
+        <qualifiedname>QfAndroidPlatformUtilities::processGalleryActivity</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mimeType</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="97" column="22" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="492" bodyend="520"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a455af9c427f98b8e77bae9b944cb7d52" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfAndroidPlatformUtilities::getIntentExtra</definition>
+        <argsstring>(const QString &amp;, QJniObject=nullptr) const</argsstring>
+        <name>getIntentExtra</name>
+        <qualifiedname>QfAndroidPlatformUtilities::getIntentExtra</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>extra</defname>
+        </param>
+        <param>
+          <type>QJniObject</type>
+          <defname>extras</defname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="99" column="13" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="408" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1ac9817e53395d7a8ac41b5c6a6135a49e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QJniObject</type>
+        <definition>QJniObject QfAndroidPlatformUtilities::getNativeIntent</definition>
+        <argsstring>() const</argsstring>
+        <name>getNativeIntent</name>
+        <qualifiedname>QfAndroidPlatformUtilities::getNativeIntent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="101" column="16" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="426" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAndroidPlatformUtilities_1a90ad214c830808a958adaa3b72476ee8" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QJniObject</type>
+        <definition>QJniObject QfAndroidPlatformUtilities::getNativeExtras</definition>
+        <argsstring>() const</argsstring>
+        <name>getNativeExtras</name>
+        <qualifiedname>QfAndroidPlatformUtilities::getNativeExtras</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="102" column="16" bodyfile="src/core/platforms/android/qfandroidplatformutilities.cpp" bodystart="436" bodyend="446"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAndroidPlatformUtilities</label>
+        <link refid="classQfAndroidPlatformUtilities"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPlatformUtilities</label>
+        <link refid="classQfPlatformUtilities"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAndroidPlatformUtilities</label>
+        <link refid="classQfAndroidPlatformUtilities"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPlatformUtilities</label>
+        <link refid="classQfPlatformUtilities"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/android/qfandroidplatformutilities.h" line="26" column="1" bodyfile="src/core/platforms/android/qfandroidplatformutilities.h" bodystart="27" bodyend="105"/>
+    <listofallmembers>
+      <member refid="classQfAndroidPlatformUtilities_1a731d888bd34e9d4a9fa27499c024b32c" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>additionalApplicationDirectories</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407bae72e13ed9eac60e160e15f3d19ddc7b7" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>AdjustBrightness</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ad12fe0fce2428c381e0ae02414b1b8f8" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>afterUpdate</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a1122352cdc0fedcac6275d6d69e1f56f" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>appDataDirs</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a9649ad91289b6bd5f60ded855afee061" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>applicationDirectory</name></member>
+      <member refid="classQfPlatformUtilities_1a89e89762f5ff3e132e0467106c367e43" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>availableGrids</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a6713eb7ad7b664d7fa3db70d023bf8f4" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>capabilities</name></member>
+      <member refid="classQfPlatformUtilities_1a25bd93727afd7147d51181857c14a123" prot="public" virt="non-virtual" ambiguityscope="QfPlatformUtilities::"><scope>QfAndroidPlatformUtilities</scope><name>capabilities</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407b" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>Capability</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ad9ed9f07117b3d56fdfef6229b20d3c5" prot="private" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>checkAndAcquirePermissions</name></member>
+      <member refid="classQfPlatformUtilities_1a33ae871249599699752a78dd03c42e5a" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>checkCameraPermission</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a35661ae816778dced8dc238647dc9c80" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>checkCameraPermissions</name></member>
+      <member refid="classQfPlatformUtilities_1a1b67a6035e752291a1df8c33feafad69" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>checkMicrophonePermission</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a71d92f36b957ca456da539fdebce12c3" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>checkMicrophonePermissions</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ace5c63fbd6a5b7a9fdafc4bd65cb79b0" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>checkPositioningPermissions</name></member>
+      <member refid="classQfPlatformUtilities_1a1742f6c4204e456d0547362d9907ade0" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>copyTextToClipboard</name></member>
+      <member refid="classQfPlatformUtilities_1a33c7bf31583ec4a0dc3b100366958842" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>createDir</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407baa653f9223762e8b62b8508cb7f9463ee" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>CustomExport</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba8978374a9f02c5c2c0ac065ba4e459bc" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>CustomImport</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407bab603dcf1601b0a9e29b34f08c8642a9f" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>CustomSend</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a4ee882a4ae7605055d38518ac9d24dd8" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>dimBrightness</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1aa9f5144a07b7b7668e210f4168c4961b" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>executeQfAction</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ac43f931af215774125177d181742233b" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>exportDatasetTo</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a7c06dbe88d07f4d7c222d1e58f0d7b2b" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>exportFolderTo</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407baa700ad84801d0371cb40244fc2c2efe3" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>FilePicker</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1aec9300db3a262ee081fe6a017accaf14" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>getCameraPicture</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1afb45d6e7a3c5140dee7b242269be2716" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>getCameraVideo</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1aa0f270e8324a7b2654f0c474781b0703" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>getFile</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a3b50fca100eb1412db649b4521aa3bf1" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>getGalleryPicture</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a9da10f19f8938a175211e83ba877a17a" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>getGalleryVideo</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a455af9c427f98b8e77bae9b944cb7d52" prot="private" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>getIntentExtra</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a90ad214c830808a958adaa3b72476ee8" prot="private" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>getNativeExtras</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ac9817e53395d7a8ac41b5c6a6135a49e" prot="private" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>getNativeIntent</name></member>
+      <member refid="classQfPlatformUtilities_1ad6274f540df55619a07226b5b689f3d8" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>getTextFromClipboard</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1acd1d3b324f7b33793f31c1d458a94fbd" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>hasQfAction</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a85072df768a7567e39375785806d2581" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>hasQgsProject</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a29610966ba28aed06baa78a1ccdcf26e" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>importDatasets</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1afa54da4f9e669e3151a073bb04eed0a9" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>importProjectArchive</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ae0a5a1b91d536bb6682b02d8ab880d81" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>importProjectFolder</name></member>
+      <member refid="classQfPlatformUtilities_1a5706927c12627d2a57ddfbec3464fd2b" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>initSystem</name></member>
+      <member refid="classQfPlatformUtilities_1ad8f409f38ff28eb1a3643a42abb754a1" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>instance</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ae315f5df8b27a6ae508c1980397af247" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>isSystemDarkTheme</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a519329c9b95e504b596ce584218d2313" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>loadQgsProject</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a0b048446322b7ad0f9231dbee8fb0654" prot="private" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>mActivity</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a934b9efb26acdc83763e85adf6ec63f7" prot="private" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>mSystemGenericDataLocation</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407babe9013a1ef04980271d53c6cd0fdd022" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>NativeCamera</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba22175ca9589c7a93920a227fd97ffb80" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>NativeLocalDataPicker</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba2bd6616116ae84f817295ef2fceb326a" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>NoCapabilities</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a02f6117300a8958865d4927892c56b6e" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>open</name></member>
+      <member refid="classQfPlatformUtilities_1acbb7549d79189d5243b1a291b73f1275" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>openProject</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407bad5a3e5623b303916a43c7e643aa41a47" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>PositioningService</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a6fb04237390a4d30486727a04c9a8b78" prot="private" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>processCameraActivity</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1aa27d3f77231bdbfa0f4d460057dda3fb" prot="private" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>processGalleryActivity</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1afdb2ac4fe6e71a5f475347604df71eab" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>QfAndroidPlatformUtilities</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a592750c18208f016a9a5dc23791672df" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>removeDataset</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ab2f271ad5d65a5c6c5adc838a9795b1b" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>removeFolder</name></member>
+      <member refid="classQfPlatformUtilities_1a03f49f13baa5c32102848bfa16aa393e" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>renameFile</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a64e1eee5feac789759e692c013474a9a" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>requestBackgroundPositioningPermissions</name></member>
+      <member refid="classQfPlatformUtilities_1abb741c0753543fcb498c69cc0ad084b2" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>requestCameraPermission</name></member>
+      <member refid="classQfPlatformUtilities_1a51db46b241f8c6c7ab6151d283e629b0" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>requestMicrophonePermission</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a8dee06cfe7b856fda3a95510219e0843" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>requestStoragePermission</name></member>
+      <member refid="classQfPlatformUtilities_1a8bde7388e6b7353f779d4101d328009f" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>resourceCanceled</name></member>
+      <member refid="classQfPlatformUtilities_1afe37e797a8744dd4a73df1ab5b832157" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>resourceOpened</name></member>
+      <member refid="classQfPlatformUtilities_1ac660d8865018feaf6530e3e80f2b4d88" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>resourceReceived</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1aff88bba1f495e4c744aadff4363da93c" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>restoreBrightness</name></member>
+      <member refid="classQfPlatformUtilities_1a6bbbac08c95055c7f4661fb58f08bcf0" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>rmFile</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ad22bdb2982e48132039b58227f7dcc40" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>rootDirectories</name></member>
+      <member refid="classQfPlatformUtilities_1afe18359be4bfbd100fae0f8d06daca33" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>sendCompressedFilesTo</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1addd3ce7c4d03185e9958e0e41e600e6a" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>sendCompressedFolderTo</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a43806b884f39e46f6c4d9a39af5f08cc" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>sendDatasetTo</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba9d901653bb06f31128b27e6037268080" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>SentryFramework</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a09f75e9489b9e837169e27d7aecae589" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>setHandleVolumeKeys</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a79ec047bc0f43a90464a1471b3e0b205" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>setScreenLockPermission</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1af5eede332c315057c7ee111a6f53d689" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>startPositioningService</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a14bcec23835162a4e42c03a056e48d5b" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>stopPositioningService</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1ad09fa25ec2d6fb3ab18cd6607a67720f" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>systemFontPointSize</name></member>
+      <member refid="classQfPlatformUtilities_1a76a46badbb9401022ec487f46970f6e6" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>systemLocalDataLocation</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a99c20af2000ba73ee142b9dd33611c51" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>systemSharedDataLocation</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba5e5912b5ce0ef80aca5ee0558fa290cf" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>UpdateProjectFromArchive</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a77594f5ed88b7de08b53e5a4c3b01a83" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>updateProjectFromArchive</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a20222f518f54f1b261f10c2ef855a11a" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>uploadPendingAttachments</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba4b519d8d21c706144a665f136ca1f145" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>Vibrate</name></member>
+      <member refid="classQfAndroidPlatformUtilities_1a43b921efca6a402e49656badbc1497ce" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>vibrate</name></member>
+      <member refid="classQfPlatformUtilities_1a7c1acc165fc4c8588bacc545a6fb407ba96c28a47a5fb72a19194e7306bdd1087" prot="public" virt="non-virtual"><scope>QfAndroidPlatformUtilities</scope><name>VolumeKeys</name></member>
+      <member refid="classQfPlatformUtilities_1aa4f3e386ea146ea934922a6a99754367" prot="public" virt="virtual"><scope>QfAndroidPlatformUtilities</scope><name>~QfPlatformUtilities</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

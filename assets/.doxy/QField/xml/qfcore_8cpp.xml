@@ -1,0 +1,2250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfcore_8cpp" kind="file" language="C++">
+    <compoundname>qfcore.cpp</compoundname>
+    <includes refid="qfcogoexecutor_8h" local="yes">cogo/qfcogoexecutor.h</includes>
+    <includes refid="qfcogooperation_8h" local="yes">cogo/qfcogooperation.h</includes>
+    <includes refid="qfcogooperationsmodel_8h" local="yes">cogo/qfcogooperationsmodel.h</includes>
+    <includes refid="qflocatorfilter_8h" local="yes">locator/qflocatorfilter.h</includes>
+    <includes refid="qflocatormodelsuperbridge_8h" local="yes">locator/qflocatormodelsuperbridge.h</includes>
+    <includes refid="qfplatformutilities_8h" local="yes">platforms/qfplatformutilities.h</includes>
+    <includes refid="qfabstractgnssreceiver_8h" local="yes">positioning/qfabstractgnssreceiver.h</includes>
+    <includes refid="qfgeofencer_8h" local="yes">positioning/qfgeofencer.h</includes>
+    <includes refid="qfgnsspositioninformation_8h" local="yes">positioning/qfgnsspositioninformation.h</includes>
+    <includes refid="qfntripsettings_8h" local="yes">positioning/qfntripsettings.h</includes>
+    <includes refid="qfntripsourcetablefetcher_8h" local="yes">positioning/qfntripsourcetablefetcher.h</includes>
+    <includes refid="qfpositioning_8h" local="yes">positioning/qfpositioning.h</includes>
+    <includes refid="qfpositioningdevicemodel_8h" local="yes">positioning/qfpositioningdevicemodel.h</includes>
+    <includes refid="qfpositioninginformationmodel_8h" local="yes">positioning/qfpositioninginformationmodel.h</includes>
+    <includes refid="qfprocessingalgorithm_8h" local="yes">processing/qfprocessingalgorithm.h</includes>
+    <includes refid="qfprocessingalgorithmparametersmodel_8h" local="yes">processing/qfprocessingalgorithmparametersmodel.h</includes>
+    <includes refid="qfprocessingalgorithmsmodel_8h" local="yes">processing/qfprocessingalgorithmsmodel.h</includes>
+    <includes refid="qfappexpressioncontextscopesgenerator_8h" local="yes">qfappexpressioncontextscopesgenerator.h</includes>
+    <includes refid="qfappinterface_8h" local="yes">qfappinterface.h</includes>
+    <includes refid="qfaudioanalyzer_8h" local="yes">qfaudioanalyzer.h</includes>
+    <includes refid="qfaudiorecorder_8h" local="yes">qfaudiorecorder.h</includes>
+    <includes refid="qfbarcodedecoder_8h" local="yes">qfbarcodedecoder.h</includes>
+    <includes refid="qfbookmarkmodel_8h" local="yes">qfbookmarkmodel.h</includes>
+    <includes refid="qfcameraorientationnormalizer_8h" local="yes">qfcameraorientationnormalizer.h</includes>
+    <includes refid="qfcore_8h" local="yes">qfcore.h</includes>
+    <includes refid="qfdigitizinglogger_8h" local="yes">qfdigitizinglogger.h</includes>
+    <includes refid="qfdistancearea_8h" local="yes">qfdistancearea.h</includes>
+    <includes refid="qfdrawingcanvas_8h" local="yes">qfdrawingcanvas.h</includes>
+    <includes refid="qfexternalstorage_8h" local="yes">qfexternalstorage.h</includes>
+    <includes refid="qffeaturelistextentcontroller_8h" local="yes">qffeaturelistextentcontroller.h</includes>
+    <includes refid="qffeaturelistmodel_8h" local="yes">qffeaturelistmodel.h</includes>
+    <includes refid="qffeaturelistmodelselection_8h" local="yes">qffeaturelistmodelselection.h</includes>
+    <includes refid="qffeaturemodel_8h" local="yes">qffeaturemodel.h</includes>
+    <includes refid="qfgeometry_8h" local="yes">qfgeometry.h</includes>
+    <includes refid="qfgeometrywrapper_8h" local="yes">qfgeometrywrapper.h</includes>
+    <includes refid="qfgridmodel_8h" local="yes">qfgridmodel.h</includes>
+    <includes refid="qfidentifytool_8h" local="yes">qfidentifytool.h</includes>
+    <includes local="yes">qfield.h</includes>
+    <includes refid="qfcloudconnection_8h" local="yes">qfieldcloud/qfcloudconnection.h</includes>
+    <includes refid="qfcloudproject_8h" local="yes">qfieldcloud/qfcloudproject.h</includes>
+    <includes refid="qfcloudprojectsmodel_8h" local="yes">qfieldcloud/qfcloudprojectsmodel.h</includes>
+    <includes refid="qfcloudstatus_8h" local="yes">qfieldcloud/qfcloudstatus.h</includes>
+    <includes refid="qfdeltachangesmodel_8h" local="yes">qfieldcloud/qfdeltachangesmodel.h</includes>
+    <includes refid="qfdeltafilewrapper_8h" local="yes">qfieldcloud/qfdeltafilewrapper.h</includes>
+    <includes refid="qfdeltalistmodel_8h" local="yes">qfieldcloud/qfdeltalistmodel.h</includes>
+    <includes refid="qflayerobserver_8h" local="yes">qfieldcloud/qflayerobserver.h</includes>
+    <includes refid="qflayerresolver_8h" local="yes">qflayerresolver.h</includes>
+    <includes refid="qflayertreemodel_8h" local="yes">qflayertreemodel.h</includes>
+    <includes refid="qflinepolygonshape_8h" local="yes">qflinepolygonshape.h</includes>
+    <includes refid="qfmaplayermodel_8h" local="yes">qfmaplayermodel.h</includes>
+    <includes refid="qfmaptoscreen_8h" local="yes">qfmaptoscreen.h</includes>
+    <includes refid="qfmultifeaturelistmodel_8h" local="yes">qfmultifeaturelistmodel.h</includes>
+    <includes refid="qfnavigation_8h" local="yes">qfnavigation.h</includes>
+    <includes refid="qfnavigationmodel_8h" local="yes">qfnavigationmodel.h</includes>
+    <includes refid="qfnearfieldreader_8h" local="yes">qfnearfieldreader.h</includes>
+    <includes refid="qfprojectinfo_8h" local="yes">qfprojectinfo.h</includes>
+    <includes refid="qfprojectsource_8h" local="yes">qfprojectsource.h</includes>
+    <includes refid="qfresourcesource_8h" local="yes">qfresourcesource.h</includes>
+    <includes refid="qfrubberbandmodel_8h" local="yes">qfrubberbandmodel.h</includes>
+    <includes refid="qfrubberbandshape_8h" local="yes">qfrubberbandshape.h</includes>
+    <includes refid="qfscalebarmeasurement_8h" local="yes">qfscalebarmeasurement.h</includes>
+    <includes refid="qfsettings_8h" local="yes">qfsettings.h</includes>
+    <includes refid="qfsubmodel_8h" local="yes">qfsubmodel.h</includes>
+    <includes refid="qftracker_8h" local="yes">qftracker.h</includes>
+    <includes refid="qftrackingmodel_8h" local="yes">qftrackingmodel.h</includes>
+    <includes refid="qfvertexmodel_8h" local="yes">qfvertexmodel.h</includes>
+    <includes refid="qfvideosinkcapture_8h" local="yes">qfvideosinkcapture.h</includes>
+    <includes refid="qfviewstatus_8h" local="yes">qfviewstatus.h</includes>
+    <includes refid="qfwebdavconnection_8h" local="yes">qfwebdavconnection.h</includes>
+    <includes refid="qgsgpkgflusher_8h" local="yes">qgsgpkgflusher.h</includes>
+    <includes refid="qgsquickcoordinatetransformer_8h" local="yes">qgsquick/qgsquickcoordinatetransformer.h</includes>
+    <includes refid="qgsquickelevationprofilecanvas_8h" local="yes">qgsquick/qgsquickelevationprofilecanvas.h</includes>
+    <includes refid="qgsquickmapcanvasmap_8h" local="yes">qgsquick/qgsquickmapcanvasmap.h</includes>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquick/qgsquickmapsettings.h</includes>
+    <includes refid="qgsquickmaptransform_8h" local="yes">qgsquick/qgsquickmaptransform.h</includes>
+    <includes refid="qfauthutils_8h" local="yes">utils/qfauthutils.h</includes>
+    <includes refid="qfcloudutils_8h" local="yes">utils/qfcloudutils.h</includes>
+    <includes refid="qfcoordinatereferencesystemutils_8h" local="yes">utils/qfcoordinatereferencesystemutils.h</includes>
+    <includes refid="qfexpressioncontextutils_8h" local="yes">utils/qfexpressioncontextutils.h</includes>
+    <includes refid="qffeatureutils_8h" local="yes">utils/qffeatureutils.h</includes>
+    <includes refid="qffileutils_8h" local="yes">utils/qffileutils.h</includes>
+    <includes refid="qfgeometryutils_8h" local="yes">utils/qfgeometryutils.h</includes>
+    <includes refid="qflayerutils_8h" local="yes">utils/qflayerutils.h</includes>
+    <includes refid="qfpositioningutils_8h" local="yes">utils/qfpositioningutils.h</includes>
+    <includes refid="qfprocessingutils_8h" local="yes">utils/qfprocessingutils.h</includes>
+    <includes refid="qfprojectutils_8h" local="yes">utils/qfprojectutils.h</includes>
+    <includes refid="qfrelationutils_8h" local="yes">utils/qfrelationutils.h</includes>
+    <includes refid="qfsnappingutils_8h" local="yes">utils/qfsnappingutils.h</includes>
+    <includes refid="qfstringutils_8h" local="yes">utils/qfstringutils.h</includes>
+    <includes refid="qfurlutils_8h" local="yes">utils/qfurlutils.h</includes>
+    <includes local="no">QAbstractSocket</includes>
+    <includes local="no">QtQml</includes>
+    <includes local="no">qgis.h</includes>
+    <includes local="no">qgslocatorcontext.h</includes>
+    <includes local="no">qgslocatormodel.h</includes>
+    <includes local="no">qgsmaplayer.h</includes>
+    <includes local="no">qgsmapthemecollection.h</includes>
+    <includes local="no">qgsproject.h</includes>
+    <includes local="no">qgsprojectdisplaysettings.h</includes>
+    <includes local="no">qgsrasterlayer.h</includes>
+    <includes local="no">qgsrelationmanager.h</includes>
+    <includes local="no">qgssnappingutils.h</includes>
+    <includes local="no">qgsvectorlayer.h</includes>
+    <includes local="no">qgsvectorlayereditbuffer.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>cogo/qfcogoexecutor.h</label>
+        <link refid="qfcogoexecutor_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>qfcogooperation.h</label>
+        <link refid="qfcogooperation_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>cogo/qfcogooperationsmodel.h</label>
+        <link refid="qfcogooperationsmodel_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>locator/qflocatorfilter.h</label>
+        <link refid="qflocatorfilter_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>qflocatormodelsuperbridge.h</label>
+        <link refid="qflocatormodelsuperbridge_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>platforms/qfplatformutilities.h</label>
+        <link refid="qfplatformutilities_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>positioning/qfabstractgnssreceiver.h</label>
+        <link refid="qfabstractgnssreceiver_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>positioning/qfgeofencer.h</label>
+        <link refid="qfgeofencer_8h_source"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>qfgnsspositioninformation.h</label>
+        <link refid="qfgnsspositioninformation_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>qfntripclient.h</label>
+        <link refid="qfntripclient_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>positioning/qfntripsettings.h</label>
+        <link refid="qfntripsettings_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>positioning/qfntripsourcetablefetcher.h</label>
+        <link refid="qfntripsourcetablefetcher_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>positioning/qfpositioning.h</label>
+        <link refid="qfpositioning_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>positioning/qfpositioningdevicemodel.h</label>
+        <link refid="qfpositioningdevicemodel_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>positioning/qfpositioninginformationmodel.h</label>
+        <link refid="qfpositioninginformationmodel_8h_source"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>qfpositioningsource.h</label>
+        <link refid="qfpositioningsource_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>processing/qfprocessingalgorithm.h</label>
+        <link refid="qfprocessingalgorithm_8h_source"/>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>qfprocessingalgorithmparametersmodel.h</label>
+        <link refid="qfprocessingalgorithmparametersmodel_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>processing/qfprocessingalgorithmsmodel.h</label>
+        <link refid="qfprocessingalgorithmsmodel_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>qfappexpressioncontextscopesgenerator.h</label>
+        <link refid="qfappexpressioncontextscopesgenerator_8h_source"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>qfappinterface.h</label>
+        <link refid="qfappinterface_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>qfaudioanalyzer.h</label>
+        <link refid="qfaudioanalyzer_8h_source"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>qfaudiorecorder.h</label>
+        <link refid="qfaudiorecorder_8h_source"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>qfbarcodedecoder.h</label>
+        <link refid="qfbarcodedecoder_8h_source"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>qfbookmarkmodel.h</label>
+        <link refid="qfbookmarkmodel_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>qfcameraorientationnormalizer.h</label>
+        <link refid="qfcameraorientationnormalizer_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qfcore.cpp</label>
+        <link refid="qfcore_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="180" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+        <childnode refid="186" relation="include">
+        </childnode>
+        <childnode refid="187" relation="include">
+        </childnode>
+        <childnode refid="190" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
+        <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="203" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>qfcore.h</label>
+        <link refid="qfcore_8h_source"/>
+      </node>
+      <node id="112">
+        <label>qfdigitizinglogger.h</label>
+        <link refid="qfdigitizinglogger_8h_source"/>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="117">
+        <label>qfdistancearea.h</label>
+        <link refid="qfdistancearea_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>qfdrawingcanvas.h</label>
+        <link refid="qfdrawingcanvas_8h_source"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>qfexternalstorage.h</label>
+        <link refid="qfexternalstorage_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>qffeatureexpressionvaluesgatherer.h</label>
+        <link refid="qffeatureexpressionvaluesgatherer_8h_source"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>qffeaturelistextentcontroller.h</label>
+        <link refid="qffeaturelistextentcontroller_8h_source"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="133">
+        <label>qffeaturelistmodel.h</label>
+        <link refid="qffeaturelistmodel_8h_source"/>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>qffeaturelistmodelselection.h</label>
+        <link refid="qffeaturelistmodelselection_8h_source"/>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="136">
+        <label>qffeaturemodel.h</label>
+        <link refid="qffeaturemodel_8h_source"/>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+      </node>
+      <node id="137">
+        <label>qfgeometry.h</label>
+        <link refid="qfgeometry_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="141">
+        <label>qfgeometrywrapper.h</label>
+        <link refid="qfgeometrywrapper_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="142">
+        <label>qfgridmodel.h</label>
+        <link refid="qfgridmodel_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>qfidentifytool.h</label>
+        <link refid="qfidentifytool_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>qfcloudconnection.h</label>
+        <link refid="qfcloudconnection_8h_source"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+      </node>
+      <node id="85">
+        <label>qfcloudproject.h</label>
+        <link refid="qfcloudproject_8h_source"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+      </node>
+      <node id="84">
+        <label>qfcloudprojectsmodel.h</label>
+        <link refid="qfcloudprojectsmodel_8h_source"/>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="144">
+        <label>qfieldcloud/qfcloudstatus.h</label>
+        <link refid="qfcloudstatus_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>qfieldcloud/qfdeltachangesmodel.h</label>
+        <link refid="qfdeltachangesmodel_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>qfdeltafilewrapper.h</label>
+        <link refid="qfdeltafilewrapper_8h_source"/>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="146">
+        <label>qfieldcloud/qfdeltalistmodel.h</label>
+        <link refid="qfdeltalistmodel_8h_source"/>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+      </node>
+      <node id="148">
+        <label>qfieldcloud/qflayerobserver.h</label>
+        <link refid="qflayerobserver_8h_source"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>qfnetworkmanager.h</label>
+        <link refid="qfnetworkmanager_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>qfnetworkreply.h</label>
+        <link refid="qfnetworkreply_8h_source"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="150">
+        <label>qflayerresolver.h</label>
+        <link refid="qflayerresolver_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="151">
+        <label>qflayertreemodel.h</label>
+        <link refid="qflayertreemodel_8h_source"/>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+      </node>
+      <node id="153">
+        <label>qflinepolygonshape.h</label>
+        <link refid="qflinepolygonshape_8h_source"/>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="154">
+        <label>qfmaplayermodel.h</label>
+        <link refid="qfmaplayermodel_8h_source"/>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="157">
+        <label>qfmaptoscreen.h</label>
+        <link refid="qfmaptoscreen_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>qfmultifeaturelistmodel.h</label>
+        <link refid="qfmultifeaturelistmodel_8h_source"/>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>qfmultifeaturelistmodelbase.h</label>
+        <link refid="qfmultifeaturelistmodelbase_8h_source"/>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>qfnavigation.h</label>
+        <link refid="qfnavigation_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>qfnavigationmodel.h</label>
+        <link refid="qfnavigationmodel_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="159">
+        <label>qfnearfieldreader.h</label>
+        <link refid="qfnearfieldreader_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="160">
+        <label>qfprojectinfo.h</label>
+        <link refid="qfprojectinfo_8h_source"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="165">
+        <label>qfprojectsource.h</label>
+        <link refid="qfprojectsource_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="166">
+        <label>qfresourcesource.h</label>
+        <link refid="qfresourcesource_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>qfrubberbandmodel.h</label>
+        <link refid="qfrubberbandmodel_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="167">
+        <label>qfrubberbandshape.h</label>
+        <link refid="qfrubberbandshape_8h_source"/>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+      </node>
+      <node id="169">
+        <label>qfscalebarmeasurement.h</label>
+        <link refid="qfscalebarmeasurement_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="170">
+        <label>qfsettings.h</label>
+        <link refid="qfsettings_8h_source"/>
+        <childnode refid="164" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>qfsnappingresult.h</label>
+        <link refid="qfsnappingresult_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="171">
+        <label>qfsubmodel.h</label>
+        <link refid="qfsubmodel_8h_source"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="172" relation="include">
+        </childnode>
+      </node>
+      <node id="156">
+        <label>qftracker.h</label>
+        <link refid="qftracker_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="155">
+        <label>qftrackingmodel.h</label>
+        <link refid="qftrackingmodel_8h_source"/>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="139">
+        <label>qfvertexmodel.h</label>
+        <link refid="qfvertexmodel_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="173">
+        <label>qfvideosinkcapture.h</label>
+        <link refid="qfvideosinkcapture_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>qfviewstatus.h</label>
+        <link refid="qfviewstatus_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="174">
+        <label>qfwebdavconnection.h</label>
+        <link refid="qfwebdavconnection_8h_source"/>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="163" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>qgsquickcoordinatetransformer.h</label>
+        <link refid="qgsquickcoordinatetransformer_8h_source"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="179">
+        <label>qgsquick/qgsquickelevationprofilecanvas.h</label>
+        <link refid="qgsquickelevationprofilecanvas_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="161">
+        <label>qgsquickmapcanvasmap.h</label>
+        <link refid="qgsquickmapcanvasmap_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="162" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="163" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="180">
+        <label>qgsquick/qgsquickmaptransform.h</label>
+        <link refid="qgsquickmaptransform_8h_source"/>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="182">
+        <label>utils/qfauthutils.h</label>
+        <link refid="qfauthutils_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>qfcloudutils.h</label>
+        <link refid="qfcloudutils_8h_source"/>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="183">
+        <label>utils/qfcoordinatereferencesystemutils.h</label>
+        <link refid="qfcoordinatereferencesystemutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="184">
+        <label>utils/qfexpressioncontextutils.h</label>
+        <link refid="qfexpressioncontextutils_8h_source"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+      </node>
+      <node id="186">
+        <label>utils/qffeatureutils.h</label>
+        <link refid="qffeatureutils_8h_source"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="187">
+        <label>utils/qffileutils.h</label>
+        <link refid="qffileutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+      </node>
+      <node id="190">
+        <label>utils/qfgeometryutils.h</label>
+        <link refid="qfgeometryutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="191">
+        <label>utils/qflayerutils.h</label>
+        <link refid="qflayerutils_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="192" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="193">
+        <label>utils/qfpositioningutils.h</label>
+        <link refid="qfpositioningutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="194">
+        <label>utils/qfprocessingutils.h</label>
+        <link refid="qfprocessingutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="195">
+        <label>utils/qfprojectutils.h</label>
+        <link refid="qfprojectutils_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="196">
+        <label>utils/qfrelationutils.h</label>
+        <link refid="qfrelationutils_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+      </node>
+      <node id="199">
+        <label>utils/qfsnappingutils.h</label>
+        <link refid="qfsnappingutils_8h_source"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>qfstringutils.h</label>
+        <link refid="qfstringutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="201">
+        <label>utils/qfurlutils.h</label>
+        <link refid="qfurlutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="129">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="27">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="51">
+        <label>QAbstractSocket</label>
+      </node>
+      <node id="100">
+        <label>QAudioDecoder</label>
+      </node>
+      <node id="103">
+        <label>QAudioSource</label>
+      </node>
+      <node id="175">
+        <label>QByteArray</label>
+      </node>
+      <node id="22">
+        <label>QColor</label>
+      </node>
+      <node id="69">
+        <label>QCompass</label>
+      </node>
+      <node id="188">
+        <label>QCryptographicHash</label>
+      </node>
+      <node id="6">
+        <label>QDateTime</label>
+      </node>
+      <node id="68">
+        <label>QFile</label>
+      </node>
+      <node id="176">
+        <label>QFileInfo</label>
+      </node>
+      <node id="162">
+        <label>QFutureSynchronizer</label>
+      </node>
+      <node id="71">
+        <label>QGeoCoordinate</label>
+      </node>
+      <node id="104">
+        <label>QIODevice</label>
+      </node>
+      <node id="108">
+        <label>QImage</label>
+      </node>
+      <node id="87">
+        <label>QJsonArray</label>
+      </node>
+      <node id="88">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="89">
+        <label>QJsonObject</label>
+      </node>
+      <node id="149">
+        <label>QList</label>
+      </node>
+      <node id="24">
+        <label>QMap</label>
+      </node>
+      <node id="181">
+        <label>QMatrix4x4</label>
+      </node>
+      <node id="105">
+        <label>QMediaCaptureSession</label>
+      </node>
+      <node id="106">
+        <label>QMediaRecorder</label>
+      </node>
+      <node id="54">
+        <label>QMutex</label>
+      </node>
+      <node id="92">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="114">
+        <label>QNetworkInformation</label>
+      </node>
+      <node id="93">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="7">
+        <label>QObject</label>
+      </node>
+      <node id="46">
+        <label>QPermission</label>
+      </node>
+      <node id="8">
+        <label>QPointF</label>
+      </node>
+      <node id="9">
+        <label>QPointer</label>
+      </node>
+      <node id="43">
+        <label>QQmlComponent</label>
+      </node>
+      <node id="132">
+        <label>QQuickItem</label>
+      </node>
+      <node id="119">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="73">
+        <label>QRemoteObjectDynamicReplica</label>
+      </node>
+      <node id="74">
+        <label>QRemoteObjectHost</label>
+      </node>
+      <node id="75">
+        <label>QRemoteObjectNode</label>
+      </node>
+      <node id="31">
+        <label>QSet</label>
+      </node>
+      <node id="164">
+        <label>QSettings</label>
+      </node>
+      <node id="80">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="37">
+        <label>QSoundEffect</label>
+      </node>
+      <node id="63">
+        <label>QSslSocket</label>
+      </node>
+      <node id="172">
+        <label>QStandardItem</label>
+      </node>
+      <node id="40">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="23">
+        <label>QString</label>
+      </node>
+      <node id="64">
+        <label>QStringList</label>
+      </node>
+      <node id="55">
+        <label>QThread</label>
+      </node>
+      <node id="38">
+        <label>QTimer</label>
+      </node>
+      <node id="101">
+        <label>QUrl</label>
+      </node>
+      <node id="147">
+        <label>QUuid</label>
+      </node>
+      <node id="25">
+        <label>QVariant</label>
+      </node>
+      <node id="95">
+        <label>QVariantMap</label>
+      </node>
+      <node id="10">
+        <label>QVector</label>
+      </node>
+      <node id="109">
+        <label>QVideoSink</label>
+      </node>
+      <node id="138">
+        <label>QtPositioning/QGeoCoordinate</label>
+      </node>
+      <node id="202">
+        <label>QtQml</label>
+      </node>
+      <node id="177">
+        <label>QtWebDAV/qwebdav.h</label>
+      </node>
+      <node id="178">
+        <label>QtWebDAV/qwebdavdirparser.h</label>
+      </node>
+      <node id="158">
+        <label>limits</label>
+      </node>
+      <node id="163">
+        <label>memory</label>
+      </node>
+      <node id="143">
+        <label>qfield.h</label>
+      </node>
+      <node id="5">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="11">
+        <label>qgis.h</label>
+      </node>
+      <node id="12">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="56">
+        <label>qgsapplication.h</label>
+      </node>
+      <node id="32">
+        <label>qgsbookmarkmanager.h</label>
+      </node>
+      <node id="33">
+        <label>qgsbookmarkmodel.h</label>
+      </node>
+      <node id="130">
+        <label>qgsconditionalstyle.h</label>
+      </node>
+      <node id="13">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="72">
+        <label>qgscoordinatetransform.h</label>
+      </node>
+      <node id="17">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="39">
+        <label>qgsdistancearea.h</label>
+      </node>
+      <node id="185">
+        <label>qgsexpressioncontext.h</label>
+      </node>
+      <node id="121">
+        <label>qgsexternalstorage.h</label>
+      </node>
+      <node id="122">
+        <label>qgsexternalstorageregistry.h</label>
+      </node>
+      <node id="57">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="131">
+        <label>qgsfeaturerequest.h</label>
+      </node>
+      <node id="189">
+        <label>qgsfeedback.h</label>
+      </node>
+      <node id="47">
+        <label>qgsfield.h</label>
+      </node>
+      <node id="14">
+        <label>qgsgeometry.h</label>
+      </node>
+      <node id="152">
+        <label>qgslayertreelayer.h</label>
+      </node>
+      <node id="203">
+        <label>qgslocatorcontext.h</label>
+      </node>
+      <node id="41">
+        <label>qgslocatorfilter.h</label>
+      </node>
+      <node id="204">
+        <label>qgslocatormodel.h</label>
+      </node>
+      <node id="42">
+        <label>qgslocatormodelbridge.h</label>
+      </node>
+      <node id="58">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="18">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="19">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="20">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="94">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="15">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="116">
+        <label>qgspointlocator.h</label>
+      </node>
+      <node id="197">
+        <label>qgspolymorphicrelation.h</label>
+      </node>
+      <node id="97">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="205">
+        <label>qgsprojectdisplaysettings.h</label>
+      </node>
+      <node id="206">
+        <label>qgsrasterlayer.h</label>
+      </node>
+      <node id="21">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="198">
+        <label>qgsrelation.h</label>
+      </node>
+      <node id="140">
+        <label>qgsrelationmanager.h</label>
+      </node>
+      <node id="127">
+        <label>qgsrendercontext.h</label>
+      </node>
+      <node id="50">
+        <label>qgssatelliteinformation.h</label>
+      </node>
+      <node id="200">
+        <label>qgssnappingutils.h</label>
+      </node>
+      <node id="135">
+        <label>qgsstringutils.h</label>
+      </node>
+      <node id="192">
+        <label>qgstextformat.h</label>
+      </node>
+      <node id="59">
+        <label>qgsvectorlayer.h</label>
+      </node>
+      <node id="207">
+        <label>qgsvectorlayereditbuffer.h</label>
+      </node>
+      <node id="60">
+        <label>qgsvectorlayerfeatureiterator.h</label>
+      </node>
+      <node id="168">
+        <label>qgswkbtypes.h</label>
+      </node>
+      <node id="34">
+        <label>qobjectuniqueptr.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceQfCore">QfCore</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="qfcore_8cpp_1a39588441e5c2b2db1675d16861aeaaa3" prot="public" static="no">
+        <name>REGISTER_SINGLETON</name>
+        <param><defname>uri</defname></param>
+        <param><defname>_class</defname></param>
+        <param><defname>name</defname></param>
+        <initializer>qmlRegisterSingletonType&lt;_class&gt;( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -&gt; QObject * { Q_UNUSED( engine ); Q_UNUSED( scriptEngine ); return new _class(); } )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcore.cpp" line="131" column="9" bodyfile="src/core/qfcore.cpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qfcore.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>July<sp/>2026</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mohsen<sp/>Dehghanzadeh</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mohsen@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;cogo/qfcogoexecutor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;cogo/qfcogooperation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;cogo/qfcogooperationsmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;locator/qflocatorfilter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;locator/qflocatormodelsuperbridge.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;platforms/qfplatformutilities.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfabstractgnssreceiver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfgeofencer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfgnsspositioninformation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfntripsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfntripsourcetablefetcher.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfpositioning.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfpositioningdevicemodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfpositioninginformationmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;processing/qfprocessingalgorithm.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;processing/qfprocessingalgorithmparametersmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;processing/qfprocessingalgorithmsmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfappexpressioncontextscopesgenerator.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfappinterface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfaudioanalyzer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfaudiorecorder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfbarcodedecoder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfbookmarkmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfcameraorientationnormalizer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfcore.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfdigitizinglogger.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfdistancearea.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfdrawingcanvas.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfexternalstorage.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qffeaturelistextentcontroller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qffeaturelistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qffeaturelistmodelselection.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qffeaturemodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfgeometry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfgeometrywrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfgridmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfidentifytool.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfield.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloud/qfcloudconnection.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloud/qfcloudproject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloud/qfcloudprojectsmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloud/qfcloudstatus.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloud/qfdeltachangesmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloud/qfdeltafilewrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloud/qfdeltalistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldcloud/qflayerobserver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qflayerresolver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qflayertreemodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qflinepolygonshape.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfmaplayermodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfmaptoscreen.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfmultifeaturelistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfnavigation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfnavigationmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfnearfieldreader.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfprojectinfo.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfprojectsource.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfresourcesource.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfrubberbandmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfrubberbandshape.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfscalebarmeasurement.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfsubmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qftracker.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qftrackingmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfvertexmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfvideosinkcapture.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfviewstatus.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfwebdavconnection.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsgpkgflusher.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquick/qgsquickcoordinatetransformer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquick/qgsquickelevationprofilecanvas.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquick/qgsquickmapcanvasmap.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquick/qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquick/qgsquickmaptransform.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfauthutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfcloudutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfcoordinatereferencesystemutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfexpressioncontextutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qffeatureutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qffileutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfgeometryutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qflayerutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfpositioningutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfprocessingutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfprojectutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfrelationutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfsnappingutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfstringutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;utils/qfurlutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QAbstractSocket&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtQml&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgis.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslocatorcontext.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslocatormodel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmaplayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmapthemecollection.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsproject.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsprojectdisplaysettings.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsrasterlayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsrelationmanager.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgssnappingutils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsvectorlayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsvectorlayereditbuffer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_BLUETOOTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfbluetoothdevicemodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfbluetoothreceiver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_SERIALPORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfserialportmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;positioning/qfserialportreceiver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>REGISTER_SINGLETON(<sp/>uri,<sp/>_class,<sp/>name<sp/>)<sp/>qmlRegisterSingletonType&lt;_class&gt;(<sp/>uri,<sp/>1,<sp/>0,<sp/>name,<sp/>[](<sp/>QQmlEngine<sp/>*engine,<sp/>QJSEngine<sp/>*scriptEngine<sp/>)<sp/>-&gt;<sp/>QObject<sp/>*<sp/>{<sp/>Q_UNUSED(<sp/>engine<sp/>);<sp/>Q_UNUSED(<sp/>scriptEngine<sp/>);<sp/>return<sp/>new<sp/>_class();<sp/>}<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">QfCore</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerQmlTypes()</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsLocatorProxyModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QgsLocatorProxyModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsMapThemeCollection&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MapThemeCollection&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsSnappingUtils&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;SnappingUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsVectorLayer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;VectorLayer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsVectorLayerEditBuffer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QgsVectorLayerEditBuffer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>Qgis::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Qgis&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QgsLocatorContext&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;locatorContext&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>as<sp/>parameter<sp/>type<sp/>in<sp/>invokable<sp/>function&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QgsMapLayer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MapLayer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QgsProject&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Project&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QgsProjectDisplaySettings&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ProjectDisplaySettings&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QgsRasterLayer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;RasterLayer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QgsRelationManager&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;RelationManager&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>relation<sp/>manager<sp/>is<sp/>available<sp/>from<sp/>the<sp/>QgsProject.<sp/>Try<sp/>`qgisProject.relationManager`&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QgsVectorLayer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;VectorLayerStatic&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsQuickElevationProfileCanvas&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ElevationProfileCanvas&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsQuickMapCanvasMap&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MapCanvasMap&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsQuickMapSettings&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MapSettings&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsQuickMapTransform&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qgis&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MapTransform&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfAppExpressionContextScopesGenerator&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfAppExpressionContextScopesGenerator&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfAudioAnalyzer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfAudioAnalyzer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfAudioRecorder&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfAudioRecorder&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfBarcodeDecoder&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfBarcodeDecoder&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCameraOrientationNormalizer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCameraOrientationNormalizer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCogoExecutor&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCogoExecutor&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCogoOperationsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCogoOperationsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDeltaChangesModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfDeltaChangesModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDeltaListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfDeltaListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDigitizingLogger&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfDigitizingLogger&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDistanceArea&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfDistanceArea&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDrawingCanvas&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfDrawingCanvas&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfExternalStorage&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfExternalStorage&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureListExtentController&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfFeatureListExtentController&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfFeatureListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureListModelSelection&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfFeatureListModelSelection&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfFeatureModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfGeofencer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfGeofencer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfGeometry&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfGeometry&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfGridModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfGridModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfIdentifyTool&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfIdentifyTool&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLayerResolver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfLayerResolver&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLinePolygonShape&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfLinePolygonShape&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLocatorModelSuperBridge&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfLocatorModelSuperBridge&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfMapLayerModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfMapLayerModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfMapToScreen&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfMapToScreen&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfMultiFeatureListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfMultiFeatureListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfNavigation&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfNavigation&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfNavigationModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfNavigationModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfNearFieldReader&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfNearFieldReader&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfNtripSourceTableFetcher&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfNtripSourceTableFetcher&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPositioning&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfPositioning&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPositioningDeviceModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfPositioningDeviceModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPositioningInformationModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfPositioningInformationModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProcessingAlgorithm&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfProcessingAlgorithm&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProcessingAlgorithmParametersModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfProcessingAlgorithmParametersModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProcessingAlgorithmsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfProcessingAlgorithmsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProjectInfo&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfProjectInfo&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProjectSource&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfProjectSource&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudConnection&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCloudConnection&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudProject&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCloudProject&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudProjectsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCloudProjectsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudStatus&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCloudStatus&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLocatorFilter&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfLocatorFilter&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfGeometryWrapper&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfGeometryWrapper&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QgsQuickCoordinateTransformer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;CoordinateTransformer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfResourceSource&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfResourceSource&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfRubberbandModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfRubberbandModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfRubberbandShape&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfRubberbandShape&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfScaleBarMeasurement&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfScaleBarMeasurement&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfSnappingUtils&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfSnappingUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfSubModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfSubModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfVertexModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfVertexModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfVideoSinkCapture&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfVideoSinkCapture&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfViewStatus&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfViewStatus&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfWebdavConnection&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfWebdavConnection&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterSingletonType(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Qfield&quot;</highlight><highlight class="normal">,<sp/>[](<sp/>QQmlEngine<sp/>*,<sp/>QJSEngine<sp/>*scriptEngine<sp/>)<sp/>-&gt;<sp/>QJSValue<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>scriptEngine-&gt;toScriptValue(<sp/>Qfield()<sp/>);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfAuthUtils" kindref="compound">QfAuthUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfAuthUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfCoordinateReferenceSystemUtils" kindref="compound">QfCoordinateReferenceSystemUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfCoordinateReferenceSystemUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfExpressionContextUtils" kindref="compound">QfExpressionContextUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfExpressionContextUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfFeatureUtils" kindref="compound">QfFeatureUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfFeatureUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfFileUtils" kindref="compound">QfFileUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfFileUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfGeometryUtils" kindref="compound">QfGeometryUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfGeometryUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfLayerUtils" kindref="compound">QfLayerUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfLayerUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfPositioningUtils" kindref="compound">QfPositioningUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfPositioningUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfProcessingUtils" kindref="compound">QfProcessingUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfProcessingUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfProjectUtils" kindref="compound">QfProjectUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfProjectUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfCloudUtils" kindref="compound">QfCloudUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfCloudUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfRelationUtils" kindref="compound">QfRelationUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfRelationUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfStringUtils" kindref="compound">QfStringUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfStringUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfUrlUtils" kindref="compound">QfUrlUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QfUrlUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfAbstractGnssReceiver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfAbstractGnssReceiver&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfAppInterface&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfAppInterface&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;AppInterface<sp/>is<sp/>only<sp/>provided<sp/>by<sp/>the<sp/>environment<sp/>and<sp/>cannot<sp/>be<sp/>created<sp/>ad-hoc&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfBookmarkModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfBookmarkModel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>BookmarkModel<sp/>is<sp/>available<sp/>as<sp/>context<sp/>property<sp/>`bookmarkModel`&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfCogoParameter&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;cogoParameter&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>for<sp/>property<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfCogoVisualGuide&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;cogoVisualGuide&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>for<sp/>property<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfDeltaFileWrapper&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfDeltaFileWrapper&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfFlatLayerTreeModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfFlatLayerTreeModel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>FlatLayerTreeModel<sp/>is<sp/>available<sp/>as<sp/>context<sp/>property<sp/>`flatLayerTree`.&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfGnssPositionInformation&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;gnssPositionInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>for<sp/>property<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfGridAnnotation&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;gridAnnotation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>for<sp/>property<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfLayerObserver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfLayerObserver&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfNtripSettings&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ntripSettings&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>for<sp/>property<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfPlatformUtilities&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfPlatformUtilities&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QgsGpkgFlusher&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QgsGpkgFlusher&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>gpkgFlusher<sp/>is<sp/>available<sp/>as<sp/>context<sp/>property<sp/>`gpkgFlusher`&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfSettings&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfSettings&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfTracker&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfTracker&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfTrackingModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfTrackingModel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>TrackingModel<sp/>is<sp/>available<sp/>as<sp/>context<sp/>property<sp/>`trackingModel`.&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_BLUETOOTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfBluetoothDeviceModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfBluetoothDeviceModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfBluetoothReceiver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfBluetoothReceiver&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_SERIALPORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfSerialPortModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfSerialPortModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfSerialPortReceiver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfSerialPortReceiver&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureIterator&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;featureIterator&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLocatorActionsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfLocatorActionsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLocatorFiltersModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfLocatorFiltersModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudProjectsFilterModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCloudProjectsFilterModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfCogoVisualGuide::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCogoVisualGuide&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfGnssPositionInformation::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfGnssPositionInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>to<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfGridAnnotation::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfGridAnnotation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfNtripSettings::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfNtripSettings&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>to<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfCloudDelta::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCloudDelta&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>to<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QAbstractSocket&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QAbstractSocket&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Pre-Qf<sp/>names,<sp/>reached<sp/>through<sp/>org.qfield<sp/>or<sp/>the<sp/>legacy<sp/>Theme<sp/>module.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfAppExpressionContextScopesGenerator&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;AppExpressionContextScopesGenerator&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfAudioAnalyzer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;AudioAnalyzer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfAudioRecorder&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;AudioRecorder&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfBarcodeDecoder&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;BarcodeDecoder&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCameraOrientationNormalizer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;CameraOrientationNormalizer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCogoExecutor&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;CogoExecutor&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCogoOperationsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;CogoOperationsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDeltaListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;DeltaListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDigitizingLogger&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;DigitizingLogger&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDistanceArea&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;DistanceArea&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfDrawingCanvas&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;DrawingCanvas&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfExternalStorage&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ExternalStorage&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureListExtentController&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;FeaturelistExtentController&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;FeatureListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureListModelSelection&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;FeatureListModelSelection&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfFeatureModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;FeatureModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfGeofencer&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Geofencer&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfGeometry&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Geometry&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfGridModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;GridModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfIdentifyTool&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;IdentifyTool&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLayerResolver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;LayerResolver&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLinePolygonShape&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;LinePolygonShape&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLocatorModelSuperBridge&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;LocatorModelSuperBridge&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfMapLayerModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MapLayerModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfMapToScreen&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MapToScreen&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfMultiFeatureListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MultiFeatureListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfNavigation&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Navigation&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfNavigationModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;NavigationModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfNearFieldReader&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;NearFieldReader&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfNtripSourceTableFetcher&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;NtripSourceTableFetcher&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPositioning&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Positioning&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPositioningDeviceModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;PositioningDeviceModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPositioningInformationModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;PositioningInformationModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProcessingAlgorithm&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ProcessingAlgorithm&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProcessingAlgorithmParametersModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ProcessingAlgorithmParametersModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProcessingAlgorithmsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ProcessingAlgorithmsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProjectInfo&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ProjectInfo&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfProjectSource&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ProjectSource&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudConnection&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloudConnection&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudProject&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloudProject&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudProjectsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloudProjectsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudStatus&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloudStatus&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLocatorFilter&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QFieldLocatorFilter&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfGeometryWrapper&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QgsGeometryWrapper&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfResourceSource&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ResourceSource&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfRubberbandModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;RubberbandModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfRubberbandShape&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;RubberbandShape&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfScaleBarMeasurement&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ScaleBarMeasurement&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfSnappingUtils&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;SnappingUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfSubModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;SubModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfVertexModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;VertexModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfVideoSinkCapture&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;VideoSinkCapture&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfViewStatus&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ViewStatus&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfWebdavConnection&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;WebdavConnection&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfAuthUtils" kindref="compound">QfAuthUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;AuthUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfCoordinateReferenceSystemUtils" kindref="compound">QfCoordinateReferenceSystemUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;CoordinateReferenceSystemUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfExpressionContextUtils" kindref="compound">QfExpressionContextUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ExpressionContextUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfFeatureUtils" kindref="compound">QfFeatureUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;FeatureUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfFileUtils" kindref="compound">QfFileUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;FileUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfGeometryUtils" kindref="compound">QfGeometryUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;GeometryUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfLayerUtils" kindref="compound">QfLayerUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;LayerUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfPositioningUtils" kindref="compound">QfPositioningUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;PositioningUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfProcessingUtils" kindref="compound">QfProcessingUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ProcessingUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfProjectUtils" kindref="compound">QfProjectUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ProjectUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfCloudUtils" kindref="compound">QfCloudUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloudUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfRelationUtils" kindref="compound">QfRelationUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;RelationUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfStringUtils" kindref="compound">QfStringUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;StringUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/><ref refid="classQfUrlUtils" kindref="compound">QfUrlUtils</ref>,<sp/></highlight><highlight class="stringliteral">&quot;UrlUtils&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfAbstractGnssReceiver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;AbstractGnssReceiver&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfAppInterface&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;AppInterface&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;AppInterface<sp/>is<sp/>only<sp/>provided<sp/>by<sp/>the<sp/>environment<sp/>and<sp/>cannot<sp/>be<sp/>created<sp/>ad-hoc&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfBookmarkModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;BookmarkModel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>BookmarkModel<sp/>is<sp/>available<sp/>as<sp/>context<sp/>property<sp/>`bookmarkModel`&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfDeltaFileWrapper&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;DeltaFileWrapper&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfFlatLayerTreeModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;FlatLayerTreeModel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>FlatLayerTreeModel<sp/>is<sp/>available<sp/>as<sp/>context<sp/>property<sp/>`flatLayerTree`.&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfLayerObserver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;LayerObserver&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfPlatformUtilities&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;PlatformUtilities&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfSettings&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;SettingsInterface&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfTracker&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Tracker&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfTrackingModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;TrackingModel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>TrackingModel<sp/>is<sp/>available<sp/>as<sp/>context<sp/>property<sp/>`trackingModel`.&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLocatorActionsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;LocatorActionsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfLocatorFiltersModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;LocatorFiltersModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfCloudProjectsFilterModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloudProjectsFilterModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfCogoVisualGuide::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;CogoVisualGuide&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfGnssPositionInformation::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;GnssPositionInformation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>to<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfGridAnnotation::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;GridAnnotation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfNtripSettings::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;NtripSettings&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>to<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableMetaObject(<sp/>QfCloudDelta::staticMetaObject,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QFieldCloudDelta&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Used<sp/>to<sp/>access<sp/>to<sp/>enum<sp/>values&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_BLUETOOTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfBluetoothDeviceModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;BluetoothDeviceModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfBluetoothReceiver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;BluetoothReceiver&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WITH_SERIALPORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfSerialPortModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;SerialPortModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfSerialPortReceiver&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;SerialPortReceiver&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="366"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>QfCore</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>REGISTER_SINGLETON</highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfcore.cpp"/>
+  </compounddef>
+</doxygen>

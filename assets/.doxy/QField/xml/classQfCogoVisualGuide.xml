@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoVisualGuide" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoVisualGuide</compoundname>
+    <includes refid="qfcogooperation_8h" local="no">qfcogooperation.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>QfCogoVisualGuide::Type</qualifiedname>
+        <enumvalue id="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2aed9c67618cb9bfed9537dee1a1ae107b" prot="public">
+          <name>Point</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2a630069423a123d1d9b27db40149d87e9" prot="public">
+          <name>Line</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2a1c133590642f43156e132520405c41f1" prot="public">
+          <name>Circle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2adbd4de02f9ca90762a26d37bd215d363" prot="public">
+          <name>Label</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="126" column="5" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="127" bodyend="132"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCogoVisualGuide_1a4347ad82ca22f9e72139bc0a75261084" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Type</type>
+        <definition>Type QfCogoVisualGuide::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QfCogoVisualGuide::type</qualifiedname>
+        <initializer>= Point</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO visual guide type (point, line, circle, label, etc.) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="108" column="5" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoVisualGuide_1a98c7897a530ab98a426a6e8ef575c462" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfCogoVisualGuide::details</definition>
+        <argsstring></argsstring>
+        <name>details</name>
+        <qualifiedname>QfCogoVisualGuide::details</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO visual guide details. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="113" column="5" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoVisualGuide_1a5af150465499896a6031547c18591581" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfCogoVisualGuide::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfCogoVisualGuide::color</qualifiedname>
+        <initializer>= QColor( 255, 0, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO visual guide color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="118" column="5" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoVisualGuide_1a91ac1ae3a12b3952163cf510f10eb1c9" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfCogoVisualGuide::outlineColor</definition>
+        <argsstring></argsstring>
+        <name>outlineColor</name>
+        <qualifiedname>QfCogoVisualGuide::outlineColor</qualifiedname>
+        <initializer>= QColor( 255, 255, 255, 100 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO visual guide outline color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="123" column="5" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoVisualGuide_1a9e3fa0739776fc223836a0b376260fe2" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfCogoVisualGuide::QfCogoVisualGuide</definition>
+        <argsstring>(Type type=Point, const QVariantMap &amp;details=QVariantMap(), const QColor &amp;color=COLOR_NEUTRAL, const QColor &amp;outlineColor=QColor(255, 255, 255, 127))</argsstring>
+        <name>QfCogoVisualGuide</name>
+        <qualifiedname>QfCogoVisualGuide::QfCogoVisualGuide</qualifiedname>
+        <param>
+          <type>Type</type>
+          <declname>type</declname>
+          <defval>Point</defval>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>details</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+          <defval>COLOR_NEUTRAL</defval>
+        </param>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>outlineColor</declname>
+          <defval>QColor(255, 255, 255, 127)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="135" column="14" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="135" bodyend="140"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A COGO visual guide. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/cogo/qfcogooperation.h" line="101" column="1" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="102" bodyend="146"/>
+    <listofallmembers>
+      <member refid="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2a1c133590642f43156e132520405c41f1" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>Circle</name></member>
+      <member refid="classQfCogoVisualGuide_1a5af150465499896a6031547c18591581" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>color</name></member>
+      <member refid="classQfCogoVisualGuide_1a98c7897a530ab98a426a6e8ef575c462" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>details</name></member>
+      <member refid="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2adbd4de02f9ca90762a26d37bd215d363" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>Label</name></member>
+      <member refid="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2a630069423a123d1d9b27db40149d87e9" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>Line</name></member>
+      <member refid="classQfCogoVisualGuide_1a91ac1ae3a12b3952163cf510f10eb1c9" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>outlineColor</name></member>
+      <member refid="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2aed9c67618cb9bfed9537dee1a1ae107b" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>Point</name></member>
+      <member refid="classQfCogoVisualGuide_1a9e3fa0739776fc223836a0b376260fe2" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>QfCogoVisualGuide</name></member>
+      <member refid="classQfCogoVisualGuide_1a0b5d00e72140b334dd30992b37dc72f2" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>Type</name></member>
+      <member refid="classQfCogoVisualGuide_1a4347ad82ca22f9e72139bc0a75261084" prot="public" virt="non-virtual"><scope>QfCogoVisualGuide</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

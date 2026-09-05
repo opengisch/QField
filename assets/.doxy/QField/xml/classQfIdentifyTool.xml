@@ -1,0 +1,579 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfIdentifyTool" kind="class" language="C++" prot="public">
+    <compoundname>QfIdentifyTool</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <innerclass refid="structQfIdentifyTool_1_1IdentifyResult" prot="public">QfIdentifyTool::IdentifyResult</innerclass>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfIdentifyTool_1a24d3d4e4722c3e14914dcfbf72bb10b6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfIdentifyTool::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfIdentifyTool::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="39" column="5" bodyfile="src/core/qfidentifytool.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfIdentifyTool_1a5222eb68b9bb426318486a2dcb58bce0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfIdentifyTool::searchRadiusMm</definition>
+        <argsstring></argsstring>
+        <name>searchRadiusMm</name>
+        <qualifiedname>QfIdentifyTool::searchRadiusMm</qualifiedname>
+        <read>searchRadiusMm</read>
+        <write>setSearchRadiusMm</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="40" column="5" bodyfile="src/core/qfidentifytool.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfIdentifyTool_1a514fa18fef2fc1489281d3f666ce8ddd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref> *</type>
+        <definition>QfMultiFeatureListModel * QfIdentifyTool::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfIdentifyTool::model</qualifiedname>
+        <read>model</read>
+        <write>setModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="41" column="5" bodyfile="src/core/qfidentifytool.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfIdentifyTool_1a7f8cdcb0b6cdc826cbffcddf1a8159bb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfIdentifyTool::deactivated</definition>
+        <argsstring></argsstring>
+        <name>deactivated</name>
+        <qualifiedname>QfIdentifyTool::deactivated</qualifiedname>
+        <read>deactivated</read>
+        <write>setDeactivated</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="42" column="5" bodyfile="src/core/qfidentifytool.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfIdentifyTool_1a766338690081ea545661cf8fa06d49ba" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfIdentifyTool::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfIdentifyTool::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="88" column="25" bodyfile="src/core/qfidentifytool.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfIdentifyTool_1a1e72f1e488ad713c989704809881223f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref> *</type>
+        <definition>QfMultiFeatureListModel* QfIdentifyTool::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>QfIdentifyTool::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="89" column="29" bodyfile="src/core/qfidentifytool.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfIdentifyTool_1ab34233502d49fbc009ca5567b7b269ca" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfIdentifyTool::mSearchRadiusMm</definition>
+        <argsstring></argsstring>
+        <name>mSearchRadiusMm</name>
+        <qualifiedname>QfIdentifyTool::mSearchRadiusMm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="97" column="12" bodyfile="src/core/qfidentifytool.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfIdentifyTool_1a63292e73588fc0465672ff29303a04bc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfIdentifyTool::mDeactivated</definition>
+        <argsstring></argsstring>
+        <name>mDeactivated</name>
+        <qualifiedname>QfIdentifyTool::mDeactivated</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="99" column="10" bodyfile="src/core/qfidentifytool.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfIdentifyTool_1a20e4d0c6c0f7528b90d26778492ef8d4" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfIdentifyTool::QfIdentifyTool</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfIdentifyTool</name>
+        <qualifiedname>QfIdentifyTool::QfIdentifyTool</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="59" column="14" bodyfile="src/core/qfidentifytool.cpp" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1a3c0e13f9c91dd0561d0834e20d502e6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfIdentifyTool::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfIdentifyTool::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="61" column="25" bodyfile="src/core/qfidentifytool.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1ab226af3f4156981b0a2927765186e9ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfIdentifyTool::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="62" column="10" bodyfile="src/core/qfidentifytool.cpp" bodystart="45" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1a96e5935dc84a411993890e5557549883" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfIdentifyTool::searchRadiusMm</definition>
+        <argsstring>() const</argsstring>
+        <name>searchRadiusMm</name>
+        <qualifiedname>QfIdentifyTool::searchRadiusMm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="64" column="12" bodyfile="src/core/qfidentifytool.cpp" bodystart="428" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1ae6aa3b033358eedca75677539520fd30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::setSearchRadiusMm</definition>
+        <argsstring>(double searchRadiusMm)</argsstring>
+        <name>setSearchRadiusMm</name>
+        <qualifiedname>QfIdentifyTool::setSearchRadiusMm</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>searchRadiusMm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="65" column="10" bodyfile="src/core/qfidentifytool.cpp" bodystart="433" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1ae144134e418a51c68db40e792b5bc686" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref> *</type>
+        <definition>QfMultiFeatureListModel * QfIdentifyTool::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>QfIdentifyTool::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="67" column="29" bodyfile="src/core/qfidentifytool.cpp" bodystart="382" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1a361170a21b56213aad1b5af0857a2298" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::setModel</definition>
+        <argsstring>(QfMultiFeatureListModel *model)</argsstring>
+        <name>setModel</name>
+        <qualifiedname>QfIdentifyTool::setModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="68" column="10" bodyfile="src/core/qfidentifytool.cpp" bodystart="387" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1a00ce7b930734ffc5ff68dd31cd4f13c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfIdentifyTool::deactivated</definition>
+        <argsstring>() const</argsstring>
+        <name>deactivated</name>
+        <qualifiedname>QfIdentifyTool::deactivated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="70" column="10" bodyfile="src/core/qfidentifytool.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1aa8e70e7b8794dda873cf537e171db92a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::setDeactivated</definition>
+        <argsstring>(bool deactivated)</argsstring>
+        <name>setDeactivated</name>
+        <qualifiedname>QfIdentifyTool::setDeactivated</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>deactivated</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="71" column="10" bodyfile="src/core/qfidentifytool.cpp" bodystart="396" bodyend="405"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfIdentifyTool_1aac27842607d7b5111dd602b03319892d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfIdentifyTool::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfIdentifyTool_1ac175492a2bfa491d01ba5bba0c30534b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::searchRadiusMmChanged</definition>
+        <argsstring>()</argsstring>
+        <name>searchRadiusMmChanged</name>
+        <qualifiedname>QfIdentifyTool::searchRadiusMmChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfIdentifyTool_1addd3828667cbbf3fc4e01e7fcc611236" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>QfIdentifyTool::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfIdentifyTool_1a4c87a01af34c2c2f13be8b980b8f1db7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::deactivatedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deactivatedChanged</name>
+        <qualifiedname>QfIdentifyTool::deactivatedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="77" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfIdentifyTool_1a1e0a20667823abefc4e2c4d90923b4ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::identifyFinished</definition>
+        <argsstring>() const</argsstring>
+        <name>identifyFinished</name>
+        <qualifiedname>QfIdentifyTool::identifyFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="78" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQfIdentifyTool_1a7e946d9e5d0abca6d36c7f7bf4541cfa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIdentifyTool::identify</definition>
+        <argsstring>(const QPointF &amp;point) const</argsstring>
+        <name>identify</name>
+        <qualifiedname>QfIdentifyTool::identify</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="81" column="10" bodyfile="src/core/qfidentifytool.cpp" bodystart="54" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfIdentifyTool_1a3c989e6e3f57d3f89c9b42ed977911bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structQfIdentifyTool_1_1IdentifyResult" kindref="compound">IdentifyResult</ref> &gt;</type>
+        <definition>QList&lt; QfIdentifyTool::IdentifyResult &gt; QfIdentifyTool::identifyVectorLayer</definition>
+        <argsstring>(QgsVectorLayer *layer, const QgsPointXY &amp;point) const</argsstring>
+        <name>identifyVectorLayer</name>
+        <qualifiedname>QfIdentifyTool::identifyVectorLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="83" column="11" bodyfile="src/core/qfidentifytool.cpp" bodystart="95" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfIdentifyTool_1a4f97b416adeff4c44646a80c8ad6a4b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structQfIdentifyTool_1_1IdentifyResult" kindref="compound">IdentifyResult</ref> &gt;</type>
+        <definition>QList&lt; QfIdentifyTool::IdentifyResult &gt; QfIdentifyTool::identifyRasterLayer</definition>
+        <argsstring>(QgsRasterLayer *layer, const QgsPointXY &amp;point) const</argsstring>
+        <name>identifyRasterLayer</name>
+        <qualifiedname>QfIdentifyTool::identifyRasterLayer</qualifiedname>
+        <param>
+          <type>QgsRasterLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="84" column="11" bodyfile="src/core/qfidentifytool.cpp" bodystart="191" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfIdentifyTool_1a7fc19abd64dedbb164de8e122148c46a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structQfIdentifyTool_1_1IdentifyResult" kindref="compound">IdentifyResult</ref> &gt;</type>
+        <definition>QList&lt; QfIdentifyTool::IdentifyResult &gt; QfIdentifyTool::identifyVectorTileLayer</definition>
+        <argsstring>(QgsVectorTileLayer *layer, const QgsPointXY &amp;point) const</argsstring>
+        <name>identifyVectorTileLayer</name>
+        <qualifiedname>QfIdentifyTool::identifyVectorTileLayer</qualifiedname>
+        <param>
+          <type>QgsVectorTileLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="85" column="11" bodyfile="src/core/qfidentifytool.cpp" bodystart="300" bodyend="380"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfIdentifyTool_1a06e74665b3cbdab0f08883bb6cb95275" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfIdentifyTool::searchRadiusMU</definition>
+        <argsstring>(const QgsRenderContext &amp;context) const</argsstring>
+        <name>searchRadiusMU</name>
+        <qualifiedname>QfIdentifyTool::searchRadiusMU</qualifiedname>
+        <param>
+          <type>const QgsRenderContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="91" column="12" bodyfile="src/core/qfidentifytool.cpp" bodystart="407" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1a38c36f378b750ac530d9a8f528357d7f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfIdentifyTool::searchRadiusMU</definition>
+        <argsstring>() const</argsstring>
+        <name>searchRadiusMU</name>
+        <qualifiedname>QfIdentifyTool::searchRadiusMU</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="92" column="12" bodyfile="src/core/qfidentifytool.cpp" bodystart="412" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1a2c8b366f793ed67f62b1bd02eb01e662" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle QfIdentifyTool::toLayerCoordinates</definition>
+        <argsstring>(QgsMapLayer *layer, const QgsRectangle &amp;rect) const</argsstring>
+        <name>toLayerCoordinates</name>
+        <qualifiedname>QfIdentifyTool::toLayerCoordinates</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="94" column="18" bodyfile="src/core/qfidentifytool.cpp" bodystart="418" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIdentifyTool_1a61cae39d72ab35e5b393565dfc5b9bce" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPointXY</type>
+        <definition>QgsPointXY QfIdentifyTool::toLayerCoordinates</definition>
+        <argsstring>(QgsMapLayer *layer, const QgsPointXY &amp;point) const</argsstring>
+        <name>toLayerCoordinates</name>
+        <qualifiedname>QfIdentifyTool::toLayerCoordinates</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="95" column="16" bodyfile="src/core/qfidentifytool.cpp" bodystart="423" bodyend="426"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfIdentifyTool</label>
+        <link refid="classQfIdentifyTool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfIdentifyTool</label>
+        <link refid="classQfIdentifyTool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfidentifytool.h" line="35" column="1" bodyfile="src/core/qfidentifytool.h" bodystart="36" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classQfIdentifyTool_1a7f8cdcb0b6cdc826cbffcddf1a8159bb" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>deactivated</name></member>
+      <member refid="classQfIdentifyTool_1a00ce7b930734ffc5ff68dd31cd4f13c5" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>deactivated</name></member>
+      <member refid="classQfIdentifyTool_1a4c87a01af34c2c2f13be8b980b8f1db7" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>deactivatedChanged</name></member>
+      <member refid="classQfIdentifyTool_1a7e946d9e5d0abca6d36c7f7bf4541cfa" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>identify</name></member>
+      <member refid="classQfIdentifyTool_1a1e0a20667823abefc4e2c4d90923b4ed" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>identifyFinished</name></member>
+      <member refid="classQfIdentifyTool_1a4f97b416adeff4c44646a80c8ad6a4b2" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>identifyRasterLayer</name></member>
+      <member refid="classQfIdentifyTool_1a3c989e6e3f57d3f89c9b42ed977911bf" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>identifyVectorLayer</name></member>
+      <member refid="classQfIdentifyTool_1a7fc19abd64dedbb164de8e122148c46a" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>identifyVectorTileLayer</name></member>
+      <member refid="classQfIdentifyTool_1a24d3d4e4722c3e14914dcfbf72bb10b6" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>mapSettings</name></member>
+      <member refid="classQfIdentifyTool_1a3c0e13f9c91dd0561d0834e20d502e6b" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>mapSettings</name></member>
+      <member refid="classQfIdentifyTool_1aac27842607d7b5111dd602b03319892d" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfIdentifyTool_1a63292e73588fc0465672ff29303a04bc" prot="private" virt="non-virtual"><scope>QfIdentifyTool</scope><name>mDeactivated</name></member>
+      <member refid="classQfIdentifyTool_1a766338690081ea545661cf8fa06d49ba" prot="private" virt="non-virtual"><scope>QfIdentifyTool</scope><name>mMapSettings</name></member>
+      <member refid="classQfIdentifyTool_1a1e72f1e488ad713c989704809881223f" prot="private" virt="non-virtual"><scope>QfIdentifyTool</scope><name>mModel</name></member>
+      <member refid="classQfIdentifyTool_1a514fa18fef2fc1489281d3f666ce8ddd" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>model</name></member>
+      <member refid="classQfIdentifyTool_1ae144134e418a51c68db40e792b5bc686" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>model</name></member>
+      <member refid="classQfIdentifyTool_1addd3828667cbbf3fc4e01e7fcc611236" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>modelChanged</name></member>
+      <member refid="classQfIdentifyTool_1ab34233502d49fbc009ca5567b7b269ca" prot="private" virt="non-virtual"><scope>QfIdentifyTool</scope><name>mSearchRadiusMm</name></member>
+      <member refid="classQfIdentifyTool_1a20e4d0c6c0f7528b90d26778492ef8d4" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>QfIdentifyTool</name></member>
+      <member refid="classQfIdentifyTool_1a5222eb68b9bb426318486a2dcb58bce0" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>searchRadiusMm</name></member>
+      <member refid="classQfIdentifyTool_1a96e5935dc84a411993890e5557549883" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>searchRadiusMm</name></member>
+      <member refid="classQfIdentifyTool_1ac175492a2bfa491d01ba5bba0c30534b" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>searchRadiusMmChanged</name></member>
+      <member refid="classQfIdentifyTool_1a06e74665b3cbdab0f08883bb6cb95275" prot="private" virt="non-virtual"><scope>QfIdentifyTool</scope><name>searchRadiusMU</name></member>
+      <member refid="classQfIdentifyTool_1a38c36f378b750ac530d9a8f528357d7f" prot="private" virt="non-virtual"><scope>QfIdentifyTool</scope><name>searchRadiusMU</name></member>
+      <member refid="classQfIdentifyTool_1aa8e70e7b8794dda873cf537e171db92a" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>setDeactivated</name></member>
+      <member refid="classQfIdentifyTool_1ab226af3f4156981b0a2927765186e9ec" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>setMapSettings</name></member>
+      <member refid="classQfIdentifyTool_1a361170a21b56213aad1b5af0857a2298" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>setModel</name></member>
+      <member refid="classQfIdentifyTool_1ae6aa3b033358eedca75677539520fd30" prot="public" virt="non-virtual"><scope>QfIdentifyTool</scope><name>setSearchRadiusMm</name></member>
+      <member refid="classQfIdentifyTool_1a2c8b366f793ed67f62b1bd02eb01e662" prot="private" virt="non-virtual"><scope>QfIdentifyTool</scope><name>toLayerCoordinates</name></member>
+      <member refid="classQfIdentifyTool_1a61cae39d72ab35e5b393565dfc5b9bce" prot="private" virt="non-virtual"><scope>QfIdentifyTool</scope><name>toLayerCoordinates</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

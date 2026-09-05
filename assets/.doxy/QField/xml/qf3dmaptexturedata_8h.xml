@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qf3dmaptexturedata_8h" kind="file" language="C++">
+    <compoundname>qf3dmaptexturedata.h</compoundname>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquickmapsettings.h</includes>
+    <includes local="no">QImage</includes>
+    <includes local="no">QTimer</includes>
+    <includes local="no">QtQuick3D/QQuick3DTextureData</includes>
+    <includes local="no">qgsrectangle.h</includes>
+    <includes local="no">qobjectuniqueptr.h</includes>
+    <includedby refid="qf3d_8cpp" local="yes">src/3d/qf3d.cpp</includedby>
+    <includedby refid="qf3dmaptexturedata_8cpp" local="yes">src/3d/qf3dmaptexturedata.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/3d/qf3dmaptexturedata.h</label>
+        <link refid="qf3dmaptexturedata_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>QImage</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="12">
+        <label>QTimer</label>
+      </node>
+      <node id="13">
+        <label>QtQuick3D/QQuick3DTextureData</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="5">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="6">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="9">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="10">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="14">
+        <label>qobjectuniqueptr.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classQf3DMapTextureData" prot="public">Qf3DMapTextureData</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>qf3dmaptexturedata.h<sp/>-<sp/>Qf3DMapTextureData</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>30.1.2026</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mohsen<sp/>Dehghanzadeh</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mohsen@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QF3DMAPTEXTUREDATA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QF3DMAPTEXTUREDATA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QImage&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTimer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtQuick3D/QQuick3DTextureData&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsrectangle.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qobjectuniqueptr.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsMapRendererParallelJob;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classQf3DMapTextureData" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQf3DMapTextureData" kindref="compound">Qf3DMapTextureData</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuick3DTextureData</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classQf3DMapTextureData_1a1ba8c5dbade095a6cde6a5395043a7eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classQf3DMapTextureData_1a1ba8c5dbade095a6cde6a5395043a7eb" kindref="member">mapSettings</ref><sp/>READ<sp/><ref refid="classQf3DMapTextureData_1a1ba8c5dbade095a6cde6a5395043a7eb" kindref="member">mapSettings</ref><sp/>WRITE<sp/><ref refid="classQf3DMapTextureData_1a829be8ad773ceb06dc316488e5bc7627" kindref="member">setMapSettings</ref><sp/>NOTIFY<sp/><ref refid="classQf3DMapTextureData_1a444b7eb932624928ba5171e5dd631f34" kindref="member">mapSettingsChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="classQf3DMapTextureData_1a6a6447914616450cc84c1cd43178c835" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsRectangle<sp/><ref refid="classQf3DMapTextureData_1a6a6447914616450cc84c1cd43178c835" kindref="member">extent</ref><sp/>READ<sp/><ref refid="classQf3DMapTextureData_1a6a6447914616450cc84c1cd43178c835" kindref="member">extent</ref><sp/>WRITE<sp/><ref refid="classQf3DMapTextureData_1a25be54180edcff8f5d79b336106f0696" kindref="member">setExtent</ref><sp/>NOTIFY<sp/><ref refid="classQf3DMapTextureData_1a0313a6c9fd34975e2addf2ebb6f87771" kindref="member">extentChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classQf3DMapTextureData_1af187fd314cb404a747654fbe47656fda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1af187fd314cb404a747654fbe47656fda" kindref="member">isRendering</ref><sp/>READ<sp/><ref refid="classQf3DMapTextureData_1af187fd314cb404a747654fbe47656fda" kindref="member">isRendering</ref><sp/>NOTIFY<sp/><ref refid="classQf3DMapTextureData_1a49b0d0cc694be12fcb0222e2d5751eca" kindref="member">isRenderingChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classQf3DMapTextureData_1a44ec523aa4a7cea89458021be2bb9187" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a44ec523aa4a7cea89458021be2bb9187" kindref="member">isReady</ref><sp/>READ<sp/><ref refid="classQf3DMapTextureData_1a44ec523aa4a7cea89458021be2bb9187" kindref="member">isReady</ref><sp/>NOTIFY<sp/><ref refid="classQf3DMapTextureData_1ae50c9ba5c3bf8d166bcb3b54614636c6" kindref="member">isReadyChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classQf3DMapTextureData_1af773daabba6584cda83398ca24d79bac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1af773daabba6584cda83398ca24d79bac" kindref="member">incrementalRendering</ref><sp/>READ<sp/><ref refid="classQf3DMapTextureData_1af773daabba6584cda83398ca24d79bac" kindref="member">incrementalRendering</ref><sp/>WRITE<sp/><ref refid="classQf3DMapTextureData_1a2b1cfa8e8755845af35291d2e0f16fb6" kindref="member">setIncrementalRendering</ref><sp/>NOTIFY<sp/><ref refid="classQf3DMapTextureData_1a5f3b28b88f50d592e2936218063b9b7f" kindref="member">incrementalRenderingChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classQf3DMapTextureData_1ac6661dee408ad146124e4af7da7d7065" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1ac6661dee408ad146124e4af7da7d7065" kindref="member">forceDeferredLayersRepaint</ref><sp/>READ<sp/><ref refid="classQf3DMapTextureData_1ac6661dee408ad146124e4af7da7d7065" kindref="member">forceDeferredLayersRepaint</ref><sp/>WRITE<sp/><ref refid="classQf3DMapTextureData_1a6829d12785bdc3c1b96fd0cbea1390a0" kindref="member">setForceDeferredLayersRepaint</ref><sp/>NOTIFY<sp/><ref refid="classQf3DMapTextureData_1a66129eb4ff303697828c10a700fc4bdc" kindref="member">forceDeferredLayersRepaintChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classQf3DMapTextureData" kindref="compound">Qf3DMapTextureData</ref>(<sp/>QQuick3DObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="classQf3DMapTextureData" kindref="compound">Qf3DMapTextureData</ref>()<sp/>override;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classQf3DMapTextureData_1a1ba8c5dbade095a6cde6a5395043a7eb" kindref="member">mapSettings</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a829be8ad773ceb06dc316488e5bc7627" kindref="member">setMapSettings</ref>(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classQf3DMapTextureData_1a1ba8c5dbade095a6cde6a5395043a7eb" kindref="member">mapSettings</ref><sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsRectangle<sp/><ref refid="classQf3DMapTextureData_1a6a6447914616450cc84c1cd43178c835" kindref="member">extent</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a25be54180edcff8f5d79b336106f0696" kindref="member">setExtent</ref>(<sp/>const<sp/>QgsRectangle<sp/>&amp;<ref refid="classQf3DMapTextureData_1a6a6447914616450cc84c1cd43178c835" kindref="member">extent</ref><sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1af187fd314cb404a747654fbe47656fda" kindref="member">isRendering</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a44ec523aa4a7cea89458021be2bb9187" kindref="member">isReady</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1af773daabba6584cda83398ca24d79bac" kindref="member">incrementalRendering</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a2b1cfa8e8755845af35291d2e0f16fb6" kindref="member">setIncrementalRendering</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1af773daabba6584cda83398ca24d79bac" kindref="member">incrementalRendering</ref><sp/>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1ac6661dee408ad146124e4af7da7d7065" kindref="member">forceDeferredLayersRepaint</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a6829d12785bdc3c1b96fd0cbea1390a0" kindref="member">setForceDeferredLayersRepaint</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>deferred<sp/>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1aaac85ee823b8a8cd74d39eeb031271e9" kindref="member">render</ref>();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="103" refid="classQf3DMapTextureData_1a444b7eb932624928ba5171e5dd631f34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a444b7eb932624928ba5171e5dd631f34" kindref="member">mapSettingsChanged</ref>();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="classQf3DMapTextureData_1a0313a6c9fd34975e2addf2ebb6f87771" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a0313a6c9fd34975e2addf2ebb6f87771" kindref="member">extentChanged</ref>();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classQf3DMapTextureData_1a49b0d0cc694be12fcb0222e2d5751eca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a49b0d0cc694be12fcb0222e2d5751eca" kindref="member">isRenderingChanged</ref>();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="classQf3DMapTextureData_1ae50c9ba5c3bf8d166bcb3b54614636c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1ae50c9ba5c3bf8d166bcb3b54614636c6" kindref="member">isReadyChanged</ref>();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="classQf3DMapTextureData_1a8370a712a2c02775b7cf3d64ef823bcc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a8370a712a2c02775b7cf3d64ef823bcc" kindref="member">textureUpdated</ref>();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classQf3DMapTextureData_1a5f3b28b88f50d592e2936218063b9b7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a5f3b28b88f50d592e2936218063b9b7f" kindref="member">incrementalRenderingChanged</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classQf3DMapTextureData_1a66129eb4ff303697828c10a700fc4bdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DMapTextureData_1a66129eb4ff303697828c10a700fc4bdc" kindref="member">forceDeferredLayersRepaintChanged</ref>();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>private<sp/>slots:</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onRenderJobUpdated();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onRenderFinished();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>layerRepaintRequested();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateTextureData(<sp/>const<sp/>QImage<sp/>&amp;image<sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>refresh();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mMapSettings<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsRectangle<sp/>mExtent;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>QObjectUniquePtr&lt;QgsMapRendererParallelJob&gt;<sp/>mRenderJob;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer<sp/>mMapUpdateTimer;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer<sp/>mRefreshTimer;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIncrementalRendering<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mForceDeferredLayersRepaint<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mDeferredRefreshPending<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsReady<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector&lt;QMetaObject::Connection&gt;<sp/>mLayerConnections;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QF3DMAPTEXTUREDATA_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/3d/qf3dmaptexturedata.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_99d0482cf009f9d97a0877749b817f19" kind="dir">
+    <compoundname>src/gui</compoundname>
+    <innerdir refid="dir_fe94622d8d68495e133d6eeeba479fc2">src/gui/qml</innerdir>
+    <innerfile refid="qfattributeformmodel_8cpp">qfattributeformmodel.cpp</innerfile>
+    <innerfile refid="qfattributeformmodel_8h">qfattributeformmodel.h</innerfile>
+    <innerfile refid="qfattributeformmodelbase_8cpp">qfattributeformmodelbase.cpp</innerfile>
+    <innerfile refid="qfattributeformmodelbase_8h">qfattributeformmodelbase.h</innerfile>
+    <innerfile refid="qfbarcodeimageprovider_8cpp">qfbarcodeimageprovider.cpp</innerfile>
+    <innerfile refid="qfbarcodeimageprovider_8h">qfbarcodeimageprovider.h</innerfile>
+    <innerfile refid="qfdrawingtemplatemodel_8cpp">qfdrawingtemplatemodel.cpp</innerfile>
+    <innerfile refid="qfdrawingtemplatemodel_8h">qfdrawingtemplatemodel.h</innerfile>
+    <innerfile refid="qfexpressionevaluator_8cpp">qfexpressionevaluator.cpp</innerfile>
+    <innerfile refid="qfexpressionevaluator_8h">qfexpressionevaluator.h</innerfile>
+    <innerfile refid="qfexpressionvariablemodel_8cpp">qfexpressionvariablemodel.cpp</innerfile>
+    <innerfile refid="qfexpressionvariablemodel_8h">qfexpressionvariablemodel.h</innerfile>
+    <innerfile refid="qffeaturechecklistmodel_8cpp">qffeaturechecklistmodel.cpp</innerfile>
+    <innerfile refid="qffeaturechecklistmodel_8h">qffeaturechecklistmodel.h</innerfile>
+    <innerfile refid="qffocusstack_8cpp">qffocusstack.cpp</innerfile>
+    <innerfile refid="qffocusstack_8h">qffocusstack.h</innerfile>
+    <innerfile refid="qfgeometryeditorsmodel_8cpp">qfgeometryeditorsmodel.cpp</innerfile>
+    <innerfile refid="qfgeometryeditorsmodel_8h">qfgeometryeditorsmodel.h</innerfile>
+    <innerfile refid="qfgui_8cpp">qfgui.cpp</innerfile>
+    <innerfile refid="qfgui_8h">qfgui.h</innerfile>
+    <innerfile refid="qflegendimageprovider_8cpp">qflegendimageprovider.cpp</innerfile>
+    <innerfile refid="qflegendimageprovider_8h">qflegendimageprovider.h</innerfile>
+    <innerfile refid="qflocalfilesimageprovider_8cpp">qflocalfilesimageprovider.cpp</innerfile>
+    <innerfile refid="qflocalfilesimageprovider_8h">qflocalfilesimageprovider.h</innerfile>
+    <innerfile refid="qflocalfilesmodel_8cpp">qflocalfilesmodel.cpp</innerfile>
+    <innerfile refid="qflocalfilesmodel_8h">qflocalfilesmodel.h</innerfile>
+    <innerfile refid="qfmessagelogmodel_8cpp">qfmessagelogmodel.cpp</innerfile>
+    <innerfile refid="qfmessagelogmodel_8h">qfmessagelogmodel.h</innerfile>
+    <innerfile refid="qforderedrelationmodel_8cpp">qforderedrelationmodel.cpp</innerfile>
+    <innerfile refid="qforderedrelationmodel_8h">qforderedrelationmodel.h</innerfile>
+    <innerfile refid="qfparameterizedimage_8cpp">qfparameterizedimage.cpp</innerfile>
+    <innerfile refid="qfparameterizedimage_8h">qfparameterizedimage.h</innerfile>
+    <innerfile refid="qfpermissions_8cpp">qfpermissions.cpp</innerfile>
+    <innerfile refid="qfpermissions_8h">qfpermissions.h</innerfile>
+    <innerfile refid="qfprintlayoutlistmodel_8cpp">qfprintlayoutlistmodel.cpp</innerfile>
+    <innerfile refid="qfprintlayoutlistmodel_8h">qfprintlayoutlistmodel.h</innerfile>
+    <innerfile refid="qfprojectsimageprovider_8cpp">qfprojectsimageprovider.cpp</innerfile>
+    <innerfile refid="qfprojectsimageprovider_8h">qfprojectsimageprovider.h</innerfile>
+    <innerfile refid="qfrecentprojectlistmodel_8cpp">qfrecentprojectlistmodel.cpp</innerfile>
+    <innerfile refid="qfrecentprojectlistmodel_8h">qfrecentprojectlistmodel.h</innerfile>
+    <innerfile refid="qfreferencingfeaturelistmodel_8cpp">qfreferencingfeaturelistmodel.cpp</innerfile>
+    <innerfile refid="qfreferencingfeaturelistmodel_8h">qfreferencingfeaturelistmodel.h</innerfile>
+    <innerfile refid="qfsensorlistmodel_8cpp">qfsensorlistmodel.cpp</innerfile>
+    <innerfile refid="qfsensorlistmodel_8h">qfsensorlistmodel.h</innerfile>
+    <innerfile refid="qftheme_8cpp">qftheme.cpp</innerfile>
+    <innerfile refid="qftheme_8h">qftheme.h</innerfile>
+    <innerfile refid="qfvaluemapmodel_8cpp">qfvaluemapmodel.cpp</innerfile>
+    <innerfile refid="qfvaluemapmodel_8h">qfvaluemapmodel.h</innerfile>
+    <innerfile refid="qfvaluemapmodelbase_8cpp">qfvaluemapmodelbase.cpp</innerfile>
+    <innerfile refid="qfvaluemapmodelbase_8h">qfvaluemapmodelbase.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui/"/>
+  </compounddef>
+</doxygen>

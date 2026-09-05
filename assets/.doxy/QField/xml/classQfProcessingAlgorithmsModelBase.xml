@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProcessingAlgorithmsModelBase" kind="class" language="C++" prot="public">
+    <compoundname>QfProcessingAlgorithmsModelBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfprocessingalgorithmsmodel_8h" local="no">qfprocessingalgorithmsmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::Role</qualifiedname>
+        <enumvalue id="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7a1e8262367182444a5fbb1e037e8a570f" prot="public">
+          <name>AlgorithmIdRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7afedceb145c90a262c62b83ca73195bab" prot="public">
+          <name>AlgorithmGroupRole</name>
+          <briefdescription>
+<para>the algorithm unique ID </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7af6aef1cfc514b1fd3257d6745a26947d" prot="public">
+          <name>AlgorithmNameRole</name>
+          <briefdescription>
+<para>the algorithm group </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7a4084deae948ba098b70a1dc751a30160" prot="public">
+          <name>AlgorithmSvgIconRole</name>
+          <briefdescription>
+<para>the algorithm name </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7a5fb07f57073bf08a42b2ec4ac1db0f7d" prot="public">
+          <name>AlgorithmFlagsRole</name>
+          <briefdescription>
+<para>the algorithm SVG icon path </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7a3d21f799077a75559d85c858a2bd4199" prot="public">
+          <name>AlgorithmFavoriteRole</name>
+          <briefdescription>
+<para>the algorithm flags </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Roles to get the data of the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="129" column="5" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.h" bodystart="130" bodyend="137"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProcessingAlgorithmsModelBase_1a3567555529f391b0495e86917c77ee48" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classQfAlgorithmItem" kindref="compound">QfAlgorithmItem</ref> &gt;</type>
+        <definition>QList&lt;QfAlgorithmItem&gt; QfProcessingAlgorithmsModelBase::mAlgorithms</definition>
+        <argsstring></argsstring>
+        <name>mAlgorithms</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::mAlgorithms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="157" column="11" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfProcessingAlgorithmsModelBase_1ad698b83c81062f7a3c3fb977a6a478da" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfProcessingAlgorithmsModelBase::QfProcessingAlgorithmsModelBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfProcessingAlgorithmsModelBase</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::QfProcessingAlgorithmsModelBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="140" column="14" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.cpp" bodystart="119" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmsModelBase_1a6006f190af2fdc94fe1453f2a4b954d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfProcessingAlgorithmsModelBase::rebuild</definition>
+        <argsstring>()</argsstring>
+        <name>rebuild</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::rebuild</qualifiedname>
+        <briefdescription>
+<para>Rebuilds the algorithms model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="143" column="22" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.cpp" bodystart="137" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmsModelBase_1a219c9025249f5916f4553ba21610f1aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const QgsProcessingAlgorithm *</type>
+        <definition>const QgsProcessingAlgorithm * QfProcessingAlgorithmsModelBase::algorithmForIndex</definition>
+        <argsstring>(const QModelIndex &amp;index) const</argsstring>
+        <name>algorithmForIndex</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::algorithmForIndex</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns the processing algorithm for the given index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="146" column="34" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.cpp" bodystart="192" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmsModelBase_1a7c1d497902cc4e3de80c29c1a7834216" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfProcessingAlgorithmsModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="148" column="11" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.cpp" bodystart="202" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmsModelBase_1a33560f57027562faf9f070281bd2d4df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfProcessingAlgorithmsModelBase::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="149" column="9" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.cpp" bodystart="215" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmsModelBase_1ab091c3e080e0ef9c12e69bc74aefc2e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfProcessingAlgorithmsModelBase::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="150" column="14" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.cpp" bodystart="220" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmsModelBase_1a6a29793fac812277c4426f3fc42ba123" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfProcessingAlgorithmsModelBase::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="151" column="10" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.cpp" bodystart="245" bodyend="260"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfProcessingAlgorithmsModelBase_1a66c844a4b9e3cf95d2113efd26f343fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingAlgorithmsModelBase::addProvider</definition>
+        <argsstring>(QgsProcessingProvider *provider)</argsstring>
+        <name>addProvider</name>
+        <qualifiedname>QfProcessingAlgorithmsModelBase::addProvider</qualifiedname>
+        <param>
+          <type>QgsProcessingProvider *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="155" column="10" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.cpp" bodystart="151" bodyend="190"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A model for providers and algorithms available within QField. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>See ProcessingAlgorithmsProxyModel for a sorted, filterable version of this model. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfProcessingAlgorithmsModelBase</label>
+        <link refid="classQfProcessingAlgorithmsModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfProcessingAlgorithmsModelBase</label>
+        <link refid="classQfProcessingAlgorithmsModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="123" column="1" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.h" bodystart="124" bodyend="158"/>
+    <listofallmembers>
+      <member refid="classQfProcessingAlgorithmsModelBase_1a66c844a4b9e3cf95d2113efd26f343fa" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>addProvider</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7a3d21f799077a75559d85c858a2bd4199" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>AlgorithmFavoriteRole</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7a5fb07f57073bf08a42b2ec4ac1db0f7d" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>AlgorithmFlagsRole</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1a219c9025249f5916f4553ba21610f1aa" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>algorithmForIndex</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7afedceb145c90a262c62b83ca73195bab" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>AlgorithmGroupRole</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7a1e8262367182444a5fbb1e037e8a570f" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>AlgorithmIdRole</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7af6aef1cfc514b1fd3257d6745a26947d" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>AlgorithmNameRole</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7a4084deae948ba098b70a1dc751a30160" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>AlgorithmSvgIconRole</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1ab091c3e080e0ef9c12e69bc74aefc2e1" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>data</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1a3567555529f391b0495e86917c77ee48" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>mAlgorithms</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1ad698b83c81062f7a3c3fb977a6a478da" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>QfProcessingAlgorithmsModelBase</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1a6006f190af2fdc94fe1453f2a4b954d8" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>rebuild</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1aec9e913a295b44f15d2c4a2cccce8be7" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>Role</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1a7c1d497902cc4e3de80c29c1a7834216" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>roleNames</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1a33560f57027562faf9f070281bd2d4df" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>rowCount</name></member>
+      <member refid="classQfProcessingAlgorithmsModelBase_1a6a29793fac812277c4426f3fc42ba123" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmsModelBase</scope><name>setData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,215 @@
+
+
+# File QfPageHeader.qml
+
+[**File List**](files.md) **>** [**gui**](dir_99d0482cf009f9d97a0877749b817f19.md) **>** [**qml**](dir_fe94622d8d68495e133d6eeeba479fc2.md) **>** [**QfPageHeader.qml**](QfPageHeader_8qml.md)
+
+[Go to the documentation of this file](QfPageHeader_8qml.md)
+
+
+```C++
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Layouts
+import org.qfield.core
+import org.qfield.gui
+
+ToolBar {
+  property alias title: titleLabel.text
+
+  property bool backgroundFill: false
+  property bool backAsCancel: false
+
+  property alias showBackButton: backButton.visible
+  property alias showApplyButton: applyButton.visible
+  property alias showCancelButton: cancelButton.visible
+  property alias showRemoveButton: removeButton.visible
+  property alias showMenuButton: menuButton.visible
+
+  property alias busyIndicatorState: busyIndicator.state
+  property alias busyIndicatorValue: busyIndicator.value
+
+  property double topMargin: 0.0
+
+  signal cancel
+  signal apply
+  signal back
+  signal finished
+  signal remove
+  signal openMenu
+
+  height: topMargin + QfTheme.toolButtonSize
+
+  topPadding: 0
+  leftPadding: 0
+  rightPadding: 0
+  bottomPadding: 0
+
+  anchors {
+    top: parent.top
+    left: parent.left
+    right: parent.right
+  }
+
+  background: Rectangle {
+    id: backgroundRect
+    color: backgroundFill ? QfTheme.mainColor : "transparent"
+
+    ProgressBar {
+      id: busyIndicator
+      anchors.top: parent.bottom
+      anchors.left: parent.left
+      width: parent.width
+      height: 6
+      value: 0
+      indeterminate: value === 0 ? true : false
+
+      state: "off"
+
+      visible: opacity > 0
+
+      states: [
+        State {
+          name: 'on'
+          PropertyChanges {
+            target: busyIndicator
+            opacity: 1.0
+          }
+        },
+        State {
+          name: 'off'
+          PropertyChanges {
+            target: busyIndicator
+            opacity: 0.0
+          }
+        }
+      ]
+      transitions: [
+        Transition {
+          from: "off"
+          to: "on"
+          SequentialAnimation {
+            NumberAnimation {
+              target: busyIndicator
+              property: 'opacity'
+              duration: 100
+            }
+          }
+        },
+        Transition {
+          from: "on"
+          to: "off"
+          SequentialAnimation {
+            PauseAnimation {
+              duration: 100
+            }
+            NumberAnimation {
+              target: busyIndicator
+              property: 'opacity'
+              duration: 200
+            }
+          }
+        }
+      ]
+    }
+  }
+  Material.foreground: undefined
+
+  RowLayout {
+    anchors.fill: parent
+    anchors.topMargin: topMargin
+    Layout.margins: 0
+
+    QfToolButton {
+      id: backButton
+
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+      clip: true
+      iconSource: backAsCancel ? QfTheme.getThemeVectorIcon('ic_close_white_24dp') : QfTheme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
+
+      onClicked: {
+        if (backAsCancel) {
+          cancel();
+        } else {
+          back();
+        }
+        finished();
+      }
+    }
+
+    QfToolButton {
+      id: applyButton
+
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+      clip: true
+      iconSource: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
+
+      onClicked: {
+        apply();
+        finished();
+      }
+    }
+
+    Label {
+      id: titleLabel
+      leftPadding: !showApplyButton && (showCancelButton || showRemoveButton) ? QfTheme.toolButtonSize : 0
+      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showRemoveButton && !showMenuButton ? QfTheme.toolButtonSize : 0
+      font: QfTheme.strongTitleFont
+      color: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
+      elide: Label.ElideRight
+      horizontalAlignment: Qt.AlignHCenter
+      verticalAlignment: Qt.AlignVCenter
+      Layout.fillWidth: true
+    }
+
+    QfToolButton {
+      id: removeButton
+
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+      visible: false
+      clip: true
+      iconSource: QfTheme.getThemeVectorIcon('ic_delete_forever_white_24dp')
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
+
+      onClicked: {
+        remove();
+        finished();
+      }
+    }
+
+    QfToolButton {
+      id: cancelButton
+
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+      clip: true
+      iconSource: QfTheme.getThemeVectorIcon('ic_close_white_24dp')
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
+
+      onClicked: {
+        cancel();
+        finished();
+      }
+    }
+
+    QfToolButton {
+      id: menuButton
+
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+      clip: true
+      visible: false
+
+      iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
+
+      onClicked: {
+        openMenu();
+      }
+    }
+  }
+}
+```
+
+

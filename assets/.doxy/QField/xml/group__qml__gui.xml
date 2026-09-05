@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__qml__gui" kind="group">
+    <compoundname>qml_gui</compoundname>
+    <title>QML gui</title>
+    <innerclass refid="classQfActionButton" prot="public">QfActionButton</innerclass>
+    <innerclass refid="classQfAudioClipRecorder" prot="public">QfAudioClipRecorder</innerclass>
+    <innerclass refid="classQfBadge" prot="public">QfBadge</innerclass>
+    <innerclass refid="classQfBluetoothDeviceChooser" prot="public">QfBluetoothDeviceChooser</innerclass>
+    <innerclass refid="classQfBookmarkHighlight" prot="public">QfBookmarkHighlight</innerclass>
+    <innerclass refid="classQfBookmarkList" prot="public">QfBookmarkList</innerclass>
+    <innerclass refid="classQfBookmarkProperties" prot="public">QfBookmarkProperties</innerclass>
+    <innerclass refid="classQfBookmarkRenderer" prot="public">QfBookmarkRenderer</innerclass>
+    <innerclass refid="classQfBrowserPanel" prot="public">QfBrowserPanel</innerclass>
+    <innerclass refid="classQfBusyOverlay" prot="public">QfBusyOverlay</innerclass>
+    <innerclass refid="classQfButton" prot="public">QfButton</innerclass>
+    <innerclass refid="classQfCalendarItem" prot="public">QfCalendarItem</innerclass>
+    <innerclass refid="classQfCalendarPanel" prot="public">QfCalendarPanel</innerclass>
+    <innerclass refid="classQfCamera" prot="public">QfCamera</innerclass>
+    <innerclass refid="classQfCodeReader" prot="public">QfCodeReader</innerclass>
+    <innerclass refid="classQfCogoOperationPreview" prot="public">QfCogoOperationPreview</innerclass>
+    <innerclass refid="classQfCogoOperations" prot="public">QfCogoOperations</innerclass>
+    <innerclass refid="classQfCogoOperationSettings" prot="public">QfCogoOperationSettings</innerclass>
+    <innerclass refid="classQfCollapsibleMessage" prot="public">QfCollapsibleMessage</innerclass>
+    <innerclass refid="classQfComboBox" prot="public">QfComboBox</innerclass>
+    <innerclass refid="classQfConfirmationToolbar" prot="public">QfConfirmationToolbar</innerclass>
+    <innerclass refid="classQfContainerCard" prot="public">QfContainerCard</innerclass>
+    <innerclass refid="classQfDialog" prot="public">QfDialog</innerclass>
+    <innerclass refid="classQfDigitizingToolbar" prot="public">QfDigitizingToolbar</innerclass>
+    <innerclass refid="classQfDropShadow" prot="public">QfDropShadow</innerclass>
+    <innerclass refid="classQfEgenioussDeviceChooser" prot="public">QfEgenioussDeviceChooser</innerclass>
+    <innerclass refid="classQfElevationProfile" prot="public">QfElevationProfile</innerclass>
+    <innerclass refid="classQfEmbeddedFeatureForm" prot="public">QfEmbeddedFeatureForm</innerclass>
+    <innerclass refid="classQfExpandableGroupBox" prot="public">QfExpandableGroupBox</innerclass>
+    <innerclass refid="classQfFeatureForm" prot="public">QfFeatureForm</innerclass>
+    <innerclass refid="classQfFeatureListForm" prot="public">QfFeatureListForm</innerclass>
+    <innerclass refid="classQfFileDeviceChooser" prot="public">QfFileDeviceChooser</innerclass>
+    <innerclass refid="classQfGeometryEditorsToolbar" prot="public">QfGeometryEditorsToolbar</innerclass>
+    <innerclass refid="classQfGeometryHighlighter" prot="public">QfGeometryHighlighter</innerclass>
+    <innerclass refid="classQfGeometryRenderer" prot="public">QfGeometryRenderer</innerclass>
+    <innerclass refid="classQfImageDial" prot="public">QfImageDial</innerclass>
+    <innerclass refid="classQfInformationDrawer" prot="public">QfInformationDrawer</innerclass>
+    <innerclass refid="classQfInformationPopup" prot="public">QfInformationPopup</innerclass>
+    <innerclass refid="classQfLayerLoginDialog" prot="public">QfLayerLoginDialog</innerclass>
+    <innerclass refid="classQfLayerTreeItemProperties" prot="public">QfLayerTreeItemProperties</innerclass>
+    <innerclass refid="classQfLegend" prot="public">QfLegend</innerclass>
+    <innerclass refid="classQfLocationMarker" prot="public">QfLocationMarker</innerclass>
+    <innerclass refid="classQfLocatorItem" prot="public">QfLocatorItem</innerclass>
+    <innerclass refid="classQfLocatorSettings" prot="public">QfLocatorSettings</innerclass>
+    <innerclass refid="classQfMenu" prot="public">QfMenu</innerclass>
+    <innerclass refid="classQfMessageLog" prot="public">QfMessageLog</innerclass>
+    <innerclass refid="classQfMeterBar" prot="public">QfMeterBar</innerclass>
+    <innerclass refid="classQfNavigationBar" prot="public">QfNavigationBar</innerclass>
+    <innerclass refid="classQfNavigationHighlight" prot="public">QfNavigationHighlight</innerclass>
+    <innerclass refid="classQfNavigationInformationView" prot="public">QfNavigationInformationView</innerclass>
+    <innerclass refid="classQfNavigationRenderer" prot="public">QfNavigationRenderer</innerclass>
+    <innerclass refid="classQfOpacityMask" prot="public">QfOpacityMask</innerclass>
+    <innerclass refid="classQfOverlayContainer" prot="public">QfOverlayContainer</innerclass>
+    <innerclass refid="classQfOverlayFeatureFormDrawer" prot="public">QfOverlayFeatureFormDrawer</innerclass>
+    <innerclass refid="classQfPageHeader" prot="public">QfPageHeader</innerclass>
+    <innerclass refid="classQfPaneDrawer" prot="public">QfPaneDrawer</innerclass>
+    <innerclass refid="classQfPopup" prot="public">QfPopup</innerclass>
+    <innerclass refid="classQfPositioningDeviceSettings" prot="public">QfPositioningDeviceSettings</innerclass>
+    <innerclass refid="classQfPositioningInformationView" prot="public">QfPositioningInformationView</innerclass>
+    <innerclass refid="classQfPositioningNtripSettings" prot="public">QfPositioningNtripSettings</innerclass>
+    <innerclass refid="classQfPositioningPreciseView" prot="public">QfPositioningPreciseView</innerclass>
+    <innerclass refid="classQfProcessingAlgorithmForm" prot="public">QfProcessingAlgorithmForm</innerclass>
+    <innerclass refid="classQfProcessingAlgorithmPreview" prot="public">QfProcessingAlgorithmPreview</innerclass>
+    <innerclass refid="classQfProcessingAlgorithmsList" prot="public">QfProcessingAlgorithmsList</innerclass>
+    <innerclass refid="classQfProgressRing" prot="public">QfProgressRing</innerclass>
+    <innerclass refid="classQfProjectCreationScreen" prot="public">QfProjectCreationScreen</innerclass>
+    <innerclass refid="classQfProjectThumbnail" prot="public">QfProjectThumbnail</innerclass>
+    <innerclass refid="classQfRelationCombobox" prot="public">QfRelationCombobox</innerclass>
+    <innerclass refid="classQfScaleBar" prot="public">QfScaleBar</innerclass>
+    <innerclass refid="classQfScrollBar" prot="public">QfScrollBar</innerclass>
+    <innerclass refid="classQfSearchBar" prot="public">QfSearchBar</innerclass>
+    <innerclass refid="classQfSensorInformationView" prot="public">QfSensorInformationView</innerclass>
+    <innerclass refid="classQfSerialPortDeviceChooser" prot="public">QfSerialPortDeviceChooser</innerclass>
+    <innerclass refid="classQfSlider" prot="public">QfSlider</innerclass>
+    <innerclass refid="classQfSwipeAnimator" prot="public">QfSwipeAnimator</innerclass>
+    <innerclass refid="classQfSwitch" prot="public">QfSwitch</innerclass>
+    <innerclass refid="classQfTabBar" prot="public">QfTabBar</innerclass>
+    <innerclass refid="classQfTcpDeviceChooser" prot="public">QfTcpDeviceChooser</innerclass>
+    <innerclass refid="classQfTemporalProperties" prot="public">QfTemporalProperties</innerclass>
+    <innerclass refid="classQfTextField" prot="public">QfTextField</innerclass>
+    <innerclass refid="classQfTimeItem" prot="public">QfTimeItem</innerclass>
+    <innerclass refid="classQfToast" prot="public">QfToast</innerclass>
+    <innerclass refid="classQfToggleButtonGroup" prot="public">QfToggleButtonGroup</innerclass>
+    <innerclass refid="classQfToolButton" prot="public">QfToolButton</innerclass>
+    <innerclass refid="classQfToolButtonDrawer" prot="public">QfToolButtonDrawer</innerclass>
+    <innerclass refid="classQfToolButtonPie" prot="public">QfToolButtonPie</innerclass>
+    <innerclass refid="classQfTrackerFeatureForm" prot="public">QfTrackerFeatureForm</innerclass>
+    <innerclass refid="classQfTrackingSession" prot="public">QfTrackingSession</innerclass>
+    <innerclass refid="classQfUdpDeviceChooser" prot="public">QfUdpDeviceChooser</innerclass>
+    <innerclass refid="classQfVariableEditor" prot="public">QfVariableEditor</innerclass>
+    <innerclass refid="classQfVisibilityFadingRow" prot="public">QfVisibilityFadingRow</innerclass>
+    <innerclass refid="classQfWelcomeAction" prot="public">QfWelcomeAction</innerclass>
+    <briefdescription>
+<para>QField GUI QML items available through import org.qfield.gui. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

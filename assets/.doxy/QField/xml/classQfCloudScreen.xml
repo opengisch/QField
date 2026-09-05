@@ -1,0 +1,621 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudScreen" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudScreen</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudScreen_1aac34a162a40aee51d49435048179e126" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudScreen::requestedProjectDetails</definition>
+        <argsstring></argsstring>
+        <name>requestedProjectDetails</name>
+        <qualifiedname>QfCloudScreen::requestedProjectDetails</qualifiedname>
+        <read>dummyGetter_requestedProjectDetails_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="18" column="1" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudScreen_1a99f531b7554d1fec5b23d9b131c41e45" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudScreen::pendingCreatedProjectId</definition>
+        <argsstring></argsstring>
+        <name>pendingCreatedProjectId</name>
+        <qualifiedname>QfCloudScreen::pendingCreatedProjectId</qualifiedname>
+        <read>dummyGetter_pendingCreatedProjectId_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="20" column="1" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudScreen_1a6526976f16179ceaf2b4ea8a7243fb84" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudScreen::pendingCreatedDownloadStarted</definition>
+        <argsstring></argsstring>
+        <name>pendingCreatedDownloadStarted</name>
+        <qualifiedname>QfCloudScreen::pendingCreatedDownloadStarted</qualifiedname>
+        <read>dummyGetter_pendingCreatedDownloadStarted_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="22" column="1" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudScreen_1a48cb11495955593f524999b3ea2b8695" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudStatus" kindref="compound">QfCloudStatus</ref></type>
+        <definition>QfCloudStatus QfCloudScreen::cloudServiceStatus</definition>
+        <argsstring></argsstring>
+        <name>cloudServiceStatus</name>
+        <qualifiedname>QfCloudScreen::cloudServiceStatus</qualifiedname>
+        <read>dummyGetter_cloudServiceStatus_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="24" column="1" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudScreen_1a83bcdfd9cf87ce49b04799ad87143a26" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudProjectsModel" kindref="compound">QfCloudProjectsModel</ref></type>
+        <definition>QfCloudProjectsModel QfCloudScreen::cloudProjectsModel</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectsModel</name>
+        <qualifiedname>QfCloudScreen::cloudProjectsModel</qualifiedname>
+        <read>dummyGetter_cloudProjectsModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="26" column="1" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudScreen_1a2b8be3e3073e12f57b466046a8614070" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudScreen::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QfCloudScreen::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="28" column="5" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1af64d1c1d8b08ba9352c1ce14ad48fda8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudScreen::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QfCloudScreen::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="29" column="5" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a282735db8eb266b534b2d0a2abe7a2de" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudScreen::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>QfCloudScreen::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="30" column="5" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a6faa768a2a1b273b61bdb3bf9cdf7fd1" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfCloudScreen::connectionInformation</definition>
+        <argsstring></argsstring>
+        <name>connectionInformation</name>
+        <qualifiedname>QfCloudScreen::connectionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="31" column="11" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a80538304dccfe8fdc6525213e5693f59" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTabBar" kindref="compound">QfTabBar</ref></type>
+        <definition>QfTabBar QfCloudScreen::filterBar</definition>
+        <argsstring></argsstring>
+        <name>filterBar</name>
+        <qualifiedname>QfCloudScreen::filterBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="32" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a49cc7ac57fdbd5da8dd4f746f58c1ddb" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfCloudScreen::topSpacer</definition>
+        <argsstring></argsstring>
+        <name>topSpacer</name>
+        <qualifiedname>QfCloudScreen::topSpacer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="33" column="6" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a97a1f1113acc43aaa8da643f6b856b9e" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudScreen::cloudAvatarRect</definition>
+        <argsstring></argsstring>
+        <name>cloudAvatarRect</name>
+        <qualifiedname>QfCloudScreen::cloudAvatarRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="34" column="11" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a9033340cde6dc8cf8e8d2f462763fd6c" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudScreen::cloudAvatarMask</definition>
+        <argsstring></argsstring>
+        <name>cloudAvatarMask</name>
+        <qualifiedname>QfCloudScreen::cloudAvatarMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="35" column="11" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1ad05f87d19a2422003d00f7b7fae1338a" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfCloudScreen::cloudAvatar</definition>
+        <argsstring></argsstring>
+        <name>cloudAvatar</name>
+        <qualifiedname>QfCloudScreen::cloudAvatar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="36" column="7" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a38342d11e301feb611fb7a6293a90cb2" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudScreen::connectionSettings</definition>
+        <argsstring></argsstring>
+        <name>connectionSettings</name>
+        <qualifiedname>QfCloudScreen::connectionSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="37" column="14" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1ad4fa573570ef5ac69284e99b8d217cb1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCloudLogin" kindref="compound">QfCloudLogin</ref></type>
+        <definition>QfCloudLogin QfCloudScreen::qfieldCloudLogin</definition>
+        <argsstring></argsstring>
+        <name>qfieldCloudLogin</name>
+        <qualifiedname>QfCloudScreen::qfieldCloudLogin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="38" column="14" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a9397d01bad1a24a1bb6fcc7b09254bb1" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView QfCloudScreen::projectsSwipeView</definition>
+        <argsstring></argsstring>
+        <name>projectsSwipeView</name>
+        <qualifiedname>QfCloudScreen::projectsSwipeView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="39" column="11" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1acb07a0a54ef6d6065a6a48f473b8f3e8" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudScreen::projects</definition>
+        <argsstring></argsstring>
+        <name>projects</name>
+        <qualifiedname>QfCloudScreen::projects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="40" column="14" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1ad05a9b808e0730ba4a162336b89a5d6b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSearchBar" kindref="compound">QfSearchBar</ref></type>
+        <definition>QfSearchBar QfCloudScreen::searchBar</definition>
+        <argsstring></argsstring>
+        <name>searchBar</name>
+        <qualifiedname>QfCloudScreen::searchBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="41" column="13" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a164937051419247b36064587513fffe5" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfCloudScreen::table</definition>
+        <argsstring></argsstring>
+        <name>table</name>
+        <qualifiedname>QfCloudScreen::table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="42" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1ae515227d8396c8d0de59fd5a1ed39ec7" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfCloudScreen::refreshProjectsListBtn</definition>
+        <argsstring></argsstring>
+        <name>refreshProjectsListBtn</name>
+        <qualifiedname>QfCloudScreen::refreshProjectsListBtn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="43" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1ab17785f45eacd6eb5827f24de0b9d72f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCloudScreen::scanProjectBtn</definition>
+        <argsstring></argsstring>
+        <name>scanProjectBtn</name>
+        <qualifiedname>QfCloudScreen::scanProjectBtn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="44" column="14" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a975d8cd301cc98116d7c1ed9213292c1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCloudProjectDetails" kindref="compound">QfCloudProjectDetails</ref></type>
+        <definition>QfCloudProjectDetails QfCloudScreen::projectDetails</definition>
+        <argsstring></argsstring>
+        <name>projectDetails</name>
+        <qualifiedname>QfCloudScreen::projectDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="45" column="23" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1ac06a1af6907b36938906add06ad9fdf7" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfCloudScreen::qfieldCloudScreenOption</definition>
+        <argsstring></argsstring>
+        <name>qfieldCloudScreenOption</name>
+        <qualifiedname>QfCloudScreen::qfieldCloudScreenOption</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="46" column="8" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a3b9bf02c019f59ecc5f5d04108271e10" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfCloudScreen::projectActions</definition>
+        <argsstring></argsstring>
+        <name>projectActions</name>
+        <qualifiedname>QfCloudScreen::projectActions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="47" column="8" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a721bcbbc03993ecd365cd6ca3c1ca960" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfCloudScreen::openProject</definition>
+        <argsstring></argsstring>
+        <name>openProject</name>
+        <qualifiedname>QfCloudScreen::openProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="48" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1afdd66d9c79b645194a4d32c0fa7e332b" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfCloudScreen::syncProject</definition>
+        <argsstring></argsstring>
+        <name>syncProject</name>
+        <qualifiedname>QfCloudScreen::syncProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="49" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a662f909d46e96a0eceb6541fc04b7ff5" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfCloudScreen::pushProject</definition>
+        <argsstring></argsstring>
+        <name>pushProject</name>
+        <qualifiedname>QfCloudScreen::pushProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="50" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a71d22415e52eb2ca32915d7d769e10e4" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfCloudScreen::cloneProject</definition>
+        <argsstring></argsstring>
+        <name>cloneProject</name>
+        <qualifiedname>QfCloudScreen::cloneProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="51" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a4dc793ef13279d5d28455b7dd6f89f5d" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfCloudScreen::removeProject</definition>
+        <argsstring></argsstring>
+        <name>removeProject</name>
+        <qualifiedname>QfCloudScreen::removeProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="52" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1abed932b0b18c329573cee4fdf276477a" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfCloudScreen::viewProjectDetails</definition>
+        <argsstring></argsstring>
+        <name>viewProjectDetails</name>
+        <qualifiedname>QfCloudScreen::viewProjectDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="53" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a8892190c5623b271e5db4bd9c2be3fa5" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfCloudScreen::viewProjectFolder</definition>
+        <argsstring></argsstring>
+        <name>viewProjectFolder</name>
+        <qualifiedname>QfCloudScreen::viewProjectFolder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="54" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a3d7fb8e9bcfd96ada92b4a8b76590d8d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfCloudScreen::confirmRemoveDialog</definition>
+        <argsstring></argsstring>
+        <name>confirmRemoveDialog</name>
+        <qualifiedname>QfCloudScreen::confirmRemoveDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="55" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1ae32f1fe6c057dfe648f6b4a129488bb0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfCloudScreen::cloneProjectDialog</definition>
+        <argsstring></argsstring>
+        <name>cloneProjectDialog</name>
+        <qualifiedname>QfCloudScreen::cloneProjectDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="56" column="10" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a22ca3836dcb61a4dbd483f107a740f88" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfCloudScreen::cloneProjectName</definition>
+        <argsstring></argsstring>
+        <name>cloneProjectName</name>
+        <qualifiedname>QfCloudScreen::cloneProjectName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="57" column="13" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudScreen_1a6938283b5257ec00fb359f03641db20f" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections QfCloudScreen::codeReaderConnection</definition>
+        <argsstring></argsstring>
+        <name>codeReaderConnection</name>
+        <qualifiedname>QfCloudScreen::codeReaderConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="58" column="13" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudScreen_1a56d7bdc3494b340b19c01fc9fb9dbf99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudScreen::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>QfCloudScreen::finished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="14" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudScreen_1a7bd81f6e336c889c7c15affbe20c3867" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudScreen::viewProjectFolder</definition>
+        <argsstring>(string projectPath)</argsstring>
+        <name>viewProjectFolder</name>
+        <qualifiedname>QfCloudScreen::viewProjectFolder</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>projectPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudScreen.qml" line="16" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QfCloudScreen</label>
+        <link refid="classQfCloudScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QfCloudScreen</label>
+        <link refid="classQfCloudScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudScreen.qml" line="11" column="1" bodyfile="src/app/qml/QfCloudScreen.qml" bodystart="11" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classQfCloudScreen_1a71d22415e52eb2ca32915d7d769e10e4" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>cloneProject</name></member>
+      <member refid="classQfCloudScreen_1ae32f1fe6c057dfe648f6b4a129488bb0" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>cloneProjectDialog</name></member>
+      <member refid="classQfCloudScreen_1a22ca3836dcb61a4dbd483f107a740f88" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>cloneProjectName</name></member>
+      <member refid="classQfCloudScreen_1ad05f87d19a2422003d00f7b7fae1338a" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>cloudAvatar</name></member>
+      <member refid="classQfCloudScreen_1a9033340cde6dc8cf8e8d2f462763fd6c" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>cloudAvatarMask</name></member>
+      <member refid="classQfCloudScreen_1a97a1f1113acc43aaa8da643f6b856b9e" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>cloudAvatarRect</name></member>
+      <member refid="classQfCloudScreen_1a83bcdfd9cf87ce49b04799ad87143a26" prot="public" virt="non-virtual"><scope>QfCloudScreen</scope><name>cloudProjectsModel</name></member>
+      <member refid="classQfCloudScreen_1a48cb11495955593f524999b3ea2b8695" prot="public" virt="non-virtual"><scope>QfCloudScreen</scope><name>cloudServiceStatus</name></member>
+      <member refid="classQfCloudScreen_1a6938283b5257ec00fb359f03641db20f" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>codeReaderConnection</name></member>
+      <member refid="classQfCloudScreen_1a3d7fb8e9bcfd96ada92b4a8b76590d8d" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>confirmRemoveDialog</name></member>
+      <member refid="classQfCloudScreen_1a6faa768a2a1b273b61bdb3bf9cdf7fd1" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>connectionInformation</name></member>
+      <member refid="classQfCloudScreen_1a38342d11e301feb611fb7a6293a90cb2" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>connectionSettings</name></member>
+      <member refid="classQfCloudScreen_1a80538304dccfe8fdc6525213e5693f59" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>filterBar</name></member>
+      <member refid="classQfCloudScreen_1a56d7bdc3494b340b19c01fc9fb9dbf99" prot="public" virt="non-virtual"><scope>QfCloudScreen</scope><name>finished</name></member>
+      <member refid="classQfCloudScreen_1a282735db8eb266b534b2d0a2abe7a2de" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>header</name></member>
+      <member refid="classQfCloudScreen_1a2b8be3e3073e12f57b466046a8614070" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>leftPadding</name></member>
+      <member refid="classQfCloudScreen_1a721bcbbc03993ecd365cd6ca3c1ca960" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>openProject</name></member>
+      <member refid="classQfCloudScreen_1a6526976f16179ceaf2b4ea8a7243fb84" prot="public" virt="non-virtual"><scope>QfCloudScreen</scope><name>pendingCreatedDownloadStarted</name></member>
+      <member refid="classQfCloudScreen_1a99f531b7554d1fec5b23d9b131c41e45" prot="public" virt="non-virtual"><scope>QfCloudScreen</scope><name>pendingCreatedProjectId</name></member>
+      <member refid="classQfCloudScreen_1a3b9bf02c019f59ecc5f5d04108271e10" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>projectActions</name></member>
+      <member refid="classQfCloudScreen_1a975d8cd301cc98116d7c1ed9213292c1" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>projectDetails</name></member>
+      <member refid="classQfCloudScreen_1acb07a0a54ef6d6065a6a48f473b8f3e8" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>projects</name></member>
+      <member refid="classQfCloudScreen_1a9397d01bad1a24a1bb6fcc7b09254bb1" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>projectsSwipeView</name></member>
+      <member refid="classQfCloudScreen_1a662f909d46e96a0eceb6541fc04b7ff5" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>pushProject</name></member>
+      <member refid="classQfCloudScreen_1ad4fa573570ef5ac69284e99b8d217cb1" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>qfieldCloudLogin</name></member>
+      <member refid="classQfCloudScreen_1ac06a1af6907b36938906add06ad9fdf7" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>qfieldCloudScreenOption</name></member>
+      <member refid="classQfCloudScreen_1ae515227d8396c8d0de59fd5a1ed39ec7" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>refreshProjectsListBtn</name></member>
+      <member refid="classQfCloudScreen_1a4dc793ef13279d5d28455b7dd6f89f5d" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>removeProject</name></member>
+      <member refid="classQfCloudScreen_1aac34a162a40aee51d49435048179e126" prot="public" virt="non-virtual"><scope>QfCloudScreen</scope><name>requestedProjectDetails</name></member>
+      <member refid="classQfCloudScreen_1af64d1c1d8b08ba9352c1ce14ad48fda8" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>rightPadding</name></member>
+      <member refid="classQfCloudScreen_1ab17785f45eacd6eb5827f24de0b9d72f" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>scanProjectBtn</name></member>
+      <member refid="classQfCloudScreen_1ad05a9b808e0730ba4a162336b89a5d6b" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>searchBar</name></member>
+      <member refid="classQfCloudScreen_1afdd66d9c79b645194a4d32c0fa7e332b" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>syncProject</name></member>
+      <member refid="classQfCloudScreen_1a164937051419247b36064587513fffe5" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>table</name></member>
+      <member refid="classQfCloudScreen_1a49cc7ac57fdbd5da8dd4f746f58c1ddb" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>topSpacer</name></member>
+      <member refid="classQfCloudScreen_1abed932b0b18c329573cee4fdf276477a" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>viewProjectDetails</name></member>
+      <member refid="classQfCloudScreen_1a8892190c5623b271e5db4bd9c2be3fa5" prot="private" virt="non-virtual"><scope>QfCloudScreen</scope><name>viewProjectFolder</name></member>
+      <member refid="classQfCloudScreen_1a7bd81f6e336c889c7c15affbe20c3867" prot="public" virt="non-virtual"><scope>QfCloudScreen</scope><name>viewProjectFolder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

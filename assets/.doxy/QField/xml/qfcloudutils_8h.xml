@@ -1,0 +1,579 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfcloudutils_8h" kind="file" language="C++">
+    <compoundname>qfcloudutils.h</compoundname>
+    <includes refid="qfcloudprojectsmodel_8h" local="no">qfcloudprojectsmodel.h</includes>
+    <includes local="no">qgsmaplayer.h</includes>
+    <includes local="no">qgsproject.h</includes>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/app/qgismobileapp.cpp</includedby>
+    <includedby refid="qfappexpressioncontextscopesgenerator_8h" local="yes">src/core/qfappexpressioncontextscopesgenerator.h</includedby>
+    <includedby refid="qfcore_8cpp" local="yes">src/core/qfcore.cpp</includedby>
+    <includedby refid="qfcloudconnection_8cpp" local="yes">src/core/qfieldcloud/qfcloudconnection.cpp</includedby>
+    <includedby refid="qfcloudconnection_8h" local="yes">src/core/qfieldcloud/qfcloudconnection.h</includedby>
+    <includedby refid="qfcloudproject_8cpp" local="yes">src/core/qfieldcloud/qfcloudproject.cpp</includedby>
+    <includedby refid="qfcloudprojectsmodel_8cpp" local="yes">src/core/qfieldcloud/qfcloudprojectsmodel.cpp</includedby>
+    <includedby refid="qfdeltafilewrapper_8cpp" local="yes">src/core/qfieldcloud/qfdeltafilewrapper.cpp</includedby>
+    <includedby refid="qfdeltalistmodel_8h" local="yes">src/core/qfieldcloud/qfdeltalistmodel.h</includedby>
+    <includedby refid="qflayerobserver_8cpp" local="yes">src/core/qfieldcloud/qflayerobserver.cpp</includedby>
+    <includedby refid="qfprojectinfo_8h" local="yes">src/core/qfprojectinfo.h</includedby>
+    <includedby refid="qfxmlhttprequest_8cpp" local="no">src/core/qfxmlhttprequest.cpp</includedby>
+    <includedby refid="qfcloudutils_8cpp" local="yes">src/core/utils/qfcloudutils.cpp</includedby>
+    <includedby refid="qfexpressioncontextutils_8h" local="yes">src/core/utils/qfexpressioncontextutils.h</includedby>
+    <includedby refid="qffeatureutils_8h" local="yes">src/core/utils/qffeatureutils.h</includedby>
+    <includedby refid="qffileutils_8cpp" local="yes">src/core/utils/qffileutils.cpp</includedby>
+    <includedby refid="qflocalfilesmodel_8cpp" local="yes">src/gui/qflocalfilesmodel.cpp</includedby>
+    <includedby refid="qfrecentprojectlistmodel_8cpp" local="yes">src/gui/qfrecentprojectlistmodel.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>qfcloudproject.h</label>
+        <link refid="qfcloudproject_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qfcloudprojectsmodel.h</label>
+        <link refid="qfcloudprojectsmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>qfdeltafilewrapper.h</label>
+        <link refid="qfdeltafilewrapper_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>qfnetworkmanager.h</label>
+        <link refid="qfnetworkmanager_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>qfnetworkreply.h</label>
+        <link refid="qfnetworkreply_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/utils/qfcloudutils.h</label>
+        <link refid="qfcloudutils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="5">
+        <label>QJsonArray</label>
+      </node>
+      <node id="6">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="7">
+        <label>QJsonObject</label>
+      </node>
+      <node id="14">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="15">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="12">
+        <label>QObject</label>
+      </node>
+      <node id="17">
+        <label>QPointer</label>
+      </node>
+      <node id="23">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="20">
+        <label>QThread</label>
+      </node>
+      <node id="24">
+        <label>QTimer</label>
+      </node>
+      <node id="18">
+        <label>QVariantMap</label>
+      </node>
+      <node id="8">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="9">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="21">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="16">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="25">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="10">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/core/qfappexpressioncontextscopesgenerator.h</label>
+        <link refid="qfappexpressioncontextscopesgenerator_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/core/qfdigitizinglogger.h</label>
+        <link refid="qfdigitizinglogger_8h_source"/>
+      </node>
+      <node id="3">
+        <label>src/core/qffeaturelistmodel.h</label>
+        <link refid="qffeaturelistmodel_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/core/qffeaturemodel.h</label>
+        <link refid="qffeaturemodel_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/core/qfieldcloud/qfcloudconnection.h</label>
+        <link refid="qfcloudconnection_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/core/qfieldcloud/qfdeltalistmodel.h</label>
+        <link refid="qfdeltalistmodel_8h_source"/>
+      </node>
+      <node id="13">
+        <label>src/core/qfprojectinfo.h</label>
+        <link refid="qfprojectinfo_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/core/utils/qfcloudutils.h</label>
+        <link refid="qfcloudutils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/core/utils/qfexpressioncontextutils.h</label>
+        <link refid="qfexpressioncontextutils_8h_source"/>
+      </node>
+      <node id="15">
+        <label>src/core/utils/qffeatureutils.h</label>
+        <link refid="qffeatureutils_8h_source"/>
+      </node>
+      <node id="7">
+        <label>src/gui/qfattributeformmodel.h</label>
+        <link refid="qfattributeformmodel_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/gui/qfattributeformmodelbase.h</label>
+        <link refid="qfattributeformmodelbase_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/gui/qfexpressionevaluator.h</label>
+        <link refid="qfexpressionevaluator_8h_source"/>
+      </node>
+      <node id="4">
+        <label>src/gui/qffeaturechecklistmodel.h</label>
+        <link refid="qffeaturechecklistmodel_8h_source"/>
+      </node>
+      <node id="12">
+        <label>src/service/qfieldcloudservice.h</label>
+        <link refid="qfieldcloudservice_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structQfCloudUserInformation" prot="public">QfCloudUserInformation</innerclass>
+    <innerclass refid="structQfCloudDelta" prot="public">QfCloudDelta</innerclass>
+    <innerclass refid="structQfCloudSubscriptionInformation" prot="public">QfCloudSubscriptionInformation</innerclass>
+    <innerclass refid="structQfCloudWhitelabelInformation" prot="public">QfCloudWhitelabelInformation</innerclass>
+    <innerclass refid="structQfCloudServerInformation" prot="public">QfCloudServerInformation</innerclass>
+    <innerclass refid="classQfCloudUtils" prot="public">QfCloudUtils</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qfcloudutils.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>February<sp/>2020</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>nirvn<sp/>dot<sp/>asia<sp/>at<sp/>gmail<sp/>dot<sp/>com</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFCLOUDUTILS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFCLOUDUTILS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qfcloudprojectsmodel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsmaplayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsproject.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QString;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfCloudProjectsModel" kindref="compound">QfCloudProjectsModel</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">DeltaFileWrapperTest;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">TestLayerObserver;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="structQfCloudUserInformation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>username<sp/>MEMBER<sp/>username<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>email<sp/>MEMBER<sp/>email<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>firstName<sp/>MEMBER<sp/>firstName<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>lastName<sp/>MEMBER<sp/>lastName<sp/>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>fullName<sp/>MEMBER<sp/>fullName<sp/>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;email,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;firstName<sp/>=<sp/>QString(),<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;lastName<sp/>=<sp/>QString(),<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fullName<sp/>=<sp/>QString()<sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>username(<sp/>username<sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>email(<sp/>email<sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>firstName(<sp/>firstName<sp/>)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>lastName(<sp/>lastName<sp/>)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>fullName(<sp/>fullName<sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;cloudUserInformation<sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>username(<sp/>cloudUserInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;username&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>email(<sp/>cloudUserInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;email&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>firstName(<sp/>cloudUserInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;first_name&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>lastName(<sp/>cloudUserInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;last_name&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>fullName(<sp/>cloudUserInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;full_name&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="62"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username<sp/>==<sp/>other.username<sp/>&amp;&amp;<sp/>email<sp/>==<sp/>other.email<sp/>&amp;&amp;<sp/>firstName<sp/>==<sp/>other.firstName<sp/>&amp;&amp;<sp/>lastName<sp/>==<sp/>other.lastName<sp/>&amp;&amp;<sp/>fullName<sp/>==<sp/>other.fullName;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>QJsonObject<sp/>toJson()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="67"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QJsonObject<sp/>cloudUserInformation;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cloudUserInformation.insert(<sp/></highlight><highlight class="stringliteral">&quot;username&quot;</highlight><highlight class="normal">,<sp/>username<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cloudUserInformation.insert(<sp/></highlight><highlight class="stringliteral">&quot;email&quot;</highlight><highlight class="normal">,<sp/>email<sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cloudUserInformation.insert(<sp/></highlight><highlight class="stringliteral">&quot;first_name&quot;</highlight><highlight class="normal">,<sp/>firstName<sp/>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cloudUserInformation.insert(<sp/></highlight><highlight class="stringliteral">&quot;last_name&quot;</highlight><highlight class="normal">,<sp/>lastName<sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cloudUserInformation.insert(<sp/></highlight><highlight class="stringliteral">&quot;full_name&quot;</highlight><highlight class="normal">,<sp/>fullName<sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cloudUserInformation;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isEmpty()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="80"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Allow<sp/>for<sp/>empty<sp/>first,<sp/>last,<sp/>and<sp/>full<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.isEmpty()<sp/>&amp;&amp;<sp/>email.isEmpty();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>username;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>email;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>firstName;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>lastName;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>fullName;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="structQfCloudDelta" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structQfCloudDelta" kindref="compound">QfCloudDelta</ref></highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>Status</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PendingStatus,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>BusyStatus,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>AppliedStatus,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ConflictStatus,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NotAppliedStatus,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ErrorStatus,</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>IgnoredStatus,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>UnpermittedStatus,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/>Status<sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>QUuid<sp/>id;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>QUuid<sp/>deltafileId;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>createdBy;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>QDateTime<sp/>createdAt;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>QDateTime<sp/>updatedAt;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>Status<sp/>status<sp/>=<sp/>PendingStatus;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>summary;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>output;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">Q_DECLARE_METATYPE(<sp/><ref refid="structQfCloudDelta" kindref="compound">QfCloudDelta</ref><sp/>)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="structQfCloudSubscriptionInformation" refkind="compound"><highlight class="normal">struct<sp/><ref refid="structQfCloudSubscriptionInformation" kindref="compound">QfCloudSubscriptionInformation</ref></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>plan<sp/>MEMBER<sp/>plan<sp/>)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>storageTotal<sp/>MEMBER<sp/>storageTotal<sp/>)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>storageUsed<sp/>MEMBER<sp/>storageUsed<sp/>)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>storageThresholdWarning<sp/>MEMBER<sp/>storageThresholdWarning<sp/>)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>storageThresholdCritical<sp/>MEMBER<sp/>storageThresholdCritical<sp/>)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>status<sp/>MEMBER<sp/>status<sp/>)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structQfCloudSubscriptionInformation" kindref="compound">QfCloudSubscriptionInformation</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="structQfCloudSubscriptionInformation" kindref="compound">QfCloudSubscriptionInformation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;subscriptionInformation<sp/>)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>plan(<sp/>subscriptionInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;plan_display_name&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>storageTotal(<sp/>subscriptionInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;active_storage_total_bytes&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toDouble()<sp/>)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>storageUsed(<sp/>subscriptionInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;storage_used_bytes&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toDouble()<sp/>)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>storageThresholdWarning(<sp/>subscriptionInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;plan_storage_threshold_warning_bytes&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toDouble()<sp/>)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>storageThresholdCritical(<sp/>subscriptionInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;plan_storage_threshold_critical_bytes&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toDouble()<sp/>)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>status(<sp/>subscriptionInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;status&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structQfCloudSubscriptionInformation" kindref="compound">QfCloudSubscriptionInformation</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="154"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>plan<sp/>==<sp/>other.plan<sp/>&amp;&amp;<sp/>storageTotal<sp/>==<sp/>other.storageTotal<sp/>&amp;&amp;<sp/>storageUsed<sp/>==<sp/>other.storageUsed<sp/>&amp;&amp;<sp/>storageThresholdWarning<sp/>==<sp/>other.storageThresholdWarning<sp/>&amp;&amp;<sp/>storageThresholdCritical<sp/>==<sp/>other.storageThresholdCritical<sp/>&amp;&amp;<sp/>status<sp/>==<sp/>other.status;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>plan;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>storageTotal<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>storageUsed<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>storageThresholdWarning<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>storageThresholdCritical<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>status;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal">Q_DECLARE_METATYPE(<sp/><ref refid="structQfCloudSubscriptionInformation" kindref="compound">QfCloudSubscriptionInformation</ref><sp/>)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174" refid="structQfCloudWhitelabelInformation" refkind="compound"><highlight class="normal">struct<sp/><ref refid="structQfCloudWhitelabelInformation" kindref="compound">QfCloudWhitelabelInformation</ref></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>siteTitle<sp/>MEMBER<sp/>siteTitle<sp/>)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>logoMain<sp/>MEMBER<sp/>logoMain<sp/>)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>logoNavbar<sp/>MEMBER<sp/>logoNavbar<sp/>)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>favicon<sp/>MEMBER<sp/>favicon<sp/>)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structQfCloudWhitelabelInformation" kindref="compound">QfCloudWhitelabelInformation</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="structQfCloudWhitelabelInformation" kindref="compound">QfCloudWhitelabelInformation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;whitelabel<sp/>)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>siteTitle(<sp/>whitelabel.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;site_title&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>logoMain(<sp/>whitelabel.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;logo_main&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>logoNavbar(<sp/>whitelabel.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;logo_navbar&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>favicon(<sp/>whitelabel.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;favicon&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structQfCloudWhitelabelInformation" kindref="compound">QfCloudWhitelabelInformation</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="194"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>siteTitle<sp/>==<sp/>other.siteTitle<sp/>&amp;&amp;<sp/>logoMain<sp/>==<sp/>other.logoMain<sp/>&amp;&amp;<sp/>logoNavbar<sp/>==<sp/>other.logoNavbar<sp/>&amp;&amp;<sp/>favicon<sp/>==<sp/>other.favicon;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator!=(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structQfCloudWhitelabelInformation" kindref="compound">QfCloudWhitelabelInformation</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="199"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>other<sp/>);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/>toVariantMap()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="204"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;site_title&quot;</highlight><highlight class="normal"><sp/>),<sp/>siteTitle<sp/>},</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;logo_main&quot;</highlight><highlight class="normal"><sp/>),<sp/>logoMain<sp/>},</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;logo_navbar&quot;</highlight><highlight class="normal"><sp/>),<sp/>logoNavbar<sp/>},</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;favicon&quot;</highlight><highlight class="normal"><sp/>),<sp/>favicon<sp/>},</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>siteTitle;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>logoMain;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>logoNavbar;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>favicon;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal">Q_DECLARE_METATYPE(<sp/><ref refid="structQfCloudWhitelabelInformation" kindref="compound">QfCloudWhitelabelInformation</ref><sp/>)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="structQfCloudServerInformation" refkind="compound"><highlight class="normal">struct<sp/><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref></highlight></codeline>
+<codeline lineno="228"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="structQfCloudWhitelabelInformation" kindref="compound">QfCloudWhitelabelInformation</ref><sp/>whitelabel<sp/>MEMBER<sp/>whitelabel<sp/>)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>signupUrl<sp/>MEMBER<sp/>signupUrl<sp/>)</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;serverInformation<sp/>)</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>whitelabel(<sp/>serverInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;whitelabel&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toMap()<sp/>)</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>signupUrl(<sp/>serverInformation.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;signup_url&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>)</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="243"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>whitelabel<sp/>==<sp/>other.whitelabel<sp/>&amp;&amp;<sp/>signupUrl<sp/>==<sp/>other.signupUrl;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator!=(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="248"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>other<sp/>);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/>toVariantMap()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="253"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;whitelabel&quot;</highlight><highlight class="normal"><sp/>),<sp/>whitelabel.toVariantMap()<sp/>},</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;signup_url&quot;</highlight><highlight class="normal"><sp/>),<sp/>signupUrl<sp/>},</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structQfCloudWhitelabelInformation" kindref="compound">QfCloudWhitelabelInformation</ref><sp/>whitelabel;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>signupUrl;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal">Q_DECLARE_METATYPE(<sp/><ref refid="structQfCloudServerInformation" kindref="compound">QfCloudServerInformation</ref><sp/>)</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269" refid="classQfCloudUtils" refkind="compound"><highlight class="normal">class<sp/><ref refid="classQfCloudUtils" kindref="compound">QfCloudUtils</ref><sp/>:<sp/>public<sp/>QObject</highlight></codeline>
+<codeline lineno="270"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>errorCodeOverQuota<sp/>READ<sp/>errorCodeOverQuota<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>errorCodePlanInsufficient<sp/>READ<sp/>errorCodePlanInsufficient<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLocalCloudDirectory(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;path<sp/>);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>localCloudDirectory();</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>localProjectFilePath(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId<sp/>);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isCloudAction(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsMapLayer<sp/>*layer<sp/>);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>getProjectId(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fileName<sp/>);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/>userFriendlyErrorString(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;errorString<sp/>);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/>documentationFromErrorString(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;errorString<sp/>);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setProjectSetting(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;setting,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;value<sp/>);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>projectSetting(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;setting,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;defaultValue<sp/>=<sp/>QVariant()<sp/>);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasPendingAttachments(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username<sp/>);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QMultiMap&lt;QString,<sp/>QString&gt;<sp/>getPendingAttachments(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username<sp/>);</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addPendingAttachments(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>&amp;fileNames,<sp/><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref><sp/>*cloudConnection<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;checkSumCheck<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>removePendingAttachment(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fileName<sp/>);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/>subscriptionManagementUrl(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;serverUrl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;plan,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectOwner,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username<sp/>);</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QList&lt;QfCloudDelta&gt;<sp/>parseDeltaJsonDocument(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonDocument<sp/>&amp;jsonDocument,<sp/>QString<sp/>&amp;errorString,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;isValid<sp/>);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/>summarizeDeltaContent(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QJsonObject&gt;<sp/>&amp;deltaObjects,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;modificationSeparator<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;layerSeparator<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;<sp/>/<sp/>&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeToAttachmentsFile(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>&amp;fileNames,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QHash&lt;QString,<sp/>QString&gt;<sp/>*fileChecksumMap,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;checkSumCheck,<sp/><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref><sp/>*cloudConnection<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeFilesFromDirectory(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;dirPath,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QHash&lt;QString,<sp/>QString&gt;<sp/>*fileChecksumMap,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;checkSumCheck,<sp/>QTextStream<sp/>&amp;attachmentsStream<sp/>);</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeFileDetails(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;fileName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;projectId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QHash&lt;QString,<sp/>QString&gt;<sp/>*fileChecksumMap,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;checkSumCheck,<sp/>QTextStream<sp/>&amp;attachmentsStream<sp/>);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>errorCodeOverQuota()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;over_quota&quot;</highlight><highlight class="normal"><sp/>);<sp/>};</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>errorCodePlanInsufficient()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;permission_denied_plan_insufficient&quot;</highlight><highlight class="normal"><sp/>);<sp/>};</highlight></codeline>
+<codeline lineno="375"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFCLOUDUTILS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/utils/qfcloudutils.h"/>
+  </compounddef>
+</doxygen>

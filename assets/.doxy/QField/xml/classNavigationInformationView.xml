@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNavigationInformationView" kind="class" language="C++" prot="public">
+    <compoundname>NavigationInformationView</compoundname>
+    <basecompoundref refid="classQfNavigationInformationView" prot="public" virt="non-virtual">QfNavigationInformationView</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NavigationInformationView</label>
+        <link refid="classNavigationInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNavigationInformationView</label>
+        <link refid="classQfNavigationInformationView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NavigationInformationView</label>
+        <link refid="classNavigationInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNavigationInformationView</label>
+        <link refid="classQfNavigationInformationView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/NavigationInformationView.qml" line="2" column="1" bodyfile="src/app/qml_compat/NavigationInformationView.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfNavigationInformationView_1a4be3ede896651d479177cbb0cf8d6fa4" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>alternateBackgroundColor</name></member>
+      <member refid="classQfNavigationInformationView_1a4c3a6e3519b561550e7eb739f1f4eebf" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>backgroundColor</name></member>
+      <member refid="classQfNavigationInformationView_1a597309cee48b7bc21fe85f9b3f0be342" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>ceilsCount</name></member>
+      <member refid="classQfNavigationInformationView_1adddb5b7f9856f01ea57bf44fb4350802" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>cellHeight</name></member>
+      <member refid="classQfNavigationInformationView_1abb8ae834d8ebdd9020d285041bafe71a" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>cellPadding</name></member>
+      <member refid="classQfNavigationInformationView_1a2635d2bce79a2e4991c4daa3e050da78" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>contentHeight</name></member>
+      <member refid="classQfNavigationInformationView_1a2774f1ca70578f0d053d3167004b5859" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>coordinates</name></member>
+      <member refid="classQfNavigationInformationView_1a3996a6981d6fc72eaa563db33b19ccb6" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>coordinatesIsGeographic</name></member>
+      <member refid="classQfNavigationInformationView_1ab3f3c240e404adbd23356b4a67f3b715" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>coordinatesIsXY</name></member>
+      <member refid="classQfNavigationInformationView_1a490834f256bdf4a89e8271dddc090242" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>navigation</name></member>
+      <member refid="classQfNavigationInformationView_1a5d0056696f63fe265fe727ee30099958" prot="public" virt="non-virtual"><scope>NavigationInformationView</scope><name>textColor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

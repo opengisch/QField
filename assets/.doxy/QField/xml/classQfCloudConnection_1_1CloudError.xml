@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudConnection_1_1CloudError" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudConnection::CloudError</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudConnection_1_1CloudError_1a795e3514ffb1f732c9b3b9e2b05116b0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfCloudConnection::CloudError::mHttpCode</definition>
+        <argsstring></argsstring>
+        <name>mHttpCode</name>
+        <qualifiedname>QfCloudConnection::CloudError::mHttpCode</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="117" column="13" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1_1CloudError_1acacc124cd8ae1220cd31cfaf07cfea73" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::CloudError::mMessage</definition>
+        <argsstring></argsstring>
+        <name>mMessage</name>
+        <qualifiedname>QfCloudConnection::CloudError::mMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="118" column="17" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1_1CloudError_1a2c0d2d9fb32244eee150719e2c805390" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::CloudError::mPayload</definition>
+        <argsstring></argsstring>
+        <name>mPayload</name>
+        <qualifiedname>QfCloudConnection::CloudError::mPayload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="119" column="17" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1_1CloudError_1abf5a9202b5c1667e2069cc4bf6a3bd50" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::CloudError::mQfcCode</definition>
+        <argsstring></argsstring>
+        <name>mQfcCode</name>
+        <qualifiedname>QfCloudConnection::CloudError::mQfcCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="120" column="17" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1_1CloudError_1acb46769c819f29b58f44ded71a2f5a5b" prot="private" static="no" mutable="no">
+        <type>QJsonDocument</type>
+        <definition>QJsonDocument QfCloudConnection::CloudError::mJson</definition>
+        <argsstring></argsstring>
+        <name>mJson</name>
+        <qualifiedname>QfCloudConnection::CloudError::mJson</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="121" column="23" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1_1CloudError_1a0df9961435c8b8aa12359415c41cd33b" prot="private" static="no" mutable="no">
+        <type>QJsonParseError</type>
+        <definition>QJsonParseError QfCloudConnection::CloudError::mJsonError</definition>
+        <argsstring></argsstring>
+        <name>mJsonError</name>
+        <qualifiedname>QfCloudConnection::CloudError::mJsonError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="122" column="25" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudConnection_1_1CloudError_1a546eb3a24d9f4a9afb32d345adfa7ffa" prot="private" static="no" mutable="no">
+        <type>QNetworkReply::NetworkError</type>
+        <definition>QNetworkReply::NetworkError QfCloudConnection::CloudError::mError</definition>
+        <argsstring></argsstring>
+        <name>mError</name>
+        <qualifiedname>QfCloudConnection::CloudError::mError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="123" column="37" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudConnection_1_1CloudError_1af3a2d2477a4262002efb5ce07ce09cd6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudConnection::CloudError::CloudError</definition>
+        <argsstring>(QNetworkReply *reply)</argsstring>
+        <name>CloudError</name>
+        <qualifiedname>QfCloudConnection::CloudError::CloudError</qualifiedname>
+        <param>
+          <type>QNetworkReply *</type>
+          <declname>reply</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="111" column="18" bodyfile="src/core/qfieldcloud/qfcloudconnection.cpp" bodystart="966" bodyend="1054"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1_1CloudError_1a97e7b25f1990f7090ed8d9dce1d7b43c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::CloudError::message</definition>
+        <argsstring>() const</argsstring>
+        <name>message</name>
+        <qualifiedname>QfCloudConnection::CloudError::message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="113" column="17" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudConnection_1_1CloudError_1a4974c192887ff4acb2dc71ea307225e7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudConnection::CloudError::qfcCode</definition>
+        <argsstring>() const</argsstring>
+        <name>qfcCode</name>
+        <qualifiedname>QfCloudConnection::CloudError::qfcCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudconnection.h" line="114" column="17" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfcloudconnection.h" line="108" column="5" bodyfile="src/core/qfieldcloud/qfcloudconnection.h" bodystart="109" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classQfCloudConnection_1_1CloudError_1af3a2d2477a4262002efb5ce07ce09cd6" prot="public" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>CloudError</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1a546eb3a24d9f4a9afb32d345adfa7ffa" prot="private" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>mError</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1a97e7b25f1990f7090ed8d9dce1d7b43c" prot="public" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>message</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1a795e3514ffb1f732c9b3b9e2b05116b0" prot="private" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>mHttpCode</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1acb46769c819f29b58f44ded71a2f5a5b" prot="private" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>mJson</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1a0df9961435c8b8aa12359415c41cd33b" prot="private" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>mJsonError</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1acacc124cd8ae1220cd31cfaf07cfea73" prot="private" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>mMessage</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1a2c0d2d9fb32244eee150719e2c805390" prot="private" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>mPayload</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1abf5a9202b5c1667e2069cc4bf6a3bd50" prot="private" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>mQfcCode</name></member>
+      <member refid="classQfCloudConnection_1_1CloudError_1a4974c192887ff4acb2dc71ea307225e7" prot="public" virt="non-virtual"><scope>QfCloudConnection::CloudError</scope><name>qfcCode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

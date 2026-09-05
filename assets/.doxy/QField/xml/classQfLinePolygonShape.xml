@@ -1,0 +1,740 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLinePolygonShape" kind="class" language="C++" prot="public">
+    <compoundname>QfLinePolygonShape</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <derivedcompoundref refid="classQfLinePolygon" prot="public" virt="non-virtual">QfLinePolygon</derivedcompoundref>
+    <includes refid="qflinepolygonshape_8h" local="no">qflinepolygonshape.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLinePolygonShape_1ab35f9c436b4795b28484ec78738c1ceb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfLinePolygonShape::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfLinePolygonShape::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="35" column="5" bodyfile="src/core/qflinepolygonshape.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLinePolygonShape_1a25f7de5300ab791a893dce7de8aa8996" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float QfLinePolygonShape::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>QfLinePolygonShape::lineWidth</qualifiedname>
+        <read>lineWidth</read>
+        <write>setLineWidth</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="36" column="5" bodyfile="src/core/qflinepolygonshape.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLinePolygonShape_1a9609b9ec6a16c2a5c3d3bd30a9b2a732" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfLinePolygonShape::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfLinePolygonShape::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="37" column="5" bodyfile="src/core/qflinepolygonshape.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLinePolygonShape_1aadd51aeed9528b6eb82ef15af61f5bec" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfGeometryWrapper" kindref="compound">QfGeometryWrapper</ref> *</type>
+        <definition>QfGeometryWrapper * QfLinePolygonShape::geometry</definition>
+        <argsstring></argsstring>
+        <name>geometry</name>
+        <qualifiedname>QfLinePolygonShape::geometry</qualifiedname>
+        <read>geometry</read>
+        <write>setGeometry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="38" column="5" bodyfile="src/core/qflinepolygonshape.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLinePolygonShape_1a8faa1d2d029b1838224b2f067d4f8ec8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt;QPolygonF&gt; QfLinePolygonShape::polylines</definition>
+        <argsstring></argsstring>
+        <name>polylines</name>
+        <qualifiedname>QfLinePolygonShape::polylines</qualifiedname>
+        <read>polylines</read>
+        <briefdescription>
+<para>List of polylines representing the geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="41" column="5" bodyfile="src/core/qflinepolygonshape.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLinePolygonShape_1aae4307cad6f36e0fb8137df9cce756de" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfLinePolygonShape::polylinesType</definition>
+        <argsstring></argsstring>
+        <name>polylinesType</name>
+        <qualifiedname>QfLinePolygonShape::polylinesType</qualifiedname>
+        <read>polylinesType</read>
+        <briefdescription>
+<para>The geometry type associated to the polylines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="43" column="5" bodyfile="src/core/qflinepolygonshape.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLinePolygonShape_1a813ea4751f88d4c096791d1334114ed2" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfLinePolygonShape::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>QfLinePolygonShape::mColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="88" column="12" bodyfile="src/core/qflinepolygonshape.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1addda48f1cb1bc850e92163b73b5cd30c" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float QfLinePolygonShape::mWidth</definition>
+        <argsstring></argsstring>
+        <name>mWidth</name>
+        <qualifiedname>QfLinePolygonShape::mWidth</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="89" column="11" bodyfile="src/core/qflinepolygonshape.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1ad13ad27a4bc9e23ff3f375720b5368a4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfLinePolygonShape::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>QfLinePolygonShape::mDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="90" column="10" bodyfile="src/core/qflinepolygonshape.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1a940b483bc9ddb6a35e4658aea48cf52f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfLinePolygonShape::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfLinePolygonShape::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="91" column="25" bodyfile="src/core/qflinepolygonshape.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1a7da76c69f02a2db956fc1dded87c45db" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfGeometryWrapper" kindref="compound">QfGeometryWrapper</ref> *</type>
+        <definition>QfGeometryWrapper* QfLinePolygonShape::mGeometry</definition>
+        <argsstring></argsstring>
+        <name>mGeometry</name>
+        <qualifiedname>QfLinePolygonShape::mGeometry</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="92" column="23" bodyfile="src/core/qflinepolygonshape.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1a9cdfd5be4437515f4f3907bdb830d3a4" prot="private" static="no" mutable="no">
+        <type>QgsPointXY</type>
+        <definition>QgsPointXY QfLinePolygonShape::mGeometryCorner</definition>
+        <argsstring></argsstring>
+        <name>mGeometryCorner</name>
+        <qualifiedname>QfLinePolygonShape::mGeometryCorner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="93" column="16" bodyfile="src/core/qflinepolygonshape.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1a4e5cb3eed562ad0e9e166d1f7ce6b75a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfLinePolygonShape::mGeometryMUPP</definition>
+        <argsstring></argsstring>
+        <name>mGeometryMUPP</name>
+        <qualifiedname>QfLinePolygonShape::mGeometryMUPP</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="94" column="12" bodyfile="src/core/qflinepolygonshape.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1a3c0c0c9fbb8357492dc37d3b67586304" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt;QPolygonF&gt; QfLinePolygonShape::mPolylines</definition>
+        <argsstring></argsstring>
+        <name>mPolylines</name>
+        <qualifiedname>QfLinePolygonShape::mPolylines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="95" column="11" bodyfile="src/core/qflinepolygonshape.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1ac6a53e15e58b6282141783e0f6ea80dc" prot="private" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfLinePolygonShape::mPolylinesType</definition>
+        <argsstring></argsstring>
+        <name>mPolylinesType</name>
+        <qualifiedname>QfLinePolygonShape::mPolylinesType</qualifiedname>
+        <initializer>= Qgis::GeometryType::Null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="96" column="24" bodyfile="src/core/qflinepolygonshape.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQfLinePolygonShape_1a8af3c1164072c8a67bd57ade063792ff" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double QfLinePolygonShape::MAX_SIZE</definition>
+        <argsstring></argsstring>
+        <name>MAX_SIZE</name>
+        <qualifiedname>QfLinePolygonShape::MAX_SIZE</qualifiedname>
+        <initializer>= 250000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="98" column="29" bodyfile="src/core/qflinepolygonshape.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygonShape_1ac5085d4c7eae05a60fd2d4d1d9dc3a3c" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double QfLinePolygonShape::MAX_OFFSET</definition>
+        <argsstring></argsstring>
+        <name>MAX_OFFSET</name>
+        <qualifiedname>QfLinePolygonShape::MAX_OFFSET</qualifiedname>
+        <initializer>= 200000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="99" column="29" bodyfile="src/core/qflinepolygonshape.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLinePolygonShape_1a1c6566e82e107e0650cb6c05549d205b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLinePolygonShape::QfLinePolygonShape</definition>
+        <argsstring>(QQuickItem *parent=nullptr)</argsstring>
+        <name>QfLinePolygonShape</name>
+        <qualifiedname>QfLinePolygonShape::QfLinePolygonShape</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="46" column="14" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="26" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1ab1e98389f69c8e8590408aa2c2bd3f02" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfGeometryWrapper" kindref="compound">QfGeometryWrapper</ref> *</type>
+        <definition>QfGeometryWrapper * QfLinePolygonShape::geometry</definition>
+        <argsstring>() const</argsstring>
+        <name>geometry</name>
+        <qualifiedname>QfLinePolygonShape::geometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="48" column="23" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="255" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1ad2240d7cc0050a0cc9b92cc869886052" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::setGeometry</definition>
+        <argsstring>(QfGeometryWrapper *geometry)</argsstring>
+        <name>setGeometry</name>
+        <qualifiedname>QfLinePolygonShape::setGeometry</qualifiedname>
+        <param>
+          <type><ref refid="classQfGeometryWrapper" kindref="compound">QfGeometryWrapper</ref> *</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="49" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="260" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1a635a852223a22e9875902a9f61bc6d4b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfLinePolygonShape::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfLinePolygonShape::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="51" column="25" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1ac068e8a2308bc0ae7842d580c9afdbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfLinePolygonShape::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="52" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="178" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1a44e26e76ccf202c0e8b2189b038f367a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfLinePolygonShape::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>QfLinePolygonShape::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="54" column="12" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1a5024199242cf1b1b03b3ed22e1d8d67a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>QfLinePolygonShape::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="55" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="162" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1a240583158eb75d96e570206e542f02c4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float QfLinePolygonShape::lineWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>QfLinePolygonShape::lineWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="57" column="11" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="141" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1a8c9ef94a519ce268bd7d9675edbba04f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::setLineWidth</definition>
+        <argsstring>(float width)</argsstring>
+        <name>setLineWidth</name>
+        <qualifiedname>QfLinePolygonShape::setLineWidth</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="58" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="146" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1a358e6577cef129115dd1f0633c070334" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt; QPolygonF &gt; QfLinePolygonShape::polylines</definition>
+        <argsstring>() const</argsstring>
+        <name>polylines</name>
+        <qualifiedname>QfLinePolygonShape::polylines</qualifiedname>
+        <briefdescription>
+<para>List of polylines representing the geometry.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="61" column="11" bodyfile="src/core/qflinepolygonshape.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1a5e74a4923b6fe38b9081a4b5a9220f8a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfLinePolygonShape::polylinesType</definition>
+        <argsstring>() const</argsstring>
+        <name>polylinesType</name>
+        <qualifiedname>QfLinePolygonShape::polylinesType</qualifiedname>
+        <briefdescription>
+<para>The geometry type associated to the polylines.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="64" column="24" bodyfile="src/core/qflinepolygonshape.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfLinePolygonShape_1ac24489bf7470eaecee6253de02ddb496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>QfLinePolygonShape::colorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLinePolygonShape_1ae0884fe7e67cf7d9cebebfad4d8e4000" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::lineWidthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineWidthChanged</name>
+        <qualifiedname>QfLinePolygonShape::lineWidthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLinePolygonShape_1aff940a4144a9c06f293cf142c63d5697" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfLinePolygonShape::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLinePolygonShape_1ac215e2b2b4edd4a0c49fe44ac29a5c85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::geometryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryChanged</name>
+        <qualifiedname>QfLinePolygonShape::geometryChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="70" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLinePolygonShape_1ad482cdb4d9ed3d7bf7f40c4cddb28c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::updated</definition>
+        <argsstring>()</argsstring>
+        <name>updated</name>
+        <qualifiedname>QfLinePolygonShape::updated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLinePolygonShape_1a02675f18fb45c26088ea802969f4ffbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::polylinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>polylinesChanged</name>
+        <qualifiedname>QfLinePolygonShape::polylinesChanged</qualifiedname>
+        <briefdescription>
+<para>List of polylines representing the geometry.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLinePolygonShape_1a108fc97912e5c15b0f3d94edeff13dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::polylinesTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>polylinesTypeChanged</name>
+        <qualifiedname>QfLinePolygonShape::polylinesTypeChanged</qualifiedname>
+        <briefdescription>
+<para>The geometry type associated to the polylines.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="75" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfLinePolygonShape_1ad6a2830766a28c3cdd745ada1b211aa5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::rotationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rotationChanged</name>
+        <qualifiedname>QfLinePolygonShape::rotationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="78" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="231" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfLinePolygonShape_1a836dd5c1553a5ceaa15658ec77daf23e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::mapCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapCrsChanged</name>
+        <qualifiedname>QfLinePolygonShape::mapCrsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="79" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="243" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfLinePolygonShape_1ae14a19c7ded7c42159908f2f6f31ac79" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::visibleExtentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visibleExtentChanged</name>
+        <qualifiedname>QfLinePolygonShape::visibleExtentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="80" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="236" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfLinePolygonShape_1aee06743921db763c2adb4d8a5ab1e7f6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::makeDirty</definition>
+        <argsstring>()</argsstring>
+        <name>makeDirty</name>
+        <qualifiedname>QfLinePolygonShape::makeDirty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="81" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="249" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfLinePolygonShape_1a02b3091281cadf87f9f0dcf75591ea88" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::catchGeometryWrapperChange</definition>
+        <argsstring>()</argsstring>
+        <name>catchGeometryWrapperChange</name>
+        <qualifiedname>QfLinePolygonShape::catchGeometryWrapperChange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="82" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="291" bodyend="300"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfLinePolygonShape_1a4e7734012fb888adacae966105e775c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::updateTransform</definition>
+        <argsstring>()</argsstring>
+        <name>updateTransform</name>
+        <qualifiedname>QfLinePolygonShape::updateTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="85" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="202" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLinePolygonShape_1a9129e6c66470a4186efe8413af522789" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLinePolygonShape::createPolylines</definition>
+        <argsstring>()</argsstring>
+        <name>createPolylines</name>
+        <qualifiedname>QfLinePolygonShape::createPolylines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflinepolygonshape.h" line="86" column="10" bodyfile="src/core/qflinepolygonshape.cpp" bodystart="34" bodyend="139"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classQfLinePolygonShape" kindref="compound">QfLinePolygonShape</ref> class is used to provide the shape data to draw geometries on the map canvas using the QML Shape item. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>LinePolygon</label>
+        <link refid="classLinePolygon"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="3">
+        <label>QfLinePolygon</label>
+        <link refid="classQfLinePolygon"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfLinePolygonShape</label>
+        <link refid="classQfLinePolygonShape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>QfLinePolygonShape</label>
+        <link refid="classQfLinePolygonShape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qflinepolygonshape.h" line="31" column="1" bodyfile="src/core/qflinepolygonshape.h" bodystart="32" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classQfLinePolygonShape_1a02b3091281cadf87f9f0dcf75591ea88" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>catchGeometryWrapperChange</name></member>
+      <member refid="classQfLinePolygonShape_1ab35f9c436b4795b28484ec78738c1ceb" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>color</name></member>
+      <member refid="classQfLinePolygonShape_1a44e26e76ccf202c0e8b2189b038f367a" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>color</name></member>
+      <member refid="classQfLinePolygonShape_1ac24489bf7470eaecee6253de02ddb496" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>colorChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a9129e6c66470a4186efe8413af522789" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>createPolylines</name></member>
+      <member refid="classQfLinePolygonShape_1aadd51aeed9528b6eb82ef15af61f5bec" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>geometry</name></member>
+      <member refid="classQfLinePolygonShape_1ab1e98389f69c8e8590408aa2c2bd3f02" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>geometry</name></member>
+      <member refid="classQfLinePolygonShape_1ac215e2b2b4edd4a0c49fe44ac29a5c85" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>geometryChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a25f7de5300ab791a893dce7de8aa8996" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>lineWidth</name></member>
+      <member refid="classQfLinePolygonShape_1a240583158eb75d96e570206e542f02c4" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>lineWidth</name></member>
+      <member refid="classQfLinePolygonShape_1ae0884fe7e67cf7d9cebebfad4d8e4000" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>lineWidthChanged</name></member>
+      <member refid="classQfLinePolygonShape_1aee06743921db763c2adb4d8a5ab1e7f6" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>makeDirty</name></member>
+      <member refid="classQfLinePolygonShape_1a836dd5c1553a5ceaa15658ec77daf23e" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mapCrsChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a9609b9ec6a16c2a5c3d3bd30a9b2a732" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mapSettings</name></member>
+      <member refid="classQfLinePolygonShape_1a635a852223a22e9875902a9f61bc6d4b" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mapSettings</name></member>
+      <member refid="classQfLinePolygonShape_1aff940a4144a9c06f293cf142c63d5697" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfLinePolygonShape_1ac5085d4c7eae05a60fd2d4d1d9dc3a3c" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>MAX_OFFSET</name></member>
+      <member refid="classQfLinePolygonShape_1a8af3c1164072c8a67bd57ade063792ff" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>MAX_SIZE</name></member>
+      <member refid="classQfLinePolygonShape_1a813ea4751f88d4c096791d1334114ed2" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mColor</name></member>
+      <member refid="classQfLinePolygonShape_1ad13ad27a4bc9e23ff3f375720b5368a4" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mDirty</name></member>
+      <member refid="classQfLinePolygonShape_1a7da76c69f02a2db956fc1dded87c45db" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mGeometry</name></member>
+      <member refid="classQfLinePolygonShape_1a9cdfd5be4437515f4f3907bdb830d3a4" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mGeometryCorner</name></member>
+      <member refid="classQfLinePolygonShape_1a4e5cb3eed562ad0e9e166d1f7ce6b75a" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mGeometryMUPP</name></member>
+      <member refid="classQfLinePolygonShape_1a940b483bc9ddb6a35e4658aea48cf52f" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mMapSettings</name></member>
+      <member refid="classQfLinePolygonShape_1a3c0c0c9fbb8357492dc37d3b67586304" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mPolylines</name></member>
+      <member refid="classQfLinePolygonShape_1ac6a53e15e58b6282141783e0f6ea80dc" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mPolylinesType</name></member>
+      <member refid="classQfLinePolygonShape_1addda48f1cb1bc850e92163b73b5cd30c" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>mWidth</name></member>
+      <member refid="classQfLinePolygonShape_1a8faa1d2d029b1838224b2f067d4f8ec8" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>polylines</name></member>
+      <member refid="classQfLinePolygonShape_1a358e6577cef129115dd1f0633c070334" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>polylines</name></member>
+      <member refid="classQfLinePolygonShape_1a02675f18fb45c26088ea802969f4ffbe" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>polylinesChanged</name></member>
+      <member refid="classQfLinePolygonShape_1aae4307cad6f36e0fb8137df9cce756de" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>polylinesType</name></member>
+      <member refid="classQfLinePolygonShape_1a5e74a4923b6fe38b9081a4b5a9220f8a" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>polylinesType</name></member>
+      <member refid="classQfLinePolygonShape_1a108fc97912e5c15b0f3d94edeff13dde" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>polylinesTypeChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a1c6566e82e107e0650cb6c05549d205b" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>QfLinePolygonShape</name></member>
+      <member refid="classQfLinePolygonShape_1ad6a2830766a28c3cdd745ada1b211aa5" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>rotationChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a5024199242cf1b1b03b3ed22e1d8d67a" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>setColor</name></member>
+      <member refid="classQfLinePolygonShape_1ad2240d7cc0050a0cc9b92cc869886052" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>setGeometry</name></member>
+      <member refid="classQfLinePolygonShape_1a8c9ef94a519ce268bd7d9675edbba04f" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>setLineWidth</name></member>
+      <member refid="classQfLinePolygonShape_1ac068e8a2308bc0ae7842d580c9afdbe3" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>setMapSettings</name></member>
+      <member refid="classQfLinePolygonShape_1ad482cdb4d9ed3d7bf7f40c4cddb28c2a" prot="public" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>updated</name></member>
+      <member refid="classQfLinePolygonShape_1a4e7734012fb888adacae966105e775c7" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>updateTransform</name></member>
+      <member refid="classQfLinePolygonShape_1ae14a19c7ded7c42159908f2f6f31ac79" prot="private" virt="non-virtual"><scope>QfLinePolygonShape</scope><name>visibleExtentChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

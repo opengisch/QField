@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGuide" kind="class" language="C++" prot="public">
+    <compoundname>QfGuide</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Popup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGuide_1ac33a98b4ece3c295cd24ebcd7f49f79b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfGuide::baseRoot</definition>
+        <argsstring></argsstring>
+        <name>baseRoot</name>
+        <qualifiedname>QfGuide::baseRoot</qualifiedname>
+        <read>dummyGetter_baseRoot_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="14" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGuide_1afc1fffcc5f79e5d486f0f6a093a16b03" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGuide::enablePanelAnimation</definition>
+        <argsstring></argsstring>
+        <name>enablePanelAnimation</name>
+        <qualifiedname>QfGuide::enablePanelAnimation</qualifiedname>
+        <read>dummyGetter_enablePanelAnimation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="16" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGuide_1aabd056eb6343cc4d3d045c41c3225a23" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGuide::allowedToShow</definition>
+        <argsstring></argsstring>
+        <name>allowedToShow</name>
+        <qualifiedname>QfGuide::allowedToShow</qualifiedname>
+        <read>dummyGetter_allowedToShow_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="18" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGuide_1a4b71977af19430746489d3cf832be7fe" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfGuide::steps</definition>
+        <argsstring></argsstring>
+        <name>steps</name>
+        <qualifiedname>QfGuide::steps</qualifiedname>
+        <read>dummyGetter_steps_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="20" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGuide_1a9400290432e7383a5c49dd1e4107235d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfGuide::targetMargins</definition>
+        <argsstring></argsstring>
+        <name>targetMargins</name>
+        <qualifiedname>QfGuide::targetMargins</qualifiedname>
+        <read>dummyGetter_targetMargins_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="22" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGuide_1acb7c1e6f1942f87f8ef0f81c9677cf8c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfGuide::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>QfGuide::index</qualifiedname>
+        <read>dummyGetter_index_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="24" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGuide_1a8ab966ec0a363aadbcb666636b7dc6fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfGuide::finishText</definition>
+        <argsstring></argsstring>
+        <name>finishText</name>
+        <qualifiedname>QfGuide::finishText</qualifiedname>
+        <read>dummyGetter_finishText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="26" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGuide_1a2e99799bec40e580ed81091d9914d45f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfGuide::nextText</definition>
+        <argsstring></argsstring>
+        <name>nextText</name>
+        <qualifiedname>QfGuide::nextText</qualifiedname>
+        <read>dummyGetter_nextText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="28" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGuide_1ab9cb7832aaac686bfae573585893463b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfGuide::previousText</definition>
+        <argsstring></argsstring>
+        <name>previousText</name>
+        <qualifiedname>QfGuide::previousText</qualifiedname>
+        <read>dummyGetter_previousText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="30" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGuide_1a71fcf22115839769b2fcaa62f757c3bf" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfGuide::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="34" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a6e8afed1c4a5e891b6d283fde7b4bab1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfGuide::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="35" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a653ba4fb201d2b06e052379d078400ae" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfGuide::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="36" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1ad877cbba83630f30d0915f71397351a5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfGuide::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="37" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1ab1d24fc5bbb866f32d6f29e03b7575dc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfGuide::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="38" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a185a9bcbf4adc74fc91a073ddc5ae61e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>QfGuide::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="39" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1aa3fb06fb4e7303bdeed867c8998475d1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfGuide::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="40" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a11bcad3ebf251ec5b2deb3ce023b045e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QfGuide::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="41" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1aefec8f59cc14f339309ac48903e39aa2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGuide::onIndexChanged</definition>
+        <argsstring></argsstring>
+        <name>onIndexChanged</name>
+        <qualifiedname>QfGuide::onIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="42" column="5" bodyfile="src/app/qml/QfGuide.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1af1d69456ef97223b4f6f7aeedcb2941c" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfGuide::internalObject</definition>
+        <argsstring></argsstring>
+        <name>internalObject</name>
+        <qualifiedname>QfGuide::internalObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="49" column="6" bodyfile="src/app/qml/QfGuide.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a9fe8909557dd42b13b3e52d5a71742eb" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfGuide::delayedPainter</definition>
+        <argsstring></argsstring>
+        <name>delayedPainter</name>
+        <qualifiedname>QfGuide::delayedPainter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="51" column="7" bodyfile="src/app/qml/QfGuide.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a5ca8443fd637aa48510774de0bcf8627" prot="private" static="no" mutable="no">
+        <type>Canvas</type>
+        <definition>Canvas QfGuide::canvas</definition>
+        <argsstring></argsstring>
+        <name>canvas</name>
+        <qualifiedname>QfGuide::canvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="52" column="8" bodyfile="src/app/qml/QfGuide.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a180e6f657d37b524a9bf80f8d43631be" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfGuide::hintPanel</definition>
+        <argsstring></argsstring>
+        <name>hintPanel</name>
+        <qualifiedname>QfGuide::hintPanel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="53" column="11" bodyfile="src/app/qml/QfGuide.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1ae4eeee5b4046bbe1739755ec7cbd004f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfProgressRing" kindref="compound">QfProgressRing</ref></type>
+        <definition>QfProgressRing QfGuide::progress</definition>
+        <argsstring></argsstring>
+        <name>progress</name>
+        <qualifiedname>QfGuide::progress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="54" column="16" bodyfile="src/app/qml/QfGuide.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1ab55847d5084e9e4f502d8686c2e60195" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfGuide::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfGuide::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="55" column="6" bodyfile="src/app/qml/QfGuide.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a00625dd641f04c11529fa32ef4a407e6" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfGuide::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>QfGuide::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="56" column="6" bodyfile="src/app/qml/QfGuide.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a63f1772f897fe1071f2d69885927f65d" prot="private" static="no" mutable="no">
+        <type>AnimatedImage</type>
+        <definition>AnimatedImage QfGuide::animatedHint</definition>
+        <argsstring></argsstring>
+        <name>animatedHint</name>
+        <qualifiedname>QfGuide::animatedHint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="57" column="15" bodyfile="src/app/qml/QfGuide.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a1cdecf0def9b23a988ebc9a24110c176" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfGuide::nextButton</definition>
+        <argsstring></argsstring>
+        <name>nextButton</name>
+        <qualifiedname>QfGuide::nextButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="58" column="10" bodyfile="src/app/qml/QfGuide.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1aa07480fad9bb9c4d42426c03a837a003" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfGuide::previousButton</definition>
+        <argsstring></argsstring>
+        <name>previousButton</name>
+        <qualifiedname>QfGuide::previousButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="59" column="10" bodyfile="src/app/qml/QfGuide.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGuide_1a09dd56bdd6a5605f15581f3b94e43dd5" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfGuide::pointerToItem</definition>
+        <argsstring></argsstring>
+        <name>pointerToItem</name>
+        <qualifiedname>QfGuide::pointerToItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="60" column="7" bodyfile="src/app/qml/QfGuide.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfGuide_1ab6403dec4aefc8da0b5bd8ab86256507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGuide::guideFinished</definition>
+        <argsstring>()</argsstring>
+        <name>guideFinished</name>
+        <qualifiedname>QfGuide::guideFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="32" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGuide_1ac04faf29b6f201a6930fbdeab5610a3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGuide::blockGuide</definition>
+        <argsstring>()</argsstring>
+        <name>blockGuide</name>
+        <qualifiedname>QfGuide::blockGuide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGuide_1af589d89d38dc549928b30af64a8e49ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGuide::runTour</definition>
+        <argsstring>()</argsstring>
+        <name>runTour</name>
+        <qualifiedname>QfGuide::runTour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfGuide.qml" line="47" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfGuide</label>
+        <link refid="classQfGuide"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfGuide</label>
+        <link refid="classQfGuide"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfGuide.qml" line="11" column="1" bodyfile="src/app/qml/QfGuide.qml" bodystart="11" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classQfGuide_1aabd056eb6343cc4d3d045c41c3225a23" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>allowedToShow</name></member>
+      <member refid="classQfGuide_1a63f1772f897fe1071f2d69885927f65d" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>animatedHint</name></member>
+      <member refid="classQfGuide_1ab1d24fc5bbb866f32d6f29e03b7575dc" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>background</name></member>
+      <member refid="classQfGuide_1ac33a98b4ece3c295cd24ebcd7f49f79b" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>baseRoot</name></member>
+      <member refid="classQfGuide_1ac04faf29b6f201a6930fbdeab5610a3a" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>blockGuide</name></member>
+      <member refid="classQfGuide_1a5ca8443fd637aa48510774de0bcf8627" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>canvas</name></member>
+      <member refid="classQfGuide_1aa3fb06fb4e7303bdeed867c8998475d1" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>clip</name></member>
+      <member refid="classQfGuide_1a185a9bcbf4adc74fc91a073ddc5ae61e" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>contentItem</name></member>
+      <member refid="classQfGuide_1a9fe8909557dd42b13b3e52d5a71742eb" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>delayedPainter</name></member>
+      <member refid="classQfGuide_1a00625dd641f04c11529fa32ef4a407e6" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>description</name></member>
+      <member refid="classQfGuide_1afc1fffcc5f79e5d486f0f6a093a16b03" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>enablePanelAnimation</name></member>
+      <member refid="classQfGuide_1a8ab966ec0a363aadbcb666636b7dc6fa" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>finishText</name></member>
+      <member refid="classQfGuide_1ab6403dec4aefc8da0b5bd8ab86256507" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>guideFinished</name></member>
+      <member refid="classQfGuide_1ad877cbba83630f30d0915f71397351a5" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>height</name></member>
+      <member refid="classQfGuide_1a180e6f657d37b524a9bf80f8d43631be" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>hintPanel</name></member>
+      <member refid="classQfGuide_1acb7c1e6f1942f87f8ef0f81c9677cf8c" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>index</name></member>
+      <member refid="classQfGuide_1af1d69456ef97223b4f6f7aeedcb2941c" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>internalObject</name></member>
+      <member refid="classQfGuide_1a1cdecf0def9b23a988ebc9a24110c176" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>nextButton</name></member>
+      <member refid="classQfGuide_1a2e99799bec40e580ed81091d9914d45f" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>nextText</name></member>
+      <member refid="classQfGuide_1aefec8f59cc14f339309ac48903e39aa2" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>onIndexChanged</name></member>
+      <member refid="classQfGuide_1a11bcad3ebf251ec5b2deb3ce023b045e" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>onVisibleChanged</name></member>
+      <member refid="classQfGuide_1a71fcf22115839769b2fcaa62f757c3bf" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>padding</name></member>
+      <member refid="classQfGuide_1a6e8afed1c4a5e891b6d283fde7b4bab1" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>parent</name></member>
+      <member refid="classQfGuide_1a09dd56bdd6a5605f15581f3b94e43dd5" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>pointerToItem</name></member>
+      <member refid="classQfGuide_1aa07480fad9bb9c4d42426c03a837a003" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>previousButton</name></member>
+      <member refid="classQfGuide_1ab9cb7832aaac686bfae573585893463b" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>previousText</name></member>
+      <member refid="classQfGuide_1ae4eeee5b4046bbe1739755ec7cbd004f" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>progress</name></member>
+      <member refid="classQfGuide_1af589d89d38dc549928b30af64a8e49ee" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>runTour</name></member>
+      <member refid="classQfGuide_1a4b71977af19430746489d3cf832be7fe" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>steps</name></member>
+      <member refid="classQfGuide_1a9400290432e7383a5c49dd1e4107235d" prot="public" virt="non-virtual"><scope>QfGuide</scope><name>targetMargins</name></member>
+      <member refid="classQfGuide_1ab55847d5084e9e4f502d8686c2e60195" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>title</name></member>
+      <member refid="classQfGuide_1a653ba4fb201d2b06e052379d078400ae" prot="private" virt="non-virtual"><scope>QfGuide</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,589 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCoordinateLocator" kind="class" language="C++" prot="public">
+    <compoundname>QfCoordinateLocator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classCoordinateLocator" prot="public" virt="non-virtual">CoordinateLocator</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCoordinateLocator_1ad689c17ec328327d763c64f11fa75627" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfCoordinateLocator::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfCoordinateLocator::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="12" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1ab1c441eb26dd18363cf253662b41e5a0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCoordinateLocator::mainColor</definition>
+        <argsstring></argsstring>
+        <name>mainColor</name>
+        <qualifiedname>QfCoordinateLocator::mainColor</qualifiedname>
+        <read>dummyGetter_mainColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="14" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a8ace06f872e110b7fd448975bc2c4c46" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCoordinateLocator::highlightColor</definition>
+        <argsstring></argsstring>
+        <name>highlightColor</name>
+        <qualifiedname>QfCoordinateLocator::highlightColor</qualifiedname>
+        <read>dummyGetter_highlightColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="16" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1adaa7aee4069224c52b6916bd0d0c3a19" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCoordinateLocator::cursorFillColor</definition>
+        <argsstring></argsstring>
+        <name>cursorFillColor</name>
+        <qualifiedname>QfCoordinateLocator::cursorFillColor</qualifiedname>
+        <read>dummyGetter_cursorFillColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="18" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1ae30a3eef440df9d9c54666c2dd11ff5a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCoordinateLocator::cursorOutlineColor</definition>
+        <argsstring></argsstring>
+        <name>cursorOutlineColor</name>
+        <qualifiedname>QfCoordinateLocator::cursorOutlineColor</qualifiedname>
+        <read>dummyGetter_cursorOutlineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="20" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a46a805e6e43740235a8b0e7c17712e9a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCoordinateLocator::cursorSizeScale</definition>
+        <argsstring></argsstring>
+        <name>cursorSizeScale</name>
+        <qualifiedname>QfCoordinateLocator::cursorSizeScale</qualifiedname>
+        <read>dummyGetter_cursorSizeScale_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="22" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a6d8e8888fe166878b8185c27525d1002" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCoordinateLocator::crossHalfLength</definition>
+        <argsstring></argsstring>
+        <name>crossHalfLength</name>
+        <qualifiedname>QfCoordinateLocator::crossHalfLength</qualifiedname>
+        <read>dummyGetter_crossHalfLength_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="25" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a03142e1e650978abacf5f26e3a4e645a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCoordinateLocator::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>QfCoordinateLocator::currentLayer</qualifiedname>
+        <read>dummyGetter_currentLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current layer on which snapping should be performed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="29" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1afbe4b3452107666a12f694a5c04f68b2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCoordinateLocator::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>QfCoordinateLocator::positionInformation</qualifiedname>
+        <read>dummyGetter_positionInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Position-related information </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="33" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a50828db2db7fbf0cb944ff6a1e540546" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCoordinateLocator::positionLocked</definition>
+        <argsstring></argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>QfCoordinateLocator::positionLocked</qualifiedname>
+        <read>dummyGetter_positionLocked_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="35" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1af229b75696e77402b6cca38fa54968fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCoordinateLocator::averagedPosition</definition>
+        <argsstring></argsstring>
+        <name>averagedPosition</name>
+        <qualifiedname>QfCoordinateLocator::averagedPosition</qualifiedname>
+        <read>dummyGetter_averagedPosition_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="37" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a3bf53c4d0dec99b240ddf29c1e1135a3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfCoordinateLocator::averagedPositionCount</definition>
+        <argsstring></argsstring>
+        <name>averagedPositionCount</name>
+        <qualifiedname>QfCoordinateLocator::averagedPositionCount</qualifiedname>
+        <read>dummyGetter_averagedPositionCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="39" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1abf196214ab40ca887518e8ca2995f937" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCoordinateLocator::snapToCommonAngles</definition>
+        <argsstring></argsstring>
+        <name>snapToCommonAngles</name>
+        <qualifiedname>QfCoordinateLocator::snapToCommonAngles</qualifiedname>
+        <read>dummyGetter_snapToCommonAngles_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Snapping-related information </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="43" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a0f447010b89a6d6872b8356cbdfa03ea" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCoordinateLocator::snappingIsRelative</definition>
+        <argsstring></argsstring>
+        <name>snappingIsRelative</name>
+        <qualifiedname>QfCoordinateLocator::snappingIsRelative</qualifiedname>
+        <read>dummyGetter_snappingIsRelative_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="45" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1afa08e974f16e4fb5c189ca12c69f80ab" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCoordinateLocator::snappingAngleDegrees</definition>
+        <argsstring></argsstring>
+        <name>snappingAngleDegrees</name>
+        <qualifiedname>QfCoordinateLocator::snappingAngleDegrees</qualifiedname>
+        <read>dummyGetter_snappingAngleDegrees_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="47" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1aea45cf2e43c21a97b9e3d0c25f0023ab" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCoordinateLocator::snappingTolerance</definition>
+        <argsstring></argsstring>
+        <name>snappingTolerance</name>
+        <qualifiedname>QfCoordinateLocator::snappingTolerance</qualifiedname>
+        <read>dummyGetter_snappingTolerance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="49" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a5a49c00a73ff964a8de3dc68f12ac60f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>variant</type>
+        <definition>variant QfCoordinateLocator::overrideLocation</definition>
+        <argsstring></argsstring>
+        <name>overrideLocation</name>
+        <qualifiedname>QfCoordinateLocator::overrideLocation</qualifiedname>
+        <read>dummyGetter_overrideLocation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Overrides any possibility for the user to modify the coordinate. There will be no user interaction or snapping if this is set to a QgsPoint. Set this to <computeroutput>undefined</computeroutput> to revert to the user and snapping controlled behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="55" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1aef9ccc208b00ab4261668514f4d2da55" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>variant</type>
+        <definition>variant QfCoordinateLocator::sourceLocation</definition>
+        <argsstring></argsstring>
+        <name>sourceLocation</name>
+        <qualifiedname>QfCoordinateLocator::sourceLocation</qualifiedname>
+        <read>dummyGetter_sourceLocation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Source location for snapping. If this is set to undefined, the center of the screen will be used. Overwritten by stylus / hoverHandler. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="60" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a037834b18db049de40d7f90912a8869c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>variant</type>
+        <definition>variant QfCoordinateLocator::currentCoordinate</definition>
+        <argsstring></argsstring>
+        <name>currentCoordinate</name>
+        <qualifiedname>QfCoordinateLocator::currentCoordinate</qualifiedname>
+        <read>dummyGetter_currentCoordinate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="63" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1adccde86cb0bc00de5b10f5d16c54bf7e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>point</type>
+        <definition>point QfCoordinateLocator::displayPosition</definition>
+        <argsstring></argsstring>
+        <name>displayPosition</name>
+        <qualifiedname>QfCoordinateLocator::displayPosition</qualifiedname>
+        <read>dummyGetter_displayPosition_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="67" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1aa5d456f5dd667e66bd2f5b4dcc29fff0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>variant</type>
+        <definition>variant QfCoordinateLocator::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfCoordinateLocator::rubberbandModel</qualifiedname>
+        <read>dummyGetter_rubberbandModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="69" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1addb96b0e9ecd331946d115bd927f183c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCoordinateLocator::snappedCoordinate</definition>
+        <argsstring></argsstring>
+        <name>snappedCoordinate</name>
+        <qualifiedname>QfCoordinateLocator::snappedCoordinate</qualifiedname>
+        <read>dummyGetter_snappedCoordinate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="72" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a4b34b2a4390e352913bd60985c93f6c0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCoordinateLocator::snappedPoint</definition>
+        <argsstring></argsstring>
+        <name>snappedPoint</name>
+        <qualifiedname>QfCoordinateLocator::snappedPoint</qualifiedname>
+        <read>dummyGetter_snappedPoint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="75" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCoordinateLocator_1a776f4150e2b86f0922478e50c20bfc70" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCoordinateLocator::topSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>QfCoordinateLocator::topSnappingResult</qualifiedname>
+        <read>dummyGetter_topSnappingResult_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="78" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCoordinateLocator_1a14ba5cacf2d219aafb7707dde760f29a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSnappingUtils" kindref="compound">QfSnappingUtils</ref></type>
+        <definition>QfSnappingUtils QfCoordinateLocator::snappingUtils</definition>
+        <argsstring></argsstring>
+        <name>snappingUtils</name>
+        <qualifiedname>QfCoordinateLocator::snappingUtils</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="81" column="17" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCoordinateLocator_1a7a823d436c74da7ae538922ecf7a03fe" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCoordinateLocator::averagedInfoShield</definition>
+        <argsstring></argsstring>
+        <name>averagedInfoShield</name>
+        <qualifiedname>QfCoordinateLocator::averagedInfoShield</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="82" column="11" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCoordinateLocator_1a8a23c60dff34284375bb4d04cf0b8659" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCoordinateLocator::averagedProgress</definition>
+        <argsstring></argsstring>
+        <name>averagedProgress</name>
+        <qualifiedname>QfCoordinateLocator::averagedProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="83" column="11" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCoordinateLocator_1a08db549fefbfaefb257dfb01256aa20e" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCoordinateLocator::averagedInfo</definition>
+        <argsstring></argsstring>
+        <name>averagedInfo</name>
+        <qualifiedname>QfCoordinateLocator::averagedInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="84" column="6" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCoordinateLocator_1a989d111f0abde91c5b043e9d4a6ffefd" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfCoordinateLocator::crosshairCircle</definition>
+        <argsstring></argsstring>
+        <name>crosshairCircle</name>
+        <qualifiedname>QfCoordinateLocator::crosshairCircle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="85" column="7" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCoordinateLocator_1a112a6874286efacca5bc622eed85e62f" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfCoordinateLocator::crosshairPathBuffer</definition>
+        <argsstring></argsstring>
+        <name>crosshairPathBuffer</name>
+        <qualifiedname>QfCoordinateLocator::crosshairPathBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="86" column="11" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCoordinateLocator_1af85e549b6ed9bf6874612e88498b2dc8" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfCoordinateLocator::crosshairPath</definition>
+        <argsstring></argsstring>
+        <name>crosshairPath</name>
+        <qualifiedname>QfCoordinateLocator::crosshairPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="87" column="11" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCoordinateLocator_1a573b49c4dda24abd5bb0982a35d507a9" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QfCoordinateLocator::snappingLines</definition>
+        <argsstring></argsstring>
+        <name>snappingLines</name>
+        <qualifiedname>QfCoordinateLocator::snappingLines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="88" column="10" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCoordinateLocator_1a39ae399b68a6755fb346386d826e0dbc" prot="private" static="no" mutable="no">
+        <type>ParallelAnimation</type>
+        <definition>ParallelAnimation QfCoordinateLocator::flashAnimation</definition>
+        <argsstring></argsstring>
+        <name>flashAnimation</name>
+        <qualifiedname>QfCoordinateLocator::flashAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCoordinateLocator.qml" line="89" column="19" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>CoordinateLocator</label>
+        <link refid="classCoordinateLocator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfCoordinateLocator</label>
+        <link refid="classQfCoordinateLocator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCoordinateLocator</label>
+        <link refid="classQfCoordinateLocator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCoordinateLocator.qml" line="9" column="1" bodyfile="src/app/qml/QfCoordinateLocator.qml" bodystart="9" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classQfCoordinateLocator_1a08db549fefbfaefb257dfb01256aa20e" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>averagedInfo</name></member>
+      <member refid="classQfCoordinateLocator_1a7a823d436c74da7ae538922ecf7a03fe" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>averagedInfoShield</name></member>
+      <member refid="classQfCoordinateLocator_1af229b75696e77402b6cca38fa54968fa" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>averagedPosition</name></member>
+      <member refid="classQfCoordinateLocator_1a3bf53c4d0dec99b240ddf29c1e1135a3" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>averagedPositionCount</name></member>
+      <member refid="classQfCoordinateLocator_1a8a23c60dff34284375bb4d04cf0b8659" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>averagedProgress</name></member>
+      <member refid="classQfCoordinateLocator_1a989d111f0abde91c5b043e9d4a6ffefd" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>crosshairCircle</name></member>
+      <member refid="classQfCoordinateLocator_1af85e549b6ed9bf6874612e88498b2dc8" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>crosshairPath</name></member>
+      <member refid="classQfCoordinateLocator_1a112a6874286efacca5bc622eed85e62f" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>crosshairPathBuffer</name></member>
+      <member refid="classQfCoordinateLocator_1a6d8e8888fe166878b8185c27525d1002" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>crossHalfLength</name></member>
+      <member refid="classQfCoordinateLocator_1a037834b18db049de40d7f90912a8869c" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>currentCoordinate</name></member>
+      <member refid="classQfCoordinateLocator_1a03142e1e650978abacf5f26e3a4e645a" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>currentLayer</name></member>
+      <member refid="classQfCoordinateLocator_1adaa7aee4069224c52b6916bd0d0c3a19" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>cursorFillColor</name></member>
+      <member refid="classQfCoordinateLocator_1ae30a3eef440df9d9c54666c2dd11ff5a" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>cursorOutlineColor</name></member>
+      <member refid="classQfCoordinateLocator_1a46a805e6e43740235a8b0e7c17712e9a" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>cursorSizeScale</name></member>
+      <member refid="classQfCoordinateLocator_1adccde86cb0bc00de5b10f5d16c54bf7e" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>displayPosition</name></member>
+      <member refid="classQfCoordinateLocator_1a39ae399b68a6755fb346386d826e0dbc" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>flashAnimation</name></member>
+      <member refid="classQfCoordinateLocator_1a8ace06f872e110b7fd448975bc2c4c46" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>highlightColor</name></member>
+      <member refid="classQfCoordinateLocator_1ab1c441eb26dd18363cf253662b41e5a0" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>mainColor</name></member>
+      <member refid="classQfCoordinateLocator_1ad689c17ec328327d763c64f11fa75627" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>mapSettings</name></member>
+      <member refid="classQfCoordinateLocator_1a5a49c00a73ff964a8de3dc68f12ac60f" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>overrideLocation</name></member>
+      <member refid="classQfCoordinateLocator_1afbe4b3452107666a12f694a5c04f68b2" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>positionInformation</name></member>
+      <member refid="classQfCoordinateLocator_1a50828db2db7fbf0cb944ff6a1e540546" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>positionLocked</name></member>
+      <member refid="classQfCoordinateLocator_1aa5d456f5dd667e66bd2f5b4dcc29fff0" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>rubberbandModel</name></member>
+      <member refid="classQfCoordinateLocator_1addb96b0e9ecd331946d115bd927f183c" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>snappedCoordinate</name></member>
+      <member refid="classQfCoordinateLocator_1a4b34b2a4390e352913bd60985c93f6c0" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>snappedPoint</name></member>
+      <member refid="classQfCoordinateLocator_1afa08e974f16e4fb5c189ca12c69f80ab" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>snappingAngleDegrees</name></member>
+      <member refid="classQfCoordinateLocator_1a0f447010b89a6d6872b8356cbdfa03ea" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>snappingIsRelative</name></member>
+      <member refid="classQfCoordinateLocator_1a573b49c4dda24abd5bb0982a35d507a9" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>snappingLines</name></member>
+      <member refid="classQfCoordinateLocator_1aea45cf2e43c21a97b9e3d0c25f0023ab" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>snappingTolerance</name></member>
+      <member refid="classQfCoordinateLocator_1a14ba5cacf2d219aafb7707dde760f29a" prot="private" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>snappingUtils</name></member>
+      <member refid="classQfCoordinateLocator_1abf196214ab40ca887518e8ca2995f937" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>snapToCommonAngles</name></member>
+      <member refid="classQfCoordinateLocator_1aef9ccc208b00ab4261668514f4d2da55" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>sourceLocation</name></member>
+      <member refid="classQfCoordinateLocator_1a776f4150e2b86f0922478e50c20bfc70" prot="public" virt="non-virtual"><scope>QfCoordinateLocator</scope><name>topSnappingResult</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

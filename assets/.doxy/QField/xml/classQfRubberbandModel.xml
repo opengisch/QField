@@ -1,0 +1,1335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfRubberbandModel" kind="class" language="C++" prot="public">
+    <compoundname>QfRubberbandModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfrubberbandmodel_8h" local="no">qfrubberbandmodel.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfRubberbandModel_1aac0f68e5397b41cb75b42deb9b7f6826" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::firstCoordinate</definition>
+        <argsstring></argsstring>
+        <name>firstCoordinate</name>
+        <qualifiedname>QfRubberbandModel::firstCoordinate</qualifiedname>
+        <read>firstCoordinate</read>
+        <briefdescription>
+<para>First vertex point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="44" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1ae71206731adadea60ddc08909588432a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::lastCoordinate</definition>
+        <argsstring></argsstring>
+        <name>lastCoordinate</name>
+        <qualifiedname>QfRubberbandModel::lastCoordinate</qualifiedname>
+        <read>lastCoordinate</read>
+        <briefdescription>
+<para>Last vertex point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="46" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1a3f7b3582ad9e6391005096c0e3e72bcd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::penultimateCoordinate</definition>
+        <argsstring></argsstring>
+        <name>penultimateCoordinate</name>
+        <qualifiedname>QfRubberbandModel::penultimateCoordinate</qualifiedname>
+        <read>penultimateCoordinate</read>
+        <briefdescription>
+<para>Penultimate (last but one) vertex point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="48" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1af97747cf22ed3c14622c1ad7b73e445e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::currentCoordinate</definition>
+        <argsstring></argsstring>
+        <name>currentCoordinate</name>
+        <qualifiedname>QfRubberbandModel::currentCoordinate</qualifiedname>
+        <read>currentCoordinate</read>
+        <write>setCurrentCoordinate</write>
+        <briefdescription>
+<para>Current vertex point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="50" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1a73133c021218ee968709a7a080cf6de1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfRubberbandModel::currentCoordinateIndex</definition>
+        <argsstring></argsstring>
+        <name>currentCoordinateIndex</name>
+        <qualifiedname>QfRubberbandModel::currentCoordinateIndex</qualifiedname>
+        <read>currentCoordinateIndex</read>
+        <write>setCurrentCoordinateIndex</write>
+        <briefdescription>
+<para>Current vertex index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="52" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1a673bb7ca3da8c520d2e67f3fd007370e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandModel::geometryType</definition>
+        <argsstring></argsstring>
+        <name>geometryType</name>
+        <qualifiedname>QfRubberbandModel::geometryType</qualifiedname>
+        <read>geometryType</read>
+        <write>setGeometryType</write>
+        <briefdescription>
+<para><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> type of the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="54" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1ab89a21b74211bfdf272540e78c27d4df" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfRubberbandModel::vectorLayer</definition>
+        <argsstring></argsstring>
+        <name>vectorLayer</name>
+        <qualifiedname>QfRubberbandModel::vectorLayer</qualifiedname>
+        <read>vectorLayer</read>
+        <write>setVectorLayer</write>
+        <briefdescription>
+<para>The vector layer the model is for. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="56" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1a8c289179392273805c5c696a1d701dd6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfRubberbandModel::vertexCount</definition>
+        <argsstring></argsstring>
+        <name>vertexCount</name>
+        <qualifiedname>QfRubberbandModel::vertexCount</qualifiedname>
+        <read>vertexCount</read>
+        <briefdescription>
+<para>Total count of vertices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="58" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1af83c6a5091d936922e0a73192dc616e2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt;QgsPoint&gt; QfRubberbandModel::vertices</definition>
+        <argsstring></argsstring>
+        <name>vertices</name>
+        <qualifiedname>QfRubberbandModel::vertices</qualifiedname>
+        <read>vertices</read>
+        <briefdescription>
+<para>All vertex points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="60" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1a40ed7b36fc6800859644e9f6ed93cf14" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfRubberbandModel::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>QfRubberbandModel::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+<para>Coordinate reference system. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="62" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1a0b3322f1a822d33a83e99ebc6b67bac0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfRubberbandModel::frozen</definition>
+        <argsstring></argsstring>
+        <name>frozen</name>
+        <qualifiedname>QfRubberbandModel::frozen</qualifiedname>
+        <read>frozen</read>
+        <write>setFrozen</write>
+        <briefdescription>
+<para>Freeze the rubberband so it doesn&apos;t get modified while panning map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="64" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1a4417a2dfa39cedff42a78aa91f97110d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfRubberbandModel::currentPositionTimestamp</definition>
+        <argsstring></argsstring>
+        <name>currentPositionTimestamp</name>
+        <qualifiedname>QfRubberbandModel::currentPositionTimestamp</qualifiedname>
+        <read>currentPositionTimestamp</read>
+        <write>setCurrentPositionTimestamp</write>
+        <briefdescription>
+<para>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="66" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandModel_1af66f60c4bf6eb5a041f37e035da0f4c3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfRubberbandModel::measureValue</definition>
+        <argsstring></argsstring>
+        <name>measureValue</name>
+        <qualifiedname>QfRubberbandModel::measureValue</qualifiedname>
+        <read>measureValue</read>
+        <write>setMeasureValue</write>
+        <briefdescription>
+<para>measureValue defines the M value of the coordinates </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="68" column="5" bodyfile="src/core/qfrubberbandmodel.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfRubberbandModel_1a9b3503e73641560c45805234c710c500" prot="private" static="no" mutable="no">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt;QgsPoint&gt; QfRubberbandModel::mPointList</definition>
+        <argsstring></argsstring>
+        <name>mPointList</name>
+        <qualifiedname>QfRubberbandModel::mPointList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="207" column="13" bodyfile="src/core/qfrubberbandmodel.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandModel_1a825bd0a8c3075169c48c5bd2f6f4ddea" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfRubberbandModel::mCurrentCoordinateIndex</definition>
+        <argsstring></argsstring>
+        <name>mCurrentCoordinateIndex</name>
+        <qualifiedname>QfRubberbandModel::mCurrentCoordinateIndex</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="208" column="9" bodyfile="src/core/qfrubberbandmodel.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandModel_1acf38233991c7bc78beaf1a3849b6b292" prot="private" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfRubberbandModel::mCurrentPositionTimestamp</definition>
+        <argsstring></argsstring>
+        <name>mCurrentPositionTimestamp</name>
+        <qualifiedname>QfRubberbandModel::mCurrentPositionTimestamp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="209" column="15" bodyfile="src/core/qfrubberbandmodel.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandModel_1a526dae17829c396ffe5c90ed9cc2246b" prot="private" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandModel::mGeometryType</definition>
+        <argsstring></argsstring>
+        <name>mGeometryType</name>
+        <qualifiedname>QfRubberbandModel::mGeometryType</qualifiedname>
+        <initializer>= Qgis::GeometryType::Line</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="210" column="24" bodyfile="src/core/qfrubberbandmodel.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandModel_1acbd75c5e1177aac051ff8f3918128736" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfRubberbandModel::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>QfRubberbandModel::mLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="211" column="14" bodyfile="src/core/qfrubberbandmodel.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandModel_1a485669425488cb38ec2963d671a2dd5f" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfRubberbandModel::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>QfRubberbandModel::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="212" column="34" bodyfile="src/core/qfrubberbandmodel.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandModel_1ab22f46446a633b0f0ebb452841b2f798" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfRubberbandModel::mMeasureValue</definition>
+        <argsstring></argsstring>
+        <name>mMeasureValue</name>
+        <qualifiedname>QfRubberbandModel::mMeasureValue</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="213" column="12" bodyfile="src/core/qfrubberbandmodel.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandModel_1a40978b848a814c10ab43ba83fa3118ae" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfRubberbandModel::mFrozen</definition>
+        <argsstring></argsstring>
+        <name>mFrozen</name>
+        <qualifiedname>QfRubberbandModel::mFrozen</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="214" column="10" bodyfile="src/core/qfrubberbandmodel.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfRubberbandModel_1af625ee1f79a18cb5a4ab5a55ed025b93" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfRubberbandModel::QfRubberbandModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfRubberbandModel</name>
+        <qualifiedname>QfRubberbandModel::QfRubberbandModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="71" column="14" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="24" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a700679d670edac677c36a0fe21d44bd1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfRubberbandModel::vertexCount</definition>
+        <argsstring>() const</argsstring>
+        <name>vertexCount</name>
+        <qualifiedname>QfRubberbandModel::vertexCount</qualifiedname>
+        <briefdescription>
+<para>Total count of vertices.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="74" column="9" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ac06a5345682983f57ebb421432fa2b01" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt; QgsPoint &gt; QfRubberbandModel::vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>vertices</name>
+        <qualifiedname>QfRubberbandModel::vertices</qualifiedname>
+        <briefdescription>
+<para>All vertex points.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="77" column="13" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a5bb639f36bf5862eda36ca1ceff831da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfRubberbandModel::currentCoordinateIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>currentCoordinateIndex</name>
+        <qualifiedname>QfRubberbandModel::currentCoordinateIndex</qualifiedname>
+        <briefdescription>
+<para>Current vertex index.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="80" column="9" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="160" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a6f4684693b1e1ba075336e0bada69319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setCurrentCoordinateIndex</definition>
+        <argsstring>(int currentCoordinateIndex)</argsstring>
+        <name>setCurrentCoordinateIndex</name>
+        <qualifiedname>QfRubberbandModel::setCurrentCoordinateIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>currentCoordinateIndex</declname>
+        </param>
+        <briefdescription>
+<para>Current vertex index.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="83" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="165" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a633853cc4337d6750df738d26c02f1f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::firstCoordinate</definition>
+        <argsstring>() const</argsstring>
+        <name>firstCoordinate</name>
+        <qualifiedname>QfRubberbandModel::firstCoordinate</qualifiedname>
+        <briefdescription>
+<para>First vertex point.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="86" column="14" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="217" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a83c7c08189ec7a33019ba1d29818e60b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::lastCoordinate</definition>
+        <argsstring>() const</argsstring>
+        <name>lastCoordinate</name>
+        <qualifiedname>QfRubberbandModel::lastCoordinate</qualifiedname>
+        <briefdescription>
+<para>Last vertex point.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="89" column="14" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="225" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a89ed0d898ed6a9438ed929a2c369890c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::penultimateCoordinate</definition>
+        <argsstring>() const</argsstring>
+        <name>penultimateCoordinate</name>
+        <qualifiedname>QfRubberbandModel::penultimateCoordinate</qualifiedname>
+        <briefdescription>
+<para>Penultimate (last but one) vertex point.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="92" column="14" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="233" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ae7d5de0b42387312ddb7fa22e26e1973" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::currentCoordinate</definition>
+        <argsstring>() const</argsstring>
+        <name>currentCoordinate</name>
+        <qualifiedname>QfRubberbandModel::currentCoordinate</qualifiedname>
+        <briefdescription>
+<para>Current vertex point.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="95" column="14" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="212" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a20e606d46367d344ed0086b30cb071ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setCurrentCoordinate</definition>
+        <argsstring>(const QgsPoint &amp;currentCoordinate)</argsstring>
+        <name>setCurrentCoordinate</name>
+        <qualifiedname>QfRubberbandModel::setCurrentCoordinate</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>currentCoordinate</declname>
+        </param>
+        <briefdescription>
+<para>Current vertex point.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="98" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="241" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a70f5032d891669d760d9b8e6215f87a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QDateTime</type>
+        <definition>QDateTime QfRubberbandModel::currentPositionTimestamp</definition>
+        <argsstring>() const</argsstring>
+        <name>currentPositionTimestamp</name>
+        <qualifiedname>QfRubberbandModel::currentPositionTimestamp</qualifiedname>
+        <briefdescription>
+<para>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="101" column="15" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="283" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a110e4233775195d1e5bae62453280091" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setCurrentPositionTimestamp</definition>
+        <argsstring>(const QDateTime &amp;currentPositionTimestamp)</argsstring>
+        <name>setCurrentPositionTimestamp</name>
+        <qualifiedname>QfRubberbandModel::setCurrentPositionTimestamp</qualifiedname>
+        <param>
+          <type>const QDateTime &amp;</type>
+          <declname>currentPositionTimestamp</declname>
+        </param>
+        <briefdescription>
+<para>currentPositionTimestamp is used externally by tracking, not (yet) stored in the coordinates (m) by the rubberbandmodel itself   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="104" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="288" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a7474b8fdcbcb538792b433645ccb55a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfRubberbandModel::measureValue</definition>
+        <argsstring>() const</argsstring>
+        <name>measureValue</name>
+        <qualifiedname>QfRubberbandModel::measureValue</qualifiedname>
+        <briefdescription>
+<para>measureValue defines the M value of the coordinates   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="107" column="12" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="293" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a03c0b626aff7df81662b5b872992c34a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setMeasureValue</definition>
+        <argsstring>(const double measureValue)</argsstring>
+        <name>setMeasureValue</name>
+        <qualifiedname>QfRubberbandModel::setMeasureValue</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>measureValue</declname>
+        </param>
+        <briefdescription>
+<para>measureValue defines the M value of the coordinates   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="110" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="298" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a2a4907ed18b2ede56799c682c50c09f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandModel::geometryType</definition>
+        <argsstring>() const</argsstring>
+        <name>geometryType</name>
+        <qualifiedname>QfRubberbandModel::geometryType</qualifiedname>
+        <briefdescription>
+<para><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> type of the model.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="113" column="24" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="447" bodyend="450"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a7860fa84c70bcae8e3747ce6cc5a5e79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setGeometryType</definition>
+        <argsstring>(const Qgis::GeometryType &amp;geometryType)</argsstring>
+        <name>setGeometryType</name>
+        <qualifiedname>QfRubberbandModel::setGeometryType</qualifiedname>
+        <param>
+          <type>const Qgis::GeometryType &amp;</type>
+          <declname>geometryType</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> type of the model.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="116" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="452" bodyend="459"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a1ffb705123be183b778d65cc56b89e01" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfRubberbandModel::vectorLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>vectorLayer</name>
+        <qualifiedname>QfRubberbandModel::vectorLayer</qualifiedname>
+        <briefdescription>
+<para>The vector layer the model is for.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="119" column="20" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="475" bodyend="478"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a0dfc9c9cf57734a844cad3a613efb682" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setVectorLayer</definition>
+        <argsstring>(QgsVectorLayer *vectorLayer)</argsstring>
+        <name>setVectorLayer</name>
+        <qualifiedname>QfRubberbandModel::setVectorLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vectorLayer</declname>
+        </param>
+        <briefdescription>
+<para>The vector layer the model is for.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="122" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="480" bodyend="491"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a7837cff4728332f9a83f00d4dc363695" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfRubberbandModel::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>QfRubberbandModel::crs</qualifiedname>
+        <briefdescription>
+<para>Coordinate reference system.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="125" column="34" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="461" bodyend="464"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a5ce0ac7340c79a840b834e257c517fb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>QfRubberbandModel::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+<para>Coordinate reference system.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="128" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="466" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ab9e520d021d4307067d96a4d8cc72c92" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfRubberbandModel::frozen</definition>
+        <argsstring>() const</argsstring>
+        <name>frozen</name>
+        <qualifiedname>QfRubberbandModel::frozen</qualifiedname>
+        <briefdescription>
+<para>Freeze the rubberband so it doesn&apos;t get modified while panning map.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="131" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="493" bodyend="496"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a3c93b3e5b2db96a1267b86aadc95b504" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setFrozen</definition>
+        <argsstring>(const bool &amp;frozen)</argsstring>
+        <name>setFrozen</name>
+        <qualifiedname>QfRubberbandModel::setFrozen</qualifiedname>
+        <param>
+          <type>const bool &amp;</type>
+          <declname>frozen</declname>
+        </param>
+        <briefdescription>
+<para>Freeze the rubberband so it doesn&apos;t get modified while panning map.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="134" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="498" bodyend="506"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ae790d72e9148758c669879cd7ff4171b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt; QgsPoint &gt; QfRubberbandModel::verticesCopy</definition>
+        <argsstring>(bool skipCurrentPoint=false) const</argsstring>
+        <name>verticesCopy</name>
+        <qualifiedname>QfRubberbandModel::verticesCopy</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>skipCurrentPoint</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Returns a copy of all vertice points in the model, with the option to skip the current vertex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="137" column="13" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="46" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ac5901a8c309feed97c9252b804d1802d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPointSequence</type>
+        <definition>QgsPointSequence QfRubberbandModel::pointSequence</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs=QgsCoordinateReferenceSystem(), Qgis::WkbType wkbType=Qgis::WkbType::Point, bool closeLine=false) const</argsstring>
+        <name>pointSequence</name>
+        <qualifiedname>QfRubberbandModel::pointSequence</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+          <defval>QgsCoordinateReferenceSystem()</defval>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+          <defval>Qgis::WkbType::Point</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>closeLine</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The target CRS into which points should be reprojected. To retrieve unprojected points pass an invalid QgsCoordinateReferenceSystem object.</para>
+<para>By default coordinates will be returned unprojected. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="145" column="34" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="59" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ac6da13a6b4e01da713312251b7eaa8ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfRubberbandModel::addVertex</definition>
+        <argsstring>()</argsstring>
+        <name>addVertex</name>
+        <qualifiedname>QfRubberbandModel::addVertex</qualifiedname>
+        <briefdescription>
+<para>Add vertex from the current position. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="148" column="22" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="315" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ae54ac547c4bf49c7a3686e159094d322" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfRubberbandModel::addVertexFromPoint</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>addVertexFromPoint</name>
+        <qualifiedname>QfRubberbandModel::addVertexFromPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>Add vertex with a given point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="151" column="22" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="327" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ac2e161d48d641d9d0748f428e8a6e5c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfRubberbandModel::removeVertex</definition>
+        <argsstring>()</argsstring>
+        <name>removeVertex</name>
+        <qualifiedname>QfRubberbandModel::removeVertex</qualifiedname>
+        <briefdescription>
+<para>Remove the vertex at the current index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="154" column="22" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="333" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a31cb9a9ac4292e5c3e062e2207bf6d99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfRubberbandModel::reset</definition>
+        <argsstring>(bool keepLast=true)</argsstring>
+        <name>reset</name>
+        <qualifiedname>QfRubberbandModel::reset</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>keepLast</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Reset the model, remove all vertices and restart the vertex index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="157" column="22" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="339" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a5392b97abb06bd046b3e3880a922932c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfRubberbandModel::smoothSegment</definition>
+        <argsstring>(qsizetype firstVertex, qsizetype lastVertex, double simplificationTolerance=0.0)</argsstring>
+        <name>smoothSegment</name>
+        <qualifiedname>QfRubberbandModel::smoothSegment</qualifiedname>
+        <param>
+          <type>qsizetype</type>
+          <declname>firstVertex</declname>
+        </param>
+        <param>
+          <type>qsizetype</type>
+          <declname>lastVertex</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>simplificationTolerance</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Smooths the sub-line formed by the vertices between <emphasis>firstVertex</emphasis> and <emphasis>lastVertex</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="162" column="22" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="347" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a5639153d2717736fc7638a369598e481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setDataFromGeometry</definition>
+        <argsstring>(QgsGeometry geometry, const QgsCoordinateReferenceSystem &amp;crs=QgsCoordinateReferenceSystem())</argsstring>
+        <name>setDataFromGeometry</name>
+        <qualifiedname>QfRubberbandModel::setDataFromGeometry</qualifiedname>
+        <param>
+          <type>QgsGeometry</type>
+          <declname>geometry</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+          <defval>QgsCoordinateReferenceSystem()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the model data to match a given <emphasis>geometry</emphasis> <simplesect kind="note"><para>rings and multiparts are discarded </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="168" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="407" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a639507398ef0f0645ef75ac07f8f7462" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfRubberbandModel::isEmpty</definition>
+        <argsstring>() const</argsstring>
+        <name>isEmpty</name>
+        <qualifiedname>QfRubberbandModel::isEmpty</qualifiedname>
+        <briefdescription>
+<para>Returns whether there is at least one vertex in the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="171" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1ad03041bcabe5f15fdc5c111c3e65a232" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::setVertex</definition>
+        <argsstring>(int index, QgsPoint coordinate)</argsstring>
+        <name>setVertex</name>
+        <qualifiedname>QfRubberbandModel::setVertex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>QgsPoint</type>
+          <declname>coordinate</declname>
+        </param>
+        <briefdescription>
+<para>Sets a vertex point at given index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="174" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="124" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a9fb897671d5fa528e243b3a85f90ec72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::insertVertices</definition>
+        <argsstring>(int index, int count)</argsstring>
+        <name>insertVertices</name>
+        <qualifiedname>QfRubberbandModel::insertVertices</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Inserts vertices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="177" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="133" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a4184fffdc79eb84a5f66162d19eb54a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::removeVertices</definition>
+        <argsstring>(int index, int count, bool keepLast=true)</argsstring>
+        <name>removeVertices</name>
+        <qualifiedname>QfRubberbandModel::removeVertices</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>keepLast</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Remove <emphasis>count</emphasis> vertices starting at <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="180" column="10" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="144" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1aa7a75e723005b3ba56714a21b67cb28b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::currentPoint</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs=QgsCoordinateReferenceSystem(), Qgis::WkbType wkbType=Qgis::WkbType::PointZ) const</argsstring>
+        <name>currentPoint</name>
+        <qualifiedname>QfRubberbandModel::currentPoint</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+          <defval>QgsCoordinateReferenceSystem()</defval>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+          <defval>Qgis::WkbType::PointZ</defval>
+        </param>
+        <briefdescription>
+<para>Returns the current vertex point transformed to the given <emphasis>crs</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="183" column="14" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="178" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a816d4e353670a3525303100561b52227" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPointXY &gt;</type>
+        <definition>QVector&lt; QgsPointXY &gt; QfRubberbandModel::flatPointSequence</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs=QgsCoordinateReferenceSystem()) const</argsstring>
+        <name>flatPointSequence</name>
+        <qualifiedname>QfRubberbandModel::flatPointSequence</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+          <defval>QgsCoordinateReferenceSystem()</defval>
+        </param>
+        <briefdescription>
+<para>Returns all vertices points keeping only X and Y coordinates and transformed to the given <emphasis>crs</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="186" column="13" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="95" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandModel_1a068d2dfb28ab33f91bf33dac6c43e021" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfRubberbandModel::vertexAt</definition>
+        <argsstring>(int index, const QgsCoordinateReferenceSystem &amp;crs=QgsCoordinateReferenceSystem()) const</argsstring>
+        <name>vertexAt</name>
+        <qualifiedname>QfRubberbandModel::vertexAt</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+          <defval>QgsCoordinateReferenceSystem()</defval>
+        </param>
+        <briefdescription>
+<para>Returns the vertex point at a given <emphasis>index</emphasis> transformed to the given <emphasis>crs</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="189" column="14" bodyfile="src/core/qfrubberbandmodel.cpp" bodystart="109" bodyend="122"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfRubberbandModel_1ae1ff5c79ed47c16ec07f66b6dd93e363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::vertexChanged</definition>
+        <argsstring>(int index)</argsstring>
+        <name>vertexChanged</name>
+        <qualifiedname>QfRubberbandModel::vertexChanged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="192" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1af2305d85a6cc6d2e1d967d58495ddbb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::verticesInserted</definition>
+        <argsstring>(int index, int count)</argsstring>
+        <name>verticesInserted</name>
+        <qualifiedname>QfRubberbandModel::verticesInserted</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="193" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1a33e615c712db47639db45d357115ab74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::verticesRemoved</definition>
+        <argsstring>(int index, int count)</argsstring>
+        <name>verticesRemoved</name>
+        <qualifiedname>QfRubberbandModel::verticesRemoved</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="194" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1a57b6cf02fa9ff392bb40d78c03e6cc1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::currentCoordinateIndexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentCoordinateIndexChanged</name>
+        <qualifiedname>QfRubberbandModel::currentCoordinateIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="195" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1ae1114bd7654838103006ac4955927fbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::currentCoordinateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentCoordinateChanged</name>
+        <qualifiedname>QfRubberbandModel::currentCoordinateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="196" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1a5222bb12fca18f3a688a479f5a3c9584" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::geometryTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryTypeChanged</name>
+        <qualifiedname>QfRubberbandModel::geometryTypeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="197" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1aab906de76cd695bd5393dd564b8269b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::vectorLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vectorLayerChanged</name>
+        <qualifiedname>QfRubberbandModel::vectorLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="198" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1a30e4d5b1b37b3ca0257f7f70abfcf7e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::vertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexCountChanged</name>
+        <qualifiedname>QfRubberbandModel::vertexCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="199" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1aff1a6cb4f2d595b1fb38c019163150cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>QfRubberbandModel::crsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="200" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1aa119ff00e3ede1dcd3ec97cbf79607f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::frozenChanged</definition>
+        <argsstring>()</argsstring>
+        <name>frozenChanged</name>
+        <qualifiedname>QfRubberbandModel::frozenChanged</qualifiedname>
+        <briefdescription>
+<para>Freeze the rubberband so it doesn&apos;t get modified while panning map.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="202" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1a144e3af82821b16924faa6938b9f13fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::currentPositionTimestampChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentPositionTimestampChanged</name>
+        <qualifiedname>QfRubberbandModel::currentPositionTimestampChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="203" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandModel_1ac20d7c67b1dac387ed65f28cec11e49b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandModel::measureValueChanged</definition>
+        <argsstring>()</argsstring>
+        <name>measureValueChanged</name>
+        <qualifiedname>QfRubberbandModel::measureValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandmodel.h" line="204" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This model manages a list of vertices. It can be used as a linestring or as a ring in a polygon. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfRubberbandModel</label>
+        <link refid="classQfRubberbandModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfRubberbandModel</label>
+        <link refid="classQfRubberbandModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfrubberbandmodel.h" line="39" column="1" bodyfile="src/core/qfrubberbandmodel.h" bodystart="40" bodyend="215"/>
+    <listofallmembers>
+      <member refid="classQfRubberbandModel_1ac6da13a6b4e01da713312251b7eaa8ef" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>addVertex</name></member>
+      <member refid="classQfRubberbandModel_1ae54ac547c4bf49c7a3686e159094d322" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>addVertexFromPoint</name></member>
+      <member refid="classQfRubberbandModel_1a40ed7b36fc6800859644e9f6ed93cf14" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>crs</name></member>
+      <member refid="classQfRubberbandModel_1a7837cff4728332f9a83f00d4dc363695" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>crs</name></member>
+      <member refid="classQfRubberbandModel_1aff1a6cb4f2d595b1fb38c019163150cc" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>crsChanged</name></member>
+      <member refid="classQfRubberbandModel_1af97747cf22ed3c14622c1ad7b73e445e" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1ae7d5de0b42387312ddb7fa22e26e1973" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1ae1114bd7654838103006ac4955927fbd" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentCoordinateChanged</name></member>
+      <member refid="classQfRubberbandModel_1a73133c021218ee968709a7a080cf6de1" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentCoordinateIndex</name></member>
+      <member refid="classQfRubberbandModel_1a5bb639f36bf5862eda36ca1ceff831da" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentCoordinateIndex</name></member>
+      <member refid="classQfRubberbandModel_1a57b6cf02fa9ff392bb40d78c03e6cc1d" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentCoordinateIndexChanged</name></member>
+      <member refid="classQfRubberbandModel_1aa7a75e723005b3ba56714a21b67cb28b" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentPoint</name></member>
+      <member refid="classQfRubberbandModel_1a4417a2dfa39cedff42a78aa91f97110d" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentPositionTimestamp</name></member>
+      <member refid="classQfRubberbandModel_1a70f5032d891669d760d9b8e6215f87a3" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentPositionTimestamp</name></member>
+      <member refid="classQfRubberbandModel_1a144e3af82821b16924faa6938b9f13fa" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>currentPositionTimestampChanged</name></member>
+      <member refid="classQfRubberbandModel_1aac0f68e5397b41cb75b42deb9b7f6826" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>firstCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1a633853cc4337d6750df738d26c02f1f7" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>firstCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1a816d4e353670a3525303100561b52227" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>flatPointSequence</name></member>
+      <member refid="classQfRubberbandModel_1a0b3322f1a822d33a83e99ebc6b67bac0" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>frozen</name></member>
+      <member refid="classQfRubberbandModel_1ab9e520d021d4307067d96a4d8cc72c92" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>frozen</name></member>
+      <member refid="classQfRubberbandModel_1aa119ff00e3ede1dcd3ec97cbf79607f2" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>frozenChanged</name></member>
+      <member refid="classQfRubberbandModel_1a673bb7ca3da8c520d2e67f3fd007370e" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>geometryType</name></member>
+      <member refid="classQfRubberbandModel_1a2a4907ed18b2ede56799c682c50c09f5" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>geometryType</name></member>
+      <member refid="classQfRubberbandModel_1a5222bb12fca18f3a688a479f5a3c9584" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>geometryTypeChanged</name></member>
+      <member refid="classQfRubberbandModel_1a9fb897671d5fa528e243b3a85f90ec72" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>insertVertices</name></member>
+      <member refid="classQfRubberbandModel_1a639507398ef0f0645ef75ac07f8f7462" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>isEmpty</name></member>
+      <member refid="classQfRubberbandModel_1ae71206731adadea60ddc08909588432a" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>lastCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1a83c7c08189ec7a33019ba1d29818e60b" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>lastCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1a485669425488cb38ec2963d671a2dd5f" prot="private" virt="non-virtual"><scope>QfRubberbandModel</scope><name>mCrs</name></member>
+      <member refid="classQfRubberbandModel_1a825bd0a8c3075169c48c5bd2f6f4ddea" prot="private" virt="non-virtual"><scope>QfRubberbandModel</scope><name>mCurrentCoordinateIndex</name></member>
+      <member refid="classQfRubberbandModel_1acf38233991c7bc78beaf1a3849b6b292" prot="private" virt="non-virtual"><scope>QfRubberbandModel</scope><name>mCurrentPositionTimestamp</name></member>
+      <member refid="classQfRubberbandModel_1af66f60c4bf6eb5a041f37e035da0f4c3" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>measureValue</name></member>
+      <member refid="classQfRubberbandModel_1a7474b8fdcbcb538792b433645ccb55a0" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>measureValue</name></member>
+      <member refid="classQfRubberbandModel_1ac20d7c67b1dac387ed65f28cec11e49b" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>measureValueChanged</name></member>
+      <member refid="classQfRubberbandModel_1a40978b848a814c10ab43ba83fa3118ae" prot="private" virt="non-virtual"><scope>QfRubberbandModel</scope><name>mFrozen</name></member>
+      <member refid="classQfRubberbandModel_1a526dae17829c396ffe5c90ed9cc2246b" prot="private" virt="non-virtual"><scope>QfRubberbandModel</scope><name>mGeometryType</name></member>
+      <member refid="classQfRubberbandModel_1acbd75c5e1177aac051ff8f3918128736" prot="private" virt="non-virtual"><scope>QfRubberbandModel</scope><name>mLayer</name></member>
+      <member refid="classQfRubberbandModel_1ab22f46446a633b0f0ebb452841b2f798" prot="private" virt="non-virtual"><scope>QfRubberbandModel</scope><name>mMeasureValue</name></member>
+      <member refid="classQfRubberbandModel_1a9b3503e73641560c45805234c710c500" prot="private" virt="non-virtual"><scope>QfRubberbandModel</scope><name>mPointList</name></member>
+      <member refid="classQfRubberbandModel_1a3f7b3582ad9e6391005096c0e3e72bcd" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>penultimateCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1a89ed0d898ed6a9438ed929a2c369890c" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>penultimateCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1ac5901a8c309feed97c9252b804d1802d" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>pointSequence</name></member>
+      <member refid="classQfRubberbandModel_1af625ee1f79a18cb5a4ab5a55ed025b93" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>QfRubberbandModel</name></member>
+      <member refid="classQfRubberbandModel_1ac2e161d48d641d9d0748f428e8a6e5c7" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>removeVertex</name></member>
+      <member refid="classQfRubberbandModel_1a4184fffdc79eb84a5f66162d19eb54a9" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>removeVertices</name></member>
+      <member refid="classQfRubberbandModel_1a31cb9a9ac4292e5c3e062e2207bf6d99" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>reset</name></member>
+      <member refid="classQfRubberbandModel_1a5ce0ac7340c79a840b834e257c517fb3" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setCrs</name></member>
+      <member refid="classQfRubberbandModel_1a20e606d46367d344ed0086b30cb071ae" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setCurrentCoordinate</name></member>
+      <member refid="classQfRubberbandModel_1a6f4684693b1e1ba075336e0bada69319" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setCurrentCoordinateIndex</name></member>
+      <member refid="classQfRubberbandModel_1a110e4233775195d1e5bae62453280091" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setCurrentPositionTimestamp</name></member>
+      <member refid="classQfRubberbandModel_1a5639153d2717736fc7638a369598e481" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setDataFromGeometry</name></member>
+      <member refid="classQfRubberbandModel_1a3c93b3e5b2db96a1267b86aadc95b504" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setFrozen</name></member>
+      <member refid="classQfRubberbandModel_1a7860fa84c70bcae8e3747ce6cc5a5e79" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setGeometryType</name></member>
+      <member refid="classQfRubberbandModel_1a03c0b626aff7df81662b5b872992c34a" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setMeasureValue</name></member>
+      <member refid="classQfRubberbandModel_1a0dfc9c9cf57734a844cad3a613efb682" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setVectorLayer</name></member>
+      <member refid="classQfRubberbandModel_1ad03041bcabe5f15fdc5c111c3e65a232" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>setVertex</name></member>
+      <member refid="classQfRubberbandModel_1a5392b97abb06bd046b3e3880a922932c" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>smoothSegment</name></member>
+      <member refid="classQfRubberbandModel_1ab89a21b74211bfdf272540e78c27d4df" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vectorLayer</name></member>
+      <member refid="classQfRubberbandModel_1a1ffb705123be183b778d65cc56b89e01" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vectorLayer</name></member>
+      <member refid="classQfRubberbandModel_1aab906de76cd695bd5393dd564b8269b0" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vectorLayerChanged</name></member>
+      <member refid="classQfRubberbandModel_1a068d2dfb28ab33f91bf33dac6c43e021" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vertexAt</name></member>
+      <member refid="classQfRubberbandModel_1ae1ff5c79ed47c16ec07f66b6dd93e363" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vertexChanged</name></member>
+      <member refid="classQfRubberbandModel_1a8c289179392273805c5c696a1d701dd6" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vertexCount</name></member>
+      <member refid="classQfRubberbandModel_1a700679d670edac677c36a0fe21d44bd1" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vertexCount</name></member>
+      <member refid="classQfRubberbandModel_1a30e4d5b1b37b3ca0257f7f70abfcf7e8" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vertexCountChanged</name></member>
+      <member refid="classQfRubberbandModel_1af83c6a5091d936922e0a73192dc616e2" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vertices</name></member>
+      <member refid="classQfRubberbandModel_1ac06a5345682983f57ebb421432fa2b01" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>vertices</name></member>
+      <member refid="classQfRubberbandModel_1ae790d72e9148758c669879cd7ff4171b" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>verticesCopy</name></member>
+      <member refid="classQfRubberbandModel_1af2305d85a6cc6d2e1d967d58495ddbb5" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>verticesInserted</name></member>
+      <member refid="classQfRubberbandModel_1a33e615c712db47639db45d357115ab74" prot="public" virt="non-virtual"><scope>QfRubberbandModel</scope><name>verticesRemoved</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

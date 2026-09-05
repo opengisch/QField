@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCollapsibleMessage" kind="class" language="C++" prot="public">
+    <compoundname>QfCollapsibleMessage</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classQfCloudStatusBanner" prot="public" virt="non-virtual">QfCloudStatusBanner</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCollapsibleMessage_1aaad1c51d65a5d10f3c96b0decfb650d0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCollapsibleMessage::collapsed</definition>
+        <argsstring></argsstring>
+        <name>collapsed</name>
+        <qualifiedname>QfCollapsibleMessage::collapsed</qualifiedname>
+        <read>dummyGetter_collapsed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="13" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCollapsibleMessage_1a1298ad57885759a5d7b257b3a590fa1a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCollapsibleMessage::externalLink</definition>
+        <argsstring></argsstring>
+        <name>externalLink</name>
+        <qualifiedname>QfCollapsibleMessage::externalLink</qualifiedname>
+        <read>dummyGetter_externalLink_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="15" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCollapsibleMessage_1ac72254a7b1048b776fc44017e8086ea3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCollapsibleMessage::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfCollapsibleMessage::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="17" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCollapsibleMessage_1a3d21be006b9816df64c7abf5c504fc8f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCollapsibleMessage::iconSource</definition>
+        <argsstring></argsstring>
+        <name>iconSource</name>
+        <qualifiedname>QfCollapsibleMessage::iconSource</qualifiedname>
+        <read>dummyGetter_iconSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="19" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCollapsibleMessage_1a7ec36fa4f86fa21d3362c0cb85c06b7b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCollapsibleMessage::detailsColor</definition>
+        <argsstring></argsstring>
+        <name>detailsColor</name>
+        <qualifiedname>QfCollapsibleMessage::detailsColor</qualifiedname>
+        <read>dummyGetter_detailsColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="21" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCollapsibleMessage_1a1ada244976bd98fac4469529171b0b3c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCollapsibleMessage::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>QfCollapsibleMessage::font</qualifiedname>
+        <read>dummyGetter_font_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="23" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCollapsibleMessage_1a5862a70a3b2e037a3a0004d4eaa45a40" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCollapsibleMessage::titleText</definition>
+        <argsstring></argsstring>
+        <name>titleText</name>
+        <qualifiedname>QfCollapsibleMessage::titleText</qualifiedname>
+        <read>dummyGetter_titleText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="25" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCollapsibleMessage_1a3b97c315df73ab8964128431d9487b81" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCollapsibleMessage::detailsText</definition>
+        <argsstring></argsstring>
+        <name>detailsText</name>
+        <qualifiedname>QfCollapsibleMessage::detailsText</qualifiedname>
+        <read>dummyGetter_detailsText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="27" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1a51f105d891af78ec67752feb93189e22" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCollapsibleMessage::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfCollapsibleMessage::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="29" column="5" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1a2a8461196a055ce440e190e4986269a0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCollapsibleMessage::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCollapsibleMessage::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="30" column="5" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1a6627f30a2914c0db921725e2e56a4bce" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCollapsibleMessage::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>QfCollapsibleMessage::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="31" column="5" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1ac41bfbb28adc246dc3918f2d61d394e2" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCollapsibleMessage::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfCollapsibleMessage::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="32" column="11" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1ac9d1e80aaa34746fa2edd228dc851a1e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfCollapsibleMessage::messageIcon</definition>
+        <argsstring></argsstring>
+        <name>messageIcon</name>
+        <qualifiedname>QfCollapsibleMessage::messageIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="33" column="14" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1a349760f95ea49e1f8dbf3aaaa3332bb5" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCollapsibleMessage::titleText</definition>
+        <argsstring></argsstring>
+        <name>titleText</name>
+        <qualifiedname>QfCollapsibleMessage::titleText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="34" column="6" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1ac1990df79ba91e2b17d896bdd928abfe" prot="private" static="no" mutable="no">
+        <type>ToolButton</type>
+        <definition>ToolButton QfCollapsibleMessage::externalLinkButton</definition>
+        <argsstring></argsstring>
+        <name>externalLinkButton</name>
+        <qualifiedname>QfCollapsibleMessage::externalLinkButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="35" column="12" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1affebf7863a29041096b2600935f91a3b" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCollapsibleMessage::separator</definition>
+        <argsstring></argsstring>
+        <name>separator</name>
+        <qualifiedname>QfCollapsibleMessage::separator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="36" column="11" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1aeca065b88f3735b2041b3f30d56d5f05" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCollapsibleMessage::detailsText</definition>
+        <argsstring></argsstring>
+        <name>detailsText</name>
+        <qualifiedname>QfCollapsibleMessage::detailsText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="37" column="6" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCollapsibleMessage_1afba42061f223f0d757ce23c702904e0e" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea QfCollapsibleMessage::mainMouseArea</definition>
+        <argsstring></argsstring>
+        <name>mainMouseArea</name>
+        <qualifiedname>QfCollapsibleMessage::mainMouseArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCollapsibleMessage.qml" line="38" column="11" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QfCloudStatusBanner</label>
+        <link refid="classQfCloudStatusBanner"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfCollapsibleMessage</label>
+        <link refid="classQfCollapsibleMessage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCollapsibleMessage</label>
+        <link refid="classQfCollapsibleMessage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfCollapsibleMessage.qml" line="10" column="1" bodyfile="src/gui/qml/QfCollapsibleMessage.qml" bodystart="10" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classQfCollapsibleMessage_1ac41bfbb28adc246dc3918f2d61d394e2" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>background</name></member>
+      <member refid="classQfCollapsibleMessage_1a51f105d891af78ec67752feb93189e22" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>clip</name></member>
+      <member refid="classQfCollapsibleMessage_1aaad1c51d65a5d10f3c96b0decfb650d0" prot="public" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>collapsed</name></member>
+      <member refid="classQfCollapsibleMessage_1ac72254a7b1048b776fc44017e8086ea3" prot="public" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>color</name></member>
+      <member refid="classQfCollapsibleMessage_1a7ec36fa4f86fa21d3362c0cb85c06b7b" prot="public" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>detailsColor</name></member>
+      <member refid="classQfCollapsibleMessage_1a3b97c315df73ab8964128431d9487b81" prot="public" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>detailsText</name></member>
+      <member refid="classQfCollapsibleMessage_1aeca065b88f3735b2041b3f30d56d5f05" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>detailsText</name></member>
+      <member refid="classQfCollapsibleMessage_1a1298ad57885759a5d7b257b3a590fa1a" prot="public" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>externalLink</name></member>
+      <member refid="classQfCollapsibleMessage_1ac1990df79ba91e2b17d896bdd928abfe" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>externalLinkButton</name></member>
+      <member refid="classQfCollapsibleMessage_1a1ada244976bd98fac4469529171b0b3c" prot="public" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>font</name></member>
+      <member refid="classQfCollapsibleMessage_1a2a8461196a055ce440e190e4986269a0" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>height</name></member>
+      <member refid="classQfCollapsibleMessage_1a3d21be006b9816df64c7abf5c504fc8f" prot="public" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>iconSource</name></member>
+      <member refid="classQfCollapsibleMessage_1a6627f30a2914c0db921725e2e56a4bce" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>implicitHeight</name></member>
+      <member refid="classQfCollapsibleMessage_1afba42061f223f0d757ce23c702904e0e" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>mainMouseArea</name></member>
+      <member refid="classQfCollapsibleMessage_1ac9d1e80aaa34746fa2edd228dc851a1e" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>messageIcon</name></member>
+      <member refid="classQfCollapsibleMessage_1affebf7863a29041096b2600935f91a3b" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>separator</name></member>
+      <member refid="classQfCollapsibleMessage_1a5862a70a3b2e037a3a0004d4eaa45a40" prot="public" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>titleText</name></member>
+      <member refid="classQfCollapsibleMessage_1a349760f95ea49e1f8dbf3aaaa3332bb5" prot="private" virt="non-virtual"><scope>QfCollapsibleMessage</scope><name>titleText</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

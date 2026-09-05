@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_aa4aab3cdee284f0e217d9df55b13787" kind="dir">
+    <compoundname>src/gui/qml/editorwidgets</compoundname>
+    <innerdir refid="dir_aa066cf6db9752ba8872dc4f8960076b">src/gui/qml/editorwidgets/relationeditors</innerdir>
+    <innerfile refid="QfEditorWidgetBase_8qml">QfEditorWidgetBase.qml</innerfile>
+    <innerfile refid="QfEditorWidgetBinary_8qml">QfEditorWidgetBinary.qml</innerfile>
+    <innerfile refid="QfEditorWidgetCheckBox_8qml">QfEditorWidgetCheckBox.qml</innerfile>
+    <innerfile refid="QfEditorWidgetColor_8qml">QfEditorWidgetColor.qml</innerfile>
+    <innerfile refid="QfEditorWidgetDateTime_8qml">QfEditorWidgetDateTime.qml</innerfile>
+    <innerfile refid="QfEditorWidgetExternalResource_8qml">QfEditorWidgetExternalResource.qml</innerfile>
+    <innerfile refid="QfEditorWidgetRange_8qml">QfEditorWidgetRange.qml</innerfile>
+    <innerfile refid="QfEditorWidgetRelationReference_8qml">QfEditorWidgetRelationReference.qml</innerfile>
+    <innerfile refid="QfEditorWidgetTextEdit_8qml">QfEditorWidgetTextEdit.qml</innerfile>
+    <innerfile refid="QfEditorWidgetUuidGenerator_8qml">QfEditorWidgetUuidGenerator.qml</innerfile>
+    <innerfile refid="QfEditorWidgetValueMap_8qml">QfEditorWidgetValueMap.qml</innerfile>
+    <innerfile refid="QfEditorWidgetValueRelation_8qml">QfEditorWidgetValueRelation.qml</innerfile>
+    <innerfile refid="QfRelationEditorBase_8qml">QfRelationEditorBase.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui/qml/editorwidgets/"/>
+  </compounddef>
+</doxygen>

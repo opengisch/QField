@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfTrackingModel_1_1TrackerRequest" kind="struct" language="C++" prot="private">
+    <compoundname>QfTrackingModel::TrackerRequest</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfTrackingModel_1_1TrackerRequest_1a44ab86e26b886f45d37980d8bc9c9edf" prot="public" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfTrackingModel::TrackerRequest::layer</definition>
+        <argsstring></argsstring>
+        <name>layer</name>
+        <qualifiedname>QfTrackingModel::TrackerRequest::layer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftrackingmodel.h" line="119" column="18" bodyfile="src/core/qftrackingmodel.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfTrackingModel_1_1TrackerRequest_1a78027cf372b783bc5ecaf7d3130df238" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTrackingModel::TrackerRequest::skipSettings</definition>
+        <argsstring></argsstring>
+        <name>skipSettings</name>
+        <qualifiedname>QfTrackingModel::TrackerRequest::skipSettings</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftrackingmodel.h" line="120" column="14" bodyfile="src/core/qftrackingmodel.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfTrackingModel_1_1TrackerRequest_1ab261ab3a4c46c991a6f62c68abbf8046" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfTrackingModel::TrackerRequest::TrackerRequest</definition>
+        <argsstring>()</argsstring>
+        <name>TrackerRequest</name>
+        <qualifiedname>QfTrackingModel::TrackerRequest::TrackerRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftrackingmodel.h" line="110" column="9" bodyfile="src/core/qftrackingmodel.h" bodystart="110" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfTrackingModel_1_1TrackerRequest_1a5a402bd62f35a51c24d80168469ef243" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfTrackingModel::TrackerRequest::TrackerRequest</definition>
+        <argsstring>(QgsVectorLayer *layer, bool skipSettings)</argsstring>
+        <name>TrackerRequest</name>
+        <qualifiedname>QfTrackingModel::TrackerRequest::TrackerRequest</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>skipSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftrackingmodel.h" line="113" column="9" bodyfile="src/core/qftrackingmodel.h" bodystart="113" bodyend="117"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qftrackingmodel.h" line="108" column="5" bodyfile="src/core/qftrackingmodel.h" bodystart="109" bodyend="121"/>
+    <listofallmembers>
+      <member refid="structQfTrackingModel_1_1TrackerRequest_1a44ab86e26b886f45d37980d8bc9c9edf" prot="public" virt="non-virtual"><scope>QfTrackingModel::TrackerRequest</scope><name>layer</name></member>
+      <member refid="structQfTrackingModel_1_1TrackerRequest_1a78027cf372b783bc5ecaf7d3130df238" prot="public" virt="non-virtual"><scope>QfTrackingModel::TrackerRequest</scope><name>skipSettings</name></member>
+      <member refid="structQfTrackingModel_1_1TrackerRequest_1ab261ab3a4c46c991a6f62c68abbf8046" prot="public" virt="non-virtual"><scope>QfTrackingModel::TrackerRequest</scope><name>TrackerRequest</name></member>
+      <member refid="structQfTrackingModel_1_1TrackerRequest_1a5a402bd62f35a51c24d80168469ef243" prot="public" virt="non-virtual"><scope>QfTrackingModel::TrackerRequest</scope><name>TrackerRequest</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

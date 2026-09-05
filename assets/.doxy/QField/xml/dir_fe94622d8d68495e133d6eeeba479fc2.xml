@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_fe94622d8d68495e133d6eeeba479fc2" kind="dir">
+    <compoundname>src/gui/qml</compoundname>
+    <innerdir refid="dir_862d3fe9c1a901e6783c6f66e1e7cc2e">src/gui/qml/cogoparameterwidgets</innerdir>
+    <innerdir refid="dir_aa4aab3cdee284f0e217d9df55b13787">src/gui/qml/editorwidgets</innerdir>
+    <innerdir refid="dir_bf8ee2ec6aa9a141ef86ab67bdbc4be6">src/gui/qml/geometryeditors</innerdir>
+    <innerdir refid="dir_0b91122ea4e9f423064291e4771a420d">src/gui/qml/processingparameterwidgets</innerdir>
+    <innerfile refid="QfActionButton_8qml">QfActionButton.qml</innerfile>
+    <innerfile refid="QfAudioClipRecorder_8qml">QfAudioClipRecorder.qml</innerfile>
+    <innerfile refid="QfBadge_8qml">QfBadge.qml</innerfile>
+    <innerfile refid="QfBluetoothDeviceChooser_8qml">QfBluetoothDeviceChooser.qml</innerfile>
+    <innerfile refid="QfBookmarkHighlight_8qml">QfBookmarkHighlight.qml</innerfile>
+    <innerfile refid="QfBookmarkList_8qml">QfBookmarkList.qml</innerfile>
+    <innerfile refid="QfBookmarkProperties_8qml">QfBookmarkProperties.qml</innerfile>
+    <innerfile refid="QfBookmarkRenderer_8qml">QfBookmarkRenderer.qml</innerfile>
+    <innerfile refid="QfBrowserPanel_8qml">QfBrowserPanel.qml</innerfile>
+    <innerfile refid="QfBusyOverlay_8qml">QfBusyOverlay.qml</innerfile>
+    <innerfile refid="QfButton_8qml">QfButton.qml</innerfile>
+    <innerfile refid="QfCalendarItem_8qml">QfCalendarItem.qml</innerfile>
+    <innerfile refid="QfCalendarPanel_8qml">QfCalendarPanel.qml</innerfile>
+    <innerfile refid="QfCamera_8qml">QfCamera.qml</innerfile>
+    <innerfile refid="QfCodeReader_8qml">QfCodeReader.qml</innerfile>
+    <innerfile refid="QfCogoOperationPreview_8qml">QfCogoOperationPreview.qml</innerfile>
+    <innerfile refid="QfCogoOperations_8qml">QfCogoOperations.qml</innerfile>
+    <innerfile refid="QfCogoOperationSettings_8qml">QfCogoOperationSettings.qml</innerfile>
+    <innerfile refid="QfCollapsibleMessage_8qml">QfCollapsibleMessage.qml</innerfile>
+    <innerfile refid="QfComboBox_8qml">QfComboBox.qml</innerfile>
+    <innerfile refid="QfConfirmationToolbar_8qml">QfConfirmationToolbar.qml</innerfile>
+    <innerfile refid="QfContainerCard_8qml">QfContainerCard.qml</innerfile>
+    <innerfile refid="QfDialog_8qml">QfDialog.qml</innerfile>
+    <innerfile refid="QfDigitizingToolbar_8qml">QfDigitizingToolbar.qml</innerfile>
+    <innerfile refid="QfDropShadow_8qml">QfDropShadow.qml</innerfile>
+    <innerfile refid="QfEgenioussDeviceChooser_8qml">QfEgenioussDeviceChooser.qml</innerfile>
+    <innerfile refid="QfElevationProfile_8qml">QfElevationProfile.qml</innerfile>
+    <innerfile refid="QfEmbeddedFeatureForm_8qml">QfEmbeddedFeatureForm.qml</innerfile>
+    <innerfile refid="QfExpandableGroupBox_8qml">QfExpandableGroupBox.qml</innerfile>
+    <innerfile refid="QfFeatureForm_8qml">QfFeatureForm.qml</innerfile>
+    <innerfile refid="QfFeatureListForm_8qml">QfFeatureListForm.qml</innerfile>
+    <innerfile refid="QfFileDeviceChooser_8qml">QfFileDeviceChooser.qml</innerfile>
+    <innerfile refid="QfGeometryEditorsToolbar_8qml">QfGeometryEditorsToolbar.qml</innerfile>
+    <innerfile refid="QfGeometryHighlighter_8qml">QfGeometryHighlighter.qml</innerfile>
+    <innerfile refid="QfGeometryRenderer_8qml">QfGeometryRenderer.qml</innerfile>
+    <innerfile refid="QfImageDial_8qml">QfImageDial.qml</innerfile>
+    <innerfile refid="QfInformationDrawer_8qml">QfInformationDrawer.qml</innerfile>
+    <innerfile refid="QfInformationPopup_8qml">QfInformationPopup.qml</innerfile>
+    <innerfile refid="QfLayerLoginDialog_8qml">QfLayerLoginDialog.qml</innerfile>
+    <innerfile refid="QfLayerTreeItemProperties_8qml">QfLayerTreeItemProperties.qml</innerfile>
+    <innerfile refid="QfLegend_8qml">QfLegend.qml</innerfile>
+    <innerfile refid="QfLocationMarker_8qml">QfLocationMarker.qml</innerfile>
+    <innerfile refid="QfLocatorItem_8qml">QfLocatorItem.qml</innerfile>
+    <innerfile refid="QfLocatorSettings_8qml">QfLocatorSettings.qml</innerfile>
+    <innerfile refid="QfMenu_8qml">QfMenu.qml</innerfile>
+    <innerfile refid="QfMessageLog_8qml">QfMessageLog.qml</innerfile>
+    <innerfile refid="QfMeterBar_8qml">QfMeterBar.qml</innerfile>
+    <innerfile refid="QfNavigationBar_8qml">QfNavigationBar.qml</innerfile>
+    <innerfile refid="QfNavigationHighlight_8qml">QfNavigationHighlight.qml</innerfile>
+    <innerfile refid="QfNavigationInformationView_8qml">QfNavigationInformationView.qml</innerfile>
+    <innerfile refid="QfNavigationRenderer_8qml">QfNavigationRenderer.qml</innerfile>
+    <innerfile refid="QfOpacityMask_8qml">QfOpacityMask.qml</innerfile>
+    <innerfile refid="QfOverlayContainer_8qml">QfOverlayContainer.qml</innerfile>
+    <innerfile refid="QfOverlayFeatureFormDrawer_8qml">QfOverlayFeatureFormDrawer.qml</innerfile>
+    <innerfile refid="QfPageHeader_8qml">QfPageHeader.qml</innerfile>
+    <innerfile refid="QfPaneDrawer_8qml">QfPaneDrawer.qml</innerfile>
+    <innerfile refid="QfPopup_8qml">QfPopup.qml</innerfile>
+    <innerfile refid="QfPositioningDeviceSettings_8qml">QfPositioningDeviceSettings.qml</innerfile>
+    <innerfile refid="QfPositioningInformationView_8qml">QfPositioningInformationView.qml</innerfile>
+    <innerfile refid="QfPositioningNtripSettings_8qml">QfPositioningNtripSettings.qml</innerfile>
+    <innerfile refid="QfPositioningPreciseView_8qml">QfPositioningPreciseView.qml</innerfile>
+    <innerfile refid="QfProcessingAlgorithmForm_8qml">QfProcessingAlgorithmForm.qml</innerfile>
+    <innerfile refid="QfProcessingAlgorithmPreview_8qml">QfProcessingAlgorithmPreview.qml</innerfile>
+    <innerfile refid="QfProcessingAlgorithmsList_8qml">QfProcessingAlgorithmsList.qml</innerfile>
+    <innerfile refid="QfProgressRing_8qml">QfProgressRing.qml</innerfile>
+    <innerfile refid="QfProjectCreationScreen_8qml">QfProjectCreationScreen.qml</innerfile>
+    <innerfile refid="QfProjectThumbnail_8qml">QfProjectThumbnail.qml</innerfile>
+    <innerfile refid="QfRelationCombobox_8qml">QfRelationCombobox.qml</innerfile>
+    <innerfile refid="QfScaleBar_8qml">QfScaleBar.qml</innerfile>
+    <innerfile refid="QfScrollBar_8qml">QfScrollBar.qml</innerfile>
+    <innerfile refid="QfSearchBar_8qml">QfSearchBar.qml</innerfile>
+    <innerfile refid="QfSensorInformationView_8qml">QfSensorInformationView.qml</innerfile>
+    <innerfile refid="QfSerialPortDeviceChooser_8qml">QfSerialPortDeviceChooser.qml</innerfile>
+    <innerfile refid="QfSlider_8qml">QfSlider.qml</innerfile>
+    <innerfile refid="QfSwipeAnimator_8qml">QfSwipeAnimator.qml</innerfile>
+    <innerfile refid="QfSwitch_8qml">QfSwitch.qml</innerfile>
+    <innerfile refid="QfTabBar_8qml">QfTabBar.qml</innerfile>
+    <innerfile refid="QfTcpDeviceChooser_8qml">QfTcpDeviceChooser.qml</innerfile>
+    <innerfile refid="QfTemporalProperties_8qml">QfTemporalProperties.qml</innerfile>
+    <innerfile refid="QfTextField_8qml">QfTextField.qml</innerfile>
+    <innerfile refid="QfTimeItem_8qml">QfTimeItem.qml</innerfile>
+    <innerfile refid="QfToast_8qml">QfToast.qml</innerfile>
+    <innerfile refid="QfToggleButtonGroup_8qml">QfToggleButtonGroup.qml</innerfile>
+    <innerfile refid="QfToolButton_8qml">QfToolButton.qml</innerfile>
+    <innerfile refid="QfToolButtonDrawer_8qml">QfToolButtonDrawer.qml</innerfile>
+    <innerfile refid="QfToolButtonPie_8qml">QfToolButtonPie.qml</innerfile>
+    <innerfile refid="QfTrackerFeatureForm_8qml">QfTrackerFeatureForm.qml</innerfile>
+    <innerfile refid="QfTrackingSession_8qml">QfTrackingSession.qml</innerfile>
+    <innerfile refid="QfUdpDeviceChooser_8qml">QfUdpDeviceChooser.qml</innerfile>
+    <innerfile refid="QfVariableEditor_8qml">QfVariableEditor.qml</innerfile>
+    <innerfile refid="QfVisibilityFadingRow_8qml">QfVisibilityFadingRow.qml</innerfile>
+    <innerfile refid="QfWelcomeAction_8qml">QfWelcomeAction.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui/qml/"/>
+  </compounddef>
+</doxygen>
