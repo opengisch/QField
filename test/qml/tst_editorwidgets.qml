@@ -849,7 +849,7 @@ TestCase {
     const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "valueRelationRepeater");
     const featureListModel = valueRelationRepeater.model;
     const expectedOrderedData = {
-      "name": ["<i>NULL</i>", "Ethan", "Olivia", "Mason", "Liam", "Mathieu", "Sophia", "Noah", "Ava"]
+      "name": ["NULL", "Ethan", "Olivia", "Mason", "Liam", "Mathieu", "Sophia", "Noah", "Ava"]
     };
     compare(valueRelationRepeater.count, expectedOrderedData["name"].length);
     for (let i = 0; i < valueRelationRepeater.count; ++i) {
