@@ -76,6 +76,7 @@
 #include "qfscalebarmeasurement.h"
 #include "qfsettings.h"
 #include "qfsubmodel.h"
+#include "qfsubtitlewriter.h"
 #include "qftracker.h"
 #include "qftrackingmodel.h"
 #include "qfvertexmodel.h"
@@ -206,6 +207,7 @@ namespace QfCore
     qmlRegisterType<QfRubberbandShape>( "org.qfield.core", 1, 0, "QfRubberbandShape" );
     qmlRegisterType<QfScaleBarMeasurement>( "org.qfield.core", 1, 0, "QfScaleBarMeasurement" );
     qmlRegisterType<QfSnappingUtils>( "org.qfield.core", 1, 0, "QfSnappingUtils" );
+    qmlRegisterType<QfSubtitleWriter>( "org.qfield.core", 1, 0, "QfSubtitleWriter" );
     qmlRegisterType<QfSubModel>( "org.qfield.core", 1, 0, "QfSubModel" );
     qmlRegisterType<QfVertexModel>( "org.qfield.core", 1, 0, "QfVertexModel" );
     qmlRegisterType<QfVideoSinkCapture>( "org.qfield.core", 1, 0, "QfVideoSinkCapture" );

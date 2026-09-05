@@ -557,7 +557,7 @@ QfRelationEditorBase {
 
         onFinished: path => {
           const filepath = QfStringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), state === "VideoPreview" ? QfEditorWidgetExternalResource.DocumentVideo : QfEditorWidgetExternalResource.DocumentImage, QfFileUtils), path);
-          platformUtilities.renameFile(path, imagePrefix + filepath);
+          platformUtilities.renameFileWithSidecars(path, imagePrefix + filepath);
           if (!QfFileUtils.mimeTypeName(path).startsWith("video/")) {
             let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
             if (maximumWidthHeight > 0) {

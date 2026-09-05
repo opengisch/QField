@@ -107,6 +107,7 @@ set(QFIELD_CORE_SRCS
     qfscalebarmeasurement.cpp
     qfsettings.cpp
     qfsnappingresult.cpp
+    qfsubtitlewriter.cpp
     qfsubmodel.cpp
     qftracker.cpp
     qftrackingmodel.cpp
@@ -225,6 +226,7 @@ set(QFIELD_CORE_HDRS
     qfscalebarmeasurement.h
     qfsettings.h
     qfsnappingresult.h
+    qfsubtitlewriter.h
     qfsubmodel.h
     qftracker.h
     qftrackingmodel.h

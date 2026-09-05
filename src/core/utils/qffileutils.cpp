@@ -18,6 +18,7 @@
 #include "qfcloudutils.h"
 #include "qffileutils.h"
 #include "qfgnsspositioninformation.h"
+#include "qfsubtitlewriter.h"
 #include "qgsmessagelog.h"
 
 #include <QDebug>
@@ -971,7 +972,7 @@ bool QfFileUtils::isDeletable( const QString &filePath )
 
   const QString suffix = fileInfo.suffix().toLower();
 
-  static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3" };
+  static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3", "srt" };
 
   return allowedExtensions.contains( suffix );
 }
@@ -999,6 +1000,16 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
       continue;
     }
 
+    QString accompanyingSubtitleFilePath;
+    if ( fileInfo.isFile() && mimeTypeName( canonicalPath ).startsWith( QLatin1String( "video/" ) ) )
+    {
+      const QString subtitleFilePath = QfSubtitleWriter::subtitleFilePath( canonicalPath );
+      if ( !subtitleFilePath.isEmpty() && isDeletable( subtitleFilePath ) )
+      {
+        accompanyingSubtitleFilePath = subtitleFilePath;
+      }
+    }
+
     bool success = false;
     if ( fileInfo.isDir() )
     {
@@ -1019,8 +1030,62 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
       }
     }
 
+    if ( success && !accompanyingSubtitleFilePath.isEmpty() )
+    {
+      QFile subtitleFile( accompanyingSubtitleFilePath );
+      if ( !subtitleFile.remove() )
+      {
+        QgsMessageLog::logMessage( QObject::tr( "Failed to delete subtitle file: %1 - %2" ).arg( accompanyingSubtitleFilePath, subtitleFile.errorString() ), QString(), Qgis::MessageLevel::Warning );
+      }
+    }
+
     results[filePath] = success;
   }
 
   return results;
+}
+
+QSet<QString> QfFileUtils::sidecarFilesForPath( const QString &filePath )
+{
+  if ( filePath.isEmpty() )
+  {
+    return QSet<QString>();
+  }
+
+  QSet<QString> sidecarFiles = QgsFileUtils::sidecarFilesForPath( filePath );
+
+  if ( mimeTypeName( filePath ).startsWith( QLatin1String( "video/" ) ) )
+  {
+    const QString subtitleFilePath = QfSubtitleWriter::subtitleFilePath( filePath );
+    if ( !subtitleFilePath.isEmpty() && QFileInfo::exists( subtitleFilePath ) )
+    {
+      sidecarFiles << subtitleFilePath;
+    }
+  }
+
+  return sidecarFiles;
+}
+
+QStringList QfFileUtils::withSidecarFiles( const QStringList &filePaths )
+{
+  QStringList filePathsWithSidecars;
+
+  for ( const QString &filePath : filePaths )
+  {
+    if ( !filePathsWithSidecars.contains( filePath ) )
+    {
+      filePathsWithSidecars << filePath;
+    }
+
+    const QSet<QString> sidecarFiles = sidecarFilesForPath( filePath );
+    for ( const QString &sidecarFile : sidecarFiles )
+    {
+      if ( !filePathsWithSidecars.contains( sidecarFile ) )
+      {
+        filePathsWithSidecars << sidecarFile;
+      }
+    }
+  }
+
+  return filePathsWithSidecars;
 }

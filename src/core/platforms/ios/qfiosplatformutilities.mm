@@ -37,7 +37,6 @@
 #include <qpa/qplatformnativeinterface.h>
 
 #include <QDirIterator>
-#include <qgsfileutils.h>
 #include <qgsziputils.h>
 
 #include <QtGui>
@@ -425,7 +424,7 @@ void QfIosPlatformUtilities::exportDatasetTo(const QString &path) const {
   NSMutableArray<NSString *> *sourcePaths = [NSMutableArray array];
   [sourcePaths addObject:path.toNSString()];
 
-  const QSet<QString> sidecarFiles = QgsFileUtils::sidecarFilesForPath(path);
+  const QSet<QString> sidecarFiles = QfFileUtils::sidecarFilesForPath(path);
   for (const QString &file : sidecarFiles) {
     [sourcePaths addObject:file.toNSString()];
   }
@@ -521,7 +520,7 @@ void QfIosPlatformUtilities::sendDatasetTo(const QString &path) const {
   NSMutableArray *items = [NSMutableArray array];
   [items addObject:[NSURL fileURLWithPath:path.toNSString()]];
 
-  const QSet<QString> sidecarFiles = QgsFileUtils::sidecarFilesForPath(path);
+  const QSet<QString> sidecarFiles = QfFileUtils::sidecarFilesForPath(path);
   if (!sidecarFiles.isEmpty()) {
     QStringList paths;
     paths << path;
