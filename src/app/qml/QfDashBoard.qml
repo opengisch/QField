@@ -348,8 +348,10 @@ Drawer {
           return "";
         }
 
+        property string projectCoordinateReferenceSystem: qgisProject ? qgisProject.crs.authid + " — " + qgisProject.crs.description : ""
+
         Layout.alignment: Qt.AlignVCenter
-        visible: projectDescription != "" || projectAuthor != ""
+        visible: true
         width: 36
         height: 36
         padding: 0
@@ -363,6 +365,7 @@ Drawer {
           informationPopup.descriptionFormat = Text.MarkdownText;
           informationPopup.description = projectDescription;
           informationPopup.author = projectAuthor;
+          informationPopup.coordinateReferenceSystem = projectCoordinateReferenceSystem;
 
           informationPopup.open();
         }
