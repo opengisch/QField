@@ -124,6 +124,7 @@ add_definitions(-DTEST_DATA_DIR="${TEST_DATA_DIR}")
 
 if (WITH_UNITTESTS)
   ADD_CATCH2_TEST(layerobservertest test_layerobserver.cpp FALSE)
+  ADD_CATCH2_TEST(cloudprojectsmodeltest test_cloudprojectsmodel.cpp FALSE)
   ADD_CATCH2_TEST(featureutilstest test_featureutils.cpp TRUE)
   ADD_CATCH2_TEST(featuremodeltest test_featuremodel.cpp TRUE)
   ADD_CATCH2_TEST(featurehistorytest test_featurehistory.cpp FALSE)

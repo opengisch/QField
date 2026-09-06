@@ -74,6 +74,7 @@ class QfLayerObserver : public QObject
   signals:
     void layerEdited( const QString &layerId );
     void deltaFileWrapperChanged();
+    void changesNotRecorded( const QString &layerName );
 
 
   private slots:
@@ -126,6 +127,9 @@ class QfLayerObserver : public QObject
     void onCommittedGeometriesChanges( const QString &localLayerId, const QgsGeometryMap &changedGeometries );
 
 
+    void onAfterCommitChanges();
+
+
     /**
      * Writes the deltas to the delta file
      */
@@ -133,10 +137,14 @@ class QfLayerObserver : public QObject
 
 
   private:
+    bool canRecordDeltas( const QString &localLayerId );
+
     /**
      * The current deltas file wrapper object
      */
     QPointer<QfDeltaFileWrapper> mDeltaFileWrapper;
+
+    QSet<QString> mUnrecordedLayerIds;
 
 
     /**
