@@ -17,10 +17,10 @@ Item {
   property color northColor: QfTheme.mainColor
 
   //! Color of the needle half pointing south and the rim circling the dial disc
-  property color southColor: QfTheme.gray
+  property color southColor: QfTheme.toolButtonColor
 
   //! Color of the tick marks
-  property color tickColor: QfTheme.lightGray
+  property color tickColor: QfTheme.gray
 
   //! Color of the dial disc and the needle hub ring
   property color backgroundColor: QfTheme.toolButtonBackgroundColor
@@ -36,9 +36,6 @@ Item {
     anchors.fill: parent
     radius: width / 2
     color: compassDial.backgroundColor
-    border.color: compassDial.southColor
-    border.width: Math.max(1.5, width * 0.028)
-    antialiasing: true
   }
 
   Repeater {
@@ -55,8 +52,6 @@ Item {
       radius: width / 2
       rotation: angleDegrees
       color: compassDial.tickColor
-      opacity: 0.45
-      antialiasing: true
     }
   }
 
@@ -96,17 +91,5 @@ Item {
         y: compassDial.centerY
       }
     }
-  }
-
-  Rectangle {
-    x: compassDial.centerX - compassDial.hubRadius
-    y: compassDial.centerY - compassDial.hubRadius
-    width: compassDial.hubRadius * 2
-    height: compassDial.hubRadius * 2
-    radius: compassDial.hubRadius
-    color: QfTheme.light
-    border.color: compassDial.backgroundColor
-    border.width: Math.max(1, compassDial.hubRadius * 0.45)
-    antialiasing: true
   }
 }
