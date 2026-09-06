@@ -16,6 +16,7 @@ QfPopup {
   property alias description: descriptionText.text
   property alias descriptionFormat: descriptionText.textFormat
   property alias author: authorText.text
+  property string coordinateReferenceSystem
 
   parent: mainWindow.contentItem
   width: Math.min(450, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
@@ -81,6 +82,17 @@ QfPopup {
           text: ""
           font: QfTheme.defaultFont
           color: QfTheme.mainTextColor
+        }
+
+        Label {
+          id: coordinateReferenceSystemText
+          Layout.fillWidth: true
+          visible: popup.coordinateReferenceSystem !== ""
+
+          wrapMode: Text.Wrap
+          text: popup.coordinateReferenceSystem
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
         }
 
         ColumnLayout {
