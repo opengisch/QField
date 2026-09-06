@@ -38,24 +38,37 @@ Popup {
 
   property bool subtitleRecordingActive: false
   property int recordedDuration: 0
+  property var recordedPositions: []
 
   /**
-   * Registers the details as they stand right now against the elapsed recording time. The
-   * writer discards a value identical to the one it already holds, so this can be called
-   * on every incoming position without producing a stream of repeated cues.
+   * Stores the position as it stands right now against the elapsed recording time. The
+   * details expression is deliberately not evaluated here: it can be arbitrarily costly
+   * and would compete with the running recorder. The cues are built when the recording
+   * is accepted instead.
    */
-  function recordSubtitleCue() {
+  function recordSubtitlePosition() {
     if (!subtitleRecordingActive || !captureLoader.item) {
       return;
     }
-    if (positionSource.active) {
-      currentPosition = positionSource.positionInformation;
-      currentProjectedPosition = positionSource.projectedPosition;
-    } else {
-      currentPosition = QfPositioningUtils.createEmptyGnssPositionInformation();
-      currentProjectedPosition = undefined;
+    cameraItem.recordedPositions.push({
+      "duration": captureLoader.item.recorder.duration,
+      "position": positionSource.active ? positionSource.positionInformation : QfPositioningUtils.createEmptyGnssPositionInformation(),
+      "projectedPosition": positionSource.active ? positionSource.projectedPosition : undefined
+    });
+  }
+
+  /**
+   * Turns the positions gathered while recording into cues and writes the subtitle file
+   * next to the video at \a path.
+   */
+  function writeSubtitleFile(path) {
+    for (let i = 0; i < cameraItem.recordedPositions.length; ++i) {
+      const recordedPosition = cameraItem.recordedPositions[i];
+      currentPosition = recordedPosition.position;
+      currentProjectedPosition = recordedPosition.projectedPosition;
+      subtitleWriter.addCue(recordedPosition.duration, stampExpressionEvaluator.evaluate());
     }
-    subtitleWriter.addCue(captureLoader.item.recorder.duration, stampExpressionEvaluator.evaluate());
+    subtitleWriter.write(path, cameraItem.recordedDuration);
   }
 
   function requiredPermissionsGranted() {
@@ -202,7 +215,7 @@ Popup {
     target: cameraItem.subtitleRecordingActive ? positionSource : null
 
     function onPositionInformationChanged() {
-      cameraItem.recordSubtitleCue();
+      cameraItem.recordSubtitlePosition();
     }
   }
 
@@ -721,6 +734,7 @@ Popup {
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState) {
                     subtitleWriter.clear();
+                    cameraItem.recordedPositions = [];
                     cameraItem.recordedDuration = 0;
                     cameraItem.subtitleRecordingActive = cameraSettings.stamping || iface.readProjectBoolEntry("qfieldsync", "forceStamping");
                     if (cameraItem.subtitleRecordingActive) {
@@ -730,7 +744,7 @@ Popup {
                       }
                     }
                     captureLoader.item.recorder.record();
-                    cameraItem.recordSubtitleCue();
+                    cameraItem.recordSubtitlePosition();
                   } else {
                     cameraItem.recordedDuration = captureLoader.item.recorder.duration;
                     cameraItem.subtitleRecordingActive = false;
@@ -754,7 +768,7 @@ Popup {
                       QfFileUtils.addImageStamp(currentPath, stampExpressionEvaluator.evaluate(), iface.readProjectEntry("qfieldsync", "stampingFontStyle"), iface.readProjectNumEntry("qfieldsync", "stampingHorizontalAlignment", 0), iface.readProjectEntry("qfieldsync", "stampingImageDecoration"));
                     }
                   } else {
-                    subtitleWriter.write(currentPath, cameraItem.recordedDuration);
+                    cameraItem.writeSubtitleFile(currentPath);
                   }
                   if (cameraItem.userRotation !== 0 || cameraItem.userMirror) {
                     captureLoader.item.orientationNormalizer.applyEditsToImage(currentPath, cameraItem.userRotation, cameraItem.userMirror);
