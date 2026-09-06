@@ -1006,13 +1006,16 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
       continue;
     }
 
-    QString accompanyingSubtitleFilePath;
-    if ( fileInfo.isFile() && mimeTypeName( canonicalPath ).startsWith( QLatin1String( "video/" ) ) )
+    QStringList accompanyingSidecarFilePaths;
+    if ( fileInfo.isFile() )
     {
-      const QString subtitleFilePath = QfSubtitleWriter::subtitleFilePath( canonicalPath );
-      if ( !subtitleFilePath.isEmpty() && isDeletable( subtitleFilePath ) )
+      const QSet<QString> sidecarFiles = sidecarFilesForPath( canonicalPath );
+      for ( const QString &sidecarFile : sidecarFiles )
       {
-        accompanyingSubtitleFilePath = subtitleFilePath;
+        if ( isDeletable( sidecarFile ) )
+        {
+          accompanyingSidecarFilePaths << sidecarFile;
+        }
       }
     }
 
@@ -1036,12 +1039,15 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
       }
     }
 
-    if ( success && !accompanyingSubtitleFilePath.isEmpty() )
+    if ( success )
     {
-      QFile subtitleFile( accompanyingSubtitleFilePath );
-      if ( !subtitleFile.remove() )
+      for ( const QString &sidecarFilePath : std::as_const( accompanyingSidecarFilePaths ) )
       {
-        QgsMessageLog::logMessage( QObject::tr( "Failed to delete subtitle file: %1 - %2" ).arg( accompanyingSubtitleFilePath, subtitleFile.errorString() ), QString(), Qgis::MessageLevel::Warning );
+        QFile sidecarFile( sidecarFilePath );
+        if ( !sidecarFile.remove() )
+        {
+          QgsMessageLog::logMessage( QObject::tr( "Failed to delete sidecar file: %1 - %2" ).arg( sidecarFilePath, sidecarFile.errorString() ), QString(), Qgis::MessageLevel::Warning );
+        }
       }
     }
 
