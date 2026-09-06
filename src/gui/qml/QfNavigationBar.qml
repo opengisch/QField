@@ -912,9 +912,9 @@ Rectangle {
       interval: 500
       repeat: false
       onTriggered: {
-        var ids = [];
+        let ids = [];
         if (toolBar.state === "Indication") {
-          for (var i = 0; i < model.selectedFeatures.length; i++) {
+          for (let i = 0; i < model.selectedFeatures.length; i++) {
             ids.push(model.selectedFeatures[i].id);
           }
         } else {

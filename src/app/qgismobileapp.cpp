@@ -88,10 +88,8 @@
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 
-#include <QCoreApplication>
 #include <QDateTime>
 #include <QDesktopServices>
-#include <QEventLoop>
 #include <QFileInfo>
 #include <QFontDatabase>
 #include <QPalette>
@@ -1105,53 +1103,54 @@ bool QgisMobileapp::print( const QString &layoutName )
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return false;
 
-  const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
-
   mIsPrinting = true;
   emit printTriggered( layoutToPrint->name() );
-  waitForBusyOverlay();
 
-  QString openPath;
-  bool success = false;
-  if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
-  {
-    if ( layoutToPrint->referenceMap() )
-      layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
-    layoutToPrint->refresh();
+  QTimer::singleShot( 300, this, [this, layoutToPrint, templateLayout = std::move( templateLayout )]() {
+    const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
 
-    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-
-    QgsLayoutExporter::PdfExportSettings pdfSettings;
-    pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
-    pdfSettings.dpi = layoutToPrint->renderContext().dpi();
-    pdfSettings.appendGeoreference = true;
-    pdfSettings.exportMetadata = true;
-    pdfSettings.simplifyGeometries = true;
-
-    success = exporter.exportToPdf( destination, pdfSettings ) == QgsLayoutExporter::Success;
-    if ( success )
+    QString openPath;
+    bool success = false;
+    if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
     {
-      openPath = destination;
+      if ( layoutToPrint->referenceMap() )
+        layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
+      layoutToPrint->refresh();
+
+      QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+
+      QgsLayoutExporter::PdfExportSettings pdfSettings;
+      pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
+      pdfSettings.dpi = layoutToPrint->renderContext().dpi();
+      pdfSettings.appendGeoreference = true;
+      pdfSettings.exportMetadata = true;
+      pdfSettings.simplifyGeometries = true;
+
+      success = exporter.exportToPdf( destination, pdfSettings ) == QgsLayoutExporter::Success;
+      if ( success )
+      {
+        openPath = destination;
+      }
     }
-  }
-  else
-  {
-    success = printAtlas( layoutToPrint, destination );
-    if ( success && layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+    else
     {
-      openPath = destination;
+      success = printAtlas( layoutToPrint, destination );
+      if ( success && layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+      {
+        openPath = destination;
+      }
     }
-  }
 
-  mIsPrinting = false;
-  emit printEnded( success, success ? layoutsFolder() : QString() );
+    mIsPrinting = false;
+    emit printEnded( success, success ? layoutsFolder() : QString() );
 
-  if ( !openPath.isEmpty() )
-  {
-    QfPlatformUtilities::instance()->open( openPath );
-  }
+    if ( !openPath.isEmpty() )
+    {
+      QfPlatformUtilities::instance()->open( openPath );
+    }
+  } );
 
-  return success;
+  return true;
 }
 
 bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
@@ -1174,47 +1173,49 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 
   mIsPrinting = true;
   emit printTriggered( layoutToPrint->name() );
-  waitForBusyOverlay();
 
-  QStringList ids;
-  for ( const auto id : featureIds )
-  {
-    ids << QString::number( id );
-  }
+  QTimer::singleShot( 300, this, [this, layoutToPrint, featureIds]() {
+    QStringList ids;
+    for ( const long long id : featureIds )
+    {
+      ids << QString::number( id );
+    }
 
-  QString error;
-  const QString priorFilterExpression = layoutToPrint->atlas()->filterExpression();
-  const bool priorFilterFeatures = layoutToPrint->atlas()->filterFeatures();
+    QString error;
+    const QString priorFilterExpression = layoutToPrint->atlas()->filterExpression();
+    const bool priorFilterFeatures = layoutToPrint->atlas()->filterFeatures();
 
-  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "@id IN (%1)" ).arg( ids.join( ',' ) ), error );
-  layoutToPrint->atlas()->setFilterFeatures( true );
+    layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "@id IN (%1)" ).arg( ids.join( ',' ) ), error );
+    layoutToPrint->atlas()->setFilterFeatures( true );
 
-  const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
-  QString openPath;
-  if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
-  {
-    openPath = destination;
-  }
-  else if ( ids.size() == 1 )
-  {
-    layoutToPrint->atlas()->updateFeatures();
-    layoutToPrint->atlas()->first();
-    openPath = layoutsFolder() + '/' + layoutToPrint->atlas()->currentFilename() + QStringLiteral( ".pdf" );
-  }
+    const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
+    QString openPath;
+    if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+    {
+      openPath = destination;
+    }
+    else if ( ids.size() == 1 )
+    {
+      layoutToPrint->atlas()->updateFeatures();
+      layoutToPrint->atlas()->first();
+      openPath = layoutsFolder() + '/' + layoutToPrint->atlas()->currentFilename() + QStringLiteral( ".pdf" );
+    }
 
-  const bool success = printAtlas( layoutToPrint, destination );
+    const bool success = printAtlas( layoutToPrint, destination );
 
-  layoutToPrint->atlas()->setFilterExpression( priorFilterExpression, error );
-  layoutToPrint->atlas()->setFilterFeatures( priorFilterFeatures );
+    layoutToPrint->atlas()->setFilterExpression( priorFilterExpression, error );
+    layoutToPrint->atlas()->setFilterFeatures( priorFilterFeatures );
 
-  mIsPrinting = false;
-  emit printEnded( success, success ? layoutsFolder() : QString() );
+    mIsPrinting = false;
+    emit printEnded( success, success ? layoutsFolder() : QString() );
 
-  if ( success && !openPath.isEmpty() )
-  {
-    QfPlatformUtilities::instance()->open( openPath );
-  }
-  return success;
+    if ( success && !openPath.isEmpty() )
+    {
+      QfPlatformUtilities::instance()->open( openPath );
+    }
+  } );
+
+  return true;
 }
 
 bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination )
@@ -1253,7 +1254,6 @@ bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &de
   QgsFeedback feedback;
   connect( &feedback, &QgsFeedback::progressChanged, this, [this]( double progress ) {
     emit printProgress( progress / 100.0 );
-    QCoreApplication::processEvents();
   } );
 
   QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
@@ -1274,15 +1274,6 @@ bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &de
 QString QgisMobileapp::layoutsFolder() const
 {
   return mProject->homePath() + QStringLiteral( "/layouts" );
-}
-
-void QgisMobileapp::waitForBusyOverlay()
-{
-  const int busyOverlayFadeInDelay = 300;
-
-  QEventLoop loop;
-  QTimer::singleShot( busyOverlayFadeInDelay, &loop, &QEventLoop::quit );
-  loop.exec();
 }
 
 void QgisMobileapp::setScreenDimmerTimeout( int timeoutSeconds )

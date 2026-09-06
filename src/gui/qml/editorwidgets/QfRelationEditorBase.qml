@@ -415,7 +415,7 @@ QfEditorWidgetBase {
           interval: 500
           repeat: false
           onTriggered: {
-            var ids = [childMenu.entryReferencingFeature.id];
+            const ids = [childMenu.entryReferencingFeature.id];
             iface.printAtlasFeatures(printName, ids);
           }
         }

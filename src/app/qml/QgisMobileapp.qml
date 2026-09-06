@@ -4876,6 +4876,7 @@ ApplicationWindow {
 
     function onPrintEnded(success, folderPath) {
       busyOverlay.isPrinting = false;
+      busyOverlay.reset();
       busyOverlay.state = "hidden";
       if (!success) {
         displayToast(qsTr('Print failed'), 'error');
