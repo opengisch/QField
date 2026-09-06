@@ -104,6 +104,7 @@ class QfAppInterface : public QObject
     /**
      * Prints a project layout to PDF.
      * \param layoutName the layout name
+     * \returns TRUE if the print was started, its outcome is reported through printEnded()
      */
     Q_INVOKABLE bool print( const QString &layoutName );
 
@@ -111,6 +112,7 @@ class QfAppInterface : public QObject
      * Prints an atlas-driven project layout to PDF.
      * \param layoutName the layout name
      * \param featureIds the list of atlas feature IDs
+     * \returns TRUE if the print was started, its outcome is reported through printEnded()
      */
     Q_INVOKABLE bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
 

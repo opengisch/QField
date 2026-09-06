@@ -148,7 +148,7 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
     /**
      * Prints a given layout from the currently opened project to a PDF file
      * \param layoutName the layout name that will be printed
-     * \return TRUE if the layout was successfully printed
+     * \return TRUE if the print was started, its outcome is reported through printEnded()
      */
     bool print( const QString &layoutName ) override;
 
@@ -156,7 +156,7 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
      * Prints a given atlas-driven layout from the currently opened project to one or more PDF files
      * \param layoutName the layout name that will be printed
      * \param featureIds the features from the atlas coverage vector layer that will be used to print the layout
-     * \return TRUE if the layout was successfully printed
+     * \return TRUE if the print was started, its outcome is reported through printEnded()
      */
     bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds ) override;
 
@@ -228,7 +228,6 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
     void saveProjectPreviewImage();
     bool printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination );
     QString layoutsFolder() const;
-    void waitForBusyOverlay();
 
     bool mIsPrinting = false;
     QgsOfflineEditing *mOfflineEditing = nullptr;
