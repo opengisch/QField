@@ -23,7 +23,6 @@
 #include <QTextStream>
 
 #include <algorithm>
-#include <utility>
 
 QfSubtitleWriter::QfSubtitleWriter( QObject *parent )
   : QObject( parent )
@@ -32,7 +31,15 @@ QfSubtitleWriter::QfSubtitleWriter( QObject *parent )
 
 void QfSubtitleWriter::setMinimumCueDuration( int duration )
 {
-  mMinimumCueDuration = std::max( 0, duration );
+  const int sanitizedDuration = std::max( 0, duration );
+  if ( mMinimumCueDuration == sanitizedDuration )
+  {
+    return;
+  }
+
+  mMinimumCueDuration = sanitizedDuration;
+
+  emit minimumCueDurationChanged();
 }
 
 void QfSubtitleWriter::clear()
@@ -96,20 +103,11 @@ void QfSubtitleWriter::closeOpenCue( qint64 endTime )
   mHasOpenCue = false;
 }
 
-QString QfSubtitleWriter::toString( qint64 endTime ) const
+QString QfSubtitleWriter::toString() const
 {
-  QVector<Cue> cues = mCues;
-
-  if ( mHasOpenCue && endTime > mOpenCue.start )
-  {
-    Cue lastCue = mOpenCue;
-    lastCue.end = endTime;
-    cues.append( lastCue );
-  }
-
   QString contents;
   int index = 0;
-  for ( const Cue &cue : std::as_const( cues ) )
+  for ( const Cue &cue : mCues )
   {
     if ( cue.end <= cue.start )
     {
@@ -131,7 +129,9 @@ bool QfSubtitleWriter::write( const QString &mediaFilePath, qint64 endTime )
     return false;
   }
 
-  const QString contents = toString( endTime );
+  closeOpenCue( endTime );
+
+  const QString contents = toString();
   if ( contents.isEmpty() )
   {
     return false;

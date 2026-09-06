@@ -41,6 +41,8 @@ class QFIELD_CORE_EXPORT QfSubtitleWriter : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( int minimumCueDuration READ minimumCueDuration WRITE setMinimumCueDuration NOTIFY minimumCueDurationChanged )
+
   public:
     explicit QfSubtitleWriter( QObject *parent = nullptr );
 
@@ -69,9 +71,6 @@ class QFIELD_CORE_EXPORT QfSubtitleWriter : public QObject
      */
     Q_INVOKABLE bool write( const QString &mediaFilePath, qint64 endTime );
 
-    //! Returns the SubRip text of the cues, closing the open cue at \a endTime milliseconds.
-    QString toString( qint64 endTime ) const;
-
     //! Returns \a mediaFilePath with its suffix replaced by .srt.
     static QString subtitleFilePath( const QString &mediaFilePath );
 
@@ -80,6 +79,9 @@ class QFIELD_CORE_EXPORT QfSubtitleWriter : public QObject
 
     //! Returns \a text with line endings normalized and blank lines removed, as a blank line would end the cue.
     static QString sanitizeCueText( const QString &text );
+
+  signals:
+    void minimumCueDurationChanged();
 
   private:
     struct Cue
@@ -90,6 +92,9 @@ class QFIELD_CORE_EXPORT QfSubtitleWriter : public QObject
     };
 
     void closeOpenCue( qint64 endTime );
+
+    //! Returns the SubRip text of the closed cues.
+    QString toString() const;
 
     QVector<Cue> mCues;
     Cue mOpenCue;
