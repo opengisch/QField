@@ -183,20 +183,10 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
      * into an attachment folder or deleted.
      *
      * This extends QgsFileUtils::sidecarFilesForPath(), which resolves companion files by
-     * asking the registered data providers and so covers datasets only, with the sidecars
-     * QField itself writes. A video recorded with details stamping enabled is accompanied
-     * by a SubRip file carrying its positioning details, and no data provider knows about
-     * video.
+     * asking the registered data providers and so covers datasets only, with additional files
+     * that are relevant to QField.
      */
     static QSet<QString> sidecarFilesForPath( const QString &filePath );
-
-    /**
-     * Returns \a filePaths with the sidecar files accompanying each of them appended.
-     *
-     * Each file keeps its position and appears once, which makes this suitable to build
-     * the list of files handed over to an upload or a transfer.
-     */
-    Q_INVOKABLE static QStringList withSidecarFiles( const QStringList &filePaths );
 
   private:
     static int copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping );
