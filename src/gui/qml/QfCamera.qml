@@ -50,11 +50,19 @@ Popup {
     if (!subtitleRecordingActive || !captureLoader.item) {
       return;
     }
-    cameraItem.recordedPositions.push({
-      "duration": captureLoader.item.recorder.duration,
-      "position": positionSource.active ? positionSource.positionInformation : QfPositioningUtils.createEmptyGnssPositionInformation(),
-      "projectedPosition": positionSource.active ? positionSource.projectedPosition : undefined
-    });
+    if (positionSource.active) {
+      cameraItem.recordedPositions.push({
+        "duration": captureLoader.item.recorder.duration,
+        "position": QfPositioningUtils.createGnssPositionInformation(positionSource.positionInformation),
+        "projectedPosition": QfGeometryUtils.point(positionSource.projectedPosition.x, positionSource.projectedPosition.y, positionSource.projectedPosition.z, positionSource.projectedPosition.m)
+      });
+    } else {
+      cameraItem.recordedPositions.push({
+        "duration": captureLoader.item.recorder.duration,
+        "position": QfPositioningUtils.createEmptyGnssPositionInformation(),
+        "projectedPosition": undefined
+      });
+    }
   }
 
   /**
@@ -64,8 +72,8 @@ Popup {
   function writeSubtitleFile(path) {
     for (let i = 0; i < cameraItem.recordedPositions.length; ++i) {
       const recordedPosition = cameraItem.recordedPositions[i];
-      currentPosition = recordedPosition.position;
-      currentProjectedPosition = recordedPosition.projectedPosition;
+      cameraItem.currentPosition = recordedPosition.position;
+      cameraItem.currentProjectedPosition = recordedPosition.projectedPosition;
       subtitleWriter.addCue(recordedPosition.duration, stampExpressionEvaluator.evaluate());
     }
     subtitleWriter.write(path, cameraItem.recordedDuration);

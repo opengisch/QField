@@ -42,6 +42,11 @@ class QFIELD_CORE_EXPORT QfPositioningUtils : public QObject
     static Q_INVOKABLE QfGnssPositionInformation createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName );
 
     /**
+     * Creates a QfGnssPositionInformation with values matching a provided \a positionInormation.
+     */
+    static Q_INVOKABLE QfGnssPositionInformation createGnssPositionInformation( const QfGnssPositionInformation &positionInformation );
+
+    /**
      * Creates an empty QfGnssPositionInformation.
      */
     static Q_INVOKABLE QfGnssPositionInformation createEmptyGnssPositionInformation();

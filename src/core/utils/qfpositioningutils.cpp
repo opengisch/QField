@@ -42,6 +42,11 @@ QfGnssPositionInformation QfPositioningUtils::createGnssPositionInformation( dou
                                     verticalSpeed, magneticVariation, 0, sourceName );
 }
 
+QfGnssPositionInformation QfPositioningUtils::createGnssPositionInformation( const QfGnssPositionInformation &positionInformation )
+{
+  return QfGnssPositionInformation( positionInformation );
+}
+
 QfGnssPositionInformation QfPositioningUtils::createEmptyGnssPositionInformation()
 {
   return QfGnssPositionInformation();
