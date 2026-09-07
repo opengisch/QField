@@ -105,6 +105,12 @@ class QfBluetoothLowEnergyReceiver : public QfNmeaGnssReceiver
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;
     int mConnectionFailureCount = 0;
+
+    static constexpr int CORRECTION_TIMER_INTERVAL_MS = 20;
+    static constexpr qsizetype CORRECTION_CATCH_UP_THRESHOLD_BYTES = 4096;
+    static constexpr int NORMAL_CORRECTION_CHUNKS_PER_TICK = 3;
+    static constexpr int CATCH_UP_CORRECTION_CHUNKS_PER_TICK = 6;
+    static constexpr qsizetype DEFAULT_BLE_TX_PAYLOAD_SIZE = 20;
 };
 
 #endif //QFBLUETOOTHLOWENERGYRECEIVER_H

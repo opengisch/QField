@@ -120,6 +120,9 @@ class QfNtripClient : public QObject
     qint64 mLastGgaLogMs = 0;
 
     QPointer<QfAbstractGnssReceiver> mReceiver;
+
+    static constexpr qint64 CORRECTION_STATS_LOG_INTERVAL_MS = 5000;
+    static constexpr qint64 GGA_FORWARDING_LOG_INTERVAL_MS = 30000;
 };
 
 

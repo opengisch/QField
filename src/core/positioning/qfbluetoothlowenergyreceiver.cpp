@@ -23,13 +23,6 @@
 #include <QTimer>
 #include <QtBluetooth/QLowEnergyConnectionParameters>
 
-namespace
-{
-  constexpr int CorrectionTimerIntervalMs = 20;
-  constexpr qsizetype CorrectionCatchUpThresholdBytes = 4096;
-  constexpr int NormalCorrectionChunksPerTick = 3;
-  constexpr int CatchUpCorrectionChunksPerTick = 6;
-} // namespace
 
 // Map of BLE service UUID (key) and a pair of RX (first, incoming) and TX (second, outgoing) characteristics
 QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> QfBluetoothLowEnergyReceiver::serviceChars = {
@@ -51,7 +44,7 @@ QfBluetoothLowEnergyReceiver::QfBluetoothLowEnergyReceiver( const QString &addre
 {
   qInfo() << "BluetoothLowEnergyReceiver: Creating the receiver";
 
-  mCorrectionTimer.setInterval( CorrectionTimerIntervalMs );
+  mCorrectionTimer.setInterval( CORRECTION_TIMER_INTERVAL_MS );
   connect( &mCorrectionTimer, &QTimer::timeout, this, &QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk );
 
   initNmeaConnection( mBuffer );
@@ -122,7 +115,7 @@ void QfBluetoothLowEnergyReceiver::doConnectDevice()
     connect( mController, &QLowEnergyController::serviceDiscovered, this, &QfBluetoothLowEnergyReceiver::serviceDiscovered );
     connect( mController, &QLowEnergyController::discoveryFinished, this, &QfBluetoothLowEnergyReceiver::serviceDiscoveryFinished );
     connect( mController, &QLowEnergyController::mtuChanged, this, [this]( int mtu ) {
-      mBleTxPayloadSize = std::max<qsizetype>( 20, mtu - 3 );
+      mBleTxPayloadSize = std::max<qsizetype>( DEFAULT_BLE_TX_PAYLOAD_SIZE, mtu - 3 );
       qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: MTU changed to %1, BLE TX payload size set to %2" )
                    .arg( mtu )
                    .arg( mBleTxPayloadSize );
@@ -521,7 +514,7 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
   // With the default BLE MTU, each write carries 20 payload bytes. At a
   // 20 ms timer interval, 3 chunks/tick keeps up with typical 2-3 KB/s RTCM
   // streams while 6 chunks/tick allows catching up after short bursts.
-  const int maxChunksPerTick = mCorrectionData.size() > CorrectionCatchUpThresholdBytes ? CatchUpCorrectionChunksPerTick : NormalCorrectionChunksPerTick;
+  const int maxChunksPerTick = mCorrectionData.size() > CORRECTION_CATCH_UP_THRESHOLD_BYTES ? CATCH_UP_CORRECTION_CHUNKS_PER_TICK : NORMAL_CORRECTION_CHUNKS_PER_TICK;
 
   while ( !mCorrectionData.isEmpty() && chunksWrittenThisTick < maxChunksPerTick )
   {
