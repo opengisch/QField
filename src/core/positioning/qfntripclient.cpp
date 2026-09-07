@@ -24,12 +24,6 @@
 #include <QFileInfo>
 #include <QRegularExpression>
 
-namespace
-{
-  constexpr qint64 CorrectionStatsLogIntervalMs = 5000;
-  constexpr qint64 GgaForwardingLogIntervalMs = 30000;
-} // namespace
-
 
 QfNtripClient::QfNtripClient( QObject *parent )
   : QObject( parent )
@@ -89,7 +83,7 @@ void QfNtripClient::start( const QfNtripSettings &ntripSettings, QfAbstractGnssR
     mCorrectionBlocksReceived++;
 
     const qint64 now = QDateTime::currentMSecsSinceEpoch();
-    if ( mLastCorrectionLogMs == 0 || now - mLastCorrectionLogMs >= CorrectionStatsLogIntervalMs )
+    if ( mLastCorrectionLogMs == 0 || now - mLastCorrectionLogMs >= CORRECTION_STATS_LOG_INTERVAL_MS )
     {
       const qint64 deltaMs = mLastCorrectionLogMs == 0 ? 0 : now - mLastCorrectionLogMs;
       const qint64 deltaBytes = mBytesReceived - mLastCorrectionLogBytes;
@@ -234,7 +228,7 @@ void QfNtripClient::nmeaSentenceReceived( const QString &sentence )
   }
 
   const qint64 now = QDateTime::currentMSecsSinceEpoch();
-  if ( mLastGgaLogMs == 0 || now - mLastGgaLogMs >= GgaForwardingLogIntervalMs )
+  if ( mLastGgaLogMs == 0 || now - mLastGgaLogMs >= GGA_FORWARDING_LOG_INTERVAL_MS )
   {
     qDebug() << QStringLiteral( "NTRIP Client: Received GGA from receiver for caster forwarding, talker=%1 length=%2" ).arg( talkerId, QString::number( sentence.size() ) );
     mLastGgaLogMs = now;
