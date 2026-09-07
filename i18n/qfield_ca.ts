@@ -4119,14 +4119,6 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Latitud</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Longitud</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Altitud</translation>
     </message>
@@ -4135,8 +4127,20 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
         <translation>Velocitat</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Latitud</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Longitud</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Orientació</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4169,10 +4173,6 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>back</source>
         <translation>dors</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5204,6 +5204,10 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <message>
         <source>Downloading project…</source>
         <translation>S&apos;està descarregant el projecte…</translation>
+    </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6928,7 +6932,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Objecte(s) Atlas impresos correctament i col·locats a la carpeta del vostre projecte.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7810,7 +7814,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Objecte(s) Atlas impresos correctament i col·locats a la carpeta del vostre projecte.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9248,6 +9252,22 @@ per mostrar les accions</translation>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>Aquest projecte al núvol té canvis pendents que encara no s&apos;han carregat. Obriu el tauler de control amb aquest botó i, a continuació, toqueu la icona del núvol blau per enviar-los a QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

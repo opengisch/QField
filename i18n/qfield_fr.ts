@@ -736,7 +736,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation type="vanished"><numerusform>%n entité fusionnée avec succès</numerusform><numerusform>%n entités fusionnées avec succès</numerusform><numerusform>%n entités fusionnées avec succès</numerusform></translation>
+        <translation type="vanished"><numerusform>%n entité fusionnée avec succès</numerusform><numerusform>%n entités fusionnées avec succès</numerusform><numerusform>%n entité(s) fusionnée(s) avec succès</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
@@ -4115,14 +4115,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Latitude</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Longitude</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Altitude</translation>
     </message>
@@ -4131,8 +4123,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Vitesse</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Latitude</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Longitude</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Orientation</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>Le plus haut</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4165,10 +4169,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>back</source>
         <translation>arrière</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation>Le plus haut</translation>
     </message>
 </context>
 <context>
@@ -5199,6 +5199,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Downloading project…</source>
         <translation>Téléchargement du projet…</translation>
+    </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation>Saisis la description de ton projet </translation>
     </message>
 </context>
 <context>
@@ -6925,7 +6929,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Élément(s) Atlas imprimé(s) avec succès et placé(s) dans votre dossier de projet</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7807,7 +7811,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Élément(s) Atlas imprimé(s) avec succès et placé(s) dans votre dossier de projet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -7866,7 +7870,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <name>QfSerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation>Impossible de trouver le périphérique sur port série</translation>
+        <translation>Impossible de trouver le port série du périphérique</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
@@ -9247,6 +9251,22 @@ fermer le projet et quitter l&apos;application</translation>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>Ce projet contient des modifications qui n&apos;ont pas encore été mises en ligne. Ouvre le tableau de bord à l&apos;aide de ce bouton, puis appuie sur l&apos;icône bleue en forme de nuage pour les envoyer à QFieldCloud.</translation>
     </message>
+    <message>
+        <source>Printing %1</source>
+        <translation>Impression %1</translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation>Échec de l&apos;impression</translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation>Imprimé et placé dans le dossier Jeux de données du projet </translation>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation>Ouvrir le dossier</translation>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -9256,7 +9276,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Manual input mode</source>
-        <translation>Mode saisie manuelle</translation>
+        <translation>Mode de saisie manuelle</translation>
     </message>
     <message>
         <source>Estimated</source>

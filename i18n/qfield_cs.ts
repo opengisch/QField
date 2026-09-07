@@ -4121,14 +4121,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Nadmořská výška</translation>
     </message>
@@ -4137,7 +4129,19 @@ Zrušte pro jen minimální skenování zařízení. </translation>
         <translation>Rychlost</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Highest</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4170,10 +4174,6 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Highest</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5203,6 +5203,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Downloading project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6931,7 +6935,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Prvek(prvky) atlasu úspěšně vytištěný/é do PDF a umístěné ve složce Vašeho projektu</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7813,7 +7817,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Prvek(prvky) atlasu úspěšně vytištěný/é do PDF a umístěné ve složce Vašeho projektu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9246,6 +9250,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

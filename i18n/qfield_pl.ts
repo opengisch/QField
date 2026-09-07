@@ -4122,14 +4122,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Szerokość geograficzna</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Długość geograficzna</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Wysokość</translation>
     </message>
@@ -4138,8 +4130,20 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Prędkość</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Szerokość geograficzna</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Długość geograficzna</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Orientacja</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4172,10 +4176,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>back</source>
         <translation>tył</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5206,6 +5206,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Downloading project…</source>
         <translation>Pobieranie projektu…</translation>
+    </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation>Wpisz opis swojego projektu </translation>
     </message>
 </context>
 <context>
@@ -6370,12 +6374,13 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nie można dodać obiektu w warstwie „%1”</translation>
     </message>
     <message>
         <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zatwierdzić nowego obiektu w warstwie „%1”. Przyczyna:
+%2</translation>
     </message>
 </context>
 <context>
@@ -6933,7 +6938,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7815,7 +7820,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9253,6 +9258,22 @@ aby wyświetlić działania</translation>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>W tym projekcie w chmurze są zmiany oczekujące, które nie zostały jeszcze przesłane. Otwórz pulpit nawigacyjny za pomocą tego przycisku, a potem kliknij niebieską ikonę chmury, żeby wysłać je do QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation>Drukowanie %1</translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation>Drukowanie nie powiodło się</translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation>Wydrukowano i umieszczono w twoim folderze z układami projektu</translation>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation>Otwórz folder</translation>
     </message>
 </context>
 <context>

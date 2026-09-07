@@ -4105,14 +4105,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Zemljepisna širina</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Zemljepisna dolžina</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Nadmorska višina</translation>
     </message>
@@ -4121,7 +4113,19 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Hitrost</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Zemljepisna širina</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Zemljepisna dolžina</translation>
+    </message>
+    <message>
         <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Highest</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4154,10 +4158,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Highest</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5186,6 +5186,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -9217,6 +9221,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

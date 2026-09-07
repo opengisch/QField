@@ -5219,6 +5219,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Downloading project…</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -6717,7 +6721,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished">Atlas feature(s) successfully printed and placed in your project folder</translation>
+        <translation type="obsolete">Atlas feature(s) successfully printed and placed in your project folder</translation>
     </message>
 </context>
 <context>
@@ -7602,7 +7606,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished">Atlas feature(s) successfully printed and placed in your project folder</translation>
+        <translation type="obsolete">Atlas feature(s) successfully printed and placed in your project folder</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9041,6 +9045,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -4113,14 +4113,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Enlem</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Boylam</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Yükseklik</translation>
     </message>
@@ -4129,8 +4121,20 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation>Hız</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Enlem</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Boylam</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Yönlendirme</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4163,10 +4167,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>back</source>
         <translation>arka</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5195,6 +5195,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Downloading project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6914,7 +6918,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlas özelliği(leri) başarıyla yazdırıldı ve proje klasörünüze yerleştirildi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7796,7 +7800,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlas özelliği(leri) başarıyla yazdırıldı ve proje klasörünüze yerleştirildi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9229,6 +9233,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

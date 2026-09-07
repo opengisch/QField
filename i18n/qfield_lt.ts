@@ -916,7 +916,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <name>GeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation type="vanished">Viršūnių įrankis</translation>
+        <translation type="vanished">Taškų įrankis</translation>
     </message>
     <message>
         <source>Split Tool</source>
@@ -3719,7 +3719,7 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>Įjungus šią parinktį, skaitmeninant viršūnes padėtyje užfiksuotu žymekliu bus priimama tik vidutinė padėtis, apskaičiuota iš ne mažesnio nei nustatyta surinktų padėčių skaičiaus. Norėdami skaitmeninti naudodami vidutines padėtis, paspauskite ir palaikykite viršūnės pridėjimo mygtuką. Padėtys bus renkamos tol, kol mygtuką atleisite. Jei įjungti tikslumo reikalavimai, jų bus laikomasi.</translation>
+        <translation>Įjungus šią parinktį, skaitmeninant taškus padėtyje užfiksuotu žymekliu bus priimama tik vidutinė padėtis, apskaičiuota iš ne mažesnio nei nustatyta surinktų padėčių skaičiaus. Norėdami skaitmeninti naudodami vidutines padėtis, paspauskite ir palaikykite taško pridėjimo mygtuką. Padėtys bus renkamos tol, kol mygtuką atleisite. Jei įjungti tikslumo reikalavimai, jų bus laikomasi.</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
@@ -4122,14 +4122,6 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Platuma</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Ilguma</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Aukštis</translation>
     </message>
@@ -4138,8 +4130,20 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
         <translation>Greitis</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Platuma</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Ilguma</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Orientacija</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>Aukščiausias</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4172,10 +4176,6 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     <message>
         <source>back</source>
         <translation>galinė</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5207,6 +5207,10 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <source>Downloading project…</source>
         <translation>Atsisiunčiamas projektas…</translation>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation>Įveskite projekto aprašymą</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -6105,7 +6109,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <name>QfGeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation>Viršūnių įrankis</translation>
+        <translation>Taškų įrankis</translation>
     </message>
     <message>
         <source>Split Tool</source>
@@ -6370,12 +6374,13 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nepavyksta pridėti geoobjekto į sluoksnį &quot;%1&quot; </translation>
     </message>
     <message>
         <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Nepavyksta išsaugoti naujo geoobjekto sluoksnyje &quot;%1&quot;. Priežastis:
+%2</translation>
     </message>
 </context>
 <context>
@@ -6933,7 +6938,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlaso geoobjektas (-ai) sėkmingai išspausdintas (-i) ir įrašytas (-i) projekto aplanke</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7815,7 +7820,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlaso geoobjektas (-ai) sėkmingai išspausdintas (-i) ir įrašytas (-i) projekto aplanke</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -8178,7 +8183,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation>Įjungus šią parinktį, viršūnė bus pridedama, kai laikas tarp paskutinės ir naujos viršūnės pasieks nustatytą mažiausią reikšmę.</translation>
+        <translation>Įjungus šią parinktį, taškas bus pridedamas, kai laikas tarp paskutinio ir naujo taško pasieks nustatytą mažiausią reikšmę.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
@@ -8190,7 +8195,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation>Įjungus šią parinktį, viršūnė bus pridedama, kai atstumas tarp paskutinės ir naujos viršūnės pasieks nustatytą mažiausią reikšmę.</translation>
+        <translation>Įjungus šią parinktį, taškas bus pridedamas, kai atstumas tarp paskutinio ir naujo taško pasieks nustatytą mažiausią reikšmę.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
@@ -8198,7 +8203,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation>Įjungus šią parinktį, viršūnė bus pridedama jutikliams užfiksavus naujų duomenų.</translation>
+        <translation>Įjungus šią parinktį, taškas bus pridedamas jutikliams užfiksavus naujų duomenų.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
@@ -8206,7 +8211,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation>Įjungus šią parinktį, viršūnės bus įrašomos tik įvykdžius visus aktyvius reikalavimus. Išjungus viršūnė bus pridedama įvykdžius bet kurį reikalavimą.</translation>
+        <translation>Įjungus šią parinktį, taškai bus įrašomi tik įvykdžius visus aktyvius reikalavimus. Išjungus taškai bus pridedami įvykdžius bet kurį reikalavimą.</translation>
     </message>
     <message>
         <source>General Settings</source>
@@ -8222,7 +8227,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation>Įjungus šią parinktį, viršūnė nebus pridedama, kai atstumas tarp paskutinės ir naujos viršūnės bus didesnis už nustatytą didžiausią reikšmę.</translation>
+        <translation>Įjungus šią parinktį, taškas nebus pridedamas, kai atstumas tarp paskutinio ir naujo taško bus didesnis už nustatytą didžiausią reikšmę.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -9254,6 +9259,22 @@ kad būtų parodyti veiksmai</translation>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>Šiame debesijos projekte yra dar neįkeltų laukiančių pakeitimų. Šiuo mygtuku atverkite prietaisų skydelį, tada palieskite mėlyną debesies piktogramą ir nusiųskite juos į QFieldCloud.</translation>
     </message>
+    <message>
+        <source>Printing %1</source>
+        <translation>Spausdinama %1</translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation>Atspausdinti nepavyko</translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation>Išspausdinta ir išsaugota projekto maketų aplanke</translation>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation>Atverti aplanką</translation>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -9700,7 +9721,7 @@ kad būtų parodyti veiksmai</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">Įjungus šią parinktį, viršūnės bus įrašomos tik įvykdžius abu aktyvius apribojimus. Išjungus viršūnė bus pridedama įvykdžius bet kurį apribojimą.</translation>
+        <translation type="vanished">Įjungus šią parinktį, taškai bus įrašomi tik įvykdžius abu aktyvius apribojimus. Išjungus taškas bus pridedamas įvykdžius bet kurį apribojimą.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -9712,7 +9733,7 @@ kad būtų parodyti veiksmai</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">Išjungus abu apribojimus, viršūnės bus pridedamos tokiu dažniu, kokiu jas pateikia padėties nustatymo įrenginys.</translation>
+        <translation type="vanished">Išjungus abu apribojimus, taškai bus pridedami tokiu dažniu, kokiu jas pateikia padėties nustatymo įrenginys.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>

@@ -4116,14 +4116,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Nadmorska visina</translation>
     </message>
@@ -4132,7 +4124,19 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation>Brzina</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Highest</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4165,10 +4169,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Highest</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5196,6 +5196,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6922,7 +6926,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Stavka(e) Atlasa su uspješno ispisane i spremljene u direktorij projekta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7804,7 +7808,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Stavka(e) Atlasa su uspješno ispisane i spremljene u direktorij projekta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9237,6 +9241,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

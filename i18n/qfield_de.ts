@@ -4115,14 +4115,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Breitengrad</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Längengrad</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Höhe</translation>
     </message>
@@ -4131,8 +4123,20 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <translation>Geschwindigkeit </translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Breitengrad</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Längengrad</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Himmelsrichtung </translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4165,10 +4169,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>back</source>
         <translation>Rückseite</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5197,6 +5197,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Downloading project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6920,7 +6924,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlas erfolgreich gedruckt - das Ergebnis wurde in deinem Projektordner abgelegt</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7802,7 +7806,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlas erfolgreich gedruckt - das Ergebnis wurde in deinem Projektordner abgelegt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9239,6 +9243,22 @@ um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>
