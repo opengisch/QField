@@ -308,6 +308,13 @@ void QfCloudUtils::writeToAttachmentsFile( const QString &username, const QStrin
         else if ( fi.isFile() )
         {
           writeFileDetails( fileName, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+
+          // Sidecar files carry no meaning on their own and must reach the cloud with the file they belong to
+          const QSet<QString> sidecarFiles = QfFileUtils::sidecarFilesForPath( fileName );
+          for ( const QString &sidecarFile : sidecarFiles )
+          {
+            writeFileDetails( sidecarFile, projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
+          }
         }
       }
       attachmentsFile.close();

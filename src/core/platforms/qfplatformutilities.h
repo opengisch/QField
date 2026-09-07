@@ -131,6 +131,16 @@ class QFIELD_CORE_EXPORT QfPlatformUtilities : public QObject
     Q_INVOKABLE bool rmFile( const QString &filename ) const;
     Q_INVOKABLE bool renameFile( const QString &oldFilePath, const QString &newFilePath, bool overwrite = true ) const;
 
+    /**
+     * Renames \a oldFilePath to \a newFilePath along with the sidecar files accompanying
+     * it, each taking the new file's name while keeping its own suffix.
+     *
+     * Returns the outcome of renaming the file itself; a sidecar which could not follow is
+     * logged and does not turn a successful move into a failure, as the file has moved
+     * either way and the caller's path is valid.
+     */
+    Q_INVOKABLE bool renameFileWithSidecars( const QString &oldFilePath, const QString &newFilePath, bool overwrite = true ) const;
+
 
     /**
      * The main application directory within which projects and datasets can be imported.

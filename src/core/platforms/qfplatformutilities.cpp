@@ -34,6 +34,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QMargins>
 #include <QMessageBox>
 #include <QQuickWindow>
@@ -42,7 +43,6 @@
 #include <QTimer>
 #include <QUrl>
 #include <QtGui/qpa/qplatformwindow.h>
-#include <qgsfileutils.h>
 #include <qgsziputils.h>
 
 #if defined( Q_OS_ANDROID )
@@ -307,6 +307,48 @@ void QfPlatformUtilities::exportFolderTo( const QString &path ) const
   Q_UNUSED( path )
 }
 
+bool QfPlatformUtilities::renameFileWithSidecars( const QString &oldFilePath, const QString &newFilePath, bool overwrite ) const
+{
+  const QSet<QString> sidecarFiles = QfFileUtils::sidecarFilesForPath( oldFilePath );
+
+  if ( !renameFile( oldFilePath, newFilePath, overwrite ) )
+  {
+    return false;
+  }
+
+  const QFileInfo oldFileInfo( oldFilePath );
+  const QFileInfo newFileInfo( newFilePath );
+  const QString oldFileName = oldFileInfo.fileName();
+  const QString oldBaseName = oldFileInfo.completeBaseName();
+
+  for ( const QString &sidecarFile : sidecarFiles )
+  {
+    const QString sidecarFileName = QFileInfo( sidecarFile ).fileName();
+
+    QString newSidecarFileName;
+    if ( sidecarFileName.startsWith( oldFileName ) )
+    {
+      newSidecarFileName = newFileInfo.fileName() + sidecarFileName.mid( oldFileName.size() );
+    }
+    else if ( sidecarFileName.startsWith( oldBaseName + QLatin1Char( '.' ) ) )
+    {
+      newSidecarFileName = newFileInfo.completeBaseName() + sidecarFileName.mid( oldBaseName.size() );
+    }
+    else
+    {
+      continue;
+    }
+
+    const QString newSidecarFilePath = QStringLiteral( "%1/%2" ).arg( newFileInfo.absolutePath(), newSidecarFileName );
+    if ( !renameFile( sidecarFile, newSidecarFilePath, overwrite ) )
+    {
+      QgsMessageLog::logMessage( tr( "Could not move the sidecar file '%1' alongside '%2'" ).arg( sidecarFile, newFilePath ), QStringLiteral( "QField" ), Qgis::Warning );
+    }
+  }
+
+  return true;
+}
+
 void QfPlatformUtilities::exportDatasetTo( const QString &path ) const
 {
   Q_UNUSED( path )
@@ -321,7 +363,7 @@ void QfPlatformUtilities::sendDatasetTo( const QString &path ) const
   }
 
   QStringList paths = QStringList() << path;
-  const QSet<QString> files = QgsFileUtils::sidecarFilesForPath( path );
+  const QSet<QString> files = QfFileUtils::sidecarFilesForPath( path );
   for ( const QString &file : files )
   {
     paths << file;

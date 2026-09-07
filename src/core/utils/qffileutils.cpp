@@ -18,6 +18,7 @@
 #include "qfcloudutils.h"
 #include "qffileutils.h"
 #include "qfgnsspositioninformation.h"
+#include "qfsubtitlewriter.h"
 #include "qgsmessagelog.h"
 
 #include <QDebug>
@@ -977,7 +978,7 @@ bool QfFileUtils::isDeletable( const QString &filePath )
 
   const QString suffix = fileInfo.suffix().toLower();
 
-  static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3" };
+  static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3", "srt" };
 
   return allowedExtensions.contains( suffix );
 }
@@ -1005,6 +1006,19 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
       continue;
     }
 
+    QStringList accompanyingSidecarFilePaths;
+    if ( fileInfo.isFile() )
+    {
+      const QSet<QString> sidecarFiles = sidecarFilesForPath( canonicalPath );
+      for ( const QString &sidecarFile : sidecarFiles )
+      {
+        if ( isDeletable( sidecarFile ) )
+        {
+          accompanyingSidecarFilePaths << sidecarFile;
+        }
+      }
+    }
+
     bool success = false;
     if ( fileInfo.isDir() )
     {
@@ -1025,8 +1039,41 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
       }
     }
 
+    if ( success )
+    {
+      for ( const QString &sidecarFilePath : std::as_const( accompanyingSidecarFilePaths ) )
+      {
+        QFile sidecarFile( sidecarFilePath );
+        if ( !sidecarFile.remove() )
+        {
+          QgsMessageLog::logMessage( QObject::tr( "Failed to delete sidecar file: %1 - %2" ).arg( sidecarFilePath, sidecarFile.errorString() ), QString(), Qgis::MessageLevel::Warning );
+        }
+      }
+    }
+
     results[filePath] = success;
   }
 
   return results;
+}
+
+QSet<QString> QfFileUtils::sidecarFilesForPath( const QString &filePath )
+{
+  if ( filePath.isEmpty() )
+  {
+    return QSet<QString>();
+  }
+
+  QSet<QString> sidecarFiles = QgsFileUtils::sidecarFilesForPath( filePath );
+
+  if ( mimeTypeName( filePath ).startsWith( QLatin1String( "video/" ) ) )
+  {
+    const QString subtitleFilePath = QfSubtitleWriter::subtitleFilePath( filePath );
+    if ( !subtitleFilePath.isEmpty() && QFileInfo::exists( subtitleFilePath ) )
+    {
+      sidecarFiles << subtitleFilePath;
+    }
+  }
+
+  return sidecarFiles;
 }

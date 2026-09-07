@@ -36,6 +36,49 @@ Popup {
   property alias currentLayer: stampExpressionEvaluator.layer
   property alias currentFeature: stampExpressionEvaluator.feature
 
+  property bool subtitleRecordingActive: false
+  property int recordedDuration: 0
+  property var recordedPositions: []
+
+  /**
+   * Stores the position as it stands right now against the elapsed recording time. The
+   * details expression is deliberately not evaluated here: it can be arbitrarily costly
+   * and would compete with the running recorder. The cues are built when the recording
+   * is accepted instead.
+   */
+  function recordSubtitlePosition() {
+    if (!subtitleRecordingActive || !captureLoader.item) {
+      return;
+    }
+    if (positionSource.active) {
+      cameraItem.recordedPositions.push({
+        "duration": captureLoader.item.recorder.duration,
+        "position": QfPositioningUtils.createGnssPositionInformation(positionSource.positionInformation),
+        "projectedPosition": QfGeometryUtils.point(positionSource.projectedPosition.x, positionSource.projectedPosition.y, positionSource.projectedPosition.z, positionSource.projectedPosition.m)
+      });
+    } else {
+      cameraItem.recordedPositions.push({
+        "duration": captureLoader.item.recorder.duration,
+        "position": QfPositioningUtils.createEmptyGnssPositionInformation(),
+        "projectedPosition": undefined
+      });
+    }
+  }
+
+  /**
+   * Turns the positions gathered while recording into cues and writes the subtitle file
+   * next to the video at \a path.
+   */
+  function writeSubtitleFile(path) {
+    for (let i = 0; i < cameraItem.recordedPositions.length; ++i) {
+      const recordedPosition = cameraItem.recordedPositions[i];
+      cameraItem.currentPosition = recordedPosition.position;
+      cameraItem.currentProjectedPosition = recordedPosition.projectedPosition;
+      subtitleWriter.addCue(recordedPosition.duration, stampExpressionEvaluator.evaluate());
+    }
+    subtitleWriter.write(path, cameraItem.recordedDuration);
+  }
+
   function requiredPermissionsGranted() {
     if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
       return false;
@@ -169,6 +212,18 @@ Popup {
     variables: {
       "corrected_elevation": currentProjectedPosition ? currentProjectedPosition.z : currentPosition.altitude,
       "corrected_elevation_unit": UnitTypes.toAbbreviatedString(positionSource.coordinateTransformer.destinationCrs.mapUnit)
+    }
+  }
+
+  QfSubtitleWriter {
+    id: subtitleWriter
+  }
+
+  Connections {
+    target: cameraItem.subtitleRecordingActive ? positionSource : null
+
+    function onPositionInformationChanged() {
+      cameraItem.recordSubtitlePosition();
     }
   }
 
@@ -686,10 +741,21 @@ Popup {
                   }
                 } else if (cameraItem.state == "VideoCapture") {
                   if (captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState) {
-                    platformUtilities.createDir(qgisProject.homePath, 'DCIM');
-                    captureLoader.item.recorder.outputLocation = QfUrlUtils.fromString(qgisProject.homePath + '/DCIM/');
+                    subtitleWriter.clear();
+                    cameraItem.recordedPositions = [];
+                    cameraItem.recordedDuration = 0;
+                    cameraItem.subtitleRecordingActive = cameraSettings.stamping || iface.readProjectBoolEntry("qfieldsync", "forceStamping");
+                    if (cameraItem.subtitleRecordingActive) {
+                      stampExpressionEvaluator.expressionText = iface.readProjectEntry("qfieldsync", "stampingDetailsTemplate", stampExpressionEvaluator.defaultTextTemplate);
+                      if (stampExpressionEvaluator.expressionText === "") {
+                        stampExpressionEvaluator.expressionText = stampExpressionEvaluator.defaultTextTemplate;
+                      }
+                    }
                     captureLoader.item.recorder.record();
+                    cameraItem.recordSubtitlePosition();
                   } else {
+                    cameraItem.recordedDuration = captureLoader.item.recorder.duration;
+                    cameraItem.subtitleRecordingActive = false;
                     cameraItem.state = "VideoPreview";
                     captureLoader.item.recorder.stop();
                     const path = captureLoader.item.recorder.actualLocation.toString();
@@ -709,6 +775,8 @@ Popup {
                       }
                       QfFileUtils.addImageStamp(currentPath, stampExpressionEvaluator.evaluate(), iface.readProjectEntry("qfieldsync", "stampingFontStyle"), iface.readProjectNumEntry("qfieldsync", "stampingHorizontalAlignment", 0), iface.readProjectEntry("qfieldsync", "stampingImageDecoration"));
                     }
+                  } else {
+                    cameraItem.writeSubtitleFile(currentPath);
                   }
                   if (cameraItem.userRotation !== 0 || cameraItem.userMirror) {
                     captureLoader.item.orientationNormalizer.applyEditsToImage(currentPath, cameraItem.userRotation, cameraItem.userMirror);
