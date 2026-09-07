@@ -70,6 +70,7 @@ class QfBluetoothLowEnergyReceiver : public QfNmeaGnssReceiver
 
   private:
     void clearService();
+    void updateBleTxPayloadSize( int mtu );
 
     //! Used to wait for previous connection to finish disconnecting
     void doConnectDevice();
