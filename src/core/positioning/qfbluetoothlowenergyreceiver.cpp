@@ -115,7 +115,7 @@ void QfBluetoothLowEnergyReceiver::doConnectDevice()
     connect( mController, &QLowEnergyController::serviceDiscovered, this, &QfBluetoothLowEnergyReceiver::serviceDiscovered );
     connect( mController, &QLowEnergyController::discoveryFinished, this, &QfBluetoothLowEnergyReceiver::serviceDiscoveryFinished );
     connect( mController, &QLowEnergyController::mtuChanged, this, [this]( int mtu ) {
-      mBleTxPayloadSize = std::max<qsizetype>( DEFAULT_BLE_TX_PAYLOAD_SIZE, mtu - 3 );
+      updateBleTxPayloadSize( mtu );
       qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: MTU changed to %1, BLE TX payload size set to %2" )
                    .arg( mtu )
                    .arg( mBleTxPayloadSize );
@@ -152,13 +152,20 @@ void QfBluetoothLowEnergyReceiver::doDisconnectDevice()
   }
 }
 
+void QfBluetoothLowEnergyReceiver::updateBleTxPayloadSize( int mtu )
+{
+  // Called both when connected and when the MTU changes, as some platforms
+  // expose the negotiated MTU only after the connection has been established.
+  if ( mtu > 3 )
+  {
+    mBleTxPayloadSize = std::max<qsizetype>( DEFAULT_BLE_TX_PAYLOAD_SIZE, mtu - 3 );
+  }
+}
+
 void QfBluetoothLowEnergyReceiver::deviceConnected()
 {
   const int mtu = mController->mtu();
-  if ( mtu > 3 )
-  {
-    mBleTxPayloadSize = std::max<qsizetype>( 20, mtu - 3 );
-  }
+  updateBleTxPayloadSize( mtu );
 
   qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Connected, discovering services, controller state %1, mtu=%2, txPayload=%3" )
                .arg( QMetaEnum::fromType<QLowEnergyController::ControllerState>().valueToKey( mController->state() ) )
