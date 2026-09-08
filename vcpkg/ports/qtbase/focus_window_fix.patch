@@ -1,0 +1,92 @@
+From 3921b9c10bfb4db629676987dc03b0689d345318 Mon Sep 17 00:00:00 2001
+From: Adrian Eddy <adrian.eddy@gmail.com>
+Date: Wed, 04 Mar 2026 19:19:45 +0100
+Subject: [PATCH] Android: Check for nullptr before using focusWindow()
+
+QGuiApplicationPrivate::focus_window() is cleared before
+FocusOut is delivered and before the input context is told
+the focus object went away, so any input callback reached
+during deactivation sees a null focus window while
+m_focusObject is still set.
+
+Pick-to: 6.8
+Fixes: QTBUG-144577
+Change-Id: Iad807c81e8a214e07de54ba8e1180823c69d1957
+Reviewed-by: Assam Boudjelthia <assam.boudjelthia@qt.io>
+Reviewed-by: Edward Welbourne <edward.welbourne@qt.io>
+(cherry picked from commit 525f3926963caac284ab548c840d89a54b6657c2)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+(cherry picked from commit 9318737ade346505eab2f1e0f19d0349f6241f0e)
+---
+
+diff --git a/src/plugins/platforms/android/qandroidinputcontext.cpp b/src/plugins/platforms/android/qandroidinputcontext.cpp
+index 797a100..e398ba8 100644
+--- a/src/plugins/platforms/android/qandroidinputcontext.cpp
++++ b/src/plugins/platforms/android/qandroidinputcontext.cpp
+@@ -391,10 +391,18 @@
+     {"fullscreenMode", "()Z", (void *)fullscreenMode}
+ };
+ 
++static QPlatformWindow *focusWindowHandle()
++{
++    QWindow *window = qGuiApp->focusWindow();
++    return window ? window->handle() : nullptr;
++}
++
+ static QRect screenInputItemRectangle()
+ {
+-    QRect windowRect = QPlatformInputContext::inputItemRectangle().toRect();
+-    QPlatformWindow *window = qGuiApp->focusWindow()->handle();
++    QPlatformWindow *window = focusWindowHandle();
++    if (!window)
++        return QRect();
++    const QRect windowRect = QPlatformInputContext::inputItemRectangle().toRect();
+     return QRect(window->mapToGlobal(windowRect.topLeft()), windowRect.size());
+ }
+ 
+@@ -612,6 +620,10 @@
+     if (noHandles || !m_focusObject)
+         return;
+ 
++    QPlatformWindow *qPlatformWindow = focusWindowHandle();
++    if (!qPlatformWindow)
++        return;
++
+     if (isImhNoTextHandlesSet()) {
+         QtAndroidInput::updateHandles(Hidden);
+         return;
+@@ -628,7 +640,6 @@
+     int anchor = query.value(Qt::ImAnchorPosition).toInt();
+     const QVariant readOnlyVariant = query.value(Qt::ImReadOnly);
+     bool readOnly = readOnlyVariant.toBool();
+-    QPlatformWindow *qPlatformWindow = qGuiApp->focusWindow()->handle();
+ 
+     if (!readOnly && ((m_handleMode & 0xff) == Hidden)) {
+         QtAndroidInput::updateHandles(Hidden);
+@@ -822,7 +833,8 @@
+ 
+ void QAndroidInputContext::touchDown(int x, int y)
+ {
+-    if (m_focusObject && screenInputItemRectangle().contains(x, y)) {
++    QPlatformWindow *window = focusWindowHandle();
++    if (window && m_focusObject && screenInputItemRectangle().contains(x, y)) {
+         // If the user touch the input rectangle, we can show the cursor handle
+         m_handleMode = ShowCursor;
+         // The VK will appear in a moment, stop the timer
+@@ -838,7 +850,6 @@
+         }
+ 
+         // Check if cursor is visible in focused window before updating handles
+-        QPlatformWindow *window = qGuiApp->focusWindow()->handle();
+         const QRectF curRect = cursorRectangle();
+         const QPoint cursorGlobalPoint = window->mapToGlobal(QPoint(curRect.x(), curRect.y()));
+         const QRect windowRect = QPlatformInputContext::inputItemClipRectangle().toRect();
+@@ -971,7 +982,7 @@
+     if (query.isNull())
+         return;
+ 
+-    if (!qGuiApp->focusWindow()->handle())
++    if (!focusWindowHandle())
+         return; // not a real window, probably VR/XR
+ 
+     disconnect(m_updateCursorPosConnection);
