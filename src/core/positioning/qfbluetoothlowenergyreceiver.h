@@ -70,6 +70,7 @@ class QfBluetoothLowEnergyReceiver : public QfNmeaGnssReceiver
 
   private:
     void clearService();
+    void updateBleTxPayloadSize( int mtu );
 
     //! Used to wait for previous connection to finish disconnecting
     void doConnectDevice();
@@ -92,9 +93,25 @@ class QfBluetoothLowEnergyReceiver : public QfNmeaGnssReceiver
     QByteArray mCorrectionData;
     QTimer mCorrectionTimer;
 
+    qint64 mBleRxBytes = 0;
+    qint64 mBleRxNotifications = 0;
+    qint64 mBleRxSentences = 0;
+    qint64 mCorrectionBytesReceived = 0;
+    qint64 mCorrectionBytesWritten = 0;
+    qint64 mCorrectionChunksWritten = 0;
+    qint64 mLastBleRxLogMs = 0;
+    qint64 mLastCorrectionLogMs = 0;
+    qsizetype mBleTxPayloadSize = 20;
+
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;
     int mConnectionFailureCount = 0;
+
+    static constexpr int CORRECTION_TIMER_INTERVAL_MS = 20;
+    static constexpr qsizetype CORRECTION_CATCH_UP_THRESHOLD_BYTES = 4096;
+    static constexpr int NORMAL_CORRECTION_CHUNKS_PER_TICK = 3;
+    static constexpr int CATCH_UP_CORRECTION_CHUNKS_PER_TICK = 6;
+    static constexpr qsizetype DEFAULT_BLE_TX_PAYLOAD_SIZE = 20;
 };
 
 #endif //QFBLUETOOTHLOWENERGYRECEIVER_H
