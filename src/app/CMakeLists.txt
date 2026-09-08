@@ -136,6 +136,11 @@ function(create_executable)
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
 
+  if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    set_target_properties(${exe_TARGET} PROPERTIES
+      XCODE_ATTRIBUTE_OTHER_LDFLAGS "$(inherited) -L$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)")
+  endif()
+
   file(GLOB TS_FILES ${CMAKE_SOURCE_DIR}/i18n/*.ts)
   set_source_files_properties(
     ${TS_FILES} PROPERTIES OUTPUT_LOCATION
