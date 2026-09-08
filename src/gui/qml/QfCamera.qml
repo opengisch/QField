@@ -1111,12 +1111,10 @@ Popup {
       readonly property int selectedQuality: qualities.indexOf(cameraSettings.videoQuality) >= 0 ? cameraSettings.videoQuality : 0
       readonly property size targetResolution: captureLoader.item ? cameraItem.videoResolutionForQuality(captureLoader.item.cameraResolution, selectedQuality) : Qt.size(0, 0)
 
-      readonly property real availableWidth: cameraItem.isPortraitMode ? parent.width : parent.width - captureBar.width
-
-      width: Math.min(availableWidth - 80, 320)
+      width: Math.min(parent.width - 80, 320)
       height: videoQualityColumn.height
 
-      x: availableWidth / 2 - width / 2
+      anchors.horizontalCenter: parent.horizontalCenter
       y: parent.height - height - 20 - (cameraItem.isPortraitMode ? captureBar.height : mainWindow.sceneBottomMargin)
 
       Column {
