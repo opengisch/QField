@@ -98,6 +98,7 @@
 #include <QResource>
 #include <QScreen>
 #include <QSslConfiguration>
+#include <QTimer>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 #include <QtQml/QQmlEngine>
@@ -106,6 +107,7 @@
 #include <qgscoordinatereferencesystem.h>
 #include <qgsexpressionfunction.h>
 #include <qgsfeature.h>
+#include <qgsfeedback.h>
 #include <qgsfield.h>
 #include <qgsfieldconstraints.h>
 #include <qgsfontmanager.h>
@@ -310,6 +312,9 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   connect( this, &QgisMobileapp::loadProjectTriggered, mIface, &QfAppInterface::loadProjectTriggered );
   connect( this, &QgisMobileapp::loadProjectEnded, mIface, &QfAppInterface::loadProjectEnded );
   connect( this, &QgisMobileapp::setMapExtent, mIface, &QfAppInterface::setMapExtent );
+  connect( this, &QgisMobileapp::printTriggered, mIface, &QfAppInterface::printTriggered );
+  connect( this, &QgisMobileapp::printProgress, mIface, &QfAppInterface::printProgress );
+  connect( this, &QgisMobileapp::printEnded, mIface, &QfAppInterface::printEnded );
 
   QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );
 
@@ -1054,6 +1059,11 @@ bool QgisMobileapp::readProjectBoolEntry( const QString &scope, const QString &k
 
 bool QgisMobileapp::print( const QString &layoutName )
 {
+  if ( mIsPrinting )
+  {
+    return false;
+  }
+
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
   std::unique_ptr<QgsPrintLayout> templateLayout;
@@ -1093,49 +1103,63 @@ bool QgisMobileapp::print( const QString &layoutName )
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
     return false;
 
-  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( mProject->homePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
+  mIsPrinting = true;
+  emit printTriggered( layoutToPrint->name() );
 
-  if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
-  {
-    if ( layoutToPrint->referenceMap() )
-      layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
-    layoutToPrint->refresh();
+  QTimer::singleShot( 300, this, [this, layoutToPrint, templateLayout = std::move( templateLayout )]() {
+    const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
 
-    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-
-    QgsLayoutExporter::PdfExportSettings pdfSettings;
-    pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
-    pdfSettings.dpi = layoutToPrint->renderContext().dpi();
-    pdfSettings.appendGeoreference = true;
-    pdfSettings.exportMetadata = true;
-    pdfSettings.simplifyGeometries = true;
-    QgsLayoutExporter::ExportResult result = exporter.exportToPdf( destination, pdfSettings );
-
-    if ( result == QgsLayoutExporter::Success )
-      QfPlatformUtilities::instance()->open( destination );
-
-    return result == QgsLayoutExporter::Success ? true : false;
-  }
-  else
-  {
-    bool success = printAtlas( layoutToPrint, destination );
-    if ( success )
+    QString openPath;
+    bool success = false;
+    if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
     {
-      if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+      if ( layoutToPrint->referenceMap() )
+        layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
+      layoutToPrint->refresh();
+
+      QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+
+      QgsLayoutExporter::PdfExportSettings pdfSettings;
+      pdfSettings.rasterizeWholeImage = layoutToPrint->customProperty( QStringLiteral( "rasterize" ), false ).toBool();
+      pdfSettings.dpi = layoutToPrint->renderContext().dpi();
+      pdfSettings.appendGeoreference = true;
+      pdfSettings.exportMetadata = true;
+      pdfSettings.simplifyGeometries = true;
+
+      success = exporter.exportToPdf( destination, pdfSettings ) == QgsLayoutExporter::Success;
+      if ( success )
       {
-        QfPlatformUtilities::instance()->open( destination );
-      }
-      else
-      {
-        QfPlatformUtilities::instance()->open( mProject->homePath() );
+        openPath = destination;
       }
     }
-    return success;
-  }
+    else
+    {
+      success = printAtlas( layoutToPrint, destination );
+      if ( success && layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+      {
+        openPath = destination;
+      }
+    }
+
+    mIsPrinting = false;
+    emit printEnded( success, success ? layoutsFolder() : QString() );
+
+    if ( !openPath.isEmpty() )
+    {
+      QfPlatformUtilities::instance()->open( openPath );
+    }
+  } );
+
+  return true;
 }
 
 bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
+  if ( mIsPrinting )
+  {
+    return false;
+  }
+
   const QList<QgsPrintLayout *> printLayouts = mProject->layoutManager()->printLayouts();
   QgsPrintLayout *layoutToPrint = nullptr;
   auto match = std::find_if( printLayouts.begin(), printLayouts.end(), [&layoutName]( QgsPrintLayout *layout ) { return layout->name() == layoutName; } );
@@ -1147,49 +1171,51 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   if ( !layoutToPrint || !layoutToPrint->atlas() )
     return false;
 
-  QStringList ids;
-  for ( const auto id : featureIds )
-  {
-    ids << QString::number( id );
-  }
+  mIsPrinting = true;
+  emit printTriggered( layoutToPrint->name() );
 
-  QString error;
-  const QString priorFilterExpression = layoutToPrint->atlas()->filterExpression();
-  const bool priorFilterFeatures = layoutToPrint->atlas()->filterFeatures();
-
-  layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "@id IN (%1)" ).arg( ids.join( ',' ) ), error );
-  layoutToPrint->atlas()->setFilterFeatures( true );
-  layoutToPrint->atlas()->updateFeatures();
-
-  const QString destination = QStringLiteral( "%1/layouts/%2-%3.pdf" ).arg( mProject->homePath(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
-  QString finalDestination;
-  const bool destinationSingleFile = layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool();
-  if ( !destinationSingleFile && ids.size() == 1 )
-  {
-    layoutToPrint->atlas()->first();
-    finalDestination = mProject->homePath() + '/' + layoutToPrint->atlas()->currentFilename() + QStringLiteral( ".pdf" );
-  }
-  else
-  {
-    finalDestination = destination;
-  }
-  const bool success = printAtlas( layoutToPrint, destination );
-
-  layoutToPrint->atlas()->setFilterExpression( priorFilterExpression, error );
-  layoutToPrint->atlas()->setFilterFeatures( priorFilterFeatures );
-
-  if ( success )
-  {
-    if ( destinationSingleFile || ids.size() == 1 )
+  QTimer::singleShot( 300, this, [this, layoutToPrint, featureIds]() {
+    QStringList ids;
+    for ( const long long id : featureIds )
     {
-      QfPlatformUtilities::instance()->open( finalDestination );
+      ids << QString::number( id );
     }
-    else
+
+    QString error;
+    const QString priorFilterExpression = layoutToPrint->atlas()->filterExpression();
+    const bool priorFilterFeatures = layoutToPrint->atlas()->filterFeatures();
+
+    layoutToPrint->atlas()->setFilterExpression( QStringLiteral( "@id IN (%1)" ).arg( ids.join( ',' ) ), error );
+    layoutToPrint->atlas()->setFilterFeatures( true );
+
+    const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
+    QString openPath;
+    if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
     {
-      QfPlatformUtilities::instance()->open( mProject->homePath() );
+      openPath = destination;
     }
-  }
-  return success;
+    else if ( ids.size() == 1 )
+    {
+      layoutToPrint->atlas()->updateFeatures();
+      layoutToPrint->atlas()->first();
+      openPath = layoutsFolder() + '/' + layoutToPrint->atlas()->currentFilename() + QStringLiteral( ".pdf" );
+    }
+
+    const bool success = printAtlas( layoutToPrint, destination );
+
+    layoutToPrint->atlas()->setFilterExpression( priorFilterExpression, error );
+    layoutToPrint->atlas()->setFilterFeatures( priorFilterFeatures );
+
+    mIsPrinting = false;
+    emit printEnded( success, success ? layoutsFolder() : QString() );
+
+    if ( success && !openPath.isEmpty() )
+    {
+      QfPlatformUtilities::instance()->open( openPath );
+    }
+  } );
+
+  return true;
 }
 
 bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &destination )
@@ -1220,24 +1246,34 @@ bool QgisMobileapp::printAtlas( QgsPrintLayout *layoutToPrint, const QString &de
   pdfSettings.simplifyGeometries = true;
   pdfSettings.predefinedMapScales = mapScales;
 
-  if ( layoutToPrint->atlas()->updateFeatures() )
+  if ( !layoutToPrint->atlas()->updateFeatures() )
   {
-    QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
-    QgsLayoutExporter::ExportResult result;
-
-    if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
-    {
-      result = exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error );
-    }
-    else
-    {
-      result = exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error );
-    }
-
-    return result == QgsLayoutExporter::Success ? true : false;
+    return false;
   }
 
-  return false;
+  QgsFeedback feedback;
+  connect( &feedback, &QgsFeedback::progressChanged, this, [this]( double progress ) {
+    emit printProgress( progress / 100.0 );
+  } );
+
+  QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
+  QgsLayoutExporter::ExportResult result;
+
+  if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+  {
+    result = exporter.exportToPdf( layoutToPrint->atlas(), destination, pdfSettings, error, &feedback );
+  }
+  else
+  {
+    result = exporter.exportToPdfs( layoutToPrint->atlas(), destination, pdfSettings, error, &feedback );
+  }
+
+  return result == QgsLayoutExporter::Success;
+}
+
+QString QgisMobileapp::layoutsFolder() const
+{
+  return mProject->homePath() + QStringLiteral( "/layouts" );
 }
 
 void QgisMobileapp::setScreenDimmerTimeout( int timeoutSeconds )
