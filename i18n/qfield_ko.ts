@@ -3099,6 +3099,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete file: %1 - %2</source>
         <translation>파일을 삭제하지 못했습니다: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7084,6 +7088,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>래스터 데이터셋</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

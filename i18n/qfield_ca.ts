@@ -3102,6 +3102,10 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation>No s&apos;ha pogut suprimir el fitxer: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7091,6 +7095,10 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Raster Datasets</source>
         <translation>Conjunts de dades raster</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

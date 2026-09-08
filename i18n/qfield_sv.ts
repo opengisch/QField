@@ -3101,6 +3101,10 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
         <source>Failed to delete file: %1 - %2</source>
         <translation>Kunde inte ta bort fil: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7088,6 +7092,10 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
     <message>
         <source>Raster Datasets</source>
         <translation>Rasterdatamängder</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

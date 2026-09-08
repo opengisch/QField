@@ -3103,6 +3103,10 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7089,6 +7093,10 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <message>
         <source>Raster Datasets</source>
         <translation>Rasteriaineistot</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

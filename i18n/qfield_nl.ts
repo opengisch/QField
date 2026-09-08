@@ -3101,6 +3101,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7087,6 +7091,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Raster Datasets</source>
         <translation>Rastergegevenssets</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

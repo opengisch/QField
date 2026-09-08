@@ -3105,6 +3105,10 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
         <source>Failed to delete file: %1 - %2</source>
         <translation>Nepavyko ištrinti failo: %1 – %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7097,6 +7101,10 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <message>
         <source>Raster Datasets</source>
         <translation>Rastriniai duomenų rinkiniai</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

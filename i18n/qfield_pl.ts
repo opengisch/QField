@@ -3105,6 +3105,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation>Nie udało się usunąć pliku: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>Nie udało się usunąć pliku sidecar: %1 - %2</translation>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7097,6 +7101,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Raster Datasets</source>
         <translation>Zbiory danych rastrowych</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>Nie udało się przenieść pliku sidecar „%1” razem z plikiem „%2”</translation>
     </message>
 </context>
 <context>

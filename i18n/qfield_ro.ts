@@ -3105,6 +3105,10 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7095,6 +7099,10 @@ Motiv:
     <message>
         <source>Raster Datasets</source>
         <translation>Baza de date Rastere</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

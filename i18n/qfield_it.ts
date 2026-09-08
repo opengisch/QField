@@ -750,7 +750,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="vanished"><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform></translation>
+        <translation type="vanished"><numerusform>Vuoi davvero eliminare %n elemento selezionato?</numerusform><numerusform>Vuoi davvero eliminare %n elementi selezionati?</numerusform><numerusform>Vuoi davvero eliminare %n elementi selezionati?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
@@ -3106,6 +3106,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3860,7 +3864,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Configurazione dispositivo bluetooth:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
@@ -3910,15 +3914,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Esporta Tutti i Segnalibri dell&apos;Utente</translation>
     </message>
     <message>
         <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
+        <translation>Segnalibri esportati</translation>
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Cancella Segnalibri Selezionati</translation>
     </message>
     <message>
         <source>Bookmark Actions</source>
@@ -3926,7 +3930,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Modifica Segnalibro</translation>
     </message>
     <message>
         <source>Navigate to bookmark</source>
@@ -6656,7 +6660,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Utente e password</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
@@ -7095,6 +7099,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Raster Datasets</source>
         <translation>Dataset Raster</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

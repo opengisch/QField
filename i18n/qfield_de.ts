@@ -3098,6 +3098,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation>Löschen der Dateien fehlgeschlagen: %1- %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7083,6 +7087,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Raster Datasets</source>
         <translation>Rasterdaten</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

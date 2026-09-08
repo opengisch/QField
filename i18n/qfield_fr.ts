@@ -3098,6 +3098,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete file: %1 - %2</source>
         <translation>Échec de la suppression du fichier : %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>Impossible de supprimer le fichier connexe : %1 - %2</translation>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7088,6 +7092,10 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <message>
         <source>Raster Datasets</source>
         <translation>Données raster </translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>Impossible de déplacer le fichier &apos;%1&apos; vers &apos;%2&apos;</translation>
     </message>
 </context>
 <context>

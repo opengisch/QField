@@ -3099,6 +3099,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete file: %1 - %2</source>
         <translation>无法删除文件: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>无法删除附属文件: %1 - %2</translation>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4137,7 +4141,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished"/>
+        <translation>最高</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -5203,7 +5207,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Enter your project description</source>
-        <translation type="unfinished"/>
+        <translation>输入您的工程描述</translation>
     </message>
 </context>
 <context>
@@ -6362,12 +6366,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>无法在图层 &quot;%1&quot; 中添加要素</translation>
     </message>
     <message>
         <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>无法在图层 &quot;%1&quot; 中提交新要素。原因：
+%2</translation>
     </message>
 </context>
 <context>
@@ -7084,6 +7089,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>栅格数据集</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>无法将附属文件 &quot;%1&quot; 移到 &quot;%2&quot; 旁边</translation>
     </message>
 </context>
 <context>
@@ -9248,19 +9257,19 @@ to show actions</source>
     </message>
     <message>
         <source>Printing %1</source>
-        <translation type="unfinished"/>
+        <translation>正在打印 %1</translation>
     </message>
     <message>
         <source>Print failed</source>
-        <translation type="unfinished"/>
+        <translation>打印失败</translation>
     </message>
     <message>
         <source>Printed and placed in your project layouts folder</source>
-        <translation type="unfinished"/>
+        <translation>已打印并存放于您的工程布局文件夹</translation>
     </message>
     <message>
         <source>Open folder</source>
-        <translation type="unfinished"/>
+        <translation>打开文件夹</translation>
     </message>
 </context>
 <context>

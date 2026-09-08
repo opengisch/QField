@@ -3105,6 +3105,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete file: %1 - %2</source>
         <translation>Не вдалося видалити файл: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>Не вдалося видалити супутній файл: %1 - %2</translation>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4143,7 +4147,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished"/>
+        <translation>Найвищий</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -5209,7 +5213,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Enter your project description</source>
-        <translation type="unfinished"/>
+        <translation>Введіть опис вашого проекту</translation>
     </message>
 </context>
 <context>
@@ -5328,11 +5332,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>easting [X]</source>
-        <translation>абсциса [X, UTM]</translation>
+        <translation>абсциса [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation> ордината [Y, UTM]</translation>
+        <translation> ордината [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
@@ -6374,12 +6378,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо додати функцію в шар &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>Не вдається додати нову функцію в шарі &quot;%1&quot;. Причина:
+%2</translation>
     </message>
 </context>
 <context>
@@ -7096,6 +7101,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>Растрові набори даних</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>Не вдалося перемістити супутній файл &apos;%1&apos; разом із &apos;%2&apos;</translation>
     </message>
 </context>
 <context>
@@ -9260,19 +9269,19 @@ to show actions</source>
     </message>
     <message>
         <source>Printing %1</source>
-        <translation type="unfinished"/>
+        <translation>Друк %1</translation>
     </message>
     <message>
         <source>Print failed</source>
-        <translation type="unfinished"/>
+        <translation>Помилка друку</translation>
     </message>
     <message>
         <source>Printed and placed in your project layouts folder</source>
-        <translation type="unfinished"/>
+        <translation>Роздруковано та розміщено в папці макетів Вашого проекту.</translation>
     </message>
     <message>
         <source>Open folder</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити папку</translation>
     </message>
 </context>
 <context>

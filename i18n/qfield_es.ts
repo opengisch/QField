@@ -3101,6 +3101,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>Failed to delete file: %1 - %2</source>
         <translation>No se pudo borrar el archivo: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7089,6 +7093,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Raster Datasets</source>
         <translation>Conjuntos de datos ráster</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

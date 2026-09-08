@@ -3094,6 +3094,10 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
         <source>Failed to delete file: %1 - %2</source>
         <translation>Không thể xóa tệp: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -7074,6 +7078,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>Bộ dữ liệu raster</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
