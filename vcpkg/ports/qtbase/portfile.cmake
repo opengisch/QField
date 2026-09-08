@@ -28,6 +28,7 @@ set(${PORT}_PATCHES
         use_inotify_on_freebsd.patch
         fix-qyieldcpu-apple-clang.patch
         webviewfocus.patch
+        focus_window_fix.patch # QTBUG-144577 (until Qt >= 6.11.3)
 )
  
 if(VCPKG_TARGET_IS_WINDOWS AND NOT VCPKG_TARGET_IS_MINGW)
