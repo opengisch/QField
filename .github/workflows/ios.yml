@@ -22,7 +22,7 @@ jobs:
     name: build (ios)
     runs-on: macos-15
     env:
-      DEPLOYMENT_TARGET: '16.0'
+      DEPLOYMENT_TARGET: '17.0'
       BUILD_TYPE: 'Release'
       TRIPLET: 'arm64-ios'
       IOS_SDK: '26.2'
@@ -180,7 +180,7 @@ jobs:
       - name: 📦 Package
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         env:
-          IPHONEOS_DEPLOYMENT_TARGET: '16.0'
+          IPHONEOS_DEPLOYMENT_TARGET: '17.0'
         run: |
           cmake --build  /Users/runner/builddir --target bundle --config Release
 
