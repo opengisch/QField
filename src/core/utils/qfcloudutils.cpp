@@ -124,7 +124,7 @@ QString QfCloudUtils::documentationFromErrorString( const QString &errorString )
   return QString();
 }
 
-QString QfCloudUtils::cloudifyErrorString( const QString &localPath )
+QString QfCloudUtils::checkCloudifyFeasibility( const QString &localPath )
 {
   const QFileInfo localPathInfo( localPath );
   if ( !localPathInfo.exists() )
@@ -134,21 +134,26 @@ QString QfCloudUtils::cloudifyErrorString( const QString &localPath )
 
   const QString projectDirectoryPath = localPathInfo.isFile() ? localPathInfo.absolutePath() : localPathInfo.absoluteFilePath();
 
-  QFileInfo projectFileInfo;
+  bool projectFileFound = false;
   QDirIterator projectDirIterator( projectDirectoryPath, { QStringLiteral( "*.qgs" ), QStringLiteral( "*.qgz" ) }, QDir::Files, QDirIterator::Subdirectories );
   while ( projectDirIterator.hasNext() )
   {
-    projectDirIterator.next();
-    if ( projectFileInfo.exists() )
+    if ( projectFileFound )
     {
       return tr( "The project folder contains more than one project file, move the project into a folder of its own and try again." );
     }
-    projectFileInfo = projectDirIterator.fileInfo();
+    projectFileFound = true;
+
+    projectDirIterator.next();
+    if ( projectDirIterator.fileInfo().size() == 0 )
+    {
+      return tr( "The project folder does not contain a valid project file." );
+    }
   }
 
-  if ( !projectFileInfo.exists() || projectFileInfo.size() == 0 )
+  if ( !projectFileFound )
   {
-    return tr( "The project folder does not contain a valid project file." );
+    return tr( "The project folder does not contain a project file." );
   }
 
   return QString();

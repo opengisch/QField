@@ -98,7 +98,7 @@ void writeFile( const QString &filePath, const QByteArray &content )
 }
 
 
-TEST_CASE( "QFieldCloudUtils::cloudifyErrorString" )
+TEST_CASE( "QFieldCloudUtils::checkCloudifyFeasibility" )
 {
   QTemporaryDir projectDir;
   REQUIRE( projectDir.isValid() );
@@ -107,22 +107,22 @@ TEST_CASE( "QFieldCloudUtils::cloudifyErrorString" )
 
   SECTION( "Missing folder returns an error" )
   {
-    REQUIRE_FALSE( QfCloudUtils::cloudifyErrorString( QStringLiteral( "%1/missing" ).arg( projectDir.path() ) ).isEmpty() );
+    REQUIRE_FALSE( QfCloudUtils::checkCloudifyFeasibility( QStringLiteral( "%1/missing" ).arg( projectDir.path() ) ).isEmpty() );
   }
 
   SECTION( "Folder without a valid project file returns an error" )
   {
-    REQUIRE_FALSE( QfCloudUtils::cloudifyErrorString( projectDir.path() ).isEmpty() );
+    REQUIRE_FALSE( QfCloudUtils::checkCloudifyFeasibility( projectDir.path() ).isEmpty() );
     writeFile( projectFilePath, QByteArray() );
-    REQUIRE_FALSE( QfCloudUtils::cloudifyErrorString( projectDir.path() ).isEmpty() );
+    REQUIRE_FALSE( QfCloudUtils::checkCloudifyFeasibility( projectDir.path() ).isEmpty() );
   }
 
   SECTION( "A single project file passes, a second one returns an error" )
   {
     writeFile( projectFilePath, QByteArray( "project" ) );
-    REQUIRE( QfCloudUtils::cloudifyErrorString( projectDir.path() ).isEmpty() );
-    REQUIRE( QfCloudUtils::cloudifyErrorString( projectFilePath ).isEmpty() );
+    REQUIRE( QfCloudUtils::checkCloudifyFeasibility( projectDir.path() ).isEmpty() );
+    REQUIRE( QfCloudUtils::checkCloudifyFeasibility( projectFilePath ).isEmpty() );
     writeFile( QStringLiteral( "%1/other.qgs" ).arg( projectDir.path() ), QByteArray( "project" ) );
-    REQUIRE_FALSE( QfCloudUtils::cloudifyErrorString( projectDir.path() ).isEmpty() );
+    REQUIRE_FALSE( QfCloudUtils::checkCloudifyFeasibility( projectDir.path() ).isEmpty() );
   }
 }

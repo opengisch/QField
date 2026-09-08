@@ -2445,7 +2445,7 @@ void QfCloudProject::setupDeltaFileWrapper()
 
 void QfCloudProject::uploadLocalPath( QString localPath, bool deleteAfterSuccessfulUpload )
 {
-  const QString localPathError = QfCloudUtils::cloudifyErrorString( localPath );
+  const QString localPathError = QfCloudUtils::checkCloudifyFeasibility( localPath );
   if ( !localPathError.isEmpty() )
   {
     emit uploadFinished( localPathError );
