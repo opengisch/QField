@@ -3353,7 +3353,7 @@ ApplicationWindow {
                 if (overlayFeatureFormDrawer.featureForm.model.constraintsHardValid && !overlayFeatureFormDrawer.featureForm.featureAdditionLocked) {
                   // when the constrainst are fulfilled
                   // indirect action, no need to check for success and display a toast, the log is enough
-                  overlayFeatureFormDrawer.featureModel.featureCreated = overlayFeatureFormDrawer.featureModel.create();
+                  overlayFeatureFormDrawer.featureForm.featureCreated = overlayFeatureFormDrawer.featureModel.create();
                 }
               } else {
                 // indirect action, no need to check for success and display a toast, the log is enough
@@ -3412,13 +3412,7 @@ ApplicationWindow {
             digitizingRubberband.model.frozen = true;
             digitizingFeature.updateRubberband();
           }
-          if (!digitizingFeature.suppressFeatureForm()) {
-            overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
-            overlayFeatureFormDrawer.featureModel.applyGeometry();
-            overlayFeatureFormDrawer.featureModel.resetAttributes();
-            overlayFeatureFormDrawer.open();
-            overlayFeatureFormDrawer.state = "Add";
-          } else {
+          if (digitizingFeature.suppressFeatureForm()) {
             if (!overlayFeatureFormDrawer.featureForm.featureCreated) {
               overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
               overlayFeatureFormDrawer.featureModel.applyGeometry();
@@ -3435,6 +3429,16 @@ ApplicationWindow {
                 displayToast(qsTr("Failed to save feature"), 'error');
               }
             }
+          } else {
+            if (!overlayFeatureFormDrawer.featureForm.featureCreated) {
+              overlayFeatureFormDrawer.featureModel.geometry = digitizingFeature.geometry;
+              overlayFeatureFormDrawer.featureModel.applyGeometry();
+              overlayFeatureFormDrawer.featureModel.resetAttributes();
+            }
+
+            overlayFeatureFormDrawer.open();
+            overlayFeatureFormDrawer.state = "Add";
+
             digitizingRubberband.model.reset();
             digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
             digitizingFeature.resetFeature();
