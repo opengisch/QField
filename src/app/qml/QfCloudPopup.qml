@@ -1114,7 +1114,7 @@ Popup {
     if (!opened) {
       show();
     }
-    cloudifyError.titleText = QfCloudUtils.cloudifyErrorString(path);
+    cloudifyError.titleText = QfCloudUtils.checkCloudifyFeasibility(path);
     if (cloudifyError.titleText !== '') {
       return;
     }
