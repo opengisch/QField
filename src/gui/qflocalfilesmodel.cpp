@@ -286,7 +286,7 @@ void QfLocalFilesModel::reloadModel()
         QFileInfo fi( path + QDir::separator() + item );
         if ( fi.isDir() )
         {
-          folders << QfLocalFileItem( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
+          folders << QfLocalFileItem( ItemMetaType::Folder, ItemType::SimpleFolder, getCurrentTitleFromPath( fi.absoluteFilePath() ), QString(), fi.absoluteFilePath() );
         }
         else
         {
