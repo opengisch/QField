@@ -671,7 +671,7 @@ Page {
                     case QfRecentProjectListModel.CloudProject:
                     case QfRecentProjectListModel.LocalProject:
                     case QfRecentProjectListModel.LocalDataset:
-                      if (item.type === QfRecentProjectListModel.CloudProject && cloudConnection.hasToken && cloudConnection.status !== QfCloudConnection.LoggedIn) {
+                      if (item.type === QfRecentProjectListModel.CloudProject && cloudConnection.hasToken && cloudConnection.status !== QfCloudConnection.LoggedIn && cloudConnection.isReachable) {
                         cloudConnection.login();
                       }
                       iface.loadFile(item.path, item.projectTitle.text);

@@ -1046,7 +1046,7 @@ Popup {
     if (opened) {
       return;
     }
-    if (cloudConnection.status === QfCloudConnection.Disconnected) {
+    if (cloudConnection.status === QfCloudConnection.Disconnected && cloudConnection.isReachable) {
       if ((cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
         cloudConnection.login();
       }
