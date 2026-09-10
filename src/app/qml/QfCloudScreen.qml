@@ -1171,7 +1171,7 @@ Page {
     if (visible) {
       switch (cloudConnection.status) {
       case QfCloudConnection.Disconnected:
-        if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
+        if (cloudConnection.isReachable && (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
           cloudConnection.login();
           if (requestedProjectDetails != "") {
             // Project details requested, jump on the login screen then project details

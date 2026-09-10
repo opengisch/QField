@@ -5275,6 +5275,15 @@ ApplicationWindow {
       qfieldCloudStatus.refresh();
       displayToast(reason);
     }
+
+    onIsReachableChanged: {
+      if (cloudConnection.isReachable && cloudConnection.status === QfCloudConnection.Disconnected) {
+        const cloudProjectId = QfCloudUtils.getProjectId(qgisProject.fileName);
+        if (cloudProjectId) {
+          cloudConnection.login();
+        }
+      }
+    }
   }
 
   QfCloudProjectsModel {
