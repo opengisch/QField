@@ -552,10 +552,12 @@ void QfIosPlatformUtilities::sendDatasetTo(const QString &path) const {
   [root presentViewController:activityVC animated:YES completion:nil];
 }
 
-void QfIosPlatformUtilities::sendCompressedFolderTo(const QString &path) const {
+void QfIosPlatformUtilities::sendCompressedFolderTo(
+    const QString &path, const QString &fileName) const {
+  QString zipName = fileName.isEmpty() ? QFileInfo(path).fileName() : fileName;
   QString tempZipPath =
       QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
-      QStringLiteral("/") + QFileInfo(path).fileName() + QStringLiteral(".zip");
+      QStringLiteral("/") + zipName + QStringLiteral(".zip");
   QFile::remove(tempZipPath);
 
   QStringList files;

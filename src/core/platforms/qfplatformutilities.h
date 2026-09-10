@@ -178,7 +178,7 @@ class QFIELD_CORE_EXPORT QfPlatformUtilities : public QObject
     //! Sends a dataset \a path via the platform native API
     Q_INVOKABLE virtual void sendDatasetTo( const QString &path ) const;
     //! Compresses a folder \a path and sends it via the platform native API
-    Q_INVOKABLE virtual void sendCompressedFolderTo( const QString &path ) const;
+    Q_INVOKABLE virtual void sendCompressedFolderTo( const QString &path, const QString &fileName = QString() ) const;
     //! Compresses a list of file \a paths and sends it via the platform native API
     Q_INVOKABLE virtual void sendCompressedFilesTo( const QStringList &paths ) const;
 
