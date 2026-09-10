@@ -872,7 +872,7 @@ Page {
 
         text: qsTr("Compress project and send to...")
         onTriggered: {
-          platformUtilities.sendCompressedFolderTo(QfFileUtils.absolutePath(projectInfo.filePath));
+          platformUtilities.sendCompressedFolderTo(QfFileUtils.absolutePath(projectInfo.filePath), QfFileUtils.fileName(projectInfo.filePath, false));
         }
       }
 

@@ -361,16 +361,17 @@ void QfAndroidPlatformUtilities::exportFolderTo( const QString &path ) const
   }
 }
 
-void QfAndroidPlatformUtilities::sendCompressedFolderTo( const QString &path ) const
+void QfAndroidPlatformUtilities::sendCompressedFolderTo( const QString &path, const QString &fileName ) const
 {
   if ( mActivity.isValid() )
   {
-    runOnAndroidMainThread( [path] {
+    runOnAndroidMainThread( [path, fileName] {
       auto activity = qtAndroidContext();
       if ( activity.isValid() )
       {
         QJniObject pathJni = QJniObject::fromString( path );
-        activity.callMethod<void>( "sendCompressedFolderTo", "(Ljava/lang/String;)V", pathJni.object<jstring>() );
+        QJniObject fileNameJni = QJniObject::fromString( fileName );
+        activity.callMethod<void>( "sendCompressedFolderTo", "(Ljava/lang/String;Ljava/lang/String;)V", pathJni.object<jstring>(), fileNameJni.object<jstring>() );
       }
     } );
   }
