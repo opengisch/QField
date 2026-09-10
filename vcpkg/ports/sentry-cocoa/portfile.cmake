@@ -1,35 +1,40 @@
-vcpkg_from_github(
-    OUT_SOURCE_PATH SOURCE_PATH
-    REPO getsentry/sentry-cocoa
-    REF 7.23.0
-    SHA512 2cc9d1dc39221b31dbbfb650ebbed30356f44d9adac7a8a9c13fdaabc58aa3a7f5d4192d521a4296efe45f17ca0a86c53f9171697340a25c50e75be602033b68
-    HEAD_REF master
-    PATCHES
-      stdint.patch
-      ucontext64.patch
-      exception.patch
-      const-vector.patch
+vcpkg_download_distfile(ARCHIVE
+    URLS "https://github.com/getsentry/sentry-cocoa/releases/download/${VERSION}/Sentry.xcframework.zip"
+    FILENAME "sentry-cocoa-${VERSION}-Sentry.xcframework.zip"
+    SHA512 ed2b739b4a3ce4ee60c736ee0b63699a8ce21ac7e34c3ff8a8432440b8c00d609546b4d45914a5c91f11f26a5d45ee6c46ac75a49cfc58db7624ed503c79b9e8
 )
 
-file(COPY ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt DESTINATION ${SOURCE_PATH})
-file(COPY ${CMAKE_CURRENT_LIST_DIR}/SentryCocoaConfig.cmake.in DESTINATION ${SOURCE_PATH})
+vcpkg_download_distfile(LICENSE_FILE
+    URLS "https://raw.githubusercontent.com/getsentry/sentry-cocoa/${VERSION}/LICENSE.md"
+    FILENAME "sentry-cocoa-${VERSION}-LICENSE.md"
+    SHA512 1d717ad4fa2eef387a57b7044fd5753f4bd5020bdf15e3d7920ccc6c522dcda337b47a527aa43dd6325ce4f1866dd1828e23bfe2abfd4f61905c37a4e1c52a0f
+)
 
-if(VCPKG_CROSSCOMPILING)
-    list(APPEND SENTRY_COCOA_OPTIONS -DQT_HOST_PATH=${CURRENT_HOST_INSTALLED_DIR})
-    list(APPEND SENTRY_COCOA_OPTIONS -DQT_HOST_PATH_CMAKE_DIR:PATH=${CURRENT_HOST_INSTALLED_DIR}/share)
+vcpkg_extract_source_archive(
+    SOURCE_PATH
+    ARCHIVE "${ARCHIVE}"
+    NO_REMOVE_ONE_LEVEL
+)
+
+if(VCPKG_TARGET_IS_IOS)
+    set(SENTRY_SLICE "ios-arm64_arm64e")
+elseif(VCPKG_TARGET_IS_OSX)
+    set(SENTRY_SLICE "macos-arm64_arm64e_x86_64")
+else()
+    message(FATAL_ERROR "sentry-cocoa only supports iOS and macOS targets.")
 endif()
 
-vcpkg_cmake_configure(
-    SOURCE_PATH ${SOURCE_PATH}
-    OPTIONS
-        ${SENTRY_COCOA_OPTIONS}
-)
+set(SENTRY_FRAMEWORK "${SOURCE_PATH}/Sentry.xcframework/${SENTRY_SLICE}/Sentry.framework")
+if(NOT EXISTS "${SENTRY_FRAMEWORK}")
+    message(FATAL_ERROR "Slice '${SENTRY_SLICE}' not found in Sentry.xcframework.")
+endif()
 
-vcpkg_install_cmake()
+file(COPY "${SENTRY_FRAMEWORK}" DESTINATION "${CURRENT_PACKAGES_DIR}/lib")
+file(COPY "${SENTRY_FRAMEWORK}" DESTINATION "${CURRENT_PACKAGES_DIR}/debug/lib")
 
-vcpkg_cmake_config_fixup(
-    CONFIG_PATH lib/cmake/SentryCocoa
-    PACKAGE_NAME SentryCocoa
-)
+configure_file(
+    "${CMAKE_CURRENT_LIST_DIR}/SentryCocoaConfig.cmake.in"
+    "${CURRENT_PACKAGES_DIR}/lib/cmake/SentryCocoa/SentryCocoaConfig.cmake"
+    @ONLY)
 
-file(INSTALL "${SOURCE_PATH}/LICENSE.md" DESTINATION "${CURRENT_PACKAGES_DIR}/share/sentry-cocoa" RENAME copyright)
+vcpkg_install_copyright(FILE_LIST "${LICENSE_FILE}")
