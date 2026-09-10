@@ -459,9 +459,10 @@ Page {
         id: actionButton
         round: true
 
-        property bool isLocalProject: qgisProject && QfCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
-        property bool isLocalProjectActionAvailable: updateProjectFromArchive.enabled || uploadProjectToWebdav.enabled || compressProjectAndSendTo.enabled
-        visible: (projectFolderView && isLocalProject && isLocalProjectActionAvailable && table.model.currentDepth === 1) || table.model.currentPath === 'root'
+        property bool isProject: qgisProject && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
+        property bool isLocalProject: isProject && QfCloudUtils.getProjectId(qgisProject.fileName) === ''
+        property bool isProjectActionAvailable: updateProjectFromArchive.enabled || uploadProjectToWebdav.enabled || compressProjectAndSendTo.enabled
+        visible: (projectFolderView && isProject && isProjectActionAvailable && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
         anchors.right: parent.right
@@ -830,7 +831,7 @@ Page {
       MenuItem {
         id: updateProjectFromArchive
 
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.UpdateProjectFromArchive
+        enabled: actionButton.isLocalProject && platformUtilities.capabilities & QfPlatformUtilities.UpdateProjectFromArchive
         visible: enabled
         font: QfTheme.defaultFont
         width: parent.width
