@@ -3097,6 +3097,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4114,14 +4118,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>அகலாங்கு</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>நெட்டாங்கு</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>குத்துயரம்</translation>
     </message>
@@ -4130,8 +4126,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>வேகம்</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>அகலாங்கு</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>நெட்டாங்கு</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>நோக்குநிலை</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4827,18 +4835,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>கைவிடப்பட்டது</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>உள்ளக பாதை இல்லை</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>பல திட்டக் கோப்புகளைக் கொண்டிருப்பதால், பதிவேற்றுவதற்கான உள்ளக பாதையைப் பயன்படுத்த முடியாது</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>பதிவேற்றுவதற்கான உள்ளக பாதை சரியான திட்டக் கோப்பைக் காணவில்லை</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>பிணையம் பிழை. `%1` கோப்பைப் பதிவேற்றுவதில் தோல்வி.</translation>
     </message>
@@ -5194,6 +5190,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Downloading project…</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5266,6 +5266,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6347,6 +6363,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>&quot;% 1&quot; லேயரில் புதிய அம்சத்தைச் சேர்க்க முடியாது. காரணம்: 
 % 2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6903,7 +6928,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>அட்லச் அம்சம்(கள்) வெற்றிகரமாக அச்சிடப்பட்டு உங்கள் திட்டக் கோப்புறையில் வைக்கப்பட்டுள்ளது</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7062,6 +7087,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>ராச்டர் தரவுத்தொகுப்புகள்</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7785,7 +7814,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>அட்லச் அம்சம்(கள்) வெற்றிகரமாக அச்சிடப்பட்டு உங்கள் திட்டக் கோப்புறையில் வைக்கப்பட்டுள்ளது</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9222,6 +9251,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

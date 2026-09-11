@@ -3105,6 +3105,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete file: %1 - %2</source>
         <translation>Не вдалося видалити файл: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>Не вдалося видалити супутній файл: %1 - %2</translation>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4122,14 +4126,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Широта</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Довгота</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Висота</translation>
     </message>
@@ -4138,8 +4134,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Швидкість</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Широта</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Довгота</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Орієнтація</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>Найвищий</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4836,18 +4844,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>перервано</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Локальний шлях файлу не існує</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Локальний шлях файлу для завантаження не можна використовувати, оскільки він містить кілька файлів проекту</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>У локальному шляху файлу для завантаження відсутній дійсний файл проекту</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Помилка мережі. Не вдалося завантажити файл `%1`.</translation>
     </message>
@@ -5203,6 +5199,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Downloading project…</source>
         <translation>Завантаження проекту...</translation>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation>Введіть опис вашого проекту</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5277,6 +5277,22 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>%1 in layer %2</source>
         <translation>%1 у шарі %2</translation>
     </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation>Не вдалося знайти папку проекту.</translation>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation>Папка проекту містить більше одного файлу проекту; перемістіть проект до окремої папки та спробуйте знову.</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation>Папка проекту не містить дійсного файлу проекту.</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation>Папка проекту не містить файлу проекту.</translation>
+    </message>
 </context>
 <context>
     <name>QfCodeReader</name>
@@ -5320,11 +5336,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>easting [X]</source>
-        <translation>абсциса [X, UTM]</translation>
+        <translation>абсциса [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation> ордината [Y, UTM]</translation>
+        <translation> ордината [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
@@ -6364,6 +6380,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Неможливо додати нову функцію в шар &quot;%1&quot;. Причина:
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation>Неможливо додати функцію в шар &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Не вдається додати нову функцію в шарі &quot;%1&quot;. Причина:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6920,7 +6946,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Елемент(и) атласу успішно надруковано та розміщено у Вашій папці проекту</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7079,6 +7105,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>Растрові набори даних</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>Не вдалося перемістити супутній файл &apos;%1&apos; разом із &apos;%2&apos;</translation>
     </message>
 </context>
 <context>
@@ -7802,7 +7832,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Елемент(и) атласу успішно надруковано та розміщено у Вашій папці проекту</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9240,6 +9270,22 @@ to show actions</source>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>Цей хмарний проект має зміни, що ще не були завантажені. Відкрийте панель керування за допомогою цієї кнопки, а потім натисніть синю піктограму хмари, щоб надіслати їх до QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation>Друк %1</translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation>Помилка друку</translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation>Роздруковано та розміщено в папці макетів Вашого проекту.</translation>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation>Відкрити папку</translation>
     </message>
 </context>
 <context>

@@ -2464,11 +2464,11 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>%1をアップロードしています</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個のファイルが残っています</numerusform></translation>
     </message>
 </context>
 <context>
@@ -3017,86 +3017,90 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>円 #1: 半径</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>円 #2: 半径</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>候補</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>XYZパラメータ</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
-        <translation type="unfinished"/>
+        <translation>点からの距離/角度</translation>
     </message>
     <message>
         <source>Circles Intersection</source>
-        <translation type="unfinished"/>
+        <translation>円の交差</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>点</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"/>
+        <translation>距離</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"/>
+        <translation>角度</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"/>
+        <translation>標高</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>円 #1: 点</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>円 #2: 点</translation>
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished"/>
+        <translation>TB</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>ファイルを削除できません (許可されていません): %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>ファイルは存在しません: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>ディレクトリの削除に失敗しました: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
+        <translation>ファイルの削除に失敗しました: %1 - %2</translation>
+    </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3104,7 +3108,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfAbout</name>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>QFieldによって提供されています</translation>
     </message>
     <message>
         <source>Developed by</source>
@@ -3112,11 +3116,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 アプリディレクトリ</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>%1 アプリディレクトリ</translation>
     </message>
     <message>
         <source>Support QField</source>
@@ -3265,11 +3269,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfAppSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>縮尺を表示する</translation>
+        <translation>縮尺を表示</translation>
     </message>
     <message>
         <source>Show zoom controls</source>
-        <translation type="unfinished"/>
+        <translation>ズームコントロールを表示</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -3309,7 +3313,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、地図キャンバスを指でタップすると座標カーソルが移動し、ダブルタップすると頂点が追加されます。</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -3321,11 +3325,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>地物フォームを最大表示する</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>単一地物確認用の地物フォームを開く</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
@@ -3341,11 +3345,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>認識した地物に自動でズーム</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、地物フォームを開いたときに、マップが自動的にズームして、識別されたすべての地物だけでなく、選択した個々の地物も表示されます。</translation>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
@@ -3353,15 +3357,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、表示されている地図キャンバス範囲のすぐ外側の領域が部分的に描画され、ズームやパン時にプレビューできるようになります。</translation>
     </message>
     <message>
         <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
+        <translation>自動保存モードを有効にする</translation>
     </message>
     <message>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、新しく追加された地物は有効なジオメトリを持ち、制約が満たされるとすぐに保存され、編集された属性が即座にコミットされます。</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -3369,7 +3373,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、オペレーティングシステムによって提供されるネイティブのカメラが使用されます。</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -3377,7 +3381,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>有効にすると、匿名化されたメトリクスが収集され、送信され、他の利用者のためにQFieldの利用体験を改善するのに役立ちます。</translation>
     </message>
     <message>
         <source>General</source>
@@ -3489,39 +3493,39 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>ネットワーク</translation>
     </message>
     <message>
         <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
+        <translation>利用可能な認証設定:</translation>
     </message>
     <message>
         <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
+        <translation>認証のキャッシュをクリア</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
+        <translation>認証のキャッシュがクリアされました</translation>
     </message>
     <message>
         <source>Enable proxy</source>
-        <translation type="unfinished"/>
+        <translation>プロキシを有効にする</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>タイプ</translation>
     </message>
     <message>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>システムデフォルト</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>ホスト</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>例 proxy.example.com</translation>
     </message>
     <message>
         <source>Port</source>
@@ -3529,7 +3533,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>例 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -3537,7 +3541,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>オプション</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3545,15 +3549,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
+        <translation>プロキシから除外される URL (カンマ区切り)</translation>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>例 localhost, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
+        <translation>QField のトラフィックをプロキシ サーバー経由でルーティングするようにネットワーク プロキシを構成します。社内ネットワークや VPN に役立ちます。</translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -3561,7 +3565,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>測位機器</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
@@ -3593,23 +3597,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP 補正を有効にする</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>NTRIPクライアントが切断されました</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>NTRIPクライアント接続中</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>NTRIPクライアントが接続されました</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>有効な NTRIP 設定を入力してください</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -3617,23 +3621,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
+        <translation>位置がロックされたときの動作:</translation>
     </message>
     <message>
         <source>Follow position only</source>
-        <translation type="unfinished"/>
+        <translation>位置のみを追跡する</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>位置とコンパスの向きに従います</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>位置と進行方向に従います</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
+        <translation>マップキャンバスが現在位置を追跡または固定している場合、コンパスの向きや進行方向に合わせて回転させることも可能です。</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3641,7 +3645,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>タイムスタンプ（エポックからの経過秒数）</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3681,15 +3685,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>低精度としての許容範囲</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>高精度としての許容範囲</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
@@ -3705,7 +3709,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum positions count</source>
-        <translation type="unfinished"/>
+        <translation>測位地点の最低数</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -3717,7 +3721,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>標高の調整</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -3725,11 +3729,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>アンテナの高さ</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>この値は、測位デバイスから記録されたZ値を補正します。1.6の値が入力された場合、QFieldは記録された各値から自動的に1.6を差し引きます。有効アンテナ高、すなわちポール長＋アンテナ位置のオフセットを必ず入力してください。</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -3761,7 +3765,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 設定</translation>
     </message>
 </context>
 <context>
@@ -3841,7 +3845,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth Low Energy (BLE)規格を使用する</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
@@ -3853,15 +3857,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth機器の設定:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth Low Energy (BLE)規格</translation>
     </message>
     <message>
         <source>Classic (BT)</source>
-        <translation type="unfinished"/>
+        <translation>クラシック (BT)</translation>
     </message>
 </context>
 <context>
@@ -3872,7 +3876,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth機器をスキャンするのに権限が必要です</translation>
     </message>
     <message>
         <source>Location permission denied</source>
@@ -3880,54 +3884,54 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth機器をスキャンするのに位置情報関連のパーミッションが必要です</translation>
     </message>
 </context>
 <context>
     <name>QfBookmarkList</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>ブックマーク</translation>
     </message>
     <message>
         <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークリストメニュー</translation>
     </message>
     <message>
         <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
+        <translation>ブックマーク選択の切り替え</translation>
     </message>
     <message>
         <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>選択したブックマークを出力</translation>
     </message>
     <message>
         <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>全てのユーザーのブックマークを出力</translation>
     </message>
     <message>
         <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークが出力されました</translation>
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>選択したブックマークを削除</translation>
     </message>
     <message>
         <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークアクション</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークを編集</translation>
     </message>
     <message>
         <source>Navigate to bookmark</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークにナビゲート</translation>
     </message>
     <message>
         <source>Copy Bookmark Details</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークの詳細をコピーする</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -3935,7 +3939,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Delete Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークを削除</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -3947,35 +3951,35 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークを削除</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>選択した %n 個のブックマークを本当に削除しますか?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個のブックマークを削除しました</numerusform></translation>
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"/>
+        <translation>オレンジ</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished"/>
+        <translation>赤</translation>
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished"/>
+        <translation>青</translation>
     </message>
     <message>
         <source>Project bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークを投影</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished"/>
+        <translation>緑</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3983,14 +3987,14 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
+        <translation>まだブックマークがありません</translation>
     </message>
 </context>
 <context>
     <name>QfBookmarkLocatorFilter</name>
     <message>
         <source>Navigate to bookmark</source>
-        <translation type="unfinished"/>
+        <translation>ブックマークにナビゲート</translation>
     </message>
     <message>
         <source>Spatial bookmarks</source>
@@ -4013,7 +4017,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>色を編集</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -4116,14 +4120,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>緯度</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>経度</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>高度</translation>
     </message>
@@ -4132,8 +4128,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>スピード</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>緯度</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>経度</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>向き</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4313,7 +4321,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloudDangerZone</name>
     <message>
         <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
+        <translation>以下の操作は取り消しができず、ローカルデータに重大な影響を及ぼします。慎重に実行してください。</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -4333,66 +4341,66 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
+        <translation>まだアップロードされていないローカルでの編集内容をすべて削除します。</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>リセット</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished"/>
+        <translation>破棄</translation>
     </message>
 </context>
 <context>
     <name>QfCloudDeltaHistory</name>
     <message>
         <source>Upload History</source>
-        <translation type="unfinished"/>
+        <translation>履歴をアップロード</translation>
     </message>
     <message>
         <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
+        <translation>アップロードされた履歴を取得しています...</translation>
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
+        <translation>まだアップロードされた変更はありません</translation>
     </message>
     <message>
         <source>Uploaded by %1 on %2</source>
-        <translation type="unfinished"/>
+        <translation>%1によって%2にアップロードされました</translation>
     </message>
     <message>
         <source>Applied</source>
-        <translation type="unfinished"/>
+        <translation>適用されました</translation>
     </message>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"/>
+        <translation>ペンディング</translation>
     </message>
     <message>
         <source>Busy</source>
-        <translation type="unfinished"/>
+        <translation>処理が混み合っています</translation>
     </message>
     <message>
         <source>Conflict</source>
-        <translation type="unfinished"/>
+        <translation>コンフリクトしています</translation>
     </message>
     <message>
         <source>Not applied</source>
-        <translation type="unfinished"/>
+        <translation>適用されていません</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>Ignored</source>
-        <translation type="unfinished"/>
+        <translation>無視された</translation>
     </message>
     <message>
         <source>Unpermitted</source>
-        <translation type="unfinished"/>
+        <translation>許可されませんでした</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -4408,7 +4416,8 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1サーバーURL
+(デフォルトサーバーを使うには空にしてください)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -4440,7 +4449,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Visit the %1settings page%2 to manage your account.</source>
-        <translation type="unfinished"/>
+        <translation>アカウントを管理するには、%1設定ページ%2にアクセスしてください。</translation>
     </message>
     <message>
         <source>New user?</source>
@@ -4463,30 +4472,30 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCloudPackageLayersFeedback</name>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>一部のレイヤーは正しくパッケージ化されていません。これらのレイヤーは、設定が間違っているか、データソースがQFieldCloudサーバーからアクセスできない可能性があります。</translation>
     </message>
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudのウェブサイトで、以下の詳細なフィードバックと最新のパッケージング・ジョブ・ログをご確認ください。</translation>
     </message>
 </context>
 <context>
     <name>QfCloudPendingChanges</name>
     <message>
         <source>added</source>
-        <translation type="unfinished"/>
+        <translation>追加しました</translation>
     </message>
     <message>
         <source>edited</source>
-        <translation type="unfinished"/>
+        <translation>編集しました</translation>
     </message>
     <message>
         <source>deleted</source>
-        <translation type="unfinished"/>
+        <translation>削除しました</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>空</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4494,26 +4503,26 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1: %2 to %3</source>
-        <translation type="unfinished"/>
+        <translation>%1: %2 から %3 へ</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished"/>
+        <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
         <source>%n change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個の変更</numerusform></translation>
     </message>
     <message>
         <source>Geometry modified</source>
-        <translation type="unfinished"/>
+        <translation>ジオメトリが編集されました</translation>
     </message>
 </context>
 <context>
     <name>QfCloudPopup</name>
     <message>
         <source>Danger Zone</source>
-        <translation type="unfinished"/>
+        <translation>デンジャーゾーン</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -4541,23 +4550,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
+        <translation>変更内容をプッシュしています, %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloudはアップロードされた最新の変更内容を適用しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
     </message>
     <message>
         <source>Cloudify project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをクラウド化する</translation>
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>現在のプロジェクトをQFieldCloudにアップロードしています。</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
+        <translation>現在のプロジェクトはQFieldCloudに保存されていません。QFieldCloudにプロジェクトを保存すると、シームレスな同期、オフライン編集、チーム管理が可能になります。</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -4565,11 +4574,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
+        <translation>%1%をクラウド化しています</translation>
     </message>
     <message>
         <source>Cloudifying</source>
-        <translation type="unfinished"/>
+        <translation>クラウド化しています</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -4577,51 +4586,51 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>ローカルの変更をアップロードする</translation>
     </message>
     <message>
         <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトの更新をダウンロードすることなく、編集内容や添付ファイルをクラウドに送信します。高速かつ低データ通信量で利用できます。</translation>
     </message>
     <message>
         <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
+        <translation>まだ変更はアップロードされていません</translation>
     </message>
     <message>
         <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
+        <translation>たった今アップロードされました</translation>
     </message>
     <message>
         <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>%1 分前に最後にアップロードされました</translation>
     </message>
     <message>
         <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
+        <translation>本日%1に最後にアップロードされました</translation>
     </message>
     <message>
         <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
+        <translation>%1に最後にアップロードされました</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"/>
+        <translation>アップロード</translation>
     </message>
     <message numerus="yes">
         <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n分ごとに自動アップロード</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>現在のプロジェクトでは、自動アップロードをオフにすることはできません。</translation>
     </message>
     <message>
         <source>Synchronize project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトを同期する</translation>
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
+        <translation>編集内容をアップロードし、QFieldCloudから最新のプロジェクトをダウンロードして、すべてを最新の状態にします。</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -4633,7 +4642,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
+        <translation>本日%1に最後に同期されました</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -4645,19 +4654,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload history</source>
-        <translation type="unfinished"/>
+        <translation>履歴をアップロード</translation>
     </message>
     <message>
         <source>Danger zone</source>
-        <translation type="unfinished"/>
+        <translation>デンジャーゾーン</translation>
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>%1をアップロードしています</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個のファイルが残っています</numerusform></translation>
     </message>
     <message>
         <source>Discard local changes</source>
@@ -4665,7 +4674,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
+        <translation>ローカルの変更を破棄しますか？</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -4689,15 +4698,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>利用可能なストレージがいっぱいのため、プロジェクト %1 をパッケージ化できません。</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>ストレージをアップグレード</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクト所有者の利用可能なストレージがいっぱいであるため、プロジェクト %1 をパッケージ化できません。</translation>
     </message>
     <message>
         <source>Local changes discarded</source>
@@ -4713,23 +4722,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>%2 中 %1 を使用</translation>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>ローカルの変更</translation>
     </message>
     <message numerus="yes">
         <source>%n addition(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個の追加</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n edit(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個の編集</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n deletion(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 個の削除</numerusform></translation>
     </message>
 </context>
 <context>
@@ -4829,35 +4838,23 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>中止されました</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークエラー。ファイル `%1` のアップロードに失敗しました。</translation>
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
-        <translation type="unfinished"/>
+        <translation>1つ以上のファイルをアップロードできませんでした。</translation>
     </message>
 </context>
 <context>
     <name>QfCloudProjectDetails</name>
     <message>
         <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>%2 中 %1 を使用中</translation>
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>ストレージサイズ</translation>
     </message>
     <message>
         <source>Owner</source>
@@ -4877,7 +4874,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>同期中</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -4885,7 +4882,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>ローカルの変更をアップロードする</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -4909,26 +4906,26 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトをクローンする</translation>
     </message>
     <message>
         <source>Creating project</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクトを作成しています</translation>
     </message>
     <message>
         <source>Create project from template</source>
-        <translation type="unfinished"/>
+        <translation>テンプレートからプロジェクトを作成する</translation>
     </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
     <message>
         <source>Predefined Filters</source>
-        <translation type="unfinished"/>
+        <translation>定義済みフィルター</translation>
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>規準</translation>
     </message>
     <message>
         <source>Title or description contains</source>
@@ -5090,7 +5087,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>ローカルの変更をアップロードする</translation>
     </message>
     <message>
         <source>Clone Project</source>
@@ -5196,6 +5193,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Downloading project…</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5268,6 +5269,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5461,7 +5478,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>空</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5491,7 +5508,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>空</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5538,7 +5555,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfEditorWidgetRange</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>空</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5549,7 +5566,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfEditorWidgetTextEdit</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>空</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -6351,6 +6368,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>レイヤ&quot;%1&quot;に新しい地物を追加できません。原因:
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6907,7 +6933,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>地図帳の地物がPDFに印刷され、プロジェクトフォルダに保存されました。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7066,6 +7092,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>ラスターデータセット</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7297,7 +7327,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>ホスト</translation>
     </message>
     <message>
         <source>Port</source>
@@ -7648,7 +7678,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>点</translation>
     </message>
     <message>
         <source>Line</source>
@@ -7718,7 +7748,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfRelationCombobox</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>空</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -7789,7 +7819,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>地図帳の地物がPDFに印刷され、プロジェクトフォルダに保存されました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -8208,7 +8238,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>タイムスタンプ（エポックからの経過秒数）</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -8470,7 +8500,7 @@ project</source>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>ローカルの変更</translation>
     </message>
     <message>
         <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
@@ -8846,7 +8876,7 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>ブックマーク</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
@@ -9050,15 +9080,15 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>利用可能なストレージがいっぱいのため、プロジェクト %1 をパッケージ化できません。</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>ストレージをアップグレード</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>プロジェクト所有者の利用可能なストレージがいっぱいであるため、プロジェクト %1 をパッケージ化できません。</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
@@ -9210,11 +9240,11 @@ to show actions</source>
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>ローカルの変更をアップロードする</translation>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>ローカルの変更</translation>
     </message>
     <message>
         <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
@@ -9222,6 +9252,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

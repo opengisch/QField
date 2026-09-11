@@ -3105,6 +3105,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation>Nie udało się usunąć pliku: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>Nie udało się usunąć pliku sidecar: %1 - %2</translation>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4122,14 +4126,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Szerokość geograficzna</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Długość geograficzna</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Wysokość</translation>
     </message>
@@ -4138,8 +4134,20 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Prędkość</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Szerokość geograficzna</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Długość geograficzna</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Orientacja</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4836,18 +4844,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>anulowano</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Ścieżka lokalna nie istnieje</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Nie można użyć lokalnej ścieżki do przesłania, ponieważ zawiera ona wiele plików projektów.</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>W lokalnej ścieżce do przesłania brakuje prawidłowego pliku projektu.</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Błąd sieci. Nie udało się przesłać pliku `%1`.</translation>
     </message>
@@ -5203,6 +5199,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Downloading project…</source>
         <translation>Pobieranie projektu…</translation>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation>Wpisz opis swojego projektu </translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5276,6 +5276,22 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>%1 in layer %2</source>
         <translation>%1 w warstwie %2</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6364,6 +6380,16 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Nie można dodać nowego obiektu na warstwie &quot;%1&quot;. Powód:
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation>Nie można dodać obiektu w warstwie „%1”</translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Nie można zatwierdzić nowego obiektu w warstwie „%1”. Przyczyna:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6920,7 +6946,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7079,6 +7105,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Raster Datasets</source>
         <translation>Zbiory danych rastrowych</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>Nie udało się przenieść pliku sidecar „%1” razem z plikiem „%2”</translation>
     </message>
 </context>
 <context>
@@ -7802,7 +7832,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Element(y) atlasu zostały pomyślnie wydrukowane i umieszczone w twoim katalogu projektu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9240,6 +9270,22 @@ aby wyświetlić działania</translation>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>W tym projekcie w chmurze są zmiany oczekujące, które nie zostały jeszcze przesłane. Otwórz pulpit nawigacyjny za pomocą tego przycisku, a potem kliknij niebieską ikonę chmury, żeby wysłać je do QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation>Drukowanie %1</translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation>Drukowanie nie powiodło się</translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation>Wydrukowano i umieszczono w twoim folderze z układami projektu</translation>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation>Otwórz folder</translation>
     </message>
 </context>
 <context>

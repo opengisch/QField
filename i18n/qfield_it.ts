@@ -750,7 +750,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="vanished"><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform><numerusform>Vuoi davvero eliminare questi %n elementi?</numerusform></translation>
+        <translation type="vanished"><numerusform>Vuoi davvero eliminare %n elemento selezionato?</numerusform><numerusform>Vuoi davvero eliminare %n elementi selezionati?</numerusform><numerusform>Vuoi davvero eliminare %n elementi selezionati?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
@@ -3106,6 +3106,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3860,7 +3864,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Configurazione dispositivo bluetooth:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
@@ -3910,15 +3914,15 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Esporta Tutti i Segnalibri dell&apos;Utente</translation>
     </message>
     <message>
         <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
+        <translation>Segnalibri esportati</translation>
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Cancella Segnalibri Selezionati</translation>
     </message>
     <message>
         <source>Bookmark Actions</source>
@@ -3926,7 +3930,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Modifica Segnalibro</translation>
     </message>
     <message>
         <source>Navigate to bookmark</source>
@@ -4123,14 +4127,6 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Altitudine</translation>
     </message>
@@ -4139,7 +4135,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Velocità</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Highest</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4837,18 +4845,6 @@ Messaggio dell&apos;errore: %4</translation>
         <translation>interrotto</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation type="unfinished"/>
     </message>
@@ -5204,6 +5200,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>Downloading project…</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5276,6 +5276,22 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6363,6 +6379,15 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation>Impossibile aggiungere il nuovo elemento nel layer &quot;%1&quot;. Motivo:
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6639,7 +6664,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>User and password</source>
-        <translation type="unfinished"/>
+        <translation>Utente e password</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
@@ -6919,7 +6944,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Elementi Atlante stampati correttamente e inseriti nella tua cartella di progetto</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7078,6 +7103,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Raster Datasets</source>
         <translation>Dataset Raster</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7801,7 +7830,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Elementi Atlante stampati correttamente e inseriti nella tua cartella di progetto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9234,6 +9263,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -3139,6 +3139,10 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4165,56 +4169,12 @@ Cancel to make a minimal device scan instead.</translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Altitude</source>
-        <translation type="unfinished">Altitude</translation>
+        <translation type="obsolete">Altitude</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">Speed</translation>
-    </message>
-    <message>
-        <source>Orientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Details stamping enabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Details stamping disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Geotagging enabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Geotagging disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Grid enabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Grid disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>front</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>back</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Speed</translation>
     </message>
 </context>
 <context>
@@ -4896,18 +4856,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished">aborted</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5263,6 +5211,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Downloading project…</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5344,6 +5296,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6483,6 +6451,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished">Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6752,7 +6729,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished">Atlas feature(s) successfully printed and placed in your project folder</translation>
+        <translation type="obsolete">Atlas feature(s) successfully printed and placed in your project folder</translation>
     </message>
 </context>
 <context>
@@ -6911,6 +6888,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation type="unfinished">Raster Datasets</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7637,7 +7618,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished">Atlas feature(s) successfully printed and placed in your project folder</translation>
+        <translation type="obsolete">Atlas feature(s) successfully printed and placed in your project folder</translation>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9076,6 +9057,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
