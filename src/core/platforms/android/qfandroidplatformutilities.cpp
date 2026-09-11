@@ -371,7 +371,7 @@ void QfAndroidPlatformUtilities::sendCompressedFolderTo( const QString &path, co
       if ( activity.isValid() )
       {
         QJniObject pathJni = QJniObject::fromString( path );
-        QJniObject fileNameJni = QJniObject::fromString( fileName );
+        QJniObject fileNameJni = QJniObject::fromString( QfFileUtils::sanitizeFilePathPart( fileName ) );
         activity.callMethod<void>( "sendCompressedFolderTo", "(Ljava/lang/String;Ljava/lang/String;)V", pathJni.object<jstring>(), fileNameJni.object<jstring>() );
       }
     } );
