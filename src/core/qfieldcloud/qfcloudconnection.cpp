@@ -463,8 +463,6 @@ void QfCloudConnection::login( const QString &password )
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
-
       if ( rawReply->error() == QNetworkReply::HostNotFoundError )
       {
         emit loginFailed( tr( "Server not found, please check the server URL" ) );
@@ -473,29 +471,33 @@ void QfCloudConnection::login( const QString &password )
       {
         emit loginFailed( tr( "Timeout error, please retry" ) );
       }
-      else if ( httpCode == 400 || httpCode == 401 )
+      else
       {
-        if ( !loginUsingToken )
+        const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+        if ( httpCode == 400 || httpCode == 401 )
         {
-          emit loginFailed( tr( "Wrong username or password" ) );
+          if ( !loginUsingToken )
+          {
+            emit loginFailed( tr( "Wrong username or password" ) );
+          }
+          else
+          {
+            emit loginFailed( tr( "Session expired" ) );
+          }
         }
         else
         {
-          emit loginFailed( tr( "Session expired" ) );
+          QString message( errorString( rawReply ) );
+          emit loginFailed( message );
         }
-      }
-      else
-      {
-        QString message( errorString( rawReply ) );
-        emit loginFailed( message );
-      }
 
-      if ( !mProvider.isEmpty() && !mProviderConfigId.isEmpty() )
-      {
-        QgsApplication::authManager()->removeAuthenticationConfig( mProviderConfigId );
-        mProviderConfigId.clear();
-        QSettings().remove( "/QFieldCloud/providerConfigId" );
-        emit providerConfigurationChanged();
+        if ( !mProvider.isEmpty() && !mProviderConfigId.isEmpty() )
+        {
+          QgsApplication::authManager()->removeAuthenticationConfig( mProviderConfigId );
+          mProviderConfigId.clear();
+          QSettings().remove( "/QFieldCloud/providerConfigId" );
+          emit providerConfigurationChanged();
+        }
       }
 
       setStatus( ConnectionStatus::Disconnected );
