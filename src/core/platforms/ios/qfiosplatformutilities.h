@@ -42,7 +42,7 @@ class QfIosPlatformUtilities : public QfPlatformUtilities
     void exportDatasetTo( const QString &path ) const override;
     void exportFolderTo( const QString &path ) const override;
     void sendDatasetTo( const QString &path ) const override;
-    void sendCompressedFolderTo( const QString &path ) const override;
+    void sendCompressedFolderTo( const QString &path, const QString &fileName = QString() ) const override;
     void updateProjectFromArchive( const QString &projectPath ) const override;
 
     void setScreenLockPermission( const bool allowLock ) override;
