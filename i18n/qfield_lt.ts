@@ -4844,18 +4844,6 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <translation>nutraukta</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Vietinio kelio nėra</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Vietinio įkėlimo kelio naudoti negalima, nes jame yra keli projekto failai</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>Vietiniame įkėlimo kelyje nėra tinkamo projekto failo</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Tinklo klaida. Nepavyko įkelti failo „%1“.</translation>
     </message>
@@ -5288,6 +5276,22 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     <message>
         <source>%1 in layer %2</source>
         <translation>%1 sluoksnyje %2</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4835,18 +4835,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>கைவிடப்பட்டது</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>உள்ளக பாதை இல்லை</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>பல திட்டக் கோப்புகளைக் கொண்டிருப்பதால், பதிவேற்றுவதற்கான உள்ளக பாதையைப் பயன்படுத்த முடியாது</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>பதிவேற்றுவதற்கான உள்ளக பாதை சரியான திட்டக் கோப்பைக் காணவில்லை</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>பிணையம் பிழை. `%1` கோப்பைப் பதிவேற்றுவதில் தோல்வி.</translation>
     </message>
@@ -5278,6 +5266,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>

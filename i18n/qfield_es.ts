@@ -4839,18 +4839,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>abortado</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>La ruta local no existe</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>La ruta local para subir no se puede usar porque contiene múltiples archivos de proyecto</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>La ruta local para subir carece de un archivo de proyecto válido</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Error de red. Error al subir el archivo `%1`.</translation>
     </message>
@@ -5282,6 +5270,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>

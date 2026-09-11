@@ -4836,18 +4836,6 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
         <translation>abortado</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>O caminho local não existe</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>O caminho local para upload não pode ser usado, pois contém vários arquivos de projeto.</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>O caminho local para upload não pode ser usado, pois contém vários arquivos de projeto.</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Erro de rede. Falha ao descarregar o arquivo `%1`.</translation>
     </message>
@@ -5279,6 +5267,22 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>

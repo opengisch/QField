@@ -4844,18 +4844,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>перервано</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Локальний шлях файлу не існує</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Локальний шлях файлу для завантаження не можна використовувати, оскільки він містить кілька файлів проекту</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>У локальному шляху файлу для завантаження відсутній дійсний файл проекту</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Помилка мережі. Не вдалося завантажити файл `%1`.</translation>
     </message>
@@ -5288,6 +5276,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>%1 in layer %2</source>
         <translation>%1 у шарі %2</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation>Не вдалося знайти папку проекту.</translation>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation>Папка проекту містить більше одного файлу проекту; перемістіть проект до окремої папки та спробуйте знову.</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation>Папка проекту не містить дійсного файлу проекту.</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation>Папка проекту не містить файлу проекту.</translation>
     </message>
 </context>
 <context>

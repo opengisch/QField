@@ -4837,18 +4837,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>avorté</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Le chemin local n&apos;existe pas</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Le chemin d&apos;accès local pour le téléchargement ne peut pas être utilisé car il contient plusieurs fichiers projet</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>Le chemin local pour le téléchargement n&apos;a pas de fichier de projet valide.</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Erreur réseau. Échec du téléversement du fichier `%1`.</translation>
     </message>
@@ -5281,6 +5269,22 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>%1 in layer %2</source>
         <translation>%1 dans couche %2</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
