@@ -23,6 +23,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
+#include <QSaveFile>
 #include <QUuid>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
@@ -154,6 +155,8 @@ QfDeltaFileWrapper::QfDeltaFileWrapper( const QString &projectId, const QString 
     {
       setError( QfDeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     }
+
+    deltaFile.close();
 
     // toFile() modifies mErrorType and mErrorDetails, that's why we ignore the boolean return
     toFile();
@@ -316,9 +319,9 @@ QString QfDeltaFileWrapper::toString() const
 
 bool QfDeltaFileWrapper::toFile()
 {
-  QFile deltaFile( mFileName );
+  QSaveFile deltaFile( mFileName );
 
-  if ( !deltaFile.open( QIODevice::WriteOnly | QIODevice::Unbuffered ) )
+  if ( !deltaFile.open( QIODevice::WriteOnly ) )
   {
     setError( QfDeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     QgsMessageLog::logMessage( QStringLiteral( "File %1 cannot be open for writing. Reason: %2" ).arg( mFileName, mErrorDetails ) );
@@ -329,10 +332,17 @@ bool QfDeltaFileWrapper::toFile()
   {
     setError( QfDeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
     QgsMessageLog::logMessage( QStringLiteral( "Contents of the file %1 has not been written. Reason %2" ).arg( mFileName, mErrorDetails ) );
+    deltaFile.cancelWriting();
     return false;
   }
 
-  deltaFile.close();
+  if ( !deltaFile.commit() )
+  {
+    setError( QfDeltaFileWrapper::ErrorType::IOError, deltaFile.errorString() );
+    QgsMessageLog::logMessage( QStringLiteral( "File %1 could not be replaced with its new contents. Reason: %2" ).arg( mFileName, mErrorDetails ) );
+    return false;
+  }
+
   mIsDirty = false;
   // QgsLogger::debug( "Finished writing deltas JSON" );
 
