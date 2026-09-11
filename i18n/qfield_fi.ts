@@ -3089,19 +3089,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoa ei voi poistaa (ei sallittu): %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoa ei ole olemassa: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>Hakemiston poistaminen epäonnistui: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>Tiedoston poistaminen epäonnistui: %1 - %2</translation>
+    </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>Sidecar-tiedoston poistaminen epäonnistui: %1 - %2</translation>
     </message>
 </context>
 <context>
@@ -3313,7 +3317,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
+        <translation>Kun käytössä, karttapohjan napauttaminen sormella siirtää koordinaattikursoria, kun taas kaksoisnapautus lisää taitepisteen.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
@@ -3497,15 +3501,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
+        <translation>Saatavilla olevat autentikointiasetukset:</translation>
     </message>
     <message>
         <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä autentikointivälimuisti</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
+        <translation>Autentikointivälimuisti tyhjennetty</translation>
     </message>
     <message>
         <source>Enable proxy</source>
@@ -3565,7 +3569,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Paikannuslaite</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
@@ -3597,23 +3601,23 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>Ota NTRIP-korjaukset käyttöön</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP-client yhteys katkesi</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP-client yhdistetään</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP-client yhdistetty</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Syötä kelvolliset NTRIP-asetukset</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -3645,7 +3649,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Aikaleima (sekuntia epookista)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -3685,15 +3689,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Huonon tarkkuuden raja-arvo</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Erinomaisen tarkkuuden raja-arvo</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
@@ -3709,7 +3713,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Minimum positions count</source>
-        <translation type="unfinished"/>
+        <translation>Havaintojen vähimmäismäärä</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -3721,7 +3725,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Korkeuden korjaus</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -3729,7 +3733,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>Antennin korkeus</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
@@ -3845,7 +3849,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Käytä Bluetooth Low Energy (BLE) -yhteyttä</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
@@ -3857,15 +3861,15 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-laitteen määritykset:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Low Energy (BLE)</translation>
     </message>
     <message>
         <source>Classic (BT)</source>
-        <translation type="unfinished"/>
+        <translation>Perinteinen (BT)</translation>
     </message>
 </context>
 <context>
@@ -3891,47 +3895,47 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <name>QfBookmarkList</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkit</translation>
     </message>
     <message>
         <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkkilistan valikko</translation>
     </message>
     <message>
         <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda kirjanmerkkivalintaa</translation>
     </message>
     <message>
         <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Vie valitut kirjanmerkit</translation>
     </message>
     <message>
         <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Vie kaikki käyttäjän kirjanmerkit</translation>
     </message>
     <message>
         <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkit viety</translation>
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Poista valitut kirjanmerkit</translation>
     </message>
     <message>
         <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkkitoiminnot</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa kirjanmerkkiä</translation>
     </message>
     <message>
         <source>Navigate to bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Siirry kirjanmerkkiin</translation>
     </message>
     <message>
         <source>Copy Bookmark Details</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi kirjanmerkin tiedot</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -3939,7 +3943,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Delete Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Poista kirjanmerkki</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -3951,35 +3955,35 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Poista kirjanmerkit</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Poistetaanko %n valittua kirjanmerkkiä?</numerusform><numerusform>Poistetaanko %n valittua kirjanmerkkiä?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Poistettu %n kirjanmerkkiä</numerusform><numerusform>Poistettu %n kirjanmerkkiä</numerusform></translation>
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"/>
+        <translation>Oranssi</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished"/>
+        <translation>Punainen</translation>
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished"/>
+        <translation>Sininen</translation>
     </message>
     <message>
         <source>Project bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Projektin kirjanmerkit</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished"/>
+        <translation>Vihreä</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -3987,14 +3991,14 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
+        <translation>No bookmarks yet</translation>
     </message>
 </context>
 <context>
     <name>QfBookmarkLocatorFilter</name>
     <message>
         <source>Navigate to bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Siirry kirjanmerkkiin</translation>
     </message>
     <message>
         <source>Spatial bookmarks</source>
@@ -4120,14 +4124,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Leveyspiiri (Latitude)</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Pituuspiiri (Longitude)</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Korkeus</translation>
     </message>
@@ -4136,8 +4132,20 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Nopeus</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Leveyspiiri (Latitude)</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Pituuspiiri (Longitude)</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Suunta</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>Korkein</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4317,7 +4325,7 @@ syy: %2</translation>
     <name>QfCloudDangerZone</name>
     <message>
         <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Alla oleva toiminto on peruuttamaton ja vaikuttaa pysyvästi paikallisiin tietoihisi. Jatka varoen.</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -4337,66 +4345,66 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
+        <translation>Poistaa kaikki paikalliset muokkaukset, joita ei ole vielä ladattu palvelimelle.</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Palauta</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished"/>
+        <translation>Hylkää</translation>
     </message>
 </context>
 <context>
     <name>QfCloudDeltaHistory</name>
     <message>
         <source>Upload History</source>
-        <translation type="unfinished"/>
+        <translation>Lataushistoria</translation>
     </message>
     <message>
         <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
+        <translation>Haetaan lataushistoriaa…</translation>
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
+        <translation>Yhtään muutosta ei ole vielä ladattu!</translation>
     </message>
     <message>
         <source>Uploaded by %1 on %2</source>
-        <translation type="unfinished"/>
+        <translation>Ladannut %1 (%2)</translation>
     </message>
     <message>
         <source>Applied</source>
-        <translation type="unfinished"/>
+        <translation>Toteutettu</translation>
     </message>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"/>
+        <translation>Odottaa</translation>
     </message>
     <message>
         <source>Busy</source>
-        <translation type="unfinished"/>
+        <translation>Käsittelyssä</translation>
     </message>
     <message>
         <source>Conflict</source>
-        <translation type="unfinished"/>
+        <translation>Ristiriita</translation>
     </message>
     <message>
         <source>Not applied</source>
-        <translation type="unfinished"/>
+        <translation>Ei toteutettu</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Virhe</translation>
     </message>
     <message>
         <source>Ignored</source>
-        <translation type="unfinished"/>
+        <translation>Sivuutettu</translation>
     </message>
     <message>
         <source>Unpermitted</source>
-        <translation type="unfinished"/>
+        <translation>Ei sallittu</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -4412,7 +4420,8 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1Palvelimen URL-osoite
+(Jätä tyhjäksi käyttääksesi oletuspalvelinta)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -4444,7 +4453,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Visit the %1settings page%2 to manage your account.</source>
-        <translation type="unfinished"/>
+        <translation>Siirry %1asetussivulle%2 hallinnoidaksesi tiliäsi.</translation>
     </message>
     <message>
         <source>New user?</source>
@@ -4467,26 +4476,26 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     <name>QfCloudPackageLayersFeedback</name>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>Joitakin tasoja ei ole paketoitu oikein. Näiden tasojen asetukset saattavat olla virheelliset tai niiden tietolähde ei ole saavutettavissa QFieldCloud-palvelimelta.</translation>
     </message>
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista alla olevat yksityiskohtaiset palautteet ja viimeisimmät paketointitehtävän lokit QFieldCloud-sivustolta.</translation>
     </message>
 </context>
 <context>
     <name>QfCloudPendingChanges</name>
     <message>
         <source>added</source>
-        <translation type="unfinished"/>
+        <translation>lisätty</translation>
     </message>
     <message>
         <source>edited</source>
-        <translation type="unfinished"/>
+        <translation>muokattu</translation>
     </message>
     <message>
         <source>deleted</source>
-        <translation type="unfinished"/>
+        <translation>poistettu</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -4498,26 +4507,26 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>%1: %2 to %3</source>
-        <translation type="unfinished"/>
+        <translation>%1: %2 to %3</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished"/>
+        <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
         <source>%n change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n muutos(ta)</numerusform><numerusform>%n muutos(ta)</numerusform></translation>
     </message>
     <message>
         <source>Geometry modified</source>
-        <translation type="unfinished"/>
+        <translation>Geometriaa muokattu</translation>
     </message>
 </context>
 <context>
     <name>QfCloudPopup</name>
     <message>
         <source>Danger Zone</source>
-        <translation type="unfinished"/>
+        <translation>Vaara-alue</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -4553,7 +4562,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Cloudify project</source>
-        <translation type="unfinished"/>
+        <translation>Muunna pilviprojektiksi</translation>
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
@@ -4561,7 +4570,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
+        <translation>Nykyistä projektia ei ole tallennettu QFieldCloudiin. Projektien tallentaminen QFieldCloudiin tarjoaa saumattoman synkronoinnin, offline-muokkauksen ja tiiminhallinnan.</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -4569,11 +4578,11 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
+        <translation>Muunnetaan pilviprojektiksi (%1 %)</translation>
     </message>
     <message>
         <source>Cloudifying</source>
-        <translation type="unfinished"/>
+        <translation>Muunnetaan pilviprojektiksi</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -4581,51 +4590,51 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Lataa paikalliset muutokset</translation>
     </message>
     <message>
         <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
+        <translation>Lähettää muokkauksesi ja liitteesi pilveen lataamatta projektin päivityksiä. Nopea ja kuluttaa vähän dataa.</translation>
     </message>
     <message>
         <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
+        <translation>Ei ladattuja muutoksia vielä</translation>
     </message>
     <message>
         <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
+        <translation>Ladattu juuri nyt</translation>
     </message>
     <message>
         <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin lataus %1 minuuttia sitten</translation>
     </message>
     <message>
         <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin lataus tänään klo %1</translation>
     </message>
     <message>
         <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin lataus %1</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"/>
+        <translation>Lataa</translation>
     </message>
     <message numerus="yes">
         <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Automaattinen lataus %n minuutin välein</numerusform><numerusform>Automaattinen lataus %n minuutin välein</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen projekti ei salli automaattisen latauksen poistamista käytöstä</translation>
     </message>
     <message>
         <source>Synchronize project</source>
-        <translation type="unfinished"/>
+        <translation>Synkronoi projekti</translation>
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
+        <translation>Lähettää muokkauksesi ja lataa sitten uusimman projektin QFieldCloudista, jotta kaikki on ajan tasalla.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -4637,7 +4646,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin synkronointi tänään klo %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -4649,11 +4658,11 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Upload history</source>
-        <translation type="unfinished"/>
+        <translation>Lataushistoria</translation>
     </message>
     <message>
         <source>Danger zone</source>
-        <translation type="unfinished"/>
+        <translation>Vaara-alue</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -4669,7 +4678,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
+        <translation>Hylätäänkö paikalliset muutokset?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -4693,15 +4702,15 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projektia %1 ei voi paketoida, koska käytettävissä oleva tallennustilasi on täynnä.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä tallennustilaa</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projektia %1 ei voi paketoida, koska projektin omistajan käytettävissä oleva tallennustila on täynnä.</translation>
     </message>
     <message>
         <source>Local changes discarded</source>
@@ -4721,19 +4730,19 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Paikalliset muutokset</translation>
     </message>
     <message numerus="yes">
         <source>%n addition(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n lisäys(tä)</numerusform><numerusform>%n lisäys(tä)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n edit(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n muokkaus(ta)</numerusform><numerusform>%n muokkaus(ta)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n deletion(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n poisto(a)</numerusform><numerusform>%n poisto(a)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -4833,18 +4842,6 @@ epäonnistui, syy: %2</translation>
         <translation>keskeytetty</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Paikallista polkua ei ole olemassa</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Lähetettävää paikallista polkua ei voi käyttää, koska siinä on useita projektitiedostoja</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>Lähetettävästä paikallisesta polusta puuttuu kelvollinen projektitiedosto.</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Verkkovirhe. Tiedoston &apos;%1&apos; lähetys epäonnistui.</translation>
     </message>
@@ -4861,7 +4858,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>Tallennustilan koko</translation>
     </message>
     <message>
         <source>Owner</source>
@@ -4889,7 +4886,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Upload local changes</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -4913,38 +4910,38 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>Kloonaa projekti</translation>
     </message>
     <message>
         <source>Creating project</source>
-        <translation type="unfinished"/>
+        <translation>Luodaan projektia</translation>
     </message>
     <message>
         <source>Create project from template</source>
-        <translation type="unfinished"/>
+        <translation>Luo projekti mallista</translation>
     </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
     <message>
         <source>Predefined Filters</source>
-        <translation type="unfinished"/>
+        <translation>Ennalta määritetyt suodattimet</translation>
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>Kriteerit</translation>
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko tai kuvaus sisältää</translation>
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>Omistaja on</translation>
     </message>
     <message>
         <source>Include public projects</source>
-        <translation type="unfinished"/>
+        <translation>Sisällytä julkiset projektit</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4952,15 +4949,15 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>My own</source>
-        <translation type="unfinished"/>
+        <translation>Omat</translation>
     </message>
     <message>
         <source>Owned by %1</source>
-        <translation type="unfinished"/>
+        <translation>Omistaja: %1</translation>
     </message>
     <message>
         <source>Include public templates</source>
-        <translation type="unfinished"/>
+        <translation>Sisällytä julkiset mallit</translation>
     </message>
 </context>
 <context>
@@ -5006,7 +5003,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Hae projekteja</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
@@ -5038,27 +5035,27 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
+        <translation>Päivitetään projektiluetteloa...</translation>
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Etsitään projekteja...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
+        <translation>Pilviprojekteja ei löytynyt.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Kokeile %1sisällyttää julkiset projektit%2 ja katso, mitä yhteisöllä on tarjota.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
+        <translation>Kokeile %1sisällyttää julkiset projektit%2.</translation>
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Aloita %1lukemalla dokumentaatio%2.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -5074,7 +5071,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Settings page</source>
-        <translation type="unfinished"/>
+        <translation>Asetussivu</translation>
     </message>
     <message>
         <source>Show invalid projects</source>
@@ -5094,11 +5091,11 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Upload local changes</translation>
     </message>
     <message>
         <source>Clone Project</source>
-        <translation type="unfinished"/>
+        <translation>Kloonaa Projekti</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
@@ -5122,11 +5119,11 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Projektin kloonaus epäonnistui: %1</translation>
     </message>
     <message>
         <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Projektin luonti epäonnistui: %1</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
@@ -5134,19 +5131,19 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished"/>
+        <translation>Mallit</translation>
     </message>
     <message>
         <source>Project Creation</source>
-        <translation type="unfinished"/>
+        <translation>Projektin luonti</translation>
     </message>
     <message>
         <source>Enter your project name</source>
-        <translation type="unfinished"/>
+        <translation>Syötä projektin nimi</translation>
     </message>
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
-        <translation type="unfinished"/>
+        <translation>Sallitut merkit: 0-9A-Za-z_-</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -5154,51 +5151,55 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Search for templates</source>
-        <translation type="unfinished"/>
+        <translation>Hae malleja</translation>
     </message>
     <message>
         <source>Refreshing templates list...</source>
-        <translation type="unfinished"/>
+        <translation>Refreshing templates list...</translation>
     </message>
     <message>
         <source>Searching for templates...</source>
-        <translation type="unfinished"/>
+        <translation>Etsitään malleja...</translation>
     </message>
     <message>
         <source>No templates found.</source>
-        <translation type="unfinished"/>
+        <translation>Malleja ei löytynyt.</translation>
     </message>
     <message>
         <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Try to %1include public templates%2 and see what the community has to offer.</translation>
     </message>
     <message>
         <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
+        <translation>Kokeile %1sisällyttää julkiset mallit%2.</translation>
     </message>
     <message>
         <source>Refresh templates list</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä malliluettelo</translation>
     </message>
     <message>
         <source>Creating project…</source>
-        <translation type="unfinished"/>
+        <translation>Luodaan projektia…</translation>
     </message>
     <message>
         <source>Preparing project…</source>
-        <translation type="unfinished"/>
+        <translation>Valmistellaan projektia…</translation>
     </message>
     <message>
         <source>Project created but downloading failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Projekti luotiin, mutta lataaminen epäonnistui: %1</translation>
     </message>
     <message>
         <source>The newly-created project could not be prepared.</source>
-        <translation type="unfinished"/>
+        <translation>Uutta projektia ei voitu valmistella.</translation>
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan projektia…</translation>
+    </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation>Syötä projektin kuvaus</translation>
     </message>
 </context>
 <context>
@@ -5236,11 +5237,11 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projektin omistajan käytettävissä oleva tallennustila on täynnä.</translation>
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Projektin omistajan tilausjakso ei riitä.</translation>
     </message>
     <message>
         <source>Expected the json document to be an array of delta status</source>
@@ -5260,18 +5261,34 @@ epäonnistui, syy: %2</translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) created</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n ominaisuus / ominaisuutta luotu</numerusform><numerusform>%n ominaisuus / ominaisuutta luotu</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) edited</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n kohde / kohdetta muokattu</numerusform><numerusform>%n kohde / kohdetta muokattu</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) deleted</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n kohde / kohdetta poistettu</numerusform><numerusform>%n kohde / kohdetta poistettu</numerusform></translation>
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation>%1 tasossa %2</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5279,7 +5296,7 @@ epäonnistui, syy: %2</translation>
     <name>QfCodeReader</name>
     <message>
         <source>No readable code found in the selected image</source>
-        <translation type="unfinished"/>
+        <translation>Valitulta kuvalta ei löytynyt luettavaa koodia</translation>
     </message>
     <message>
         <source>NFC text tag detected</source>
@@ -5298,34 +5315,34 @@ epäonnistui, syy: %2</translation>
     <name>QfCogoParameterAngle</name>
     <message>
         <source>deg</source>
-        <translation type="unfinished"/>
+        <translation>ast</translation>
     </message>
 </context>
 <context>
     <name>QfCogoParameterPoint</name>
     <message>
         <source>latitude</source>
-        <translation type="unfinished"/>
+        <translation>leveyspiiri (latitude)</translation>
     </message>
     <message>
         <source>longitude</source>
-        <translation type="unfinished"/>
+        <translation>pituuspiiri (longitude)</translation>
     </message>
     <message>
         <source>elevation</source>
-        <translation type="unfinished"/>
+        <translation>korkeus</translation>
     </message>
     <message>
         <source>easting [X]</source>
-        <translation type="unfinished"/>
+        <translation>itäkoordinaatti [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation type="unfinished"/>
+        <translation>pohjoiskoordinaatti [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>korkeus [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
@@ -5340,7 +5357,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Projektin tiedot</translation>
     </message>
     <message>
         <source>Map Theme</source>
@@ -5608,31 +5625,31 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Is the app running? HTTP request failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Onko sovellus käynnissä? HTTP-pyyntö epäonnistui: %1</translation>
     </message>
     <message>
         <source>Egeniouss service is not ready.</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss-palvelu ei ole valmis.</translation>
     </message>
     <message>
         <source>Last fix</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin sijainnin korjaus</translation>
     </message>
     <message>
         <source>Heading</source>
-        <translation type="unfinished"/>
+        <translation>Suunta</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"/>
+        <translation>Kallistus</translation>
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"/>
+        <translation>Pitkittäiskallistus</translation>
     </message>
     <message>
         <source>Heading sigma</source>
-        <translation type="unfinished"/>
+        <translation>Suunnan keskivirhe (σ)</translation>
     </message>
 </context>
 <context>
@@ -5672,19 +5689,19 @@ epäonnistui, syy: %2</translation>
     <name>QfFeatureForm</name>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Edellinen sivu</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Seuraava sivu</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation>Kovia rajoitteita ei täytetty</translation>
+        <translation>Ehdottomia rajoitteita ei täytetty</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
@@ -5760,7 +5777,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>You are about to cancel the feature setup, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>You are about to cancel the feature setup, proceed?</translation>
     </message>
 </context>
 <context>
@@ -6174,7 +6191,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>NTRIP</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -6189,7 +6206,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QfInformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Tekijä</translation>
     </message>
 </context>
 <context>
@@ -6357,6 +6374,16 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Ei voida lisätä uutta ominaisuutta tasolla &quot;%1&quot;.
  Syy: %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation>Kohteen lisääminen tasoon &quot;%1&quot; ei onnistu</translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Uuden kohteen tallennus tasoon &quot;%1&quot; ei onnistu. Syy:
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6473,7 +6500,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Poista kansio</translation>
     </message>
     <message>
         <source>Delete file</source>
@@ -6521,7 +6548,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
+        <translation>Pakkaa projekti ja lähetä kohteeseen...</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
@@ -6545,7 +6572,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Send compressed file(s) to...</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä pakatut tiedostot kohteeseen...</translation>
     </message>
     <message>
         <source>Delete file(s)</source>
@@ -6913,7 +6940,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlas kohde(kohteet) tulostettu onnistuneesti ja sijoitettu projektihakemistoon</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6951,19 +6978,19 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QfNtripSourceTableFetcher</name>
     <message>
         <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Odottamaton vastaus NTRIP-casterilta</translation>
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
+        <translation>Disconnected before receiving source table</translation>
     </message>
     <message>
         <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP-lähdetaulukosta ei löytynyt liityntäpisteitä (mountpoint)</translation>
     </message>
     <message>
         <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation>Virhe NTRIP-lähdetaulukon haussa:</translation>
     </message>
 </context>
 <context>
@@ -7007,15 +7034,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QfPlatformUtilities</name>
     <message>
         <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
+        <translation>Valitse ZIP-arkisto</translation>
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>ZIP Archives (*.zip)</translation>
     </message>
     <message>
         <source>Select Destination Folder</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kohdekansio</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
@@ -7072,6 +7099,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Raster Datasets</source>
         <translation>Rasteriaineistot</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>Sivutiedoston &apos;%1&apos; siirtäminen kohteen &apos;%2&apos; rinnalle ei onnistunut</translation>
     </message>
 </context>
 <context>
@@ -7148,11 +7179,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
+        <translation>Avattuna oleva projekti on ladannut projektiliitännäisen</translation>
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Evää lupa</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
@@ -7194,7 +7225,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Bluetooth BT + BLE (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
@@ -7299,7 +7330,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QfPositioningNtripSettings</name>
     <message>
         <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP-asetukset</translation>
     </message>
     <message>
         <source>Host</source>
@@ -7311,19 +7342,19 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Protokolla</translation>
     </message>
     <message>
         <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP-versio 1</translation>
     </message>
     <message>
         <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP-versio 2</translation>
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP SSL/TLS</translation>
     </message>
     <message>
         <source>Username</source>
@@ -7335,23 +7366,23 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation>Liityntäpiste (mountpoint)</translation>
     </message>
     <message>
         <source>Identifier:</source>
-        <translation type="unfinished"/>
+        <translation>Tunniste:</translation>
     </message>
     <message>
         <source>Data format:</source>
-        <translation type="unfinished"/>
+        <translation>Datamuoto:</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished"/>
+        <translation>Etäisyys:</translation>
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Välitä sijainti NTRIP-casterille</translation>
     </message>
 </context>
 <context>
@@ -7366,27 +7397,27 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>Äänipalaute etäisyydestä</translation>
     </message>
     <message>
         <source>Rotate view</source>
-        <translation type="unfinished"/>
+        <translation>Kierrä näkymää</translation>
     </message>
     <message>
         <source>Rotation source</source>
-        <translation type="unfinished"/>
+        <translation>Kierron lähde</translation>
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation>Kompassi</translation>
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation>Liike</translation>
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>Tarkkuus</translation>
     </message>
 </context>
 <context>
@@ -7434,7 +7465,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QfProcessingParameterArea</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>Neliöasteet</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -7442,47 +7473,47 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>Neliömetrit</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>Neliökilometrit</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation type="unfinished"/>
+        <translation>Neliöjalat</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>Neliöjaardit</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>Neliömailit</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>hehtaarit</translation>
     </message>
     <message>
         <source>acres</source>
-        <translation type="unfinished"/>
+        <translation>eekkerit</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>Neliömerimailit</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>sqr. centimeters</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>Neliömillimetrit</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>Neliötuumat</translation>
     </message>
 </context>
 <context>
@@ -7603,7 +7634,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
+        <translation>Salli muistiinpanot viivoille ja polygoneille</translation>
     </message>
     <message>
         <source>Track your position?</source>
@@ -7631,7 +7662,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
+        <translation>Lataa muutokset automaattisesti säännöllisin väliajoin</translation>
     </message>
     <message>
         <source>Create Project</source>
@@ -7658,15 +7689,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"/>
+        <translation>Viiva</translation>
     </message>
     <message>
         <source>Polygon</source>
-        <translation type="unfinished"/>
+        <translation>Polygoni</translation>
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>Muistiinpanojen liitteet</translation>
     </message>
     <message>
         <source>Media</source>
@@ -7706,7 +7737,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>Liitteet</translation>
     </message>
 </context>
 <context>
@@ -7795,7 +7826,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlas kohde(kohteet) tulostettu onnistuneesti ja sijoitettu projektihakemistoon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -8150,11 +8181,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Minimum time</source>
-        <translation type="unfinished"/>
+        <translation>Vähimmäisaika</translation>
     </message>
     <message>
         <source>sec</source>
-        <translation type="unfinished"/>
+        <translation>sek</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
@@ -8166,7 +8197,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Minimum distance</source>
-        <translation type="unfinished"/>
+        <translation>Vähimmäisetäisyys</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
@@ -8198,7 +8229,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Maximum tolerated distance</source>
-        <translation type="unfinished"/>
+        <translation>Suurin sallittu etäisyys</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
@@ -8214,7 +8245,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Aikaleima (sekuntia epookista)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -8258,7 +8289,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>Sijainnin nauhoitus tasolla %1 jatkettu</translation>
     </message>
 </context>
 <context>
@@ -8322,59 +8353,59 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Lataus valmistui</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>Paikallisia polkuja ei ole määritetty</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV on varattu</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>Ei WebDAV-tuotu projekti</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV-asetuksista puuttuu pakollisia kenttiä</translation>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>Ei tallennettua salasanaa</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>Valitut kohteet kuuluvat eri WebDAV-projekteihin</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Ei mitään ladattavaa</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>Paikallisia muutoksia ei havaittu</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Lataus peruutettu</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>Lataus ohitettu</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>Lataus on lukittu toisen prosessin toimesta</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV-asetustiedoston lukeminen epäonnistui</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen WebDAV-asetusten JSON</translation>
     </message>
 </context>
 <context>
@@ -8389,7 +8420,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Moi! Kuinka olet pitänyt kokemuksestasi sovelluksen %1 parissa tähän asti?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
@@ -8405,7 +8436,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Vakauden parantamiseksi kaikille käyttäjille %1 kerää ja lähettää anonymisoituja mittaustietoja.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -8432,7 +8463,7 @@ project</source>
     </message>
     <message>
         <source>Recently Opened</source>
-        <translation type="unfinished"/>
+        <translation>Viimeksi avatut</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -8452,11 +8483,11 @@ project</source>
     </message>
     <message>
         <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
+        <translation>Yksittäisten aineistojen taustakartta</translation>
     </message>
     <message>
         <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
+        <translation>Poista viimeksi avatuista</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -8476,19 +8507,19 @@ project</source>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Paikalliset muutokset</translation>
     </message>
     <message>
         <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
-        <translation type="unfinished"/>
+        <translation>Keskeneräisiä muutoksia on jäljellä. Haluatko ladata ne nyt vai pitää ne odottamassa ja sulkea pilviprojektin sekä sovelluksen?</translation>
     </message>
     <message>
         <source>Don&apos;t show this again</source>
-        <translation type="unfinished"/>
+        <translation>Älä näytä tätä uudelleen</translation>
     </message>
     <message>
         <source>Upload now</source>
-        <translation type="unfinished"/>
+        <translation>Lataa nyt</translation>
     </message>
     <message>
         <source>Close</source>
@@ -8575,20 +8606,21 @@ project</source>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>3D-näkymän lataaminen epäonnistui</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan maastoa...</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Paina sijaintimerkkiäsi pitkään näyttääksesi toiminnat</translation>
     </message>
     <message>
         <source>Tap on your location marker
 to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Napauta sijaintimerkkiäsi
+näyttääksesi toiminnot</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -8596,23 +8628,23 @@ to show actions</source>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Koordinaattikursori lukittu sijaintiin</translation>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Karttanäkymän lukitus avattu</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Karttanäkymä lukittu sijaintiin ja kompassin suuntaukseen</translation>
     </message>
     <message>
         <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Karttanäkymä lukittu sijaintiin ja liikesuuntaan</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Karttanäkymä lukittu sijaintiin</translation>
     </message>
     <message>
         <source>My location</source>
@@ -8636,19 +8668,19 @@ to show actions</source>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Sijainnin nauhoitus aktiivinen %n tasolla</numerusform><numerusform>Sijainnin nauhoitus aktiivinen %n tasolla</numerusform></translation>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Pysäytä kaikki</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nauhoitus pysäytetty %n tasolla</numerusform><numerusform>Nauhoitus pysäytetty %n tasolla</numerusform></translation>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>Sopivia tasoja ei ole saatavilla nauhoituksen käynnistämiseen</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -8656,7 +8688,7 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Paina kohdemerkkiä pitkään näyttääksesi toiminnat</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
@@ -8708,7 +8740,7 @@ to show actions</source>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Sulje 3D-näkymä</translation>
     </message>
     <message>
         <source>Stop editing</source>
@@ -8720,11 +8752,11 @@ to show actions</source>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>COGO-digitointi kytketty päälle</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>COGO-digitointi kytketty pois päältä</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
@@ -8796,15 +8828,15 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Karttanäkymä seuraa sijaintia ja kompassin suuntausta</translation>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Map canvas follows location and movement direction</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>Karttanäkymä seuraa sijaintia</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
@@ -8824,7 +8856,7 @@ to show actions</source>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
+        <translation>Paikannuspalvelu ei ole vielä saanut kelvollista sijaintia</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -8852,11 +8884,11 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Kirjanmerkit</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosien hallinta</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -8872,7 +8904,7 @@ to show actions</source>
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>Lisätietoja %1</translation>
     </message>
     <message>
         <source>Select sensor below</source>
@@ -8956,7 +8988,7 @@ to show actions</source>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>Liitä tasoon</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
@@ -8988,7 +9020,7 @@ to show actions</source>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
+        <translation>Ota NTRIP-korjaukset käyttöön</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -9000,11 +9032,11 @@ to show actions</source>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse koordinaattikursori sijaintiin</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse karttanäkymä sijaintiin</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
@@ -9020,11 +9052,11 @@ to show actions</source>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>Moniosaisen geometrian editointia ei vielä tueta</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Karttanäkymän lukitus keskeytetty</translation>
     </message>
     <message>
         <source>Unlock</source>
@@ -9056,27 +9088,27 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projektia %1 ei voi paketoida, koska käytettävissä oleva tallennustilasi on täynnä.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä tallennustilaa</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projektia %1 ei voi paketoida, koska projektin omistajan käytettävissä oleva tallennustila on täynnä.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Projektia %1 ei voi ladata puuttuvan tilauksen vuoksi</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä tilaus</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Projektia %1 ei voi ladata, koska projektin omistajan tilaustaso ei riitä</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -9108,7 +9140,7 @@ to show actions</source>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>Do you want to import &lt;b&gt;%1 &lt;/b&gt;from &lt;b&gt;%2&lt;/b&gt; into %3?</translation>
     </message>
     <message>
         <source> Project Plugin</source>
@@ -9140,7 +9172,7 @@ to show actions</source>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>Projektilisäosa ladattu</translation>
     </message>
     <message>
         <source>Dashboard</source>
@@ -9200,7 +9232,7 @@ to show actions</source>
     </message>
     <message>
         <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Lataa paikalliset muutokset, synkronoi tai hylkää muutokset QFieldCloudiin ja QFieldCloudista, kun pilviprojekti avataan.</translation>
     </message>
     <message>
         <source>Project folder</source>
@@ -9212,23 +9244,39 @@ to show actions</source>
     </message>
     <message>
         <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
-        <translation type="unfinished"/>
+        <translation>Odottavia muutoksia on olemassa. Lataa ne nyt tai paina takaisin-painiketta uudelleen jättääksesi ne odottamaan ja sulkeaksesi pilviprojektin ja sovelluksen.</translation>
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Upload local changes</translation>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Paikalliset muutokset</translation>
     </message>
     <message>
         <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Tässä projektissa on odottavia muutoksia, joita ei ole vielä ladattu. Napauta sinistä pilvipainiketta avataksesi pilviprojektipaneelin ja lähettääksesi ne QFieldCloudiin.</translation>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Tässä pilviprojektissa on odottavia muutoksia, joita ei ole vielä ladattu. Avaa hallintapaneeli tästä painikkeesta ja napauta sitten sinistä pilvikuvaketta lähettääksesi ne QFieldCloudiin.</translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation>Tulostetaan %1</translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation>Tulostus epäonnistui</translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation>Tulostettu ja sijoitettu projektisi taittoosioon</translation>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation>Open folder</translation>
     </message>
 </context>
 <context>

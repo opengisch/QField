@@ -3101,6 +3101,10 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
         <source>Failed to delete file: %1 - %2</source>
         <translation>Kunde inte ta bort fil: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4118,14 +4122,6 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Latitud</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Longitud</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Höjd</translation>
     </message>
@@ -4134,8 +4130,20 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
         <translation>Hastighet</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Latitud</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Longitud</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Orientering</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4832,18 +4840,6 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <translation>avbrutet</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Lokal sökväg finns inte</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Lokal sökväg för uppladdning kan inte användas eftersom den har flera projektfiler</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>Lokal sökväg för uppladdning saknar en giltig projektfil</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Nätverksfel. Det gick inte att ladda upp filen `%1`.</translation>
     </message>
@@ -5199,6 +5195,10 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <source>Downloading project…</source>
         <translation>Hämtar projekt…</translation>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5272,6 +5272,22 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
     <message>
         <source>%1 in layer %2</source>
         <translation>%1 i lagret %2</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6356,6 +6372,15 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <translation>Det gick inte att lägga till ett nytt objekt i lagret &quot;%1&quot;. Orsak:
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6912,7 +6937,7 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlasobjekten har skrivits ut och sparats i projektmappen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7071,6 +7096,10 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
     <message>
         <source>Raster Datasets</source>
         <translation>Rasterdatamängder</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7794,7 +7823,7 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Atlasobjekten har skrivits ut och sparats i projektmappen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9232,6 +9261,22 @@ för att visa åtgärder</translation>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>Det här molnprojektet har väntande ändringar som ännu inte har laddats upp. Öppna instrumentpanelen med den här knappen och tryck sedan på den blå molnikonen för att ladda upp dem till QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

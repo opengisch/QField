@@ -3099,6 +3099,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete file: %1 - %2</source>
         <translation>无法删除文件: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>无法删除附属文件: %1 - %2</translation>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4116,14 +4120,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>纬度</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>经度</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>海拔</translation>
     </message>
@@ -4132,8 +4128,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>速度</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>纬度</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>经度</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>朝向</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>最高</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4830,18 +4838,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>异常退出</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>本地路径不存在</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>无法使用本地路径上传，因为它有多个工程文件</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>上传的本地路径缺少有效的工程文件</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>网络错误。上传文件 `%1` 失败。</translation>
     </message>
@@ -5197,6 +5193,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Downloading project…</source>
         <translation>正在下载工程…</translation>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation>输入您的工程描述</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5270,6 +5270,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>%1 in layer %2</source>
         <translation>%1在图层%2中</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation>未找到工程文件夹。</translation>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation>工程文件夹包含多个工程文件，请将该工程移至自己的文件夹，然后重试。</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation>工程文件夹未包含有效工程文件。</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation>工程文件夹未包含工程文件。</translation>
     </message>
 </context>
 <context>
@@ -6352,6 +6368,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>无法在图层 &quot;%1&quot; 中添加新要素。原因：
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation>无法在图层 &quot;%1&quot; 中添加要素</translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>无法在图层 &quot;%1&quot; 中提交新要素。原因：
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6908,7 +6934,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>地图集要素已成功输出并保存在您的工程文件夹中</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7067,6 +7093,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>栅格数据集</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>无法将附属文件 &quot;%1&quot; 移到 &quot;%2&quot; 旁边</translation>
     </message>
 </context>
 <context>
@@ -7790,7 +7820,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>地图集要素已成功输出并保存在您的工程文件夹中</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9228,6 +9258,22 @@ to show actions</source>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>此云端工程有尚未上传的未提交更改。使用此按钮打开仪表板，然后点击蓝色云图标将它们发送到QFieldCloud。</translation>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation>正在打印 %1</translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation>打印失败</translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation>已打印并存放于您的工程布局文件夹</translation>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation>打开文件夹</translation>
     </message>
 </context>
 <context>

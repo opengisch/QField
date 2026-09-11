@@ -355,7 +355,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="vanished">Détails du repère copiés dans le presse-papiers</translation>
+        <translation type="vanished">Détails du repère copiés dans le presse-papier</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -736,11 +736,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation type="vanished"><numerusform>%n entité fusionnée avec succès</numerusform><numerusform>%n entités fusionnées avec succès</numerusform><numerusform>%n entités fusionnées avec succès</numerusform></translation>
+        <translation type="vanished"><numerusform>%n entité fusionnée avec succès</numerusform><numerusform>%n entités fusionnées avec succès</numerusform><numerusform>%n entité(s) fusionnée(s) avec succès</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation type="vanished"><numerusform>Erreur lors de la fusion de %n entité</numerusform><numerusform>Erreur lors de la fusion de %n entités</numerusform><numerusform>Erreur lors de la fusion de %n entités</numerusform></translation>
+        <translation type="vanished"><numerusform>Erreur lors de la fusion de %n entité</numerusform><numerusform>Erreur lors de la fusion de %n entités</numerusform><numerusform>Erreur lors de la fusion de %n entité(s)</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
@@ -749,7 +749,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation type="vanished"><numerusform>Supprimer l&apos;entité sélectionnée ?</numerusform><numerusform>Supprimer les %n entités sélectionnées ?</numerusform><numerusform>Supprimer les %n entités sélectionnées ?</numerusform></translation>
+        <translation type="vanished"><numerusform>Supprimer l&apos;entité sélectionnée ?</numerusform><numerusform>Supprimer les %n entités sélectionnées ?</numerusform><numerusform>Supprimer les %n entité(s) sélectionnée(s) ?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
@@ -757,7 +757,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
-        <translation type="vanished"><numerusform>Échec de la suppression de l&apos;entité</numerusform><numerusform>Échec de la suppression de %n entités</numerusform><numerusform>Échec de la suppression de %n entités</numerusform></translation>
+        <translation type="vanished"><numerusform>Échec de la suppression de l&apos;entité</numerusform><numerusform>Échec de la suppression de %n entités</numerusform><numerusform>Échec de la suppression de %n entité(s)</numerusform></translation>
     </message>
     <message>
         <source>Changes discarded</source>
@@ -1265,7 +1265,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation type="vanished">Imprimer les entités d&apos;atlas en PDF</translation>
+        <translation type="vanished">Imprimer l&apos;/les entité(s) d&apos;atlas en PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
@@ -1321,23 +1321,23 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Impression des entités de l&apos;atlas en PDF</translation>
+        <translation type="vanished">Impression de l&apos;/des entité(s) de l&apos;atlas en PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">La ou les entités de l&apos;atlas ont été imprimées avec succès en PDF et placées dans vos documents.</translation>
+        <translation type="vanished">L&apos;/ Les entité(s) de l&apos;atlas ont été imprimées avec succès en PDF et placées dans vos documents.</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">Imprimer les caractéristiques de l&apos;Atlas sur l&apos;image</translation>
+        <translation type="vanished">Imprimer l&apos;/les entité(s) de l&apos;Atlas sur l&apos;image</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="vanished">Imprimer l&apos;élément Atlas sur l&apos;image</translation>
+        <translation type="vanished">Imprimer l&apos;entité de l&apos;Atlas sur l&apos;image</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="vanished">Caractéristique(s) de l&apos;atlas imprimé</translation>
+        <translation type="vanished">L&apos;/Les entité(s) de l&apos;atlas imprimé</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -1345,7 +1345,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="vanished">Élément(s) Atlas imprimé(s) avec succès et placé(s) dans votre dossier de projet</translation>
+        <translation type="vanished">L&apos;/Les entité(s) de l&apos;Atlas imprimée(s) avec succès et placée(s) dans votre dossier de projet</translation>
     </message>
 </context>
 <context>
@@ -1974,7 +1974,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation type="vanished">Upload %1%…</translation>
+        <translation type="vanished">Téléversement %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
@@ -2464,7 +2464,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation>Téléchargement de %1</translation>
+        <translation>Téléversement %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -3097,6 +3097,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to delete file: %1 - %2</source>
         <translation>Échec de la suppression du fichier : %1 - %2</translation>
+    </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation>Impossible de supprimer le fichier connexe : %1 - %2</translation>
     </message>
 </context>
 <context>
@@ -4115,14 +4119,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>Latitude</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Longitude</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>Altitude</translation>
     </message>
@@ -4131,8 +4127,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Vitesse</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>Latitude</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Longitude</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>Orientation</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>Le plus haut</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4347,11 +4355,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <name>QfCloudDeltaHistory</name>
     <message>
         <source>Upload History</source>
-        <translation>Historique des téléchargements envoyés</translation>
+        <translation>Historique des téléversements</translation>
     </message>
     <message>
         <source>Fetching upload history…</source>
-        <translation>Récupération de l&apos;historique des téléchargements envoyés…</translation>
+        <translation>Récupération de l&apos;historique des téléversements…</translation>
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
@@ -4553,7 +4561,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation>Téléchargement du projet actuel sur QFieldCloud.</translation>
+        <translation>Téléversement du projet actuel sur QFieldCloud.</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
@@ -4621,7 +4629,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation>Il télécharge tes modifications, puis récupère la dernière version du projet sur QFieldCloud pour que tout soit à jour.</translation>
+        <translation>Téléverse tes modifications, puis récupère la dernière version du projet sur QFieldCloud pour que tout soit à jour.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -4653,7 +4661,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation>Téléchargement de %1 </translation>
+        <translation>Téléversement %1 </translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -4681,7 +4689,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>Ce projet dispose d&apos;une mise à jour sur le cloud, il est conseillé de le synchroniser.</translation>
+        <translation>Ce projet dispose d&apos;une mise à jour du projet sur le cloud, il est conseillé de le synchroniser.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
@@ -4829,20 +4837,8 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>avorté</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Le chemin local n&apos;existe pas</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Le chemin d&apos;accès local pour le téléchargement ne peut pas être utilisé car il contient plusieurs fichiers projet</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>Le chemin local pour le téléchargement n&apos;a pas de fichier de projet valide.</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
-        <translation>Erreur réseau. Échec du téléchargement du fichier `%1`.</translation>
+        <translation>Erreur réseau. Échec du téléversement du fichier `%1`.</translation>
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
@@ -5196,6 +5192,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>Downloading project…</source>
         <translation>Téléchargement du projet…</translation>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation>Saisis la description de ton projet </translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5269,6 +5269,22 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>%1 in layer %2</source>
         <translation>%1 dans couche %2</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5899,7 +5915,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation><numerusform>Erreur lors de la fusion de %n entité</numerusform><numerusform>Erreur lors de la fusion de %n entités</numerusform><numerusform>Erreur lors de la fusion de %n entités</numerusform></translation>
+        <translation><numerusform>Erreur lors de la fusion de %n entité</numerusform><numerusform>Erreur lors de la fusion de %n entités</numerusform><numerusform>Erreur lors de la fusion de %n entité(s)</numerusform></translation>
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
@@ -6355,6 +6371,16 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Impossible d&apos;ajouter une nouvelle entité dans la couche &quot;%1&quot;. Raison :
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation>Impossible d&apos;ajouter entité dans la couche « %1 »</translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Impossible de valider la nouvelle entité dans la couche « %1 ». Raison :
+%2</translation>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6555,7 +6581,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message>
         <source>Items being uploaded to QFieldCloud</source>
-        <translation>Éléments en cours de téléchargement vers QFieldCloud</translation>
+        <translation>Éléments en cours de téléversement vers QFieldCloud</translation>
     </message>
     <message>
         <source>Remove File(s)</source>
@@ -6911,7 +6937,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Élément(s) Atlas imprimé(s) avec succès et placé(s) dans votre dossier de projet</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7070,6 +7096,10 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <message>
         <source>Raster Datasets</source>
         <translation>Données raster </translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation>Impossible de déplacer le fichier &apos;%1&apos; vers &apos;%2&apos;</translation>
     </message>
 </context>
 <context>
@@ -7561,7 +7591,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation>Choisir un des fonds de carte proposés ou saisir une URL.</translation>
+        <translation>Choisir un des fonds de carte proposés pour votre projet ou saisir une URL.</translation>
     </message>
     <message>
         <source>Colorful</source>
@@ -7793,7 +7823,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>Élément(s) Atlas imprimé(s) avec succès et placé(s) dans votre dossier de projet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -7852,7 +7882,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <name>QfSerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation>Impossible de trouver le périphérique sur port série</translation>
+        <translation>Impossible de trouver le port série du périphérique</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
@@ -8320,7 +8350,7 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation>Le téléchargement est terminé.</translation>
+        <translation>Le téléversement est terminé.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
@@ -8360,11 +8390,11 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation>Téléchargement ignoré.</translation>
+        <translation>Téléversement ignoré.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation>Le téléchargement est bloqué par un autre processus.</translation>
+        <translation>Le téléversement est bloqué par un autre processus.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
@@ -8489,7 +8519,7 @@ projet</translation>
     </message>
     <message>
         <source>Upload now</source>
-        <translation>Télécharge maintenant</translation>
+        <translation>Téléverser maintenant</translation>
     </message>
     <message>
         <source>Close</source>
@@ -9211,7 +9241,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation>Ouvrez le dossier du projet pour accéder aux fichiers du projet, sources de données et documents connexes. Utile pour gérer les ressources du projet, télécharger manuellement des données sur QFieldCloud et partager des jeux de données, pièces jointes et mises en page.</translation>
+        <translation>Ouvrez le dossier du projet pour accéder aux fichiers du projet, sources de données et documents connexes. Utile pour gérer les ressources du projet, téléverser manuellement des données sur QFieldCloud et partager des jeux de données, pièces jointes et mises en page.</translation>
     </message>
     <message>
         <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
@@ -9233,6 +9263,22 @@ fermer le projet et quitter l&apos;application</translation>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
         <translation>Ce projet contient des modifications qui n&apos;ont pas encore été mises en ligne. Ouvre le tableau de bord à l&apos;aide de ce bouton, puis appuie sur l&apos;icône bleue en forme de nuage pour les envoyer à QFieldCloud.</translation>
     </message>
+    <message>
+        <source>Printing %1</source>
+        <translation>Impression %1</translation>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation>Échec de l&apos;impression</translation>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation>Imprimé et placé dans le dossier Jeux de données du projet </translation>
+    </message>
+    <message>
+        <source>Open folder</source>
+        <translation>Ouvrir le dossier</translation>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
@@ -9242,7 +9288,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Manual input mode</source>
-        <translation>Mode saisie manuelle</translation>
+        <translation>Mode de saisie manuelle</translation>
     </message>
     <message>
         <source>Estimated</source>

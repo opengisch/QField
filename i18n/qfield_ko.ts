@@ -3099,6 +3099,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete file: %1 - %2</source>
         <translation>파일을 삭제하지 못했습니다: %1 - %2</translation>
     </message>
+    <message>
+        <source>Failed to delete sidecar file: %1 - %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -4116,14 +4120,6 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>QfCamera</name>
     <message>
-        <source>Latitude</source>
-        <translation>위도</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>경도</translation>
-    </message>
-    <message>
         <source>Altitude</source>
         <translation>고도</translation>
     </message>
@@ -4132,8 +4128,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>속도</translation>
     </message>
     <message>
+        <source>Latitude</source>
+        <translation>위도</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>경도</translation>
+    </message>
+    <message>
         <source>Orientation</source>
         <translation>방향</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -4830,18 +4838,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>중단됨</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>로컬 경로가 존재하지 않습니다</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>업로드할 로컬 경로에 프로젝트 파일이 여러 개 있어 사용할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>업로드할 로컬 경로에 유효한 프로젝트 파일이 없습니다</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>네트워크 오류. 파일 `%1`을(를) 업로드하지 못했습니다.</translation>
     </message>
@@ -5197,6 +5193,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Downloading project…</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enter your project description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
@@ -5270,6 +5270,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>%1 in layer %2</source>
         <translation>레이어 %2의 %1</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6352,6 +6368,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>레이어 &quot;%1&quot;에 새 객체를 추가할 수 없습니다. 원인:
 %2</translation>
     </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfLegend</name>
@@ -6908,7 +6933,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>아틀라스 객체를 출력해 프로젝트 폴더에 저장했습니다</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7067,6 +7092,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Raster Datasets</source>
         <translation>래스터 데이터셋</translation>
+    </message>
+    <message>
+        <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7790,7 +7819,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>아틀라스 객체를 출력해 프로젝트 폴더에 저장했습니다</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
@@ -9227,6 +9256,22 @@ to show actions</source>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printed and placed in your project layouts folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open folder</source>
         <translation type="unfinished"/>
     </message>
 </context>
