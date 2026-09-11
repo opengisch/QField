@@ -461,6 +461,7 @@ Page {
 
         property bool isProject: qgisProject && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
         property bool isLocalProject: isProject && QfCloudUtils.getProjectId(qgisProject.fileName) === ''
+        property bool isCloudProject: isProject && QfCloudUtils.getProjectId(qgisProject.fileName) !== ''
         property bool isProjectActionAvailable: updateProjectFromArchive.enabled || uploadProjectToWebdav.enabled || compressProjectAndSendTo.enabled
         visible: (projectFolderView && isProject && isProjectActionAvailable && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
@@ -862,7 +863,8 @@ Page {
 
         text: qsTr("Compress project and send to...")
         onTriggered: {
-          platformUtilities.sendCompressedFolderTo(QfFileUtils.absolutePath(projectInfo.filePath), QfFileUtils.fileName(projectInfo.filePath, false));
+          var projectName = actionButton.isCloudProject && cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.name : QfFileUtils.fileName(projectInfo.filePath, false);
+          platformUtilities.sendCompressedFolderTo(QfFileUtils.absolutePath(projectInfo.filePath), QfFileUtils.sanitizeFilePathPart(projectName));
         }
       }
 
