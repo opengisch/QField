@@ -328,6 +328,13 @@ class QfCloudUtils : public QObject
      */
     Q_INVOKABLE static QString documentationFromErrorString( const QString &errorString );
 
+    /**
+     * Checks whether the project found in \a localPath can be stored on QFieldCloud, and returns the
+     * reason why it cannot, or an empty string when it can. \a localPath can either be a project file
+     * or the folder holding it.
+     */
+    Q_INVOKABLE static QString checkCloudifyFeasibility( const QString &localPath );
+
     //! Sets a \a setting to a given \a value for project with given \a projectId to the permanent storage.
     static void setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value );
 
