@@ -272,6 +272,9 @@ else()
 endif()
 file(MAKE_DIRECTORY "${SHARE_DIR}")
 
+# Towns Canada: bundle our branded project so it ships inside the app on every platform
+file(COPY "${CMAKE_SOURCE_DIR}/resources/towns_canada_project/" DESTINATION "${SHARE_DIR}/towns_canada_project")
+
 if(WITH_SENTRY)
   add_subdirectory(src/sentry)
 else()
