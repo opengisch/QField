@@ -72,7 +72,7 @@ Page {
 
         Text {
           Layout.fillWidth: true
-          text: table.model.currentTitle
+          text: localFilesModel.inSelectionMode ? qsTr('%n item(s) selected', '', localFilesModel.selectedCount) : table.model.currentTitle
           font.pointSize: QfTheme.defaultFont.pointSize
           font.bold: true
           color: QfTheme.mainTextColor
@@ -82,7 +82,7 @@ Page {
         Text {
           Layout.fillWidth: true
           visible: text !== ''
-          text: table.model.currentPath !== 'root' ? table.model.currentPath : ''
+          text: localFilesModel.inSelectionMode ? QfFileUtils.representFileSize(localFilesModel.selectedSize) : (table.model.currentPath !== 'root' ? table.model.currentPath : '')
           font: QfTheme.tipFont
           color: QfTheme.mainTextColor
           wrapMode: Text.NoWrap

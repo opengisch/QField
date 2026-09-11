@@ -24,6 +24,8 @@
 #include <QFile>
 #include <QImageReader>
 
+#include <algorithm>
+
 QfLocalFilesModel::QfLocalFilesModel( QObject *parent )
   : QAbstractListModel( parent )
 {
@@ -419,6 +421,18 @@ bool QfLocalFilesModel::inSelectionMode()
   return std::any_of( mItems.begin(), mItems.end(), []( const QfLocalFileItem &item ) { return item.checked(); } );
 }
 
+int QfLocalFilesModel::selectedCount() const
+{
+  return static_cast<int>( std::count_if( mItems.begin(), mItems.end(), []( const QfLocalFileItem &item ) { return item.checked(); } ) );
+}
+
+qint64 QfLocalFilesModel::selectedSize() const
+{
+  return std::accumulate( mItems.begin(), mItems.end(), qint64( 0 ), []( qint64 sum, const QfLocalFileItem &item ) {
+    return item.checked() ? sum + item.size() : sum;
+  } );
+}
+
 void QfLocalFilesModel::setChecked( const int &mIdx, const bool &checked )
 {
   if ( mIdx < 0 || mIdx >= mItems.size() )
@@ -439,6 +453,7 @@ void QfLocalFilesModel::setChecked( const int &mIdx, const bool &checked )
     {
       emit inSelectionModeChanged();
     }
+    emit selectionDetailsChanged();
   }
 }
 
@@ -449,5 +464,6 @@ void QfLocalFilesModel::clearSelection()
     item.setChecked( false );
   }
   emit inSelectionModeChanged();
+  emit selectionDetailsChanged();
   emit dataChanged( index( 0, 0, QModelIndex() ), index( static_cast<int>( mItems.size() ) - 1, 0, QModelIndex() ), { ItemCheckedRole } );
 }
