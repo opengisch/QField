@@ -20,6 +20,8 @@ if("@CMAKE_SYSTEM_NAME@" STREQUAL "Darwin")
   target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework AppKit")
 elseif("@CMAKE_SYSTEM_NAME@" STREQUAL "iOS")
   target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework UiKit")
+  target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework SystemConfiguration")
+  target_link_libraries(SentryCocoa::sentry_cocoa INTERFACE "-framework UserNotifications")
 endif()
 
 # Cleanup temporary variables.
