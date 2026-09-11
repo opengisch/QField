@@ -554,7 +554,9 @@ void QfIosPlatformUtilities::sendDatasetTo(const QString &path) const {
 
 void QfIosPlatformUtilities::sendCompressedFolderTo(
     const QString &path, const QString &fileName) const {
-  QString zipName = fileName.isEmpty() ? QFileInfo(path).fileName() : fileName;
+  QString zipName = fileName.isEmpty()
+                        ? QFileInfo(path).fileName()
+                        : QfFileUtils::sanitizeFilePathPart(fileName);
   QString tempZipPath =
       QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
       QStringLiteral("/") + zipName + QStringLiteral(".zip");
