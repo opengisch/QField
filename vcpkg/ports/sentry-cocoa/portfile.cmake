@@ -1,8 +1,8 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO getsentry/sentry-cocoa
-    REF 7.23.0
-    SHA512 2cc9d1dc39221b31dbbfb650ebbed30356f44d9adac7a8a9c13fdaabc58aa3a7f5d4192d521a4296efe45f17ca0a86c53f9171697340a25c50e75be602033b68
+    REF 7.31.5
+    SHA512 328190f6794e1174c6c95bc1cf10ff7d39e8a5f1e3da88781e083c5e8fe3b5dc656fa7ca96de4dd77a2e5f04a0e43b83d0b40b7697a2d5c96024a567362cf511
     HEAD_REF master
     PATCHES
       stdint.patch
@@ -12,6 +12,7 @@ vcpkg_from_github(
 )
 
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt DESTINATION ${SOURCE_PATH})
+
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/SentryCocoaConfig.cmake.in DESTINATION ${SOURCE_PATH})
 
 if(VCPKG_CROSSCOMPILING)
