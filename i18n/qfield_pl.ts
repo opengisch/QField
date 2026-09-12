@@ -6428,6 +6428,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Local Projects &amp; Datasets</source>
         <translation>Lokalne projekty i zestawy danych</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Katalogi</translation>

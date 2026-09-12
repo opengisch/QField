@@ -6416,6 +6416,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Local Projects &amp; Datasets</source>
         <translation>Lokalni projekti i skupovi podataka</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Mape</translation>

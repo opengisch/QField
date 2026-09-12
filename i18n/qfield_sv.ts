@@ -6419,6 +6419,10 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <source>Local Projects &amp; Datasets</source>
         <translation>Lokala projekt och datamängder</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Mappar</translation>

@@ -5272,19 +5272,19 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>The project folder could not be found.</source>
-        <translation type="unfinished"/>
+        <translation>Le dossier du projet est introuvable.</translation>
     </message>
     <message>
         <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
-        <translation type="unfinished"/>
+        <translation>Le dossier du projet contient plus d&apos;un fichier projet, déplace le fichier projet dans un dossier à part et réessaie.</translation>
     </message>
     <message>
         <source>The project folder does not contain a valid project file.</source>
-        <translation type="unfinished"/>
+        <translation>Le dossier du projet ne contient pas de fichier projet valide.</translation>
     </message>
     <message>
         <source>The project folder does not contain a project file.</source>
-        <translation type="unfinished"/>
+        <translation>Le dossier du projet ne contient pas de fichier projet.</translation>
     </message>
 </context>
 <context>
@@ -6418,6 +6418,10 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <message>
         <source>Local Projects &amp; Datasets</source>
         <translation>Projets locaux et jeux de données</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation><numerusform>%n article(s) sélectionné(s)</numerusform><numerusform>%n article(s) sélectionné(s)</numerusform><numerusform>%n élément(s) sélectionné(s)</numerusform></translation>
     </message>
     <message>
         <source>Folders</source>

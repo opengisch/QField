@@ -6415,6 +6415,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Local Projects &amp; Datasets</source>
         <translation>로컬 프로젝트 및 데이터셋</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>폴더</translation>

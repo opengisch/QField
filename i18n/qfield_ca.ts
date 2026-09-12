@@ -6422,6 +6422,10 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <source>Local Projects &amp; Datasets</source>
         <translation>Projectes i conjunts de dades locals</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Carpetes</translation>

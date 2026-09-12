@@ -6426,6 +6426,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>Local Projects &amp; Datasets</source>
         <translation>Progetti &amp; Dataset Locali</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Cartelle</translation>

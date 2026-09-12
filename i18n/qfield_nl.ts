@@ -6418,6 +6418,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Local Projects &amp; Datasets</source>
         <translation>Lokale Projecten &amp; Datasets</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Mappen</translation>
