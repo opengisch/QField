@@ -19,7 +19,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: blacksmith-8vcpu-ubuntu-2404
     strategy:
       fail-fast: true
       matrix:
@@ -66,16 +66,6 @@ jobs:
       - name: ♻️ Check disk space
         run: df . -h
 
-      - name: 🧹 Reclaim disk space
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
-          sudo rm -rf "/usr/local/share/boost"
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-
-      - name: ♻️ Check disk space
-        run: df . -h
-
       - name: 🌾 Prepare variables
         id: vars
         shell: bash
@@ -109,7 +99,7 @@ jobs:
       - name: 🐵 Install Mono
         run: |
           sudo apt install ca-certificates gnupg
-          sudo gpg --homedir /tmp --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+          curl -fsSL "https://download.mono-project.com/repo/xamarin.gpg" | sudo gpg --dearmor -o /usr/share/keyrings/mono-official-archive-keyring.gpg
           sudo chmod +r /usr/share/keyrings/mono-official-archive-keyring.gpg
           echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
           sudo apt update
@@ -140,6 +130,12 @@ jobs:
           wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/7.22.6/sentry-android-ndk-7.22.6.aar -O /tmp/sentry.zip
           unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
 
+      - name: 💾 Mount vcpkg archives sticky disk
+        uses: useblacksmith/stickydisk@v1
+        with:
+          key: vcpkg-archives-${{ matrix.triplet }}
+          path: /home/runner/.cache/vcpkg
+
       - name: 🌱 Install dependencies and generate project files
         env:
           WORKSPACE: ${{ github.workspace }}
@@ -155,7 +151,6 @@ jobs:
                 -D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
                 -D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
-                -D VCPKG_INSTALL_OPTIONS="--allow-unsupported" \
                 -D WITH_ALL_FILES_ACCESS="${{ matrix.all_files_access }}" \
                 -D WITH_SPIX=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
@@ -165,7 +160,7 @@ jobs:
                 -D APP_ICON="${APP_ICON}" \
                 -D APP_NAME="${APP_NAME}" \
                 -D NUGET_USERNAME=opengisch \
-                -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+                -D NUGET_TOKEN="" \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni \

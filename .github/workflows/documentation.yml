@@ -7,7 +7,7 @@ on:
       - labeled
 jobs:
   backport:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Create documentation task
     if: contains(github.event.pull_request.labels.*.name, 'needs documentation')
     steps:
