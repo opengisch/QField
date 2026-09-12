@@ -5270,6 +5270,12 @@ ApplicationWindow {
       qfieldCloudStatus.refresh();
       displayToast(reason);
     }
+
+    onIsReachableChanged: {
+      if (cloudConnection.isReachable) {
+        qfieldCloudStatus.refresh();
+      }
+    }
   }
 
   QfCloudProjectsModel {

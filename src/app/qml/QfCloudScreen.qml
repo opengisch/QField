@@ -1067,6 +1067,12 @@ Page {
         }
       }
     }
+
+    function onIsReachableChanged() {
+      if (visible && cloudConnection.isReachable) {
+        prepareCloudScreen();
+      }
+    }
   }
 
   Connections {
@@ -1171,7 +1177,7 @@ Page {
     if (visible) {
       switch (cloudConnection.status) {
       case QfCloudConnection.Disconnected:
-        if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
+        if (cloudConnection.isReachable && (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
           cloudConnection.login();
           if (requestedProjectDetails != "") {
             // Project details requested, jump on the login screen then project details
@@ -1182,11 +1188,11 @@ Page {
             projectsSwipeView.visible = true;
             connectionSettings.visible = false;
           }
+          cloudConnection.getServerInformation();
         } else {
           projectsSwipeView.visible = false;
           connectionSettings.visible = true;
         }
-        cloudConnection.getServerInformation();
         break;
       case QfCloudConnection.Connecting:
         const hasProjects = table.count !== 0;
