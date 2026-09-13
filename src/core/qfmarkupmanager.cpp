@@ -44,7 +44,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
     {
       if ( collection->name().isEmpty() )
       {
-        collection->setName( tr( "Markup collecton" ) );
+        collection->setName( tr( "Unnamed collecton" ) );
       }
 
       insertCollection( collection );
@@ -54,7 +54,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
   if ( mCollections.isEmpty() )
   {
     // A default markup collection is added
-    QfMarkupCollection *collection = new QfMarkupCollection( tr( "Markup collection" ) );
+    QfMarkupCollection *collection = new QfMarkupCollection( tr( "Default collection" ) );
     insertCollection( collection );
   }
 
