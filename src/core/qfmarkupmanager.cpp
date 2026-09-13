@@ -74,18 +74,19 @@ void QfMarkupManager::insertCollection( QfMarkupCollection *collection )
     collection->setName( uniqueName );
   }
 
-  connect( collection, &QfMarkupCollection::itemsChanged, this, &QfMarkupManager::collectionItemsChanged );
+  connect( collection, &QfMarkupCollection::itemsChanged, this, &QfMarkupManager::processCollectionItemsChanged );
 
   mCollections.insert( collection->name(), collection );
 }
 
-void QfMarkupManager::collectionItemsChanged()
+void QfMarkupManager::processCollectionItemsChanged()
 {
   QfMarkupCollection *collection = qobject_cast<QfMarkupCollection *>( sender() );
   if ( !collection )
   {
     return;
   }
+  emit collectionItemsChanged( collection->name() );
 
   QString filename = collection->name();
   if ( !mPrefix.isEmpty() )
@@ -93,6 +94,8 @@ void QfMarkupManager::collectionItemsChanged()
     filename.prepend( QStringLiteral( "%1-" ).arg( mPrefix ) );
   }
   filename = QfFileUtils::sanitizeFilePathPart( filename );
-
-  collection->writeGeoJson( QStringLiteral( "%1%2%3.geojson" ).arg( mPath, QDir::separator(), filename ) );
+  if ( !collection->writeGeoJson( QStringLiteral( "%1%2%3.geojson" ).arg( mPath, QDir::separator(), filename ) ) )
+  {
+    qInfo() << QStringLiteral( "Error: Markup collection '%1' could not be written on disk" ).arg( collection->name() );
+  }
 }

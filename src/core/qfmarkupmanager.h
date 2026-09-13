@@ -43,9 +43,10 @@ class QfMarkupManager : public QObject
 
   signals:
     void collectionsChanged();
+    void collectionItemsChanged( const QString &name );
 
   private slots:
-    void collectionItemsChanged();
+    void processCollectionItemsChanged();
 
   private:
     void insertCollection( QfMarkupCollection *collection );
