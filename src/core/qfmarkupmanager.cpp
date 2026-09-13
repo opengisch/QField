@@ -27,6 +27,35 @@ QfMarkupManager::QfMarkupManager( QObject *parent )
 {
 }
 
+void QfMarkupManager::setHiddenCollectionNames( const QStringList &hiddenCollectionNames )
+{
+  if ( mHiddenCollectionNames == hiddenCollectionNames )
+  {
+    return;
+  }
+
+  mHiddenCollectionNames = hiddenCollectionNames;
+  emit hiddenCollectionNamesChanged();
+
+  if ( !mCollections.isEmpty() )
+  {
+    emit visibleCollectionsChanged();
+  }
+}
+
+QList<QfMarkupCollection *> QfMarkupManager::visibleCollections() const
+{
+  QList<QfMarkupCollection *> visibleCollections;
+  for ( QfMarkupCollection *collection : mCollections )
+  {
+    if ( !mHiddenCollectionNames.contains( collection->name() ) )
+    {
+      visibleCollections << collection;
+    }
+  }
+  return visibleCollections;
+}
+
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
 {
   qDeleteAll( mCollections );
@@ -39,6 +68,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
   QDirIterator collectionGeoJsonPaths( path, QStringList() << QStringLiteral( "%1*.geojson" ).arg( prefix ), QDir::Files );
   while ( collectionGeoJsonPaths.hasNext() )
   {
+    collectionGeoJsonPaths.next();
     QfMarkupCollection *collection = new QfMarkupCollection();
     if ( collection->readGeoJson( collectionGeoJsonPaths.filePath() ) )
     {

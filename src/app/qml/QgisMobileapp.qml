@@ -4869,6 +4869,7 @@ ApplicationWindow {
       busyOverlay.state = "visible";
       navigation.clearDestinationFeature();
       projectInfo.filePath = '';
+      markupManager.reset('');
       readProjectTimer.start();
     }
 
@@ -4901,7 +4902,6 @@ ApplicationWindow {
       if (!qfieldAuthRequestHandler.hasPendingAuthRequest) {
         // only set active layer when not handling layer credentials
         dashBoard.activeLayer = activeLayer;
-        markupManager.reset("/home/webmaster/markups", "test");
       }
       drawingTemplateModel.projectFilePath = path;
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
@@ -4992,9 +4992,11 @@ ApplicationWindow {
             settings.setValue("/QField/showCloudButtonGuide", false);
           }
         }
+        markupManager.reset(QfFileUtils.absolutePath(qgisProject.fileName) + '/markups', projectInfo.cloudUserInformation.username);
       } else {
         projectInfo.hasInsertRights = true;
         projectInfo.hasEditRights = true;
+        markupManager.reset(QfFileUtils.absolutePath(qgisProject.fileName) + '/markups');
       }
       if (stateMachine.state === "digitize" && !qfieldAuthRequestHandler.hasPendingAuthRequest) {
         dashBoard.ensureEditableLayerSelected();

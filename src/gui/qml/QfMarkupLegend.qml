@@ -27,6 +27,7 @@ ListView {
 
     property string collectionName: modelData
     property bool isSelectedCollection: collectionName == activeCollectionName
+    property bool isVisibleCollection: markupManager.hiddenCollectionNames.indexOf(collectionName) === -1
 
     width: ListView.view.width
     height: line.height + 7
@@ -74,14 +75,21 @@ ListView {
           QfToolButton {
             height: 35
             width: height
-            opacity: true ? 1 : 0.25
+            opacity: isVisibleCollection ? 1 : 0.25
             anchors.centerIn: parent
-            iconSource: true ? QfTheme.getThemeVectorIcon('ic_hide_green_48dp') : QfTheme.getThemeVectorIcon('ic_show_green_48dp')
+            iconSource: isVisibleCollection ? QfTheme.getThemeVectorIcon('ic_show_green_48dp') : QfTheme.getThemeVectorIcon('ic_hide_green_48dp')
             iconColor: isSelectedCollection ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
             bgcolor: "transparent"
             enabled: true
             onClicked: {
-              //TODO: markup collection visibility
+              let hiddenCollectionNames = markupManager.hiddenCollectionNames;
+              const idx = hiddenCollectionNames.indexOf(collectionName);
+              if (idx === -1) {
+                hiddenCollectionNames.push(collectionName);
+              } else {
+                hiddenCollectionNames.splice(idx, 1);
+              }
+              markupManager.hiddenCollectionNames = hiddenCollectionNames;
             }
           }
         }

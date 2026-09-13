@@ -33,16 +33,28 @@ class QfMarkupManager : public QObject
     Q_PROPERTY( QStringList collectionNames READ collectionNames NOTIFY collectionsChanged )
     Q_PROPERTY( QList<QfMarkupCollection *> collections READ collections NOTIFY collectionsChanged )
 
+    Q_PROPERTY( QStringList hiddenCollectionNames READ hiddenCollectionNames WRITE setHiddenCollectionNames NOTIFY hiddenCollectionNamesChanged )
+    Q_PROPERTY( QList<QfMarkupCollection *> visibleCollections READ visibleCollections NOTIFY visibleCollectionsChanged )
+
   public:
     explicit QfMarkupManager( QObject *parent = nullptr );
 
     QStringList collectionNames() const { return mCollections.keys(); };
     QList<QfMarkupCollection *> collections() const { return mCollections.values(); }
 
+    QStringList hiddenCollectionNames() const { return mHiddenCollectionNames; }
+    void setHiddenCollectionNames( const QStringList &hiddenCollectionNames );
+
+    QList<QfMarkupCollection *> visibleCollections() const;
+
     Q_INVOKABLE void reset( const QString &path, const QString &prefix = QString() );
 
   signals:
+    void hiddenCollectionNamesChanged();
+
     void collectionsChanged();
+    void visibleCollectionsChanged();
+
     void collectionItemsChanged( const QString &name );
 
   private slots:
@@ -53,6 +65,8 @@ class QfMarkupManager : public QObject
 
     QString mPath;
     QString mPrefix;
+
+    QStringList mHiddenCollectionNames;
 
     QMap<QString, QfMarkupCollection *> mCollections;
 };
