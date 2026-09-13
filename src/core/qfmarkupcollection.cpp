@@ -23,8 +23,9 @@
 #include <qgscolorutils.h>
 
 
-QfMarkupCollection::QfMarkupCollection( QObject *parent )
+QfMarkupCollection::QfMarkupCollection( const QString &name, QObject *parent )
   : QObject( parent )
+  , mName( name )
 {
 }
 
@@ -64,7 +65,7 @@ void QfMarkupCollection::removeItem( const QString &uuid )
   }
 }
 
-bool QfMarkupCollection::readGeoJson( QString &path )
+bool QfMarkupCollection::readGeoJson( const QString &path )
 {
   QFileInfo fi( path );
   if ( !fi.isFile() )
@@ -205,11 +206,11 @@ bool QfMarkupCollection::readGeoJson( QString &path )
   return true;
 }
 
-bool QfMarkupCollection::writeGeoJson( QString &path )
+bool QfMarkupCollection::writeGeoJson( const QString &path )
 {
-  QFileInfo fi( path );
-  QDir dir( fi.absolutePath() );
-  if ( !dir.exists() && dir.mkpath( "/" ) )
+  const QFileInfo fi( path );
+  const QDir dir( fi.absolutePath() );
+  if ( !dir.exists() && dir.mkpath( fi.absolutePath() ) )
   {
     return false;
   }

@@ -30,11 +30,11 @@ class QfMarkupCollection : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( QString name READ name WRITE setName NOTIFY nameChanged )
+    Q_PROPERTY( QString name READ name NOTIFY nameChanged )
     Q_PROPERTY( QList<QfMarkupItem> items READ items NOTIFY itemsChanged )
 
   public:
-    explicit QfMarkupCollection( QObject *parent = nullptr );
+    explicit QfMarkupCollection( const QString &name = QString(), QObject *parent = nullptr );
 
     QString name() const { return mName; }
     void setName( const QString &name );
@@ -45,8 +45,8 @@ class QfMarkupCollection : public QObject
     void replaceItem( const QString &itemUuid, const QfMarkupItem &item );
     void removeItem( const QString &itemUuid );
 
-    bool readGeoJson( QString &path );
-    bool writeGeoJson( QString &path );
+    bool readGeoJson( const QString &path );
+    bool writeGeoJson( const QString &path );
 
   signals:
     void nameChanged();

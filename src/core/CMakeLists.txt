@@ -90,6 +90,7 @@ set(QFIELD_CORE_SRCS
     qfmaptoscreen.cpp
     qfmarkupcollection.cpp
     qfmarkupitem.cpp
+    qfmarkupmanager.cpp
     qfmultifeaturelistmodel.cpp
     qfmultifeaturelistmodelbase.cpp
     qfnavigation.cpp
@@ -211,6 +212,7 @@ set(QFIELD_CORE_HDRS
     qfmaptoscreen.h
     qfmarkupcollection.h
     qfmarkupitem.h
+    qfmarkupmanager.h
     qfmultifeaturelistmodel.h
     qfmultifeaturelistmodelbase.h
     qfnavigation.h
