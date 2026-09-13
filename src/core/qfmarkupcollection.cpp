@@ -44,6 +44,8 @@ void QfMarkupCollection::addItem( const QfMarkupItem &item )
 {
   const QString uuid = QUuid::createUuid().toString( QUuid::WithoutBraces );
   mItems.insert( uuid, item );
+
+  emit countChanged();
   emit itemsChanged();
 }
 
@@ -52,6 +54,7 @@ void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &i
   if ( mItems.contains( uuid ) )
   {
     mItems[uuid] = item;
+
     emit itemsChanged();
   }
 }
@@ -61,6 +64,8 @@ void QfMarkupCollection::removeItem( const QString &uuid )
   if ( mItems.contains( uuid ) )
   {
     mItems.remove( uuid );
+
+    emit countChanged();
     emit itemsChanged();
   }
 }
@@ -201,6 +206,8 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
 
     mItems.insert( uuid, QfMarkupItem( label, description, geometry, color ) );
   }
+
+  emit countChanged();
   emit itemsChanged();
 
   return true;

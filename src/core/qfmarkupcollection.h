@@ -31,6 +31,7 @@ class QfMarkupCollection : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QString name READ name NOTIFY nameChanged )
+    Q_PROPERTY( qsizetype count READ count NOTIFY countChanged )
     Q_PROPERTY( QList<QfMarkupItem> items READ items NOTIFY itemsChanged )
 
   public:
@@ -38,6 +39,8 @@ class QfMarkupCollection : public QObject
 
     QString name() const { return mName; }
     void setName( const QString &name );
+
+    qsizetype count() const { return mItems.size(); }
 
     QList<QfMarkupItem> items() const { return mItems.values(); }
 
@@ -50,6 +53,7 @@ class QfMarkupCollection : public QObject
 
   signals:
     void nameChanged();
+    void countChanged();
     void itemsChanged();
 
   private:
