@@ -4901,6 +4901,7 @@ ApplicationWindow {
       if (!qfieldAuthRequestHandler.hasPendingAuthRequest) {
         // only set active layer when not handling layer credentials
         dashBoard.activeLayer = activeLayer;
+        markupManager.reset("/home/webmaster/markups", "test");
       }
       drawingTemplateModel.projectFilePath = path;
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;

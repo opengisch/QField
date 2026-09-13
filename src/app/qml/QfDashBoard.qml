@@ -463,6 +463,43 @@ Drawer {
     }
 
     GroupBox {
+      id: markupContainer
+      objectName: "markupContainer"
+      Layout.fillWidth: true
+      Layout.preferredHeight: Math.min(markupLegend.contentHeight + topPadding + bottomPadding, dashBoard.height / 3)
+      title: qsTr("Markups")
+      leftPadding: 5
+      rightPadding: 5
+      topPadding: label.height + 5
+      bottomPadding: 5
+
+      label: Label {
+        x: mapThemeContainer.leftPadding
+        height: 25
+        width: parent.availableWidth
+        leftPadding: mainWindow.sceneLeftMargin
+        text: parent.title
+        color: QfTheme.mainTextColor
+        font: QfTheme.strongTipFont
+        elide: Text.ElideRight
+        verticalAlignment: Text.AlignVCenter
+      }
+
+      background: Rectangle {
+        color: "transparent"
+      }
+
+      QfMarkupLegend {
+        id: markupLegend
+        objectName: "markupLegend"
+        visible: true
+        anchors.fill: parent
+        anchors.leftMargin: mainWindow.sceneLeftMargin + 5
+        anchors.rightMargin: 5
+      }
+    }
+
+    GroupBox {
       id: legendContainer
       objectName: "legendContainer"
       Layout.fillWidth: true
