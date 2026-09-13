@@ -46,13 +46,13 @@
 
 class QfAppInterface;
 class QfAppMissingGridHandler;
-class QfBarcodeImageProvider;
-class QfLayerTreeMapCanvasBridge;
-class QfFlatLayerTreeModel;
-class LayerTreeModel;
-class QfLegendImageProvider;
 class QfAsyncLegendImageProvider;
+class QfBarcodeImageProvider;
+class QfFlatLayerTreeModel;
+class QfLayerTreeMapCanvasBridge;
+class QfLegendImageProvider;
 class QfLocalFilesImageProvider;
+class QfMarkupManager;
 class QfProjectsImageProvider;
 class QfTrackingModel;
 class QfLocatorFiltersModel;
@@ -270,6 +270,8 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
     QgsExifTools mExifTools;
 
     QfTrackingModel *mTrackingModel = nullptr;
+
+    QfMarkupManager *mMarkupManager = nullptr;
 
     QfAppMissingGridHandler *mAppMissingGridHandler = nullptr;
 
