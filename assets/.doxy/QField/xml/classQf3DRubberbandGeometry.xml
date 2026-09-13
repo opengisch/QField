@@ -1,0 +1,631 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQf3DRubberbandGeometry" kind="class" language="C++" prot="public">
+    <compoundname>Qf3DRubberbandGeometry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuick3DGeometry</basecompoundref>
+    <includes refid="qf3drubberbandgeometry_8h" local="no">qf3drubberbandgeometry.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQf3DRubberbandGeometry_1aa704237efa5355810d03ba1314733ee6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * Qf3DRubberbandGeometry::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>Qf3DRubberbandGeometry::rubberbandModel</qualifiedname>
+        <read>rubberbandModel</read>
+        <write>setRubberbandModel</write>
+        <briefdescription>
+<para>The rubberband model providing the vertex coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="41" column="5" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DRubberbandGeometry_1aafac6c3acc7c93c0e7ee0cccfd7591ad" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider * Qf3DRubberbandGeometry::terrainProvider</definition>
+        <argsstring></argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>Qf3DRubberbandGeometry::terrainProvider</qualifiedname>
+        <read>terrainProvider</read>
+        <write>setTerrainProvider</write>
+        <briefdescription>
+<para>The terrain provider used for geo-to-3D coordinate conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="43" column="5" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DRubberbandGeometry_1abb4a0c4ff0089ed9fa42981d974ed7c8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Qf3DRubberbandGeometry::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Qf3DRubberbandGeometry::radius</qualifiedname>
+        <read>radius</read>
+        <write>setRadius</write>
+        <briefdescription>
+<para>Tube thickness in scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="45" column="5" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DRubberbandGeometry_1acdf5f23ab99a1adbbff1828ca61bcf13" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Qf3DRubberbandGeometry::segments</definition>
+        <argsstring></argsstring>
+        <name>segments</name>
+        <qualifiedname>Qf3DRubberbandGeometry::segments</qualifiedname>
+        <read>segments</read>
+        <write>setSegments</write>
+        <briefdescription>
+<para>Number of sides in the tube cross-section. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="47" column="5" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DRubberbandGeometry_1ad67c49fb630e6521f0406220fe4c5044" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Qf3DRubberbandGeometry::heightOffset</definition>
+        <argsstring></argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>Qf3DRubberbandGeometry::heightOffset</qualifiedname>
+        <read>heightOffset</read>
+        <write>setHeightOffset</write>
+        <briefdescription>
+<para>Extra vertical offset above the terrain surface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="49" column="5" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DRubberbandGeometry_1a35a723f649c6d209da1c2e49ed3a5e05" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor Qf3DRubberbandGeometry::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Qf3DRubberbandGeometry::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+<para>Per-vertex color applied to both tubes and joint spheres. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="51" column="5" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQf3DRubberbandGeometry_1a8791a83630f405b398c908f444e5c260" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel* Qf3DRubberbandGeometry::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>Qf3DRubberbandGeometry::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="101" column="23" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DRubberbandGeometry_1a9540aecc6f7353ce3fa004ccb00ff7ac" prot="private" static="no" mutable="no">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider* Qf3DRubberbandGeometry::mTerrainProvider</definition>
+        <argsstring></argsstring>
+        <name>mTerrainProvider</name>
+        <qualifiedname>Qf3DRubberbandGeometry::mTerrainProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="102" column="25" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DRubberbandGeometry_1a5c9b4003703ac1e3a7cb8ac644a56028" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Qf3DRubberbandGeometry::mRadius</definition>
+        <argsstring></argsstring>
+        <name>mRadius</name>
+        <qualifiedname>Qf3DRubberbandGeometry::mRadius</qualifiedname>
+        <initializer>= 3.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="104" column="11" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DRubberbandGeometry_1a9400eaf95261cf3a5ec345db19ff39d9" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Qf3DRubberbandGeometry::mSegments</definition>
+        <argsstring></argsstring>
+        <name>mSegments</name>
+        <qualifiedname>Qf3DRubberbandGeometry::mSegments</qualifiedname>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="105" column="9" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DRubberbandGeometry_1a4c16d59c6c395e2ad56949f39ae77019" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Qf3DRubberbandGeometry::mHeightOffset</definition>
+        <argsstring></argsstring>
+        <name>mHeightOffset</name>
+        <qualifiedname>Qf3DRubberbandGeometry::mHeightOffset</qualifiedname>
+        <initializer>= 15.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="106" column="11" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DRubberbandGeometry_1a84b22c8589c1d8b46332689c2533c04e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Qf3DRubberbandGeometry::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>Qf3DRubberbandGeometry::mDirty</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="107" column="10" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DRubberbandGeometry_1afa9db554955e601536d60ac046742417" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor Qf3DRubberbandGeometry::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>Qf3DRubberbandGeometry::mColor</qualifiedname>
+        <initializer>= QColor( 255, 240, 50 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="109" column="12" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1a4277330865d1b84db01ba0439cc4bb90" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Qf3DRubberbandGeometry::Qf3DRubberbandGeometry</definition>
+        <argsstring>(QQuick3DObject *parent=nullptr)</argsstring>
+        <name>Qf3DRubberbandGeometry</name>
+        <qualifiedname>Qf3DRubberbandGeometry::Qf3DRubberbandGeometry</qualifiedname>
+        <param>
+          <type>QQuick3DObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="54" column="14" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1abb3d033b2800d1fc623b95d00c9f7c0f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * Qf3DRubberbandGeometry::rubberbandModel</definition>
+        <argsstring>() const</argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>Qf3DRubberbandGeometry::rubberbandModel</qualifiedname>
+        <briefdescription>
+<para>Returns the rubberband model providing vertex coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="57" column="23" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1ac32d2140dbb9bd3cc7f60897d9e627f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::setRubberbandModel</definition>
+        <argsstring>(QfRubberbandModel *model)</argsstring>
+        <name>setRubberbandModel</name>
+        <qualifiedname>Qf3DRubberbandGeometry::setRubberbandModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Sets the rubberband model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="59" column="10" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="33" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1a33c37f093ebccff73ea812d886563a25" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider * Qf3DRubberbandGeometry::terrainProvider</definition>
+        <argsstring>() const</argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>Qf3DRubberbandGeometry::terrainProvider</qualifiedname>
+        <briefdescription>
+<para>Returns the terrain provider used for geo-to-3D conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="62" column="25" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1ab248a8d19863552d9583a78b9a8ae37a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::setTerrainProvider</definition>
+        <argsstring>(Qf3DTerrainProvider *provider)</argsstring>
+        <name>setTerrainProvider</name>
+        <qualifiedname>Qf3DRubberbandGeometry::setTerrainProvider</qualifiedname>
+        <param>
+          <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+<para>Sets the terrain provider. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="64" column="10" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="60" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1ae9cd0807ef670d947d0ab0234b29822c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Qf3DRubberbandGeometry::radius</definition>
+        <argsstring>() const</argsstring>
+        <name>radius</name>
+        <qualifiedname>Qf3DRubberbandGeometry::radius</qualifiedname>
+        <briefdescription>
+<para>Returns the tube radius in 3D scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="67" column="11" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1ad1cc7520801b026e9351012117dafd52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::setRadius</definition>
+        <argsstring>(float radius)</argsstring>
+        <name>setRadius</name>
+        <qualifiedname>Qf3DRubberbandGeometry::setRadius</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <briefdescription>
+<para>Sets the tube radius. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="69" column="10" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="85" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1aac85e45b017a9fd3fd52e474823b99f7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Qf3DRubberbandGeometry::segments</definition>
+        <argsstring>() const</argsstring>
+        <name>segments</name>
+        <qualifiedname>Qf3DRubberbandGeometry::segments</qualifiedname>
+        <briefdescription>
+<para>Returns the number of segments around the tube circumference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="72" column="9" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1a336257d6a140defebad75632e9f40c13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::setSegments</definition>
+        <argsstring>(int segments)</argsstring>
+        <name>setSegments</name>
+        <qualifiedname>Qf3DRubberbandGeometry::setSegments</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>segments</declname>
+        </param>
+        <briefdescription>
+<para>Sets the segment count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="74" column="10" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="99" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1add1d1c1a5fd01633081d87d74f6c36dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Qf3DRubberbandGeometry::heightOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>Qf3DRubberbandGeometry::heightOffset</qualifiedname>
+        <briefdescription>
+<para>Returns the height offset above the terrain surface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="77" column="11" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1a7e63654731e3f1cb0d6af17471ea1bf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::setHeightOffset</definition>
+        <argsstring>(float offset)</argsstring>
+        <name>setHeightOffset</name>
+        <qualifiedname>Qf3DRubberbandGeometry::setHeightOffset</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Sets the height offset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="79" column="10" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="113" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1a4e1c9e0c0b26092c3b586d16d39a417f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor Qf3DRubberbandGeometry::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>Qf3DRubberbandGeometry::color</qualifiedname>
+        <briefdescription>
+<para>Returns the color used for both tubes and sphere joints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="82" column="12" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1a523f03aec7d1bbf0718d08bb99bfbde0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>Qf3DRubberbandGeometry::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the rubberband color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="84" column="10" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="126" bodyend="137"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQf3DRubberbandGeometry_1a297191a3800cf59a2f1dd25f8bbfb3ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::rubberbandModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelChanged</name>
+        <qualifiedname>Qf3DRubberbandGeometry::rubberbandModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="87" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DRubberbandGeometry_1ad5f5526a835d40f670fb528320ade7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::terrainProviderChanged</definition>
+        <argsstring>()</argsstring>
+        <name>terrainProviderChanged</name>
+        <qualifiedname>Qf3DRubberbandGeometry::terrainProviderChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="88" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DRubberbandGeometry_1a0c6c1c764d9730361ed046f4f715bce1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::radiusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>radiusChanged</name>
+        <qualifiedname>Qf3DRubberbandGeometry::radiusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="89" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DRubberbandGeometry_1a784a5387162b89f4f744dd0c47455fed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::segmentsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>segmentsChanged</name>
+        <qualifiedname>Qf3DRubberbandGeometry::segmentsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="90" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DRubberbandGeometry_1a8ade53ade1b7557636527f121024d0f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::heightOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>heightOffsetChanged</name>
+        <qualifiedname>Qf3DRubberbandGeometry::heightOffsetChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="91" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DRubberbandGeometry_1a25fcbeeda96616de372da0d4fae01f53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>Qf3DRubberbandGeometry::colorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="92" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQf3DRubberbandGeometry_1af22f5e6e419b958bfc76a3c7254b369b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::markDirtyAndUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>markDirtyAndUpdate</name>
+        <qualifiedname>Qf3DRubberbandGeometry::markDirtyAndUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="95" column="10" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="139" bodyend="143"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQf3DRubberbandGeometry_1a497061735c1c5a5eb02066087a88f4e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DRubberbandGeometry::updateGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>updateGeometry</name>
+        <qualifiedname>Qf3DRubberbandGeometry::updateGeometry</qualifiedname>
+        <briefdescription>
+<para>Rebuilds the whole tube + sphere mesh from scratch. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3drubberbandgeometry.h" line="99" column="10" bodyfile="src/3d/qf3drubberbandgeometry.cpp" bodystart="145" bodyend="265"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Generates 3D tube + sphere geometry to visualize a rubberband path on terrain.</para>
+<para>Geo coordinates from a <ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> are projected onto the terrain surface and connected by extruded tube segments. A sphere joint is placed at each vertex. Everything is packed into a single indexed triangle mesh with per-vertex colors.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQf3DRubberbandGeometry" kindref="compound">Qf3DRubberbandGeometry</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Qf3DRubberbandGeometry</label>
+        <link refid="classQf3DRubberbandGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Qf3DRubberbandGeometry</label>
+        <link refid="classQf3DRubberbandGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qf3drubberbandgeometry.h" line="36" column="1" bodyfile="src/3d/qf3drubberbandgeometry.h" bodystart="37" bodyend="110"/>
+    <listofallmembers>
+      <member refid="classQf3DRubberbandGeometry_1a35a723f649c6d209da1c2e49ed3a5e05" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>color</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a4e1c9e0c0b26092c3b586d16d39a417f" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>color</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a25fcbeeda96616de372da0d4fae01f53" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>colorChanged</name></member>
+      <member refid="classQf3DRubberbandGeometry_1ad67c49fb630e6521f0406220fe4c5044" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>heightOffset</name></member>
+      <member refid="classQf3DRubberbandGeometry_1add1d1c1a5fd01633081d87d74f6c36dc" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>heightOffset</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a8ade53ade1b7557636527f121024d0f9" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>heightOffsetChanged</name></member>
+      <member refid="classQf3DRubberbandGeometry_1af22f5e6e419b958bfc76a3c7254b369b" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>markDirtyAndUpdate</name></member>
+      <member refid="classQf3DRubberbandGeometry_1afa9db554955e601536d60ac046742417" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>mColor</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a84b22c8589c1d8b46332689c2533c04e" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>mDirty</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a4c16d59c6c395e2ad56949f39ae77019" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>mHeightOffset</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a5c9b4003703ac1e3a7cb8ac644a56028" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>mRadius</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a8791a83630f405b398c908f444e5c260" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>mRubberbandModel</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a9400eaf95261cf3a5ec345db19ff39d9" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>mSegments</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a9540aecc6f7353ce3fa004ccb00ff7ac" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>mTerrainProvider</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a4277330865d1b84db01ba0439cc4bb90" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>Qf3DRubberbandGeometry</name></member>
+      <member refid="classQf3DRubberbandGeometry_1abb4a0c4ff0089ed9fa42981d974ed7c8" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>radius</name></member>
+      <member refid="classQf3DRubberbandGeometry_1ae9cd0807ef670d947d0ab0234b29822c" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>radius</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a0c6c1c764d9730361ed046f4f715bce1" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>radiusChanged</name></member>
+      <member refid="classQf3DRubberbandGeometry_1aa704237efa5355810d03ba1314733ee6" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>rubberbandModel</name></member>
+      <member refid="classQf3DRubberbandGeometry_1abb3d033b2800d1fc623b95d00c9f7c0f" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>rubberbandModel</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a297191a3800cf59a2f1dd25f8bbfb3ce" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>rubberbandModelChanged</name></member>
+      <member refid="classQf3DRubberbandGeometry_1acdf5f23ab99a1adbbff1828ca61bcf13" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>segments</name></member>
+      <member refid="classQf3DRubberbandGeometry_1aac85e45b017a9fd3fd52e474823b99f7" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>segments</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a784a5387162b89f4f744dd0c47455fed" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>segmentsChanged</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a523f03aec7d1bbf0718d08bb99bfbde0" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>setColor</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a7e63654731e3f1cb0d6af17471ea1bf1" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>setHeightOffset</name></member>
+      <member refid="classQf3DRubberbandGeometry_1ad1cc7520801b026e9351012117dafd52" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>setRadius</name></member>
+      <member refid="classQf3DRubberbandGeometry_1ac32d2140dbb9bd3cc7f60897d9e627f0" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>setRubberbandModel</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a336257d6a140defebad75632e9f40c13" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>setSegments</name></member>
+      <member refid="classQf3DRubberbandGeometry_1ab248a8d19863552d9583a78b9a8ae37a" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>setTerrainProvider</name></member>
+      <member refid="classQf3DRubberbandGeometry_1aafac6c3acc7c93c0e7ee0cccfd7591ad" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>terrainProvider</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a33c37f093ebccff73ea812d886563a25" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>terrainProvider</name></member>
+      <member refid="classQf3DRubberbandGeometry_1ad5f5526a835d40f670fb528320ade7e6" prot="public" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>terrainProviderChanged</name></member>
+      <member refid="classQf3DRubberbandGeometry_1a497061735c1c5a5eb02066087a88f4e4" prot="private" virt="non-virtual"><scope>Qf3DRubberbandGeometry</scope><name>updateGeometry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

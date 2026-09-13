@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFeatureListExtentController" kind="class" language="C++" prot="public">
+    <compoundname>QfFeatureListExtentController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfFeatureListExtentController_1a20c928a8ff85ea7cbb4fef4a86e6728c" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref> *</type>
+        <definition>QfMultiFeatureListModel * QfFeatureListExtentController::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfFeatureListExtentController::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="33" column="5" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListExtentController_1a4ad39bfa6fef6dd7e727dda1ee2eb5f6" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureListModelSelection" kindref="compound">QfFeatureListModelSelection</ref> *</type>
+        <definition>QfFeatureListModelSelection * QfFeatureListExtentController::selection</definition>
+        <argsstring></argsstring>
+        <name>selection</name>
+        <qualifiedname>QfFeatureListExtentController::selection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="34" column="5" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListExtentController_1a6344a6ba9577bccc9897e8a3c8bcf84c" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListExtentController::autoZoom</definition>
+        <argsstring></argsstring>
+        <name>autoZoom</name>
+        <qualifiedname>QfFeatureListExtentController::autoZoom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="35" column="5" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListExtentController_1adea3d44efb1f43ea8c09706835f937fa" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListExtentController::keepScale</definition>
+        <argsstring></argsstring>
+        <name>keepScale</name>
+        <qualifiedname>QfFeatureListExtentController::keepScale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="36" column="5" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListExtentController_1ac439cee0628fb523e030d4cf650eb770" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfFeatureListExtentController::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfFeatureListExtentController::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="37" column="5" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFeatureListExtentController_1ad9f3b8f6d8ce4646bf2062dea58fe126" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref> *</type>
+        <definition>QfMultiFeatureListModel* QfFeatureListExtentController::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>QfFeatureListExtentController::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="76" column="29" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListExtentController_1a520b8f2c198ece1ec3e3b6be9dee146f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureListModelSelection" kindref="compound">QfFeatureListModelSelection</ref> *</type>
+        <definition>QfFeatureListModelSelection* QfFeatureListExtentController::mSelection</definition>
+        <argsstring></argsstring>
+        <name>mSelection</name>
+        <qualifiedname>QfFeatureListExtentController::mSelection</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="77" column="33" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListExtentController_1aaeb07dcd5e833a59a7db3888437496ea" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfFeatureListExtentController::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfFeatureListExtentController::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="78" column="25" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListExtentController_1a3d3dd4159184288c71a2b926d94e4af2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListExtentController::mAutoZoom</definition>
+        <argsstring></argsstring>
+        <name>mAutoZoom</name>
+        <qualifiedname>QfFeatureListExtentController::mAutoZoom</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="79" column="10" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureListExtentController_1a3256b3d1bc758ad51aaa9a16f183b3c5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureListExtentController::mKeepScale</definition>
+        <argsstring></argsstring>
+        <name>mKeepScale</name>
+        <qualifiedname>QfFeatureListExtentController::mKeepScale</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="80" column="10" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFeatureListExtentController_1a528b0639d5ada44c5d1954a84344cb0d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureListExtentController::QfFeatureListExtentController</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfFeatureListExtentController</name>
+        <qualifiedname>QfFeatureListExtentController::QfFeatureListExtentController</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="40" column="14" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListExtentController_1a77a2b02f2367f282cb9d01e7b363b55e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureListExtentController::~QfFeatureListExtentController</definition>
+        <argsstring>()</argsstring>
+        <name>~QfFeatureListExtentController</name>
+        <qualifiedname>QfFeatureListExtentController::~QfFeatureListExtentController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="41" column="5" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="31" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListExtentController_1aef7a74256fe774fc707deab9fc9aa9c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfFeatureListModelSelection" kindref="compound">QfFeatureListModelSelection</ref> *</type>
+        <definition>QfFeatureListModelSelection * QfFeatureListExtentController::selection</definition>
+        <argsstring>() const</argsstring>
+        <name>selection</name>
+        <qualifiedname>QfFeatureListExtentController::selection</qualifiedname>
+        <briefdescription>
+<para>Returns the selection of the feature list model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="44" column="33" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListExtentController_1aabe174e2f392c36051736c304bc94e03" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref> *</type>
+        <definition>QfMultiFeatureListModel * QfFeatureListExtentController::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>QfFeatureListExtentController::model</qualifiedname>
+        <briefdescription>
+<para>Returns the feature list model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="47" column="29" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureListExtentController_1a29beaa27d8be438f7b100c178f96f943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::requestFeatureFormState</definition>
+        <argsstring>()</argsstring>
+        <name>requestFeatureFormState</name>
+        <qualifiedname>QfFeatureListExtentController::requestFeatureFormState</qualifiedname>
+        <briefdescription>
+<para>This will emit a signal to request a state change in the feature form. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="50" column="10" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQfFeatureListExtentController_1a198ebbbdf5e19e9e6866466293ec7748" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::zoomToSelected</definition>
+        <argsstring>(bool skipIfIntersects=false) const</argsstring>
+        <name>zoomToSelected</name>
+        <qualifiedname>QfFeatureListExtentController::zoomToSelected</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>skipIfIntersects</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>zoom to the selected features. If <emphasis>skipIfIntersects</emphasis> is true, no change will be applied if bounding box intersects with canvas extent </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="55" column="10" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="50" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureListExtentController_1a4e2b46396de8d8f7052e2b4e2fd2fd6d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::zoomToAllFeatures</definition>
+        <argsstring>() const</argsstring>
+        <name>zoomToAllFeatures</name>
+        <qualifiedname>QfFeatureListExtentController::zoomToAllFeatures</qualifiedname>
+        <briefdescription>
+<para>Zoom to the combined extent of all features in the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="58" column="10" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="97" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureListExtentController_1a94b43d9237a3d86f36fedbd21907d0e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfFeatureListExtentController::getCentroidFromSelected</definition>
+        <argsstring>() const</argsstring>
+        <name>getCentroidFromSelected</name>
+        <qualifiedname>QfFeatureListExtentController::getCentroidFromSelected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="60" column="14" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="167" bodyend="191"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfFeatureListExtentController_1ac490ae3a08506fe93802777baa173f84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::autoZoomChanged</definition>
+        <argsstring>()</argsstring>
+        <name>autoZoomChanged</name>
+        <qualifiedname>QfFeatureListExtentController::autoZoomChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="63" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListExtentController_1ae1e5a24d3a8b4197f73ea8d18cc6de57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::keepScaleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>keepScaleChanged</name>
+        <qualifiedname>QfFeatureListExtentController::keepScaleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="64" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListExtentController_1a3e24ac908f7565576ad3abb306d2c2ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::selectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>selectionChanged</name>
+        <qualifiedname>QfFeatureListExtentController::selectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListExtentController_1a12c8961e4b1cc4d94099993bbb743403" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>QfFeatureListExtentController::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="66" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListExtentController_1a75709ab2a0cb21d721ab519d0a1e86e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfFeatureListExtentController::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListExtentController_1a7ff11cac7fb5b2c41a1a222e6e3296b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::featureFormStateRequested</definition>
+        <argsstring>()</argsstring>
+        <name>featureFormStateRequested</name>
+        <qualifiedname>QfFeatureListExtentController::featureFormStateRequested</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureListExtentController_1a136685d5646bc8a040b4d03eb099e472" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::requestJumpToPoint</definition>
+        <argsstring>(const QgsPoint &amp;center, const double &amp;scale=-1.0, bool handleMargins=false) const</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfFeatureListExtentController::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scale</declname>
+          <defval>-1.0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="69" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfFeatureListExtentController_1ab03d591d1e6a5f3d25757b692ed818d4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::onModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onModelChanged</name>
+        <qualifiedname>QfFeatureListExtentController::onModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="72" column="10" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="193" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureListExtentController_1a111a935dab45910ecf3a2e4af1bdc294" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureListExtentController::onCurrentSelectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onCurrentSelectionChanged</name>
+        <qualifiedname>QfFeatureListExtentController::onCurrentSelectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistextentcontroller.h" line="73" column="10" bodyfile="src/core/qffeaturelistextentcontroller.cpp" bodystart="201" bodyend="207"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureListExtentController</label>
+        <link refid="classQfFeatureListExtentController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureListExtentController</label>
+        <link refid="classQfFeatureListExtentController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qffeaturelistextentcontroller.h" line="29" column="1" bodyfile="src/core/qffeaturelistextentcontroller.h" bodystart="30" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classQfFeatureListExtentController_1a6344a6ba9577bccc9897e8a3c8bcf84c" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>autoZoom</name></member>
+      <member refid="classQfFeatureListExtentController_1ac490ae3a08506fe93802777baa173f84" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>autoZoomChanged</name></member>
+      <member refid="classQfFeatureListExtentController_1a7ff11cac7fb5b2c41a1a222e6e3296b9" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>featureFormStateRequested</name></member>
+      <member refid="classQfFeatureListExtentController_1a94b43d9237a3d86f36fedbd21907d0e3" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>getCentroidFromSelected</name></member>
+      <member refid="classQfFeatureListExtentController_1adea3d44efb1f43ea8c09706835f937fa" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>keepScale</name></member>
+      <member refid="classQfFeatureListExtentController_1ae1e5a24d3a8b4197f73ea8d18cc6de57" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>keepScaleChanged</name></member>
+      <member refid="classQfFeatureListExtentController_1ac439cee0628fb523e030d4cf650eb770" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>mapSettings</name></member>
+      <member refid="classQfFeatureListExtentController_1a75709ab2a0cb21d721ab519d0a1e86e5" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfFeatureListExtentController_1a3d3dd4159184288c71a2b926d94e4af2" prot="private" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>mAutoZoom</name></member>
+      <member refid="classQfFeatureListExtentController_1a3256b3d1bc758ad51aaa9a16f183b3c5" prot="private" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>mKeepScale</name></member>
+      <member refid="classQfFeatureListExtentController_1aaeb07dcd5e833a59a7db3888437496ea" prot="private" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>mMapSettings</name></member>
+      <member refid="classQfFeatureListExtentController_1ad9f3b8f6d8ce4646bf2062dea58fe126" prot="private" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>mModel</name></member>
+      <member refid="classQfFeatureListExtentController_1a20c928a8ff85ea7cbb4fef4a86e6728c" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>model</name></member>
+      <member refid="classQfFeatureListExtentController_1aabe174e2f392c36051736c304bc94e03" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>model</name></member>
+      <member refid="classQfFeatureListExtentController_1a12c8961e4b1cc4d94099993bbb743403" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>modelChanged</name></member>
+      <member refid="classQfFeatureListExtentController_1a520b8f2c198ece1ec3e3b6be9dee146f" prot="private" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>mSelection</name></member>
+      <member refid="classQfFeatureListExtentController_1a111a935dab45910ecf3a2e4af1bdc294" prot="private" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>onCurrentSelectionChanged</name></member>
+      <member refid="classQfFeatureListExtentController_1ab03d591d1e6a5f3d25757b692ed818d4" prot="private" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>onModelChanged</name></member>
+      <member refid="classQfFeatureListExtentController_1a528b0639d5ada44c5d1954a84344cb0d" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>QfFeatureListExtentController</name></member>
+      <member refid="classQfFeatureListExtentController_1a29beaa27d8be438f7b100c178f96f943" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>requestFeatureFormState</name></member>
+      <member refid="classQfFeatureListExtentController_1a136685d5646bc8a040b4d03eb099e472" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfFeatureListExtentController_1a4ad39bfa6fef6dd7e727dda1ee2eb5f6" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>selection</name></member>
+      <member refid="classQfFeatureListExtentController_1aef7a74256fe774fc707deab9fc9aa9c9" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>selection</name></member>
+      <member refid="classQfFeatureListExtentController_1a3e24ac908f7565576ad3abb306d2c2ac" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>selectionChanged</name></member>
+      <member refid="classQfFeatureListExtentController_1a4e2b46396de8d8f7052e2b4e2fd2fd6d" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>zoomToAllFeatures</name></member>
+      <member refid="classQfFeatureListExtentController_1a198ebbbdf5e19e9e6866466293ec7748" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>zoomToSelected</name></member>
+      <member refid="classQfFeatureListExtentController_1a77a2b02f2367f282cb9d01e7b363b55e" prot="public" virt="non-virtual"><scope>QfFeatureListExtentController</scope><name>~QfFeatureListExtentController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

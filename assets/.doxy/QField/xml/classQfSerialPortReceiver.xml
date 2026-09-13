@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSerialPortReceiver" kind="class" language="C++" prot="public">
+    <compoundname>QfSerialPortReceiver</compoundname>
+    <basecompoundref refid="classQfNmeaGnssReceiver" prot="public" virt="non-virtual">QfNmeaGnssReceiver</basecompoundref>
+    <includes refid="qfserialportreceiver_8h" local="no">qfserialportreceiver.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classQfSerialPortReceiver_1adff8c029f51a322e04925c1555a6b3cf" prot="public" static="yes" mutable="no">
+        <type>QLatin1String</type>
+        <definition>QLatin1String QfSerialPortReceiver::identifier</definition>
+        <argsstring></argsstring>
+        <name>identifier</name>
+        <qualifiedname>QfSerialPortReceiver::identifier</qualifiedname>
+        <initializer>= QLatin1String( &quot;serial&quot; )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportreceiver.h" line="37" column="26" bodyfile="src/core/positioning/qfserialportreceiver.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSerialPortReceiver_1af75c59ff38b90df1cdb3baf18473cc3d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfSerialPortReceiver::mAddress</definition>
+        <argsstring></argsstring>
+        <name>mAddress</name>
+        <qualifiedname>QfSerialPortReceiver::mAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportreceiver.h" line="44" column="13" bodyfile="src/core/positioning/qfserialportreceiver.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSerialPortReceiver_1ac42cfecb932890e71d9a697338e7126d" prot="private" static="no" mutable="no">
+        <type>QSerialPort *</type>
+        <definition>QSerialPort* QfSerialPortReceiver::mSerialPort</definition>
+        <argsstring></argsstring>
+        <name>mSerialPort</name>
+        <qualifiedname>QfSerialPortReceiver::mSerialPort</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportreceiver.h" line="46" column="17" bodyfile="src/core/positioning/qfserialportreceiver.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfSerialPortReceiver_1af37c2bdf02d059ff009dd4da4a0f8cfb" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfSerialPortReceiver::QfSerialPortReceiver</definition>
+        <argsstring>(const QString &amp;address=QString(), QObject *parent=nullptr)</argsstring>
+        <name>QfSerialPortReceiver</name>
+        <qualifiedname>QfSerialPortReceiver::QfSerialPortReceiver</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportreceiver.h" line="34" column="14" bodyfile="src/core/positioning/qfserialportreceiver.cpp" bodystart="21" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSerialPortReceiver_1ad3154fe3a981d5ea30707ecd24626d89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfSerialPortReceiver::~QfSerialPortReceiver</definition>
+        <argsstring>() override</argsstring>
+        <name>~QfSerialPortReceiver</name>
+        <qualifiedname>QfSerialPortReceiver::~QfSerialPortReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportreceiver.h" line="35" column="5" bodyfile="src/core/positioning/qfserialportreceiver.cpp" bodystart="33" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfSerialPortReceiver_1ad7b6d71a460062aa5451a2b74ec7c35c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfSerialPortReceiver::handleConnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>QfSerialPortReceiver::handleConnectDevice</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1ab9f5973a983d7cd8cb88cacd5bc0be19">handleConnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportreceiver.h" line="40" column="10" bodyfile="src/core/positioning/qfserialportreceiver.cpp" bodystart="48" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSerialPortReceiver_1a8c3513a5f389f9ef201578a1ea012050" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfSerialPortReceiver::handleDisconnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>QfSerialPortReceiver::handleDisconnectDevice</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1a5ab9458d00d4521488b13c7d7788ef8c">handleDisconnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportreceiver.h" line="41" column="10" bodyfile="src/core/positioning/qfserialportreceiver.cpp" bodystart="39" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSerialPortReceiver_1a2cf403d4fcaf1775a2eb9b741fbe2b01" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSerialPortReceiver::handleError</definition>
+        <argsstring>(QSerialPort::SerialPortError error)</argsstring>
+        <name>handleError</name>
+        <qualifiedname>QfSerialPortReceiver::handleError</qualifiedname>
+        <param>
+          <type>QSerialPort::SerialPortError</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportreceiver.h" line="42" column="10" bodyfile="src/core/positioning/qfserialportreceiver.cpp" bodystart="64" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The serial port receiver connects to a device and feeds the QgsNmeaConnection over QSerialPort. It receives QgsGpsInformation and converts it to <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="3">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNmeaGnssReceiver</label>
+        <link refid="classQfNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfSerialPortReceiver</label>
+        <link refid="classQfSerialPortReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="3">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNmeaGnssReceiver</label>
+        <link refid="classQfNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfSerialPortReceiver</label>
+        <link refid="classQfSerialPortReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qfserialportreceiver.h" line="29" column="1" bodyfile="src/core/positioning/qfserialportreceiver.h" bodystart="30" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classQfAbstractGnssReceiver_1aac097e8d39901f49bfba6633783ce784" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>batteryLevel</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa540bc95579e25facd7da0621a162cec" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>batteryLevelChanged</name></member>
+      <member refid="classQfNmeaGnssReceiver_1aa7ce2c6965aa606add03e9141f55d80d" prot="public" virt="virtual"><scope>QfSerialPortReceiver</scope><name>capabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>Capability</name></member>
+      <member refid="classQfAbstractGnssReceiver_1acd13344a5df00287f22cc4f1108b2505" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>connectDevice</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa3a6cd080093891093d85fd6500320f0" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classQfSerialPortReceiver_1ad7b6d71a460062aa5451a2b74ec7c35c" prot="private" virt="virtual"><scope>QfSerialPortReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classQfSerialPortReceiver_1a8c3513a5f389f9ef201578a1ea012050" prot="private" virt="virtual"><scope>QfSerialPortReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classQfSerialPortReceiver_1a2cf403d4fcaf1775a2eb9b741fbe2b01" prot="private" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>handleError</name></member>
+      <member refid="classQfSerialPortReceiver_1adff8c029f51a322e04925c1555a6b3cf" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>identifier</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a9790d1624471555daa6f9458fd452162" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>initNmeaConnection</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a76c09326f896a708603bcd38ca07d927" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>lastError</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a24a6fe2fb4dd37c5d0a17e606fe77c" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a757b5533e1968510d599257e7e359d9a" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aaf98efbbd5b1f4c3bfc153ec081a6cf7" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a32149f1fa2d70af22b8ea711b5f0f75e" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>Logging</name></member>
+      <member refid="classQfSerialPortReceiver_1af75c59ff38b90df1cdb3baf18473cc3d" prot="private" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>mAddress</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a6a79860a50f7fa69eb0e36129704a77e" prot="protected" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>mLastGnssPositionValid</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a2553cea5efd8d8b6f0efc30529dccd05" prot="protected" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>mNmeaConnection</name></member>
+      <member refid="classQfSerialPortReceiver_1ac42cfecb932890e71d9a697338e7126d" prot="private" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>mSerialPort</name></member>
+      <member refid="classQfNmeaGnssReceiver_1abeedff36d0f38a92107611c8d55ba912" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>nmeaSentenceReceived</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a8eb58b06d873c2e100d0b74ec9215238" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325af35004204d33f6a62fc45d6962ee2a58" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>NtripCorrection</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a80c5495e9869643dc3d2ca95f604f3a9" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>onCorrectionDataReceived</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a73d1b405c90412d84b32ec9e03e32f55" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab2303acc969f562c75ecabf988c64c62" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>QfAbstractGnssReceiver</name></member>
+      <member refid="classQfNmeaGnssReceiver_1afdffe6b403fc52ee5e29fd309ada3632" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>QfNmeaGnssReceiver</name></member>
+      <member refid="classQfSerialPortReceiver_1af37c2bdf02d059ff009dd4da4a0f8cfb" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>QfSerialPortReceiver</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af56b337ca8d29574f31d63892af25a07" prot="protected" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>setSocketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a6994043dce54d0ca8819344a88e234" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>setValid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8725d739983222c78dc93417c5afec45" prot="public" virt="virtual"><scope>QfSerialPortReceiver</scope><name>socketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af2ed915f4e3a0db45e29fde997f84c1c" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a95d28d113cc788e37d63bbef8a54fcef" prot="public" virt="virtual"><scope>QfSerialPortReceiver</scope><name>socketStateString</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab1b149cfbdd0c1d20cc4c2c055eecb05" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1add322c32a7897bba08ddd8f6aeec0e34" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>startLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a0b03f384c24e5b473352d8c2de0dec23" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>stopLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a28ca8d6d79d1394da7b0e79521a0a845" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>valid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a26ee820f395b20f02ed32629d1dbb5c1" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>validChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a49b0d1da3fa61943bc6687f07b7b6f0f" prot="public" virt="virtual"><scope>QfSerialPortReceiver</scope><name>~QfAbstractGnssReceiver</name></member>
+      <member refid="classQfNmeaGnssReceiver_1ab937d625faa2ec21a2bdbcc85d419349" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>~QfNmeaGnssReceiver</name></member>
+      <member refid="classQfSerialPortReceiver_1ad3154fe3a981d5ea30707ecd24626d89" prot="public" virt="non-virtual"><scope>QfSerialPortReceiver</scope><name>~QfSerialPortReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

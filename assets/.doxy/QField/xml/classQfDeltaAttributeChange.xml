@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDeltaAttributeChange" kind="class" language="C++" prot="public">
+    <compoundname>QfDeltaAttributeChange</compoundname>
+    <includes refid="qfdeltachangesmodel_8h" local="no">qfdeltachangesmodel.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDeltaAttributeChange_1a7913b66ef6288dd148eebf9635d23373" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfDeltaAttributeChange::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfDeltaAttributeChange::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="37" column="5" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDeltaAttributeChange_1aa880665eb7ad419bd3c0e7764a39146d" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariant</type>
+        <definition>QVariant QfDeltaAttributeChange::oldValue</definition>
+        <argsstring></argsstring>
+        <name>oldValue</name>
+        <qualifiedname>QfDeltaAttributeChange::oldValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="38" column="5" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDeltaAttributeChange_1a6e4a71f966acd7c181084c107cb0671f" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariant</type>
+        <definition>QVariant QfDeltaAttributeChange::newValue</definition>
+        <argsstring></argsstring>
+        <name>newValue</name>
+        <qualifiedname>QfDeltaAttributeChange::newValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="39" column="5" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfDeltaAttributeChange_1a945d701529699f78c7b38e145ff7e060" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfDeltaAttributeChange::QfDeltaAttributeChange</definition>
+        <argsstring>(const QString &amp;name=QString(), const QVariant &amp;oldValue=QVariant(), const QVariant &amp;newValue=QVariant())</argsstring>
+        <name>QfDeltaAttributeChange</name>
+        <qualifiedname>QfDeltaAttributeChange::QfDeltaAttributeChange</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>oldValue</declname>
+          <defval>QVariant()</defval>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>newValue</declname>
+          <defval>QVariant()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="42" column="14" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="42" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A single attribute modified by a delta, with the values on both sides of the change. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="33" column="1" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="34" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classQfDeltaAttributeChange_1a7913b66ef6288dd148eebf9635d23373" prot="public" virt="non-virtual"><scope>QfDeltaAttributeChange</scope><name>name</name></member>
+      <member refid="classQfDeltaAttributeChange_1a6e4a71f966acd7c181084c107cb0671f" prot="public" virt="non-virtual"><scope>QfDeltaAttributeChange</scope><name>newValue</name></member>
+      <member refid="classQfDeltaAttributeChange_1aa880665eb7ad419bd3c0e7764a39146d" prot="public" virt="non-virtual"><scope>QfDeltaAttributeChange</scope><name>oldValue</name></member>
+      <member refid="classQfDeltaAttributeChange_1a945d701529699f78c7b38e145ff7e060" prot="public" virt="non-virtual"><scope>QfDeltaAttributeChange</scope><name>QfDeltaAttributeChange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

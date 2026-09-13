@@ -1,0 +1,735 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQf3DMapTextureData" kind="class" language="C++" prot="public">
+    <compoundname>Qf3DMapTextureData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuick3DTextureData</basecompoundref>
+    <includes refid="qf3dmaptexturedata_8h" local="no">qf3dmaptexturedata.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQf3DMapTextureData_1a1ba8c5dbade095a6cde6a5395043a7eb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * Qf3DMapTextureData::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>Qf3DMapTextureData::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+<para>The map settings from which to get layers, extent, and output size for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="44" column="5" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DMapTextureData_1a6a6447914616450cc84c1cd43178c835" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Qf3DMapTextureData::extent</definition>
+        <argsstring></argsstring>
+        <name>extent</name>
+        <qualifiedname>Qf3DMapTextureData::extent</qualifiedname>
+        <read>extent</read>
+        <write>setExtent</write>
+        <briefdescription>
+<para>Optional custom extent to render. If not set, uses mapSettings extent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="47" column="5" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DMapTextureData_1af187fd314cb404a747654fbe47656fda" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::isRendering</definition>
+        <argsstring></argsstring>
+        <name>isRendering</name>
+        <qualifiedname>Qf3DMapTextureData::isRendering</qualifiedname>
+        <read>isRendering</read>
+        <briefdescription>
+<para>Whether the texture data is being rendered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="50" column="5" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DMapTextureData_1a44ec523aa4a7cea89458021be2bb9187" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::isReady</definition>
+        <argsstring></argsstring>
+        <name>isReady</name>
+        <qualifiedname>Qf3DMapTextureData::isReady</qualifiedname>
+        <read>isReady</read>
+        <briefdescription>
+<para>Whether the texture data is ready to use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="53" column="5" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DMapTextureData_1af773daabba6584cda83398ca24d79bac" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::incrementalRendering</definition>
+        <argsstring></argsstring>
+        <name>incrementalRendering</name>
+        <qualifiedname>Qf3DMapTextureData::incrementalRendering</qualifiedname>
+        <read>incrementalRendering</read>
+        <write>setIncrementalRendering</write>
+        <briefdescription>
+<para>When the incrementalRendering property is set to true, the incremental refresh of the terrain data during rendering is allowed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="56" column="5" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DMapTextureData_1ac6661dee408ad146124e4af7da7d7065" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::forceDeferredLayersRepaint</definition>
+        <argsstring></argsstring>
+        <name>forceDeferredLayersRepaint</name>
+        <qualifiedname>Qf3DMapTextureData::forceDeferredLayersRepaint</qualifiedname>
+        <read>forceDeferredLayersRepaint</read>
+        <write>setForceDeferredLayersRepaint</write>
+        <briefdescription>
+<para>Defers layer repaint requests while a render job is running. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="59" column="5" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQf3DMapTextureData_1ad7521cc72dc03e7b9b9164288385a9e6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* Qf3DMapTextureData::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>Qf3DMapTextureData::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="137" column="25" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1a36036770ec3fb76538e1e9c8bfcf69f9" prot="private" static="no" mutable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Qf3DMapTextureData::mExtent</definition>
+        <argsstring></argsstring>
+        <name>mExtent</name>
+        <qualifiedname>Qf3DMapTextureData::mExtent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="138" column="18" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1aba7ea7a1061818edd45b57e77ebc7162" prot="private" static="no" mutable="no">
+        <type>QObjectUniquePtr&lt; QgsMapRendererParallelJob &gt;</type>
+        <definition>QObjectUniquePtr&lt;QgsMapRendererParallelJob&gt; Qf3DMapTextureData::mRenderJob</definition>
+        <argsstring></argsstring>
+        <name>mRenderJob</name>
+        <qualifiedname>Qf3DMapTextureData::mRenderJob</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="139" column="22" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1a6c97faaf3a47abecea9bde8842344d32" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer Qf3DMapTextureData::mMapUpdateTimer</definition>
+        <argsstring></argsstring>
+        <name>mMapUpdateTimer</name>
+        <qualifiedname>Qf3DMapTextureData::mMapUpdateTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="140" column="12" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1a12058af20ae435c239180f6c3cd8d141" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer Qf3DMapTextureData::mRefreshTimer</definition>
+        <argsstring></argsstring>
+        <name>mRefreshTimer</name>
+        <qualifiedname>Qf3DMapTextureData::mRefreshTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="141" column="12" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1a667ce22cb0398bf5f68b97e8b7a43fa4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::mIncrementalRendering</definition>
+        <argsstring></argsstring>
+        <name>mIncrementalRendering</name>
+        <qualifiedname>Qf3DMapTextureData::mIncrementalRendering</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="142" column="10" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1a4f01016fc56a6dbd399bb110c2442d4f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::mForceDeferredLayersRepaint</definition>
+        <argsstring></argsstring>
+        <name>mForceDeferredLayersRepaint</name>
+        <qualifiedname>Qf3DMapTextureData::mForceDeferredLayersRepaint</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="143" column="10" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1a244f658d43f34c5aa5a4b6c2d6d6fc68" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::mDeferredRefreshPending</definition>
+        <argsstring></argsstring>
+        <name>mDeferredRefreshPending</name>
+        <qualifiedname>Qf3DMapTextureData::mDeferredRefreshPending</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="144" column="10" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1ad64ea64eebb95bab700163055115fb01" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::mIsReady</definition>
+        <argsstring></argsstring>
+        <name>mIsReady</name>
+        <qualifiedname>Qf3DMapTextureData::mIsReady</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="145" column="10" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DMapTextureData_1a989593a8c43478aea5411fc3bf5600e5" prot="private" static="no" mutable="no">
+        <type>QVector&lt; QMetaObject::Connection &gt;</type>
+        <definition>QVector&lt;QMetaObject::Connection&gt; Qf3DMapTextureData::mLayerConnections</definition>
+        <argsstring></argsstring>
+        <name>mLayerConnections</name>
+        <qualifiedname>Qf3DMapTextureData::mLayerConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="146" column="13" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQf3DMapTextureData_1acc3e20eed46079dee1252ea4aef05b39" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Qf3DMapTextureData::Qf3DMapTextureData</definition>
+        <argsstring>(QQuick3DObject *parent=nullptr)</argsstring>
+        <name>Qf3DMapTextureData</name>
+        <qualifiedname>Qf3DMapTextureData::Qf3DMapTextureData</qualifiedname>
+        <param>
+          <type>QQuick3DObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Creates a new map texture data provider. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="63" column="14" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="27" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1ae08f21815d7f00bb0374bc6975748813" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Qf3DMapTextureData::~Qf3DMapTextureData</definition>
+        <argsstring>() override</argsstring>
+        <name>~Qf3DMapTextureData</name>
+        <qualifiedname>Qf3DMapTextureData::~Qf3DMapTextureData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="64" column="5" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="41" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a1f377b6f9e01d083dcaef07d63bec3f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * Qf3DMapTextureData::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>Qf3DMapTextureData::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns the map settings from which to get layers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="67" column="25" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a829be8ad773ceb06dc316488e5bc7627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>Qf3DMapTextureData::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="70" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="55" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a073e8d9d5c492001694d24abdf1aec19" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle Qf3DMapTextureData::extent</definition>
+        <argsstring>() const</argsstring>
+        <name>extent</name>
+        <qualifiedname>Qf3DMapTextureData::extent</qualifiedname>
+        <briefdescription>
+<para>Returns the custom extent for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="73" column="18" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a25be54180edcff8f5d79b336106f0696" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::setExtent</definition>
+        <argsstring>(const QgsRectangle &amp;extent)</argsstring>
+        <name>setExtent</name>
+        <qualifiedname>Qf3DMapTextureData::setExtent</qualifiedname>
+        <param>
+          <type>const QgsRectangle &amp;</type>
+          <declname>extent</declname>
+        </param>
+        <briefdescription>
+<para>Sets a custom extent for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="76" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="94" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a8ecbd51cb96641fb3fc77dcae90790d2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::isRendering</definition>
+        <argsstring>() const</argsstring>
+        <name>isRendering</name>
+        <qualifiedname>Qf3DMapTextureData::isRendering</qualifiedname>
+        <briefdescription>
+<para>Returns true while a rendering job is pending for this texture data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="79" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="264" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a62a96e58290384bbda3101651dbad45b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::isReady</definition>
+        <argsstring>() const</argsstring>
+        <name>isReady</name>
+        <qualifiedname>Qf3DMapTextureData::isReady</qualifiedname>
+        <briefdescription>
+<para>Returns whether the texture data is ready to use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="82" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a1a1c015f2e6fba20cac6da5cf1b831a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::incrementalRendering</definition>
+        <argsstring>() const</argsstring>
+        <name>incrementalRendering</name>
+        <qualifiedname>Qf3DMapTextureData::incrementalRendering</qualifiedname>
+        <briefdescription>
+<para>Returns whether incremental rendering is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="85" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a2b1cfa8e8755845af35291d2e0f16fb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::setIncrementalRendering</definition>
+        <argsstring>(bool incrementalRendering)</argsstring>
+        <name>setIncrementalRendering</name>
+        <qualifiedname>Qf3DMapTextureData::setIncrementalRendering</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>incrementalRendering</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether incremental rendering is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="88" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="115" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1ae4811784338803449c160ebea63cf2e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Qf3DMapTextureData::forceDeferredLayersRepaint</definition>
+        <argsstring>() const</argsstring>
+        <name>forceDeferredLayersRepaint</name>
+        <qualifiedname>Qf3DMapTextureData::forceDeferredLayersRepaint</qualifiedname>
+        <briefdescription>
+<para>Returns whether deferred layers repaint is forced. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="91" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a6829d12785bdc3c1b96fd0cbea1390a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::setForceDeferredLayersRepaint</definition>
+        <argsstring>(bool deferred)</argsstring>
+        <name>setForceDeferredLayersRepaint</name>
+        <qualifiedname>Qf3DMapTextureData::setForceDeferredLayersRepaint</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>deferred</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether deferred layers repaint is forced. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="94" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="131" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1aaac85ee823b8a8cd74d39eeb031271e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Qf3DMapTextureData::render</definition>
+        <argsstring>()</argsstring>
+        <name>render</name>
+        <qualifiedname>Qf3DMapTextureData::render</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts the asynchronous map rendering process. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="99" column="22" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="164" bodyend="225"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQf3DMapTextureData_1a444b7eb932624928ba5171e5dd631f34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>Qf3DMapTextureData::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when map settings changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="103" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DMapTextureData_1a0313a6c9fd34975e2addf2ebb6f87771" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::extentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>extentChanged</name>
+        <qualifiedname>Qf3DMapTextureData::extentChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when extent changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="106" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DMapTextureData_1a49b0d0cc694be12fcb0222e2d5751eca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::isRenderingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isRenderingChanged</name>
+        <qualifiedname>Qf3DMapTextureData::isRenderingChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the texture data is being rendered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="109" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DMapTextureData_1ae50c9ba5c3bf8d166bcb3b54614636c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::isReadyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isReadyChanged</name>
+        <qualifiedname>Qf3DMapTextureData::isReadyChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when texture rendering is complete and data is ready. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="112" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DMapTextureData_1a8370a712a2c02775b7cf3d64ef823bcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::textureUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>textureUpdated</name>
+        <qualifiedname>Qf3DMapTextureData::textureUpdated</qualifiedname>
+        <briefdescription>
+<para>Emitted every time texture data has been updated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="115" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DMapTextureData_1a5f3b28b88f50d592e2936218063b9b7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::incrementalRenderingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>incrementalRenderingChanged</name>
+        <qualifiedname>Qf3DMapTextureData::incrementalRenderingChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when incremental rendering setting changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="118" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DMapTextureData_1a66129eb4ff303697828c10a700fc4bdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::forceDeferredLayersRepaintChanged</definition>
+        <argsstring>()</argsstring>
+        <name>forceDeferredLayersRepaintChanged</name>
+        <qualifiedname>Qf3DMapTextureData::forceDeferredLayersRepaintChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when forceDeferredLayersRepaint changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="121" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQf3DMapTextureData_1afff5a1d2dd5b7a78f445c189f5cab1be" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::onRenderJobUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>onRenderJobUpdated</name>
+        <qualifiedname>Qf3DMapTextureData::onRenderJobUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="124" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="227" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQf3DMapTextureData_1a2cabdbf0338abba599bcddade1216427" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::onRenderFinished</definition>
+        <argsstring>()</argsstring>
+        <name>onRenderFinished</name>
+        <qualifiedname>Qf3DMapTextureData::onRenderFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="125" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="239" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQf3DMapTextureData_1acdd13064f0483b78715ef91100d5217f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::layerRepaintRequested</definition>
+        <argsstring>()</argsstring>
+        <name>layerRepaintRequested</name>
+        <qualifiedname>Qf3DMapTextureData::layerRepaintRequested</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="126" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="140" bodyend="157"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQf3DMapTextureData_1a2890445df9c9effb86e7a48b963fb2e7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::updateTextureData</definition>
+        <argsstring>(const QImage &amp;image)</argsstring>
+        <name>updateTextureData</name>
+        <qualifiedname>Qf3DMapTextureData::updateTextureData</qualifiedname>
+        <param>
+          <type>const QImage &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a 3x3 metagrid: the center block is the rendered map, surrounding blocks are a neutral gray representing non-rendered areas. This allows panning via Texture positionU/V to reveal gray edges </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="134" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="269" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DMapTextureData_1a29d491c22f6c50b8ad684e7de8dbf66e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DMapTextureData::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>Qf3DMapTextureData::refresh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dmaptexturedata.h" line="135" column="10" bodyfile="src/3d/qf3dmaptexturedata.cpp" bodystart="159" bodyend="162"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides in-memory texture data from rendered map layers for 3D terrain visualization.</para>
+<para>This class inherits from QQuick3DTextureData to provide texture data directly in memory, avoiding the need for temporary files. The map is rendered using QGIS rendering engine and the result is exposed as texture data for Qt Quick 3D.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQf3DMapTextureData" kindref="compound">Qf3DMapTextureData</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuick3DTextureData</label>
+      </node>
+      <node id="1">
+        <label>Qf3DMapTextureData</label>
+        <link refid="classQf3DMapTextureData"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuick3DTextureData</label>
+      </node>
+      <node id="1">
+        <label>Qf3DMapTextureData</label>
+        <link refid="classQf3DMapTextureData"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qf3dmaptexturedata.h" line="39" column="1" bodyfile="src/3d/qf3dmaptexturedata.h" bodystart="40" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classQf3DMapTextureData_1a6a6447914616450cc84c1cd43178c835" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>extent</name></member>
+      <member refid="classQf3DMapTextureData_1a073e8d9d5c492001694d24abdf1aec19" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>extent</name></member>
+      <member refid="classQf3DMapTextureData_1a0313a6c9fd34975e2addf2ebb6f87771" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>extentChanged</name></member>
+      <member refid="classQf3DMapTextureData_1ac6661dee408ad146124e4af7da7d7065" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>forceDeferredLayersRepaint</name></member>
+      <member refid="classQf3DMapTextureData_1ae4811784338803449c160ebea63cf2e6" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>forceDeferredLayersRepaint</name></member>
+      <member refid="classQf3DMapTextureData_1a66129eb4ff303697828c10a700fc4bdc" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>forceDeferredLayersRepaintChanged</name></member>
+      <member refid="classQf3DMapTextureData_1af773daabba6584cda83398ca24d79bac" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>incrementalRendering</name></member>
+      <member refid="classQf3DMapTextureData_1a1a1c015f2e6fba20cac6da5cf1b831a7" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>incrementalRendering</name></member>
+      <member refid="classQf3DMapTextureData_1a5f3b28b88f50d592e2936218063b9b7f" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>incrementalRenderingChanged</name></member>
+      <member refid="classQf3DMapTextureData_1a44ec523aa4a7cea89458021be2bb9187" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>isReady</name></member>
+      <member refid="classQf3DMapTextureData_1a62a96e58290384bbda3101651dbad45b" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>isReady</name></member>
+      <member refid="classQf3DMapTextureData_1ae50c9ba5c3bf8d166bcb3b54614636c6" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>isReadyChanged</name></member>
+      <member refid="classQf3DMapTextureData_1af187fd314cb404a747654fbe47656fda" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>isRendering</name></member>
+      <member refid="classQf3DMapTextureData_1a8ecbd51cb96641fb3fc77dcae90790d2" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>isRendering</name></member>
+      <member refid="classQf3DMapTextureData_1a49b0d0cc694be12fcb0222e2d5751eca" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>isRenderingChanged</name></member>
+      <member refid="classQf3DMapTextureData_1acdd13064f0483b78715ef91100d5217f" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>layerRepaintRequested</name></member>
+      <member refid="classQf3DMapTextureData_1a1ba8c5dbade095a6cde6a5395043a7eb" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mapSettings</name></member>
+      <member refid="classQf3DMapTextureData_1a1f377b6f9e01d083dcaef07d63bec3f3" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mapSettings</name></member>
+      <member refid="classQf3DMapTextureData_1a444b7eb932624928ba5171e5dd631f34" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQf3DMapTextureData_1a244f658d43f34c5aa5a4b6c2d6d6fc68" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mDeferredRefreshPending</name></member>
+      <member refid="classQf3DMapTextureData_1a36036770ec3fb76538e1e9c8bfcf69f9" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mExtent</name></member>
+      <member refid="classQf3DMapTextureData_1a4f01016fc56a6dbd399bb110c2442d4f" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mForceDeferredLayersRepaint</name></member>
+      <member refid="classQf3DMapTextureData_1a667ce22cb0398bf5f68b97e8b7a43fa4" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mIncrementalRendering</name></member>
+      <member refid="classQf3DMapTextureData_1ad64ea64eebb95bab700163055115fb01" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mIsReady</name></member>
+      <member refid="classQf3DMapTextureData_1a989593a8c43478aea5411fc3bf5600e5" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mLayerConnections</name></member>
+      <member refid="classQf3DMapTextureData_1ad7521cc72dc03e7b9b9164288385a9e6" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mMapSettings</name></member>
+      <member refid="classQf3DMapTextureData_1a6c97faaf3a47abecea9bde8842344d32" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mMapUpdateTimer</name></member>
+      <member refid="classQf3DMapTextureData_1a12058af20ae435c239180f6c3cd8d141" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mRefreshTimer</name></member>
+      <member refid="classQf3DMapTextureData_1aba7ea7a1061818edd45b57e77ebc7162" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>mRenderJob</name></member>
+      <member refid="classQf3DMapTextureData_1a2cabdbf0338abba599bcddade1216427" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>onRenderFinished</name></member>
+      <member refid="classQf3DMapTextureData_1afff5a1d2dd5b7a78f445c189f5cab1be" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>onRenderJobUpdated</name></member>
+      <member refid="classQf3DMapTextureData_1acc3e20eed46079dee1252ea4aef05b39" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>Qf3DMapTextureData</name></member>
+      <member refid="classQf3DMapTextureData_1a29d491c22f6c50b8ad684e7de8dbf66e" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>refresh</name></member>
+      <member refid="classQf3DMapTextureData_1aaac85ee823b8a8cd74d39eeb031271e9" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>render</name></member>
+      <member refid="classQf3DMapTextureData_1a25be54180edcff8f5d79b336106f0696" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>setExtent</name></member>
+      <member refid="classQf3DMapTextureData_1a6829d12785bdc3c1b96fd0cbea1390a0" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>setForceDeferredLayersRepaint</name></member>
+      <member refid="classQf3DMapTextureData_1a2b1cfa8e8755845af35291d2e0f16fb6" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>setIncrementalRendering</name></member>
+      <member refid="classQf3DMapTextureData_1a829be8ad773ceb06dc316488e5bc7627" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>setMapSettings</name></member>
+      <member refid="classQf3DMapTextureData_1a8370a712a2c02775b7cf3d64ef823bcc" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>textureUpdated</name></member>
+      <member refid="classQf3DMapTextureData_1a2890445df9c9effb86e7a48b963fb2e7" prot="private" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>updateTextureData</name></member>
+      <member refid="classQf3DMapTextureData_1ae08f21815d7f00bb0374bc6975748813" prot="public" virt="non-virtual"><scope>Qf3DMapTextureData</scope><name>~Qf3DMapTextureData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

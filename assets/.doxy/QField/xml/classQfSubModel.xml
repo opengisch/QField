@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSubModel" kind="class" language="C++" prot="public">
+    <compoundname>QfSubModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractItemModel</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfSubModel_1a54ef1ecef559d304b61ad9e5932389fd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfSubModel::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfSubModel::enabled</qualifiedname>
+        <read>enabled</read>
+        <write>setEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="30" column="5" bodyfile="src/core/qfsubmodel.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSubModel_1a524d021bee789ed478dcf5aa1eceda2a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QAbstractItemModel *</type>
+        <definition>QAbstractItemModel * QfSubModel::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfSubModel::model</qualifiedname>
+        <read>model</read>
+        <write>setModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="31" column="5" bodyfile="src/core/qfsubmodel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSubModel_1a197c91b213a78f24ff054aa27c6af7ab" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfSubModel::rootIndex</definition>
+        <argsstring></argsstring>
+        <name>rootIndex</name>
+        <qualifiedname>QfSubModel::rootIndex</qualifiedname>
+        <read>rootIndex</read>
+        <write>setRootIndex</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="32" column="5" bodyfile="src/core/qfsubmodel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSubModel_1a893646f4c738c1762dba464e8510da8f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfSubModel::mEnabled</definition>
+        <argsstring></argsstring>
+        <name>mEnabled</name>
+        <qualifiedname>QfSubModel::mEnabled</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="71" column="10" bodyfile="src/core/qfsubmodel.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSubModel_1a3244d60500fa4a9a6f4eff4b28c5a596" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QAbstractItemModel &gt;</type>
+        <definition>QPointer&lt;QAbstractItemModel&gt; QfSubModel::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>QfSubModel::mModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="72" column="14" bodyfile="src/core/qfsubmodel.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSubModel_1a515cad93120b3b64b7be01cfc9c64ad4" prot="private" static="no" mutable="no">
+        <type>QPersistentModelIndex</type>
+        <definition>QPersistentModelIndex QfSubModel::mRootIndex</definition>
+        <argsstring></argsstring>
+        <name>mRootIndex</name>
+        <qualifiedname>QfSubModel::mRootIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="73" column="27" bodyfile="src/core/qfsubmodel.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSubModel_1a1b04788b0230a169aa3e9ef602f264cd" prot="private" static="no" mutable="yes">
+        <type>QHash&lt; qintptr, QModelIndex &gt;</type>
+        <definition>QHash&lt;qintptr, QModelIndex&gt; QfSubModel::mMappings</definition>
+        <argsstring></argsstring>
+        <name>mMappings</name>
+        <qualifiedname>QfSubModel::mMappings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="76" column="19" bodyfile="src/core/qfsubmodel.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfSubModel_1aeb13b52e58a08862c4277f35ba4e9455" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfSubModel::QfSubModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfSubModel</name>
+        <qualifiedname>QfSubModel::QfSubModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="35" column="14" bodyfile="src/core/qfsubmodel.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a109777f471481402762fc08fca205aa4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfSubModel::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>QfSubModel::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="36" column="17" bodyfile="src/core/qfsubmodel.cpp" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1adfe3ea1a01fdd8fbcd339e85d1b48392" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfSubModel::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>QfSubModel::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="37" column="17" bodyfile="src/core/qfsubmodel.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a7f21039b43eed0973a5a6c0c72c421e0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfSubModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfSubModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="38" column="9" bodyfile="src/core/qfsubmodel.cpp" bodystart="38" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a7bb2ebde7eb102d03cca42c28ea8b53f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfSubModel::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>QfSubModel::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="39" column="9" bodyfile="src/core/qfsubmodel.cpp" bodystart="46" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a7e36365fb9a1303f3a09c45644953bd4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfSubModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfSubModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="40" column="14" bodyfile="src/core/qfsubmodel.cpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1ab01d8b7c4670ce2aa241a1fda089f8ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfSubModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfSubModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="41" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="62" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a28735dbc12df7fa487bfd5360febe5df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfSubModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfSubModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="42" column="11" bodyfile="src/core/qfsubmodel.cpp" bodystart="70" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1af0678c0fd9f9721e46da68c363bd5be7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfSubModel::rootIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>rootIndex</name>
+        <qualifiedname>QfSubModel::rootIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="44" column="17" bodyfile="src/core/qfsubmodel.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a7e5008db1212769147f25943e21781eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::setRootIndex</definition>
+        <argsstring>(const QModelIndex &amp;rootIndex)</argsstring>
+        <name>setRootIndex</name>
+        <qualifiedname>QfSubModel::setRootIndex</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>rootIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="45" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="83" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a8424818731ff04892e2b334dadf0a272" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QAbstractItemModel *</type>
+        <definition>QAbstractItemModel * QfSubModel::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>QfSubModel::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="47" column="24" bodyfile="src/core/qfsubmodel.cpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1af406a08fc7c60999236fd6c5bf726a57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::setModel</definition>
+        <argsstring>(QAbstractItemModel *model)</argsstring>
+        <name>setModel</name>
+        <qualifiedname>QfSubModel::setModel</qualifiedname>
+        <param>
+          <type>QAbstractItemModel *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="48" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="122" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1ac357fe8f8a503575aba6b0d98401f437" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfSubModel::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfSubModel::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="50" column="10" bodyfile="src/core/qfsubmodel.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1ab5268d3dff906723ea6de2a5053afd81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>QfSubModel::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="51" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="139" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1aafb60848ae215dfbaa1b1097d839b182" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfSubModel::isInSubModel</definition>
+        <argsstring>(const QModelIndex &amp;sourceIndex) const</argsstring>
+        <name>isInSubModel</name>
+        <qualifiedname>QfSubModel::isInSubModel</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="53" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="186" bodyend="192"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfSubModel_1addfa680522617252dcf9f63db38fae29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>QfSubModel::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="56" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfSubModel_1a40966d7f56bdedd6a1c5aef1f29ea76a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>QfSubModel::enabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfSubModel_1aba5ef1a81445ee588ae1ef12da071ad4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::rootIndexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rootIndexChanged</name>
+        <qualifiedname>QfSubModel::rootIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="58" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfSubModel_1aa6ae73dc91bdd725909ef062454bcf40" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::onRowsInserted</definition>
+        <argsstring>(const QModelIndex &amp;parent, int first, int last)</argsstring>
+        <name>onRowsInserted</name>
+        <qualifiedname>QfSubModel::onRowsInserted</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="61" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="153" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfSubModel_1aaf4b2b5e2b8842b6dbc8ed689d0d6eec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::onRowsAboutToBeRemoved</definition>
+        <argsstring>(const QModelIndex &amp;parent, int first, int last)</argsstring>
+        <name>onRowsAboutToBeRemoved</name>
+        <qualifiedname>QfSubModel::onRowsAboutToBeRemoved</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="62" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="163" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfSubModel_1aba1365a8cf6c110ad6500b2231e2d02a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::onModelReset</definition>
+        <argsstring>()</argsstring>
+        <name>onModelReset</name>
+        <qualifiedname>QfSubModel::onModelReset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="63" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="173" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfSubModel_1ae45dbcbad6c59e838ce8f3db7b869888" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::onDataChanged</definition>
+        <argsstring>(const QModelIndex &amp;topLeft, const QModelIndex &amp;bottomRight, const QVector&lt; int &gt; &amp;roles=QVector&lt; int &gt;())</argsstring>
+        <name>onDataChanged</name>
+        <qualifiedname>QfSubModel::onDataChanged</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>topLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>bottomRight</declname>
+        </param>
+        <param>
+          <type>const QVector&lt; int &gt; &amp;</type>
+          <declname>roles</declname>
+          <defval>QVector&lt; int &gt;()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="64" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="180" bodyend="184"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfSubModel_1a714b5670a04c38fb56339b75ba0b1a69" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfSubModel::mapFromSource</definition>
+        <argsstring>(const QModelIndex &amp;sourceIndex) const</argsstring>
+        <name>mapFromSource</name>
+        <qualifiedname>QfSubModel::mapFromSource</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="67" column="17" bodyfile="src/core/qfsubmodel.cpp" bodystart="194" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a5156cf8aef387633714520df7a040e24" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfSubModel::mapToSource</definition>
+        <argsstring>(const QModelIndex &amp;index) const</argsstring>
+        <name>mapToSource</name>
+        <qualifiedname>QfSubModel::mapToSource</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="68" column="17" bodyfile="src/core/qfsubmodel.cpp" bodystart="202" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubModel_1a851d628e23e87c963d27e9001b2d87e5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubModel::handleModelConnection</definition>
+        <argsstring>(bool disconnecting=false) const</argsstring>
+        <name>handleModelConnection</name>
+        <qualifiedname>QfSubModel::handleModelConnection</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>disconnecting</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubmodel.h" line="69" column="10" bodyfile="src/core/qfsubmodel.cpp" bodystart="101" bodyend="120"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfSubModel</label>
+        <link refid="classQfSubModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfSubModel</label>
+        <link refid="classQfSubModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfsubmodel.h" line="26" column="1" bodyfile="src/core/qfsubmodel.h" bodystart="27" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classQfSubModel_1a7bb2ebde7eb102d03cca42c28ea8b53f" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>columnCount</name></member>
+      <member refid="classQfSubModel_1a7e36365fb9a1303f3a09c45644953bd4" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>data</name></member>
+      <member refid="classQfSubModel_1a54ef1ecef559d304b61ad9e5932389fd" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>enabled</name></member>
+      <member refid="classQfSubModel_1ac357fe8f8a503575aba6b0d98401f437" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>enabled</name></member>
+      <member refid="classQfSubModel_1a40966d7f56bdedd6a1c5aef1f29ea76a" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>enabledChanged</name></member>
+      <member refid="classQfSubModel_1a851d628e23e87c963d27e9001b2d87e5" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>handleModelConnection</name></member>
+      <member refid="classQfSubModel_1a109777f471481402762fc08fca205aa4" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>index</name></member>
+      <member refid="classQfSubModel_1aafb60848ae215dfbaa1b1097d839b182" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>isInSubModel</name></member>
+      <member refid="classQfSubModel_1a714b5670a04c38fb56339b75ba0b1a69" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>mapFromSource</name></member>
+      <member refid="classQfSubModel_1a5156cf8aef387633714520df7a040e24" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>mapToSource</name></member>
+      <member refid="classQfSubModel_1a893646f4c738c1762dba464e8510da8f" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>mEnabled</name></member>
+      <member refid="classQfSubModel_1a1b04788b0230a169aa3e9ef602f264cd" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>mMappings</name></member>
+      <member refid="classQfSubModel_1a3244d60500fa4a9a6f4eff4b28c5a596" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>mModel</name></member>
+      <member refid="classQfSubModel_1a524d021bee789ed478dcf5aa1eceda2a" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>model</name></member>
+      <member refid="classQfSubModel_1a8424818731ff04892e2b334dadf0a272" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>model</name></member>
+      <member refid="classQfSubModel_1addfa680522617252dcf9f63db38fae29" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>modelChanged</name></member>
+      <member refid="classQfSubModel_1a515cad93120b3b64b7be01cfc9c64ad4" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>mRootIndex</name></member>
+      <member refid="classQfSubModel_1ae45dbcbad6c59e838ce8f3db7b869888" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>onDataChanged</name></member>
+      <member refid="classQfSubModel_1aba1365a8cf6c110ad6500b2231e2d02a" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>onModelReset</name></member>
+      <member refid="classQfSubModel_1aaf4b2b5e2b8842b6dbc8ed689d0d6eec" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>onRowsAboutToBeRemoved</name></member>
+      <member refid="classQfSubModel_1aa6ae73dc91bdd725909ef062454bcf40" prot="private" virt="non-virtual"><scope>QfSubModel</scope><name>onRowsInserted</name></member>
+      <member refid="classQfSubModel_1adfe3ea1a01fdd8fbcd339e85d1b48392" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>parent</name></member>
+      <member refid="classQfSubModel_1aeb13b52e58a08862c4277f35ba4e9455" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>QfSubModel</name></member>
+      <member refid="classQfSubModel_1a28735dbc12df7fa487bfd5360febe5df" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>roleNames</name></member>
+      <member refid="classQfSubModel_1a197c91b213a78f24ff054aa27c6af7ab" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>rootIndex</name></member>
+      <member refid="classQfSubModel_1af0678c0fd9f9721e46da68c363bd5be7" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>rootIndex</name></member>
+      <member refid="classQfSubModel_1aba5ef1a81445ee588ae1ef12da071ad4" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>rootIndexChanged</name></member>
+      <member refid="classQfSubModel_1a7f21039b43eed0973a5a6c0c72c421e0" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>rowCount</name></member>
+      <member refid="classQfSubModel_1ab01d8b7c4670ce2aa241a1fda089f8ce" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>setData</name></member>
+      <member refid="classQfSubModel_1ab5268d3dff906723ea6de2a5053afd81" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>setEnabled</name></member>
+      <member refid="classQfSubModel_1af406a08fc7c60999236fd6c5bf726a57" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>setModel</name></member>
+      <member refid="classQfSubModel_1a7e5008db1212769147f25943e21781eb" prot="public" virt="non-virtual"><scope>QfSubModel</scope><name>setRootIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

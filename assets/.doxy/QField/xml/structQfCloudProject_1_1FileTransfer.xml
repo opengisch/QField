@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfCloudProject_1_1FileTransfer" kind="struct" language="C++" prot="public">
+    <compoundname>QfCloudProject::FileTransfer</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a68a929e7ccd0d935b48b807d4c202c70" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProject::FileTransfer::fileName</definition>
+        <argsstring></argsstring>
+        <name>fileName</name>
+        <qualifiedname>QfCloudProject::FileTransfer::fileName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="96" column="17" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1ae8209c8cf13094f5b1105730ddf6f77c" prot="public" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 QfCloudProject::FileTransfer::bytesTotal</definition>
+        <argsstring></argsstring>
+        <name>bytesTotal</name>
+        <qualifiedname>QfCloudProject::FileTransfer::bytesTotal</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="97" column="16" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a6a36f257cdd80402ff818695859b26af" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProject::FileTransfer::projectId</definition>
+        <argsstring></argsstring>
+        <name>projectId</name>
+        <qualifiedname>QfCloudProject::FileTransfer::projectId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="98" column="17" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1acedd2397c1dca3b44b1379d873a0e072" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProject::FileTransfer::etag</definition>
+        <argsstring></argsstring>
+        <name>etag</name>
+        <qualifiedname>QfCloudProject::FileTransfer::etag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="100" column="17" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a39989332a6856ac9af0eef2017b4e7d4" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProject::FileTransfer::partialFilePath</definition>
+        <argsstring></argsstring>
+        <name>partialFilePath</name>
+        <qualifiedname>QfCloudProject::FileTransfer::partialFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="101" column="17" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1af8119f7ac14a9f27a8459c2cf38c60ac" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProject::FileTransfer::tmpFile</definition>
+        <argsstring></argsstring>
+        <name>tmpFile</name>
+        <qualifiedname>QfCloudProject::FileTransfer::tmpFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="102" column="17" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a017b654cc20bcbb201030ac69304fdb6" prot="public" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 QfCloudProject::FileTransfer::bytesTransferred</definition>
+        <argsstring></argsstring>
+        <name>bytesTransferred</name>
+        <qualifiedname>QfCloudProject::FileTransfer::bytesTransferred</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="103" column="16" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a3bc543112c7cb9aac9aa3b60a024d641" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProject::FileTransfer::isFinished</definition>
+        <argsstring></argsstring>
+        <name>isFinished</name>
+        <qualifiedname>QfCloudProject::FileTransfer::isFinished</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="104" column="14" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a2e5037e6397485ed692813f9ab02da55" prot="public" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> &gt;</type>
+        <definition>QPointer&lt;QfNetworkReply&gt; QfCloudProject::FileTransfer::networkReply</definition>
+        <argsstring></argsstring>
+        <name>networkReply</name>
+        <qualifiedname>QfCloudProject::FileTransfer::networkReply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="105" column="18" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a584e15ee84ec19ffc2ce806415e8453b" prot="public" static="no" mutable="no">
+        <type>QNetworkReply::NetworkError</type>
+        <definition>QNetworkReply::NetworkError QfCloudProject::FileTransfer::error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <qualifiedname>QfCloudProject::FileTransfer::error</qualifiedname>
+        <initializer>= QNetworkReply::NoError</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="106" column="37" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a48475ee6bf4811def2a86c83dfd71af6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfCloudProject::FileTransfer::redirectsCount</definition>
+        <argsstring></argsstring>
+        <name>redirectsCount</name>
+        <qualifiedname>QfCloudProject::FileTransfer::redirectsCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="107" column="13" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a3d67a15ae9d8effd6ef278c8d216d356" prot="public" static="no" mutable="no">
+        <type>QUrl</type>
+        <definition>QUrl QfCloudProject::FileTransfer::lastRedirectUrl</definition>
+        <argsstring></argsstring>
+        <name>lastRedirectUrl</name>
+        <qualifiedname>QfCloudProject::FileTransfer::lastRedirectUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="108" column="14" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1ae4487139f28e802485c1f88c9412c968" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProject::FileTransfer::resumableDownload</definition>
+        <argsstring></argsstring>
+        <name>resumableDownload</name>
+        <qualifiedname>QfCloudProject::FileTransfer::resumableDownload</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="109" column="14" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudProject_1_1FileTransfer_1a8e6011242e0d60660c782cc34c087741" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfCloudProject::FileTransfer::retryCount</definition>
+        <argsstring></argsstring>
+        <name>retryCount</name>
+        <qualifiedname>QfCloudProject::FileTransfer::retryCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="110" column="13" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfCloudProject_1_1FileTransfer_1acd7acc5c2238b20fb822feeca929912a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudProject::FileTransfer::FileTransfer</definition>
+        <argsstring>(const QString &amp;fileName, const qint64 bytesTotal, const QString &amp;projectId, const QString &amp;etag)</argsstring>
+        <name>FileTransfer</name>
+        <qualifiedname>QfCloudProject::FileTransfer::FileTransfer</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>const qint64</type>
+          <declname>bytesTotal</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>etag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="87" column="9" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="87" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfCloudProject_1_1FileTransfer_1a3d5d52794bb8bde65f7da8051913af9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudProject::FileTransfer::FileTransfer</definition>
+        <argsstring>()=default</argsstring>
+        <name>FileTransfer</name>
+        <qualifiedname>QfCloudProject::FileTransfer::FileTransfer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudproject.h" line="94" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfcloudproject.h" line="85" column="5" bodyfile="src/core/qfieldcloud/qfcloudproject.h" bodystart="86" bodyend="111"/>
+    <listofallmembers>
+      <member refid="structQfCloudProject_1_1FileTransfer_1ae8209c8cf13094f5b1105730ddf6f77c" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>bytesTotal</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a017b654cc20bcbb201030ac69304fdb6" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>bytesTransferred</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a584e15ee84ec19ffc2ce806415e8453b" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>error</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1acedd2397c1dca3b44b1379d873a0e072" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>etag</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a68a929e7ccd0d935b48b807d4c202c70" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>fileName</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1acd7acc5c2238b20fb822feeca929912a" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>FileTransfer</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a3d5d52794bb8bde65f7da8051913af9d" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>FileTransfer</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a3bc543112c7cb9aac9aa3b60a024d641" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>isFinished</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a3d67a15ae9d8effd6ef278c8d216d356" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>lastRedirectUrl</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a2e5037e6397485ed692813f9ab02da55" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>networkReply</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a39989332a6856ac9af0eef2017b4e7d4" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>partialFilePath</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a6a36f257cdd80402ff818695859b26af" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>projectId</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a48475ee6bf4811def2a86c83dfd71af6" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>redirectsCount</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1ae4487139f28e802485c1f88c9412c968" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>resumableDownload</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1a8e6011242e0d60660c782cc34c087741" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>retryCount</name></member>
+      <member refid="structQfCloudProject_1_1FileTransfer_1af8119f7ac14a9f27a8459c2cf38c60ac" prot="public" virt="non-virtual"><scope>QfCloudProject::FileTransfer</scope><name>tmpFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

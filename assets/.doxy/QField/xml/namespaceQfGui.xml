@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceQfGui" kind="namespace" language="C++">
+    <compoundname>QfGui</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="qfgui_8cpp_1a40daac0577c12b2bc5ac27d66743be43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGui::registerQmlTypes</definition>
+        <argsstring>()</argsstring>
+        <name>registerQmlTypes</name>
+        <qualifiedname>QfGui::registerQmlTypes</qualifiedname>
+        <briefdescription>
+<para>Registers the gui library&apos;s QML types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgui.cpp" line="45" column="8" bodyfile="src/gui/qfgui.cpp" bodystart="45" bodyend="102" declfile="src/gui/qfgui.h" declline="22" declcolumn="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui/qfgui.cpp" line="43" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTimeItem" kind="class" language="C++" prot="public">
+    <compoundname>QfTimeItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTimeItem_1a8a3a6d23d7a300d48cbf0b31572f6519" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfTimeItem::hours</definition>
+        <argsstring></argsstring>
+        <name>hours</name>
+        <qualifiedname>QfTimeItem::hours</qualifiedname>
+        <read>dummyGetter_hours_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTimeItem.qml" line="12" column="1" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTimeItem_1a9aba2456d0dcda7e6fc9b32ec166f577" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfTimeItem::minutes</definition>
+        <argsstring></argsstring>
+        <name>minutes</name>
+        <qualifiedname>QfTimeItem::minutes</qualifiedname>
+        <read>dummyGetter_minutes_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTimeItem.qml" line="14" column="1" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTimeItem_1ab33042d0aa72d5368fe15e8fc5b4efbd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfTimeItem::seconds</definition>
+        <argsstring></argsstring>
+        <name>seconds</name>
+        <qualifiedname>QfTimeItem::seconds</qualifiedname>
+        <read>dummyGetter_seconds_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTimeItem.qml" line="16" column="1" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTimeItem_1ad5b93d1ab77287f5362b7ece60770a05" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTimeItem::contentHeight</definition>
+        <argsstring></argsstring>
+        <name>contentHeight</name>
+        <qualifiedname>QfTimeItem::contentHeight</qualifiedname>
+        <read>dummyGetter_contentHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTimeItem.qml" line="18" column="1" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTimeItem_1ac2a56b6d0841b5850863004a2a1a0f7b" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout QfTimeItem::timeItemContent</definition>
+        <argsstring></argsstring>
+        <name>timeItemContent</name>
+        <qualifiedname>QfTimeItem::timeItemContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTimeItem.qml" line="20" column="12" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTimeItem_1a33fbcb2de07c187ea74597e651430710" prot="private" static="no" mutable="no">
+        <type>SpinBox</type>
+        <definition>SpinBox QfTimeItem::hoursSpinBox</definition>
+        <argsstring></argsstring>
+        <name>hoursSpinBox</name>
+        <qualifiedname>QfTimeItem::hoursSpinBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTimeItem.qml" line="21" column="9" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTimeItem_1a7edb6525b9aa50f341a4ad9d6f626de6" prot="private" static="no" mutable="no">
+        <type>SpinBox</type>
+        <definition>SpinBox QfTimeItem::minutesSpinBox</definition>
+        <argsstring></argsstring>
+        <name>minutesSpinBox</name>
+        <qualifiedname>QfTimeItem::minutesSpinBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTimeItem.qml" line="22" column="9" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTimeItem_1a20c3d7771ae993168ab2d7f9ba7bfad0" prot="private" static="no" mutable="no">
+        <type>SpinBox</type>
+        <definition>SpinBox QfTimeItem::secondsSpinBox</definition>
+        <argsstring></argsstring>
+        <name>secondsSpinBox</name>
+        <qualifiedname>QfTimeItem::secondsSpinBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTimeItem.qml" line="23" column="9" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfTimeItem</label>
+        <link refid="classQfTimeItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfTimeItem</label>
+        <link refid="classQfTimeItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfTimeItem.qml" line="9" column="1" bodyfile="src/gui/qml/QfTimeItem.qml" bodystart="9" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classQfTimeItem_1ad5b93d1ab77287f5362b7ece60770a05" prot="public" virt="non-virtual"><scope>QfTimeItem</scope><name>contentHeight</name></member>
+      <member refid="classQfTimeItem_1a8a3a6d23d7a300d48cbf0b31572f6519" prot="public" virt="non-virtual"><scope>QfTimeItem</scope><name>hours</name></member>
+      <member refid="classQfTimeItem_1a33fbcb2de07c187ea74597e651430710" prot="private" virt="non-virtual"><scope>QfTimeItem</scope><name>hoursSpinBox</name></member>
+      <member refid="classQfTimeItem_1a9aba2456d0dcda7e6fc9b32ec166f577" prot="public" virt="non-virtual"><scope>QfTimeItem</scope><name>minutes</name></member>
+      <member refid="classQfTimeItem_1a7edb6525b9aa50f341a4ad9d6f626de6" prot="private" virt="non-virtual"><scope>QfTimeItem</scope><name>minutesSpinBox</name></member>
+      <member refid="classQfTimeItem_1ab33042d0aa72d5368fe15e8fc5b4efbd" prot="public" virt="non-virtual"><scope>QfTimeItem</scope><name>seconds</name></member>
+      <member refid="classQfTimeItem_1a20c3d7771ae993168ab2d7f9ba7bfad0" prot="private" virt="non-virtual"><scope>QfTimeItem</scope><name>secondsSpinBox</name></member>
+      <member refid="classQfTimeItem_1ac2a56b6d0841b5850863004a2a1a0f7b" prot="private" virt="non-virtual"><scope>QfTimeItem</scope><name>timeItemContent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

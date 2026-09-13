@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLocatorActionsModel" kind="class" language="C++" prot="public">
+    <compoundname>QfLocatorActionsModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QStandardItemModel</basecompoundref>
+    <includes refid="qflocatormodelsuperbridge_8h" local="no">qflocatormodelsuperbridge.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfLocatorActionsModel_1a953eb6fdb55da2f679d0b8e3466cdd0b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionRoles</name>
+        <qualifiedname>QfLocatorActionsModel::ActionRoles</qualifiedname>
+        <enumvalue id="classQfLocatorActionsModel_1a953eb6fdb55da2f679d0b8e3466cdd0bafdc184c110ad4ce216bc8549f64f8c4d" prot="public">
+          <name>IdRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfLocatorActionsModel_1a953eb6fdb55da2f679d0b8e3466cdd0ba53a29d632ce5c564a1bcb357a0e9ca7d" prot="public">
+          <name>IconPathRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="44" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="45" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLocatorActionsModel_1a11f1db7f9018619a40521d6817969dce" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLocatorActionsModel::QfLocatorActionsModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfLocatorActionsModel</name>
+        <qualifiedname>QfLocatorActionsModel::QfLocatorActionsModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="49" column="14" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="245" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorActionsModel_1a6a3ebd5d3039f6b06f0c06e9b2ce6838" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLocatorActionsModel::QfLocatorActionsModel</definition>
+        <argsstring>(int rows, int columns, QObject *parent=nullptr)</argsstring>
+        <name>QfLocatorActionsModel</name>
+        <qualifiedname>QfLocatorActionsModel::QfLocatorActionsModel</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>columns</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="50" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="250" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorActionsModel_1aec9b2da960077260456010d791effa32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfLocatorActionsModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfLocatorActionsModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="51" column="11" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="255" bodyend="261"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQfLocatorActionsModel" kindref="compound">QfLocatorActionsModel</ref> is a model used to dislay additional actions from the result of a filter. These are displayed as contextual menu in QGIS while they are shown in a row of buttons in QField. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfLocatorActionsModel</label>
+        <link refid="classQfLocatorActionsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfLocatorActionsModel</label>
+        <link refid="classQfLocatorActionsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/qflocatormodelsuperbridge.h" line="40" column="1" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="41" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classQfLocatorActionsModel_1a953eb6fdb55da2f679d0b8e3466cdd0b" prot="public" virt="non-virtual"><scope>QfLocatorActionsModel</scope><name>ActionRoles</name></member>
+      <member refid="classQfLocatorActionsModel_1a953eb6fdb55da2f679d0b8e3466cdd0ba53a29d632ce5c564a1bcb357a0e9ca7d" prot="public" virt="non-virtual"><scope>QfLocatorActionsModel</scope><name>IconPathRole</name></member>
+      <member refid="classQfLocatorActionsModel_1a953eb6fdb55da2f679d0b8e3466cdd0bafdc184c110ad4ce216bc8549f64f8c4d" prot="public" virt="non-virtual"><scope>QfLocatorActionsModel</scope><name>IdRole</name></member>
+      <member refid="classQfLocatorActionsModel_1a11f1db7f9018619a40521d6817969dce" prot="public" virt="non-virtual"><scope>QfLocatorActionsModel</scope><name>QfLocatorActionsModel</name></member>
+      <member refid="classQfLocatorActionsModel_1a6a3ebd5d3039f6b06f0c06e9b2ce6838" prot="public" virt="non-virtual"><scope>QfLocatorActionsModel</scope><name>QfLocatorActionsModel</name></member>
+      <member refid="classQfLocatorActionsModel_1aec9b2da960077260456010d791effa32" prot="public" virt="non-virtual"><scope>QfLocatorActionsModel</scope><name>roleNames</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfDeltaChangesModel_1_1DeltaChange" kind="struct" language="C++" prot="private">
+    <compoundname>QfDeltaChangesModel::DeltaChange</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1DeltaChange_1ad280953abac53eced9cc5ecc562db6fd" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDeltaChangesModel::DeltaChange::layerId</definition>
+        <argsstring></argsstring>
+        <name>layerId</name>
+        <qualifiedname>QfDeltaChangesModel::DeltaChange::layerId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="121" column="17" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1DeltaChange_1ac5522768e35f6c1d8aadef62c25a13c5" prot="public" static="no" mutable="no">
+        <type>DeltaMethod</type>
+        <definition>DeltaMethod QfDeltaChangesModel::DeltaChange::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <qualifiedname>QfDeltaChangesModel::DeltaChange::method</qualifiedname>
+        <initializer>= UnknownMethod</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="122" column="21" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1DeltaChange_1a34e966d79c3e0dd302d835aae4f90222" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDeltaChangesModel::DeltaChange::featureName</definition>
+        <argsstring></argsstring>
+        <name>featureName</name>
+        <qualifiedname>QfDeltaChangesModel::DeltaChange::featureName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="123" column="17" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1DeltaChange_1a966a4270391243327754bf8e6c3bd674" prot="public" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classQfDeltaAttributeChange" kindref="compound">QfDeltaAttributeChange</ref> &gt;</type>
+        <definition>QList&lt;QfDeltaAttributeChange&gt; QfDeltaChangesModel::DeltaChange::attributeChanges</definition>
+        <argsstring></argsstring>
+        <name>attributeChanges</name>
+        <qualifiedname>QfDeltaChangesModel::DeltaChange::attributeChanges</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="124" column="15" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1DeltaChange_1a2b68913fd30b6768b9a039917a49739e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfDeltaChangesModel::DeltaChange::hasGeometryChange</definition>
+        <argsstring></argsstring>
+        <name>hasGeometryChange</name>
+        <qualifiedname>QfDeltaChangesModel::DeltaChange::hasGeometryChange</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="125" column="14" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="119" column="5" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="120" bodyend="126"/>
+    <listofallmembers>
+      <member refid="structQfDeltaChangesModel_1_1DeltaChange_1a966a4270391243327754bf8e6c3bd674" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::DeltaChange</scope><name>attributeChanges</name></member>
+      <member refid="structQfDeltaChangesModel_1_1DeltaChange_1a34e966d79c3e0dd302d835aae4f90222" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::DeltaChange</scope><name>featureName</name></member>
+      <member refid="structQfDeltaChangesModel_1_1DeltaChange_1a2b68913fd30b6768b9a039917a49739e" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::DeltaChange</scope><name>hasGeometryChange</name></member>
+      <member refid="structQfDeltaChangesModel_1_1DeltaChange_1ad280953abac53eced9cc5ecc562db6fd" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::DeltaChange</scope><name>layerId</name></member>
+      <member refid="structQfDeltaChangesModel_1_1DeltaChange_1ac5522768e35f6c1d8aadef62c25a13c5" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::DeltaChange</scope><name>method</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

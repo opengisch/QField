@@ -1,0 +1,513 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qffeaturechecklistmodel_8h" kind="file" language="C++">
+    <compoundname>qffeaturechecklistmodel.h</compoundname>
+    <includes refid="qffeaturelistmodel_8h" local="yes">qffeaturelistmodel.h</includes>
+    <includes local="no">QSortFilterProxyModel</includes>
+    <includes local="no">qgsvectorlayer.h</includes>
+    <includedby refid="qffeaturechecklistmodel_8cpp" local="yes">src/gui/qffeaturechecklistmodel.cpp</includedby>
+    <includedby refid="qfgui_8cpp" local="yes">src/gui/qfgui.cpp</includedby>
+    <incdepgraph>
+      <node id="29">
+        <label>qfgnsspositioninformation.h</label>
+        <link refid="qfgnsspositioninformation_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>qfappexpressioncontextscopesgenerator.h</label>
+        <link refid="qfappexpressioncontextscopesgenerator_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>qffeatureexpressionvaluesgatherer.h</label>
+        <link refid="qffeatureexpressionvaluesgatherer_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qffeaturelistmodel.h</label>
+        <link refid="qffeaturelistmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>qfcloudproject.h</label>
+        <link refid="qfcloudproject_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>qfcloudprojectsmodel.h</label>
+        <link refid="qfcloudprojectsmodel_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>qfdeltafilewrapper.h</label>
+        <link refid="qfdeltafilewrapper_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>qfnetworkmanager.h</label>
+        <link refid="qfnetworkmanager_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>qfnetworkreply.h</label>
+        <link refid="qfnetworkreply_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>qfcloudutils.h</label>
+        <link refid="qfcloudutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>qfstringutils.h</label>
+        <link refid="qfstringutils_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/gui/qffeaturechecklistmodel.h</label>
+        <link refid="qffeaturechecklistmodel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="25">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="41">
+        <label>QColor</label>
+      </node>
+      <node id="30">
+        <label>QDateTime</label>
+      </node>
+      <node id="8">
+        <label>QJsonArray</label>
+      </node>
+      <node id="9">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="10">
+        <label>QJsonObject</label>
+      </node>
+      <node id="35">
+        <label>QMutex</label>
+      </node>
+      <node id="17">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="18">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="15">
+        <label>QObject</label>
+      </node>
+      <node id="20">
+        <label>QPointer</label>
+      </node>
+      <node id="26">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="31">
+        <label>QString</label>
+      </node>
+      <node id="23">
+        <label>QThread</label>
+      </node>
+      <node id="27">
+        <label>QTimer</label>
+      </node>
+      <node id="21">
+        <label>QVariantMap</label>
+      </node>
+      <node id="40">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="32">
+        <label>qgis.h</label>
+      </node>
+      <node id="36">
+        <label>qgsapplication.h</label>
+      </node>
+      <node id="42">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="11">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="12">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="24">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="19">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="43">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="28">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="33">
+        <label>qgssatelliteinformation.h</label>
+      </node>
+      <node id="44">
+        <label>qgsstringutils.h</label>
+      </node>
+      <node id="13">
+        <label>qgsvectorlayer.h</label>
+      </node>
+      <node id="37">
+        <label>qgsvectorlayerfeatureiterator.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classQfFeatureCheckListModelBase" prot="public">QfFeatureCheckListModelBase</innerclass>
+    <innerclass refid="classQfFeatureCheckListModel" prot="public">QfFeatureCheckListModel</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>qffeaturechecklistmodel.h<sp/>-<sp/>QfFeatureCheckListModel</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>August<sp/>2019</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2019<sp/>by<sp/>David<sp/>Signer</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>david<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFFEATURECHECKLISTMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFFEATURECHECKLISTMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qffeaturelistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSortFilterProxyModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsvectorlayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classQfFeatureCheckListModelBase" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfFeatureCheckListModelBase" kindref="compound">QfFeatureCheckListModelBase</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureListModel" kindref="compound">QfFeatureListModel</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModelBase" kindref="compound">QfFeatureCheckListModelBase</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>FeatureListRoles</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CheckedRole<sp/>=<sp/>Qt::UserRole<sp/>+<sp/>100<sp/></highlight><highlight class="comment">//<sp/>do<sp/>not<sp/>overlap<sp/>with<sp/>the<sp/>roles<sp/>of<sp/>the<sp/>base<sp/>model</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QVariant<sp/>data(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>setData(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;value,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/>roleNames()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariant<sp/><ref refid="classQfFeatureCheckListModelBase_1a331192ee6312f2dee3caf0ec54f5bbc5" kindref="member">attributeValue</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModelBase_1aae37c2e3c78c8a4676227bd16f0403f7" kindref="member">setAttributeValue</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;<ref refid="classQfFeatureCheckListModelBase_1a331192ee6312f2dee3caf0ec54f5bbc5" kindref="member">attributeValue</ref><sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsField<sp/><ref refid="classQfFeatureCheckListModelBase_1a8fdd87df9b9937a64b60b4db57b9541e" kindref="member">attributeField</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModelBase_1a9915ec36659cf085d2d3e7667bdebe05" kindref="member">setAttributeField</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsField<sp/>&amp;field<sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModelBase_1afe62e90234d9f3f32a94db74a2cc89fe" kindref="member">allowMulti</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModelBase_1acfc8254ddd4a246bc100cefa2f5323a0" kindref="member">setAllowMulti</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModelBase_1afe62e90234d9f3f32a94db74a2cc89fe" kindref="member">allowMulti</ref><sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModelBase_1a9c44a5f2724904e16209f79272836808" kindref="member">toggleCheckAll</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>toggleChecked<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>attributeValueChanged();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>attributeFieldChanged();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>allowMultiChanged();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>listUpdated();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setChecked(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;idx<sp/>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setUnchecked(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;idx<sp/>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>QMetaType::Type<sp/>fkType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsField<sp/>mAttributeField;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>QStringList<sp/>mCheckedEntries;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mAllowMulti<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classQfFeatureCheckListModel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfFeatureCheckListModel" kindref="compound">QfFeatureCheckListModel</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QSortFilterProxyModel</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classQfFeatureCheckListModel_1aef285dd1854ff7734d2e51d0686c846f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsVectorLayer<sp/>*<ref refid="classQfFeatureCheckListModel_1aef285dd1854ff7734d2e51d0686c846f" kindref="member">currentLayer</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1aef285dd1854ff7734d2e51d0686c846f" kindref="member">currentLayer</ref><sp/>WRITE<sp/>setCurrentLayer<sp/>NOTIFY<sp/>currentLayerChanged<sp/>)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117" refid="classQfFeatureCheckListModel_1a4872faef39b5b5cc21dd5c1fed278a7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a4872faef39b5b5cc21dd5c1fed278a7e" kindref="member">keyField</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a4872faef39b5b5cc21dd5c1fed278a7e" kindref="member">keyField</ref><sp/>WRITE<sp/>setKeyField<sp/>NOTIFY<sp/>keyFieldChanged<sp/>)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="classQfFeatureCheckListModel_1a3868ebcd48bef18b563ad1a0a325e020" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a3868ebcd48bef18b563ad1a0a325e020" kindref="member">displayValueField</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a3868ebcd48bef18b563ad1a0a325e020" kindref="member">displayValueField</ref><sp/>WRITE<sp/>setDisplayValueField<sp/>NOTIFY<sp/>displayValueFieldChanged<sp/>)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="classQfFeatureCheckListModel_1a869ae4eceb00244c1c9801333a86365e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a869ae4eceb00244c1c9801333a86365e" kindref="member">groupField</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a869ae4eceb00244c1c9801333a86365e" kindref="member">groupField</ref><sp/>WRITE<sp/>setGroupField<sp/>NOTIFY<sp/>groupFieldChanged<sp/>)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="classQfFeatureCheckListModel_1aece75f6ed6e57527f8a60f2586c54138" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1aece75f6ed6e57527f8a60f2586c54138" kindref="member">displayGroupName</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1aece75f6ed6e57527f8a60f2586c54138" kindref="member">displayGroupName</ref><sp/>WRITE<sp/>setDisplayGroupName<sp/>NOTIFY<sp/>displayGroupNameChanged<sp/>)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="classQfFeatureCheckListModel_1a4a870575025b25d0f0a511972e828410" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a4a870575025b25d0f0a511972e828410" kindref="member">orderByValue</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a4a870575025b25d0f0a511972e828410" kindref="member">orderByValue</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1a5e670f89fbf52a55a85891c470c95fd7" kindref="member">setOrderByValue</ref><sp/>NOTIFY<sp/>orderByValueChanged<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="classQfFeatureCheckListModel_1a2892f22b27121b2827b16f22cb8729c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a2892f22b27121b2827b16f22cb8729c8" kindref="member">orderByField</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a2892f22b27121b2827b16f22cb8729c8" kindref="member">orderByField</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1ad74569633e262b437a43ee19cf48ae83" kindref="member">setOrderByField</ref><sp/>NOTIFY<sp/>orderByFieldChanged<sp/>)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="classQfFeatureCheckListModel_1a1c18fb576e5c40318ab9e53e3dc89a5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a1c18fb576e5c40318ab9e53e3dc89a5c" kindref="member">orderByFieldName</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a1c18fb576e5c40318ab9e53e3dc89a5c" kindref="member">orderByFieldName</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1a404f46c7e7294542c49903bfb32a901a" kindref="member">setOrderByFieldName</ref><sp/>NOTIFY<sp/>orderByFieldNameChanged<sp/>)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="classQfFeatureCheckListModel_1a51973a6d4d769b1db1b7637c79f7ba9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a51973a6d4d769b1db1b7637c79f7ba9f" kindref="member">addNull</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a51973a6d4d769b1db1b7637c79f7ba9f" kindref="member">addNull</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1a44d4447b233b6c3ec553c7ef7fc43d17" kindref="member">setAddNull</ref><sp/>NOTIFY<sp/>addNullChanged<sp/>)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="classQfFeatureCheckListModel_1a2e791ac09b3ed4afb2b2355a61ae7388" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a2e791ac09b3ed4afb2b2355a61ae7388" kindref="member">filterExpression</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a2e791ac09b3ed4afb2b2355a61ae7388" kindref="member">filterExpression</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1aa0dee598f3002a061d34722b7f7ad06a" kindref="member">setFilterExpression</ref><sp/>NOTIFY<sp/>filterExpressionChanged<sp/>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="classQfFeatureCheckListModel_1a4f5ee0af5f0a739029a549e14965bc5b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsFeature<sp/><ref refid="classQfFeatureCheckListModel_1a4f5ee0af5f0a739029a549e14965bc5b" kindref="member">currentFormFeature</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a4f5ee0af5f0a739029a549e14965bc5b" kindref="member">currentFormFeature</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1a33b1d8fbb2740d76660eb068d3dfe5ef" kindref="member">setCurrentFormFeature</ref><sp/>NOTIFY<sp/>currentFormFeatureChanged<sp/>)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="classQfFeatureCheckListModel_1a0d76301e80531e19833d500a6b79c5fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref><sp/>*<ref refid="classQfFeatureCheckListModel_1a0d76301e80531e19833d500a6b79c5fe" kindref="member">appExpressionContextScopesGenerator</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a0d76301e80531e19833d500a6b79c5fe" kindref="member">appExpressionContextScopesGenerator</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1ae536ed673846e6c1c93c969d1f5193b0" kindref="member">setAppExpressionContextScopesGenerator</ref><sp/>NOTIFY<sp/>appExpressionContextScopesGeneratorChanged<sp/>)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="classQfFeatureCheckListModel_1a89038c5c2c0887c0d38bdd9b74f9db05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVariant<sp/><ref refid="classQfFeatureCheckListModel_1a89038c5c2c0887c0d38bdd9b74f9db05" kindref="member">attributeValue</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a89038c5c2c0887c0d38bdd9b74f9db05" kindref="member">attributeValue</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1a1083fb3f238c4abefd85b61371c7d49c" kindref="member">setAttributeValue</ref><sp/>NOTIFY<sp/>attributeValueChanged<sp/>)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="classQfFeatureCheckListModel_1aa3a58fff1df268b66e0e9040322ba3e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsField<sp/><ref refid="classQfFeatureCheckListModel_1aa3a58fff1df268b66e0e9040322ba3e0" kindref="member">attributeField</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1aa3a58fff1df268b66e0e9040322ba3e0" kindref="member">attributeField</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1aceb7bd597f960fda797a2801c123a4c0" kindref="member">setAttributeField</ref><sp/>NOTIFY<sp/>attributeFieldChanged<sp/>)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="classQfFeatureCheckListModel_1ab6c2caa8eaaed4827a59df75fb2d9452" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1ab6c2caa8eaaed4827a59df75fb2d9452" kindref="member">allowMulti</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1ab6c2caa8eaaed4827a59df75fb2d9452" kindref="member">allowMulti</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1abf2a20b55747b5597ac833606f3ea585" kindref="member">setAllowMulti</ref><sp/>NOTIFY<sp/>allowMultiChanged<sp/>)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="classQfFeatureCheckListModel_1a2c64dcf01e687fd471b234b976851824" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a2c64dcf01e687fd471b234b976851824" kindref="member">searchTerm</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a2c64dcf01e687fd471b234b976851824" kindref="member">searchTerm</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1a542603edc7638256f3c973c174be85a6" kindref="member">setSearchTerm</ref><sp/>NOTIFY<sp/>searchTermChanged<sp/>)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="classQfFeatureCheckListModel_1a502585e37d4a1f6e09ed4476c8e5a4cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a502585e37d4a1f6e09ed4476c8e5a4cb" kindref="member">sortCheckedFirst</ref><sp/>READ<sp/><ref refid="classQfFeatureCheckListModel_1a502585e37d4a1f6e09ed4476c8e5a4cb" kindref="member">sortCheckedFirst</ref><sp/>WRITE<sp/><ref refid="classQfFeatureCheckListModel_1a53a8e0c3b299eba5a77eea01f59afa44" kindref="member">setSortCheckedFirst</ref><sp/>NOTIFY<sp/>sortCheckedFirstChanged<sp/>)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classQfFeatureCheckListModel" kindref="compound">QfFeatureCheckListModel</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QVariant<sp/>dataFromRowIndex(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data(<sp/>index(<sp/>row,<sp/>0,<sp/>QModelIndex()<sp/>),<sp/>role<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QgsFeature<sp/><ref refid="classQfFeatureCheckListModel_1a246486538325e9c4b334928717a82d5f" kindref="member">getFeatureFromKeyValue</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;value<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QgsFeature<sp/><ref refid="classQfFeatureCheckListModel_1a3b13a2cd60250acf402763171e6f83fb" kindref="member">getFeatureById</ref>(<sp/>QgsFeatureId<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a150556636d7758e41f62cca3ffc9c3f8" kindref="member">findKey</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;key<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QList&lt;int&gt;<sp/><ref refid="classQfFeatureCheckListModel_1a03388d4d54361a7faff42bb2be6ad182" kindref="member">findDisplayValueMatches</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;filter<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsVectorLayer<sp/>*<ref refid="classQfFeatureCheckListModel_1aef285dd1854ff7734d2e51d0686c846f" kindref="member">currentLayer</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCurrentLayer(<sp/>QgsVectorLayer<sp/>*<ref refid="classQfFeatureCheckListModel_1aef285dd1854ff7734d2e51d0686c846f" kindref="member">currentLayer</ref><sp/>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a4872faef39b5b5cc21dd5c1fed278a7e" kindref="member">keyField</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setKeyField(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQfFeatureCheckListModel_1a4872faef39b5b5cc21dd5c1fed278a7e" kindref="member">keyField</ref><sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a3868ebcd48bef18b563ad1a0a325e020" kindref="member">displayValueField</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDisplayValueField(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQfFeatureCheckListModel_1a3868ebcd48bef18b563ad1a0a325e020" kindref="member">displayValueField</ref><sp/>);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a869ae4eceb00244c1c9801333a86365e" kindref="member">groupField</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setGroupField(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQfFeatureCheckListModel_1a869ae4eceb00244c1c9801333a86365e" kindref="member">groupField</ref><sp/>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1aece75f6ed6e57527f8a60f2586c54138" kindref="member">displayGroupName</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDisplayGroupName(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1aece75f6ed6e57527f8a60f2586c54138" kindref="member">displayGroupName</ref><sp/>);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a4a870575025b25d0f0a511972e828410" kindref="member">orderByValue</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a5e670f89fbf52a55a85891c470c95fd7" kindref="member">setOrderByValue</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a4a870575025b25d0f0a511972e828410" kindref="member">orderByValue</ref><sp/>);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a2892f22b27121b2827b16f22cb8729c8" kindref="member">orderByField</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1ad74569633e262b437a43ee19cf48ae83" kindref="member">setOrderByField</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a2892f22b27121b2827b16f22cb8729c8" kindref="member">orderByField</ref><sp/>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a1c18fb576e5c40318ab9e53e3dc89a5c" kindref="member">orderByFieldName</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a404f46c7e7294542c49903bfb32a901a" kindref="member">setOrderByFieldName</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQfFeatureCheckListModel_1a1c18fb576e5c40318ab9e53e3dc89a5c" kindref="member">orderByFieldName</ref><sp/>);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a51973a6d4d769b1db1b7637c79f7ba9f" kindref="member">addNull</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a44d4447b233b6c3ec553c7ef7fc43d17" kindref="member">setAddNull</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a51973a6d4d769b1db1b7637c79f7ba9f" kindref="member">addNull</ref><sp/>);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a2e791ac09b3ed4afb2b2355a61ae7388" kindref="member">filterExpression</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1aa0dee598f3002a061d34722b7f7ad06a" kindref="member">setFilterExpression</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQfFeatureCheckListModel_1a2e791ac09b3ed4afb2b2355a61ae7388" kindref="member">filterExpression</ref><sp/>);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeature<sp/><ref refid="classQfFeatureCheckListModel_1a4f5ee0af5f0a739029a549e14965bc5b" kindref="member">currentFormFeature</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a33b1d8fbb2740d76660eb068d3dfe5ef" kindref="member">setCurrentFormFeature</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeature<sp/>&amp;feature<sp/>);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref><sp/>*<ref refid="classQfFeatureCheckListModel_1a0d76301e80531e19833d500a6b79c5fe" kindref="member">appExpressionContextScopesGenerator</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1ae536ed673846e6c1c93c969d1f5193b0" kindref="member">setAppExpressionContextScopesGenerator</ref>(<sp/><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref><sp/>*generator<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariant<sp/><ref refid="classQfFeatureCheckListModel_1a89038c5c2c0887c0d38bdd9b74f9db05" kindref="member">attributeValue</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a1083fb3f238c4abefd85b61371c7d49c" kindref="member">setAttributeValue</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;<ref refid="classQfFeatureCheckListModel_1a89038c5c2c0887c0d38bdd9b74f9db05" kindref="member">attributeValue</ref><sp/>);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsField<sp/><ref refid="classQfFeatureCheckListModel_1aa3a58fff1df268b66e0e9040322ba3e0" kindref="member">attributeField</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1aceb7bd597f960fda797a2801c123a4c0" kindref="member">setAttributeField</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsField<sp/>&amp;field<sp/>);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1ab6c2caa8eaaed4827a59df75fb2d9452" kindref="member">allowMulti</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1abf2a20b55747b5597ac833606f3ea585" kindref="member">setAllowMulti</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1ab6c2caa8eaaed4827a59df75fb2d9452" kindref="member">allowMulti</ref><sp/>);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1aa035e1d3ba83c1e84f5e43efb8b3caaf" kindref="member">toggleCheckAll</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>toggleChecked<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfFeatureCheckListModel_1a2c64dcf01e687fd471b234b976851824" kindref="member">searchTerm</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a542603edc7638256f3c973c174be85a6" kindref="member">setSearchTerm</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQfFeatureCheckListModel_1a2c64dcf01e687fd471b234b976851824" kindref="member">searchTerm</ref><sp/>);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a502585e37d4a1f6e09ed4476c8e5a4cb" kindref="member">sortCheckedFirst</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfFeatureCheckListModel_1a53a8e0c3b299eba5a77eea01f59afa44" kindref="member">setSortCheckedFirst</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enabled<sp/>);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rowCount(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;parent<sp/>=<sp/>QModelIndex()<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>filterAcceptsRow(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sourceRow,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;sourceParent<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lessThan(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;left,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;right<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>QfFeatureListModel<sp/>signals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>currentLayerChanged();</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>keyFieldChanged();</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>displayValueFieldChanged();</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>groupFieldChanged();</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>displayGroupNameChanged();</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>orderByValueChanged();</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>orderByFieldChanged();</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>orderByFieldNameChanged();</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addNullChanged();</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>filterExpressionChanged();</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>searchTermChanged();</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>currentFormFeatureChanged();</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>appExpressionContextScopesGeneratorChanged();</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>QfFeatureCheckListModel<sp/>signals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>attributeValueChanged();</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>attributeFieldChanged();</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>allowMultiChanged();</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>listUpdated();</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Proxy-specific<sp/>signals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sortCheckedFirstChanged();</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfFeatureCheckListModelBase" kindref="compound">QfFeatureCheckListModelBase</ref><sp/>*mSourceModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mSortCheckedFirst<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="363"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFFEATURECHECKLISTMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/gui/qffeaturechecklistmodel.h"/>
+  </compounddef>
+</doxygen>

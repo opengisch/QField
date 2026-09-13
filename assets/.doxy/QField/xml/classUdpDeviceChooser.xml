@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classUdpDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>UdpDeviceChooser</compoundname>
+    <basecompoundref refid="classQfUdpDeviceChooser" prot="public" virt="non-virtual">QfUdpDeviceChooser</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfUdpDeviceChooser</label>
+        <link refid="classQfUdpDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>UdpDeviceChooser</label>
+        <link refid="classUdpDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfUdpDeviceChooser</label>
+        <link refid="classQfUdpDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>UdpDeviceChooser</label>
+        <link refid="classUdpDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/UdpDeviceChooser.qml" line="2" column="1" bodyfile="src/app/qml_compat/UdpDeviceChooser.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfUdpDeviceChooser_1a4c32329241c866014ce7de6aab603ab5" prot="public" virt="non-virtual"><scope>UdpDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classQfUdpDeviceChooser_1acfa5b020633f8b8f131b32fe221a93b6" prot="public" virt="non-virtual"><scope>UdpDeviceChooser</scope><name>devicePort</name></member>
+      <member refid="classQfUdpDeviceChooser_1aaf6725200e47616fa397f75614f40cf2" prot="public" virt="non-virtual"><scope>UdpDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classQfUdpDeviceChooser_1a8cd206778d21185b273365173712abe3" prot="public" virt="non-virtual"><scope>UdpDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classQfUdpDeviceChooser_1a7171f1bf05f87365ac91ae0308a7d58b" prot="public" virt="non-virtual"><scope>UdpDeviceChooser</scope><name>setSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

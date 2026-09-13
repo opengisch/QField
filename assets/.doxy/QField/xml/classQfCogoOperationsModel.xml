@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoOperationsModel" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoOperationsModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfcogooperationsmodel_8h" local="no">qfcogooperationsmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfCogoOperationsModel_1a38d1cc350398f2e2594f04c34cc2f48b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>OperationRoles</name>
+        <qualifiedname>QfCogoOperationsModel::OperationRoles</qualifiedname>
+        <enumvalue id="classQfCogoOperationsModel_1a38d1cc350398f2e2594f04c34cc2f48ba746cc62ff58fee8b9c40c932e4d3ee6f" prot="public">
+          <name>NameRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCogoOperationsModel_1a38d1cc350398f2e2594f04c34cc2f48bad72692b65b444226d568238d12c60be9" prot="public">
+          <name>DisplayNameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCogoOperationsModel_1a38d1cc350398f2e2594f04c34cc2f48ba40655b5d0372db718955b1507ee873d1" prot="public">
+          <name>IconRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="32" column="5" bodyfile="src/core/cogo/qfcogooperationsmodel.h" bodystart="33" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoOperationsModel_1ae9140fbd9ab186f207254884bf32a1c4" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList QfCogoOperationsModel::mOperationNames</definition>
+        <argsstring></argsstring>
+        <name>mOperationNames</name>
+        <qualifiedname>QfCogoOperationsModel::mOperationNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="65" column="17" bodyfile="src/core/cogo/qfcogooperationsmodel.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoOperationsModel_1a19963fedb7585774e4e8c83c7f1ea8b3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCogoOperationsModel::QfCogoOperationsModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfCogoOperationsModel</name>
+        <qualifiedname>QfCogoOperationsModel::QfCogoOperationsModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO operations model constructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="43" column="14" bodyfile="src/core/cogo/qfcogooperationsmodel.cpp" bodystart="22" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperationsModel_1af869df25324b27262315a1e7a5bb4884" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoOperationsModel::buildModel</definition>
+        <argsstring>()</argsstring>
+        <name>buildModel</name>
+        <qualifiedname>QfCogoOperationsModel::buildModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Builds the model against the COGO operations available in the COGO registry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="48" column="10" bodyfile="src/core/cogo/qfcogooperationsmodel.cpp" bodystart="30" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperationsModel_1a90171ee4d4abceff944fe82cb29527e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfCogoOperationsModel::get</definition>
+        <argsstring>(int row) const</argsstring>
+        <name>get</name>
+        <qualifiedname>QfCogoOperationsModel::get</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a COGO operation data map for a given <emphasis>row</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="53" column="29" bodyfile="src/core/cogo/qfcogooperationsmodel.cpp" bodystart="37" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperationsModel_1a53ffda5083b1f871b11ceb7d59ec3527" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfCogoOperationsModel::get</definition>
+        <argsstring>(const QString &amp;name) const</argsstring>
+        <name>get</name>
+        <qualifiedname>QfCogoOperationsModel::get</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a COGO operation data map matching the given <emphasis>name</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="58" column="29" bodyfile="src/core/cogo/qfcogooperationsmodel.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperationsModel_1a1c307396bd85d9fa547b701a7b26b587" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfCogoOperationsModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfCogoOperationsModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="60" column="9" bodyfile="src/core/cogo/qfcogooperationsmodel.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperationsModel_1a4c6fd3bdc303a261acaa472f9aafa555" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfCogoOperationsModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfCogoOperationsModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="61" column="14" bodyfile="src/core/cogo/qfcogooperationsmodel.cpp" bodystart="67" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperationsModel_1aec108b653057727d7fd0bf4455d1c6ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfCogoOperationsModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfCogoOperationsModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperationsmodel.h" line="62" column="11" bodyfile="src/core/cogo/qfcogooperationsmodel.cpp" bodystart="98" bodyend="105"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A model holding the list of COGO operations available in the COGO registry. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfCogoOperationsModel</label>
+        <link refid="classQfCogoOperationsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfCogoOperationsModel</label>
+        <link refid="classQfCogoOperationsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/cogo/qfcogooperationsmodel.h" line="27" column="1" bodyfile="src/core/cogo/qfcogooperationsmodel.h" bodystart="28" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classQfCogoOperationsModel_1af869df25324b27262315a1e7a5bb4884" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>buildModel</name></member>
+      <member refid="classQfCogoOperationsModel_1a4c6fd3bdc303a261acaa472f9aafa555" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>data</name></member>
+      <member refid="classQfCogoOperationsModel_1a38d1cc350398f2e2594f04c34cc2f48bad72692b65b444226d568238d12c60be9" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>DisplayNameRole</name></member>
+      <member refid="classQfCogoOperationsModel_1a90171ee4d4abceff944fe82cb29527e2" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>get</name></member>
+      <member refid="classQfCogoOperationsModel_1a53ffda5083b1f871b11ceb7d59ec3527" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>get</name></member>
+      <member refid="classQfCogoOperationsModel_1a38d1cc350398f2e2594f04c34cc2f48ba40655b5d0372db718955b1507ee873d1" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>IconRole</name></member>
+      <member refid="classQfCogoOperationsModel_1ae9140fbd9ab186f207254884bf32a1c4" prot="private" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>mOperationNames</name></member>
+      <member refid="classQfCogoOperationsModel_1a38d1cc350398f2e2594f04c34cc2f48ba746cc62ff58fee8b9c40c932e4d3ee6f" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>NameRole</name></member>
+      <member refid="classQfCogoOperationsModel_1a38d1cc350398f2e2594f04c34cc2f48b" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>OperationRoles</name></member>
+      <member refid="classQfCogoOperationsModel_1a19963fedb7585774e4e8c83c7f1ea8b3" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>QfCogoOperationsModel</name></member>
+      <member refid="classQfCogoOperationsModel_1aec108b653057727d7fd0bf4455d1c6ff" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>roleNames</name></member>
+      <member refid="classQfCogoOperationsModel_1a1c307396bd85d9fa547b701a7b26b587" prot="public" virt="non-virtual"><scope>QfCogoOperationsModel</scope><name>rowCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

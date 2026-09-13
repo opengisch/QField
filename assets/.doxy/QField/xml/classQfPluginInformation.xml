@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPluginInformation" kind="class" language="C++" prot="public">
+    <compoundname>QfPluginInformation</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPluginInformation_1aada5c263cede40be7a77babf6d54f196" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::uuid</definition>
+        <argsstring></argsstring>
+        <name>uuid</name>
+        <qualifiedname>QfPluginInformation::uuid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="33" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginInformation_1a2b561893f25a5b4ae595610054f6da26" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfPluginInformation::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="34" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginInformation_1accfa364ddaca5a012847e62caff176d8" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>QfPluginInformation::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="35" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginInformation_1a1b0c13a3436d4e73da0c5c6381094a57" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::author</definition>
+        <argsstring></argsstring>
+        <name>author</name>
+        <qualifiedname>QfPluginInformation::author</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="36" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginInformation_1a4d195942854bfcfdfa94f5543f7597f5" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::homepage</definition>
+        <argsstring></argsstring>
+        <name>homepage</name>
+        <qualifiedname>QfPluginInformation::homepage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="37" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginInformation_1af43b002655d67633d5fcbb6970897cc2" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::icon</definition>
+        <argsstring></argsstring>
+        <name>icon</name>
+        <qualifiedname>QfPluginInformation::icon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="38" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginInformation_1ad21052ac35c6a28b7acc9e4652306d54" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>QfPluginInformation::version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="39" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginInformation_1a3888dec61e98ffe3c4f5faa407d074e8" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPluginInformation::bundled</definition>
+        <argsstring></argsstring>
+        <name>bundled</name>
+        <qualifiedname>QfPluginInformation::bundled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="40" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classQfPluginInformation_1a9a25e87d9827826d068d640fd46a1c54" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPluginInformation::locallyAvailable</definition>
+        <argsstring></argsstring>
+        <name>locallyAvailable</name>
+        <qualifiedname>QfPluginInformation::locallyAvailable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="60" column="10" bodyfile="src/app/qfpluginmanager.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginInformation_1a65f2bb6620e709afe2d735bc125a16c2" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>QfPluginInformation::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="61" column="13" bodyfile="src/app/qfpluginmanager.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginInformation_1ab128cbcc3c926356470c164690c06904" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPluginInformation::remotelyAvailable</definition>
+        <argsstring></argsstring>
+        <name>remotelyAvailable</name>
+        <qualifiedname>QfPluginInformation::remotelyAvailable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="64" column="10" bodyfile="src/app/qfpluginmanager.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginInformation_1a4065b24bee849ecbacafe476fb611189" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPluginInformation::updateAvailable</definition>
+        <argsstring></argsstring>
+        <name>updateAvailable</name>
+        <qualifiedname>QfPluginInformation::updateAvailable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="65" column="10" bodyfile="src/app/qfpluginmanager.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginInformation_1a5be55a9c3300ba41145c409daaedca36" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::downloadLink</definition>
+        <argsstring></argsstring>
+        <name>downloadLink</name>
+        <qualifiedname>QfPluginInformation::downloadLink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="66" column="13" bodyfile="src/app/qfpluginmanager.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginInformation_1ad415f43f8c851dcafe63eae5ac5df1b5" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfPluginInformation::remoteVersion</definition>
+        <argsstring></argsstring>
+        <name>remoteVersion</name>
+        <qualifiedname>QfPluginInformation::remoteVersion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="67" column="13" bodyfile="src/app/qfpluginmanager.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginInformation_1a9640f5808f6d1fa543e8347121f87fce" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPluginInformation::trusted</definition>
+        <argsstring></argsstring>
+        <name>trusted</name>
+        <qualifiedname>QfPluginInformation::trusted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="70" column="10" bodyfile="src/app/qfpluginmanager.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginInformation_1ac8f5aeb5857d3d352aa78d23319c836c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPluginInformation::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfPluginInformation::enabled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="71" column="10" bodyfile="src/app/qfpluginmanager.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginInformation_1af1d836ba9e4d6c2e6c90b35a648579eb" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPluginInformation::configurable</definition>
+        <argsstring></argsstring>
+        <name>configurable</name>
+        <qualifiedname>QfPluginInformation::configurable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="72" column="10" bodyfile="src/app/qfpluginmanager.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfPluginInformation_1a24ff1a7e4f0104bdade1fffb3f08e75e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfPluginInformation::QfPluginInformation</definition>
+        <argsstring>(const QString &amp;uuid=QString(), const QString &amp;name=QString(), const QString &amp;description=QString(), const QString &amp;author=QString(), const QString &amp;homepage=QString(), const QString &amp;icon=QString())</argsstring>
+        <name>QfPluginInformation</name>
+        <qualifiedname>QfPluginInformation::QfPluginInformation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>description</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>author</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>homepage</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>icon</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="43" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="43" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginInformation_1abb2046943113815acf016545a9a35092" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfPluginInformation::~QfPluginInformation</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QfPluginInformation</name>
+        <qualifiedname>QfPluginInformation::~QfPluginInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="51" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/app/qfpluginmanager.h" line="29" column="1" bodyfile="src/app/qfpluginmanager.h" bodystart="30" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classQfPluginInformation_1a1b0c13a3436d4e73da0c5c6381094a57" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>author</name></member>
+      <member refid="classQfPluginInformation_1a3888dec61e98ffe3c4f5faa407d074e8" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>bundled</name></member>
+      <member refid="classQfPluginInformation_1af1d836ba9e4d6c2e6c90b35a648579eb" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>configurable</name></member>
+      <member refid="classQfPluginInformation_1accfa364ddaca5a012847e62caff176d8" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>description</name></member>
+      <member refid="classQfPluginInformation_1a5be55a9c3300ba41145c409daaedca36" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>downloadLink</name></member>
+      <member refid="classQfPluginInformation_1ac8f5aeb5857d3d352aa78d23319c836c" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>enabled</name></member>
+      <member refid="classQfPluginInformation_1a4d195942854bfcfdfa94f5543f7597f5" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>homepage</name></member>
+      <member refid="classQfPluginInformation_1af43b002655d67633d5fcbb6970897cc2" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>icon</name></member>
+      <member refid="classQfPluginInformation_1a9a25e87d9827826d068d640fd46a1c54" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>locallyAvailable</name></member>
+      <member refid="classQfPluginInformation_1a2b561893f25a5b4ae595610054f6da26" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>name</name></member>
+      <member refid="classQfPluginInformation_1a65f2bb6620e709afe2d735bc125a16c2" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>path</name></member>
+      <member refid="classQfPluginInformation_1a24ff1a7e4f0104bdade1fffb3f08e75e" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>QfPluginInformation</name></member>
+      <member refid="classQfPluginInformation_1ab128cbcc3c926356470c164690c06904" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>remotelyAvailable</name></member>
+      <member refid="classQfPluginInformation_1ad415f43f8c851dcafe63eae5ac5df1b5" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>remoteVersion</name></member>
+      <member refid="classQfPluginInformation_1a9640f5808f6d1fa543e8347121f87fce" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>trusted</name></member>
+      <member refid="classQfPluginInformation_1a4065b24bee849ecbacafe476fb611189" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>updateAvailable</name></member>
+      <member refid="classQfPluginInformation_1aada5c263cede40be7a77babf6d54f196" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>uuid</name></member>
+      <member refid="classQfPluginInformation_1ad21052ac35c6a28b7acc9e4652306d54" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>version</name></member>
+      <member refid="classQfPluginInformation_1abb2046943113815acf016545a9a35092" prot="public" virt="non-virtual"><scope>QfPluginInformation</scope><name>~QfPluginInformation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAbout" kind="class" language="C++" prot="public">
+    <compoundname>QfAbout</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAbout_1a0c363bfbe4875c10ee96fafa8f051862" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAbout::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfAbout::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="10" column="5" bodyfile="src/app/qml/QfAbout.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1aa85cbfa337877a186e7aaabf680c6eb5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAbout::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfAbout::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="11" column="5" bodyfile="src/app/qml/QfAbout.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a88939664f9f6b8ab12e003477d86e8a7" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfAbout::aboutContainer</definition>
+        <argsstring></argsstring>
+        <name>aboutContainer</name>
+        <qualifiedname>QfAbout::aboutContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="12" column="14" bodyfile="src/app/qml/QfAbout.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1ac7123949d3bad99b36b8cc2f28032182" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfAbout::information</definition>
+        <argsstring></argsstring>
+        <name>information</name>
+        <qualifiedname>QfAbout::information</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="13" column="14" bodyfile="src/app/qml/QfAbout.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a8249e618cad122685d90818090d57747" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfAbout::qfieldPart</definition>
+        <argsstring></argsstring>
+        <name>qfieldPart</name>
+        <qualifiedname>QfAbout::qfieldPart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="14" column="14" bodyfile="src/app/qml/QfAbout.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a197d310e0c0f601f9a22e2f0ac0108b9" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfAbout::qfieldLogo</definition>
+        <argsstring></argsstring>
+        <name>qfieldLogo</name>
+        <qualifiedname>QfAbout::qfieldLogo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="15" column="7" bodyfile="src/app/qml/QfAbout.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a90000f224cab61aeb7a9563d5d785fe6" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfAbout::opengisPart</definition>
+        <argsstring></argsstring>
+        <name>opengisPart</name>
+        <qualifiedname>QfAbout::opengisPart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="16" column="14" bodyfile="src/app/qml/QfAbout.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a43e9ab0b0eefe561798daf86209ad2ee" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfAbout::opengisLogo</definition>
+        <argsstring></argsstring>
+        <name>opengisLogo</name>
+        <qualifiedname>QfAbout::opengisLogo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="17" column="7" bodyfile="src/app/qml/QfAbout.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a1655544842fb3990b8c2ebbf627ed6b1" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfAbout::qfieldAppDirectoryLabel</definition>
+        <argsstring></argsstring>
+        <name>qfieldAppDirectoryLabel</name>
+        <qualifiedname>QfAbout::qfieldAppDirectoryLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="18" column="7" bodyfile="src/app/qml/QfAbout.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a3d037fdbe9d913f39a602c22702a1b4c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfAbout::sponsorshipButton</definition>
+        <argsstring></argsstring>
+        <name>sponsorshipButton</name>
+        <qualifiedname>QfAbout::sponsorshipButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="19" column="10" bodyfile="src/app/qml/QfAbout.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a093b6c877c6334571d00b6ae54c40e0e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfAbout::linksButton</definition>
+        <argsstring></argsstring>
+        <name>linksButton</name>
+        <qualifiedname>QfAbout::linksButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="20" column="10" bodyfile="src/app/qml/QfAbout.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a4c6f00d83663d505391c244f67d60128" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfAbout::linksMenu</definition>
+        <argsstring></argsstring>
+        <name>linksMenu</name>
+        <qualifiedname>QfAbout::linksMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="21" column="8" bodyfile="src/app/qml/QfAbout.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAbout_1a0f30d4f2352f2d8e0d74c7abb70cb69d" prot="private" static="no" mutable="no">
+        <type>var Keys</type>
+        <definition>var Keys QfAbout::onReleased</definition>
+        <argsstring></argsstring>
+        <name>onReleased</name>
+        <qualifiedname>QfAbout::onReleased</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfAbout.qml" line="22" column="9" bodyfile="src/app/qml/QfAbout.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfAbout</label>
+        <link refid="classQfAbout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfAbout</label>
+        <link refid="classQfAbout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfAbout.qml" line="9" column="1" bodyfile="src/app/qml/QfAbout.qml" bodystart="9" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classQfAbout_1a88939664f9f6b8ab12e003477d86e8a7" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>aboutContainer</name></member>
+      <member refid="classQfAbout_1aa85cbfa337877a186e7aaabf680c6eb5" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>focus</name></member>
+      <member refid="classQfAbout_1ac7123949d3bad99b36b8cc2f28032182" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>information</name></member>
+      <member refid="classQfAbout_1a093b6c877c6334571d00b6ae54c40e0e" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>linksButton</name></member>
+      <member refid="classQfAbout_1a4c6f00d83663d505391c244f67d60128" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>linksMenu</name></member>
+      <member refid="classQfAbout_1a0f30d4f2352f2d8e0d74c7abb70cb69d" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>onReleased</name></member>
+      <member refid="classQfAbout_1a43e9ab0b0eefe561798daf86209ad2ee" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>opengisLogo</name></member>
+      <member refid="classQfAbout_1a90000f224cab61aeb7a9563d5d785fe6" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>opengisPart</name></member>
+      <member refid="classQfAbout_1a1655544842fb3990b8c2ebbf627ed6b1" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>qfieldAppDirectoryLabel</name></member>
+      <member refid="classQfAbout_1a197d310e0c0f601f9a22e2f0ac0108b9" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>qfieldLogo</name></member>
+      <member refid="classQfAbout_1a8249e618cad122685d90818090d57747" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>qfieldPart</name></member>
+      <member refid="classQfAbout_1a3d037fdbe9d913f39a602c22702a1b4c" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>sponsorshipButton</name></member>
+      <member refid="classQfAbout_1a0c363bfbe4875c10ee96fafa8f051862" prot="private" virt="non-virtual"><scope>QfAbout</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

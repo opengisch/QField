@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureForm" kind="class" language="C++" prot="public">
+    <compoundname>FeatureForm</compoundname>
+    <basecompoundref refid="classQfFeatureForm" prot="public" virt="non-virtual">QfFeatureForm</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureForm</label>
+        <link refid="classFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Page</label>
+      </node>
+      <node id="2">
+        <label>QfFeatureForm</label>
+        <link refid="classQfFeatureForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureForm</label>
+        <link refid="classFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Page</label>
+      </node>
+      <node id="2">
+        <label>QfFeatureForm</label>
+        <link refid="classQfFeatureForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/FeatureForm.qml" line="2" column="1" bodyfile="src/app/qml_compat/FeatureForm.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfFeatureForm_1a3890ff50306cb03e65e351d0a05b5d15" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>aboutToSave</name></member>
+      <member refid="classQfFeatureForm_1a88f18893017a780defc398bc6ab82566" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>bottomMargin</name></member>
+      <member refid="classQfFeatureForm_1a134ecc9e7d9dd1e767da38eff0da86e6" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>cancelled</name></member>
+      <member refid="classQfFeatureForm_1ae3407be6909627fbdce9bdc37555638d" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>codeReader</name></member>
+      <member refid="classQfFeatureForm_1aa59996f9cf79c07f1d9e2d8755471a45" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>confirmed</name></member>
+      <member refid="classQfFeatureForm_1af7d0454d0bfb1463eafd94b2ced9cc9e" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>created</name></member>
+      <member refid="classQfFeatureForm_1ab945536eb03343e7d88fb404949ee2ec" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>currentTab</name></member>
+      <member refid="classQfFeatureForm_1a5f2c2b5df4d138c0f73a8e15a8662f90" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>digitizingToolbar</name></member>
+      <member refid="classQfFeatureForm_1a5c524c4b79009c988e890a335b39a2d4" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>embedded</name></member>
+      <member refid="classQfFeatureForm_1aa1c3cd9e7b290b290192669a66d63232" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>embeddedLevel</name></member>
+      <member refid="classQfFeatureForm_1a1dda7c40764b1b1072826e3ac0cdda26" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>featureCreated</name></member>
+      <member refid="classQfFeatureForm_1a94d8da87021da2b29621c485fc2a2cf9" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>isDraggable</name></member>
+      <member refid="classQfFeatureForm_1a458d45895a5a4ff6e0f514694baf467d" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>isVertical</name></member>
+      <member refid="classQfFeatureForm_1a50b660ee47a427c3e76f880977477003" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>leftMargin</name></member>
+      <member refid="classQfFeatureForm_1a82021aac1248021f04f960803b46428b" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>model</name></member>
+      <member refid="classQfFeatureForm_1a6fd5b264af1df9ad0664d2f2f41589ee" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>requestBarcode</name></member>
+      <member refid="classQfFeatureForm_1abb01e922f4c12d5e2a3ce1faeab93788" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>requestCancel</name></member>
+      <member refid="classQfFeatureForm_1a323dcf147608030f1257df184fb6dd15" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>requestGeometry</name></member>
+      <member refid="classQfFeatureForm_1a688d0cf46bc401a7c2f74d9c677f9244" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfFeatureForm_1a8a93c1f8989950bb060bafe44d82bbec" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>resetTabs</name></member>
+      <member refid="classQfFeatureForm_1a86453bcea874bcc97a017b928282fbce" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>rightMargin</name></member>
+      <member refid="classQfFeatureForm_1aadcabf3398e97c8abf9b2b03d20798c8" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>saved</name></member>
+      <member refid="classQfFeatureForm_1a3c80055920d60427b4118fcd6231146c" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>setupOnly</name></member>
+      <member refid="classQfFeatureForm_1a6968d28dcd79ab455cac9082b30b39b1" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>temporaryStored</name></member>
+      <member refid="classQfFeatureForm_1a38fb923d0d914267a5130c1737900d42" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>toolbarDragAcquired</name></member>
+      <member refid="classQfFeatureForm_1a10b95d2b38f0ec834a6a371842c89b4d" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>toolbarDragged</name></member>
+      <member refid="classQfFeatureForm_1aacf30de3f70484c7819f3f386ff3c49d" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>toolbarDragReleased</name></member>
+      <member refid="classQfFeatureForm_1a68ae94752774ed96ebdca39c599a8c8b" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>toolbarVisible</name></member>
+      <member refid="classQfFeatureForm_1a6aef65a8624e7a8a7a4ec49786479463" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>topMargin</name></member>
+      <member refid="classQfFeatureForm_1a1c359b959aaf985897b76b6a2344f8e7" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>valueChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

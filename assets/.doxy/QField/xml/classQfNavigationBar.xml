@@ -1,0 +1,697 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNavigationBar" kind="class" language="C++" prot="public">
+    <compoundname>QfNavigationBar</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <derivedcompoundref refid="classNavigationBar" prot="public" virt="non-virtual">NavigationBar</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfNavigationBar_1a2d029e533023ba0c06e898e9f92d8602" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfNavigationBar::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfNavigationBar::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="27" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1a01156ae789f9e241213d38cc4eb238d3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNavigationBar::multiSelection</definition>
+        <argsstring></argsstring>
+        <name>multiSelection</name>
+        <qualifiedname>QfNavigationBar::multiSelection</qualifiedname>
+        <read>dummyGetter_multiSelection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="29" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1ab99a96a20b748b1736fe94450cb761f7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNavigationBar::allowDelete</definition>
+        <argsstring></argsstring>
+        <name>allowDelete</name>
+        <qualifiedname>QfNavigationBar::allowDelete</qualifiedname>
+        <read>dummyGetter_allowDelete_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="31" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1a0e39877872e9209dfb6f9c72a324dc1f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNavigationBar::isVertical</definition>
+        <argsstring></argsstring>
+        <name>isVertical</name>
+        <qualifiedname>QfNavigationBar::isVertical</qualifiedname>
+        <read>dummyGetter_isVertical_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="33" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1a03af310a50ac87312c3b11e374c4c6b5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMultiFeatureListModel" kindref="compound">QfMultiFeatureListModel</ref></type>
+        <definition>QfMultiFeatureListModel QfNavigationBar::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfNavigationBar::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="35" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1a4f7edd706184e56fa2deb9012655e20a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureListModelSelection" kindref="compound">QfFeatureListModelSelection</ref></type>
+        <definition>QfFeatureListModelSelection QfNavigationBar::selection</definition>
+        <argsstring></argsstring>
+        <name>selection</name>
+        <qualifiedname>QfNavigationBar::selection</qualifiedname>
+        <read>dummyGetter_selection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="37" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1af313c8d4eab1f4246bedce97192a4ab3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureListExtentController" kindref="compound">QfFeatureListExtentController</ref></type>
+        <definition>QfFeatureListExtentController QfNavigationBar::extentController</definition>
+        <argsstring></argsstring>
+        <name>extentController</name>
+        <qualifiedname>QfNavigationBar::extentController</qualifiedname>
+        <read>dummyGetter_extentController_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="39" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1a99065f4afd3963ea7b4a57929e3534be" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigationBar::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>QfNavigationBar::topMargin</qualifiedname>
+        <read>dummyGetter_topMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="41" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1ae14b3bebf664a77134906bd327e1d67a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigationBar::leftMargin</definition>
+        <argsstring></argsstring>
+        <name>leftMargin</name>
+        <qualifiedname>QfNavigationBar::leftMargin</qualifiedname>
+        <read>dummyGetter_leftMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="43" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationBar_1a4a4df788cdea2a50b688bd199225e43a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigationBar::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>QfNavigationBar::rightMargin</qualifiedname>
+        <read>dummyGetter_rightMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="45" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNavigationBar_1a5fb021af3a3f753ee64c7217fc0fa477" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfNavigationBar::top</definition>
+        <argsstring></argsstring>
+        <name>top</name>
+        <qualifiedname>QfNavigationBar::top</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="95" column="12" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationBar_1a532a8b219eb1745e88c95197053dbed2" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfNavigationBar::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>QfNavigationBar::topMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="96" column="12" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationBar_1a53922df7e35f41ad84fd535456fa7080" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfNavigationBar::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <qualifiedname>QfNavigationBar::left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="97" column="12" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationBar_1aa5bcc9c07d1e8b4ea66d29ada2a72f60" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfNavigationBar::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>QfNavigationBar::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="98" column="12" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationBar_1a577c069ce41a38c790bb58226923cdd2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfNavigationBar::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfNavigationBar::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="99" column="5" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationBar_1aadc0a51beca3b6380caf0a0370f4e47f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfNavigationBar::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfNavigationBar::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="100" column="5" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationBar_1a7cbd32792c186826e4efe9217aa565f6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfNavigationBar::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfNavigationBar::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="101" column="5" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationBar_1a1d22068d37060d40aa9625b1891b22d2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfNavigationBar::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>QfNavigationBar::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="102" column="5" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="102" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfNavigationBar_1a9bc78dcfcd658b3b7515003b87622b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::backClicked</definition>
+        <argsstring>()</argsstring>
+        <name>backClicked</name>
+        <qualifiedname>QfNavigationBar::backClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="47" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1ac24367a7c8d2598c29bed3768f71aa12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::statusIndicatorClicked</definition>
+        <argsstring>()</argsstring>
+        <name>statusIndicatorClicked</name>
+        <qualifiedname>QfNavigationBar::statusIndicatorClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="49" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a241f766b0eff540933c560851ec74433" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::statusIndicatorDragged</definition>
+        <argsstring>(var deltaX, var deltaY)</argsstring>
+        <name>statusIndicatorDragged</name>
+        <qualifiedname>QfNavigationBar::statusIndicatorDragged</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>deltaX</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>deltaY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="51" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a75900982107bcdd03e9ad57e4dae798c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::statusIndicatorDragAcquired</definition>
+        <argsstring>()</argsstring>
+        <name>statusIndicatorDragAcquired</name>
+        <qualifiedname>QfNavigationBar::statusIndicatorDragAcquired</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="53" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a29e774b2695231bc7ad5e54e4e5ac684" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::statusIndicatorDragReleased</definition>
+        <argsstring>()</argsstring>
+        <name>statusIndicatorDragReleased</name>
+        <qualifiedname>QfNavigationBar::statusIndicatorDragReleased</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="55" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a999b91f0783f581ef5c27785fea73199" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::editAttributesButtonClicked</definition>
+        <argsstring>()</argsstring>
+        <name>editAttributesButtonClicked</name>
+        <qualifiedname>QfNavigationBar::editAttributesButtonClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="57" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a68a5ab0c929cdce8ceb8f6e53e84ba78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::editGeometryButtonClicked</definition>
+        <argsstring>()</argsstring>
+        <name>editGeometryButtonClicked</name>
+        <qualifiedname>QfNavigationBar::editGeometryButtonClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="59" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a28785892e05046465499e3624f19ef4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <qualifiedname>QfNavigationBar::save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="61" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1ab4d7885df6fd614ab31160703f0c0452" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>QfNavigationBar::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="63" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1ac07282252380a1ad6396d000a8f221a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::destinationClicked</definition>
+        <argsstring>()</argsstring>
+        <name>destinationClicked</name>
+        <qualifiedname>QfNavigationBar::destinationClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="65" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a76d2b5a51262a9a8279bf9ee62e5cfee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::moveClicked</definition>
+        <argsstring>()</argsstring>
+        <name>moveClicked</name>
+        <qualifiedname>QfNavigationBar::moveClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="67" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1ac201d3db17f20c3b02de32df9ccf7568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::duplicateClicked</definition>
+        <argsstring>()</argsstring>
+        <name>duplicateClicked</name>
+        <qualifiedname>QfNavigationBar::duplicateClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="69" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1abe3f27ddda590dd025eeb8fcaa0f6f01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::rotateClicked</definition>
+        <argsstring>()</argsstring>
+        <name>rotateClicked</name>
+        <qualifiedname>QfNavigationBar::rotateClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="71" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a2e6baf4f613dd9b7cfc0c5a54b1c2915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::transferClicked</definition>
+        <argsstring>()</argsstring>
+        <name>transferClicked</name>
+        <qualifiedname>QfNavigationBar::transferClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="73" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1af19a6bb20ab8c62810508ee5a2311a7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::deleteClicked</definition>
+        <argsstring>()</argsstring>
+        <name>deleteClicked</name>
+        <qualifiedname>QfNavigationBar::deleteClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="75" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1aabb9b8bd55b2ca3927f58fa6e9b3934f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::toggleMultiSelection</definition>
+        <argsstring>()</argsstring>
+        <name>toggleMultiSelection</name>
+        <qualifiedname>QfNavigationBar::toggleMultiSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="77" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a6ef575e09ec0c5ad802abfa271f15c93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::multiEditClicked</definition>
+        <argsstring>()</argsstring>
+        <name>multiEditClicked</name>
+        <qualifiedname>QfNavigationBar::multiEditClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="79" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1ae86300529df2267f60bbfcd96a73e9b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::multiMergeClicked</definition>
+        <argsstring>()</argsstring>
+        <name>multiMergeClicked</name>
+        <qualifiedname>QfNavigationBar::multiMergeClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="81" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1af85ac5f8fd16a41571acbd248cf91970" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::multiMoveClicked</definition>
+        <argsstring>()</argsstring>
+        <name>multiMoveClicked</name>
+        <qualifiedname>QfNavigationBar::multiMoveClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="83" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a506d911ffbfe1ea088c4ad73904c7d2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::multiDuplicateClicked</definition>
+        <argsstring>()</argsstring>
+        <name>multiDuplicateClicked</name>
+        <qualifiedname>QfNavigationBar::multiDuplicateClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="85" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1abba0f06ee97b7b5138e3d5f9c50904e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::multiDeleteClicked</definition>
+        <argsstring>()</argsstring>
+        <name>multiDeleteClicked</name>
+        <qualifiedname>QfNavigationBar::multiDeleteClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="87" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1adb9f7b1ba89526784ef8442d1b0e9375" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::multiProcessingClicked</definition>
+        <argsstring>()</argsstring>
+        <name>multiProcessingClicked</name>
+        <qualifiedname>QfNavigationBar::multiProcessingClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="89" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a1770caa7f25b853f21f64f54473e9cbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::processingRunClicked</definition>
+        <argsstring>()</argsstring>
+        <name>processingRunClicked</name>
+        <qualifiedname>QfNavigationBar::processingRunClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="91" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNavigationBar_1a29186eb99b88ad1082053466535ee710" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationBar::processingFeatureClicked</definition>
+        <argsstring>()</argsstring>
+        <name>processingFeatureClicked</name>
+        <qualifiedname>QfNavigationBar::processingFeatureClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationBar.qml" line="93" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>NavigationBar</label>
+        <link refid="classNavigationBar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfNavigationBar</label>
+        <link refid="classQfNavigationBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfNavigationBar</label>
+        <link refid="classQfNavigationBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfNavigationBar.qml" line="24" column="1" bodyfile="src/gui/qml/QfNavigationBar.qml" bodystart="24" bodyend="103"/>
+    <listofallmembers>
+      <member refid="classQfNavigationBar_1ab99a96a20b748b1736fe94450cb761f7" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>allowDelete</name></member>
+      <member refid="classQfNavigationBar_1a9bc78dcfcd658b3b7515003b87622b99" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>backClicked</name></member>
+      <member refid="classQfNavigationBar_1ab4d7885df6fd614ab31160703f0c0452" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>cancel</name></member>
+      <member refid="classQfNavigationBar_1a7cbd32792c186826e4efe9217aa565f6" prot="private" virt="non-virtual"><scope>QfNavigationBar</scope><name>clip</name></member>
+      <member refid="classQfNavigationBar_1aadc0a51beca3b6380caf0a0370f4e47f" prot="private" virt="non-virtual"><scope>QfNavigationBar</scope><name>color</name></member>
+      <member refid="classQfNavigationBar_1af19a6bb20ab8c62810508ee5a2311a7f" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>deleteClicked</name></member>
+      <member refid="classQfNavigationBar_1ac07282252380a1ad6396d000a8f221a8" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>destinationClicked</name></member>
+      <member refid="classQfNavigationBar_1ac201d3db17f20c3b02de32df9ccf7568" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>duplicateClicked</name></member>
+      <member refid="classQfNavigationBar_1a999b91f0783f581ef5c27785fea73199" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>editAttributesButtonClicked</name></member>
+      <member refid="classQfNavigationBar_1a68a5ab0c929cdce8ceb8f6e53e84ba78" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>editGeometryButtonClicked</name></member>
+      <member refid="classQfNavigationBar_1af313c8d4eab1f4246bedce97192a4ab3" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>extentController</name></member>
+      <member refid="classQfNavigationBar_1a577c069ce41a38c790bb58226923cdd2" prot="private" virt="non-virtual"><scope>QfNavigationBar</scope><name>height</name></member>
+      <member refid="classQfNavigationBar_1a0e39877872e9209dfb6f9c72a324dc1f" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>isVertical</name></member>
+      <member refid="classQfNavigationBar_1a53922df7e35f41ad84fd535456fa7080" prot="private" virt="non-virtual"><scope>QfNavigationBar</scope><name>left</name></member>
+      <member refid="classQfNavigationBar_1ae14b3bebf664a77134906bd327e1d67a" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>leftMargin</name></member>
+      <member refid="classQfNavigationBar_1a03af310a50ac87312c3b11e374c4c6b5" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>model</name></member>
+      <member refid="classQfNavigationBar_1a76d2b5a51262a9a8279bf9ee62e5cfee" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>moveClicked</name></member>
+      <member refid="classQfNavigationBar_1abba0f06ee97b7b5138e3d5f9c50904e3" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>multiDeleteClicked</name></member>
+      <member refid="classQfNavigationBar_1a506d911ffbfe1ea088c4ad73904c7d2d" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>multiDuplicateClicked</name></member>
+      <member refid="classQfNavigationBar_1a6ef575e09ec0c5ad802abfa271f15c93" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>multiEditClicked</name></member>
+      <member refid="classQfNavigationBar_1ae86300529df2267f60bbfcd96a73e9b8" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>multiMergeClicked</name></member>
+      <member refid="classQfNavigationBar_1af85ac5f8fd16a41571acbd248cf91970" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>multiMoveClicked</name></member>
+      <member refid="classQfNavigationBar_1adb9f7b1ba89526784ef8442d1b0e9375" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>multiProcessingClicked</name></member>
+      <member refid="classQfNavigationBar_1a01156ae789f9e241213d38cc4eb238d3" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>multiSelection</name></member>
+      <member refid="classQfNavigationBar_1a29186eb99b88ad1082053466535ee710" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>processingFeatureClicked</name></member>
+      <member refid="classQfNavigationBar_1a1770caa7f25b853f21f64f54473e9cbe" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>processingRunClicked</name></member>
+      <member refid="classQfNavigationBar_1aa5bcc9c07d1e8b4ea66d29ada2a72f60" prot="private" virt="non-virtual"><scope>QfNavigationBar</scope><name>right</name></member>
+      <member refid="classQfNavigationBar_1a4a4df788cdea2a50b688bd199225e43a" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>rightMargin</name></member>
+      <member refid="classQfNavigationBar_1abe3f27ddda590dd025eeb8fcaa0f6f01" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>rotateClicked</name></member>
+      <member refid="classQfNavigationBar_1a28785892e05046465499e3624f19ef4f" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>save</name></member>
+      <member refid="classQfNavigationBar_1a4f7edd706184e56fa2deb9012655e20a" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>selection</name></member>
+      <member refid="classQfNavigationBar_1a1d22068d37060d40aa9625b1891b22d2" prot="private" virt="non-virtual"><scope>QfNavigationBar</scope><name>states</name></member>
+      <member refid="classQfNavigationBar_1ac24367a7c8d2598c29bed3768f71aa12" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>statusIndicatorClicked</name></member>
+      <member refid="classQfNavigationBar_1a75900982107bcdd03e9ad57e4dae798c" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>statusIndicatorDragAcquired</name></member>
+      <member refid="classQfNavigationBar_1a241f766b0eff540933c560851ec74433" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>statusIndicatorDragged</name></member>
+      <member refid="classQfNavigationBar_1a29e774b2695231bc7ad5e54e4e5ac684" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>statusIndicatorDragReleased</name></member>
+      <member refid="classQfNavigationBar_1a2d029e533023ba0c06e898e9f92d8602" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>title</name></member>
+      <member refid="classQfNavigationBar_1aabb9b8bd55b2ca3927f58fa6e9b3934f" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>toggleMultiSelection</name></member>
+      <member refid="classQfNavigationBar_1a5fb021af3a3f753ee64c7217fc0fa477" prot="private" virt="non-virtual"><scope>QfNavigationBar</scope><name>top</name></member>
+      <member refid="classQfNavigationBar_1a99065f4afd3963ea7b4a57929e3534be" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>topMargin</name></member>
+      <member refid="classQfNavigationBar_1a532a8b219eb1745e88c95197053dbed2" prot="private" virt="non-virtual"><scope>QfNavigationBar</scope><name>topMargin</name></member>
+      <member refid="classQfNavigationBar_1a2e6baf4f613dd9b7cfc0c5a54b1c2915" prot="public" virt="non-virtual"><scope>QfNavigationBar</scope><name>transferClicked</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

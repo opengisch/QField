@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingAlgorithmsList" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingAlgorithmsList</compoundname>
+    <basecompoundref refid="classQfProcessingAlgorithmsList" prot="public" virt="non-virtual">QfProcessingAlgorithmsList</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingAlgorithmsList</label>
+        <link refid="classProcessingAlgorithmsList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingAlgorithmsList</label>
+        <link refid="classQfProcessingAlgorithmsList"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingAlgorithmsList</label>
+        <link refid="classProcessingAlgorithmsList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingAlgorithmsList</label>
+        <link refid="classQfProcessingAlgorithmsList"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/ProcessingAlgorithmsList.qml" line="2" column="1" bodyfile="src/app/qml_compat/ProcessingAlgorithmsList.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfProcessingAlgorithmsList_1a87b41c331e8d9c545429852d816edc57" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>algorithmSelected</name></member>
+      <member refid="classQfProcessingAlgorithmsList_1acc4934b5aa9c41758accecbe56559cd0" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>filters</name></member>
+      <member refid="classQfProcessingAlgorithmsList_1abef51f554a5959b5c41473d49268a4f0" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmsList</scope><name>inPlaceLayer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

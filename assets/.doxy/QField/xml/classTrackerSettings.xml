@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTrackerSettings" kind="class" language="C++" prot="public">
+    <compoundname>TrackerSettings</compoundname>
+    <basecompoundref refid="classQfTrackerSettings" prot="public" virt="non-virtual">QfTrackerSettings</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfTrackerSettings</label>
+        <link refid="classQfTrackerSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TrackerSettings</label>
+        <link refid="classTrackerSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfTrackerSettings</label>
+        <link refid="classQfTrackerSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TrackerSettings</label>
+        <link refid="classTrackerSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/TrackerSettings.qml" line="2" column="1" bodyfile="src/app/qml_compat/TrackerSettings.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfTrackerSettings_1af6148437b7b9b55043e0c82dad2a2b2d" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>applySettingsToTracker</name></member>
+      <member refid="classQfTrackerSettings_1aaad003df6457b2e4d1b3ff3fa029f99d" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>availableLayersCount</name></member>
+      <member refid="classQfTrackerSettings_1a9aa47eb12437cef910ab0ab2c96ee236" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>layer</name></member>
+      <member refid="classQfTrackerSettings_1a8ca7bf4d4e61644b80a1523481130c09" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>prepareSettings</name></member>
+      <member refid="classQfTrackerSettings_1a23b5583c96fe6acbc7dbf21bee503664" prot="public" virt="non-virtual"><scope>TrackerSettings</scope><name>tracker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

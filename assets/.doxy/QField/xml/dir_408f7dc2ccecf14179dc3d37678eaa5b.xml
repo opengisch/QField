@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_408f7dc2ccecf14179dc3d37678eaa5b" kind="dir">
+    <compoundname>src/app/qml</compoundname>
+    <innerfile refid="QfAbout_8qml">QfAbout.qml</innerfile>
+    <innerfile refid="QfAppSettings_8qml">QfAppSettings.qml</innerfile>
+    <innerfile refid="QfBadLayerItem_8qml">QfBadLayerItem.qml</innerfile>
+    <innerfile refid="QfChangelog_8qml">QfChangelog.qml</innerfile>
+    <innerfile refid="QfCloudDangerZone_8qml">QfCloudDangerZone.qml</innerfile>
+    <innerfile refid="QfCloudDeltaHistory_8qml">QfCloudDeltaHistory.qml</innerfile>
+    <innerfile refid="QfCloudLogin_8qml">QfCloudLogin.qml</innerfile>
+    <innerfile refid="QfCloudPackageLayersFeedback_8qml">QfCloudPackageLayersFeedback.qml</innerfile>
+    <innerfile refid="QfCloudPendingChanges_8qml">QfCloudPendingChanges.qml</innerfile>
+    <innerfile refid="QfCloudPopup_8qml">QfCloudPopup.qml</innerfile>
+    <innerfile refid="QfCloudProjectDetails_8qml">QfCloudProjectDetails.qml</innerfile>
+    <innerfile refid="QfCloudProjectFilter_8qml">QfCloudProjectFilter.qml</innerfile>
+    <innerfile refid="QfCloudScreen_8qml">QfCloudScreen.qml</innerfile>
+    <innerfile refid="QfCloudStatusBanner_8qml">QfCloudStatusBanner.qml</innerfile>
+    <innerfile refid="QfCoordinateLocator_8qml">QfCoordinateLocator.qml</innerfile>
+    <innerfile refid="QfDashBoard_8qml">QfDashBoard.qml</innerfile>
+    <innerfile refid="QfDummy_8qml">QfDummy.qml</innerfile>
+    <innerfile refid="QfFeatureListSelectionHighlight_8qml">QfFeatureListSelectionHighlight.qml</innerfile>
+    <innerfile refid="QfGuide_8qml">QfGuide.qml</innerfile>
+    <innerfile refid="QfLocalDataPickerScreen_8qml">QfLocalDataPickerScreen.qml</innerfile>
+    <innerfile refid="QfMeasuringTool_8qml">QfMeasuringTool.qml</innerfile>
+    <innerfile refid="QfNyuki_8qml">QfNyuki.qml</innerfile>
+    <innerfile refid="QfPluginItem_8qml">QfPluginItem.qml</innerfile>
+    <innerfile refid="QfPluginManagerSettings_8qml">QfPluginManagerSettings.qml</innerfile>
+    <innerfile refid="QfPositioningSettings_8qml">QfPositioningSettings.qml</innerfile>
+    <innerfile refid="QfScreenLocker_8qml">QfScreenLocker.qml</innerfile>
+    <innerfile refid="QfSketcher_8qml">QfSketcher.qml</innerfile>
+    <innerfile refid="QfTrackerSettings_8qml">QfTrackerSettings.qml</innerfile>
+    <innerfile refid="QfWelcomeScreen_8qml">QfWelcomeScreen.qml</innerfile>
+    <innerfile refid="QgisMobileapp_8qml">QgisMobileapp.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/app/qml/"/>
+  </compounddef>
+</doxygen>

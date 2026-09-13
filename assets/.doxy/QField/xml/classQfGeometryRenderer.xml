@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGeometryRenderer" kind="class" language="C++" prot="public">
+    <compoundname>QfGeometryRenderer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classGeometryRenderer" prot="public" virt="non-virtual">GeometryRenderer</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGeometryRenderer_1aac819e6d097b39440c00d1fa37ae9ff7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfGeometryRenderer::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfGeometryRenderer::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="10" column="1" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryRenderer_1ac8184eb61319e9f163d2f54f232263d9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfGeometryWrapper" kindref="compound">QfGeometryWrapper</ref></type>
+        <definition>QfGeometryWrapper QfGeometryRenderer::geometryWrapper</definition>
+        <argsstring></argsstring>
+        <name>geometryWrapper</name>
+        <qualifiedname>QfGeometryRenderer::geometryWrapper</qualifiedname>
+        <read>dummyGetter_geometryWrapper_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="12" column="1" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryRenderer_1a455767eee1a700a6f1cb429c1a2fd59e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfGeometryRenderer::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>QfGeometryRenderer::lineWidth</qualifiedname>
+        <read>dummyGetter_lineWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="14" column="1" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryRenderer_1a7e18e877db3db6736aa4402a32ab5b53" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfGeometryRenderer::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfGeometryRenderer::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="16" column="1" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryRenderer_1a11bcd1aa4d923f24a87046841d15f832" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfGeometryRenderer::pointSize</definition>
+        <argsstring></argsstring>
+        <name>pointSize</name>
+        <qualifiedname>QfGeometryRenderer::pointSize</qualifiedname>
+        <read>dummyGetter_pointSize_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="18" column="1" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryRenderer_1acac3243e9f4a2b602a6805267b25ce15" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfGeometryRenderer::borderSize</definition>
+        <argsstring></argsstring>
+        <name>borderSize</name>
+        <qualifiedname>QfGeometryRenderer::borderSize</qualifiedname>
+        <read>dummyGetter_borderSize_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="20" column="1" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGeometryRenderer_1acb68cca5c88b7d13ab12bf0e52794d1c" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfGeometryRenderer::linePolygonHighlight</definition>
+        <argsstring></argsstring>
+        <name>linePolygonHighlight</name>
+        <qualifiedname>QfGeometryRenderer::linePolygonHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="23" column="11" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryRenderer_1a2c01883dbb95e2e69af486897ce3d62e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLinePolygon" kindref="compound">QfLinePolygon</ref></type>
+        <definition>QfLinePolygon QfGeometryRenderer::linePolygonItem</definition>
+        <argsstring></argsstring>
+        <name>linePolygonItem</name>
+        <qualifiedname>QfGeometryRenderer::linePolygonItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="24" column="15" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryRenderer_1ad9add3a8f36edc21da0b3ba8d1dd9cf5" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfGeometryRenderer::pointHighlight</definition>
+        <argsstring></argsstring>
+        <name>pointHighlight</name>
+        <qualifiedname>QfGeometryRenderer::pointHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="25" column="11" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryRenderer_1a971b8b1f3a335290ead0c3832d8b60e6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMapToScreen" kindref="compound">QfMapToScreen</ref></type>
+        <definition>QfMapToScreen QfGeometryRenderer::mapToScreenPosition</definition>
+        <argsstring></argsstring>
+        <name>mapToScreenPosition</name>
+        <qualifiedname>QfGeometryRenderer::mapToScreenPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="26" column="15" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryRenderer_1a6797a8f2a45699f790f04f9739fb560e" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfGeometryRenderer::geometryComponent</definition>
+        <argsstring></argsstring>
+        <name>geometryComponent</name>
+        <qualifiedname>QfGeometryRenderer::geometryComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryRenderer.qml" line="27" column="8" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>GeometryRenderer</label>
+        <link refid="classGeometryRenderer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfGeometryRenderer</label>
+        <link refid="classQfGeometryRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfGeometryRenderer</label>
+        <link refid="classQfGeometryRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfGeometryRenderer.qml" line="7" column="1" bodyfile="src/gui/qml/QfGeometryRenderer.qml" bodystart="7" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classQfGeometryRenderer_1acac3243e9f4a2b602a6805267b25ce15" prot="public" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>borderSize</name></member>
+      <member refid="classQfGeometryRenderer_1a7e18e877db3db6736aa4402a32ab5b53" prot="public" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>color</name></member>
+      <member refid="classQfGeometryRenderer_1a6797a8f2a45699f790f04f9739fb560e" prot="private" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>geometryComponent</name></member>
+      <member refid="classQfGeometryRenderer_1ac8184eb61319e9f163d2f54f232263d9" prot="public" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>geometryWrapper</name></member>
+      <member refid="classQfGeometryRenderer_1acb68cca5c88b7d13ab12bf0e52794d1c" prot="private" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>linePolygonHighlight</name></member>
+      <member refid="classQfGeometryRenderer_1a2c01883dbb95e2e69af486897ce3d62e" prot="private" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>linePolygonItem</name></member>
+      <member refid="classQfGeometryRenderer_1a455767eee1a700a6f1cb429c1a2fd59e" prot="public" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>lineWidth</name></member>
+      <member refid="classQfGeometryRenderer_1aac819e6d097b39440c00d1fa37ae9ff7" prot="public" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>mapSettings</name></member>
+      <member refid="classQfGeometryRenderer_1a971b8b1f3a335290ead0c3832d8b60e6" prot="private" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>mapToScreenPosition</name></member>
+      <member refid="classQfGeometryRenderer_1ad9add3a8f36edc21da0b3ba8d1dd9cf5" prot="private" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>pointHighlight</name></member>
+      <member refid="classQfGeometryRenderer_1a11bcd1aa4d923f24a87046841d15f832" prot="public" virt="non-virtual"><scope>QfGeometryRenderer</scope><name>pointSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

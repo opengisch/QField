@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoRegistry" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoRegistry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfcogoregistry_8h" local="no">qfcogoregistry.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoRegistry_1a8b7d50a516055819ae998fe5202a72ce" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, <ref refid="classQfCogoOperation" kindref="compound">QfCogoOperation</ref> * &gt;</type>
+        <definition>QMap&lt;QString, QfCogoOperation *&gt; QfCogoRegistry::mOperations</definition>
+        <argsstring></argsstring>
+        <name>mOperations</name>
+        <qualifiedname>QfCogoRegistry::mOperations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="74" column="10" bodyfile="src/core/cogo/qfcogoregistry.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQfCogoRegistry_1a2a7cda1a8c4207ddac8a042eecde1cdf" prot="private" static="yes" mutable="no">
+        <type><ref refid="classQfCogoRegistry" kindref="compound">QfCogoRegistry</ref> *</type>
+        <definition>QfCogoRegistry * QfCogoRegistry::sCogoRegistryInterface</definition>
+        <argsstring></argsstring>
+        <name>sCogoRegistryInterface</name>
+        <qualifiedname>QfCogoRegistry::sCogoRegistryInterface</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="76" column="27" bodyfile="src/core/cogo/qfcogoregistry.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoRegistry_1a9848a2c507b654c795cdd226b5af589f" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCogoRegistry::QfCogoRegistry</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfCogoRegistry</name>
+        <qualifiedname>QfCogoRegistry::QfCogoRegistry</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>COGO registry constructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="38" column="14" bodyfile="src/core/cogo/qfcogoregistry.cpp" bodystart="22" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoRegistry_1aa19b5a81e3573bec1babda7ea9a6faac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCogoRegistry::~QfCogoRegistry</definition>
+        <argsstring>()</argsstring>
+        <name>~QfCogoRegistry</name>
+        <qualifiedname>QfCogoRegistry::~QfCogoRegistry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="39" column="5" bodyfile="src/core/cogo/qfcogoregistry.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoRegistry_1a9b11d827b3593e19b9942315451f0d92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCogoRegistry::registerOperation</definition>
+        <argsstring>(QfCogoOperation *operation)</argsstring>
+        <name>registerOperation</name>
+        <qualifiedname>QfCogoRegistry::registerOperation</qualifiedname>
+        <param>
+          <type><ref refid="classQfCogoOperation" kindref="compound">QfCogoOperation</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a COGO <emphasis>operation</emphasis>. <simplesect kind="note"><para>the ownership of the operation pointer is transferred to the registry. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="45" column="10" bodyfile="src/core/cogo/qfcogoregistry.cpp" bodystart="35" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoRegistry_1a5b7151ed665a328ec239e8659d8d31d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfCogoOperation" kindref="compound">QfCogoOperation</ref> *</type>
+        <definition>QfCogoOperation * QfCogoRegistry::operation</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>operation</name>
+        <qualifiedname>QfCogoRegistry::operation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a COGO operation matching a given <emphasis>name</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="50" column="21" bodyfile="src/core/cogo/qfcogoregistry.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoRegistry_1a89db53e11280a37a920292c785612c68" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfCogoRegistry::availableOperations</definition>
+        <argsstring>() const</argsstring>
+        <name>availableOperations</name>
+        <qualifiedname>QfCogoRegistry::availableOperations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the available COGO operations within the registry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="55" column="17" bodyfile="src/core/cogo/qfcogoregistry.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfCogoRegistry_1a8c03681c48ae017c65bf9a1f17a217d4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void QfCogoRegistry::setInstance</definition>
+        <argsstring>(QfCogoRegistry *instance)</argsstring>
+        <name>setInstance</name>
+        <qualifiedname>QfCogoRegistry::setInstance</qualifiedname>
+        <param>
+          <type><ref refid="classQfCogoRegistry" kindref="compound">QfCogoRegistry</ref> *</type>
+          <declname>instance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current COGO registry singleton <emphasis>instance</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="60" column="17" bodyfile="src/core/cogo/qfcogoregistry.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoRegistry_1a965f6f3e181d4a571fa0e443333c5af9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfCogoRegistry" kindref="compound">QfCogoRegistry</ref> *</type>
+        <definition>static QfCogoRegistry * QfCogoRegistry::instance</definition>
+        <argsstring>()</argsstring>
+        <name>instance</name>
+        <qualifiedname>QfCogoRegistry::instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current COGO registry singleton instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="65" column="27" bodyfile="src/core/cogo/qfcogoregistry.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCogoRegistry_1a0c4b35e6233d45f4e8b26a8a8eefed6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoRegistry::operationAdded</definition>
+        <argsstring>()</argsstring>
+        <name>operationAdded</name>
+        <qualifiedname>QfCogoRegistry::operationAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a COGO has been added into the registry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoregistry.h" line="71" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A registry managing available COGO operations. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCogoRegistry</label>
+        <link refid="classQfCogoRegistry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCogoRegistry</label>
+        <link refid="classQfCogoRegistry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/cogo/qfcogoregistry.h" line="30" column="1" bodyfile="src/core/cogo/qfcogoregistry.h" bodystart="31" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classQfCogoRegistry_1a89db53e11280a37a920292c785612c68" prot="public" virt="non-virtual"><scope>QfCogoRegistry</scope><name>availableOperations</name></member>
+      <member refid="classQfCogoRegistry_1a965f6f3e181d4a571fa0e443333c5af9" prot="public" virt="non-virtual"><scope>QfCogoRegistry</scope><name>instance</name></member>
+      <member refid="classQfCogoRegistry_1a8b7d50a516055819ae998fe5202a72ce" prot="private" virt="non-virtual"><scope>QfCogoRegistry</scope><name>mOperations</name></member>
+      <member refid="classQfCogoRegistry_1a5b7151ed665a328ec239e8659d8d31d1" prot="public" virt="non-virtual"><scope>QfCogoRegistry</scope><name>operation</name></member>
+      <member refid="classQfCogoRegistry_1a0c4b35e6233d45f4e8b26a8a8eefed6b" prot="public" virt="non-virtual"><scope>QfCogoRegistry</scope><name>operationAdded</name></member>
+      <member refid="classQfCogoRegistry_1a9848a2c507b654c795cdd226b5af589f" prot="public" virt="non-virtual"><scope>QfCogoRegistry</scope><name>QfCogoRegistry</name></member>
+      <member refid="classQfCogoRegistry_1a9b11d827b3593e19b9942315451f0d92" prot="public" virt="non-virtual"><scope>QfCogoRegistry</scope><name>registerOperation</name></member>
+      <member refid="classQfCogoRegistry_1a2a7cda1a8c4207ddac8a042eecde1cdf" prot="private" virt="non-virtual"><scope>QfCogoRegistry</scope><name>sCogoRegistryInterface</name></member>
+      <member refid="classQfCogoRegistry_1a8c03681c48ae017c65bf9a1f17a217d4" prot="public" virt="non-virtual"><scope>QfCogoRegistry</scope><name>setInstance</name></member>
+      <member refid="classQfCogoRegistry_1aa19b5a81e3573bec1babda7ea9a6faac" prot="public" virt="non-virtual"><scope>QfCogoRegistry</scope><name>~QfCogoRegistry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

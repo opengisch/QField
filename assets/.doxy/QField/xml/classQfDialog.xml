@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDialog" kind="class" language="C++" prot="public">
+    <compoundname>QfDialog</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Dialog</basecompoundref>
+    <derivedcompoundref refid="classQfCalendarPanel" prot="public" virt="non-virtual">QfCalendarPanel</derivedcompoundref>
+    <derivedcompoundref refid="classQfCloudPackageLayersFeedback" prot="public" virt="non-virtual">QfCloudPackageLayersFeedback</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDialog_1ad9c6ce7ece00fe0a482f299c7c76671f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDialog::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfDialog::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDialog.qml" line="13" column="5" bodyfile="src/gui/qml/QfDialog.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDialog_1a72d2a4382547df8bc9f63339e21c40cc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDialog::modal</definition>
+        <argsstring></argsstring>
+        <name>modal</name>
+        <qualifiedname>QfDialog::modal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDialog.qml" line="14" column="5" bodyfile="src/gui/qml/QfDialog.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDialog_1a745f0df9d40ddc8d46541f34be81d974" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDialog::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>QfDialog::font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDialog.qml" line="15" column="5" bodyfile="src/gui/qml/QfDialog.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDialog_1a28bf281e681e85f25c00e943b03b6075" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDialog::standardButtons</definition>
+        <argsstring></argsstring>
+        <name>standardButtons</name>
+        <qualifiedname>QfDialog::standardButtons</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDialog.qml" line="16" column="5" bodyfile="src/gui/qml/QfDialog.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDialog_1a2b77d0eb38126fa129b930b342572ed1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDialog::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfDialog::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDialog.qml" line="17" column="5" bodyfile="src/gui/qml/QfDialog.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDialog_1a611cd312a6dc0e92843942e6e78541b6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDialog::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfDialog::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDialog.qml" line="18" column="5" bodyfile="src/gui/qml/QfDialog.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDialog_1a4f2e0d955416e60afe1a429b08c73548" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDialog::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfDialog::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDialog.qml" line="19" column="5" bodyfile="src/gui/qml/QfDialog.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDialog_1a906019a85dba48e86b99ef3a5e83b987" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDialog::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>QfDialog::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDialog.qml" line="20" column="5" bodyfile="src/gui/qml/QfDialog.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Dialog</label>
+      </node>
+      <node id="3">
+        <label>QfCalendarPanel</label>
+        <link refid="classQfCalendarPanel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QfCloudPackageLayersFeedback</label>
+        <link refid="classQfCloudPackageLayersFeedback"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfDialog</label>
+        <link refid="classQfDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Dialog</label>
+      </node>
+      <node id="1">
+        <label>QfDialog</label>
+        <link refid="classQfDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfDialog.qml" line="12" column="1" bodyfile="src/gui/qml/QfDialog.qml" bodystart="12" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classQfDialog_1a745f0df9d40ddc8d46541f34be81d974" prot="private" virt="non-virtual"><scope>QfDialog</scope><name>font</name></member>
+      <member refid="classQfDialog_1a72d2a4382547df8bc9f63339e21c40cc" prot="private" virt="non-virtual"><scope>QfDialog</scope><name>modal</name></member>
+      <member refid="classQfDialog_1a4f2e0d955416e60afe1a429b08c73548" prot="private" virt="non-virtual"><scope>QfDialog</scope><name>onAboutToShow</name></member>
+      <member refid="classQfDialog_1a906019a85dba48e86b99ef3a5e83b987" prot="private" virt="non-virtual"><scope>QfDialog</scope><name>onClosed</name></member>
+      <member refid="classQfDialog_1a28bf281e681e85f25c00e943b03b6075" prot="private" virt="non-virtual"><scope>QfDialog</scope><name>standardButtons</name></member>
+      <member refid="classQfDialog_1ad9c6ce7ece00fe0a482f299c7c76671f" prot="private" virt="non-virtual"><scope>QfDialog</scope><name>visible</name></member>
+      <member refid="classQfDialog_1a2b77d0eb38126fa129b930b342572ed1" prot="private" virt="non-virtual"><scope>QfDialog</scope><name>x</name></member>
+      <member refid="classQfDialog_1a611cd312a6dc0e92843942e6e78541b6" prot="private" virt="non-virtual"><scope>QfDialog</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

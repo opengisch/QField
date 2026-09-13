@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classElevationProfile" kind="class" language="C++" prot="public">
+    <compoundname>ElevationProfile</compoundname>
+    <basecompoundref refid="classQfElevationProfile" prot="public" virt="non-virtual">QfElevationProfile</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ElevationProfile</label>
+        <link refid="classElevationProfile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfElevationProfile</label>
+        <link refid="classQfElevationProfile"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ElevationProfile</label>
+        <link refid="classElevationProfile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfElevationProfile</label>
+        <link refid="classQfElevationProfile"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/ElevationProfile.qml" line="2" column="1" bodyfile="src/app/qml_compat/ElevationProfile.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfElevationProfile_1a8ff6e9c9765b6fe80dfeb859a53be916" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>clear</name></member>
+      <member refid="classQfElevationProfile_1aa25438064ce104ced603f2d4513ceed3" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>crs</name></member>
+      <member refid="classQfElevationProfile_1a1883453c0423c43b4f41410bf3da6292" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>populateLayersFromProject</name></member>
+      <member refid="classQfElevationProfile_1ad9b429604a80c41f0c64fd5bff2a3b5b" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>profileCurve</name></member>
+      <member refid="classQfElevationProfile_1aea473e3378093ea81638d99286cbd2f3" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>project</name></member>
+      <member refid="classQfElevationProfile_1af1f34a2e0dcf097f5d5fc2569b510b98" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>refresh</name></member>
+      <member refid="classQfElevationProfile_1ae7361b95a090b1f6b36878befc7404fb" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>tolerance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

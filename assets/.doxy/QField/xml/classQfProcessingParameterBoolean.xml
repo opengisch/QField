@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProcessingParameterBoolean" kind="class" language="C++" prot="public">
+    <compoundname>QfProcessingParameterBoolean</compoundname>
+    <basecompoundref refid="classQfProcessingParameterWidgetBase" prot="public" virt="non-virtual">QfProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProcessingParameterBoolean_1a38be4df9b759b3178fbbf7b2462988a1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProcessingParameterBoolean::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfProcessingParameterBoolean::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" line="7" column="5" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterBoolean_1a9a05e25398bf89eb2b95efb70384f111" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfProcessingParameterBoolean::labelValue</definition>
+        <argsstring></argsstring>
+        <name>labelValue</name>
+        <qualifiedname>QfProcessingParameterBoolean::labelValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" line="8" column="7" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterBoolean_1a4fa1147142f7d532385e8a54de30666a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfProcessingParameterBoolean::checkBox</definition>
+        <argsstring></argsstring>
+        <name>checkBox</name>
+        <qualifiedname>QfProcessingParameterBoolean::checkBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" line="9" column="10" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterBoolean_1a2bdfde813a451d173b1af3cf3bb8bcf9" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea QfProcessingParameterBoolean::checkArea</definition>
+        <argsstring></argsstring>
+        <name>checkArea</name>
+        <qualifiedname>QfProcessingParameterBoolean::checkArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" line="10" column="11" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfProcessingParameterBoolean</label>
+        <link refid="classQfProcessingParameterBoolean"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingParameterWidgetBase</label>
+        <link refid="classQfProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfProcessingParameterBoolean</label>
+        <link refid="classQfProcessingParameterBoolean"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingParameterWidgetBase</label>
+        <link refid="classQfProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" line="6" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterBoolean.qml" bodystart="6" bodyend="11"/>
+    <listofallmembers>
+      <member refid="classQfProcessingParameterBoolean_1a2bdfde813a451d173b1af3cf3bb8bcf9" prot="private" virt="non-virtual"><scope>QfProcessingParameterBoolean</scope><name>checkArea</name></member>
+      <member refid="classQfProcessingParameterBoolean_1a4fa1147142f7d532385e8a54de30666a" prot="private" virt="non-virtual"><scope>QfProcessingParameterBoolean</scope><name>checkBox</name></member>
+      <member refid="classQfProcessingParameterBoolean_1a38be4df9b759b3178fbbf7b2462988a1" prot="private" virt="non-virtual"><scope>QfProcessingParameterBoolean</scope><name>height</name></member>
+      <member refid="classQfProcessingParameterBoolean_1a9a05e25398bf89eb2b95efb70384f111" prot="private" virt="non-virtual"><scope>QfProcessingParameterBoolean</scope><name>labelValue</name></member>
+      <member refid="classQfProcessingParameterWidgetBase_1af72f29e097a532553a57fa4752397fe3" prot="public" virt="non-virtual"><scope>QfProcessingParameterBoolean</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

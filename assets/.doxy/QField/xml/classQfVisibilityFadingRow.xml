@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfVisibilityFadingRow" kind="class" language="C++" prot="public">
+    <compoundname>QfVisibilityFadingRow</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Row</basecompoundref>
+    <derivedcompoundref refid="classQfConfirmationToolbar" prot="public" virt="non-virtual">QfConfirmationToolbar</derivedcompoundref>
+    <derivedcompoundref refid="classQfDigitizingToolbar" prot="public" virt="non-virtual">QfDigitizingToolbar</derivedcompoundref>
+    <derivedcompoundref refid="classQfGeometryEditorBase" prot="public" virt="non-virtual">QfGeometryEditorBase</derivedcompoundref>
+    <derivedcompoundref refid="classQfGeometryEditorsToolbar" prot="public" virt="non-virtual">QfGeometryEditorsToolbar</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVisibilityFadingRow::stateVisible</definition>
+        <argsstring></argsstring>
+        <name>stateVisible</name>
+        <qualifiedname>QfVisibilityFadingRow::stateVisible</qualifiedname>
+        <read>dummyGetter_stateVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVisibilityFadingRow.qml" line="9" column="1" bodyfile="src/gui/qml/QfVisibilityFadingRow.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfVisibilityFadingRow_1aeafab814ba5d04f4ee4a42448df1d495" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfVisibilityFadingRow::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfVisibilityFadingRow::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVisibilityFadingRow.qml" line="11" column="5" bodyfile="src/gui/qml/QfVisibilityFadingRow.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVisibilityFadingRow_1abbfd92ceb7d6d8bbbe41b20e05cc6042" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfVisibilityFadingRow::opacity</definition>
+        <argsstring></argsstring>
+        <name>opacity</name>
+        <qualifiedname>QfVisibilityFadingRow::opacity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVisibilityFadingRow.qml" line="12" column="5" bodyfile="src/gui/qml/QfVisibilityFadingRow.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVisibilityFadingRow_1a0e75ca74513294620dfe52e575940778" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfVisibilityFadingRow::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfVisibilityFadingRow::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVisibilityFadingRow.qml" line="13" column="5" bodyfile="src/gui/qml/QfVisibilityFadingRow.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVisibilityFadingRow_1aa3f7f9efd04ced3821222b6769c6d4bf" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfVisibilityFadingRow::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>QfVisibilityFadingRow::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVisibilityFadingRow.qml" line="14" column="5" bodyfile="src/gui/qml/QfVisibilityFadingRow.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>ConfirmationToolbar</label>
+        <link refid="classConfirmationToolbar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>DigitizingToolbar</label>
+        <link refid="classDigitizingToolbar"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>GeometryEditorsToolbar</label>
+        <link refid="classGeometryEditorsToolbar"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfConfirmationToolbar</label>
+        <link refid="classQfConfirmationToolbar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QfDigitizingToolbar</label>
+        <link refid="classQfDigitizingToolbar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>QfGeometryEditorBase</label>
+        <link refid="classQfGeometryEditorBase"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>QfGeometryEditorErase</label>
+        <link refid="classQfGeometryEditorErase"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>QfGeometryEditorFillRing</label>
+        <link refid="classQfGeometryEditorFillRing"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>QfGeometryEditorReshape</label>
+        <link refid="classQfGeometryEditorReshape"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>QfGeometryEditorSplitFeature</label>
+        <link refid="classQfGeometryEditorSplitFeature"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>QfGeometryEditorVertexEditor</label>
+        <link refid="classQfGeometryEditorVertexEditor"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>QfGeometryEditorsToolbar</label>
+        <link refid="classQfGeometryEditorsToolbar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfVisibilityFadingRow.qml" line="6" column="1" bodyfile="src/gui/qml/QfVisibilityFadingRow.qml" bodystart="6" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classQfVisibilityFadingRow_1abbfd92ceb7d6d8bbbe41b20e05cc6042" prot="private" virt="non-virtual"><scope>QfVisibilityFadingRow</scope><name>opacity</name></member>
+      <member refid="classQfVisibilityFadingRow_1a0e75ca74513294620dfe52e575940778" prot="private" virt="non-virtual"><scope>QfVisibilityFadingRow</scope><name>spacing</name></member>
+      <member refid="classQfVisibilityFadingRow_1aa3f7f9efd04ced3821222b6769c6d4bf" prot="private" virt="non-virtual"><scope>QfVisibilityFadingRow</scope><name>states</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>QfVisibilityFadingRow</scope><name>stateVisible</name></member>
+      <member refid="classQfVisibilityFadingRow_1aeafab814ba5d04f4ee4a42448df1d495" prot="private" virt="non-virtual"><scope>QfVisibilityFadingRow</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_5e9804d2322dd99f421cb2c64b2c04c3" kind="dir">
+    <compoundname>src/core/qml</compoundname>
+    <innerfile refid="QfGridRenderer_8qml">QfGridRenderer.qml</innerfile>
+    <innerfile refid="QfKineticHandler_8qml">QfKineticHandler.qml</innerfile>
+    <innerfile refid="QfLinePolygon_8qml">QfLinePolygon.qml</innerfile>
+    <innerfile refid="QfMapCanvas_8qml">QfMapCanvas.qml</innerfile>
+    <innerfile refid="QfMapCanvasPointHandler_8qml">QfMapCanvasPointHandler.qml</innerfile>
+    <innerfile refid="QfRubberband_8qml">QfRubberband.qml</innerfile>
+    <innerfile refid="QfVertexRubberband_8qml">QfVertexRubberband.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qml/"/>
+  </compounddef>
+</doxygen>

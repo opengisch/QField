@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBookmarkProperties" kind="class" language="C++" prot="public">
+    <compoundname>QfBookmarkProperties</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classBookmarkProperties" prot="public" virt="non-virtual">BookmarkProperties</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfBookmarkProperties_1aa5af5c77e8d7373fced7d01f3a222b9f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfBookmarkProperties::bookmarkId</definition>
+        <argsstring></argsstring>
+        <name>bookmarkId</name>
+        <qualifiedname>QfBookmarkProperties::bookmarkId</qualifiedname>
+        <read>dummyGetter_bookmarkId_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="13" column="1" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBookmarkProperties_1ae24edd4862a6f032e8daff294880b675" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfBookmarkProperties::bookmarkName</definition>
+        <argsstring></argsstring>
+        <name>bookmarkName</name>
+        <qualifiedname>QfBookmarkProperties::bookmarkName</qualifiedname>
+        <read>dummyGetter_bookmarkName_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="15" column="1" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBookmarkProperties_1a31fe7fe5822165e91095432f7d0abd3e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfBookmarkProperties::bookmarkGroup</definition>
+        <argsstring></argsstring>
+        <name>bookmarkGroup</name>
+        <qualifiedname>QfBookmarkProperties::bookmarkGroup</qualifiedname>
+        <read>dummyGetter_bookmarkGroup_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="17" column="1" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBookmarkProperties_1a0074b66e7cc2e46d1fc2a1bb68afff7b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfBookmarkProperties::bookmarkDeleted</definition>
+        <argsstring></argsstring>
+        <name>bookmarkDeleted</name>
+        <qualifiedname>QfBookmarkProperties::bookmarkDeleted</qualifiedname>
+        <read>dummyGetter_bookmarkDeleted_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="19" column="1" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a3b8f93f8f96fb8a336706cfb10786fbc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkProperties::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfBookmarkProperties::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="21" column="5" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a90849c719f8f830bde41e6cbe7895d75" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkProperties::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfBookmarkProperties::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="22" column="5" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1adc5ef093c555d0800be954b6ad09d415" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkProperties::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfBookmarkProperties::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="23" column="5" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1ad260fb8097271c2c99d0df4c0d81422f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkProperties::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfBookmarkProperties::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="24" column="5" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a2e03e6871d021acfa4773e5fbf989d8b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkProperties::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfBookmarkProperties::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="25" column="5" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1aca124911e8a98d8546bbe187d7282c9f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkProperties::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfBookmarkProperties::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="26" column="5" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1ad49d93eba3c09e9c9a232c798720279f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkProperties::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfBookmarkProperties::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="27" column="5" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a09dfac6ba7ba6c2527939323e4922afc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkProperties::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>QfBookmarkProperties::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="28" column="5" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a475cb22b3a668e4f2bb4d390407e4722" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfBookmarkProperties::propertiesLayout</definition>
+        <argsstring></argsstring>
+        <name>propertiesLayout</name>
+        <qualifiedname>QfBookmarkProperties::propertiesLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="33" column="14" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1ace103f361a1e0b6dd51604e294b8a01e" prot="private" static="no" mutable="no">
+        <type>TextArea</type>
+        <definition>TextArea QfBookmarkProperties::nameField</definition>
+        <argsstring></argsstring>
+        <name>nameField</name>
+        <qualifiedname>QfBookmarkProperties::nameField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="34" column="10" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a7d8fbce4b9865f6f63a38522eee2b7ac" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView QfBookmarkProperties::colorContainer</definition>
+        <argsstring></argsstring>
+        <name>colorContainer</name>
+        <qualifiedname>QfBookmarkProperties::colorContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="35" column="11" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a65ebb2f946297b1494af9260eba1dd95" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfBookmarkProperties::currentColorView</definition>
+        <argsstring></argsstring>
+        <name>currentColorView</name>
+        <qualifiedname>QfBookmarkProperties::currentColorView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="36" column="11" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1ac33900007b59271284ae0fe449170bfb" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfBookmarkProperties::colorArea</definition>
+        <argsstring></argsstring>
+        <name>colorArea</name>
+        <qualifiedname>QfBookmarkProperties::colorArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="37" column="11" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1ab5c0c613efcdacfc60e9a76f7c5f8e34" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfBookmarkProperties::colorPicker</definition>
+        <argsstring></argsstring>
+        <name>colorPicker</name>
+        <qualifiedname>QfBookmarkProperties::colorPicker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="38" column="14" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a7959410f090a61826aac37df5b5bed82" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfBookmarkProperties::selectColorView</definition>
+        <argsstring></argsstring>
+        <name>selectColorView</name>
+        <qualifiedname>QfBookmarkProperties::selectColorView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="39" column="11" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkProperties_1a1c5ffaabfd4e0d84705d46dac10afbf7" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfBookmarkProperties::removeBookmarkDialog</definition>
+        <argsstring></argsstring>
+        <name>removeBookmarkDialog</name>
+        <qualifiedname>QfBookmarkProperties::removeBookmarkDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="40" column="10" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBookmarkProperties_1a6b782ef1a5804980f43796d913d387dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkProperties::updateBookmark</definition>
+        <argsstring>()</argsstring>
+        <name>updateBookmark</name>
+        <qualifiedname>QfBookmarkProperties::updateBookmark</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkProperties.qml" line="31" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>BookmarkProperties</label>
+        <link refid="classBookmarkProperties"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfBookmarkProperties</label>
+        <link refid="classQfBookmarkProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfBookmarkProperties</label>
+        <link refid="classQfBookmarkProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfBookmarkProperties.qml" line="10" column="1" bodyfile="src/gui/qml/QfBookmarkProperties.qml" bodystart="10" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classQfBookmarkProperties_1a0074b66e7cc2e46d1fc2a1bb68afff7b" prot="public" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>bookmarkDeleted</name></member>
+      <member refid="classQfBookmarkProperties_1a31fe7fe5822165e91095432f7d0abd3e" prot="public" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>bookmarkGroup</name></member>
+      <member refid="classQfBookmarkProperties_1aa5af5c77e8d7373fced7d01f3a222b9f" prot="public" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>bookmarkId</name></member>
+      <member refid="classQfBookmarkProperties_1ae24edd4862a6f032e8daff294880b675" prot="public" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>bookmarkName</name></member>
+      <member refid="classQfBookmarkProperties_1a2e03e6871d021acfa4773e5fbf989d8b" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>closePolicy</name></member>
+      <member refid="classQfBookmarkProperties_1ac33900007b59271284ae0fe449170bfb" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>colorArea</name></member>
+      <member refid="classQfBookmarkProperties_1a7d8fbce4b9865f6f63a38522eee2b7ac" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>colorContainer</name></member>
+      <member refid="classQfBookmarkProperties_1ab5c0c613efcdacfc60e9a76f7c5f8e34" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>colorPicker</name></member>
+      <member refid="classQfBookmarkProperties_1a65ebb2f946297b1494af9260eba1dd95" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>currentColorView</name></member>
+      <member refid="classQfBookmarkProperties_1aca124911e8a98d8546bbe187d7282c9f" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>focus</name></member>
+      <member refid="classQfBookmarkProperties_1ace103f361a1e0b6dd51604e294b8a01e" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>nameField</name></member>
+      <member refid="classQfBookmarkProperties_1a09dfac6ba7ba6c2527939323e4922afc" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>onAboutToHide</name></member>
+      <member refid="classQfBookmarkProperties_1ad49d93eba3c09e9c9a232c798720279f" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>onAboutToShow</name></member>
+      <member refid="classQfBookmarkProperties_1a3b8f93f8f96fb8a336706cfb10786fbc" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>parent</name></member>
+      <member refid="classQfBookmarkProperties_1a475cb22b3a668e4f2bb4d390407e4722" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>propertiesLayout</name></member>
+      <member refid="classQfBookmarkProperties_1a1c5ffaabfd4e0d84705d46dac10afbf7" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>removeBookmarkDialog</name></member>
+      <member refid="classQfBookmarkProperties_1a7959410f090a61826aac37df5b5bed82" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>selectColorView</name></member>
+      <member refid="classQfBookmarkProperties_1a6b782ef1a5804980f43796d913d387dc" prot="public" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>updateBookmark</name></member>
+      <member refid="classQfBookmarkProperties_1a90849c719f8f830bde41e6cbe7895d75" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>width</name></member>
+      <member refid="classQfBookmarkProperties_1adc5ef093c555d0800be954b6ad09d415" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>x</name></member>
+      <member refid="classQfBookmarkProperties_1ad260fb8097271c2c99d0df4c0d81422f" prot="private" virt="non-virtual"><scope>QfBookmarkProperties</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

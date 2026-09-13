@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classEgenioussDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>EgenioussDeviceChooser</compoundname>
+    <basecompoundref refid="classQfEgenioussDeviceChooser" prot="public" virt="non-virtual">QfEgenioussDeviceChooser</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>EgenioussDeviceChooser</label>
+        <link refid="classEgenioussDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfEgenioussDeviceChooser</label>
+        <link refid="classQfEgenioussDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>EgenioussDeviceChooser</label>
+        <link refid="classEgenioussDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfEgenioussDeviceChooser</label>
+        <link refid="classQfEgenioussDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/EgenioussDeviceChooser.qml" line="2" column="1" bodyfile="src/app/qml_compat/EgenioussDeviceChooser.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfEgenioussDeviceChooser_1a662a5131e9e5bc1ba346329a815b5488" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classQfEgenioussDeviceChooser_1ae6bd716587810c7f27be479dcfd82ca2" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>devicePort</name></member>
+      <member refid="classQfEgenioussDeviceChooser_1afae2e310fd51e630f48ef4bb98f82d41" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classQfEgenioussDeviceChooser_1aa809a5576bb6a3846fdd1bd567ee0c31" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classQfEgenioussDeviceChooser_1a4e1285a5f34212495b1ed1d9a29a7826" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>setSettings</name></member>
+      <member refid="classQfEgenioussDeviceChooser_1a36fb78e8d954abb1717dc1ac419c5bea" prot="public" virt="non-virtual"><scope>EgenioussDeviceChooser</scope><name>setupLoader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

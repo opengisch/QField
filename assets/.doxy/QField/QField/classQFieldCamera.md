@@ -1,0 +1,175 @@
+
+
+# Class QFieldCamera
+
+
+
+[**ClassList**](annotated.md) **>** [**QFieldCamera**](classQFieldCamera.md)
+
+
+
+
+
+
+
+
+Inherits the following classes: [QfCamera](classQfCamera.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Public Properties inherited from QfCamera
+
+See [QfCamera](classQfCamera.md)
+
+| Type | Name |
+| ---: | :--- |
+| property bool | [**allowCaptureModeToggle**](classQfCamera.md#property-allowcapturemodetoggle)  <br> |
+| property bool | [**captureLoaderActivated**](classQfCamera.md#property-captureloaderactivated)  <br> |
+| property int | [**captureOffset**](classQfCamera.md#property-captureoffset)  <br> |
+| property alias | [**currentFeature**](classQfCamera.md#property-currentfeature)  <br> |
+| property alias | [**currentLayer**](classQfCamera.md#property-currentlayer)  <br> |
+| property string | [**currentPath**](classQfCamera.md#property-currentpath)  <br> |
+| property var | [**currentPosition**](classQfCamera.md#property-currentposition)  <br> |
+| property var | [**currentProjectedPosition**](classQfCamera.md#property-currentprojectedposition)  <br> |
+| property bool | [**isCapturing**](classQfCamera.md#property-iscapturing)  <br> |
+| property bool | [**isPortraitMode**](classQfCamera.md#property-isportraitmode)  <br> |
+| property bool | [**isReady**](classQfCamera.md#property-isready)  <br> |
+| property int | [**panelExtraSpace**](classQfCamera.md#property-panelextraspace)  <br> |
+| property int | [**recordedDuration**](classQfCamera.md#property-recordedduration)  <br> |
+| property var | [**recordedPositions**](classQfCamera.md#property-recordedpositions)  <br> |
+| property color | [**shieldColor**](classQfCamera.md#property-shieldcolor)  <br> |
+| property string | [**state**](classQfCamera.md#property-state)  <br> |
+| property bool | [**subtitleRecordingActive**](classQfCamera.md#property-subtitlerecordingactive)  <br> |
+| property bool | [**userMirror**](classQfCamera.md#property-usermirror)  <br> |
+| property int | [**userRotation**](classQfCamera.md#property-userrotation)  <br> |
+
+
+
+
+
+
+
+
+## Public Signals inherited from QfCamera
+
+See [QfCamera](classQfCamera.md)
+
+| Type | Name |
+| ---: | :--- |
+| signal void | [**canceled**](classQfCamera.md#signal-canceled)  <br> |
+| signal void | [**finished**](classQfCamera.md#signal-finished) (string path) <br> |
+
+
+
+
+
+
+
+
+## Public Functions inherited from QfCamera
+
+See [QfCamera](classQfCamera.md)
+
+| Type | Name |
+| ---: | :--- |
+|  void | [**discardCapture**](classQfCamera.md#function-discardcapture) () <br> |
+|  void | [**recordSubtitlePosition**](classQfCamera.md#function-recordsubtitleposition) () <br> |
+|  void | [**requiredPermissionsGranted**](classQfCamera.md#function-requiredpermissionsgranted) () <br> |
+|  void | [**tryActivateCaptureLoader**](classQfCamera.md#function-tryactivatecaptureloader) () <br> |
+|  void | [**videoResolutionForQuality**](classQfCamera.md#function-videoresolutionforquality) (cameraResolution, quality) <br> |
+|  void | [**writeSubtitleFile**](classQfCamera.md#function-writesubtitlefile) (path) <br> |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------
+The documentation for this class was generated from the following file `src/app/qml_compat/QFieldCamera.qml`
+

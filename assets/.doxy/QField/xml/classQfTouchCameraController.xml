@@ -1,0 +1,822 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTouchCameraController" kind="class" language="C++" prot="public">
+    <compoundname>QfTouchCameraController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTouchCameraController_1a39c5f794bb6bcb751debcbf91c193cf7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>PerspectiveCamera</type>
+        <definition>PerspectiveCamera QfTouchCameraController::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <qualifiedname>QfTouchCameraController::camera</qualifiedname>
+        <read>dummyGetter_camera_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="9" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1afd193e1c4cccffccbe259d5e20c0a502" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTouchCameraController::extentMode</definition>
+        <argsstring></argsstring>
+        <name>extentMode</name>
+        <qualifiedname>QfTouchCameraController::extentMode</qualifiedname>
+        <read>dummyGetter_extentMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="23" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a3fbeb849b6311ff171f7276dc9d229bf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>vector3d</type>
+        <definition>vector3d QfTouchCameraController::target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <qualifiedname>QfTouchCameraController::target</qualifiedname>
+        <read>dummyGetter_target_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="25" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a0867fa60a2ec263902b240c0eda2d7d9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <qualifiedname>QfTouchCameraController::distance</qualifiedname>
+        <read>dummyGetter_distance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="27" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a213139759df83dce6b4d5eb4f8686108" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::yaw</definition>
+        <argsstring></argsstring>
+        <name>yaw</name>
+        <qualifiedname>QfTouchCameraController::yaw</qualifiedname>
+        <read>dummyGetter_yaw_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="29" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a140b65b4f30a98de11d5a0cd0250deea" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <qualifiedname>QfTouchCameraController::pitch</qualifiedname>
+        <read>dummyGetter_pitch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="31" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a31ca0d6deebaca9f62329e2a29ac4830" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::defaultDistance</definition>
+        <argsstring></argsstring>
+        <name>defaultDistance</name>
+        <qualifiedname>QfTouchCameraController::defaultDistance</qualifiedname>
+        <read>dummyGetter_defaultDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="33" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a59060f0645ddc5724424a44fe70123c3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::defaultYaw</definition>
+        <argsstring></argsstring>
+        <name>defaultYaw</name>
+        <qualifiedname>QfTouchCameraController::defaultYaw</qualifiedname>
+        <read>dummyGetter_defaultYaw_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="35" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a1ba2c99b628c9cf4ff548d3bf981cf6c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::defaultPitch</definition>
+        <argsstring></argsstring>
+        <name>defaultPitch</name>
+        <qualifiedname>QfTouchCameraController::defaultPitch</qualifiedname>
+        <read>dummyGetter_defaultPitch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="37" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1ac67cce4138f1a81f310e2eaaa5ffc0f3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::minDistance</definition>
+        <argsstring></argsstring>
+        <name>minDistance</name>
+        <qualifiedname>QfTouchCameraController::minDistance</qualifiedname>
+        <read>dummyGetter_minDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="39" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1ac993e62bf6f1c9bf1d46fcc8d217ad49" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::maxDistance</definition>
+        <argsstring></argsstring>
+        <name>maxDistance</name>
+        <qualifiedname>QfTouchCameraController::maxDistance</qualifiedname>
+        <read>dummyGetter_maxDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="41" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a14f4651b90b68aa6eb87e7070acccbdb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::minPitch</definition>
+        <argsstring></argsstring>
+        <name>minPitch</name>
+        <qualifiedname>QfTouchCameraController::minPitch</qualifiedname>
+        <read>dummyGetter_minPitch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="43" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1ab8d02218263af904d21f1b16e1e20f99" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::maxPitch</definition>
+        <argsstring></argsstring>
+        <name>maxPitch</name>
+        <qualifiedname>QfTouchCameraController::maxPitch</qualifiedname>
+        <read>dummyGetter_maxPitch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="45" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1afc59175f41d8004b68ef3da81bb6e9ec" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::orbitSensitivity</definition>
+        <argsstring></argsstring>
+        <name>orbitSensitivity</name>
+        <qualifiedname>QfTouchCameraController::orbitSensitivity</qualifiedname>
+        <read>dummyGetter_orbitSensitivity_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="47" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a7d9421064007673f559cf1790a1e4396" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::targetX</definition>
+        <argsstring></argsstring>
+        <name>targetX</name>
+        <qualifiedname>QfTouchCameraController::targetX</qualifiedname>
+        <read>dummyGetter_targetX_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="49" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a8c8599ef707174e2c113922df06b4622" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::targetY</definition>
+        <argsstring></argsstring>
+        <name>targetY</name>
+        <qualifiedname>QfTouchCameraController::targetY</qualifiedname>
+        <read>dummyGetter_targetY_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="51" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTouchCameraController_1a98ddc3e9ba55be74418d47f46e05c7f6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfTouchCameraController::targetZ</definition>
+        <argsstring></argsstring>
+        <name>targetZ</name>
+        <qualifiedname>QfTouchCameraController::targetZ</qualifiedname>
+        <read>dummyGetter_targetZ_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="53" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTouchCameraController_1a337a5a373e504a2ea8e3def3fc6a8f04" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfTouchCameraController::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfTouchCameraController::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="55" column="14" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1ad3598ce893e79b73b8ed0fa31c0b3181" prot="private" static="no" mutable="no">
+        <type>ParallelAnimation</type>
+        <definition>ParallelAnimation QfTouchCameraController::cameraAnimation</definition>
+        <argsstring></argsstring>
+        <name>cameraAnimation</name>
+        <qualifiedname>QfTouchCameraController::cameraAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="74" column="19" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1af007dbeb719a8ef14109a18d2fe6b9a2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTouchCameraController::onTargetXChanged</definition>
+        <argsstring></argsstring>
+        <name>onTargetXChanged</name>
+        <qualifiedname>QfTouchCameraController::onTargetXChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="75" column="5" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1a73ab8cb04be0531f9f37f019d4321879" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTouchCameraController::onTargetYChanged</definition>
+        <argsstring></argsstring>
+        <name>onTargetYChanged</name>
+        <qualifiedname>QfTouchCameraController::onTargetYChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="76" column="5" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1a2bf1489d7cef4a3f8b5027ce5e748c9b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTouchCameraController::onTargetZChanged</definition>
+        <argsstring></argsstring>
+        <name>onTargetZChanged</name>
+        <qualifiedname>QfTouchCameraController::onTargetZChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="77" column="5" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1ade95f79cebbeb365b13c5234c250d7ea" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTouchCameraController::onYawChanged</definition>
+        <argsstring></argsstring>
+        <name>onYawChanged</name>
+        <qualifiedname>QfTouchCameraController::onYawChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="78" column="5" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1a3e2d3e90a754d861f1ae93528e347788" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTouchCameraController::onPitchChanged</definition>
+        <argsstring></argsstring>
+        <name>onPitchChanged</name>
+        <qualifiedname>QfTouchCameraController::onPitchChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="79" column="5" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1ac7ca68480e683ab77ba5cddd8a6d66e6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTouchCameraController::onDistanceChanged</definition>
+        <argsstring></argsstring>
+        <name>onDistanceChanged</name>
+        <qualifiedname>QfTouchCameraController::onDistanceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="80" column="5" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1abe4648a9a6f31016529377ebfaf274ba" prot="private" static="no" mutable="no">
+        <type>TapHandler</type>
+        <definition>TapHandler QfTouchCameraController::tapHandler</definition>
+        <argsstring></argsstring>
+        <name>tapHandler</name>
+        <qualifiedname>QfTouchCameraController::tapHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="81" column="12" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1a4ecc81b7b078b2c464da13fe913ff248" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler QfTouchCameraController::orbitDragHandler</definition>
+        <argsstring></argsstring>
+        <name>orbitDragHandler</name>
+        <qualifiedname>QfTouchCameraController::orbitDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="82" column="13" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1a013666cbaa45f43c0241a0fa3c9e681f" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler QfTouchCameraController::panDragHandler</definition>
+        <argsstring></argsstring>
+        <name>panDragHandler</name>
+        <qualifiedname>QfTouchCameraController::panDragHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="83" column="13" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1a1959a1a30c4e76ebb066b0e1adfe1bc9" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler QfTouchCameraController::touchOrbitHandler</definition>
+        <argsstring></argsstring>
+        <name>touchOrbitHandler</name>
+        <qualifiedname>QfTouchCameraController::touchOrbitHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="84" column="13" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1ac40087f80ffd831ebcbd46bcc948097e" prot="private" static="no" mutable="no">
+        <type>PinchHandler</type>
+        <definition>PinchHandler QfTouchCameraController::pinchHandler</definition>
+        <argsstring></argsstring>
+        <name>pinchHandler</name>
+        <qualifiedname>QfTouchCameraController::pinchHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="85" column="14" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1aea932c3ede88d579404b328ab5b7da5d" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfTouchCameraController::mouseAreaTimer</definition>
+        <argsstring></argsstring>
+        <name>mouseAreaTimer</name>
+        <qualifiedname>QfTouchCameraController::mouseAreaTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="86" column="7" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1aeb331f9f573bf5802c4d5cc52089eb7e" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea QfTouchCameraController::mouseArea</definition>
+        <argsstring></argsstring>
+        <name>mouseArea</name>
+        <qualifiedname>QfTouchCameraController::mouseArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="87" column="11" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTouchCameraController_1aa46a9bc03227baf6fb092ba815512386" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler QfTouchCameraController::extentPanHandler</definition>
+        <argsstring></argsstring>
+        <name>extentPanHandler</name>
+        <qualifiedname>QfTouchCameraController::extentPanHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="88" column="13" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="88" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfTouchCameraController_1aaaf1d88c736b15dc1ccacdf8f7c731c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::singleTapped</definition>
+        <argsstring>(real x, real y)</argsstring>
+        <name>singleTapped</name>
+        <qualifiedname>QfTouchCameraController::singleTapped</qualifiedname>
+        <param>
+          <type>real</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="11" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTouchCameraController_1af6839d60a9beec73abff95588f5c4cf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::userInteractionStarted</definition>
+        <argsstring>()</argsstring>
+        <name>userInteractionStarted</name>
+        <qualifiedname>QfTouchCameraController::userInteractionStarted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="13" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTouchCameraController_1ad626f46e1004586c67b500f14421d211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::extentPan</definition>
+        <argsstring>(real sceneX, real sceneZ)</argsstring>
+        <name>extentPan</name>
+        <qualifiedname>QfTouchCameraController::extentPan</qualifiedname>
+        <param>
+          <type>real</type>
+          <declname>sceneX</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>sceneZ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTouchCameraController_1a4f1b16d58dcc95e7850b4833a6b2683e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::extentPanFinished</definition>
+        <argsstring>()</argsstring>
+        <name>extentPanFinished</name>
+        <qualifiedname>QfTouchCameraController::extentPanFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="17" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTouchCameraController_1a6807d8d711a0a09ee0621f901c3f6a0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::extentZoom</definition>
+        <argsstring>(real factor)</argsstring>
+        <name>extentZoom</name>
+        <qualifiedname>QfTouchCameraController::extentZoom</qualifiedname>
+        <param>
+          <type>real</type>
+          <declname>factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="19" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTouchCameraController_1a9c378abe6e674b40513d360bb5ce19b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::extentZoomFinished</definition>
+        <argsstring>()</argsstring>
+        <name>extentZoomFinished</name>
+        <qualifiedname>QfTouchCameraController::extentZoomFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="21" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfTouchCameraController_1a32e58869ebebdf195bad4ba3fade76a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::updateCameraPosition</definition>
+        <argsstring>()</argsstring>
+        <name>updateCameraPosition</name>
+        <qualifiedname>QfTouchCameraController::updateCameraPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="58" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTouchCameraController_1af1461a338b860518e82bed9f5b016269" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::resetView</definition>
+        <argsstring>()</argsstring>
+        <name>resetView</name>
+        <qualifiedname>QfTouchCameraController::resetView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="60" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTouchCameraController_1a273ad320d7b9bf8419952cca28154a5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::zoomToFit</definition>
+        <argsstring>(center, radius)</argsstring>
+        <name>zoomToFit</name>
+        <qualifiedname>QfTouchCameraController::zoomToFit</qualifiedname>
+        <param>
+          <type>center</type>
+        </param>
+        <param>
+          <type>radius</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="62" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTouchCameraController_1af8f46574d858481e9f28681783a9e04e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::lookAtPoint</definition>
+        <argsstring>(point, zoomDistance)</argsstring>
+        <name>lookAtPoint</name>
+        <qualifiedname>QfTouchCameraController::lookAtPoint</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>zoomDistance</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="64" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTouchCameraController_1a38403de793ef7fe8f3a03a3006cf90d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::flyTo</definition>
+        <argsstring>(newTarget, newDistance, newYaw, newPitch)</argsstring>
+        <name>flyTo</name>
+        <qualifiedname>QfTouchCameraController::flyTo</qualifiedname>
+        <param>
+          <type>newTarget</type>
+        </param>
+        <param>
+          <type>newDistance</type>
+        </param>
+        <param>
+          <type>newYaw</type>
+        </param>
+        <param>
+          <type>newPitch</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="66" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTouchCameraController_1a4512c7b78333e31f077c23fdb57cf777" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::clampPitch</definition>
+        <argsstring>(value)</argsstring>
+        <name>clampPitch</name>
+        <qualifiedname>QfTouchCameraController::clampPitch</qualifiedname>
+        <param>
+          <type>value</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="68" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTouchCameraController_1a39c6cf88dd7808368d7d90156b86feca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::clampDistance</definition>
+        <argsstring>(value)</argsstring>
+        <name>clampDistance</name>
+        <qualifiedname>QfTouchCameraController::clampDistance</qualifiedname>
+        <param>
+          <type>value</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="70" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTouchCameraController_1af28a1c21053916b7c7e4f9dc4b76ef1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTouchCameraController::applyPan</definition>
+        <argsstring>(dx, dy)</argsstring>
+        <name>applyPan</name>
+        <qualifiedname>QfTouchCameraController::applyPan</qualifiedname>
+        <param>
+          <type>dx</type>
+        </param>
+        <param>
+          <type>dy</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfTouchCameraController.qml" line="72" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfTouchCameraController</label>
+        <link refid="classQfTouchCameraController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfTouchCameraController</label>
+        <link refid="classQfTouchCameraController"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qml/QfTouchCameraController.qml" line="6" column="1" bodyfile="src/3d/qml/QfTouchCameraController.qml" bodystart="6" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classQfTouchCameraController_1af28a1c21053916b7c7e4f9dc4b76ef1a" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>applyPan</name></member>
+      <member refid="classQfTouchCameraController_1a39c5f794bb6bcb751debcbf91c193cf7" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>camera</name></member>
+      <member refid="classQfTouchCameraController_1ad3598ce893e79b73b8ed0fa31c0b3181" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>cameraAnimation</name></member>
+      <member refid="classQfTouchCameraController_1a39c6cf88dd7808368d7d90156b86feca" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>clampDistance</name></member>
+      <member refid="classQfTouchCameraController_1a4512c7b78333e31f077c23fdb57cf777" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>clampPitch</name></member>
+      <member refid="classQfTouchCameraController_1a31ca0d6deebaca9f62329e2a29ac4830" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>defaultDistance</name></member>
+      <member refid="classQfTouchCameraController_1a1ba2c99b628c9cf4ff548d3bf981cf6c" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>defaultPitch</name></member>
+      <member refid="classQfTouchCameraController_1a59060f0645ddc5724424a44fe70123c3" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>defaultYaw</name></member>
+      <member refid="classQfTouchCameraController_1a0867fa60a2ec263902b240c0eda2d7d9" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>distance</name></member>
+      <member refid="classQfTouchCameraController_1afd193e1c4cccffccbe259d5e20c0a502" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>extentMode</name></member>
+      <member refid="classQfTouchCameraController_1ad626f46e1004586c67b500f14421d211" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>extentPan</name></member>
+      <member refid="classQfTouchCameraController_1a4f1b16d58dcc95e7850b4833a6b2683e" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>extentPanFinished</name></member>
+      <member refid="classQfTouchCameraController_1aa46a9bc03227baf6fb092ba815512386" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>extentPanHandler</name></member>
+      <member refid="classQfTouchCameraController_1a6807d8d711a0a09ee0621f901c3f6a0e" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>extentZoom</name></member>
+      <member refid="classQfTouchCameraController_1a9c378abe6e674b40513d360bb5ce19b0" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>extentZoomFinished</name></member>
+      <member refid="classQfTouchCameraController_1a38403de793ef7fe8f3a03a3006cf90d3" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>flyTo</name></member>
+      <member refid="classQfTouchCameraController_1af8f46574d858481e9f28681783a9e04e" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>lookAtPoint</name></member>
+      <member refid="classQfTouchCameraController_1ac993e62bf6f1c9bf1d46fcc8d217ad49" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>maxDistance</name></member>
+      <member refid="classQfTouchCameraController_1ab8d02218263af904d21f1b16e1e20f99" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>maxPitch</name></member>
+      <member refid="classQfTouchCameraController_1ac67cce4138f1a81f310e2eaaa5ffc0f3" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>minDistance</name></member>
+      <member refid="classQfTouchCameraController_1a14f4651b90b68aa6eb87e7070acccbdb" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>minPitch</name></member>
+      <member refid="classQfTouchCameraController_1aeb331f9f573bf5802c4d5cc52089eb7e" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>mouseArea</name></member>
+      <member refid="classQfTouchCameraController_1aea932c3ede88d579404b328ab5b7da5d" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>mouseAreaTimer</name></member>
+      <member refid="classQfTouchCameraController_1a337a5a373e504a2ea8e3def3fc6a8f04" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>onCompleted</name></member>
+      <member refid="classQfTouchCameraController_1ac7ca68480e683ab77ba5cddd8a6d66e6" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>onDistanceChanged</name></member>
+      <member refid="classQfTouchCameraController_1a3e2d3e90a754d861f1ae93528e347788" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>onPitchChanged</name></member>
+      <member refid="classQfTouchCameraController_1af007dbeb719a8ef14109a18d2fe6b9a2" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>onTargetXChanged</name></member>
+      <member refid="classQfTouchCameraController_1a73ab8cb04be0531f9f37f019d4321879" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>onTargetYChanged</name></member>
+      <member refid="classQfTouchCameraController_1a2bf1489d7cef4a3f8b5027ce5e748c9b" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>onTargetZChanged</name></member>
+      <member refid="classQfTouchCameraController_1ade95f79cebbeb365b13c5234c250d7ea" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>onYawChanged</name></member>
+      <member refid="classQfTouchCameraController_1a4ecc81b7b078b2c464da13fe913ff248" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>orbitDragHandler</name></member>
+      <member refid="classQfTouchCameraController_1afc59175f41d8004b68ef3da81bb6e9ec" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>orbitSensitivity</name></member>
+      <member refid="classQfTouchCameraController_1a013666cbaa45f43c0241a0fa3c9e681f" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>panDragHandler</name></member>
+      <member refid="classQfTouchCameraController_1ac40087f80ffd831ebcbd46bcc948097e" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>pinchHandler</name></member>
+      <member refid="classQfTouchCameraController_1a140b65b4f30a98de11d5a0cd0250deea" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>pitch</name></member>
+      <member refid="classQfTouchCameraController_1af1461a338b860518e82bed9f5b016269" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>resetView</name></member>
+      <member refid="classQfTouchCameraController_1aaaf1d88c736b15dc1ccacdf8f7c731c8" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>singleTapped</name></member>
+      <member refid="classQfTouchCameraController_1abe4648a9a6f31016529377ebfaf274ba" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>tapHandler</name></member>
+      <member refid="classQfTouchCameraController_1a3fbeb849b6311ff171f7276dc9d229bf" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>target</name></member>
+      <member refid="classQfTouchCameraController_1a7d9421064007673f559cf1790a1e4396" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>targetX</name></member>
+      <member refid="classQfTouchCameraController_1a8c8599ef707174e2c113922df06b4622" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>targetY</name></member>
+      <member refid="classQfTouchCameraController_1a98ddc3e9ba55be74418d47f46e05c7f6" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>targetZ</name></member>
+      <member refid="classQfTouchCameraController_1a1959a1a30c4e76ebb066b0e1adfe1bc9" prot="private" virt="non-virtual"><scope>QfTouchCameraController</scope><name>touchOrbitHandler</name></member>
+      <member refid="classQfTouchCameraController_1a32e58869ebebdf195bad4ba3fade76a4" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>updateCameraPosition</name></member>
+      <member refid="classQfTouchCameraController_1af6839d60a9beec73abff95588f5c4cf9" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>userInteractionStarted</name></member>
+      <member refid="classQfTouchCameraController_1a213139759df83dce6b4d5eb4f8686108" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>yaw</name></member>
+      <member refid="classQfTouchCameraController_1a273ad320d7b9bf8419952cca28154a5b" prot="public" virt="non-virtual"><scope>QfTouchCameraController</scope><name>zoomToFit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,524 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfToast" kind="class" language="C++" prot="public">
+    <compoundname>QfToast</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Popup</basecompoundref>
+    <derivedcompoundref refid="classToast" prot="public" virt="non-virtual">Toast</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfToast_1acb0d1fc01abebf4d9c9b6184c2751346" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfToast::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QfToast::type</qualifiedname>
+        <read>dummyGetter_type_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="12" column="1" bodyfile="src/gui/qml/QfToast.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToast_1a397f3986320430dbce27159681343fb2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfToast::edgeSpacing</definition>
+        <argsstring></argsstring>
+        <name>edgeSpacing</name>
+        <qualifiedname>QfToast::edgeSpacing</qualifiedname>
+        <read>dummyGetter_edgeSpacing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="14" column="1" bodyfile="src/gui/qml/QfToast.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToast_1a6ac724786dbfe4ab6d8165cf4af515c2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfToast::bottomSpacing</definition>
+        <argsstring></argsstring>
+        <name>bottomSpacing</name>
+        <qualifiedname>QfToast::bottomSpacing</qualifiedname>
+        <read>dummyGetter_bottomSpacing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="16" column="1" bodyfile="src/gui/qml/QfToast.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToast_1af5701348da83854fe8a2d267a235ebfe" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfToast::act</definition>
+        <argsstring></argsstring>
+        <name>act</name>
+        <qualifiedname>QfToast::act</qualifiedname>
+        <read>dummyGetter_act_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="18" column="1" bodyfile="src/gui/qml/QfToast.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToast_1a86a7c6842792326d1db182ba51b11999" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfToast::timeoutAct</definition>
+        <argsstring></argsstring>
+        <name>timeoutAct</name>
+        <qualifiedname>QfToast::timeoutAct</qualifiedname>
+        <read>dummyGetter_timeoutAct_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="20" column="1" bodyfile="src/gui/qml/QfToast.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToast_1a4c956a310196f2a06065b027f80db083" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfToast::timeoutFeedback</definition>
+        <argsstring></argsstring>
+        <name>timeoutFeedback</name>
+        <qualifiedname>QfToast::timeoutFeedback</qualifiedname>
+        <read>dummyGetter_timeoutFeedback_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="22" column="1" bodyfile="src/gui/qml/QfToast.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToast_1ab183f3d699737b910a5f7897b66e48cb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfToast::virtualKeyboardHeight</definition>
+        <argsstring></argsstring>
+        <name>virtualKeyboardHeight</name>
+        <qualifiedname>QfToast::virtualKeyboardHeight</qualifiedname>
+        <read>dummyGetter_virtualKeyboardHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="24" column="1" bodyfile="src/gui/qml/QfToast.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfToast_1ac590d74d1d7972227f47a0e12b5159b5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfToast::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="26" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a524857ae6b4458601f33e68b572d84d1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfToast::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="27" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a63604175d780303cdeed13adf000379c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>QfToast::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="28" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1add4356ed34bba3d1fcdd5f3bd2606270" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfToast::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="29" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1af1826dd6987041d592cd2d03b45d88e2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfToast::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="30" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a1860dfe75fecd41d8992fb93ebe4bb11" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>QfToast::topMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="31" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1ae665c1c6075c4a39d5e53f73d50b397f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::leftMargin</definition>
+        <argsstring></argsstring>
+        <name>leftMargin</name>
+        <qualifiedname>QfToast::leftMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="32" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a5d7f1a0d1573ed0609ae294ef18b266a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>QfToast::rightMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="33" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a66ab1dc123d98fb33ef4e19950be8f3b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>QfToast::bottomMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="34" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a8e3dc3b56cc7ad1b63046c37fa5a7041" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfToast::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="35" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a861bf2523b15662c707c8fc72ce05023" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfToast::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="36" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a3b13b6461d34fe0cea4c29f0901ce837" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfToast::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="37" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a8da97a9063d19119a08e884907c4ccff" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToast::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>QfToast::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="38" column="5" bodyfile="src/gui/qml/QfToast.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a426f97f5892276e3d4639e0b4d376f88" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfToast::toastContent</definition>
+        <argsstring></argsstring>
+        <name>toastContent</name>
+        <qualifiedname>QfToast::toastContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="39" column="11" bodyfile="src/gui/qml/QfToast.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1afee29dd3e7fb47800e7e9a27e6c2e0e5" prot="private" static="no" mutable="no">
+        <type>ProgressBar</type>
+        <definition>ProgressBar QfToast::animationProgressBar</definition>
+        <argsstring></argsstring>
+        <name>animationProgressBar</name>
+        <qualifiedname>QfToast::animationProgressBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="40" column="13" bodyfile="src/gui/qml/QfToast.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a04d8a9168dbf4548f7f509c35d683588" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfToast::toastIndicator</definition>
+        <argsstring></argsstring>
+        <name>toastIndicator</name>
+        <qualifiedname>QfToast::toastIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="41" column="11" bodyfile="src/gui/qml/QfToast.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a7ee03a17aae2db82e5a55cbff7f3c9fd" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout QfToast::toastLayout</definition>
+        <argsstring></argsstring>
+        <name>toastLayout</name>
+        <qualifiedname>QfToast::toastLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="42" column="12" bodyfile="src/gui/qml/QfToast.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a4a61616ab02cc05b566ed3e2d0b598e7" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfToast::toastMessage</definition>
+        <argsstring></argsstring>
+        <name>toastMessage</name>
+        <qualifiedname>QfToast::toastMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="43" column="6" bodyfile="src/gui/qml/QfToast.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1af6fbb5d16ac775a39e016cc21353d96a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfToast::toastAction</definition>
+        <argsstring></argsstring>
+        <name>toastAction</name>
+        <qualifiedname>QfToast::toastAction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="44" column="10" bodyfile="src/gui/qml/QfToast.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1ae2b333731b9c633c870249f00d564eea" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfToast::toastFontMetrics</definition>
+        <argsstring></argsstring>
+        <name>toastFontMetrics</name>
+        <qualifiedname>QfToast::toastFontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="45" column="13" bodyfile="src/gui/qml/QfToast.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a8311d0df690c1205203c47c7a3a5e2af" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfToast::animationTimer</definition>
+        <argsstring></argsstring>
+        <name>animationTimer</name>
+        <qualifiedname>QfToast::animationTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="46" column="7" bodyfile="src/gui/qml/QfToast.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToast_1a1ccbb6547ab1e66093e58a46463af5c0" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfToast::toastTimer</definition>
+        <argsstring></argsstring>
+        <name>toastTimer</name>
+        <qualifiedname>QfToast::toastTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="47" column="7" bodyfile="src/gui/qml/QfToast.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfToast_1a32b6ef440abb4fe833376e5fbc9391d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfToast::show</definition>
+        <argsstring>(text, type, action_text, action_function, timeout_feedback, timeout_function)</argsstring>
+        <name>show</name>
+        <qualifiedname>QfToast::show</qualifiedname>
+        <param>
+          <type>text</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <param>
+          <type>action_text</type>
+        </param>
+        <param>
+          <type>action_function</type>
+        </param>
+        <param>
+          <type>timeout_feedback</type>
+        </param>
+        <param>
+          <type>timeout_function</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToast.qml" line="50" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfToast</label>
+        <link refid="classQfToast"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Toast</label>
+        <link refid="classToast"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfToast</label>
+        <link refid="classQfToast"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfToast.qml" line="9" column="1" bodyfile="src/gui/qml/QfToast.qml" bodystart="9" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classQfToast_1af5701348da83854fe8a2d267a235ebfe" prot="public" virt="non-virtual"><scope>QfToast</scope><name>act</name></member>
+      <member refid="classQfToast_1afee29dd3e7fb47800e7e9a27e6c2e0e5" prot="private" virt="non-virtual"><scope>QfToast</scope><name>animationProgressBar</name></member>
+      <member refid="classQfToast_1a8311d0df690c1205203c47c7a3a5e2af" prot="private" virt="non-virtual"><scope>QfToast</scope><name>animationTimer</name></member>
+      <member refid="classQfToast_1a3b13b6461d34fe0cea4c29f0901ce837" prot="private" virt="non-virtual"><scope>QfToast</scope><name>background</name></member>
+      <member refid="classQfToast_1a66ab1dc123d98fb33ef4e19950be8f3b" prot="private" virt="non-virtual"><scope>QfToast</scope><name>bottomMargin</name></member>
+      <member refid="classQfToast_1a6ac724786dbfe4ab6d8165cf4af515c2" prot="public" virt="non-virtual"><scope>QfToast</scope><name>bottomSpacing</name></member>
+      <member refid="classQfToast_1a861bf2523b15662c707c8fc72ce05023" prot="private" virt="non-virtual"><scope>QfToast</scope><name>closePolicy</name></member>
+      <member refid="classQfToast_1a397f3986320430dbce27159681343fb2" prot="public" virt="non-virtual"><scope>QfToast</scope><name>edgeSpacing</name></member>
+      <member refid="classQfToast_1af1826dd6987041d592cd2d03b45d88e2" prot="private" virt="non-virtual"><scope>QfToast</scope><name>height</name></member>
+      <member refid="classQfToast_1ae665c1c6075c4a39d5e53f73d50b397f" prot="private" virt="non-virtual"><scope>QfToast</scope><name>leftMargin</name></member>
+      <member refid="classQfToast_1a8da97a9063d19119a08e884907c4ccff" prot="private" virt="non-virtual"><scope>QfToast</scope><name>onClosed</name></member>
+      <member refid="classQfToast_1a8e3dc3b56cc7ad1b63046c37fa5a7041" prot="private" virt="non-virtual"><scope>QfToast</scope><name>padding</name></member>
+      <member refid="classQfToast_1a5d7f1a0d1573ed0609ae294ef18b266a" prot="private" virt="non-virtual"><scope>QfToast</scope><name>rightMargin</name></member>
+      <member refid="classQfToast_1a32b6ef440abb4fe833376e5fbc9391d8" prot="public" virt="non-virtual"><scope>QfToast</scope><name>show</name></member>
+      <member refid="classQfToast_1a86a7c6842792326d1db182ba51b11999" prot="public" virt="non-virtual"><scope>QfToast</scope><name>timeoutAct</name></member>
+      <member refid="classQfToast_1a4c956a310196f2a06065b027f80db083" prot="public" virt="non-virtual"><scope>QfToast</scope><name>timeoutFeedback</name></member>
+      <member refid="classQfToast_1af6fbb5d16ac775a39e016cc21353d96a" prot="private" virt="non-virtual"><scope>QfToast</scope><name>toastAction</name></member>
+      <member refid="classQfToast_1a426f97f5892276e3d4639e0b4d376f88" prot="private" virt="non-virtual"><scope>QfToast</scope><name>toastContent</name></member>
+      <member refid="classQfToast_1ae2b333731b9c633c870249f00d564eea" prot="private" virt="non-virtual"><scope>QfToast</scope><name>toastFontMetrics</name></member>
+      <member refid="classQfToast_1a04d8a9168dbf4548f7f509c35d683588" prot="private" virt="non-virtual"><scope>QfToast</scope><name>toastIndicator</name></member>
+      <member refid="classQfToast_1a7ee03a17aae2db82e5a55cbff7f3c9fd" prot="private" virt="non-virtual"><scope>QfToast</scope><name>toastLayout</name></member>
+      <member refid="classQfToast_1a4a61616ab02cc05b566ed3e2d0b598e7" prot="private" virt="non-virtual"><scope>QfToast</scope><name>toastMessage</name></member>
+      <member refid="classQfToast_1a1ccbb6547ab1e66093e58a46463af5c0" prot="private" virt="non-virtual"><scope>QfToast</scope><name>toastTimer</name></member>
+      <member refid="classQfToast_1a1860dfe75fecd41d8992fb93ebe4bb11" prot="private" virt="non-virtual"><scope>QfToast</scope><name>topMargin</name></member>
+      <member refid="classQfToast_1acb0d1fc01abebf4d9c9b6184c2751346" prot="public" virt="non-virtual"><scope>QfToast</scope><name>type</name></member>
+      <member refid="classQfToast_1ab183f3d699737b910a5f7897b66e48cb" prot="public" virt="non-virtual"><scope>QfToast</scope><name>virtualKeyboardHeight</name></member>
+      <member refid="classQfToast_1add4356ed34bba3d1fcdd5f3bd2606270" prot="private" virt="non-virtual"><scope>QfToast</scope><name>width</name></member>
+      <member refid="classQfToast_1ac590d74d1d7972227f47a0e12b5159b5" prot="private" virt="non-virtual"><scope>QfToast</scope><name>x</name></member>
+      <member refid="classQfToast_1a524857ae6b4458601f33e68b572d84d1" prot="private" virt="non-virtual"><scope>QfToast</scope><name>y</name></member>
+      <member refid="classQfToast_1a63604175d780303cdeed13adf000379c" prot="private" virt="non-virtual"><scope>QfToast</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

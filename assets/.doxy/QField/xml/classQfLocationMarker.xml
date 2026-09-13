@@ -1,0 +1,490 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLocationMarker" kind="class" language="C++" prot="public">
+    <compoundname>QfLocationMarker</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classLocationMarker" prot="public" virt="non-virtual">LocationMarker</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLocationMarker_1a69b845f8c9151665fabd0eba224885af" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfLocationMarker::location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <qualifiedname>QfLocationMarker::location</qualifiedname>
+        <read>dummyGetter_location_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="13" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a352c003c1b7887aee6c5cf4b08744141" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>point</type>
+        <definition>point QfLocationMarker::screenLocation</definition>
+        <argsstring></argsstring>
+        <name>screenLocation</name>
+        <qualifiedname>QfLocationMarker::screenLocation</qualifiedname>
+        <read>dummyGetter_screenLocation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="15" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a2e18e23b7251fbc7035b7c2f9ebd5e95" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfLocationMarker::screenAccuracy</definition>
+        <argsstring></argsstring>
+        <name>screenAccuracy</name>
+        <qualifiedname>QfLocationMarker::screenAccuracy</qualifiedname>
+        <read>dummyGetter_screenAccuracy_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="17" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1ab91bacb4eb347fb78c66458fc29da2aa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLocationMarker::isOnMapCanvas</definition>
+        <argsstring></argsstring>
+        <name>isOnMapCanvas</name>
+        <qualifiedname>QfLocationMarker::isOnMapCanvas</qualifiedname>
+        <read>dummyGetter_isOnMapCanvas_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="20" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a622626a38ae029202bea85fbc634d728" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLocationMarker::bubbleVisible</definition>
+        <argsstring></argsstring>
+        <name>bubbleVisible</name>
+        <qualifiedname>QfLocationMarker::bubbleVisible</qualifiedname>
+        <read>dummyGetter_bubbleVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="22" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a4116ff2bde008f441304bba4b770ea41" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfLocationMarker::bubbleText</definition>
+        <argsstring></argsstring>
+        <name>bubbleText</name>
+        <qualifiedname>QfLocationMarker::bubbleText</qualifiedname>
+        <read>dummyGetter_bubbleText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="24" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1ae507a02a49903bbc0bbddae0bbdb9dc3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfLocationMarker::bubbleTextColor</definition>
+        <argsstring></argsstring>
+        <name>bubbleTextColor</name>
+        <qualifiedname>QfLocationMarker::bubbleTextColor</qualifiedname>
+        <read>dummyGetter_bubbleTextColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="26" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1ab28c245a752c409eafcd35bf2f793a4a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfLocationMarker::bubbleColor</definition>
+        <argsstring></argsstring>
+        <name>bubbleColor</name>
+        <qualifiedname>QfLocationMarker::bubbleColor</qualifiedname>
+        <read>dummyGetter_bubbleColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="28" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a809cee59d16f001d0daa06570b0d1c7a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfLocationMarker::bubbleAction</definition>
+        <argsstring></argsstring>
+        <name>bubbleAction</name>
+        <qualifiedname>QfLocationMarker::bubbleAction</qualifiedname>
+        <read>dummyGetter_bubbleAction_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="30" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1aba1cecb6fedde39fed0046404d559302" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfLocationMarker::accuracy</definition>
+        <argsstring></argsstring>
+        <name>accuracy</name>
+        <qualifiedname>QfLocationMarker::accuracy</qualifiedname>
+        <read>dummyGetter_accuracy_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="32" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1ad2153bd4aba8514131fa85742c82d22f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfLocationMarker::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>QfLocationMarker::direction</qualifiedname>
+        <read>dummyGetter_direction_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="34" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a18071b4caeaae6a81159cac973ac1131" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfLocationMarker::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>QfLocationMarker::speed</qualifiedname>
+        <read>dummyGetter_speed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="36" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a2e0ae04a9977a319d088ea78c9df3251" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfLocationMarker::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <qualifiedname>QfLocationMarker::orientation</qualifiedname>
+        <read>dummyGetter_orientation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="38" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a4cf07a669c8ab22a4ac342c2bdc911ae" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfLocationMarker::sizeScale</definition>
+        <argsstring></argsstring>
+        <name>sizeScale</name>
+        <qualifiedname>QfLocationMarker::sizeScale</qualifiedname>
+        <read>dummyGetter_sizeScale_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="40" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a614bce8b5a4a1ef87c9333515dd636fb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfLocationMarker::strokeColor</definition>
+        <argsstring></argsstring>
+        <name>strokeColor</name>
+        <qualifiedname>QfLocationMarker::strokeColor</qualifiedname>
+        <read>dummyGetter_strokeColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="42" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1aaff7b11150a3c5b0eb5247c8dfb6bb17" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfLocationMarker::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfLocationMarker::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="44" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1a6c323c4b444ee43c575a03b748a671cc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfLocationMarker::semiOpaqueColor</definition>
+        <argsstring></argsstring>
+        <name>semiOpaqueColor</name>
+        <qualifiedname>QfLocationMarker::semiOpaqueColor</qualifiedname>
+        <read>dummyGetter_semiOpaqueColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="46" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocationMarker_1afd12cf984bf608d2788b4942220fab11" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfLocationMarker::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfLocationMarker::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="48" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLocationMarker_1ab1b05530d7f17f16ef02e9e72a46d5d4" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfLocationMarker::accuracyMarker</definition>
+        <argsstring></argsstring>
+        <name>accuracyMarker</name>
+        <qualifiedname>QfLocationMarker::accuracyMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="52" column="11" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocationMarker_1af37c43a20fd97216d9ba4228fb6fb0a5" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfLocationMarker::compassDirectionMarker</definition>
+        <argsstring></argsstring>
+        <name>compassDirectionMarker</name>
+        <qualifiedname>QfLocationMarker::compassDirectionMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="53" column="6" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocationMarker_1a2865a1816a518ceeb9998b5be18a8884" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfLocationMarker::locationMarkerBubbleMessage</definition>
+        <argsstring></argsstring>
+        <name>locationMarkerBubbleMessage</name>
+        <qualifiedname>QfLocationMarker::locationMarkerBubbleMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="54" column="6" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocationMarker_1a20852bd8135ae0b310867e1be300c03f" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfLocationMarker::pointerToLocationMarker</definition>
+        <argsstring></argsstring>
+        <name>pointerToLocationMarker</name>
+        <qualifiedname>QfLocationMarker::pointerToLocationMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="55" column="7" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocationMarker_1a0aa9738db9bdd9c3451dee149dd27015" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLocationMarker::bubbleMessage</definition>
+        <argsstring></argsstring>
+        <name>bubbleMessage</name>
+        <qualifiedname>QfLocationMarker::bubbleMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="56" column="6" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocationMarker_1a93e989e875840912bfa69813f15cf19c" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfLocationMarker::movementMarker</definition>
+        <argsstring></argsstring>
+        <name>movementMarker</name>
+        <qualifiedname>QfLocationMarker::movementMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="57" column="7" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocationMarker_1a12ade6a7dd460f2609a2f1c0069d6341" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfLocationMarker::positionMarker</definition>
+        <argsstring></argsstring>
+        <name>positionMarker</name>
+        <qualifiedname>QfLocationMarker::positionMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="58" column="11" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocationMarker_1a5dbc755da1220c967c6467751b65006f" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfLocationMarker::edgeMarker</definition>
+        <argsstring></argsstring>
+        <name>edgeMarker</name>
+        <qualifiedname>QfLocationMarker::edgeMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="59" column="7" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocationMarker_1aa50103b8c922b9c097836c3af50bf457" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocationMarker::onLocationChanged</definition>
+        <argsstring></argsstring>
+        <name>onLocationChanged</name>
+        <qualifiedname>QfLocationMarker::onLocationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="60" column="5" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLocationMarker_1a6f5fb3ce09d5f47567abe0b287df6050" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocationMarker::updateScreenLocation</definition>
+        <argsstring>()</argsstring>
+        <name>updateScreenLocation</name>
+        <qualifiedname>QfLocationMarker::updateScreenLocation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocationMarker.qml" line="50" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>LocationMarker</label>
+        <link refid="classLocationMarker"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfLocationMarker</label>
+        <link refid="classQfLocationMarker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfLocationMarker</label>
+        <link refid="classQfLocationMarker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfLocationMarker.qml" line="10" column="1" bodyfile="src/gui/qml/QfLocationMarker.qml" bodystart="10" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classQfLocationMarker_1aba1cecb6fedde39fed0046404d559302" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>accuracy</name></member>
+      <member refid="classQfLocationMarker_1ab1b05530d7f17f16ef02e9e72a46d5d4" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>accuracyMarker</name></member>
+      <member refid="classQfLocationMarker_1a809cee59d16f001d0daa06570b0d1c7a" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>bubbleAction</name></member>
+      <member refid="classQfLocationMarker_1ab28c245a752c409eafcd35bf2f793a4a" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>bubbleColor</name></member>
+      <member refid="classQfLocationMarker_1a0aa9738db9bdd9c3451dee149dd27015" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>bubbleMessage</name></member>
+      <member refid="classQfLocationMarker_1a4116ff2bde008f441304bba4b770ea41" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>bubbleText</name></member>
+      <member refid="classQfLocationMarker_1ae507a02a49903bbc0bbddae0bbdb9dc3" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>bubbleTextColor</name></member>
+      <member refid="classQfLocationMarker_1a622626a38ae029202bea85fbc634d728" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>bubbleVisible</name></member>
+      <member refid="classQfLocationMarker_1aaff7b11150a3c5b0eb5247c8dfb6bb17" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>color</name></member>
+      <member refid="classQfLocationMarker_1af37c43a20fd97216d9ba4228fb6fb0a5" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>compassDirectionMarker</name></member>
+      <member refid="classQfLocationMarker_1ad2153bd4aba8514131fa85742c82d22f" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>direction</name></member>
+      <member refid="classQfLocationMarker_1a5dbc755da1220c967c6467751b65006f" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>edgeMarker</name></member>
+      <member refid="classQfLocationMarker_1ab91bacb4eb347fb78c66458fc29da2aa" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>isOnMapCanvas</name></member>
+      <member refid="classQfLocationMarker_1a69b845f8c9151665fabd0eba224885af" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>location</name></member>
+      <member refid="classQfLocationMarker_1a2865a1816a518ceeb9998b5be18a8884" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>locationMarkerBubbleMessage</name></member>
+      <member refid="classQfLocationMarker_1afd12cf984bf608d2788b4942220fab11" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>mapSettings</name></member>
+      <member refid="classQfLocationMarker_1a93e989e875840912bfa69813f15cf19c" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>movementMarker</name></member>
+      <member refid="classQfLocationMarker_1aa50103b8c922b9c097836c3af50bf457" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>onLocationChanged</name></member>
+      <member refid="classQfLocationMarker_1a2e0ae04a9977a319d088ea78c9df3251" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>orientation</name></member>
+      <member refid="classQfLocationMarker_1a20852bd8135ae0b310867e1be300c03f" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>pointerToLocationMarker</name></member>
+      <member refid="classQfLocationMarker_1a12ade6a7dd460f2609a2f1c0069d6341" prot="private" virt="non-virtual"><scope>QfLocationMarker</scope><name>positionMarker</name></member>
+      <member refid="classQfLocationMarker_1a2e18e23b7251fbc7035b7c2f9ebd5e95" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>screenAccuracy</name></member>
+      <member refid="classQfLocationMarker_1a352c003c1b7887aee6c5cf4b08744141" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>screenLocation</name></member>
+      <member refid="classQfLocationMarker_1a6c323c4b444ee43c575a03b748a671cc" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>semiOpaqueColor</name></member>
+      <member refid="classQfLocationMarker_1a4cf07a669c8ab22a4ac342c2bdc911ae" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>sizeScale</name></member>
+      <member refid="classQfLocationMarker_1a18071b4caeaae6a81159cac973ac1131" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>speed</name></member>
+      <member refid="classQfLocationMarker_1a614bce8b5a4a1ef87c9333515dd636fb" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>strokeColor</name></member>
+      <member refid="classQfLocationMarker_1a6f5fb3ce09d5f47567abe0b287df6050" prot="public" virt="non-virtual"><scope>QfLocationMarker</scope><name>updateScreenLocation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

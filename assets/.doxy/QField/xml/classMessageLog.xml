@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMessageLog" kind="class" language="C++" prot="public">
+    <compoundname>MessageLog</compoundname>
+    <basecompoundref refid="classQfMessageLog" prot="public" virt="non-virtual">QfMessageLog</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MessageLog</label>
+        <link refid="classMessageLog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Page</label>
+      </node>
+      <node id="2">
+        <label>QfMessageLog</label>
+        <link refid="classQfMessageLog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MessageLog</label>
+        <link refid="classMessageLog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Page</label>
+      </node>
+      <node id="2">
+        <label>QfMessageLog</label>
+        <link refid="classQfMessageLog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/MessageLog.qml" line="2" column="1" bodyfile="src/app/qml_compat/MessageLog.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfMessageLog_1aa75c2b918c2312cee9815e8a8a5a0cd2" prot="public" virt="non-virtual"><scope>MessageLog</scope><name>finished</name></member>
+      <member refid="classQfMessageLog_1ada8362a5db0dbe5bd7b419e936334a1d" prot="public" virt="non-virtual"><scope>MessageLog</scope><name>model</name></member>
+      <member refid="classQfMessageLog_1a2c2af784447c5bf24a0d08029b53b023" prot="public" virt="non-virtual"><scope>MessageLog</scope><name>unreadMessages</name></member>
+      <member refid="classQfMessageLog_1a46b480a7aeee4893ac9fd70ba10927c7" prot="public" virt="non-virtual"><scope>MessageLog</scope><name>unreadMessagesCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

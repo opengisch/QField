@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSensorListModel" kind="class" language="C++" prot="public">
+    <compoundname>QfSensorListModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfSensorListModel_1a55df1b72dcf248c9d542e58a4dff88cc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfSensorListModel::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfSensorListModel::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="33" column="5" bodyfile="src/gui/qfsensorlistmodel.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSensorListModel_1a9c464eba4d5de8d8dcc694c187351e73" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfSensorListModel::showConnectedOnly</definition>
+        <argsstring></argsstring>
+        <name>showConnectedOnly</name>
+        <qualifiedname>QfSensorListModel::showConnectedOnly</qualifiedname>
+        <read>showConnectedOnly</read>
+        <write>setShowConnectedOnly</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="34" column="5" bodyfile="src/gui/qfsensorlistmodel.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSensorListModel_1a760781cb66132c7ef055e37ec4c8611e" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfSensorListModel::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfSensorListModel::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="82" column="16" bodyfile="src/gui/qfsensorlistmodel.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSensorListModel_1a3bdd7c601a40e7ad58aee0bcf88cb807" prot="private" static="no" mutable="no">
+        <type>QObjectUniquePtr&lt; QgsSensorModel &gt;</type>
+        <definition>QObjectUniquePtr&lt;QgsSensorModel&gt; QfSensorListModel::mSensorModel</definition>
+        <argsstring></argsstring>
+        <name>mSensorModel</name>
+        <qualifiedname>QfSensorListModel::mSensorModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="83" column="22" bodyfile="src/gui/qfsensorlistmodel.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSensorListModel_1ac95f949974f17e35b5dd2346778e7958" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfSensorListModel::mShowConnectedOnly</definition>
+        <argsstring></argsstring>
+        <name>mShowConnectedOnly</name>
+        <qualifiedname>QfSensorListModel::mShowConnectedOnly</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="85" column="10" bodyfile="src/gui/qfsensorlistmodel.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfSensorListModel_1a41136f50da9986a42e22f83b04148596" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfSensorListModel::QfSensorListModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfSensorListModel</name>
+        <qualifiedname>QfSensorListModel::QfSensorListModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="37" column="14" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSensorListModel_1acd3ef55832316572fa9e46ad52cf3e29" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfSensorListModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfSensorListModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="39" column="11" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="28" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSensorListModel_1a6ecbd430b29b0a6bd22f6f3ed38abc80" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfSensorListModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfSensorListModel::project</qualifiedname>
+        <briefdescription>
+<para>Returns the current project from which sensors are retrieved. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="42" column="16" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSensorListModel_1ab08b8feb92a31bc259319e3d6ef681d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSensorListModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfSensorListModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the project to be used to retrieve sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="45" column="10" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="45" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSensorListModel_1a9c66d92a56e175e6a2d5b517af846f35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfSensorListModel::showConnectedOnly</definition>
+        <argsstring>() const</argsstring>
+        <name>showConnectedOnly</name>
+        <qualifiedname>QfSensorListModel::showConnectedOnly</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE when the model only shows connected sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="48" column="10" bodyfile="src/gui/qfsensorlistmodel.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSensorListModel_1aef19413557774c8ccb1a6a8590904897" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSensorListModel::setShowConnectedOnly</definition>
+        <argsstring>(bool showConnectedOnly)</argsstring>
+        <name>setShowConnectedOnly</name>
+        <qualifiedname>QfSensorListModel::setShowConnectedOnly</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>showConnectedOnly</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether the model should only show connected sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="51" column="10" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="71" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSensorListModel_1a1c338d390f2813139f7935afa5bb5bfb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfSensorListModel::connectSensorId</definition>
+        <argsstring>(const QString &amp;id) const</argsstring>
+        <name>connectSensorId</name>
+        <qualifiedname>QfSensorListModel::connectSensorId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Connects a sensor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unique ID string of the sensor </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="57" column="22" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="93" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSensorListModel_1ab3be439615bfa70c8c6e95a0188e04f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfSensorListModel::disconnectSensorId</definition>
+        <argsstring>(const QString &amp;id) const</argsstring>
+        <name>disconnectSensorId</name>
+        <qualifiedname>QfSensorListModel::disconnectSensorId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Disconnects a sensor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unique ID string of the sensor </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="63" column="22" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="101" bodyend="107"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQfSensorListModel_1ae88e89d771ad01dc113d74b41f0e24ac" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfSensorListModel::filterAcceptsRow</definition>
+        <argsstring>(int source_row, const QModelIndex &amp;source_parent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>QfSensorListModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>source_row</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>source_parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="66" column="10" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="83" bodyend="91"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfSensorListModel_1aecf87712f3f6c83e0cb64fd5afbf44cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSensorListModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfSensorListModel::projectChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the current project has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfSensorListModel_1a54ff3b84d310dee5201bdaa982522779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSensorListModel::showConnectedOnlyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>showConnectedOnlyChanged</name>
+        <qualifiedname>QfSensorListModel::showConnectedOnlyChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the show connected only filter has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfSensorListModel_1ab0d49817d24bc9800e967a4e133fddf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSensorListModel::sensorErrorOccurred</definition>
+        <argsstring>(const QString &amp;errorString)</argsstring>
+        <name>sensorErrorOccurred</name>
+        <qualifiedname>QfSensorListModel::sensorErrorOccurred</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a sensor error has occurred. An <emphasis>errorString</emphasis> provides details on the error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="77" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfSensorListModel_1a10c31f22a732eedbf9ad9edd4f87b537" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSensorListModel::handleSensorError</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>handleSensorError</name>
+        <qualifiedname>QfSensorListModel::handleSensorError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfsensorlistmodel.h" line="80" column="10" bodyfile="src/gui/qfsensorlistmodel.cpp" bodystart="109" bodyend="118"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfSensorListModel</label>
+        <link refid="classQfSensorListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfSensorListModel</label>
+        <link refid="classQfSensorListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfsensorlistmodel.h" line="29" column="1" bodyfile="src/gui/qfsensorlistmodel.h" bodystart="30" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classQfSensorListModel_1a1c338d390f2813139f7935afa5bb5bfb" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>connectSensorId</name></member>
+      <member refid="classQfSensorListModel_1ab3be439615bfa70c8c6e95a0188e04f2" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>disconnectSensorId</name></member>
+      <member refid="classQfSensorListModel_1ae88e89d771ad01dc113d74b41f0e24ac" prot="protected" virt="non-virtual"><scope>QfSensorListModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classQfSensorListModel_1a10c31f22a732eedbf9ad9edd4f87b537" prot="private" virt="non-virtual"><scope>QfSensorListModel</scope><name>handleSensorError</name></member>
+      <member refid="classQfSensorListModel_1a760781cb66132c7ef055e37ec4c8611e" prot="private" virt="non-virtual"><scope>QfSensorListModel</scope><name>mProject</name></member>
+      <member refid="classQfSensorListModel_1a3bdd7c601a40e7ad58aee0bcf88cb807" prot="private" virt="non-virtual"><scope>QfSensorListModel</scope><name>mSensorModel</name></member>
+      <member refid="classQfSensorListModel_1ac95f949974f17e35b5dd2346778e7958" prot="private" virt="non-virtual"><scope>QfSensorListModel</scope><name>mShowConnectedOnly</name></member>
+      <member refid="classQfSensorListModel_1a55df1b72dcf248c9d542e58a4dff88cc" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>project</name></member>
+      <member refid="classQfSensorListModel_1a6ecbd430b29b0a6bd22f6f3ed38abc80" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>project</name></member>
+      <member refid="classQfSensorListModel_1aecf87712f3f6c83e0cb64fd5afbf44cb" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>projectChanged</name></member>
+      <member refid="classQfSensorListModel_1a41136f50da9986a42e22f83b04148596" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>QfSensorListModel</name></member>
+      <member refid="classQfSensorListModel_1acd3ef55832316572fa9e46ad52cf3e29" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>roleNames</name></member>
+      <member refid="classQfSensorListModel_1ab0d49817d24bc9800e967a4e133fddf2" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>sensorErrorOccurred</name></member>
+      <member refid="classQfSensorListModel_1ab08b8feb92a31bc259319e3d6ef681d1" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>setProject</name></member>
+      <member refid="classQfSensorListModel_1aef19413557774c8ccb1a6a8590904897" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>setShowConnectedOnly</name></member>
+      <member refid="classQfSensorListModel_1a9c464eba4d5de8d8dcc694c187351e73" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>showConnectedOnly</name></member>
+      <member refid="classQfSensorListModel_1a9c66d92a56e175e6a2d5b517af846f35" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>showConnectedOnly</name></member>
+      <member refid="classQfSensorListModel_1a54ff3b84d310dee5201bdaa982522779" prot="public" virt="non-virtual"><scope>QfSensorListModel</scope><name>showConnectedOnlyChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQgsQuickMapTransform" kind="class" language="C++" prot="public">
+    <compoundname>QgsQuickMapTransform</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickTransform</basecompoundref>
+    <includes refid="qgsquickmaptransform_8h" local="no">qgsquickmaptransform.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQgsQuickMapTransform_1a459f54052c15f46fc215f80900ca0e51" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QgsQuickMapTransform::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QgsQuickMapTransform::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Associated map settings. Should be initialized before the first use from mapcanvas map settings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="41" column="5" bodyfile="src/core/qgsquick/qgsquickmaptransform.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQgsQuickMapTransform_1a30d64bf8e0f85753dbe49d4cb4c92041" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QgsQuickMapTransform::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QgsQuickMapTransform::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="70" column="25" bodyfile="src/core/qgsquick/qgsquickmaptransform.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickMapTransform_1a72d8f0a8dfe16ac8707fcc5507235e19" prot="private" static="no" mutable="no">
+        <type>QMatrix4x4</type>
+        <definition>QMatrix4x4 QgsQuickMapTransform::mMatrix</definition>
+        <argsstring></argsstring>
+        <name>mMatrix</name>
+        <qualifiedname>QgsQuickMapTransform::mMatrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="71" column="16" bodyfile="src/core/qgsquick/qgsquickmaptransform.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQgsQuickMapTransform_1acdf97442596cc181784fa72a5e5efa79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickMapTransform::QgsQuickMapTransform</definition>
+        <argsstring>()=default</argsstring>
+        <name>QgsQuickMapTransform</name>
+        <qualifiedname>QgsQuickMapTransform::QgsQuickMapTransform</qualifiedname>
+        <briefdescription>
+<para>Creates a new map transform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="45" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapTransform_1a27bc9356dfeed6fdd27edd24284890cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickMapTransform::~QgsQuickMapTransform</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QgsQuickMapTransform</name>
+        <qualifiedname>QgsQuickMapTransform::~QgsQuickMapTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="46" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapTransform_1a09b93053938392fcdc82520554000ff9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapTransform::applyTo</definition>
+        <argsstring>(QMatrix4x4 *matrix) const</argsstring>
+        <name>applyTo</name>
+        <qualifiedname>QgsQuickMapTransform::applyTo</qualifiedname>
+        <param>
+          <type>QMatrix4x4 *</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies transformation based on current map settings to a matrix.</para>
+<para>Also optimize resulting matrix after transformation <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>matrix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix to be transformed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="54" column="10" bodyfile="src/core/qgsquick/qgsquickmaptransform.cpp" bodystart="19" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapTransform_1a54e26e308e8a0d52001661259c5e70a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QgsQuickMapTransform::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QgsQuickMapTransform::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Associated map settings. Should be initialized before the first use from mapcanvas map settings.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="57" column="25" bodyfile="src/core/qgsquick/qgsquickmaptransform.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickMapTransform_1a0ad44346cda57a2c5fbe3b1bd193543d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapTransform::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QgsQuickMapTransform::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Associated map settings. Should be initialized before the first use from mapcanvas map settings.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="60" column="10" bodyfile="src/core/qgsquick/qgsquickmaptransform.cpp" bodystart="30" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQgsQuickMapTransform_1af008c96a5fa972074bdc1ac24f4eb556" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapTransform::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QgsQuickMapTransform::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Associated map settings. Should be initialized before the first use from mapcanvas map settings.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="64" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQgsQuickMapTransform_1aebd7c1649a2a838cdf3ed33549571073" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickMapTransform::updateMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>updateMatrix</name>
+        <qualifiedname>QgsQuickMapTransform::updateMatrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickmaptransform.h" line="67" column="10" bodyfile="src/core/qgsquick/qgsquickmaptransform.cpp" bodystart="48" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classQgsQuickMapTransform" kindref="compound">QgsQuickMapTransform</ref> is transformation that can be attached to any QQuickItem.</para>
+<para>If the item is based on the map coordinates, <ref refid="classQgsQuickMapTransform" kindref="compound">QgsQuickMapTransform</ref> will transform it to the device coordintes based on the attached map settings.</para>
+<para><simplesect kind="note"><para>QML Type: MapTransform </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuickTransform</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickMapTransform</label>
+        <link refid="classQgsQuickMapTransform"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickTransform</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickMapTransform</label>
+        <link refid="classQgsQuickMapTransform"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgsquick/qgsquickmaptransform.h" line="34" column="1" bodyfile="src/core/qgsquick/qgsquickmaptransform.h" bodystart="35" bodyend="72"/>
+    <listofallmembers>
+      <member refid="classQgsQuickMapTransform_1a09b93053938392fcdc82520554000ff9" prot="public" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>applyTo</name></member>
+      <member refid="classQgsQuickMapTransform_1a459f54052c15f46fc215f80900ca0e51" prot="public" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>mapSettings</name></member>
+      <member refid="classQgsQuickMapTransform_1a54e26e308e8a0d52001661259c5e70a7" prot="public" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>mapSettings</name></member>
+      <member refid="classQgsQuickMapTransform_1af008c96a5fa972074bdc1ac24f4eb556" prot="public" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQgsQuickMapTransform_1a30d64bf8e0f85753dbe49d4cb4c92041" prot="private" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>mMapSettings</name></member>
+      <member refid="classQgsQuickMapTransform_1a72d8f0a8dfe16ac8707fcc5507235e19" prot="private" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>mMatrix</name></member>
+      <member refid="classQgsQuickMapTransform_1acdf97442596cc181784fa72a5e5efa79" prot="public" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>QgsQuickMapTransform</name></member>
+      <member refid="classQgsQuickMapTransform_1a0ad44346cda57a2c5fbe3b1bd193543d" prot="public" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>setMapSettings</name></member>
+      <member refid="classQgsQuickMapTransform_1aebd7c1649a2a838cdf3ed33549571073" prot="private" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>updateMatrix</name></member>
+      <member refid="classQgsQuickMapTransform_1a27bc9356dfeed6fdd27edd24284890cc" prot="public" virt="non-virtual"><scope>QgsQuickMapTransform</scope><name>~QgsQuickMapTransform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

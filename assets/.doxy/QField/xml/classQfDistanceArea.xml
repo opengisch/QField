@@ -1,0 +1,804 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDistanceArea" kind="class" language="C++" prot="public">
+    <compoundname>QfDistanceArea</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDistanceArea_1a03854abefbc0adb7dbbe1a8dea6ee50d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfDistanceArea::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfDistanceArea::rubberbandModel</qualifiedname>
+        <read>rubberbandModel</read>
+        <write>setRubberbandModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="33" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1ad21b55ee98915179ea4f03348fe48560" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfDistanceArea::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>QfDistanceArea::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="34" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1ace458da3c05bffa69d14ad01764381da" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfDistanceArea::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfDistanceArea::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="35" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1aac5723b1855cb1b9aaced809f8248dd5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <qualifiedname>QfDistanceArea::length</qualifiedname>
+        <read>length</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="37" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1adee262769d7f1fa2219e3da8f57dd27c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDistanceArea::lengthValid</definition>
+        <argsstring></argsstring>
+        <name>lengthValid</name>
+        <qualifiedname>QfDistanceArea::lengthValid</qualifiedname>
+        <read>lengthValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="38" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1ad960e14e32e2738fc798450df3e7c850" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::perimeter</definition>
+        <argsstring></argsstring>
+        <name>perimeter</name>
+        <qualifiedname>QfDistanceArea::perimeter</qualifiedname>
+        <read>perimeter</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="39" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1a0f3fc88679880fee06a25059cfb70986" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDistanceArea::perimeterValid</definition>
+        <argsstring></argsstring>
+        <name>perimeterValid</name>
+        <qualifiedname>QfDistanceArea::perimeterValid</qualifiedname>
+        <read>perimeterValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="40" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1a8adbea9b7b2030b0e757cc89dd9f711c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::area</definition>
+        <argsstring></argsstring>
+        <name>area</name>
+        <qualifiedname>QfDistanceArea::area</qualifiedname>
+        <read>area</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="41" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1a8dd82ec9a27b9924c00801096c2fe95a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDistanceArea::areaValid</definition>
+        <argsstring></argsstring>
+        <name>areaValid</name>
+        <qualifiedname>QfDistanceArea::areaValid</qualifiedname>
+        <read>areaValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="42" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1a6cf2bbf0e597327e377ed60bfdd414cf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit QfDistanceArea::lengthUnits</definition>
+        <argsstring></argsstring>
+        <name>lengthUnits</name>
+        <qualifiedname>QfDistanceArea::lengthUnits</qualifiedname>
+        <read>lengthUnits</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="43" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1a3273dddc122eb34b97adcf3b7de8442c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::AreaUnit</type>
+        <definition>Qgis::AreaUnit QfDistanceArea::areaUnits</definition>
+        <argsstring></argsstring>
+        <name>areaUnits</name>
+        <qualifiedname>QfDistanceArea::areaUnits</qualifiedname>
+        <read>areaUnits</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="44" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1a582a8601a4e209d75c6380ba198fc1d4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::segmentLength</definition>
+        <argsstring></argsstring>
+        <name>segmentLength</name>
+        <qualifiedname>QfDistanceArea::segmentLength</qualifiedname>
+        <read>segmentLength</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the length of the last segment </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="49" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDistanceArea_1aa5a66796d918a8c10c61f5110a1aa165" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::azimuth</definition>
+        <argsstring></argsstring>
+        <name>azimuth</name>
+        <qualifiedname>QfDistanceArea::azimuth</qualifiedname>
+        <read>azimuth</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the Cartesian azimuth (in degrees) between the second to last point and last point of the rubber band model (clockwise in degree, starting from north) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="55" column="5" bodyfile="src/core/qfdistancearea.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDistanceArea_1a109902b22e2643dbe15933fda4c1cd73" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel* QfDistanceArea::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>QfDistanceArea::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="102" column="23" bodyfile="src/core/qfdistancearea.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDistanceArea_1acb542730c7e415339e2972ce52a76e69" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfDistanceArea::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>QfDistanceArea::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="103" column="34" bodyfile="src/core/qfdistancearea.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDistanceArea_1a19a94bc97dfde4fa7dfcc0d5426d51bb" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfDistanceArea::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfDistanceArea::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="104" column="16" bodyfile="src/core/qfdistancearea.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDistanceArea_1a078bfd408ce25865e7d439d6be359a4a" prot="private" static="no" mutable="no">
+        <type>QgsDistanceArea</type>
+        <definition>QgsDistanceArea QfDistanceArea::mDistanceArea</definition>
+        <argsstring></argsstring>
+        <name>mDistanceArea</name>
+        <qualifiedname>QfDistanceArea::mDistanceArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="106" column="21" bodyfile="src/core/qfdistancearea.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfDistanceArea_1a69c9e69bca4bb7d24a831efb9a45fb9b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfDistanceArea::QfDistanceArea</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfDistanceArea</name>
+        <qualifiedname>QfDistanceArea::QfDistanceArea</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="58" column="14" bodyfile="src/core/qfdistancearea.cpp" bodystart="26" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a989490c7b3ae01fa397d629ba3c1615b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::length</definition>
+        <argsstring>() const</argsstring>
+        <name>length</name>
+        <qualifiedname>QfDistanceArea::length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="60" column="11" bodyfile="src/core/qfdistancearea.cpp" bodystart="140" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a21eafcc04cd78ff531170c165e6c7a86" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfDistanceArea::lengthValid</definition>
+        <argsstring>() const</argsstring>
+        <name>lengthValid</name>
+        <qualifiedname>QfDistanceArea::lengthValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="61" column="10" bodyfile="src/core/qfdistancearea.cpp" bodystart="158" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a463f3f1d39809e91a40ce58662775c6d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::perimeter</definition>
+        <argsstring>() const</argsstring>
+        <name>perimeter</name>
+        <qualifiedname>QfDistanceArea::perimeter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="62" column="11" bodyfile="src/core/qfdistancearea.cpp" bodystart="178" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1ab4ecc7e77bffc158815a1876b5bbb891" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfDistanceArea::perimeterValid</definition>
+        <argsstring>() const</argsstring>
+        <name>perimeterValid</name>
+        <qualifiedname>QfDistanceArea::perimeterValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="63" column="10" bodyfile="src/core/qfdistancearea.cpp" bodystart="189" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a8defcd7a6144d042f62691909a92a85f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::area</definition>
+        <argsstring>() const</argsstring>
+        <name>area</name>
+        <qualifiedname>QfDistanceArea::area</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="64" column="11" bodyfile="src/core/qfdistancearea.cpp" bodystart="209" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1afae6d3119beaf523e7caf5448b1da07f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfDistanceArea::areaValid</definition>
+        <argsstring>() const</argsstring>
+        <name>areaValid</name>
+        <qualifiedname>QfDistanceArea::areaValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="65" column="10" bodyfile="src/core/qfdistancearea.cpp" bodystart="227" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a880d54f153e4a7266009f1fe4a54a8bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::segmentLength</definition>
+        <argsstring>() const</argsstring>
+        <name>segmentLength</name>
+        <qualifiedname>QfDistanceArea::segmentLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="67" column="11" bodyfile="src/core/qfdistancearea.cpp" bodystart="248" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1afc27a9a50cd7835205a92d0b6e5af4b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal QfDistanceArea::azimuth</definition>
+        <argsstring>() const</argsstring>
+        <name>azimuth</name>
+        <qualifiedname>QfDistanceArea::azimuth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="68" column="11" bodyfile="src/core/qfdistancearea.cpp" bodystart="278" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a779e934ab6ca869e4f34efea293447df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit QfDistanceArea::lengthUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>lengthUnits</name>
+        <qualifiedname>QfDistanceArea::lengthUnits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="70" column="24" bodyfile="src/core/qfdistancearea.cpp" bodystart="293" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1ac443c845769a5a079cdaf4e37e025109" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::AreaUnit</type>
+        <definition>Qgis::AreaUnit QfDistanceArea::areaUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>areaUnits</name>
+        <qualifiedname>QfDistanceArea::areaUnits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="71" column="20" bodyfile="src/core/qfdistancearea.cpp" bodystart="298" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a48b1466c14268724d9d3c1e5cbdfcd85" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfDistanceArea::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>QfDistanceArea::crs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="73" column="34" bodyfile="src/core/qfdistancearea.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1aa4c5fec2cb07564839f9da5c0289d351" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>QfDistanceArea::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="74" column="10" bodyfile="src/core/qfdistancearea.cpp" bodystart="110" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a14719ceb3684b2fa935534e8f6881612" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfDistanceArea::rubberbandModel</definition>
+        <argsstring>() const</argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfDistanceArea::rubberbandModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="76" column="23" bodyfile="src/core/qfdistancearea.cpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1a58cd6c73aacfc41146aa3338c5596c12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::setRubberbandModel</definition>
+        <argsstring>(QfRubberbandModel *rubberbandModel)</argsstring>
+        <name>setRubberbandModel</name>
+        <qualifiedname>QfDistanceArea::setRubberbandModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+          <declname>rubberbandModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="77" column="10" bodyfile="src/core/qfdistancearea.cpp" bodystart="77" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1abb70ee07e258395cfb46e5e744e1984d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfDistanceArea::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfDistanceArea::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="79" column="16" bodyfile="src/core/qfdistancearea.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1ad7f2b95c558b7f6b4659b5252371c1b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfDistanceArea::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="80" column="10" bodyfile="src/core/qfdistancearea.cpp" bodystart="54" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1acace2c0c25bc02692ebacd57eacc39ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double QfDistanceArea::convertLengthMeansurement</definition>
+        <argsstring>(double length, Qgis::DistanceUnit toUnits) const</argsstring>
+        <name>convertLengthMeansurement</name>
+        <qualifiedname>QfDistanceArea::convertLengthMeansurement</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>Qgis::DistanceUnit</type>
+          <declname>toUnits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="82" column="24" bodyfile="src/core/qfdistancearea.cpp" bodystart="303" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDistanceArea_1af17b2c4c2dc0b255d79d547fc2ea446a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE double</type>
+        <definition>double QfDistanceArea::convertAreaMeansurement</definition>
+        <argsstring>(double area, Qgis::AreaUnit toUnits) const</argsstring>
+        <name>convertAreaMeansurement</name>
+        <qualifiedname>QfDistanceArea::convertAreaMeansurement</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>area</declname>
+        </param>
+        <param>
+          <type>Qgis::AreaUnit</type>
+          <declname>toUnits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="83" column="24" bodyfile="src/core/qfdistancearea.cpp" bodystart="308" bodyend="311"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfDistanceArea_1a99d05bac70075705f42bba6bad76efd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::rubberbandModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelChanged</name>
+        <qualifiedname>QfDistanceArea::rubberbandModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="86" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1ac76ba5c3bf02ed5fc04d422648992dff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>QfDistanceArea::crsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="87" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1a6e3a9e2521a6491a88d5a17be55e30e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfDistanceArea::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="88" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1a764884b67154c2488ea44c47a81f1eca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::lengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lengthChanged</name>
+        <qualifiedname>QfDistanceArea::lengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="90" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1a158dd9b18814460ccea245bf316b0ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::perimeterChanged</definition>
+        <argsstring>()</argsstring>
+        <name>perimeterChanged</name>
+        <qualifiedname>QfDistanceArea::perimeterChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="91" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1a675924e1b55abcc8adf9d0a7eb6d9f14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::areaChanged</definition>
+        <argsstring>()</argsstring>
+        <name>areaChanged</name>
+        <qualifiedname>QfDistanceArea::areaChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="92" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1ab3278e52684857b85bb2916608717c1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::segmentLengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>segmentLengthChanged</name>
+        <qualifiedname>QfDistanceArea::segmentLengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="93" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1ace06d7c186a739df9cbb92024980d6fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::azimuthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>azimuthChanged</name>
+        <qualifiedname>QfDistanceArea::azimuthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="94" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1a225312d35bcce8977ba8897ed683d8c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::lengthUnitsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lengthUnitsChanged</name>
+        <qualifiedname>QfDistanceArea::lengthUnitsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="95" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDistanceArea_1a8e4f6c9f09be37d839a5a7b876b96bd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::areaUnitsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>areaUnitsChanged</name>
+        <qualifiedname>QfDistanceArea::areaUnitsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="96" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfDistanceArea_1ad0c05131750b926647e8535a7988e650" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDistanceArea::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>QfDistanceArea::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdistancearea.h" line="99" column="10" bodyfile="src/core/qfdistancearea.cpp" bodystart="33" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfDistanceArea</label>
+        <link refid="classQfDistanceArea"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfDistanceArea</label>
+        <link refid="classQfDistanceArea"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfdistancearea.h" line="29" column="1" bodyfile="src/core/qfdistancearea.h" bodystart="30" bodyend="107"/>
+    <listofallmembers>
+      <member refid="classQfDistanceArea_1a8adbea9b7b2030b0e757cc89dd9f711c" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>area</name></member>
+      <member refid="classQfDistanceArea_1a8defcd7a6144d042f62691909a92a85f" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>area</name></member>
+      <member refid="classQfDistanceArea_1a675924e1b55abcc8adf9d0a7eb6d9f14" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>areaChanged</name></member>
+      <member refid="classQfDistanceArea_1a3273dddc122eb34b97adcf3b7de8442c" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>areaUnits</name></member>
+      <member refid="classQfDistanceArea_1ac443c845769a5a079cdaf4e37e025109" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>areaUnits</name></member>
+      <member refid="classQfDistanceArea_1a8e4f6c9f09be37d839a5a7b876b96bd0" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>areaUnitsChanged</name></member>
+      <member refid="classQfDistanceArea_1a8dd82ec9a27b9924c00801096c2fe95a" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>areaValid</name></member>
+      <member refid="classQfDistanceArea_1afae6d3119beaf523e7caf5448b1da07f" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>areaValid</name></member>
+      <member refid="classQfDistanceArea_1aa5a66796d918a8c10c61f5110a1aa165" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>azimuth</name></member>
+      <member refid="classQfDistanceArea_1afc27a9a50cd7835205a92d0b6e5af4b8" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>azimuth</name></member>
+      <member refid="classQfDistanceArea_1ace06d7c186a739df9cbb92024980d6fe" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>azimuthChanged</name></member>
+      <member refid="classQfDistanceArea_1af17b2c4c2dc0b255d79d547fc2ea446a" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>convertAreaMeansurement</name></member>
+      <member refid="classQfDistanceArea_1acace2c0c25bc02692ebacd57eacc39ce" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>convertLengthMeansurement</name></member>
+      <member refid="classQfDistanceArea_1ad21b55ee98915179ea4f03348fe48560" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>crs</name></member>
+      <member refid="classQfDistanceArea_1a48b1466c14268724d9d3c1e5cbdfcd85" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>crs</name></member>
+      <member refid="classQfDistanceArea_1ac76ba5c3bf02ed5fc04d422648992dff" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>crsChanged</name></member>
+      <member refid="classQfDistanceArea_1ad0c05131750b926647e8535a7988e650" prot="private" virt="non-virtual"><scope>QfDistanceArea</scope><name>init</name></member>
+      <member refid="classQfDistanceArea_1aac5723b1855cb1b9aaced809f8248dd5" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>length</name></member>
+      <member refid="classQfDistanceArea_1a989490c7b3ae01fa397d629ba3c1615b" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>length</name></member>
+      <member refid="classQfDistanceArea_1a764884b67154c2488ea44c47a81f1eca" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>lengthChanged</name></member>
+      <member refid="classQfDistanceArea_1a6cf2bbf0e597327e377ed60bfdd414cf" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>lengthUnits</name></member>
+      <member refid="classQfDistanceArea_1a779e934ab6ca869e4f34efea293447df" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>lengthUnits</name></member>
+      <member refid="classQfDistanceArea_1a225312d35bcce8977ba8897ed683d8c3" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>lengthUnitsChanged</name></member>
+      <member refid="classQfDistanceArea_1adee262769d7f1fa2219e3da8f57dd27c" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>lengthValid</name></member>
+      <member refid="classQfDistanceArea_1a21eafcc04cd78ff531170c165e6c7a86" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>lengthValid</name></member>
+      <member refid="classQfDistanceArea_1acb542730c7e415339e2972ce52a76e69" prot="private" virt="non-virtual"><scope>QfDistanceArea</scope><name>mCrs</name></member>
+      <member refid="classQfDistanceArea_1a078bfd408ce25865e7d439d6be359a4a" prot="private" virt="non-virtual"><scope>QfDistanceArea</scope><name>mDistanceArea</name></member>
+      <member refid="classQfDistanceArea_1a19a94bc97dfde4fa7dfcc0d5426d51bb" prot="private" virt="non-virtual"><scope>QfDistanceArea</scope><name>mProject</name></member>
+      <member refid="classQfDistanceArea_1a109902b22e2643dbe15933fda4c1cd73" prot="private" virt="non-virtual"><scope>QfDistanceArea</scope><name>mRubberbandModel</name></member>
+      <member refid="classQfDistanceArea_1ad960e14e32e2738fc798450df3e7c850" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>perimeter</name></member>
+      <member refid="classQfDistanceArea_1a463f3f1d39809e91a40ce58662775c6d" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>perimeter</name></member>
+      <member refid="classQfDistanceArea_1a158dd9b18814460ccea245bf316b0ec0" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>perimeterChanged</name></member>
+      <member refid="classQfDistanceArea_1a0f3fc88679880fee06a25059cfb70986" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>perimeterValid</name></member>
+      <member refid="classQfDistanceArea_1ab4ecc7e77bffc158815a1876b5bbb891" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>perimeterValid</name></member>
+      <member refid="classQfDistanceArea_1ace458da3c05bffa69d14ad01764381da" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>project</name></member>
+      <member refid="classQfDistanceArea_1abb70ee07e258395cfb46e5e744e1984d" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>project</name></member>
+      <member refid="classQfDistanceArea_1a6e3a9e2521a6491a88d5a17be55e30e3" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>projectChanged</name></member>
+      <member refid="classQfDistanceArea_1a69c9e69bca4bb7d24a831efb9a45fb9b" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>QfDistanceArea</name></member>
+      <member refid="classQfDistanceArea_1a03854abefbc0adb7dbbe1a8dea6ee50d" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>rubberbandModel</name></member>
+      <member refid="classQfDistanceArea_1a14719ceb3684b2fa935534e8f6881612" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>rubberbandModel</name></member>
+      <member refid="classQfDistanceArea_1a99d05bac70075705f42bba6bad76efd6" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>rubberbandModelChanged</name></member>
+      <member refid="classQfDistanceArea_1a582a8601a4e209d75c6380ba198fc1d4" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>segmentLength</name></member>
+      <member refid="classQfDistanceArea_1a880d54f153e4a7266009f1fe4a54a8bb" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>segmentLength</name></member>
+      <member refid="classQfDistanceArea_1ab3278e52684857b85bb2916608717c1b" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>segmentLengthChanged</name></member>
+      <member refid="classQfDistanceArea_1aa4c5fec2cb07564839f9da5c0289d351" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>setCrs</name></member>
+      <member refid="classQfDistanceArea_1ad7f2b95c558b7f6b4659b5252371c1b6" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>setProject</name></member>
+      <member refid="classQfDistanceArea_1a58cd6c73aacfc41146aa3338c5596c12" prot="public" virt="non-virtual"><scope>QfDistanceArea</scope><name>setRubberbandModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

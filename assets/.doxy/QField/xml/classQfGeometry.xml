@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGeometry" kind="class" language="C++" prot="public">
+    <compoundname>QfGeometry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGeometry_1a5e19227ba490294541b782d2330f0e36" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfGeometry::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfGeometry::rubberbandModel</qualifiedname>
+        <read>rubberbandModel</read>
+        <write>setRubberbandModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="31" column="5" bodyfile="src/core/qfgeometry.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometry_1a305b3c3b70d6633444665d26f5132444" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfGeometry::vectorLayer</definition>
+        <argsstring></argsstring>
+        <name>vectorLayer</name>
+        <qualifiedname>QfGeometry::vectorLayer</qualifiedname>
+        <read>vectorLayer</read>
+        <write>setVectorLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="32" column="5" bodyfile="src/core/qfgeometry.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGeometry_1af35bc9043cb6d9626033b43620adbdac" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel* QfGeometry::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>QfGeometry::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="53" column="23" bodyfile="src/core/qfgeometry.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometry_1ae9329c20638af9fe0b2b27fa32772d82" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfGeometry::mVectorLayer</definition>
+        <argsstring></argsstring>
+        <name>mVectorLayer</name>
+        <qualifiedname>QfGeometry::mVectorLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="54" column="14" bodyfile="src/core/qfgeometry.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGeometry_1a1a7879e8ac44a8a759af05573a579e19" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfGeometry::QfGeometry</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfGeometry</name>
+        <qualifiedname>QfGeometry::QfGeometry</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="35" column="14" bodyfile="src/core/qfgeometry.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometry_1a2d81a4f09ef2b470225dde91736aa427" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfGeometry::asQgsGeometry</definition>
+        <argsstring>() const</argsstring>
+        <name>asQgsGeometry</name>
+        <qualifiedname>QfGeometry::asQgsGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="37" column="17" bodyfile="src/core/qfgeometry.cpp" bodystart="27" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometry_1a3e94396068dbe7442f88bc845ee99720" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfGeometry::rubberbandModel</definition>
+        <argsstring>() const</argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfGeometry::rubberbandModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="39" column="23" bodyfile="src/core/qfgeometry.cpp" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometry_1a8d178617a1de13127cdbb9d6b8442357" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometry::setRubberbandModel</definition>
+        <argsstring>(QfRubberbandModel *rubberbandModel)</argsstring>
+        <name>setRubberbandModel</name>
+        <qualifiedname>QfGeometry::setRubberbandModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+          <declname>rubberbandModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="40" column="10" bodyfile="src/core/qfgeometry.cpp" bodystart="81" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometry_1a0eac156418708bc2bdd4928f3f046191" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometry::updateRubberband</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>updateRubberband</name>
+        <qualifiedname>QfGeometry::updateRubberband</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="41" column="10" bodyfile="src/core/qfgeometry.cpp" bodystart="96" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometry_1ae69901833447e6076b5e76187bfc06ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfGeometry::applyRubberband</definition>
+        <argsstring>()</argsstring>
+        <name>applyRubberband</name>
+        <qualifiedname>QfGeometry::applyRubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="43" column="22" bodyfile="src/core/qfgeometry.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometry_1ae7729e6ef089235c8755cca9f3b38661" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfGeometry::vectorLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>vectorLayer</name>
+        <qualifiedname>QfGeometry::vectorLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="45" column="20" bodyfile="src/core/qfgeometry.cpp" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometry_1a1310232722200dc42439210a3592b8aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometry::setVectorLayer</definition>
+        <argsstring>(QgsVectorLayer *vectorLayer)</argsstring>
+        <name>setVectorLayer</name>
+        <qualifiedname>QfGeometry::setVectorLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vectorLayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="46" column="10" bodyfile="src/core/qfgeometry.cpp" bodystart="123" bodyend="130"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfGeometry_1a326f59d15c71858316aeae4f3c9ecd5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometry::rubberbandModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelChanged</name>
+        <qualifiedname>QfGeometry::rubberbandModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="49" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGeometry_1ae4484c1e35cf350bde7bf709aa9ec3be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometry::vectorLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vectorLayerChanged</name>
+        <qualifiedname>QfGeometry::vectorLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometry.h" line="50" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfGeometry</label>
+        <link refid="classQfGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfGeometry</label>
+        <link refid="classQfGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfgeometry.h" line="27" column="1" bodyfile="src/core/qfgeometry.h" bodystart="28" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classQfGeometry_1ae69901833447e6076b5e76187bfc06ef" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>applyRubberband</name></member>
+      <member refid="classQfGeometry_1a2d81a4f09ef2b470225dde91736aa427" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>asQgsGeometry</name></member>
+      <member refid="classQfGeometry_1af35bc9043cb6d9626033b43620adbdac" prot="private" virt="non-virtual"><scope>QfGeometry</scope><name>mRubberbandModel</name></member>
+      <member refid="classQfGeometry_1ae9329c20638af9fe0b2b27fa32772d82" prot="private" virt="non-virtual"><scope>QfGeometry</scope><name>mVectorLayer</name></member>
+      <member refid="classQfGeometry_1a1a7879e8ac44a8a759af05573a579e19" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>QfGeometry</name></member>
+      <member refid="classQfGeometry_1a5e19227ba490294541b782d2330f0e36" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>rubberbandModel</name></member>
+      <member refid="classQfGeometry_1a3e94396068dbe7442f88bc845ee99720" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>rubberbandModel</name></member>
+      <member refid="classQfGeometry_1a326f59d15c71858316aeae4f3c9ecd5d" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>rubberbandModelChanged</name></member>
+      <member refid="classQfGeometry_1a8d178617a1de13127cdbb9d6b8442357" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>setRubberbandModel</name></member>
+      <member refid="classQfGeometry_1a1310232722200dc42439210a3592b8aa" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>setVectorLayer</name></member>
+      <member refid="classQfGeometry_1a0eac156418708bc2bdd4928f3f046191" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>updateRubberband</name></member>
+      <member refid="classQfGeometry_1a305b3c3b70d6633444665d26f5132444" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>vectorLayer</name></member>
+      <member refid="classQfGeometry_1ae7729e6ef089235c8755cca9f3b38661" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>vectorLayer</name></member>
+      <member refid="classQfGeometry_1ae4484c1e35cf350bde7bf709aa9ec3be" prot="public" virt="non-virtual"><scope>QfGeometry</scope><name>vectorLayerChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

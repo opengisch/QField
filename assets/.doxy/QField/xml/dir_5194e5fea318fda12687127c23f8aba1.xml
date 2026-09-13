@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_5194e5fea318fda12687127c23f8aba1" kind="dir">
+    <compoundname>src/app</compoundname>
+    <innerdir refid="dir_408f7dc2ccecf14179dc3d37678eaa5b">src/app/qml</innerdir>
+    <innerdir refid="dir_25d21220311fc0fc97f184183dd69197">src/app/qml_compat</innerdir>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="qfapp_8cpp">qfapp.cpp</innerfile>
+    <innerfile refid="qfapp_8h">qfapp.h</innerfile>
+    <innerfile refid="qfappauthrequesthandler_8cpp">qfappauthrequesthandler.cpp</innerfile>
+    <innerfile refid="qfappauthrequesthandler_8h">qfappauthrequesthandler.h</innerfile>
+    <innerfile refid="qfappcoordinateoperationhandlers_8cpp">qfappcoordinateoperationhandlers.cpp</innerfile>
+    <innerfile refid="qfappcoordinateoperationhandlers_8h">qfappcoordinateoperationhandlers.h</innerfile>
+    <innerfile refid="qfbadlayerhandler_8cpp">qfbadlayerhandler.cpp</innerfile>
+    <innerfile refid="qfbadlayerhandler_8h">qfbadlayerhandler.h</innerfile>
+    <innerfile refid="qfchangelogcontents_8cpp">qfchangelogcontents.cpp</innerfile>
+    <innerfile refid="qfchangelogcontents_8h">qfchangelogcontents.h</innerfile>
+    <innerfile refid="qfclipboardmanager_8cpp">qfclipboardmanager.cpp</innerfile>
+    <innerfile refid="qfclipboardmanager_8h">qfclipboardmanager.h</innerfile>
+    <innerfile refid="qfpluginmanager_8cpp">qfpluginmanager.cpp</innerfile>
+    <innerfile refid="qfpluginmanager_8h">qfpluginmanager.h</innerfile>
+    <innerfile refid="qfpluginmodel_8cpp">qfpluginmodel.cpp</innerfile>
+    <innerfile refid="qfpluginmodel_8h">qfpluginmodel.h</innerfile>
+    <innerfile refid="qfscreendimmer_8cpp">qfscreendimmer.cpp</innerfile>
+    <innerfile refid="qfscreendimmer_8h">qfscreendimmer.h</innerfile>
+    <innerfile refid="qfurlhandler_8cpp">qfurlhandler.cpp</innerfile>
+    <innerfile refid="qfurlhandler_8h">qfurlhandler.h</innerfile>
+    <innerfile refid="qgismobileapp_8cpp">qgismobileapp.cpp</innerfile>
+    <innerfile refid="qgismobileapp_8h">qgismobileapp.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/app/"/>
+  </compounddef>
+</doxygen>

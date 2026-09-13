@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGeometryEditorsToolbar" kind="class" language="C++" prot="public">
+    <compoundname>QfGeometryEditorsToolbar</compoundname>
+    <basecompoundref refid="classQfVisibilityFadingRow" prot="public" virt="non-virtual">QfVisibilityFadingRow</basecompoundref>
+    <derivedcompoundref refid="classGeometryEditorsToolbar" prot="public" virt="non-virtual">GeometryEditorsToolbar</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGeometryEditorsToolbar_1a379efd24b82c9fc336ff2460a252d0b1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref></type>
+        <definition>QfFeatureModel QfGeometryEditorsToolbar::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfGeometryEditorsToolbar::featureModel</qualifiedname>
+        <read>dummyGetter_featureModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="28" column="1" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorsToolbar_1aafa63ba0e679443e8b6b57a3069174b4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfGeometryEditorsToolbar::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfGeometryEditorsToolbar::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="31" column="1" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorsToolbar_1ac743b67e5109291c1ca1fdc17a29257c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref></type>
+        <definition>QfRubberbandModel QfGeometryEditorsToolbar::editorRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>editorRubberbandModel</name>
+        <qualifiedname>QfGeometryEditorsToolbar::editorRubberbandModel</qualifiedname>
+        <read>dummyGetter_editorRubberbandModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="33" column="1" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorsToolbar_1afe7bd40fe3518d5b7f572e0218e85c75" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfGeometryRenderer" kindref="compound">QfGeometryRenderer</ref></type>
+        <definition>QfGeometryRenderer QfGeometryEditorsToolbar::editorRenderer</definition>
+        <argsstring></argsstring>
+        <name>editorRenderer</name>
+        <qualifiedname>QfGeometryEditorsToolbar::editorRenderer</qualifiedname>
+        <read>dummyGetter_editorRenderer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="35" column="1" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorsToolbar_1a2576c4d61e73682e2324a6bdeb5bbd7c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGeometryEditorsToolbar::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>QfGeometryEditorsToolbar::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="37" column="1" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorsToolbar_1afd0990d94db3684f7b1aeff3963f7c08" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfGeometryEditorsToolbar::image</definition>
+        <argsstring></argsstring>
+        <name>image</name>
+        <qualifiedname>QfGeometryEditorsToolbar::image</qualifiedname>
+        <read>dummyGetter_image_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="39" column="1" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGeometryEditorsToolbar_1a1d323b8f8a4d2a4027d016639ca7270a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfGeometryEditorsModel" kindref="compound">QfGeometryEditorsModel</ref></type>
+        <definition>QfGeometryEditorsModel QfGeometryEditorsToolbar::editors</definition>
+        <argsstring></argsstring>
+        <name>editors</name>
+        <qualifiedname>QfGeometryEditorsToolbar::editors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="45" column="24" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorsToolbar_1a0d1cce41d8d145529104082b0da13d5e" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfGeometryEditorsToolbar::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfGeometryEditorsToolbar::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="46" column="14" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorsToolbar_1ac3a32ae2a360257583488b0dd426f721" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfVisibilityFadingRow" kindref="compound">QfVisibilityFadingRow</ref></type>
+        <definition>QfVisibilityFadingRow QfGeometryEditorsToolbar::selectorRow</definition>
+        <argsstring></argsstring>
+        <name>selectorRow</name>
+        <qualifiedname>QfGeometryEditorsToolbar::selectorRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="61" column="23" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorsToolbar_1aeef39303fb6ea5b80fff08db9b431116" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfGeometryEditorsToolbar::toolbarRow</definition>
+        <argsstring></argsstring>
+        <name>toolbarRow</name>
+        <qualifiedname>QfGeometryEditorsToolbar::toolbarRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="62" column="8" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorsToolbar_1a62596a3e4fc732058c02ff50cc1d9373" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGeometryEditorsToolbar::onScreenHoveringChanged</definition>
+        <argsstring></argsstring>
+        <name>onScreenHoveringChanged</name>
+        <qualifiedname>QfGeometryEditorsToolbar::onScreenHoveringChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="63" column="5" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorsToolbar_1ad61b79d00dc94399d6f1d69747a10987" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfGeometryEditorsToolbar::activeToolButton</definition>
+        <argsstring></argsstring>
+        <name>activeToolButton</name>
+        <qualifiedname>QfGeometryEditorsToolbar::activeToolButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="64" column="14" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfGeometryEditorsToolbar_1a8d068ef86dfbad0b895809f57ac68540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsToolbar::editorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>editorChanged</name>
+        <qualifiedname>QfGeometryEditorsToolbar::editorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="41" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGeometryEditorsToolbar_1a27718e6a5e03de51e4135225409da2d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsToolbar::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfGeometryEditorsToolbar::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="43" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGeometryEditorsToolbar_1a0dc9a5c2ede965b31aa851d7b3a9b339" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsToolbar::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>QfGeometryEditorsToolbar::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="49" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsToolbar_1a423a5a61c3152c3b771981ebc5175f6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsToolbar::cancelEditors</definition>
+        <argsstring>()</argsstring>
+        <name>cancelEditors</name>
+        <qualifiedname>QfGeometryEditorsToolbar::cancelEditors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="51" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsToolbar_1a09165537290d3583421164e7982b27be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsToolbar::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>QfGeometryEditorsToolbar::canvasClicked</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="53" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsToolbar_1ab85bd74d747b13d860ed6891b9064825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsToolbar::canvasLongPressed</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasLongPressed</name>
+        <qualifiedname>QfGeometryEditorsToolbar::canvasLongPressed</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="55" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsToolbar_1ae4da7bb00eda38bf4641276aba726ea5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsToolbar::canvasFreehandBegin</definition>
+        <argsstring>()</argsstring>
+        <name>canvasFreehandBegin</name>
+        <qualifiedname>QfGeometryEditorsToolbar::canvasFreehandBegin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="57" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsToolbar_1a5b27754b8248b7528c8225139b4dd8dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsToolbar::canvasFreehandEnd</definition>
+        <argsstring>()</argsstring>
+        <name>canvasFreehandEnd</name>
+        <qualifiedname>QfGeometryEditorsToolbar::canvasFreehandEnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="59" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This contains several geometry editing tools A tool must subclass <ref refid="classQfVisibilityFadingRow" kindref="compound">QfVisibilityFadingRow</ref> and contains following functions:<itemizedlist>
+<listitem><para>function init(featureModel, mapSettings, editorRubberbandModel)</para>
+</listitem><listitem><para>function cancel() The following signal:</para>
+</listitem><listitem><para>signal finished() It can optionally implement properties:</para>
+</listitem><listitem><para>blocking (bool) which prevents from switching tools</para>
+</listitem><listitem><para>vertexRubberbandVisible (bool) to show the vertex rubberband (false by default) It can optionally implement properties which will be bind:</para>
+</listitem><listitem><para>screenHovering determines if a pen is currently hovering the screen It can optionally implement the functions:</para>
+</listitem><listitem><para>canvasClicked(point)</para>
+</listitem><listitem><para>canvasLongPressed(point) These functions must return true if they catch the event. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>GeometryEditorsToolbar</label>
+        <link refid="classGeometryEditorsToolbar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfGeometryEditorsToolbar</label>
+        <link refid="classQfGeometryEditorsToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfGeometryEditorsToolbar</label>
+        <link refid="classQfGeometryEditorsToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfGeometryEditorsToolbar.qml" line="25" column="1" bodyfile="src/gui/qml/QfGeometryEditorsToolbar.qml" bodystart="25" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classQfGeometryEditorsToolbar_1ad61b79d00dc94399d6f1d69747a10987" prot="private" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>activeToolButton</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a423a5a61c3152c3b771981ebc5175f6d" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>cancelEditors</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a09165537290d3583421164e7982b27be" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>canvasClicked</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1ae4da7bb00eda38bf4641276aba726ea5" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>canvasFreehandBegin</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a5b27754b8248b7528c8225139b4dd8dc" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>canvasFreehandEnd</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1ab85bd74d747b13d860ed6891b9064825" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>canvasLongPressed</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a8d068ef86dfbad0b895809f57ac68540" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>editorChanged</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1afe7bd40fe3518d5b7f572e0218e85c75" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>editorRenderer</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1ac743b67e5109291c1ca1fdc17a29257c" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>editorRubberbandModel</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a1d323b8f8a4d2a4027d016639ca7270a" prot="private" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>editors</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a379efd24b82c9fc336ff2460a252d0b1" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>featureModel</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1afd0990d94db3684f7b1aeff3963f7c08" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>image</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a0dc9a5c2ede965b31aa851d7b3a9b339" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>init</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1aafa63ba0e679443e8b6b57a3069174b4" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>mapSettings</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a0d1cce41d8d145529104082b0da13d5e" prot="private" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>onCompleted</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a62596a3e4fc732058c02ff50cc1d9373" prot="private" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>onScreenHoveringChanged</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a27718e6a5e03de51e4135225409da2d7" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a2576c4d61e73682e2324a6bdeb5bbd7c" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>screenHovering</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1ac3a32ae2a360257583488b0dd426f721" prot="private" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>selectorRow</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>stateVisible</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1aeef39303fb6ea5b80fff08db9b431116" prot="private" virt="non-virtual"><scope>QfGeometryEditorsToolbar</scope><name>toolbarRow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

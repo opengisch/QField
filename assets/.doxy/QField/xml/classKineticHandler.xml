@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classKineticHandler" kind="class" language="C++" prot="public">
+    <compoundname>KineticHandler</compoundname>
+    <basecompoundref refid="classQfKineticHandler" prot="public" virt="non-virtual">QfKineticHandler</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>KineticHandler</label>
+        <link refid="classKineticHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfKineticHandler</label>
+        <link refid="classQfKineticHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>KineticHandler</label>
+        <link refid="classKineticHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfKineticHandler</label>
+        <link refid="classQfKineticHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/KineticHandler.qml" line="2" column="1" bodyfile="src/app/qml_compat/KineticHandler.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfKineticHandler_1a2538c30883e5d640e53dda9db3b257dc" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>activate</name></member>
+      <member refid="classQfKineticHandler_1a06130b4df543e5020c9470b793d02d15" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>addPanSample</name></member>
+      <member refid="classQfKineticHandler_1a6065c1f33576cdc800a91cccd61b83b1" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>addZoomSample</name></member>
+      <member refid="classQfKineticHandler_1ad548494210904e9135ef58e8cb545307" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>mapCanvas</name></member>
+      <member refid="classQfKineticHandler_1a4651d7fc7e9394072fa3a0c0a7723f7a" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>mapCanvasWrapper</name></member>
+      <member refid="classQfKineticHandler_1a7103701523bb30528a3e86b6749de960" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panAccumX</name></member>
+      <member refid="classQfKineticHandler_1a6df73370836cae7be6d639b0423b82c9" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panAccumY</name></member>
+      <member refid="classQfKineticHandler_1aea3495e5a1f038d62762acea976cc5c2" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panRunning</name></member>
+      <member refid="classQfKineticHandler_1a914c62289c436fffba983f9620a7e8b4" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panSamples</name></member>
+      <member refid="classQfKineticHandler_1a69b8dcc02c718ae7944d0149179859c0" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panVx</name></member>
+      <member refid="classQfKineticHandler_1a44bcac18b57c2927797cefa5ca2012e2" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panVy</name></member>
+      <member refid="classQfKineticHandler_1ab6723596c0e382dd68523f1c37ea1562" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>resetPanSamples</name></member>
+      <member refid="classQfKineticHandler_1a48ed499649960f3191839e93bf56b51a" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>resetZoomSamples</name></member>
+      <member refid="classQfKineticHandler_1a49f656e43ba9c368eeb7d8d67bd00038" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>startPanInertia</name></member>
+      <member refid="classQfKineticHandler_1af75ee7f743450379c5d3849df179e1bd" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>startZoomInertia</name></member>
+      <member refid="classQfKineticHandler_1a50e56df6bc15b04f7e30c4dca80262ab" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>stopAll</name></member>
+      <member refid="classQfKineticHandler_1aecc847e107c9369b128cdcd550a4598a" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>zoomCenter</name></member>
+      <member refid="classQfKineticHandler_1a4606af6d1bd8df34b27e25f9d138346b" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>zoomRunning</name></member>
+      <member refid="classQfKineticHandler_1aca7108199fb165d960013f2061f04716" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>zoomSamples</name></member>
+      <member refid="classQfKineticHandler_1a9b5955ec9eaef66a082ff420a9346f38" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>zoomVelocity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

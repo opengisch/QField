@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAppAuthRequestHandler" kind="class" language="C++" prot="public">
+    <compoundname>QfAppAuthRequestHandler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">QgsCredentials</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">QgsNetworkAuthenticationHandler</basecompoundref>
+    <includes refid="qfappauthrequesthandler_8h" local="no">qfappauthrequesthandler.h</includes>
+    <innerclass refid="structQfAppAuthRequestHandler_1_1RealmEntry" prot="private">QfAppAuthRequestHandler::RealmEntry</innerclass>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfAppAuthRequestHandler_1ab13146012a5ef5562b9faaa960b21327" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::isProjectLoading</definition>
+        <argsstring></argsstring>
+        <name>isProjectLoading</name>
+        <qualifiedname>QfAppAuthRequestHandler::isProjectLoading</qualifiedname>
+        <read>isProjectLoading</read>
+        <write>setIsProjectLoading</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="40" column="5" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAppAuthRequestHandler_1aa438d9ea86c118fd93a2e08725adf57b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::hasPendingAuthRequest</definition>
+        <argsstring></argsstring>
+        <name>hasPendingAuthRequest</name>
+        <qualifiedname>QfAppAuthRequestHandler::hasPendingAuthRequest</qualifiedname>
+        <read>hasPendingAuthRequest</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="41" column="5" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAppAuthRequestHandler_1a46b7add23623e6ff1294057f1191b7b7" prot="private" static="no" mutable="no">
+        <type>QList&lt; RealmEntry &gt;</type>
+        <definition>QList&lt;RealmEntry&gt; QfAppAuthRequestHandler::mRealms</definition>
+        <argsstring></argsstring>
+        <name>mRealms</name>
+        <qualifiedname>QfAppAuthRequestHandler::mRealms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="110" column="11" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAppAuthRequestHandler_1a7475338b2800ee2f5ce1e9765c31e694" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::mBrowserAuthenticationOngoing</definition>
+        <argsstring></argsstring>
+        <name>mBrowserAuthenticationOngoing</name>
+        <qualifiedname>QfAppAuthRequestHandler::mBrowserAuthenticationOngoing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="111" column="10" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAppAuthRequestHandler_1aadbc642d2f0b2dda6f1080482867955a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::mIsProjectLoading</definition>
+        <argsstring></argsstring>
+        <name>mIsProjectLoading</name>
+        <qualifiedname>QfAppAuthRequestHandler::mIsProjectLoading</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="113" column="10" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1ab6eadf0016bc0b410830136f2efd9a99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAppAuthRequestHandler::QfAppAuthRequestHandler</definition>
+        <argsstring>()</argsstring>
+        <name>QfAppAuthRequestHandler</name>
+        <qualifiedname>QfAppAuthRequestHandler::QfAppAuthRequestHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="44" column="5" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1afbd45ccee815ea1dba9d6ca8b9d5aefd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::handleAuthRequest</definition>
+        <argsstring>(QNetworkReply *reply, QAuthenticator *auth) override</argsstring>
+        <name>handleAuthRequest</name>
+        <qualifiedname>QfAppAuthRequestHandler::handleAuthRequest</qualifiedname>
+        <param>
+          <type>QNetworkReply *</type>
+          <declname>reply</declname>
+        </param>
+        <param>
+          <type>QAuthenticator *</type>
+          <declname>auth</declname>
+        </param>
+        <briefdescription>
+<para>handles the auth request - triggered by the authRequestOccurred signal </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="47" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="157" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1a18863a8098bb4e6d69802bf908757f05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::handleAuthRequestOpenBrowser</definition>
+        <argsstring>(const QUrl &amp;url) override</argsstring>
+        <name>handleAuthRequestOpenBrowser</name>
+        <qualifiedname>QfAppAuthRequestHandler::handleAuthRequestOpenBrowser</qualifiedname>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="48" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="213" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1ae0adb869d97b78b28c5cd017f2c8c363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::handleAuthRequestCloseBrowser</definition>
+        <argsstring>() override</argsstring>
+        <name>handleAuthRequestCloseBrowser</name>
+        <qualifiedname>QfAppAuthRequestHandler::handleAuthRequestCloseBrowser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="49" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="220" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1acf09acfe9b7ef9bfd4bccf9cb2ae5292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppAuthRequestHandler::enterCredentials</definition>
+        <argsstring>(const QString &amp;realm, const QString &amp;username, const QString &amp;password)</argsstring>
+        <name>enterCredentials</name>
+        <qualifiedname>QfAppAuthRequestHandler::enterCredentials</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>realm</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+<para>stores the credentials after the information is entered in the login dialog </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="52" column="22" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1aaafe4aa5e3bde38c78aa05d5add09c2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAppAuthRequestHandler::handleLayerLogins</definition>
+        <argsstring>()</argsstring>
+        <name>handleLayerLogins</name>
+        <qualifiedname>QfAppAuthRequestHandler::handleLayerLogins</qualifiedname>
+        <briefdescription>
+<para>handles each realm after the project has been loaded </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="55" column="22" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="81" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1a876d0c9f35b0b2e7b2e058ab9d5dc905" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppAuthRequestHandler::clearStoredRealms</definition>
+        <argsstring>()</argsstring>
+        <name>clearStoredRealms</name>
+        <qualifiedname>QfAppAuthRequestHandler::clearStoredRealms</qualifiedname>
+        <briefdescription>
+<para>clears the stored realms </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="58" column="22" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="132" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1ac0149772f09564ccc81863838a81f65d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAppAuthRequestHandler::abortAuthBrowser</definition>
+        <argsstring>()</argsstring>
+        <name>abortAuthBrowser</name>
+        <qualifiedname>QfAppAuthRequestHandler::abortAuthBrowser</qualifiedname>
+        <briefdescription>
+<para>abort an ongoing external browser authentication request </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="61" column="22" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="227" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1a13fef14cbaa0af83434d99a9fcba3ebd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::isProjectLoading</definition>
+        <argsstring>() const</argsstring>
+        <name>isProjectLoading</name>
+        <qualifiedname>QfAppAuthRequestHandler::isProjectLoading</qualifiedname>
+        <briefdescription>
+<para>returns TRUE is a project is loading </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="64" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1aa9f37b6408e3231dd28b2aafb796f01c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::setIsProjectLoading</definition>
+        <argsstring>(bool loading)</argsstring>
+        <name>setIsProjectLoading</name>
+        <qualifiedname>QfAppAuthRequestHandler::setIsProjectLoading</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>loading</declname>
+        </param>
+        <briefdescription>
+<para>sets whether a project is <emphasis>loading</emphasis> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="67" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="47" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1a284cb2d4ac3f19f0fada26ef13e556ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::hasPendingAuthRequest</definition>
+        <argsstring>() const</argsstring>
+        <name>hasPendingAuthRequest</name>
+        <qualifiedname>QfAppAuthRequestHandler::hasPendingAuthRequest</qualifiedname>
+        <briefdescription>
+<para>returns the number of pending authentication requests </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="70" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="56" bodyend="73"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfAppAuthRequestHandler_1a19ea3e70307a8d1e6370c1680998dd7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::showLoginDialog</definition>
+        <argsstring>(const QString &amp;realm, const QString &amp;title)</argsstring>
+        <name>showLoginDialog</name>
+        <qualifiedname>QfAppAuthRequestHandler::showLoginDialog</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>realm</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>title</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppAuthRequestHandler_1ab65b1dbf875f7f535ba93954a3bf507c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::loginDialogClosed</definition>
+        <argsstring>(const QString &amp;realm, const bool canceled)</argsstring>
+        <name>loginDialogClosed</name>
+        <qualifiedname>QfAppAuthRequestHandler::loginDialogClosed</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>realm</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>canceled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppAuthRequestHandler_1a64d57b5bd4383c61611a7417e724a5a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::reloadEverything</definition>
+        <argsstring>()</argsstring>
+        <name>reloadEverything</name>
+        <qualifiedname>QfAppAuthRequestHandler::reloadEverything</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppAuthRequestHandler_1ade04a6326c4d988f14ff016318338e08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::showLoginBrowser</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>showLoginBrowser</name>
+        <qualifiedname>QfAppAuthRequestHandler::showLoginBrowser</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppAuthRequestHandler_1af8c5b81c38789e78ad20d9398ae1670c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::hideLoginBrowser</definition>
+        <argsstring>()</argsstring>
+        <name>hideLoginBrowser</name>
+        <qualifiedname>QfAppAuthRequestHandler::hideLoginBrowser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="77" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppAuthRequestHandler_1af1785de8877a253c092a0992c8a0a3a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::isProjectLoadingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isProjectLoadingChanged</name>
+        <qualifiedname>QfAppAuthRequestHandler::isProjectLoadingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="78" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAppAuthRequestHandler_1aab44184a3b84f1928a6de9c14e365632" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::hasPendingAuthRequestChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasPendingAuthRequestChanged</name>
+        <qualifiedname>QfAppAuthRequestHandler::hasPendingAuthRequestChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="79" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1ac352774b5e00d10c48b43a407b7e10d1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::request</definition>
+        <argsstring>(const QString &amp;realm, QString &amp;username, QString &amp;password, const QString &amp;message=QString()) override</argsstring>
+        <name>request</name>
+        <qualifiedname>QfAppAuthRequestHandler::request</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>realm</declname>
+        </param>
+        <param>
+          <type>QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>QString &amp;</type>
+          <declname>password</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="82" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="31" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1ab845fa3bc54af96c40dcfbcb7e890fe3" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::requestMasterPassword</definition>
+        <argsstring>(QString &amp;password, bool stored=false) override</argsstring>
+        <name>requestMasterPassword</name>
+        <qualifiedname>QfAppAuthRequestHandler::requestMasterPassword</qualifiedname>
+        <param>
+          <type>QString &amp;</type>
+          <declname>password</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>stored</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="83" column="10" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1a3b508770a0d5aecb108eb29a517177f1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::showLogin</definition>
+        <argsstring>()</argsstring>
+        <name>showLogin</name>
+        <qualifiedname>QfAppAuthRequestHandler::showLogin</qualifiedname>
+        <briefdescription>
+<para>get realm and title then show login dialog </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="87" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="137" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1afd24e1543097b073acd709ec037775a5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAppAuthRequestHandler::authNeeded</definition>
+        <argsstring>(const QString &amp;realm)</argsstring>
+        <name>authNeeded</name>
+        <qualifiedname>QfAppAuthRequestHandler::authNeeded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>realm</declname>
+        </param>
+        <briefdescription>
+<para>adds the realm to the list on loading the project </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="90" column="10" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="144" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1a9c3223a00a01a5ea9cfae2fc50baec59" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfAppAuthRequestHandler::getFirstUnhandledRealm</definition>
+        <argsstring>() const</argsstring>
+        <name>getFirstUnhandledRealm</name>
+        <qualifiedname>QfAppAuthRequestHandler::getFirstUnhandledRealm</qualifiedname>
+        <briefdescription>
+<para>returns an unhandled realm </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="93" column="13" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="75" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAppAuthRequestHandler_1ae98bd2e5773a6bd56229823059c9f4fe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfAppAuthRequestHandler::getCredentialTitle</definition>
+        <argsstring>(const QString &amp;realm)</argsstring>
+        <name>getCredentialTitle</name>
+        <qualifiedname>QfAppAuthRequestHandler::getCredentialTitle</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>realm</declname>
+        </param>
+        <briefdescription>
+<para>takes realm as parameter and outputs a user-friendly title string </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="96" column="13" bodyfile="src/app/qfappauthrequesthandler.cpp" bodystart="234" bodyend="251"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>When a layer requests and authentication, this handler is triggered. When the credentials are found in QgsCredentials (because it&apos;s stored before), they are used for the login. If not, QGIS would popup a Login Dialog, but QField does not. The realms (where it should log in to) are just added to the list of unhandled realms. When all layers are handled, the login dialog is diplayed for each of them. On successful login, the credentials are stored in QgsCredentials and removed from the list. When the list is empty (or contains only canceled realms), the project is reloaded. This time the logins are contained in QgsCredentials and no dialog needs to pop up. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAppAuthRequestHandler</label>
+        <link refid="classQfAppAuthRequestHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QgsCredentials</label>
+      </node>
+      <node id="4">
+        <label>QgsNetworkAuthenticationHandler</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAppAuthRequestHandler</label>
+        <link refid="classQfAppAuthRequestHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QgsCredentials</label>
+      </node>
+      <node id="4">
+        <label>QgsNetworkAuthenticationHandler</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qfappauthrequesthandler.h" line="36" column="1" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="37" bodyend="114"/>
+    <listofallmembers>
+      <member refid="classQfAppAuthRequestHandler_1ac0149772f09564ccc81863838a81f65d" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>abortAuthBrowser</name></member>
+      <member refid="classQfAppAuthRequestHandler_1afd24e1543097b073acd709ec037775a5" prot="private" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>authNeeded</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a876d0c9f35b0b2e7b2e058ab9d5dc905" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>clearStoredRealms</name></member>
+      <member refid="classQfAppAuthRequestHandler_1acf09acfe9b7ef9bfd4bccf9cb2ae5292" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>enterCredentials</name></member>
+      <member refid="classQfAppAuthRequestHandler_1ae98bd2e5773a6bd56229823059c9f4fe" prot="private" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>getCredentialTitle</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a9c3223a00a01a5ea9cfae2fc50baec59" prot="private" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>getFirstUnhandledRealm</name></member>
+      <member refid="classQfAppAuthRequestHandler_1afbd45ccee815ea1dba9d6ca8b9d5aefd" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>handleAuthRequest</name></member>
+      <member refid="classQfAppAuthRequestHandler_1ae0adb869d97b78b28c5cd017f2c8c363" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>handleAuthRequestCloseBrowser</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a18863a8098bb4e6d69802bf908757f05" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>handleAuthRequestOpenBrowser</name></member>
+      <member refid="classQfAppAuthRequestHandler_1aaafe4aa5e3bde38c78aa05d5add09c2b" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>handleLayerLogins</name></member>
+      <member refid="classQfAppAuthRequestHandler_1aa438d9ea86c118fd93a2e08725adf57b" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>hasPendingAuthRequest</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a284cb2d4ac3f19f0fada26ef13e556ca" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>hasPendingAuthRequest</name></member>
+      <member refid="classQfAppAuthRequestHandler_1aab44184a3b84f1928a6de9c14e365632" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>hasPendingAuthRequestChanged</name></member>
+      <member refid="classQfAppAuthRequestHandler_1af8c5b81c38789e78ad20d9398ae1670c" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>hideLoginBrowser</name></member>
+      <member refid="classQfAppAuthRequestHandler_1ab13146012a5ef5562b9faaa960b21327" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>isProjectLoading</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a13fef14cbaa0af83434d99a9fcba3ebd" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>isProjectLoading</name></member>
+      <member refid="classQfAppAuthRequestHandler_1af1785de8877a253c092a0992c8a0a3a0" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>isProjectLoadingChanged</name></member>
+      <member refid="classQfAppAuthRequestHandler_1ab65b1dbf875f7f535ba93954a3bf507c" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>loginDialogClosed</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a7475338b2800ee2f5ce1e9765c31e694" prot="private" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>mBrowserAuthenticationOngoing</name></member>
+      <member refid="classQfAppAuthRequestHandler_1aadbc642d2f0b2dda6f1080482867955a" prot="private" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>mIsProjectLoading</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a46b7add23623e6ff1294057f1191b7b7" prot="private" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>mRealms</name></member>
+      <member refid="classQfAppAuthRequestHandler_1ab6eadf0016bc0b410830136f2efd9a99" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>QfAppAuthRequestHandler</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a64d57b5bd4383c61611a7417e724a5a8" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>reloadEverything</name></member>
+      <member refid="classQfAppAuthRequestHandler_1ac352774b5e00d10c48b43a407b7e10d1" prot="protected" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>request</name></member>
+      <member refid="classQfAppAuthRequestHandler_1ab845fa3bc54af96c40dcfbcb7e890fe3" prot="protected" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>requestMasterPassword</name></member>
+      <member refid="classQfAppAuthRequestHandler_1aa9f37b6408e3231dd28b2aafb796f01c" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>setIsProjectLoading</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a3b508770a0d5aecb108eb29a517177f1" prot="private" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>showLogin</name></member>
+      <member refid="classQfAppAuthRequestHandler_1ade04a6326c4d988f14ff016318338e08" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>showLoginBrowser</name></member>
+      <member refid="classQfAppAuthRequestHandler_1a19ea3e70307a8d1e6370c1680998dd7f" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler</scope><name>showLoginDialog</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

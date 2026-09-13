@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAlgorithmItem" kind="class" language="C++" prot="public">
+    <compoundname>QfAlgorithmItem</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAlgorithmItem_1aec30e3ab5dcdd9c0ebdae54bd0dd8266" prot="private" static="no" mutable="no">
+        <type>const QgsProcessingAlgorithm *</type>
+        <definition>const QgsProcessingAlgorithm* QfAlgorithmItem::mAlgorithm</definition>
+        <argsstring></argsstring>
+        <name>mAlgorithm</name>
+        <qualifiedname>QfAlgorithmItem::mAlgorithm</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="43" column="34" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAlgorithmItem_1a2667ef9d7393ff3bac998e181877d92e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfAlgorithmItem::QfAlgorithmItem</definition>
+        <argsstring>(const QgsProcessingAlgorithm *algorithm=nullptr)</argsstring>
+        <name>QfAlgorithmItem</name>
+        <qualifiedname>QfAlgorithmItem::QfAlgorithmItem</qualifiedname>
+        <param>
+          <type>const QgsProcessingAlgorithm *</type>
+          <declname>algorithm</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="37" column="14" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.h" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAlgorithmItem_1aeb921a6a8c6e8a27febae5797f5456ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const QgsProcessingAlgorithm *</type>
+        <definition>const QgsProcessingAlgorithm * QfAlgorithmItem::algorithm</definition>
+        <argsstring>() const</argsstring>
+        <name>algorithm</name>
+        <qualifiedname>QfAlgorithmItem::algorithm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="40" column="34" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/processing/qfprocessingalgorithmsmodel.h" line="34" column="1" bodyfile="src/core/processing/qfprocessingalgorithmsmodel.h" bodystart="35" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classQfAlgorithmItem_1aeb921a6a8c6e8a27febae5797f5456ca" prot="public" virt="non-virtual"><scope>QfAlgorithmItem</scope><name>algorithm</name></member>
+      <member refid="classQfAlgorithmItem_1aec30e3ab5dcdd9c0ebdae54bd0dd8266" prot="private" virt="non-virtual"><scope>QfAlgorithmItem</scope><name>mAlgorithm</name></member>
+      <member refid="classQfAlgorithmItem_1a2667ef9d7393ff3bac998e181877d92e" prot="public" virt="non-virtual"><scope>QfAlgorithmItem</scope><name>QfAlgorithmItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

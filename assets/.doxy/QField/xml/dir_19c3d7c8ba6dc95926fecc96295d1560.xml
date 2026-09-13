@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_19c3d7c8ba6dc95926fecc96295d1560" kind="dir">
+    <compoundname>src/core/qgsquick</compoundname>
+    <innerfile refid="qgsquickcoordinatetransformer_8cpp">qgsquickcoordinatetransformer.cpp</innerfile>
+    <innerfile refid="qgsquickcoordinatetransformer_8h">qgsquickcoordinatetransformer.h</innerfile>
+    <innerfile refid="qgsquickelevationprofilecanvas_8cpp">qgsquickelevationprofilecanvas.cpp</innerfile>
+    <innerfile refid="qgsquickelevationprofilecanvas_8h">qgsquickelevationprofilecanvas.h</innerfile>
+    <innerfile refid="qgsquickmapcanvasmap_8cpp">qgsquickmapcanvasmap.cpp</innerfile>
+    <innerfile refid="qgsquickmapcanvasmap_8h">qgsquickmapcanvasmap.h</innerfile>
+    <innerfile refid="qgsquickmapsettings_8cpp">qgsquickmapsettings.cpp</innerfile>
+    <innerfile refid="qgsquickmapsettings_8h">qgsquickmapsettings.h</innerfile>
+    <innerfile refid="qgsquickmaptransform_8cpp">qgsquickmaptransform.cpp</innerfile>
+    <innerfile refid="qgsquickmaptransform_8h">qgsquickmaptransform.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qgsquick/"/>
+  </compounddef>
+</doxygen>

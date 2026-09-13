@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_94ae90e00fc602cdc900d6f900906c1c" kind="dir">
+    <compoundname>src/sentry</compoundname>
+    <innerfile refid="sentry__classic_8cpp">sentry_classic.cpp</innerfile>
+    <innerfile refid="sentry__config_8h_8in">sentry_config.h.in</innerfile>
+    <innerfile refid="sentry__wrapper_8h">sentry_wrapper.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/sentry/"/>
+  </compounddef>
+</doxygen>

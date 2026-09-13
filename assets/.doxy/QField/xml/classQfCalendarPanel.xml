@@ -1,0 +1,439 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCalendarPanel" kind="class" language="C++" prot="public">
+    <compoundname>QfCalendarPanel</compoundname>
+    <basecompoundref refid="classQfDialog" prot="public" virt="non-virtual">QfDialog</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCalendarPanel_1a76a6eb566c3ef85626e74cbf748ffb36" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfCalendarPanel::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="11" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1aeb91f57aa380d50fc6ffa446d9dc84da" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfCalendarPanel::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="12" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1ace07c0d574cc8427c371163a6a98fc1a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfCalendarPanel::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="13" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1adedd19cb76176a4bc4ba310a9ce18236" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCalendarPanel::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="14" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1a9eb40d471eb7238e55a5d66d7ff41872" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCalendarPanel::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="15" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1a9eb4f3ad5b11ee6b8e4f656b619a3868" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfCalendarPanel::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="16" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1a8d8bf4e4f6a5ebdedf1095c561dc1ded" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>QfCalendarPanel::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="17" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1a43a9564637084c77d38181cc408eca23" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::onWidthChanged</definition>
+        <argsstring></argsstring>
+        <name>onWidthChanged</name>
+        <qualifiedname>QfCalendarPanel::onWidthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="32" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1aa01a15fe99cf4fa90e0c8db41ad2af20" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfCalendarPanel::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfCalendarPanel::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="33" column="14" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1af71c3b05e9053cc59465bd78d320495a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfCalendarPanel::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="34" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1aad0070b3fd50790d8cbe3a7ecc4535da" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCalendarPanel::onAccepted</definition>
+        <argsstring></argsstring>
+        <name>onAccepted</name>
+        <qualifiedname>QfCalendarPanel::onAccepted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="35" column="5" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1acca28c47c90035125e8152357d209385" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCalendarPanel::result</definition>
+        <argsstring></argsstring>
+        <name>result</name>
+        <qualifiedname>QfCalendarPanel::result</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="36" column="6" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1a49a79fddac01a9c23e26a0bdc52e5077" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCalendarItem" kindref="compound">QfCalendarItem</ref></type>
+        <definition>QfCalendarItem QfCalendarPanel::calendarItem</definition>
+        <argsstring></argsstring>
+        <name>calendarItem</name>
+        <qualifiedname>QfCalendarPanel::calendarItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="37" column="16" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1a47cd99022ce1368568f13b25491dc758" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTimeItem" kindref="compound">QfTimeItem</ref></type>
+        <definition>QfTimeItem QfCalendarPanel::timePicker</definition>
+        <argsstring></argsstring>
+        <name>timePicker</name>
+        <qualifiedname>QfCalendarPanel::timePicker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="38" column="12" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1a0cfdeaf4a3d931974e92c6cb4e752a02" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable QfCalendarPanel::vericalLayout</definition>
+        <argsstring></argsstring>
+        <name>vericalLayout</name>
+        <qualifiedname>QfCalendarPanel::vericalLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="39" column="11" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1ac2f7efcd409a878714fd07dd62fbee45" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCalendarPanel::verticalContent</definition>
+        <argsstring></argsstring>
+        <name>verticalContent</name>
+        <qualifiedname>QfCalendarPanel::verticalContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="40" column="14" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1af966c0ed120d88062afa67a359bf6e5e" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable QfCalendarPanel::horizontalLayout</definition>
+        <argsstring></argsstring>
+        <name>horizontalLayout</name>
+        <qualifiedname>QfCalendarPanel::horizontalLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="41" column="11" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarPanel_1acb1fc1690673b88d96f1f06f8309a48e" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfCalendarPanel::horizontalContent</definition>
+        <argsstring></argsstring>
+        <name>horizontalContent</name>
+        <qualifiedname>QfCalendarPanel::horizontalContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="42" column="11" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCalendarPanel_1ad9b24454646e61e39d149aeede274a0b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCalendarPanel::showTimePicker</definition>
+        <argsstring></argsstring>
+        <name>showTimePicker</name>
+        <qualifiedname>QfCalendarPanel::showTimePicker</qualifiedname>
+        <read>dummyGetter_showTimePicker_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="20" column="1" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCalendarPanel_1aa7401f6b3afab828b9df4e39c1f41b5b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCalendarPanel::showDatePicker</definition>
+        <argsstring></argsstring>
+        <name>showDatePicker</name>
+        <qualifiedname>QfCalendarPanel::showDatePicker</qualifiedname>
+        <read>dummyGetter_showDatePicker_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="22" column="1" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCalendarPanel_1a9eaeb966722020a6ff48c2deaeb9465c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCalendarPanel::verticalView</definition>
+        <argsstring></argsstring>
+        <name>verticalView</name>
+        <qualifiedname>QfCalendarPanel::verticalView</qualifiedname>
+        <read>dummyGetter_verticalView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="24" column="1" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCalendarPanel_1ab133a2d46972d4c9ac0815aefd9436c6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>date</type>
+        <definition>date QfCalendarPanel::selectedDate</definition>
+        <argsstring></argsstring>
+        <name>selectedDate</name>
+        <qualifiedname>QfCalendarPanel::selectedDate</qualifiedname>
+        <read>dummyGetter_selectedDate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="26" column="1" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCalendarPanel_1a89a5c49fe690a1769d8aa000b27da773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCalendarPanel::dateTimePicked</definition>
+        <argsstring>(var date)</argsstring>
+        <name>dateTimePicked</name>
+        <qualifiedname>QfCalendarPanel::dateTimePicked</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>date</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="28" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCalendarPanel_1a65f686835158d34d07da554a3a4d1d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCalendarPanel::setFittingLayout</definition>
+        <argsstring>()</argsstring>
+        <name>setFittingLayout</name>
+        <qualifiedname>QfCalendarPanel::setFittingLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCalendarPanel_1a23ecd0c8a696b63a36e1bf06ea278719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCalendarPanel::selectDate</definition>
+        <argsstring>()</argsstring>
+        <name>selectDate</name>
+        <qualifiedname>QfCalendarPanel::selectDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarPanel.qml" line="45" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Dialog</label>
+      </node>
+      <node id="1">
+        <label>QfCalendarPanel</label>
+        <link refid="classQfCalendarPanel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfDialog</label>
+        <link refid="classQfDialog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Dialog</label>
+      </node>
+      <node id="1">
+        <label>QfCalendarPanel</label>
+        <link refid="classQfCalendarPanel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfDialog</label>
+        <link refid="classQfDialog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfCalendarPanel.qml" line="10" column="1" bodyfile="src/gui/qml/QfCalendarPanel.qml" bodystart="10" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classQfCalendarPanel_1a49a79fddac01a9c23e26a0bdc52e5077" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>calendarItem</name></member>
+      <member refid="classQfCalendarPanel_1a9eb4f3ad5b11ee6b8e4f656b619a3868" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>clip</name></member>
+      <member refid="classQfCalendarPanel_1aeb91f57aa380d50fc6ffa446d9dc84da" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>closePolicy</name></member>
+      <member refid="classQfCalendarPanel_1a89a5c49fe690a1769d8aa000b27da773" prot="public" virt="non-virtual"><scope>QfCalendarPanel</scope><name>dateTimePicked</name></member>
+      <member refid="classQfCalendarPanel_1a76a6eb566c3ef85626e74cbf748ffb36" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>focus</name></member>
+      <member refid="classQfCalendarPanel_1a9eb40d471eb7238e55a5d66d7ff41872" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>height</name></member>
+      <member refid="classQfCalendarPanel_1acb1fc1690673b88d96f1f06f8309a48e" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>horizontalContent</name></member>
+      <member refid="classQfCalendarPanel_1af966c0ed120d88062afa67a359bf6e5e" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>horizontalLayout</name></member>
+      <member refid="classQfCalendarPanel_1af71c3b05e9053cc59465bd78d320495a" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>onAboutToShow</name></member>
+      <member refid="classQfCalendarPanel_1aad0070b3fd50790d8cbe3a7ecc4535da" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>onAccepted</name></member>
+      <member refid="classQfCalendarPanel_1aa01a15fe99cf4fa90e0c8db41ad2af20" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>onCompleted</name></member>
+      <member refid="classQfCalendarPanel_1a43a9564637084c77d38181cc408eca23" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>onWidthChanged</name></member>
+      <member refid="classQfCalendarPanel_1ace07c0d574cc8427c371163a6a98fc1a" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>parent</name></member>
+      <member refid="classQfCalendarPanel_1acca28c47c90035125e8152357d209385" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>result</name></member>
+      <member refid="classQfCalendarPanel_1a23ecd0c8a696b63a36e1bf06ea278719" prot="public" virt="non-virtual"><scope>QfCalendarPanel</scope><name>selectDate</name></member>
+      <member refid="classQfCalendarPanel_1ab133a2d46972d4c9ac0815aefd9436c6" prot="public" virt="non-virtual"><scope>QfCalendarPanel</scope><name>selectedDate</name></member>
+      <member refid="classQfCalendarPanel_1a65f686835158d34d07da554a3a4d1d4a" prot="public" virt="non-virtual"><scope>QfCalendarPanel</scope><name>setFittingLayout</name></member>
+      <member refid="classQfCalendarPanel_1aa7401f6b3afab828b9df4e39c1f41b5b" prot="public" virt="non-virtual"><scope>QfCalendarPanel</scope><name>showDatePicker</name></member>
+      <member refid="classQfCalendarPanel_1ad9b24454646e61e39d149aeede274a0b" prot="public" virt="non-virtual"><scope>QfCalendarPanel</scope><name>showTimePicker</name></member>
+      <member refid="classQfCalendarPanel_1a47cd99022ce1368568f13b25491dc758" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>timePicker</name></member>
+      <member refid="classQfCalendarPanel_1a0cfdeaf4a3d931974e92c6cb4e752a02" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>vericalLayout</name></member>
+      <member refid="classQfCalendarPanel_1ac2f7efcd409a878714fd07dd62fbee45" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>verticalContent</name></member>
+      <member refid="classQfCalendarPanel_1a9eaeb966722020a6ff48c2deaeb9465c" prot="public" virt="non-virtual"><scope>QfCalendarPanel</scope><name>verticalView</name></member>
+      <member refid="classQfCalendarPanel_1adedd19cb76176a4bc4ba310a9ce18236" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>width</name></member>
+      <member refid="classQfCalendarPanel_1a8d8bf4e4f6a5ebdedf1095c561dc1ded" prot="private" virt="non-virtual"><scope>QfCalendarPanel</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfapp_8cpp" kind="file" language="C++">
+    <compoundname>qfapp.cpp</compoundname>
+    <includes refid="qfapp_8h" local="yes">qfapp.h</includes>
+    <includes refid="qfbadlayerhandler_8h" local="yes">qfbadlayerhandler.h</includes>
+    <includes refid="qfchangelogcontents_8h" local="yes">qfchangelogcontents.h</includes>
+    <includes refid="qfpluginmanager_8h" local="yes">qfpluginmanager.h</includes>
+    <includes refid="qfpluginmodel_8h" local="yes">qfpluginmodel.h</includes>
+    <includes local="no">QtQml</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/app/qfapp.cpp</label>
+        <link refid="qfapp_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qfapp.h</label>
+        <link refid="qfapp_8h_source"/>
+      </node>
+      <node id="3">
+        <label>qfbadlayerhandler.h</label>
+        <link refid="qfbadlayerhandler_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>qfchangelogcontents.h</label>
+        <link refid="qfchangelogcontents_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>qfpluginmanager.h</label>
+        <link refid="qfpluginmanager_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>qfpluginmodel.h</label>
+        <link refid="qfpluginmodel_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="12">
+        <label>QFileInfo</label>
+      </node>
+      <node id="8">
+        <label>QObject</label>
+      </node>
+      <node id="14">
+        <label>QQmlEngine</label>
+      </node>
+      <node id="13">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="4">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="15">
+        <label>QTranslator</label>
+      </node>
+      <node id="16">
+        <label>QtQml</label>
+      </node>
+      <node id="5">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="6">
+        <label>qgsprojectbadlayerhandler.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceQfApp">QfApp</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qfapp.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>July<sp/>2026</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mohsen<sp/>Dehghanzadeh</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mohsen@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfapp.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfbadlayerhandler.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfchangelogcontents.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfpluginmanager.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfpluginmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtQml&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">QfApp</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerQmlTypes()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfBadLayerHandler&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfBadLayerHandler&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfChangelogContents&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfChangelogContents&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPluginModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfPluginModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPluginProxyModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfPluginProxyModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfPluginManager&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfPluginManager&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Pre-Qf<sp/>names,<sp/>reached<sp/>through<sp/>org.qfield<sp/>or<sp/>the<sp/>legacy<sp/>Theme<sp/>module.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfBadLayerHandler&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;BadLayerHandler&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfChangelogContents&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ChangelogContents&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPluginModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;PluginModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;QfPluginProxyModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;PluginProxyModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QfPluginManager&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;PluginManager&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Existing<sp/>plugins<sp/>import<sp/>the<sp/>flat<sp/>org.qfield<sp/>module.<sp/>Alias<sp/>it<sp/>rather<sp/>than</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>registering<sp/>everything<sp/>twice,<sp/>which<sp/>would<sp/>duplicate<sp/>the<sp/>singletons.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterModule(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterModuleImport(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportModuleAny,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.core&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportLatest<sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterModuleImport(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportModuleAny,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield._3d&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportLatest<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterModuleImport(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportModuleAny,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportLatest<sp/>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterModuleImport(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportModuleAny,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.app&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportLatest<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Same<sp/>for<sp/>QfTheme,<sp/>which<sp/>used<sp/>to<sp/>hold<sp/>the<sp/>Qf<sp/>components<sp/>now<sp/>living<sp/>in<sp/>gui.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterModule(<sp/></highlight><highlight class="stringliteral">&quot;Theme&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterModuleImport(<sp/></highlight><highlight class="stringliteral">&quot;Theme&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportModuleAny,<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>QQmlModuleImportLatest<sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>QfApp</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/app/qfapp.cpp"/>
+  </compounddef>
+</doxygen>

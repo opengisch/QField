@@ -1,0 +1,1229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAttributeFormModelBase" kind="class" language="C++" prot="public">
+    <compoundname>QfAttributeFormModelBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QStandardItemModel</basecompoundref>
+    <innerclass refid="structQfAttributeFormModelBase_1_1CodeRequirements" prot="private">QfAttributeFormModelBase::CodeRequirements</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classQfAttributeFormModelBase_1aca43bff849c21b50a0d792d4f583c407" prot="private" static="no">
+        <type>QPair&lt; QgsExpression, QStandardItem * &gt;</type>
+        <definition>typedef QPair&lt;QgsExpression, QStandardItem *&gt; QfAttributeFormModelBase::VisibilityExpression</definition>
+        <argsstring></argsstring>
+        <name>VisibilityExpression</name>
+        <qualifiedname>QfAttributeFormModelBase::VisibilityExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="175" column="19" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1aea2120642da62ac39048c5b4dfa5dee1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+        <definition>QfFeatureModel* QfAttributeFormModelBase::mFeatureModel</definition>
+        <argsstring></argsstring>
+        <name>mFeatureModel</name>
+        <qualifiedname>QfAttributeFormModelBase::mFeatureModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="166" column="20" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1ad16523904252bcdbc47e613fd85e4873" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfAttributeFormModelBase::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>QfAttributeFormModelBase::mLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="167" column="14" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a7c14e3c59c351b44c7702a5eb31d1efc" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsAttributeEditorContainer &gt;</type>
+        <definition>std::unique_ptr&lt;QgsAttributeEditorContainer&gt; QfAttributeFormModelBase::mTemporaryContainer</definition>
+        <argsstring></argsstring>
+        <name>mTemporaryContainer</name>
+        <qualifiedname>QfAttributeFormModelBase::mTemporaryContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="168" column="21" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a6e30b2765aa0fa5f3a87b7d141b827bb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::mIsWizard</definition>
+        <argsstring></argsstring>
+        <name>mIsWizard</name>
+        <qualifiedname>QfAttributeFormModelBase::mIsWizard</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="170" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1af113acc3293432a635993e529152faad" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::mHasTabs</definition>
+        <argsstring></argsstring>
+        <name>mHasTabs</name>
+        <qualifiedname>QfAttributeFormModelBase::mHasTabs</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="171" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a0d210ccd9e58c5dc651c043ae18954c9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::mHasRemembrance</definition>
+        <argsstring></argsstring>
+        <name>mHasRemembrance</name>
+        <qualifiedname>QfAttributeFormModelBase::mHasRemembrance</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="172" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a43f4067edadaf58aba26fac8c78d8b09" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::mHasConstraints</definition>
+        <argsstring></argsstring>
+        <name>mHasConstraints</name>
+        <qualifiedname>QfAttributeFormModelBase::mHasConstraints</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="173" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1aa2f8663485673796e662abb10766125e" prot="private" static="no" mutable="no">
+        <type>QList&lt; VisibilityExpression &gt;</type>
+        <definition>QList&lt;VisibilityExpression&gt; QfAttributeFormModelBase::mVisibilityExpressions</definition>
+        <argsstring></argsstring>
+        <name>mVisibilityExpressions</name>
+        <qualifiedname>QfAttributeFormModelBase::mVisibilityExpressions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="176" column="11" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a3f064405c651808aa849aa292e6dcfbe" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QStandardItem *, int &gt;</type>
+        <definition>QMap&lt;QStandardItem *, int&gt; QfAttributeFormModelBase::mFields</definition>
+        <argsstring></argsstring>
+        <name>mFields</name>
+        <qualifiedname>QfAttributeFormModelBase::mFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="177" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a2f2090fb5cc31a152058565ff50de1d5" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QStandardItem *, QString &gt;</type>
+        <definition>QMap&lt;QStandardItem *, QString&gt; QfAttributeFormModelBase::mAliasExpressions</definition>
+        <argsstring></argsstring>
+        <name>mAliasExpressions</name>
+        <qualifiedname>QfAttributeFormModelBase::mAliasExpressions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="178" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1ab83b259d76c2f00f3ab0c9307c15126b" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QStandardItem *, QString &gt;</type>
+        <definition>QMap&lt;QStandardItem *, QString&gt; QfAttributeFormModelBase::mReadOnlyExpressions</definition>
+        <argsstring></argsstring>
+        <name>mReadOnlyExpressions</name>
+        <qualifiedname>QfAttributeFormModelBase::mReadOnlyExpressions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="179" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a79e355ad75d130d0afb8b0be0a669da2" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QStandardItem *, QString &gt;</type>
+        <definition>QMap&lt;QStandardItem *, QString&gt; QfAttributeFormModelBase::mEditorWidgetCodes</definition>
+        <argsstring></argsstring>
+        <name>mEditorWidgetCodes</name>
+        <qualifiedname>QfAttributeFormModelBase::mEditorWidgetCodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="180" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a4169f0030cc218c34c7ffd9e680eebda" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, CodeRequirements &gt;</type>
+        <definition>QMap&lt;QString, CodeRequirements&gt; QfAttributeFormModelBase::mEditorWidgetCodesRequirements</definition>
+        <argsstring></argsstring>
+        <name>mEditorWidgetCodesRequirements</name>
+        <qualifiedname>QfAttributeFormModelBase::mEditorWidgetCodesRequirements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="181" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1ae93d32bf68bd137d46b134658af190c3" prot="private" static="no" mutable="no">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext QfAttributeFormModelBase::mExpressionContext</definition>
+        <argsstring></argsstring>
+        <name>mExpressionContext</name>
+        <qualifiedname>QfAttributeFormModelBase::mExpressionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="183" column="26" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1a6e01e1a2442817229aec6db687158c2e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::mConstraintsHardValid</definition>
+        <argsstring></argsstring>
+        <name>mConstraintsHardValid</name>
+        <qualifiedname>QfAttributeFormModelBase::mConstraintsHardValid</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="184" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAttributeFormModelBase_1acf531cd8446cf9ed1795b227eee099eb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::mConstraintsSoftValid</definition>
+        <argsstring></argsstring>
+        <name>mConstraintsSoftValid</name>
+        <qualifiedname>QfAttributeFormModelBase::mConstraintsSoftValid</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="185" column="10" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1af2cbe804313171000d3ae80ce765086e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAttributeFormModelBase::QfAttributeFormModelBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfAttributeFormModelBase</name>
+        <qualifiedname>QfAttributeFormModelBase::QfAttributeFormModelBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="35" column="14" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="41" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a73f759166f098f0a20fbf0618e5f8875" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfAttributeFormModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfAttributeFormModelBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="37" column="11" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="80" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a0d1a608ff78ccfe29d03fd06b6fc8065" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfAttributeFormModelBase::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="39" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="115" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1ab4e0a26ed8d21fe6cb7b9b566ce2b36f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+        <definition>QfFeatureModel * QfAttributeFormModelBase::featureModel</definition>
+        <argsstring>() const</argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfAttributeFormModelBase::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="41" column="20" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a88f7f9d0ca144bb5a68ce1425fbfc891" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::setFeatureModel</definition>
+        <argsstring>(QfFeatureModel *featureModel)</argsstring>
+        <name>setFeatureModel</name>
+        <qualifiedname>QfAttributeFormModelBase::setFeatureModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+          <declname>featureModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="42" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="166" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a381d9907a7e5a438aa13129efed91213" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::isWizard</definition>
+        <argsstring>() const</argsstring>
+        <name>isWizard</name>
+        <qualifiedname>QfAttributeFormModelBase::isWizard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="44" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1288" bodyend="1291"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a7a004dcbd09277c114c32d5908b8a08d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::setIsWizard</definition>
+        <argsstring>(bool isWizard)</argsstring>
+        <name>setIsWizard</name>
+        <qualifiedname>QfAttributeFormModelBase::setIsWizard</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>isWizard</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="45" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1293" bodyend="1300"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a848150d3415cc2ef677e2f877fec05ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::hasTabs</definition>
+        <argsstring>() const</argsstring>
+        <name>hasTabs</name>
+        <qualifiedname>QfAttributeFormModelBase::hasTabs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="47" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1302" bodyend="1305"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a6c005a43ae601cfea55da5321324db3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::setHasTabs</definition>
+        <argsstring>(bool hasTabs)</argsstring>
+        <name>setHasTabs</name>
+        <qualifiedname>QfAttributeFormModelBase::setHasTabs</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hasTabs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="48" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1307" bodyend="1314"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a96939fab0ffdedf79870c9e794c41461" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::hasRemembrance</definition>
+        <argsstring>() const</argsstring>
+        <name>hasRemembrance</name>
+        <qualifiedname>QfAttributeFormModelBase::hasRemembrance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="50" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1316" bodyend="1319"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a8890cffbe8a7eb7ffdb303fe369742c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::setHasRemembrance</definition>
+        <argsstring>(bool hasRemembrance)</argsstring>
+        <name>setHasRemembrance</name>
+        <qualifiedname>QfAttributeFormModelBase::setHasRemembrance</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hasRemembrance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="51" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1321" bodyend="1328"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1ab7ee0b068521ccfce605654242457888" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::hasConstraints</definition>
+        <argsstring>() const</argsstring>
+        <name>hasConstraints</name>
+        <qualifiedname>QfAttributeFormModelBase::hasConstraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="53" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1330" bodyend="1333"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a3631b87f48d491399a52c8f45d187b33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::setHasConstraints</definition>
+        <argsstring>(bool hasConstraints)</argsstring>
+        <name>setHasConstraints</name>
+        <qualifiedname>QfAttributeFormModelBase::setHasConstraints</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hasConstraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="54" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1335" bodyend="1342"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1af53b39c4c2b42b71c4c97835233b6dc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <qualifiedname>QfAttributeFormModelBase::save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Save the current (already existing) feature   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="57" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1344" bodyend="1347"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1af848744fbc1ab10be3e0bf62765fc3e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::create</definition>
+        <argsstring>()</argsstring>
+        <name>create</name>
+        <qualifiedname>QfAttributeFormModelBase::create</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the current (not existing yet) feature   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="60" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1349" bodyend="1352"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1aad92109929a5d338df545f54a0d75384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::deleteFeature</definition>
+        <argsstring>()</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>QfAttributeFormModelBase::deleteFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete the current feature   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="63" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1354" bodyend="1357"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1ad0da369dbe7ccb90eb4cbe28068a3141" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::constraintsHardValid</definition>
+        <argsstring>() const</argsstring>
+        <name>constraintsHardValid</name>
+        <qualifiedname>QfAttributeFormModelBase::constraintsHardValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="65" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1147" bodyend="1150"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a88ff5ef7fb731e4dd353c7548f65bd94" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::constraintsSoftValid</definition>
+        <argsstring>() const</argsstring>
+        <name>constraintsSoftValid</name>
+        <qualifiedname>QfAttributeFormModelBase::constraintsSoftValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="67" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1152" bodyend="1155"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1adc8bc6c01feb1cbf7533790284313306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfAttributeFormModelBase::attribute</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>attribute</name>
+        <qualifiedname>QfAttributeFormModelBase::attribute</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the value for an attribute <emphasis>name</emphasis> of the current feature. <simplesect kind="return"><para>value of the attribute   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="70" column="14" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1157" bodyend="1164"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a0af101e1f1f04711ec1f8b507cf38722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::changeAttribute</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>changeAttribute</name>
+        <qualifiedname>QfAttributeFormModelBase::changeAttribute</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="73" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1166" bodyend="1183"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a1e7e0d7ddb13b9350268413c08b9b9de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::changeGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>changeGeometry</name>
+        <qualifiedname>QfAttributeFormModelBase::changeGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>geometry</emphasis> of the current feature   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="76" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1185" bodyend="1200"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1aa60ece88763f07d4627432edb48b2792" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::applyFeatureModel</definition>
+        <argsstring>()</argsstring>
+        <name>applyFeatureModel</name>
+        <qualifiedname>QfAttributeFormModelBase::applyFeatureModel</qualifiedname>
+        <briefdescription>
+<para>Applies feature model data such as attribute values, constraints, visibility to the attribute form model.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="79" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="294" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1abf15335c3129cfe15b0a9e6eb8367150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::applyParentDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>applyParentDefaultValues</name>
+        <qualifiedname>QfAttributeFormModelBase::applyParentDefaultValues</qualifiedname>
+        <briefdescription>
+<para>Applies default values linked to a parent feature.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="82" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="306" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a81e4b2b8a7f65ce3c03e6d1935bfbf35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::applyRelationshipDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>applyRelationshipDefaultValues</name>
+        <qualifiedname>QfAttributeFormModelBase::applyRelationshipDefaultValues</qualifiedname>
+        <briefdescription>
+<para>Applies default values linked to relationships.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="85" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="339" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a24364e1b408ed2e32a0e424131e3982c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::activateAllRememberValues</definition>
+        <argsstring>()</argsstring>
+        <name>activateAllRememberValues</name>
+        <qualifiedname>QfAttributeFormModelBase::activateAllRememberValues</qualifiedname>
+        <briefdescription>
+<para>Activate all available value that can be remembered and reused.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="88" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="369" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1aafe8a71aa6e40425590ff13f88a0ac4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::deactivateAllRememberValues</definition>
+        <argsstring>()</argsstring>
+        <name>deactivateAllRememberValues</name>
+        <qualifiedname>QfAttributeFormModelBase::deactivateAllRememberValues</qualifiedname>
+        <briefdescription>
+<para>Deactivate all available value that can be remembered and reused.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="91" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="382" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a5f6dcd22f76e47a03a74bc93a062f674" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext QfAttributeFormModelBase::createExpressionContext</definition>
+        <argsstring>() const</argsstring>
+        <name>createExpressionContext</name>
+        <qualifiedname>QfAttributeFormModelBase::createExpressionContext</qualifiedname>
+        <briefdescription>
+<para>Creates an expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="94" column="26" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="285" bodyend="292"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfAttributeFormModelBase_1a71fcddf7cba9f5a67ad7bbe41ddf8336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::featureModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureModelChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::featureModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="97" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModelBase_1ae929dbf9829487d6a161c96dbe0a4f33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::isWizardChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isWizardChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::isWizardChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="98" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModelBase_1a10ed399349a4ab16969b2b1e49832d6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::hasTabsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasTabsChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::hasTabsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="99" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModelBase_1a195b292909b3f1e8ddbd9a9f75755aaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::hasRemembranceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasRemembranceChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::hasRemembranceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="100" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModelBase_1ae934cf8436e0c927e6ca601535c38962" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::hasConstraintsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasConstraintsChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::hasConstraintsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="101" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModelBase_1ad3fdfd323a222a0b78749ea11f65ac32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::constraintsHardValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>constraintsHardValidChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::constraintsHardValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="102" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModelBase_1a09cd3bd1adfb9ab7e966a10d6b351e30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::constraintsSoftValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>constraintsSoftValidChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::constraintsSoftValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="103" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a0c85145764ed5237c0d54ba8ba8fa47e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsAttributeEditorContainer *</type>
+        <definition>QgsAttributeEditorContainer * QfAttributeFormModelBase::generateRootContainer</definition>
+        <argsstring>() const</argsstring>
+        <name>generateRootContainer</name>
+        <qualifiedname>QfAttributeFormModelBase::generateRootContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a root container for autogenerated layouts, so we can just use the same form logic to deal with them. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="116" column="33" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="395" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a253125134c7518e0061e505d9a54457d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsAttributeEditorContainer *</type>
+        <definition>QgsAttributeEditorContainer * QfAttributeFormModelBase::invisibleRootContainer</definition>
+        <argsstring>() const</argsstring>
+        <name>invisibleRootContainer</name>
+        <qualifiedname>QfAttributeFormModelBase::invisibleRootContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="118" column="33" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="418" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a8cc2eaf50baf0289a6d1f75ed304fc20" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::updateAttributeValue</definition>
+        <argsstring>(QStandardItem *item)</argsstring>
+        <name>updateAttributeValue</name>
+        <qualifiedname>QfAttributeFormModelBase::updateAttributeValue</qualifiedname>
+        <param>
+          <type>QStandardItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="120" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="423" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a95f918e0a587a473911169e7029d1a1b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::buildForm</definition>
+        <argsstring>(QgsAttributeEditorContainer *container, QStandardItem *parent, QList&lt; QStandardItem * &gt; &amp;containers, int currentTabIndex=0, int columnCount=1)</argsstring>
+        <name>buildForm</name>
+        <qualifiedname>QfAttributeFormModelBase::buildForm</qualifiedname>
+        <param>
+          <type>QgsAttributeEditorContainer *</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>QStandardItem *</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>QList&lt; QStandardItem * &gt; &amp;</type>
+          <declname>containers</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentTabIndex</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>columnCount</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="122" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="529" bodyend="767"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1af2771028397a3ce9c1bfcb785d626728" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::synchronizeFieldValue</definition>
+        <argsstring>(int fieldIndex, QVariant value)</argsstring>
+        <name>synchronizeFieldValue</name>
+        <qualifiedname>QfAttributeFormModelBase::synchronizeFieldValue</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fieldIndex</declname>
+        </param>
+        <param>
+          <type>QVariant</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Synchronize all items linked to the <emphasis>fieldIndex</emphasis> to have the same <emphasis>value</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="129" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="769" bodyend="783"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a321df9e7212453baa6839a510ce6b380" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::updateDefaultValues</definition>
+        <argsstring>(int fieldIndex=-1, QVector&lt; int &gt; updatedFields=QVector&lt; int &gt;())</argsstring>
+        <name>updateDefaultValues</name>
+        <qualifiedname>QfAttributeFormModelBase::updateDefaultValues</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fieldIndex</declname>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>QVector&lt; int &gt;</type>
+          <declname>updatedFields</declname>
+          <defval>QVector&lt; int &gt;()</defval>
+        </param>
+        <briefdescription>
+<para>Update default values refering to the <emphasis>fieldIndex</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="132" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="785" bodyend="832"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1aa1969380455614cb9e297e7d3a7041ad" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::updateEditorWidgetCodes</definition>
+        <argsstring>(const QString &amp;fieldName)</argsstring>
+        <name>updateEditorWidgetCodes</name>
+        <qualifiedname>QfAttributeFormModelBase::updateEditorWidgetCodes</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>Update QML, HTML, and text widget code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="135" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="904" bodyend="963"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a73cfa49267cadcd2d83537a18c36daa6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::updateDataDefinedProperties</definition>
+        <argsstring>(const QString &amp;fieldName)</argsstring>
+        <name>updateDataDefinedProperties</name>
+        <qualifiedname>QfAttributeFormModelBase::updateDataDefinedProperties</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fieldName</declname>
+        </param>
+        <briefdescription>
+<para>Update expression-driven alias and read-only values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="138" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="857" bodyend="902"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1acd11f71491a3470efec8762b69745c5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModelBase::codeRequiresUpdate</definition>
+        <argsstring>(const QString &amp;fieldName, const QString &amp;code, const QRegularExpression &amp;regEx)</argsstring>
+        <name>codeRequiresUpdate</name>
+        <qualifiedname>QfAttributeFormModelBase::codeRequiresUpdate</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fieldName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>const QRegularExpression &amp;</type>
+          <declname>regEx</declname>
+        </param>
+        <briefdescription>
+<para>Check if the given <emphasis>code</emphasis> requires update. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="141" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="834" bodyend="855"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1aceef58d328d08699b70bc09e0efc13a4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::updateVisibilityAndConstraints</definition>
+        <argsstring>(int fieldIndex=-1)</argsstring>
+        <name>updateVisibilityAndConstraints</name>
+        <qualifiedname>QfAttributeFormModelBase::updateVisibilityAndConstraints</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fieldIndex</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+<para>Udate the visibility state of groups as well as constraints of field items. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="144" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="992" bodyend="1145"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a87375744ffd7a616bfd5871596ef8a88" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::setConstraintsHardValid</definition>
+        <argsstring>(bool constraintsHardValid)</argsstring>
+        <name>setConstraintsHardValid</name>
+        <qualifiedname>QfAttributeFormModelBase::setConstraintsHardValid</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>constraintsHardValid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="146" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1202" bodyend="1209"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a6b8859aabe0e8ade9aabee546a0ab382" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::setConstraintsSoftValid</definition>
+        <argsstring>(bool constraintsSoftValid)</argsstring>
+        <name>setConstraintsSoftValid</name>
+        <qualifiedname>QfAttributeFormModelBase::setConstraintsSoftValid</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>constraintsSoftValid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="148" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1211" bodyend="1218"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1a526701b06db4410dedad3203166ba6c0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsEditorWidgetSetup</type>
+        <definition>QgsEditorWidgetSetup QfAttributeFormModelBase::findBest</definition>
+        <argsstring>(int fieldIndex)</argsstring>
+        <name>findBest</name>
+        <qualifiedname>QfAttributeFormModelBase::findBest</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fieldIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>finds the best widget type regarding to the field type or the configured widget setup <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fieldIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to get the field </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>widget setup containing the best widget type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="155" column="26" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="1220" bodyend="1286"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1aa5d1a548ac7cc76c7436cab32a90ee05" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::resetModel</definition>
+        <argsstring>()</argsstring>
+        <name>resetModel</name>
+        <qualifiedname>QfAttributeFormModelBase::resetModel</qualifiedname>
+        <briefdescription>
+<para>Resets the attribute form model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="158" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="195" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1ac795b06d753493cf8e0b13658e9576cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::onCurrentLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onCurrentLayerChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::onCurrentLayerChanged</qualifiedname>
+        <briefdescription>
+<para>Sets up relevant layer-level details and resets the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="161" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="189" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModelBase_1ae63af3e5beee00fad15be4d36976f6ed" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModelBase::onMapThemeCollectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onMapThemeCollectionChanged</name>
+        <qualifiedname>QfAttributeFormModelBase::onMapThemeCollectionChanged</qualifiedname>
+        <briefdescription>
+<para>Sets up a connection to listen to project map theme change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodelbase.h" line="164" column="10" bodyfile="src/gui/qfattributeformmodelbase.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfAttributeFormModelBase</label>
+        <link refid="classQfAttributeFormModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfAttributeFormModelBase</label>
+        <link refid="classQfAttributeFormModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfattributeformmodelbase.h" line="30" column="1" bodyfile="src/gui/qfattributeformmodelbase.h" bodystart="31" bodyend="186"/>
+    <listofallmembers>
+      <member refid="classQfAttributeFormModelBase_1a24364e1b408ed2e32a0e424131e3982c" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>activateAllRememberValues</name></member>
+      <member refid="classQfAttributeFormModelBase_1aa60ece88763f07d4627432edb48b2792" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>applyFeatureModel</name></member>
+      <member refid="classQfAttributeFormModelBase_1abf15335c3129cfe15b0a9e6eb8367150" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>applyParentDefaultValues</name></member>
+      <member refid="classQfAttributeFormModelBase_1a81e4b2b8a7f65ce3c03e6d1935bfbf35" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>applyRelationshipDefaultValues</name></member>
+      <member refid="classQfAttributeFormModelBase_1adc8bc6c01feb1cbf7533790284313306" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>attribute</name></member>
+      <member refid="classQfAttributeFormModelBase_1a95f918e0a587a473911169e7029d1a1b" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>buildForm</name></member>
+      <member refid="classQfAttributeFormModelBase_1a0af101e1f1f04711ec1f8b507cf38722" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>changeAttribute</name></member>
+      <member refid="classQfAttributeFormModelBase_1a1e7e0d7ddb13b9350268413c08b9b9de" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>changeGeometry</name></member>
+      <member refid="classQfAttributeFormModelBase_1acd11f71491a3470efec8762b69745c5f" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>codeRequiresUpdate</name></member>
+      <member refid="classQfAttributeFormModelBase_1ad0da369dbe7ccb90eb4cbe28068a3141" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>constraintsHardValid</name></member>
+      <member refid="classQfAttributeFormModelBase_1ad3fdfd323a222a0b78749ea11f65ac32" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>constraintsHardValidChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1a88ff5ef7fb731e4dd353c7548f65bd94" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>constraintsSoftValid</name></member>
+      <member refid="classQfAttributeFormModelBase_1a09cd3bd1adfb9ab7e966a10d6b351e30" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>constraintsSoftValidChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1af848744fbc1ab10be3e0bf62765fc3e7" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>create</name></member>
+      <member refid="classQfAttributeFormModelBase_1a5f6dcd22f76e47a03a74bc93a062f674" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>createExpressionContext</name></member>
+      <member refid="classQfAttributeFormModelBase_1aafe8a71aa6e40425590ff13f88a0ac4f" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>deactivateAllRememberValues</name></member>
+      <member refid="classQfAttributeFormModelBase_1aad92109929a5d338df545f54a0d75384" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>deleteFeature</name></member>
+      <member refid="classQfAttributeFormModelBase_1ab4e0a26ed8d21fe6cb7b9b566ce2b36f" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>featureModel</name></member>
+      <member refid="classQfAttributeFormModelBase_1a71fcddf7cba9f5a67ad7bbe41ddf8336" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>featureModelChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1a526701b06db4410dedad3203166ba6c0" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>findBest</name></member>
+      <member refid="classQfAttributeFormModelBase_1a0c85145764ed5237c0d54ba8ba8fa47e" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>generateRootContainer</name></member>
+      <member refid="classQfAttributeFormModelBase_1ab7ee0b068521ccfce605654242457888" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>hasConstraints</name></member>
+      <member refid="classQfAttributeFormModelBase_1ae934cf8436e0c927e6ca601535c38962" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>hasConstraintsChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1a96939fab0ffdedf79870c9e794c41461" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>hasRemembrance</name></member>
+      <member refid="classQfAttributeFormModelBase_1a195b292909b3f1e8ddbd9a9f75755aaa" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>hasRemembranceChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1a848150d3415cc2ef677e2f877fec05ef" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>hasTabs</name></member>
+      <member refid="classQfAttributeFormModelBase_1a10ed399349a4ab16969b2b1e49832d6b" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>hasTabsChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1a253125134c7518e0061e505d9a54457d" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>invisibleRootContainer</name></member>
+      <member refid="classQfAttributeFormModelBase_1a381d9907a7e5a438aa13129efed91213" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>isWizard</name></member>
+      <member refid="classQfAttributeFormModelBase_1ae929dbf9829487d6a161c96dbe0a4f33" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>isWizardChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1a2f2090fb5cc31a152058565ff50de1d5" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mAliasExpressions</name></member>
+      <member refid="classQfAttributeFormModelBase_1a6e01e1a2442817229aec6db687158c2e" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mConstraintsHardValid</name></member>
+      <member refid="classQfAttributeFormModelBase_1acf531cd8446cf9ed1795b227eee099eb" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mConstraintsSoftValid</name></member>
+      <member refid="classQfAttributeFormModelBase_1a79e355ad75d130d0afb8b0be0a669da2" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mEditorWidgetCodes</name></member>
+      <member refid="classQfAttributeFormModelBase_1a4169f0030cc218c34c7ffd9e680eebda" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mEditorWidgetCodesRequirements</name></member>
+      <member refid="classQfAttributeFormModelBase_1ae93d32bf68bd137d46b134658af190c3" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mExpressionContext</name></member>
+      <member refid="classQfAttributeFormModelBase_1aea2120642da62ac39048c5b4dfa5dee1" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mFeatureModel</name></member>
+      <member refid="classQfAttributeFormModelBase_1a3f064405c651808aa849aa292e6dcfbe" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mFields</name></member>
+      <member refid="classQfAttributeFormModelBase_1a43f4067edadaf58aba26fac8c78d8b09" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mHasConstraints</name></member>
+      <member refid="classQfAttributeFormModelBase_1a0d210ccd9e58c5dc651c043ae18954c9" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mHasRemembrance</name></member>
+      <member refid="classQfAttributeFormModelBase_1af113acc3293432a635993e529152faad" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mHasTabs</name></member>
+      <member refid="classQfAttributeFormModelBase_1a6e30b2765aa0fa5f3a87b7d141b827bb" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mIsWizard</name></member>
+      <member refid="classQfAttributeFormModelBase_1ad16523904252bcdbc47e613fd85e4873" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mLayer</name></member>
+      <member refid="classQfAttributeFormModelBase_1ab83b259d76c2f00f3ab0c9307c15126b" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mReadOnlyExpressions</name></member>
+      <member refid="classQfAttributeFormModelBase_1a7c14e3c59c351b44c7702a5eb31d1efc" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mTemporaryContainer</name></member>
+      <member refid="classQfAttributeFormModelBase_1aa2f8663485673796e662abb10766125e" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>mVisibilityExpressions</name></member>
+      <member refid="classQfAttributeFormModelBase_1ac795b06d753493cf8e0b13658e9576cb" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>onCurrentLayerChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1ae63af3e5beee00fad15be4d36976f6ed" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>onMapThemeCollectionChanged</name></member>
+      <member refid="classQfAttributeFormModelBase_1af2cbe804313171000d3ae80ce765086e" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>QfAttributeFormModelBase</name></member>
+      <member refid="classQfAttributeFormModelBase_1aa5d1a548ac7cc76c7436cab32a90ee05" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>resetModel</name></member>
+      <member refid="classQfAttributeFormModelBase_1a73f759166f098f0a20fbf0618e5f8875" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>roleNames</name></member>
+      <member refid="classQfAttributeFormModelBase_1af53b39c4c2b42b71c4c97835233b6dc9" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>save</name></member>
+      <member refid="classQfAttributeFormModelBase_1a87375744ffd7a616bfd5871596ef8a88" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>setConstraintsHardValid</name></member>
+      <member refid="classQfAttributeFormModelBase_1a6b8859aabe0e8ade9aabee546a0ab382" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>setConstraintsSoftValid</name></member>
+      <member refid="classQfAttributeFormModelBase_1a0d1a608ff78ccfe29d03fd06b6fc8065" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>setData</name></member>
+      <member refid="classQfAttributeFormModelBase_1a88f7f9d0ca144bb5a68ce1425fbfc891" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>setFeatureModel</name></member>
+      <member refid="classQfAttributeFormModelBase_1a3631b87f48d491399a52c8f45d187b33" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>setHasConstraints</name></member>
+      <member refid="classQfAttributeFormModelBase_1a8890cffbe8a7eb7ffdb303fe369742c5" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>setHasRemembrance</name></member>
+      <member refid="classQfAttributeFormModelBase_1a6c005a43ae601cfea55da5321324db3f" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>setHasTabs</name></member>
+      <member refid="classQfAttributeFormModelBase_1a7a004dcbd09277c114c32d5908b8a08d" prot="public" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>setIsWizard</name></member>
+      <member refid="classQfAttributeFormModelBase_1af2771028397a3ce9c1bfcb785d626728" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>synchronizeFieldValue</name></member>
+      <member refid="classQfAttributeFormModelBase_1a8cc2eaf50baf0289a6d1f75ed304fc20" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>updateAttributeValue</name></member>
+      <member refid="classQfAttributeFormModelBase_1a73cfa49267cadcd2d83537a18c36daa6" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>updateDataDefinedProperties</name></member>
+      <member refid="classQfAttributeFormModelBase_1a321df9e7212453baa6839a510ce6b380" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>updateDefaultValues</name></member>
+      <member refid="classQfAttributeFormModelBase_1aa1969380455614cb9e297e7d3a7041ad" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>updateEditorWidgetCodes</name></member>
+      <member refid="classQfAttributeFormModelBase_1aceef58d328d08699b70bc09e0efc13a4" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>updateVisibilityAndConstraints</name></member>
+      <member refid="classQfAttributeFormModelBase_1aca43bff849c21b50a0d792d4f583c407" prot="private" virt="non-virtual"><scope>QfAttributeFormModelBase</scope><name>VisibilityExpression</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
