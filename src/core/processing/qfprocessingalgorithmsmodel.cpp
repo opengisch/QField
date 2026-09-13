@@ -165,20 +165,24 @@ void QfProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provid
     if ( algorithm->flags() & Qgis::ProcessingAlgorithmFlag::SupportsInPlaceEdits )
     {
       bool isSupported = true;
-      for ( const QgsProcessingParameterDefinition *parameter : algorithm->parameterDefinitions() )
+      if ( !algorithm->parameterDefinitions().isEmpty() )
       {
-        if ( !( parameter->flags() & Qgis::ProcessingParameterFlag::Optional ) && !sSupportedParameters.contains( parameter->type() ) )
+        for ( const QgsProcessingParameterDefinition *parameter : algorithm->parameterDefinitions() )
         {
-          isSupported = false;
-          break;
-        }
+          if ( !( parameter->flags() & Qgis::ProcessingParameterFlag::Optional ) && !sSupportedParameters.contains( parameter->type() ) )
+          {
+            isSupported = false;
+            break;
+          }
 
-        if ( parameter->type() == QStringLiteral( "source" ) && featureBasedAlgorithm && parameter->name() != featureBasedAlgorithm->inputParameterName() )
-        {
-          isSupported = false;
-          break;
+          if ( parameter->type() == QStringLiteral( "source" ) && featureBasedAlgorithm && parameter->name() != featureBasedAlgorithm->inputParameterName() )
+          {
+            isSupported = false;
+            break;
+          }
         }
       }
+
       if ( !isSupported )
       {
         continue;
