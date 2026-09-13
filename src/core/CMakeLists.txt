@@ -88,6 +88,8 @@ set(QFIELD_CORE_SRCS
     qflinepolygonshape.cpp
     qfmaplayermodel.cpp
     qfmaptoscreen.cpp
+    qfmarkupcollection.cpp
+    qfmarkupitem.cpp
     qfmultifeaturelistmodel.cpp
     qfmultifeaturelistmodelbase.cpp
     qfnavigation.cpp
@@ -207,6 +209,8 @@ set(QFIELD_CORE_HDRS
     qflinepolygonshape.h
     qfmaplayermodel.h
     qfmaptoscreen.h
+    qfmarkupcollection.h
+    qfmarkupitem.h
     qfmultifeaturelistmodel.h
     qfmultifeaturelistmodelbase.h
     qfnavigation.h
