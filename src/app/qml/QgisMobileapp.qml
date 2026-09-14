@@ -2227,6 +2227,7 @@ ApplicationWindow {
 
     Column {
       id: zoomToolbar
+      objectName: "zoomToolbar"
       anchors.right: parent.right
       anchors.rightMargin: mainWindow.sceneRightMargin + 10
       anchors.bottom: parent.bottom
@@ -2331,6 +2332,7 @@ ApplicationWindow {
     /* The main menu */
     Row {
       id: mainMenuBar
+      objectName: "mainMenuBar"
       visible: !screenLocker.enabled
       width: childrenRect.width
       height: childrenRect.height
@@ -2412,6 +2414,7 @@ ApplicationWindow {
 
     Column {
       id: mainToolbar
+      objectName: "mainToolbar"
       visible: !screenLocker.enabled
       anchors.left: mainMenuBar.left
       anchors.top: mainMenuBar.bottom
@@ -2919,6 +2922,7 @@ ApplicationWindow {
 
     Column {
       id: locationToolbar
+      objectName: "locationToolbar"
       anchors.right: parent.right
       anchors.rightMargin: mainWindow.sceneRightMargin + 4
       anchors.bottom: digitizingToolbarContainer.top
