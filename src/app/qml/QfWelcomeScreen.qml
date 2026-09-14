@@ -349,7 +349,7 @@ Page {
 
       SwipeView {
         id: collectionView
-        visible: false
+        visible: true
 
         Layout.margins: 0
         Layout.topMargin: 10
@@ -371,105 +371,38 @@ Page {
         Item {
           id: collectionOhno
 
-          Rectangle {
+          QfWelcomeCard {
             anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
-              }
-            }
-
-            radius: 6
-          }
-
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: collectionView.width - 12
-              text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
+            message: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
           }
         }
 
         Item {
           id: collectionIntro
 
-          Rectangle {
+          QfWelcomeCard {
             anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
+            message: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(Qfield.name)
+
+            QfButton {
+              Layout.fillWidth: true
+              text: qsTr('I agree')
+
+              onClicked: {
+                qfieldSettings.enableInfoCollection = true;
+                collectionView.visible = false;
               }
             }
 
-            radius: 6
-          }
+            QfButton {
+              Layout.fillWidth: true
+              text: qsTr('I prefer not')
+              bgcolor: "transparent"
+              color: QfTheme.mainColor
 
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: collectionView.width - 12
-              text: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(Qfield.name)
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-
-            RowLayout {
-              spacing: 6
-              Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-              Layout.bottomMargin: 10
-              QfButton {
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 10
-                rightPadding: 10
-
-                text: qsTr('I agree')
-
-                onClicked: {
-                  qfieldSettings.enableInfoCollection = true;
-                  collectionView.visible = false;
-                }
-              }
-
-              QfButton {
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 10
-                rightPadding: 10
-
-                text: qsTr('I prefer not')
-                bgcolor: "transparent"
-                color: QfTheme.mainColor
-
-                onClicked: {
-                  qfieldSettings.enableInfoCollection = false;
-                  collectionView.visible = false;
-                }
+              onClicked: {
+                qfieldSettings.enableInfoCollection = false;
+                collectionView.visible = false;
               }
             }
           }
