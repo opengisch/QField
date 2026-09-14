@@ -5272,6 +5272,14 @@ ApplicationWindow {
     }
   }
 
+  Connections {
+    target: layerObserverAlias
+
+    function onChangesNotRecorded(layerName) {
+      displayToast(qsTr('Changes on layer %1 were saved on this device but not recorded for QFieldCloud').arg(layerName), 'error');
+    }
+  }
+
   QfCloudProjectsModel {
     id: cloudProjectsModel
     objectName: "cloudProjectsModel"
