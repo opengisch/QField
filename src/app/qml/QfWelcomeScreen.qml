@@ -251,7 +251,7 @@ Page {
 
       SwipeView {
         id: collectionView
-        visible: true
+        visible: false
 
         Layout.margins: 0
         Layout.topMargin: 10
@@ -274,7 +274,9 @@ Page {
           id: collectionOhno
 
           QfWelcomeCard {
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
             message: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
           }
         }
@@ -283,11 +285,14 @@ Page {
           id: collectionIntro
 
           QfWelcomeCard {
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
             message: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(Qfield.name)
 
             QfButton {
               Layout.fillWidth: true
+              Layout.preferredWidth: 0
               text: qsTr('I agree')
 
               onClicked: {
@@ -298,6 +303,7 @@ Page {
 
             QfButton {
               Layout.fillWidth: true
+              Layout.preferredWidth: 0
               text: qsTr('I prefer not')
               bgcolor: "transparent"
               color: QfTheme.mainColor

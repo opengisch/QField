@@ -20,7 +20,7 @@ Item {
 
   Rectangle {
     anchors.fill: parent
-    color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.1)
+    color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.14)
     border.color: QfTheme.mainColor
     border.width: 1
     radius: 8
@@ -37,8 +37,8 @@ Item {
       Layout.fillWidth: true
       Layout.leftMargin: 12
       Layout.rightMargin: 12
-      Layout.topMargin: 12
-      Layout.bottomMargin: actionRow.children.length > 0 ? 8 : 12
+      Layout.topMargin: 10
+      Layout.bottomMargin: actionRow.children.length > 0 ? 6 : 10
       spacing: 10
 
       QfToolButton {
@@ -70,7 +70,7 @@ Item {
       Layout.alignment: fillWidth ? Qt.AlignLeft : Qt.AlignHCenter
       Layout.leftMargin: 12
       Layout.rightMargin: 12
-      Layout.bottomMargin: children.length > 0 ? 10 : 0
+      Layout.bottomMargin: children.length > 0 ? 8 : 0
       spacing: 6
     }
   }
