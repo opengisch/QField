@@ -154,15 +154,7 @@ void QfTrackingModel::reset()
 
 int QfTrackingModel::activeCount() const
 {
-  int activeCount = 0;
-  for ( const QfTracker *tracker : mTrackers )
-  {
-    if ( tracker->isActive() )
-    {
-      activeCount++;
-    }
-  }
-  return activeCount;
+  return static_cast<int>( std::count_if( mTrackers.begin(), mTrackers.end(), []( const QfTracker *tracker ) { return tracker->isActive(); } ) );
 }
 
 QModelIndex QfTrackingModel::createTracker( QgsVectorLayer *layer )
