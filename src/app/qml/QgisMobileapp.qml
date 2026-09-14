@@ -1100,6 +1100,7 @@ ApplicationWindow {
     /** Tracking sessions **/
     Repeater {
       id: trackings
+      objectName: "trackings"
 
       model: trackingModel
 
