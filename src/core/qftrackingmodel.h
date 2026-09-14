@@ -31,6 +31,8 @@ class QfTrackingModel : public QAbstractItemModel
 {
     Q_OBJECT
 
+    Q_PROPERTY( int activeCount READ activeCount NOTIFY activeCountChanged )
+
   public:
     explicit QfTrackingModel( QObject *parent = nullptr );
     ~QfTrackingModel() override;
@@ -48,6 +50,9 @@ class QfTrackingModel : public QAbstractItemModel
     int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
     QVariant data( const QModelIndex &index, int role = Qt::DisplayRole ) const override;
     virtual bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
+
+    //! Returns the active tracker count
+    int activeCount() const;
 
     //! Creates tracking sessions defined in a project being opened
     Q_INVOKABLE void createProjectTrackers( QgsProject *project );
@@ -101,6 +106,7 @@ class QfTrackingModel : public QAbstractItemModel
 
   signals:
 
+    void activeCountChanged();
     void layerInTrackingChanged( QgsVectorLayer *layer, bool tracking );
     void trackingSetupRequested( QModelIndex trackerIndex, bool skipSettings );
 

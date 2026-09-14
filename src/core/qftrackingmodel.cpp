@@ -152,6 +152,19 @@ void QfTrackingModel::reset()
   endResetModel();
 }
 
+int QfTrackingModel::activeCount() const
+{
+  int activeCount = 0;
+  for ( const QfTracker *tracker : mTrackers )
+  {
+    if ( tracker->isActive() )
+    {
+      activeCount++;
+    }
+  }
+  return activeCount;
+}
+
 QModelIndex QfTrackingModel::createTracker( QgsVectorLayer *layer )
 {
   const int trackersSize = static_cast<int>( mTrackers.size() );
@@ -169,6 +182,7 @@ void QfTrackingModel::startTracker( QgsVectorLayer *layer, const QfGnssPositionI
     const qsizetype idx = it - mTrackers.constBegin();
     mTrackers[idx]->start( positionInformation, projectedPosition );
     emit layerInTrackingChanged( layer, true );
+    emit activeCountChanged();
   }
 }
 
@@ -178,26 +192,37 @@ void QfTrackingModel::stopTracker( QgsVectorLayer *layer )
   if ( it != mTrackers.constEnd() )
   {
     const qsizetype idx = it - mTrackers.constBegin();
+    const bool wasActive = mTrackers[idx]->isActive();
     mTrackers[idx]->stop();
     beginRemoveRows( QModelIndex(), static_cast<int>( idx ), static_cast<int>( idx ) );
     QfTracker *tracker = mTrackers.takeAt( idx );
     endRemoveRows();
     delete tracker;
     emit layerInTrackingChanged( layer, false );
+    if ( wasActive )
+    {
+      emit activeCountChanged();
+    }
   }
 }
 
 void QfTrackingModel::stopTrackers()
 {
+  bool wasActive = false;
   while ( !mTrackers.isEmpty() )
   {
     QgsVectorLayer *layer = mTrackers[0]->vectorLayer();
+    wasActive = wasActive || mTrackers[0]->isActive();
     mTrackers[0]->stop();
     beginRemoveRows( QModelIndex(), 0, 0 );
     QfTracker *tracker = mTrackers.takeAt( 0 );
     endRemoveRows();
     delete tracker;
     emit layerInTrackingChanged( layer, false );
+  }
+  if ( wasActive )
+  {
+    emit activeCountChanged();
   }
 }
 

@@ -3013,7 +3013,7 @@ ApplicationWindow {
             name: "On"
             PropertyChanges {
               target: gnssButton
-              iconSource: trackings.count > 0 ? QfTheme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? QfTheme.getThemeVectorIcon("ic_location_valid_white_24dp") : QfTheme.getThemeVectorIcon("ic_location_white_24dp")
+              iconSource: trackingModel.activeCount > 0 ? QfTheme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? QfTheme.getThemeVectorIcon("ic_location_valid_white_24dp") : QfTheme.getThemeVectorIcon("ic_location_white_24dp")
               iconColor: followActive ? QfTheme.toolButtonColor : QfTheme.positionColor
               bgcolor: followActive ? QfTheme.positionColor : QfTheme.toolButtonBackgroundColor
             }
