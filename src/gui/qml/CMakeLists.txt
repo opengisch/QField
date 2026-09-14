@@ -92,6 +92,7 @@ set(QFIELD_GUI_QML_FILES
     QfVariableEditor.qml
     QfVisibilityFadingRow.qml
     QfWelcomeAction.qml
+    QfWelcomeCard.qml
     editorwidgets/ExternalResourceUtils.js
     editorwidgets/QfEditorWidgetBase.qml
     editorwidgets/QfEditorWidgetBinary.qml
