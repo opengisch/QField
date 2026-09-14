@@ -6430,7 +6430,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>%n item(s) selected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Вибрано %n елемент(-ів)</numerusform><numerusform>Вибрано %n елемент(-ів)</numerusform><numerusform>Вибрано %n елемент(-ів)</numerusform><numerusform>Вибрано %n елемент(-ів)</numerusform></translation>
     </message>
     <message>
         <source>Folders</source>

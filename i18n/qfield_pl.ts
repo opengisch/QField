@@ -5279,19 +5279,19 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>The project folder could not be found.</source>
-        <translation type="unfinished"/>
+        <translation>Nie znaleziono folderu projektu.</translation>
     </message>
     <message>
         <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
-        <translation type="unfinished"/>
+        <translation>W folderze projektu znajduje się więcej niż jeden plik projekt – przenieś projekt do osobnego folderu i spróbuj jeszcze raz.</translation>
     </message>
     <message>
         <source>The project folder does not contain a valid project file.</source>
-        <translation type="unfinished"/>
+        <translation>W folderze projektu nie ma poprawnego pliku projektu.</translation>
     </message>
     <message>
         <source>The project folder does not contain a project file.</source>
-        <translation type="unfinished"/>
+        <translation>W folderze projektu nie ma pliku projektu.</translation>
     </message>
 </context>
 <context>
