@@ -164,55 +164,20 @@ Page {
         Item {
           id: ohno
 
-          Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
-              }
-            }
+          QfWelcomeCard {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            message: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
 
-            radius: 6
-          }
+            QfButton {
+              Layout.fillWidth: true
+              text: qsTr("Reach out")
+              icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
 
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-
-            RowLayout {
-              spacing: 6
-              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-              Layout.bottomMargin: 10
-
-              QfButton {
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 10
-                rightPadding: 10
-
-                text: qsTr("Reach out")
-                icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
-
-                onClicked: {
-                  Qt.openUrlExternally("https://www.qfield.org/");
-                  feedbackView.Layout.preferredHeight = 0;
-                }
+              onClicked: {
+                Qt.openUrlExternally("https://www.qfield.org/");
+                feedbackView.Layout.preferredHeight = 0;
               }
             }
           }
@@ -221,126 +186,63 @@ Page {
         Item {
           id: intro
 
-          Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
+          QfWelcomeCard {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            message: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
+            actionsFillWidth: false
+
+            QfToolButton {
+              iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+              iconColor: QfTheme.mainOverlayColor
+              bgcolor: QfTheme.mainColor
+              round: true
+
+              onClicked: {
+                feedbackView.currentIndex = 0;
               }
             }
+            QfToolButton {
+              iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
+              iconColor: QfTheme.mainOverlayColor
+              bgcolor: QfTheme.mainColor
+              round: true
 
-            radius: 6
-          }
-
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-
-            RowLayout {
-              spacing: 6
-              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-              Layout.bottomMargin: 10
-              QfToolButton {
-                iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
-                iconColor: QfTheme.mainOverlayColor
-                bgcolor: QfTheme.mainColor
-                round: true
-
-                onClicked: {
-                  feedbackView.currentIndex = 0;
-                }
-              }
-              QfToolButton {
-                iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
-                iconColor: QfTheme.mainOverlayColor
-                bgcolor: QfTheme.mainColor
-                round: true
-
-                onClicked: {
-                  if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
-                    feedbackView.currentIndex = 2;
-                  } else {
-                    feedbackView.Layout.preferredHeight = 0;
-                  }
+              onClicked: {
+                if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
+                  feedbackView.currentIndex = 2;
+                } else {
+                  feedbackView.Layout.preferredHeight = 0;
                 }
               }
             }
           }
         }
+
         Item {
           id: ohyeah
 
-          Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
-              }
-            }
+          QfWelcomeCard {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            message: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
 
-            radius: 6
-          }
+            QfButton {
+              Layout.fillWidth: true
+              text: qsTr("Rate us")
+              icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
 
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-
-            RowLayout {
-              spacing: 6
-              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-              Layout.margins: 6
-              Layout.bottomMargin: 10
-              QfButton {
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 10
-                rightPadding: 10
-
-                text: qsTr("Rate us")
-                icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
-
-                onClicked: {
-                  if (Qt.platform.os === "windows") {
-                    Qt.openUrlExternally("https://apps.microsoft.com/detail/xp99h3bcx4bw7f");
-                  } else if (Qt.platform.os === "android") {
-                    Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
-                  } else if (Qt.platform.os === "ios") {
-                    Qt.openUrlExternally("itms-apps://itunes.apple.com/app/qfield-for-qgis/id1531726814");
-                  }
-                  feedbackView.Layout.preferredHeight = 0;
+              onClicked: {
+                if (Qt.platform.os === "windows") {
+                  Qt.openUrlExternally("https://apps.microsoft.com/detail/xp99h3bcx4bw7f");
+                } else if (Qt.platform.os === "android") {
+                  Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
+                } else if (Qt.platform.os === "ios") {
+                  Qt.openUrlExternally("itms-apps://itunes.apple.com/app/qfield-for-qgis/id1531726814");
                 }
+                feedbackView.Layout.preferredHeight = 0;
               }
             }
           }
