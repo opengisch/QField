@@ -174,7 +174,7 @@ Page {
           property bool itemWithinQFieldCloudProjectFolder: cloudProjectsModel.currentProjectId !== "" && itemPath.search(cloudProjectsModel.currentProjectId) !== -1
           property bool itemHasWebdavConfiguration: ItemHasWebdavConfiguration
           property bool itemMenuLoadable: !projectFolderView && (ItemMetaType === QfLocalFilesModel.Project || ItemMetaType === QfLocalFilesModel.Dataset)
-          property bool itemMenuVisible: ((ItemType === QfLocalFilesModel.SimpleFolder || ItemMetaType == QfLocalFilesModel.Dataset || ItemMetaType == QfLocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & QfPlatformUtilities.CustomExport || platformUtilities.capabilities & QfPlatformUtilities.CustomSend) && (ItemMetaType === QfLocalFilesModel.Dataset)) || (ItemMetaType === QfLocalFilesModel.Dataset && ItemType === QfLocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
+          property bool itemMenuVisible: ((ItemType === QfLocalFilesModel.SimpleFolder || ItemMetaType === QfLocalFilesModel.Dataset || ItemMetaType === QfLocalFilesModel.File) && table.model.currentPath !== 'root') || ((platformUtilities.capabilities & QfPlatformUtilities.CustomExport || platformUtilities.capabilities & QfPlatformUtilities.CustomSend) && (ItemMetaType === QfLocalFilesModel.Dataset)) || (ItemMetaType === QfLocalFilesModel.Dataset && ItemType === QfLocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId)
 
           width: parent ? parent.width : undefined
           height: line.height
@@ -240,7 +240,7 @@ Page {
                 case QfLocalFilesModel.QfExternalStorage:
                   return QfTheme.getThemeVectorIcon('ic_sd_card_param_48dp');
                 case QfLocalFilesModel.SimpleFolder:
-                  return QfTheme.getThemeVectorIcon(ItemMetaType == QfLocalFilesModel.Folder && ItemIsFavorite ? 'ic_folder_favorite_param_48dp' : 'ic_folder_param_48dp');
+                  return QfTheme.getThemeVectorIcon(ItemMetaType === QfLocalFilesModel.Folder && ItemIsFavorite ? 'ic_folder_favorite_param_48dp' : 'ic_folder_param_48dp');
                 case QfLocalFilesModel.ProjectFile:
                   return QfTheme.getThemeVectorIcon('ic_map_param_48dp');
                 case QfLocalFilesModel.VectorDataset:
@@ -295,7 +295,7 @@ Page {
                   return info;
                 }
 
-                visible: text != ""
+                visible: text !== ""
                 font.pointSize: QfTheme.tipFont.pointSize - 2
                 color: QfTheme.secondaryTextColor
                 wrapMode: Text.WordWrap
@@ -360,9 +360,9 @@ Page {
             const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && selectedItem.path.search(cloudProjectsModel.currentProjectId) !== -1;
 
             table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && webdavConnectionLoader.item.hasWebdavConfiguration(selectedItem.path);
-            table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && selectedItem.metaType == QfLocalFilesModel.Dataset && selectedItem.type == QfLocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (selectedItem.metaType == QfLocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
+            table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && selectedItem.metaType === QfLocalFilesModel.Dataset && selectedItem.type === QfLocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (selectedItem.metaType === QfLocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
             table.selectedItemsDeletable = table.selectedItemsDeletable && QfFileUtils.isDeletable(selectedItem.path);
-            table.selectedItemsCompressible = table.selectedItemsCompressible && selectedItem.metaType == QfLocalFilesModel.Dataset;
+            table.selectedItemsCompressible = table.selectedItemsCompressible && selectedItem.metaType === QfLocalFilesModel.Dataset;
           }
         }
 
@@ -503,7 +503,7 @@ Page {
       MenuItem {
         id: viewFile
 
-        enabled: itemMenu.itemMetaType != QfLocalFilesModel.Folder
+        enabled: itemMenu.itemMetaType !== QfLocalFilesModel.Folder
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -536,7 +536,7 @@ Page {
 
       MenuItem {
         id: pushDatasetToCloud
-        enabled: (itemMenu.itemMetaType === QfLocalFilesModel.File) || (itemMenu.itemMetaType === QfLocalFilesModel.Dataset && itemMenu.itemType === QfLocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == QfLocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
+        enabled: (itemMenu.itemMetaType === QfLocalFilesModel.File) || (itemMenu.itemMetaType === QfLocalFilesModel.Dataset && itemMenu.itemType === QfLocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType === QfLocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -554,7 +554,7 @@ Page {
 
       MenuItem {
         id: exportDatasetTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && itemMenu.itemMetaType == QfLocalFilesModel.Dataset
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && itemMenu.itemMetaType === QfLocalFilesModel.Dataset
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -571,7 +571,7 @@ Page {
       // Folder items
       MenuItem {
         id: toggleFavoriteState
-        enabled: itemMenu.itemMetaType == QfLocalFilesModel.Folder && localFilesModel.isPathFavoriteEditable(itemMenu.itemPath)
+        enabled: itemMenu.itemMetaType === QfLocalFilesModel.Folder && localFilesModel.isPathFavoriteEditable(itemMenu.itemPath)
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -680,7 +680,7 @@ Page {
 
       MenuItem {
         id: deleteFile
-        enabled: QfFileUtils.isDeletable(itemMenu.itemPath)
+        enabled: !itemMenu.itemMetaType === QfLocalFilesModel.Dataset && QfFileUtils.isDeletable(itemMenu.itemPath)
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -697,7 +697,7 @@ Page {
 
       MenuItem {
         id: removeDataset
-        enabled: itemMenu.itemMetaType == QfLocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
+        enabled: itemMenu.itemMetaType === QfLocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
         visible: enabled
 
         font: QfTheme.defaultFont
