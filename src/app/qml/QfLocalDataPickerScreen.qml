@@ -520,7 +520,7 @@ Page {
       // File items
       MenuItem {
         id: sendDatasetTo
-        enabled: itemMenu.itemMetaType === QfLocalFilesModel.File || (platformUtilities.capabilities & QfPlatformUtilities.CustomSend && itemMenu.itemMetaType == QfLocalFilesModel.Dataset)
+        enabled: itemMenu.itemMetaType === QfLocalFilesModel.File || (platformUtilities.capabilities & QfPlatformUtilities.CustomSend && itemMenu.itemMetaType === QfLocalFilesModel.Dataset)
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -536,7 +536,7 @@ Page {
 
       MenuItem {
         id: pushDatasetToCloud
-        enabled: (itemMenu.itemMetaType == QfLocalFilesModel.File) || (itemMenu.itemMetaType == QfLocalFilesModel.Dataset && itemMenu.itemType == QfLocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == QfLocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
+        enabled: (itemMenu.itemMetaType === QfLocalFilesModel.File) || (itemMenu.itemMetaType === QfLocalFilesModel.Dataset && itemMenu.itemType === QfLocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (itemMenu.itemMetaType == QfLocalFilesModel.Folder && itemMenu.itemWithinQFieldCloudProjectFolder)
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -598,7 +598,7 @@ Page {
 
       MenuItem {
         id: exportFolderTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && itemMenu.itemMetaType == QfLocalFilesModel.Folder
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && itemMenu.itemMetaType === QfLocalFilesModel.Folder
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -614,7 +614,7 @@ Page {
 
       MenuItem {
         id: sendCompressedFolderTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomSend && itemMenu.itemMetaType == QfLocalFilesModel.Folder
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomSend && itemMenu.itemMetaType === QfLocalFilesModel.Folder
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -628,6 +628,13 @@ Page {
         }
       }
 
+      MenuSeparator {
+        enabled: uploadFolderToWebdav.visible || downloadFolderFromWebdav.visible
+        visible: enabled
+        width: parent.width
+        height: enabled ? undefined : 0
+      }
+
       MenuItem {
         id: uploadFolderToWebdav
         enabled: itemMenu.itemHasWebdavConfiguration
@@ -638,7 +645,7 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: QfTheme.menuItemLeftPadding
 
-        text: qsTr("Upload folder to WebDAV server")
+        text: itemMenu.itemMetaType === QfLocalFilesModel.Folder ? qsTr("Upload folder to WebDAV") : qsTr("Upload file to WebDAV")
         onTriggered: {
           if (webdavConnectionLoader.item) {
             webdavConnectionLoader.item.uploadPaths([itemMenu.itemPath]);
@@ -648,7 +655,7 @@ Page {
 
       MenuItem {
         id: downloadFolderFromWebdav
-        enabled: itemMenu.itemHasWebdavConfiguration
+        enabled: itemMenu.itemHasWebdavConfiguration && itemMenu.itemMetaType === QfLocalFilesModel.Folder
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -656,7 +663,7 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: QfTheme.menuItemLeftPadding
 
-        text: qsTr("Download folder from WebDAV server")
+        text: qsTr("Download folder from WebDAV")
         onTriggered: {
           if (webdavConnectionLoader.item) {
             webdavConnectionLoader.item.downloadPath(itemMenu.itemPath);
