@@ -140,7 +140,7 @@ Page {
         }
       }
 
-      SwipeView {
+      QfWelcomeCard {
         id: feedbackView
         visible: false
 
@@ -149,107 +149,81 @@ Page {
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         Layout.preferredWidth: Math.min(410, welcomeLayout.width - 30)
-        Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
-        clip: true
-
-        Behavior on Layout.preferredHeight {
-          NumberAnimation {
-            duration: 100
-            easing.type: Easing.InQuad
-          }
-        }
-
-        interactive: false
         currentIndex: 1
-        Item {
+
+        QfWelcomeCard.Panel {
           id: ohno
+          message: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
 
-          QfWelcomeCard {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            message: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            text: qsTr("Reach out")
+            icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
 
-            QfButton {
-              Layout.fillWidth: true
-              text: qsTr("Reach out")
-              icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
-
-              onClicked: {
-                Qt.openUrlExternally("https://www.qfield.org/");
-                feedbackView.Layout.preferredHeight = 0;
-              }
+            onClicked: {
+              Qt.openUrlExternally("https://www.qfield.org/");
+              feedbackView.collapse();
             }
           }
         }
 
-        Item {
+        QfWelcomeCard.Panel {
           id: intro
+          message: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
+          actionsFillWidth: false
 
-          QfWelcomeCard {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            message: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
-            actionsFillWidth: false
+          QfToolButton {
+            iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+            iconColor: QfTheme.buttonColor
+            bgcolor: QfTheme.mainColor
+            round: true
 
-            QfToolButton {
-              iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
-              iconColor: QfTheme.mainOverlayColor
-              bgcolor: QfTheme.mainColor
-              round: true
-
-              onClicked: {
-                feedbackView.currentIndex = 0;
-              }
+            onClicked: {
+              feedbackView.currentIndex = 0;
             }
-            QfToolButton {
-              iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
-              iconColor: QfTheme.mainOverlayColor
-              bgcolor: QfTheme.mainColor
-              round: true
+          }
+          QfToolButton {
+            iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
+            iconColor: QfTheme.buttonColor
+            bgcolor: QfTheme.mainColor
+            round: true
 
-              onClicked: {
-                if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
-                  feedbackView.currentIndex = 2;
-                } else {
-                  feedbackView.Layout.preferredHeight = 0;
-                }
+            onClicked: {
+              if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
+                feedbackView.currentIndex = 2;
+              } else {
+                feedbackView.collapse();
               }
             }
           }
         }
 
-        Item {
+        QfWelcomeCard.Panel {
           id: ohyeah
+          message: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
 
-          QfWelcomeCard {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            message: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            text: qsTr("Rate us")
+            icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
 
-            QfButton {
-              Layout.fillWidth: true
-              text: qsTr("Rate us")
-              icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
-
-              onClicked: {
-                if (Qt.platform.os === "windows") {
-                  Qt.openUrlExternally("https://apps.microsoft.com/detail/xp99h3bcx4bw7f");
-                } else if (Qt.platform.os === "android") {
-                  Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
-                } else if (Qt.platform.os === "ios") {
-                  Qt.openUrlExternally("itms-apps://itunes.apple.com/app/qfield-for-qgis/id1531726814");
-                }
-                feedbackView.Layout.preferredHeight = 0;
+            onClicked: {
+              if (Qt.platform.os === "windows") {
+                Qt.openUrlExternally("https://apps.microsoft.com/detail/xp99h3bcx4bw7f");
+              } else if (Qt.platform.os === "android") {
+                Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
+              } else if (Qt.platform.os === "ios") {
+                Qt.openUrlExternally("itms-apps://itunes.apple.com/app/qfield-for-qgis/id1531726814");
               }
+              feedbackView.collapse();
             }
           }
         }
       }
 
-      SwipeView {
+      QfWelcomeCard {
         id: collectionView
         visible: false
 
@@ -258,60 +232,40 @@ Page {
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         Layout.preferredWidth: Math.min(410, welcomeLayout.width - 20)
-        Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
-        clip: true
-
-        Behavior on Layout.preferredHeight {
-          NumberAnimation {
-            duration: 100
-            easing.type: Easing.InQuad
-          }
-        }
-
-        interactive: false
         currentIndex: 1
-        Item {
-          id: collectionOhno
 
-          QfWelcomeCard {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            message: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
-          }
+        QfWelcomeCard.Panel {
+          id: collectionOhno
+          message: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
         }
 
-        Item {
+        QfWelcomeCard.Panel {
           id: collectionIntro
+          message: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(Qfield.name)
 
-          QfWelcomeCard {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            message: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(Qfield.name)
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            Layout.preferredWidth: 0
+            text: qsTr('I agree')
 
-            QfButton {
-              Layout.fillWidth: true
-              Layout.preferredWidth: 0
-              text: qsTr('I agree')
-
-              onClicked: {
-                qfieldSettings.enableInfoCollection = true;
-                collectionView.visible = false;
-              }
+            onClicked: {
+              qfieldSettings.enableInfoCollection = true;
+              collectionView.collapse();
             }
+          }
 
-            QfButton {
-              Layout.fillWidth: true
-              Layout.preferredWidth: 0
-              text: qsTr('I prefer not')
-              bgcolor: "transparent"
-              color: QfTheme.mainColor
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            Layout.preferredWidth: 0
+            text: qsTr('I prefer not')
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
 
-              onClicked: {
-                qfieldSettings.enableInfoCollection = false;
-                collectionView.visible = false;
-              }
+            onClicked: {
+              qfieldSettings.enableInfoCollection = false;
+              collectionView.collapse();
             }
           }
         }
