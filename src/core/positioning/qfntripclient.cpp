@@ -583,12 +583,9 @@ void QfNtripSocket::processChunkedData( const QByteArray &data )
 
 void QfNtripSocket::onDisconnected()
 {
-  if ( mHeadersSent )
-  {
-    // Server-initiated disconnection after stream was connected
-    emit streamDisconnected();
-  }
-  else if ( !mPendingError )
+  emit streamDisconnected();
+
+  if ( !mPendingError )
   {
     // Connection failed or disconnected before headers were processed
     emit errorOccurred( QStringLiteral( "Disconnected from NTRIP caster " ) + mHost
