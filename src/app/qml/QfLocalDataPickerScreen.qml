@@ -164,6 +164,7 @@ Page {
         delegate: Rectangle {
           id: rectangle
 
+          property bool isPressed: false
           property int itemIndex: index
           property int itemMetaType: ItemMetaType
           property int itemType: ItemType
@@ -273,6 +274,7 @@ Page {
                 color: QfTheme.mainTextColor
                 elide: Text.ElideRight
                 wrapMode: Text.NoWrap
+                opacity: rectangle.isPressed ? 0.8 : 1
               }
               Text {
                 id: itemInfo
@@ -299,6 +301,7 @@ Page {
                 font.pointSize: QfTheme.tipFont.pointSize - 2
                 color: QfTheme.secondaryTextColor
                 wrapMode: Text.WordWrap
+                opacity: rectangle.isPressed ? 0.8 : 1
               }
             }
             QfToolButton {
@@ -395,20 +398,20 @@ Page {
             if (itemMenu.visible || importMenu.visible)
               return;
             const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
-            if (item && item.itemMenuLoadable) {
-              pressedItem = item.children[0].children[2].children[0];
-              pressedItem.color = "#5a8725";
+            if (item) {
+              pressedItem = item;
+              pressedItem.isPressed = true;
             }
           }
           onCanceled: {
             if (pressedItem) {
-              pressedItem.color = QfTheme.mainColor;
+              pressedItem.isPressed = false;
               pressedItem = null;
             }
           }
           onReleased: {
             if (pressedItem) {
-              pressedItem.color = QfTheme.mainColor;
+              pressedItem.isPressed = false;
               pressedItem = null;
             }
           }
