@@ -140,7 +140,7 @@ Page {
         }
       }
 
-      SwipeView {
+      QfWelcomeCard {
         id: feedbackView
         visible: false
 
@@ -149,205 +149,81 @@ Page {
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         Layout.preferredWidth: Math.min(410, welcomeLayout.width - 30)
-        Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
-        clip: true
-
-        Behavior on Layout.preferredHeight {
-          NumberAnimation {
-            duration: 100
-            easing.type: Easing.InQuad
-          }
-        }
-
-        interactive: false
         currentIndex: 1
-        Item {
+
+        QfWelcomeCard.Panel {
           id: ohno
+          message: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
 
-          Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
-              }
-            }
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            text: qsTr("Reach out")
+            icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
 
-            radius: 6
-          }
-
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-
-            RowLayout {
-              spacing: 6
-              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-              Layout.bottomMargin: 10
-
-              QfButton {
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 10
-                rightPadding: 10
-
-                text: qsTr("Reach out")
-                icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
-
-                onClicked: {
-                  Qt.openUrlExternally("https://www.qfield.org/");
-                  feedbackView.Layout.preferredHeight = 0;
-                }
-              }
+            onClicked: {
+              Qt.openUrlExternally("https://www.qfield.org/");
+              feedbackView.collapse();
             }
           }
         }
 
-        Item {
+        QfWelcomeCard.Panel {
           id: intro
+          message: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
+          actionsFillWidth: false
 
-          Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
-              }
+          QfToolButton {
+            iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+            iconColor: QfTheme.buttonColor
+            bgcolor: QfTheme.mainColor
+            round: true
+
+            onClicked: {
+              feedbackView.currentIndex = 0;
             }
-
-            radius: 6
           }
+          QfToolButton {
+            iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
+            iconColor: QfTheme.buttonColor
+            bgcolor: QfTheme.mainColor
+            round: true
 
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-
-            RowLayout {
-              spacing: 6
-              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-              Layout.bottomMargin: 10
-              QfToolButton {
-                iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
-                iconColor: QfTheme.mainOverlayColor
-                bgcolor: QfTheme.mainColor
-                round: true
-
-                onClicked: {
-                  feedbackView.currentIndex = 0;
-                }
-              }
-              QfToolButton {
-                iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
-                iconColor: QfTheme.mainOverlayColor
-                bgcolor: QfTheme.mainColor
-                round: true
-
-                onClicked: {
-                  if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
-                    feedbackView.currentIndex = 2;
-                  } else {
-                    feedbackView.Layout.preferredHeight = 0;
-                  }
-                }
+            onClicked: {
+              if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
+                feedbackView.currentIndex = 2;
+              } else {
+                feedbackView.collapse();
               }
             }
           }
         }
-        Item {
+
+        QfWelcomeCard.Panel {
           id: ohyeah
+          message: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
 
-          Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            text: qsTr("Rate us")
+            icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
+
+            onClicked: {
+              if (Qt.platform.os === "windows") {
+                Qt.openUrlExternally("https://apps.microsoft.com/detail/xp99h3bcx4bw7f");
+              } else if (Qt.platform.os === "android") {
+                Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
+              } else if (Qt.platform.os === "ios") {
+                Qt.openUrlExternally("itms-apps://itunes.apple.com/app/qfield-for-qgis/id1531726814");
               }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
-              }
-            }
-
-            radius: 6
-          }
-
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-
-            RowLayout {
-              spacing: 6
-              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-              Layout.margins: 6
-              Layout.bottomMargin: 10
-              QfButton {
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 10
-                rightPadding: 10
-
-                text: qsTr("Rate us")
-                icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
-
-                onClicked: {
-                  if (Qt.platform.os === "windows") {
-                    Qt.openUrlExternally("https://apps.microsoft.com/detail/xp99h3bcx4bw7f");
-                  } else if (Qt.platform.os === "android") {
-                    Qt.openUrlExternally("market://details?id=ch.opengis.qfield");
-                  } else if (Qt.platform.os === "ios") {
-                    Qt.openUrlExternally("itms-apps://itunes.apple.com/app/qfield-for-qgis/id1531726814");
-                  }
-                  feedbackView.Layout.preferredHeight = 0;
-                }
-              }
+              feedbackView.collapse();
             }
           }
         }
       }
 
-      SwipeView {
+      QfWelcomeCard {
         id: collectionView
         visible: false
 
@@ -356,121 +232,40 @@ Page {
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         Layout.preferredWidth: Math.min(410, welcomeLayout.width - 20)
-        Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
-        clip: true
-
-        Behavior on Layout.preferredHeight {
-          NumberAnimation {
-            duration: 100
-            easing.type: Easing.InQuad
-          }
-        }
-
-        interactive: false
         currentIndex: 1
-        Item {
+
+        QfWelcomeCard.Panel {
           id: collectionOhno
-
-          Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
-              }
-            }
-
-            radius: 6
-          }
-
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
-
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: collectionView.width - 12
-              text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-          }
+          message: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
         }
 
-        Item {
+        QfWelcomeCard.Panel {
           id: collectionIntro
+          message: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(Qfield.name)
 
-          Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-              GradientStop {
-                position: 0.0
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
-              }
-              GradientStop {
-                position: 0.88
-                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
-              }
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            Layout.preferredWidth: 0
+            text: qsTr('I agree')
+
+            onClicked: {
+              qfieldSettings.enableInfoCollection = true;
+              collectionView.collapse();
             }
-
-            radius: 6
           }
 
-          ColumnLayout {
-            spacing: 0
-            anchors.centerIn: parent
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            Layout.preferredWidth: 0
+            text: qsTr('I prefer not')
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
 
-            Text {
-              Layout.margins: 6
-              Layout.topMargin: 12
-              Layout.maximumWidth: collectionView.width - 12
-              text: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(Qfield.name)
-              font: QfTheme.defaultFont
-              color: QfTheme.mainTextColor
-              horizontalAlignment: Text.AlignHCenter
-              wrapMode: Text.WordWrap
-            }
-
-            RowLayout {
-              spacing: 6
-              Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-              Layout.bottomMargin: 10
-              QfButton {
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 10
-                rightPadding: 10
-
-                text: qsTr('I agree')
-
-                onClicked: {
-                  qfieldSettings.enableInfoCollection = true;
-                  collectionView.visible = false;
-                }
-              }
-
-              QfButton {
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 10
-                rightPadding: 10
-
-                text: qsTr('I prefer not')
-                bgcolor: "transparent"
-                color: QfTheme.mainColor
-
-                onClicked: {
-                  qfieldSettings.enableInfoCollection = false;
-                  collectionView.visible = false;
-                }
-              }
+            onClicked: {
+              qfieldSettings.enableInfoCollection = false;
+              collectionView.collapse();
             }
           }
         }
