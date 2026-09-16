@@ -143,12 +143,12 @@ bool QfCloudConnection::isReachable() const
   switch ( mNetworkInformation->reachability() )
   {
     case QNetworkInformation::Reachability::Online:
+    case QNetworkInformation::Reachability::Local:
+    case QNetworkInformation::Reachability::Site:
     case QNetworkInformation::Reachability::Unknown:
       return true;
 
     case QNetworkInformation::Reachability::Disconnected:
-    case QNetworkInformation::Reachability::Local:
-    case QNetworkInformation::Reachability::Site:
       return false;
   }
 
