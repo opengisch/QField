@@ -1,0 +1,402 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfInformationDrawer" kind="class" language="C++" prot="public">
+    <compoundname>QfInformationDrawer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classInformationDrawer" prot="public" virt="non-virtual">InformationDrawer</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfInformationDrawer_1a6b4bcdfa907a4699967414ff07dc7491" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfInformationDrawer::bottom</definition>
+        <argsstring></argsstring>
+        <name>bottom</name>
+        <qualifiedname>QfInformationDrawer::bottom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="11" column="12" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1af4eb0dcf07c7bb40826642ceb519ca76" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfInformationDrawer::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <qualifiedname>QfInformationDrawer::left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="12" column="12" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1ade1fe0f134d5bdf25d135a064b429a40" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfInformationDrawer::leftMargin</definition>
+        <argsstring></argsstring>
+        <name>leftMargin</name>
+        <qualifiedname>QfInformationDrawer::leftMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="13" column="12" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1ad0a1fb8196f26faf2814addeea795e6b" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfInformationDrawer::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>QfInformationDrawer::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="14" column="12" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1a52acf15e16c1aadc556685dfe2706b28" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfInformationDrawer::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>QfInformationDrawer::rightMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="15" column="12" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1a932f097f0b477ac8a72f8bfa76d0350c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfInformationDrawer::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfInformationDrawer::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="16" column="5" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1a186bfaad7fafbc63d1ad198be5b57aec" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfInformationDrawer::mainContent</definition>
+        <argsstring></argsstring>
+        <name>mainContent</name>
+        <qualifiedname>QfInformationDrawer::mainContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="39" column="8" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1a79611888551d9cc96a972064c333c8b1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCogoOperationSettings" kindref="compound">QfCogoOperationSettings</ref></type>
+        <definition>QfCogoOperationSettings QfInformationDrawer::cogoOperationSettings</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationSettings</name>
+        <qualifiedname>QfInformationDrawer::cogoOperationSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="40" column="25" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1a9c37ef01d9ce8d8e48ab8dcd63e0b8e0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfNavigationInformationView" kindref="compound">QfNavigationInformationView</ref></type>
+        <definition>QfNavigationInformationView QfInformationDrawer::navigationInformationView</definition>
+        <argsstring></argsstring>
+        <name>navigationInformationView</name>
+        <qualifiedname>QfInformationDrawer::navigationInformationView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="41" column="29" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1a06ae440eb0a01ab51a58e8fc73778a63" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfPositioningPreciseView" kindref="compound">QfPositioningPreciseView</ref></type>
+        <definition>QfPositioningPreciseView QfInformationDrawer::positioningPreciseView</definition>
+        <argsstring></argsstring>
+        <name>positioningPreciseView</name>
+        <qualifiedname>QfInformationDrawer::positioningPreciseView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="42" column="26" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1a35518601283e1655edf00769e5603300" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfPositioningInformationView" kindref="compound">QfPositioningInformationView</ref></type>
+        <definition>QfPositioningInformationView QfInformationDrawer::positioningInformationView</definition>
+        <argsstring></argsstring>
+        <name>positioningInformationView</name>
+        <qualifiedname>QfInformationDrawer::positioningInformationView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="43" column="30" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1a880db809cf204be250753762d7aaab71" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSensorInformationView" kindref="compound">QfSensorInformationView</ref></type>
+        <definition>QfSensorInformationView QfInformationDrawer::sensorInformationView</definition>
+        <argsstring></argsstring>
+        <name>sensorInformationView</name>
+        <qualifiedname>QfInformationDrawer::sensorInformationView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="44" column="25" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfInformationDrawer_1acfd31af818dc4b60640c9455e2547bcd" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfElevationProfile" kindref="compound">QfElevationProfile</ref></type>
+        <definition>QfElevationProfile QfInformationDrawer::elevationProfile</definition>
+        <argsstring></argsstring>
+        <name>elevationProfile</name>
+        <qualifiedname>QfInformationDrawer::elevationProfile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="45" column="20" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfInformationDrawer_1a47c4d48eb856d09e0d05c86154b0cde0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfInformationDrawer::cogoOperationSettings</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationSettings</name>
+        <qualifiedname>QfInformationDrawer::cogoOperationSettings</qualifiedname>
+        <read>dummyGetter_cogoOperationSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="19" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1a58dffe905281f541feb9c79724f93abf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfInformationDrawer::sensorInformationViewEnabled</definition>
+        <argsstring></argsstring>
+        <name>sensorInformationViewEnabled</name>
+        <qualifiedname>QfInformationDrawer::sensorInformationViewEnabled</qualifiedname>
+        <read>dummyGetter_sensorInformationViewEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="21" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1a82ba00a2a238a7ac001cc013b07f512a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfInformationDrawer::navigationInformationViewEnabled</definition>
+        <argsstring></argsstring>
+        <name>navigationInformationViewEnabled</name>
+        <qualifiedname>QfInformationDrawer::navigationInformationViewEnabled</qualifiedname>
+        <read>dummyGetter_navigationInformationViewEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="23" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1addb4ee607425d74ee12e102c82a0078c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfNavigation" kindref="compound">QfNavigation</ref></type>
+        <definition>QfNavigation QfInformationDrawer::navigation</definition>
+        <argsstring></argsstring>
+        <name>navigation</name>
+        <qualifiedname>QfInformationDrawer::navigation</qualifiedname>
+        <read>dummyGetter_navigation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="25" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1ab2dec416dc36f14dd090cc6a69bf4c52" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfInformationDrawer::positioningInformationViewEnabled</definition>
+        <argsstring></argsstring>
+        <name>positioningInformationViewEnabled</name>
+        <qualifiedname>QfInformationDrawer::positioningInformationViewEnabled</qualifiedname>
+        <read>dummyGetter_positioningInformationViewEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="27" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1a90ce3feb034acb09b4b90efd82a5a016" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfInformationDrawer::positioningPreciseView</definition>
+        <argsstring></argsstring>
+        <name>positioningPreciseView</name>
+        <qualifiedname>QfInformationDrawer::positioningPreciseView</qualifiedname>
+        <read>dummyGetter_positioningPreciseView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="29" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1a03f381559072ec3c25a880acf9803d86" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QtObject</type>
+        <definition>QtObject QfInformationDrawer::positioningSettings</definition>
+        <argsstring></argsstring>
+        <name>positioningSettings</name>
+        <qualifiedname>QfInformationDrawer::positioningSettings</qualifiedname>
+        <read>dummyGetter_positioningSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="31" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1acc289dba5a69f81db1000ee82f30cceb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfPositioning" kindref="compound">QfPositioning</ref></type>
+        <definition>QfPositioning QfInformationDrawer::positionSource</definition>
+        <argsstring></argsstring>
+        <name>positionSource</name>
+        <qualifiedname>QfInformationDrawer::positionSource</qualifiedname>
+        <read>dummyGetter_positionSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="33" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1aed95d314cdf07300369d3477c29d4876" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfInformationDrawer::positioningPreciseEnabled</definition>
+        <argsstring></argsstring>
+        <name>positioningPreciseEnabled</name>
+        <qualifiedname>QfInformationDrawer::positioningPreciseEnabled</qualifiedname>
+        <read>dummyGetter_positioningPreciseEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="35" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfInformationDrawer_1a1691aaab1b9c17895fca8701690dcf3e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfInformationDrawer::elevationProfile</definition>
+        <argsstring></argsstring>
+        <name>elevationProfile</name>
+        <qualifiedname>QfInformationDrawer::elevationProfile</qualifiedname>
+        <read>dummyGetter_elevationProfile_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfInformationDrawer.qml" line="37" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>InformationDrawer</label>
+        <link refid="classInformationDrawer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfInformationDrawer</label>
+        <link refid="classQfInformationDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfInformationDrawer</label>
+        <link refid="classQfInformationDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfInformationDrawer.qml" line="10" column="1" bodyfile="src/gui/qml/QfInformationDrawer.qml" bodystart="10" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classQfInformationDrawer_1a6b4bcdfa907a4699967414ff07dc7491" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>bottom</name></member>
+      <member refid="classQfInformationDrawer_1a47c4d48eb856d09e0d05c86154b0cde0" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>cogoOperationSettings</name></member>
+      <member refid="classQfInformationDrawer_1a79611888551d9cc96a972064c333c8b1" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>cogoOperationSettings</name></member>
+      <member refid="classQfInformationDrawer_1a1691aaab1b9c17895fca8701690dcf3e" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>elevationProfile</name></member>
+      <member refid="classQfInformationDrawer_1acfd31af818dc4b60640c9455e2547bcd" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>elevationProfile</name></member>
+      <member refid="classQfInformationDrawer_1a932f097f0b477ac8a72f8bfa76d0350c" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>height</name></member>
+      <member refid="classQfInformationDrawer_1af4eb0dcf07c7bb40826642ceb519ca76" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>left</name></member>
+      <member refid="classQfInformationDrawer_1ade1fe0f134d5bdf25d135a064b429a40" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>leftMargin</name></member>
+      <member refid="classQfInformationDrawer_1a186bfaad7fafbc63d1ad198be5b57aec" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>mainContent</name></member>
+      <member refid="classQfInformationDrawer_1addb4ee607425d74ee12e102c82a0078c" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>navigation</name></member>
+      <member refid="classQfInformationDrawer_1a9c37ef01d9ce8d8e48ab8dcd63e0b8e0" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>navigationInformationView</name></member>
+      <member refid="classQfInformationDrawer_1a82ba00a2a238a7ac001cc013b07f512a" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>navigationInformationViewEnabled</name></member>
+      <member refid="classQfInformationDrawer_1a35518601283e1655edf00769e5603300" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>positioningInformationView</name></member>
+      <member refid="classQfInformationDrawer_1ab2dec416dc36f14dd090cc6a69bf4c52" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>positioningInformationViewEnabled</name></member>
+      <member refid="classQfInformationDrawer_1aed95d314cdf07300369d3477c29d4876" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>positioningPreciseEnabled</name></member>
+      <member refid="classQfInformationDrawer_1a90ce3feb034acb09b4b90efd82a5a016" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>positioningPreciseView</name></member>
+      <member refid="classQfInformationDrawer_1a06ae440eb0a01ab51a58e8fc73778a63" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>positioningPreciseView</name></member>
+      <member refid="classQfInformationDrawer_1a03f381559072ec3c25a880acf9803d86" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>positioningSettings</name></member>
+      <member refid="classQfInformationDrawer_1acc289dba5a69f81db1000ee82f30cceb" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>positionSource</name></member>
+      <member refid="classQfInformationDrawer_1ad0a1fb8196f26faf2814addeea795e6b" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>right</name></member>
+      <member refid="classQfInformationDrawer_1a52acf15e16c1aadc556685dfe2706b28" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>rightMargin</name></member>
+      <member refid="classQfInformationDrawer_1a880db809cf204be250753762d7aaab71" prot="private" virt="non-virtual"><scope>QfInformationDrawer</scope><name>sensorInformationView</name></member>
+      <member refid="classQfInformationDrawer_1a58dffe905281f541feb9c79724f93abf" prot="public" virt="non-virtual"><scope>QfInformationDrawer</scope><name>sensorInformationViewEnabled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

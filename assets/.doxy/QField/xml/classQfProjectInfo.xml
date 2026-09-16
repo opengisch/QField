@@ -1,0 +1,1154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProjectInfo" kind="class" language="C++" prot="public">
+    <compoundname>QfProjectInfo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfprojectinfo_8h" local="no">qfprojectinfo.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfProjectInfo_1ae75ed57f9291ce6db42cab59dd2f9c4d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfProjectInfo::filePath</definition>
+        <argsstring></argsstring>
+        <name>filePath</name>
+        <qualifiedname>QfProjectInfo::filePath</qualifiedname>
+        <read>filePath</read>
+        <write>setFilePath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path associated with the currently opened project. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="46" column="5" bodyfile="src/core/qfprojectinfo.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectInfo_1aeddfa1cfa2cd93ad24a21ff08884766e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfProjectInfo::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfProjectInfo::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map settings object, used to keep track of details such as the map extent. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="51" column="5" bodyfile="src/core/qfprojectinfo.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectInfo_1a205dd860e8e9bf1017d7176fbdd29520" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFlatLayerTreeModel" kindref="compound">QfFlatLayerTreeModel</ref> *</type>
+        <definition>QfFlatLayerTreeModel * QfProjectInfo::layerTree</definition>
+        <argsstring></argsstring>
+        <name>layerTree</name>
+        <qualifiedname>QfProjectInfo::layerTree</qualifiedname>
+        <read>layerTree</read>
+        <write>setLayerTree</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The layer tree model object, used to keep track of details such as layer visibility, selected map theme, etc. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="56" column="5" bodyfile="src/core/qfprojectinfo.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectInfo_1ab14baa1f39b72602691e16a2d01e9bb8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfProjectInfo::stateMode</definition>
+        <argsstring></argsstring>
+        <name>stateMode</name>
+        <qualifiedname>QfProjectInfo::stateMode</qualifiedname>
+        <read>stateMode</read>
+        <write>setStateMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The state mode (browse vs. digitizing) for the currently opened project. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="61" column="5" bodyfile="src/core/qfprojectinfo.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectInfo_1a8db9c637dee3c4cfe209839f25414eda" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * QfProjectInfo::activeLayer</definition>
+        <argsstring></argsstring>
+        <name>activeLayer</name>
+        <qualifiedname>QfProjectInfo::activeLayer</qualifiedname>
+        <read>activeLayer</read>
+        <write>setActiveLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The active layer for the currently opened project. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="66" column="5" bodyfile="src/core/qfprojectinfo.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectInfo_1abc01cf8b746e9296a8f2dc989c06d5e5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+        <definition>QfTrackingModel * QfProjectInfo::trackingModel</definition>
+        <argsstring></argsstring>
+        <name>trackingModel</name>
+        <qualifiedname>QfProjectInfo::trackingModel</qualifiedname>
+        <read>trackingModel</read>
+        <write>setTrackingModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The tracking model object, used to save and restore tracking session for individual vector layers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="71" column="5" bodyfile="src/core/qfprojectinfo.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectInfo_1a015454732fc7a44e9cb009829947fef4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfProjectInfo::snappingEnabled</definition>
+        <argsstring></argsstring>
+        <name>snappingEnabled</name>
+        <qualifiedname>QfProjectInfo::snappingEnabled</qualifiedname>
+        <read>snappingEnabled</read>
+        <write>setSnappingEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The snapping enabled state for the currently opened project. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="76" column="5" bodyfile="src/core/qfprojectinfo.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectInfo_1a09996a1d9fc3b9a89de75a145e55c93c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></type>
+        <definition>QfCloudUserInformation QfProjectInfo::cloudUserInformation</definition>
+        <argsstring></argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>QfProjectInfo::cloudUserInformation</qualifiedname>
+        <read>cloudUserInformation</read>
+        <write>setCloudUserInformation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set cloud user information for offline usage. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="81" column="5" bodyfile="src/core/qfprojectinfo.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProjectInfo_1ab1fe1d462a548601476ca83689f3d4c4" prot="private" static="no" mutable="no">
+        <type>QSettings</type>
+        <definition>QSettings QfProjectInfo::mSettings</definition>
+        <argsstring></argsstring>
+        <name>mSettings</name>
+        <qualifiedname>QfProjectInfo::mSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="227" column="15" bodyfile="src/core/qfprojectinfo.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectInfo_1a289a5aab60ddf42687c28c6b34246c85" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfProjectInfo::mFilePath</definition>
+        <argsstring></argsstring>
+        <name>mFilePath</name>
+        <qualifiedname>QfProjectInfo::mFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="228" column="13" bodyfile="src/core/qfprojectinfo.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectInfo_1a048bcd2e56b088056ba5d1cbfc3556ea" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfProjectInfo::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfProjectInfo::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="230" column="25" bodyfile="src/core/qfprojectinfo.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectInfo_1ac2af5c18b15debd737a8fdc4aeb07e8f" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfProjectInfo::mSaveExtentTimer</definition>
+        <argsstring></argsstring>
+        <name>mSaveExtentTimer</name>
+        <qualifiedname>QfProjectInfo::mSaveExtentTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="231" column="12" bodyfile="src/core/qfprojectinfo.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectInfo_1a04408de50f407e82517cde2543bf27ee" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfProjectInfo::mSaveRotationTimer</definition>
+        <argsstring></argsstring>
+        <name>mSaveRotationTimer</name>
+        <qualifiedname>QfProjectInfo::mSaveRotationTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="232" column="12" bodyfile="src/core/qfprojectinfo.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectInfo_1a6ccf4593a09dc6b5cb82a3a166ec8927" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfProjectInfo::mSaveTemporalStateTimer</definition>
+        <argsstring></argsstring>
+        <name>mSaveTemporalStateTimer</name>
+        <qualifiedname>QfProjectInfo::mSaveTemporalStateTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="233" column="12" bodyfile="src/core/qfprojectinfo.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectInfo_1a78cb645362346d2e6124ff29f324f48d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFlatLayerTreeModel" kindref="compound">QfFlatLayerTreeModel</ref> *</type>
+        <definition>QfFlatLayerTreeModel* QfProjectInfo::mLayerTree</definition>
+        <argsstring></argsstring>
+        <name>mLayerTree</name>
+        <qualifiedname>QfProjectInfo::mLayerTree</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="235" column="26" bodyfile="src/core/qfprojectinfo.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectInfo_1a3f96805cf82187d7ed12fb5d89e67ade" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+        <definition>QfTrackingModel* QfProjectInfo::mTrackingModel</definition>
+        <argsstring></argsstring>
+        <name>mTrackingModel</name>
+        <qualifiedname>QfProjectInfo::mTrackingModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="236" column="21" bodyfile="src/core/qfprojectinfo.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectInfo_1ae847de70a64add86abf32df1cc4010f1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfProjectInfo::mIsTemporal</definition>
+        <argsstring></argsstring>
+        <name>mIsTemporal</name>
+        <qualifiedname>QfProjectInfo::mIsTemporal</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="238" column="10" bodyfile="src/core/qfprojectinfo.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfProjectInfo_1a300248ba3d3f3db40afc473fe21af3a3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfProjectInfo::QfProjectInfo</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfProjectInfo</name>
+        <qualifiedname>QfProjectInfo::QfProjectInfo</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="84" column="14" bodyfile="src/core/qfprojectinfo.cpp" bodystart="33" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a8f35537b52b216d242b115ad0d0bd5c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual QfProjectInfo::~QfProjectInfo</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QfProjectInfo</name>
+        <qualifiedname>QfProjectInfo::~QfProjectInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="86" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a50690ca6e0cb6d364c5830c07a4c6400" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::setFilePath</definition>
+        <argsstring>(const QString &amp;filePath)</argsstring>
+        <name>setFilePath</name>
+        <qualifiedname>QfProjectInfo::setFilePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path associated with the currently opened project.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="89" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="44" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a8c49cc0eadad0ca1e8541e54aaf34b02" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfProjectInfo::filePath</definition>
+        <argsstring>() const</argsstring>
+        <name>filePath</name>
+        <qualifiedname>QfProjectInfo::filePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path associated with the currently opened project.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="92" column="13" bodyfile="src/core/qfprojectinfo.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1af1c857231615a034b34de158f268f968" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfProjectInfo::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map settings object, used to keep track of details such as the map extent.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="95" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="61" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a0e61ac19ef01dbe6acbab9c5f7c4e412" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfProjectInfo::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfProjectInfo::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map settings object, used to keep track of details such as the map extent.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="98" column="25" bodyfile="src/core/qfprojectinfo.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1aa56102a3fc19790d0abde60065dbb14d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::setLayerTree</definition>
+        <argsstring>(QfFlatLayerTreeModel *layerTree)</argsstring>
+        <name>setLayerTree</name>
+        <qualifiedname>QfProjectInfo::setLayerTree</qualifiedname>
+        <param>
+          <type><ref refid="classQfFlatLayerTreeModel" kindref="compound">QfFlatLayerTreeModel</ref> *</type>
+          <declname>layerTree</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The layer tree model object, used to keep track of details such as layer visibility, selected map theme, etc.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="101" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="86" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1affbee8858df4d63ee76a64ad9187aa9a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfFlatLayerTreeModel" kindref="compound">QfFlatLayerTreeModel</ref> *</type>
+        <definition>QfFlatLayerTreeModel * QfProjectInfo::layerTree</definition>
+        <argsstring>() const</argsstring>
+        <name>layerTree</name>
+        <qualifiedname>QfProjectInfo::layerTree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The layer tree model object, used to keep track of details such as layer visibility, selected map theme, etc.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="104" column="26" bodyfile="src/core/qfprojectinfo.cpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a04088fadce396b6ad0019b8673b28a17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::setTrackingModel</definition>
+        <argsstring>(QfTrackingModel *trackingModel)</argsstring>
+        <name>setTrackingModel</name>
+        <qualifiedname>QfProjectInfo::setTrackingModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+          <declname>trackingModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The tracking model object, used to save and restore tracking session for individual vector layers.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="107" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="111" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a7a710df88a10f3cc77b30ddd6d531baf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+        <definition>QfTrackingModel * QfProjectInfo::trackingModel</definition>
+        <argsstring>() const</argsstring>
+        <name>trackingModel</name>
+        <qualifiedname>QfProjectInfo::trackingModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The tracking model object, used to save and restore tracking session for individual vector layers.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="110" column="21" bodyfile="src/core/qfprojectinfo.cpp" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a83152e63ac7ddf43ced6e1476ee8a11c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfProjectInfo::saveLayerStyle</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>saveLayerStyle</name>
+        <qualifiedname>QfProjectInfo::saveLayerStyle</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the <emphasis>layer</emphasis> style to the current project information settings </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="115" column="22" bodyfile="src/core/qfprojectinfo.cpp" bodystart="228" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1ae758836294d0ad5ac3f69cee827ea7e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfProjectInfo::saveLayerTreeState</definition>
+        <argsstring>()</argsstring>
+        <name>saveLayerTreeState</name>
+        <qualifiedname>QfProjectInfo::saveLayerTreeState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the current state (visibility and collapse status) of the layer tree </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="120" column="22" bodyfile="src/core/qfprojectinfo.cpp" bodystart="256" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1aa1157876ac817a0e33b62243f991e4c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfProjectInfo::saveLayerSnappingConfiguration</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>saveLayerSnappingConfiguration</name>
+        <qualifiedname>QfProjectInfo::saveLayerSnappingConfiguration</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the current snapping configuration settings </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="125" column="22" bodyfile="src/core/qfprojectinfo.cpp" bodystart="338" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a91187fec452b9a1ca1e7000d892df896" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfProjectInfo::saveLayerRememberedFields</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>saveLayerRememberedFields</name>
+        <qualifiedname>QfProjectInfo::saveLayerRememberedFields</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the vector <emphasis>layer</emphasis> fields that are remembered during feature additions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="130" column="22" bodyfile="src/core/qfprojectinfo.cpp" bodystart="369" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a5310c2111c4f4f9829ad58a94aa8fb59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::setStateMode</definition>
+        <argsstring>(const QString &amp;mode)</argsstring>
+        <name>setStateMode</name>
+        <qualifiedname>QfProjectInfo::setStateMode</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the state <emphasis>mode</emphasis> for the current project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="135" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="405" bodyend="413"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a1b1d7b914ce3f0101a4f6f49537ff3e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfProjectInfo::stateMode</definition>
+        <argsstring>() const</argsstring>
+        <name>stateMode</name>
+        <qualifiedname>QfProjectInfo::stateMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the saved state mode for the current project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="140" column="13" bodyfile="src/core/qfprojectinfo.cpp" bodystart="415" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1af5dbbf40e7be4c571874bc65228ae9eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::setActiveLayer</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>setActiveLayer</name>
+        <qualifiedname>QfProjectInfo::setActiveLayer</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the active <emphasis>layer</emphasis> within the current project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="145" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="425" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a146db0094a9d1392a1b7443ed6cfd91f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * QfProjectInfo::activeLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>activeLayer</name>
+        <qualifiedname>QfProjectInfo::activeLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the saved active layer for the current project or nullptr if active layer was not saved or isn&apos;t present </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="151" column="17" bodyfile="src/core/qfprojectinfo.cpp" bodystart="437" bodyend="449"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a3ce3c19600a4ef1df5acc4c1f0c22c02" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfProjectInfo::snappingEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>snappingEnabled</name>
+        <qualifiedname>QfProjectInfo::snappingEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the saved snapping enabed state for the current project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="156" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="281" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1add135521592d953475744d07d19d8680" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::setSnappingEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setSnappingEnabled</name>
+        <qualifiedname>QfProjectInfo::setSnappingEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the snapping <emphasis>enabled</emphasis> state for the current project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="161" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="289" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a7deafe9fcd3be7cf5d4b8a823a9502be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></type>
+        <definition>QfCloudUserInformation QfProjectInfo::cloudUserInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>QfProjectInfo::cloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the saved cloud user infomation for offline usage </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="166" column="28" bodyfile="src/core/qfprojectinfo.cpp" bodystart="301" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a370380aa2d820f9cd9ecd079f0a7a509" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::setCloudUserInformation</definition>
+        <argsstring>(const QfCloudUserInformation &amp;cloudUserInformation)</argsstring>
+        <name>setCloudUserInformation</name>
+        <qualifiedname>QfProjectInfo::setCloudUserInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref> &amp;</type>
+          <declname>cloudUserInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the cloud user infomation for offline usage </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="171" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="314" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1ac87beff06c1a52f60eba21c017c52b42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfProjectInfo::restoreCloudUserInformation</definition>
+        <argsstring>()</argsstring>
+        <name>restoreCloudUserInformation</name>
+        <qualifiedname>QfProjectInfo::restoreCloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restores last saved cloud user information details attached to the current project </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="176" column="22" bodyfile="src/core/qfprojectinfo.cpp" bodystart="333" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1ac23bc934cbf4a7620e1d527b95753988" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfProjectInfo::saveTracker</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>saveTracker</name>
+        <qualifiedname>QfProjectInfo::saveTracker</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Save an ongoing vector <emphasis>layer</emphasis> tracking session details. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="179" column="22" bodyfile="src/core/qfprojectinfo.cpp" bodystart="127" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a2061ff48f043dddcc5a3df9594e1e6f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QModelIndex</type>
+        <definition>QModelIndex QfProjectInfo::restoreTracker</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>restoreTracker</name>
+        <qualifiedname>QfProjectInfo::restoreTracker</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Restore the last tracking session that occured within a vector <emphasis>layer</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="182" column="29" bodyfile="src/core/qfprojectinfo.cpp" bodystart="146" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1ab10a931349b7615395244bd0308af7ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfProjectInfo::saveVariable</definition>
+        <argsstring>(const QString &amp;name, const QString &amp;value)</argsstring>
+        <name>saveVariable</name>
+        <qualifiedname>QfProjectInfo::saveVariable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="184" column="22" bodyfile="src/core/qfprojectinfo.cpp" bodystart="469" bodyend="475"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1ae0a7a62a7f748ed769a44cbd103fbdb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfProjectInfo::getTitleDecorationConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>getTitleDecorationConfiguration</name>
+        <qualifiedname>QfProjectInfo::getTitleDecorationConfiguration</qualifiedname>
+        <briefdescription>
+<para>Retrieves configuration of the title decoration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="190" column="29" bodyfile="src/core/qfprojectinfo.cpp" bodystart="668" bodyend="727"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1ae1ad695914ac5b795232c3d2640e0864" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfProjectInfo::getCopyrightDecorationConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>getCopyrightDecorationConfiguration</name>
+        <qualifiedname>QfProjectInfo::getCopyrightDecorationConfiguration</qualifiedname>
+        <briefdescription>
+<para>Retrieves configuration of the copyright decoration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="193" column="29" bodyfile="src/core/qfprojectinfo.cpp" bodystart="729" bodyend="788"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a7813be16d297630615ddb411eb718603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfProjectInfo::getImageDecorationConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>getImageDecorationConfiguration</name>
+        <qualifiedname>QfProjectInfo::getImageDecorationConfiguration</qualifiedname>
+        <briefdescription>
+<para>Retrieves configuration of the image decoration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="196" column="29" bodyfile="src/core/qfprojectinfo.cpp" bodystart="790" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1ad23a513631791913567c964be20efda9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfProjectInfo::getGridDecorationConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>getGridDecorationConfiguration</name>
+        <qualifiedname>QfProjectInfo::getGridDecorationConfiguration</qualifiedname>
+        <briefdescription>
+<para>Retrieves configuration of the grid decoration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="199" column="29" bodyfile="src/core/qfprojectinfo.cpp" bodystart="826" bodyend="946"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a4665e086f47d13bccaef96aa029e17b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsMapLayer *</type>
+        <definition>QgsMapLayer * QfProjectInfo::getDefaultActiveLayerForMapTheme</definition>
+        <argsstring>(const QString &amp;mapTheme)</argsstring>
+        <name>getDefaultActiveLayerForMapTheme</name>
+        <qualifiedname>QfProjectInfo::getDefaultActiveLayerForMapTheme</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mapTheme</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves the default active layer for a given map theme. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="202" column="29" bodyfile="src/core/qfprojectinfo.cpp" bodystart="948" bodyend="966"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfProjectInfo_1af5bd6068c91d14066cf3194f232adff0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::restoreSettings</definition>
+        <argsstring>(QString &amp;projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, QfFlatLayerTreeModel *layerTree)</argsstring>
+        <name>restoreSettings</name>
+        <qualifiedname>QfProjectInfo::restoreSettings</qualifiedname>
+        <param>
+          <type>QString &amp;</type>
+          <declname>projectFilePath</declname>
+        </param>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickMapCanvasMap" kindref="compound">QgsQuickMapCanvasMap</ref> *</type>
+          <declname>mapCanvas</declname>
+        </param>
+        <param>
+          <type><ref refid="classQfFlatLayerTreeModel" kindref="compound">QfFlatLayerTreeModel</ref> *</type>
+          <declname>layerTree</declname>
+        </param>
+        <briefdescription>
+<para>Restore various project settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="187" column="17" bodyfile="src/core/qfprojectinfo.cpp" bodystart="477" bodyend="666"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfProjectInfo_1a3b0ad503a07e873dd04ec154bd3624fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::filePathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filePathChanged</name>
+        <qualifiedname>QfProjectInfo::filePathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="206" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectInfo_1a2649e7204e3106e16ce677a99f13a794" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfProjectInfo::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="207" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectInfo_1ab42ed8a4797259fd85510f7edcb6102f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::layerTreeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layerTreeChanged</name>
+        <qualifiedname>QfProjectInfo::layerTreeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="208" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectInfo_1a5f2bdba8f050b3fe54536088f1413097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::stateModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>stateModeChanged</name>
+        <qualifiedname>QfProjectInfo::stateModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="209" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectInfo_1a5e6dde8de3a6cd1af0e330a949667810" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::activeLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>activeLayerChanged</name>
+        <qualifiedname>QfProjectInfo::activeLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="210" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectInfo_1a23be963d73e98e699fc67997bcdb24e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::trackingModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>trackingModelChanged</name>
+        <qualifiedname>QfProjectInfo::trackingModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="211" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectInfo_1ab4b8032824d9f3b5dc57fd881c0b1819" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::snappingEnabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>snappingEnabledChanged</name>
+        <qualifiedname>QfProjectInfo::snappingEnabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="212" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectInfo_1a1ede5b5f37a9b4197f54f469d6cd1f72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::cloudUserInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudUserInformationChanged</name>
+        <qualifiedname>QfProjectInfo::cloudUserInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="213" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfProjectInfo_1a62c0043773719041e147908493f34672" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::extentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>extentChanged</name>
+        <qualifiedname>QfProjectInfo::extentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="217" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="180" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfProjectInfo_1ac52f051dc9686cce7368a056fbab86ec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::rotationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rotationChanged</name>
+        <qualifiedname>QfProjectInfo::rotationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="218" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="196" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfProjectInfo_1a5ee527b6026e587bfb0855fa837a482c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::temporalStateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>temporalStateChanged</name>
+        <qualifiedname>QfProjectInfo::temporalStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="219" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="211" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfProjectInfo_1a58a6a0602a9bb5fd9fce66b9788dc647" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::mapThemeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapThemeChanged</name>
+        <qualifiedname>QfProjectInfo::mapThemeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="220" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="451" bodyend="467"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfProjectInfo_1ae5669e4956eee9f7441f7e30bfbd5380" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::saveExtent</definition>
+        <argsstring>()</argsstring>
+        <name>saveExtent</name>
+        <qualifiedname>QfProjectInfo::saveExtent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="223" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="185" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1a9fcdca2a679e37dd48f9d1e396109ad9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::saveRotation</definition>
+        <argsstring>()</argsstring>
+        <name>saveRotation</name>
+        <qualifiedname>QfProjectInfo::saveRotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="224" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="201" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectInfo_1ac4c22a8c1dfd706bcad2a946e48e600e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectInfo::saveTemporalState</definition>
+        <argsstring>()</argsstring>
+        <name>saveTemporalState</name>
+        <qualifiedname>QfProjectInfo::saveTemporalState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectinfo.h" line="225" column="10" bodyfile="src/core/qfprojectinfo.cpp" bodystart="216" bodyend="226"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class stores current projection information such as extent and map theme in order for those to be saved and afterwards restored when the project is re-opened. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfProjectInfo</label>
+        <link refid="classQfProjectInfo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfProjectInfo</label>
+        <link refid="classQfProjectInfo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfprojectinfo.h" line="39" column="1" bodyfile="src/core/qfprojectinfo.h" bodystart="40" bodyend="239"/>
+    <listofallmembers>
+      <member refid="classQfProjectInfo_1a8db9c637dee3c4cfe209839f25414eda" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>activeLayer</name></member>
+      <member refid="classQfProjectInfo_1a146db0094a9d1392a1b7443ed6cfd91f" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>activeLayer</name></member>
+      <member refid="classQfProjectInfo_1a5e6dde8de3a6cd1af0e330a949667810" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>activeLayerChanged</name></member>
+      <member refid="classQfProjectInfo_1a09996a1d9fc3b9a89de75a145e55c93c" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>cloudUserInformation</name></member>
+      <member refid="classQfProjectInfo_1a7deafe9fcd3be7cf5d4b8a823a9502be" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>cloudUserInformation</name></member>
+      <member refid="classQfProjectInfo_1a1ede5b5f37a9b4197f54f469d6cd1f72" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>cloudUserInformationChanged</name></member>
+      <member refid="classQfProjectInfo_1a62c0043773719041e147908493f34672" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>extentChanged</name></member>
+      <member refid="classQfProjectInfo_1ae75ed57f9291ce6db42cab59dd2f9c4d" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>filePath</name></member>
+      <member refid="classQfProjectInfo_1a8c49cc0eadad0ca1e8541e54aaf34b02" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>filePath</name></member>
+      <member refid="classQfProjectInfo_1a3b0ad503a07e873dd04ec154bd3624fd" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>filePathChanged</name></member>
+      <member refid="classQfProjectInfo_1ae1ad695914ac5b795232c3d2640e0864" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>getCopyrightDecorationConfiguration</name></member>
+      <member refid="classQfProjectInfo_1a4665e086f47d13bccaef96aa029e17b0" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>getDefaultActiveLayerForMapTheme</name></member>
+      <member refid="classQfProjectInfo_1ad23a513631791913567c964be20efda9" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>getGridDecorationConfiguration</name></member>
+      <member refid="classQfProjectInfo_1a7813be16d297630615ddb411eb718603" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>getImageDecorationConfiguration</name></member>
+      <member refid="classQfProjectInfo_1ae0a7a62a7f748ed769a44cbd103fbdb0" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>getTitleDecorationConfiguration</name></member>
+      <member refid="classQfProjectInfo_1a205dd860e8e9bf1017d7176fbdd29520" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>layerTree</name></member>
+      <member refid="classQfProjectInfo_1affbee8858df4d63ee76a64ad9187aa9a" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>layerTree</name></member>
+      <member refid="classQfProjectInfo_1ab42ed8a4797259fd85510f7edcb6102f" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>layerTreeChanged</name></member>
+      <member refid="classQfProjectInfo_1aeddfa1cfa2cd93ad24a21ff08884766e" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>mapSettings</name></member>
+      <member refid="classQfProjectInfo_1a0e61ac19ef01dbe6acbab9c5f7c4e412" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>mapSettings</name></member>
+      <member refid="classQfProjectInfo_1a2649e7204e3106e16ce677a99f13a794" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfProjectInfo_1a58a6a0602a9bb5fd9fce66b9788dc647" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mapThemeChanged</name></member>
+      <member refid="classQfProjectInfo_1a289a5aab60ddf42687c28c6b34246c85" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mFilePath</name></member>
+      <member refid="classQfProjectInfo_1ae847de70a64add86abf32df1cc4010f1" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mIsTemporal</name></member>
+      <member refid="classQfProjectInfo_1a78cb645362346d2e6124ff29f324f48d" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mLayerTree</name></member>
+      <member refid="classQfProjectInfo_1a048bcd2e56b088056ba5d1cbfc3556ea" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mMapSettings</name></member>
+      <member refid="classQfProjectInfo_1ac2af5c18b15debd737a8fdc4aeb07e8f" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mSaveExtentTimer</name></member>
+      <member refid="classQfProjectInfo_1a04408de50f407e82517cde2543bf27ee" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mSaveRotationTimer</name></member>
+      <member refid="classQfProjectInfo_1a6ccf4593a09dc6b5cb82a3a166ec8927" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mSaveTemporalStateTimer</name></member>
+      <member refid="classQfProjectInfo_1ab1fe1d462a548601476ca83689f3d4c4" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mSettings</name></member>
+      <member refid="classQfProjectInfo_1a3f96805cf82187d7ed12fb5d89e67ade" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>mTrackingModel</name></member>
+      <member refid="classQfProjectInfo_1a300248ba3d3f3db40afc473fe21af3a3" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>QfProjectInfo</name></member>
+      <member refid="classQfProjectInfo_1ac87beff06c1a52f60eba21c017c52b42" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>restoreCloudUserInformation</name></member>
+      <member refid="classQfProjectInfo_1af5bd6068c91d14066cf3194f232adff0" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>restoreSettings</name></member>
+      <member refid="classQfProjectInfo_1a2061ff48f043dddcc5a3df9594e1e6f7" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>restoreTracker</name></member>
+      <member refid="classQfProjectInfo_1ac52f051dc9686cce7368a056fbab86ec" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>rotationChanged</name></member>
+      <member refid="classQfProjectInfo_1ae5669e4956eee9f7441f7e30bfbd5380" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveExtent</name></member>
+      <member refid="classQfProjectInfo_1a91187fec452b9a1ca1e7000d892df896" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveLayerRememberedFields</name></member>
+      <member refid="classQfProjectInfo_1aa1157876ac817a0e33b62243f991e4c2" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveLayerSnappingConfiguration</name></member>
+      <member refid="classQfProjectInfo_1a83152e63ac7ddf43ced6e1476ee8a11c" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveLayerStyle</name></member>
+      <member refid="classQfProjectInfo_1ae758836294d0ad5ac3f69cee827ea7e7" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveLayerTreeState</name></member>
+      <member refid="classQfProjectInfo_1a9fcdca2a679e37dd48f9d1e396109ad9" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveRotation</name></member>
+      <member refid="classQfProjectInfo_1ac4c22a8c1dfd706bcad2a946e48e600e" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveTemporalState</name></member>
+      <member refid="classQfProjectInfo_1ac23bc934cbf4a7620e1d527b95753988" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveTracker</name></member>
+      <member refid="classQfProjectInfo_1ab10a931349b7615395244bd0308af7ae" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>saveVariable</name></member>
+      <member refid="classQfProjectInfo_1af5dbbf40e7be4c571874bc65228ae9eb" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>setActiveLayer</name></member>
+      <member refid="classQfProjectInfo_1a370380aa2d820f9cd9ecd079f0a7a509" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>setCloudUserInformation</name></member>
+      <member refid="classQfProjectInfo_1a50690ca6e0cb6d364c5830c07a4c6400" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>setFilePath</name></member>
+      <member refid="classQfProjectInfo_1aa56102a3fc19790d0abde60065dbb14d" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>setLayerTree</name></member>
+      <member refid="classQfProjectInfo_1af1c857231615a034b34de158f268f968" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>setMapSettings</name></member>
+      <member refid="classQfProjectInfo_1add135521592d953475744d07d19d8680" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>setSnappingEnabled</name></member>
+      <member refid="classQfProjectInfo_1a5310c2111c4f4f9829ad58a94aa8fb59" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>setStateMode</name></member>
+      <member refid="classQfProjectInfo_1a04088fadce396b6ad0019b8673b28a17" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>setTrackingModel</name></member>
+      <member refid="classQfProjectInfo_1a015454732fc7a44e9cb009829947fef4" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>snappingEnabled</name></member>
+      <member refid="classQfProjectInfo_1a3ce3c19600a4ef1df5acc4c1f0c22c02" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>snappingEnabled</name></member>
+      <member refid="classQfProjectInfo_1ab4b8032824d9f3b5dc57fd881c0b1819" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>snappingEnabledChanged</name></member>
+      <member refid="classQfProjectInfo_1ab14baa1f39b72602691e16a2d01e9bb8" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>stateMode</name></member>
+      <member refid="classQfProjectInfo_1a1b1d7b914ce3f0101a4f6f49537ff3e1" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>stateMode</name></member>
+      <member refid="classQfProjectInfo_1a5f2bdba8f050b3fe54536088f1413097" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>stateModeChanged</name></member>
+      <member refid="classQfProjectInfo_1a5ee527b6026e587bfb0855fa837a482c" prot="private" virt="non-virtual"><scope>QfProjectInfo</scope><name>temporalStateChanged</name></member>
+      <member refid="classQfProjectInfo_1abc01cf8b746e9296a8f2dc989c06d5e5" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>trackingModel</name></member>
+      <member refid="classQfProjectInfo_1a7a710df88a10f3cc77b30ddd6d531baf" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>trackingModel</name></member>
+      <member refid="classQfProjectInfo_1a23be963d73e98e699fc67997bcdb24e8" prot="public" virt="non-virtual"><scope>QfProjectInfo</scope><name>trackingModelChanged</name></member>
+      <member refid="classQfProjectInfo_1a8f35537b52b216d242b115ad0d0bd5c1" prot="public" virt="virtual"><scope>QfProjectInfo</scope><name>~QfProjectInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

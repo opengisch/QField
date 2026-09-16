@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLocatorSettings" kind="class" language="C++" prot="public">
+    <compoundname>LocatorSettings</compoundname>
+    <basecompoundref refid="classQfLocatorSettings" prot="public" virt="non-virtual">QfLocatorSettings</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LocatorSettings</label>
+        <link refid="classLocatorSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfLocatorSettings</label>
+        <link refid="classQfLocatorSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocatorSettings</label>
+        <link refid="classLocatorSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfLocatorSettings</label>
+        <link refid="classQfLocatorSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/LocatorSettings.qml" line="2" column="1" bodyfile="src/app/qml_compat/LocatorSettings.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfLocatorSettings_1a5c18ff2d9f28a87342891b2d02d31db8" prot="public" virt="non-virtual"><scope>LocatorSettings</scope><name>locatorFiltersModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

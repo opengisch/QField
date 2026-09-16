@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfExpressionVariableModel" kind="class" language="C++" prot="public">
+    <compoundname>QfExpressionVariableModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QStandardItemModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfExpressionVariableModel::Roles</qualifiedname>
+        <enumvalue id="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06a213dcd61b059dcb9fbc898a9a663cd3f" prot="public">
+          <name>VariableEditableRole</name>
+          <initializer>= Qt::EditRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06aa60fdbe4f73192254594c918c700a6ba" prot="public">
+          <name>VariableNameRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06a4784d7a63631eddbc9de3c271e2a104b" prot="public">
+          <name>VariableValueRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06a6fe2483cbf0f6e632fa43c85330524fd" prot="public">
+          <name>VariableScopeRole</name>
+          <initializer>= Qt::UserRole + 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06a21c507bf2fe7d2f664d6b7dba2acdf7b" prot="public">
+          <name>VariableOriginalNameRole</name>
+          <initializer>= Qt::UserRole + 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="32" column="5" bodyfile="src/gui/qfexpressionvariablemodel.h" bodystart="33" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfExpressionVariableModel_1a4d37706a009f89e3bb894bb3b7b47454" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>VariableScope</name>
+        <qualifiedname>QfExpressionVariableModel::VariableScope</qualifiedname>
+        <enumvalue id="classQfExpressionVariableModel_1a4d37706a009f89e3bb894bb3b7b47454aae3328c7aacb68ab81fa83e18fbd48e3" prot="public">
+          <name>GlobalScope</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfExpressionVariableModel_1a4d37706a009f89e3bb894bb3b7b47454ab29a994b04f32b43039f200a1a93c107" prot="public">
+          <name>ProjectScope</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="41" column="5" bodyfile="src/gui/qfexpressionvariablemodel.h" bodystart="42" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfExpressionVariableModel_1aa9b0935d1e733f953c1821f5488faadf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfExpressionVariableModel::currentProject</definition>
+        <argsstring></argsstring>
+        <name>currentProject</name>
+        <qualifiedname>QfExpressionVariableModel::currentProject</qualifiedname>
+        <read>currentProject</read>
+        <write>setCurrentProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="29" column="5" bodyfile="src/gui/qfexpressionvariablemodel.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfExpressionVariableModel_1a6c9ff5bca28dfda718ae7681b37f7cb0" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfExpressionVariableModel::mCurrentProject</definition>
+        <argsstring></argsstring>
+        <name>mCurrentProject</name>
+        <qualifiedname>QfExpressionVariableModel::mCurrentProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="82" column="16" bodyfile="src/gui/qfexpressionvariablemodel.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionVariableModel_1a020e1bc7ac8c30d8d00a64af386ac749" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPair&lt; VariableScope, QString &gt; &gt;</type>
+        <definition>QList&lt;QPair&lt;VariableScope, QString&gt; &gt; QfExpressionVariableModel::mRemovedVariables</definition>
+        <argsstring></argsstring>
+        <name>mRemovedVariables</name>
+        <qualifiedname>QfExpressionVariableModel::mRemovedVariables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="84" column="11" bodyfile="src/gui/qfexpressionvariablemodel.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfExpressionVariableModel_1af152005fbd3a9e27f5764af2fa5f1eb6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfExpressionVariableModel::QfExpressionVariableModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfExpressionVariableModel</name>
+        <qualifiedname>QfExpressionVariableModel::QfExpressionVariableModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="49" column="14" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="25" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionVariableModel_1addad59420ceddb36e5ff95bac3d97d03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfExpressionVariableModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfExpressionVariableModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="51" column="10" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="33" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionVariableModel_1a2f42c863d46ffdded9fbc562e30ad010" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfExpressionVariableModel::addVariable</definition>
+        <argsstring>(VariableScope scope, const QString &amp;name, const QString &amp;value)</argsstring>
+        <name>addVariable</name>
+        <qualifiedname>QfExpressionVariableModel::addVariable</qualifiedname>
+        <param>
+          <type>VariableScope</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="53" column="21" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="84" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionVariableModel_1a394b10a21b5613aa19d82dce17243eb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionVariableModel::removeVariable</definition>
+        <argsstring>(VariableScope scope, const QString &amp;name)</argsstring>
+        <name>removeVariable</name>
+        <qualifiedname>QfExpressionVariableModel::removeVariable</qualifiedname>
+        <param>
+          <type>VariableScope</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="55" column="22" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="109" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionVariableModel_1a52e8fcd863a0d05770c2f250eeebb36a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionVariableModel::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <qualifiedname>QfExpressionVariableModel::save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="57" column="22" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="126" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionVariableModel_1ade3ecda75c990af21e01d97e2e79b064" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionVariableModel::reloadVariables</definition>
+        <argsstring>()</argsstring>
+        <name>reloadVariables</name>
+        <qualifiedname>QfExpressionVariableModel::reloadVariables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="59" column="22" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="160" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionVariableModel_1af511ca894d7c9ab665db4527040ad655" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfExpressionVariableModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfExpressionVariableModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="61" column="11" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="206" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionVariableModel_1a45b5afe76f09857ae7e43821a25690c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfExpressionVariableModel::currentProject</definition>
+        <argsstring>() const</argsstring>
+        <name>currentProject</name>
+        <qualifiedname>QfExpressionVariableModel::currentProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current project used to retrieve variables from. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="66" column="16" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="223" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionVariableModel_1ad8ccb5de72aee6f16acbe857019d3f94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionVariableModel::setCurrentProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setCurrentProject</name>
+        <qualifiedname>QfExpressionVariableModel::setCurrentProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the project used to retrieve variables from. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="71" column="10" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="228" bodyend="235"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfExpressionVariableModel_1ac5084679e647219cc6079c57387aef42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionVariableModel::currentProjectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentProjectChanged</name>
+        <qualifiedname>QfExpressionVariableModel::currentProjectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="74" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfExpressionVariableModel_1a449bd5429df440a6b8852e2825a837ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionVariableModel::onDataChanged</definition>
+        <argsstring>(const QModelIndex &amp;topLeft, const QModelIndex &amp;bottomRight, const QVector&lt; int &gt; &amp;roles)</argsstring>
+        <name>onDataChanged</name>
+        <qualifiedname>QfExpressionVariableModel::onDataChanged</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>topLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>bottomRight</declname>
+        </param>
+        <param>
+          <type>const QVector&lt; int &gt; &amp;</type>
+          <declname>roles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="77" column="10" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="217" bodyend="221"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfExpressionVariableModel_1a698bfc203e746b8b55828919458cabf4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionVariableModel::appendVariable</definition>
+        <argsstring>(VariableScope scope, const QString &amp;name, const QString &amp;value, bool editable)</argsstring>
+        <name>appendVariable</name>
+        <qualifiedname>QfExpressionVariableModel::appendVariable</qualifiedname>
+        <param>
+          <type>VariableScope</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>editable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionvariablemodel.h" line="80" column="10" bodyfile="src/gui/qfexpressionvariablemodel.cpp" bodystart="71" bodyend="82"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfExpressionVariableModel</label>
+        <link refid="classQfExpressionVariableModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfExpressionVariableModel</label>
+        <link refid="classQfExpressionVariableModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfexpressionvariablemodel.h" line="25" column="1" bodyfile="src/gui/qfexpressionvariablemodel.h" bodystart="26" bodyend="85"/>
+    <listofallmembers>
+      <member refid="classQfExpressionVariableModel_1a2f42c863d46ffdded9fbc562e30ad010" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>addVariable</name></member>
+      <member refid="classQfExpressionVariableModel_1a698bfc203e746b8b55828919458cabf4" prot="private" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>appendVariable</name></member>
+      <member refid="classQfExpressionVariableModel_1aa9b0935d1e733f953c1821f5488faadf" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>currentProject</name></member>
+      <member refid="classQfExpressionVariableModel_1a45b5afe76f09857ae7e43821a25690c9" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>currentProject</name></member>
+      <member refid="classQfExpressionVariableModel_1ac5084679e647219cc6079c57387aef42" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>currentProjectChanged</name></member>
+      <member refid="classQfExpressionVariableModel_1a6c9ff5bca28dfda718ae7681b37f7cb0" prot="private" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>mCurrentProject</name></member>
+      <member refid="classQfExpressionVariableModel_1a020e1bc7ac8c30d8d00a64af386ac749" prot="private" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>mRemovedVariables</name></member>
+      <member refid="classQfExpressionVariableModel_1a449bd5429df440a6b8852e2825a837ca" prot="private" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>onDataChanged</name></member>
+      <member refid="classQfExpressionVariableModel_1af152005fbd3a9e27f5764af2fa5f1eb6" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>QfExpressionVariableModel</name></member>
+      <member refid="classQfExpressionVariableModel_1ade3ecda75c990af21e01d97e2e79b064" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>reloadVariables</name></member>
+      <member refid="classQfExpressionVariableModel_1a394b10a21b5613aa19d82dce17243eb8" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>removeVariable</name></member>
+      <member refid="classQfExpressionVariableModel_1af511ca894d7c9ab665db4527040ad655" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>roleNames</name></member>
+      <member refid="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>Roles</name></member>
+      <member refid="classQfExpressionVariableModel_1a52e8fcd863a0d05770c2f250eeebb36a" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>save</name></member>
+      <member refid="classQfExpressionVariableModel_1ad8ccb5de72aee6f16acbe857019d3f94" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>setCurrentProject</name></member>
+      <member refid="classQfExpressionVariableModel_1addad59420ceddb36e5ff95bac3d97d03" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>setData</name></member>
+      <member refid="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06a213dcd61b059dcb9fbc898a9a663cd3f" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>VariableEditableRole</name></member>
+      <member refid="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06aa60fdbe4f73192254594c918c700a6ba" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>VariableNameRole</name></member>
+      <member refid="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06a21c507bf2fe7d2f664d6b7dba2acdf7b" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>VariableOriginalNameRole</name></member>
+      <member refid="classQfExpressionVariableModel_1a4d37706a009f89e3bb894bb3b7b47454" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>VariableScope</name></member>
+      <member refid="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06a6fe2483cbf0f6e632fa43c85330524fd" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>VariableScopeRole</name></member>
+      <member refid="classQfExpressionVariableModel_1a607ebbe6e4e41a20dbd19e540ba9ee06a4784d7a63631eddbc9de3c271e2a104b" prot="public" virt="non-virtual"><scope>QfExpressionVariableModel</scope><name>VariableValueRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

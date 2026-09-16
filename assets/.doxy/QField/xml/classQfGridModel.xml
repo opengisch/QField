@@ -1,0 +1,1972 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGridModel" kind="class" language="C++" prot="public">
+    <compoundname>QfGridModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfgridmodel_8h" local="no">qfgridmodel.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGridModel_1ab36dd9ff72ad08ad5e555097653597f8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfGridModel::enabled</qualifiedname>
+        <read>enabled</read>
+        <write>setEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="63" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1ab9efef98d1e22af3311eeb907c775a1f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::indeterminate</definition>
+        <argsstring></argsstring>
+        <name>indeterminate</name>
+        <qualifiedname>QfGridModel::indeterminate</qualifiedname>
+        <read>indeterminate</read>
+        <write>setIndeterminate</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="64" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1af966c9e288a5a04644aa598901f20b41" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfGridModel::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfGridModel::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="66" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a4de1ea04b53f3b4a8810d60d67b21dec" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfGridModel::xInterval</definition>
+        <argsstring></argsstring>
+        <name>xInterval</name>
+        <qualifiedname>QfGridModel::xInterval</qualifiedname>
+        <read>xInterval</read>
+        <write>setXInterval</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="68" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a7bfeb829de3146a7a84f1983a42910b7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfGridModel::yInterval</definition>
+        <argsstring></argsstring>
+        <name>yInterval</name>
+        <qualifiedname>QfGridModel::yInterval</qualifiedname>
+        <read>yInterval</read>
+        <write>setYInterval</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="69" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1abb3cab571a0bfe3eab80a2c8821641ad" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfGridModel::xOffset</definition>
+        <argsstring></argsstring>
+        <name>xOffset</name>
+        <qualifiedname>QfGridModel::xOffset</qualifiedname>
+        <read>xOffset</read>
+        <write>setXOffset</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="70" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1ac517dc1b2afa9b89de8019c842812429" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfGridModel::yOffset</definition>
+        <argsstring></argsstring>
+        <name>yOffset</name>
+        <qualifiedname>QfGridModel::yOffset</qualifiedname>
+        <read>yOffset</read>
+        <write>setYOffset</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="71" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1af955a9dedcc4b97a31e7891df73109ba" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::prepareLines</definition>
+        <argsstring></argsstring>
+        <name>prepareLines</name>
+        <qualifiedname>QfGridModel::prepareLines</qualifiedname>
+        <read>prepareLines</read>
+        <write>setPrepareLines</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="73" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a131d71531e57c330990b7e8697b14285" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::prepareMarkers</definition>
+        <argsstring></argsstring>
+        <name>prepareMarkers</name>
+        <qualifiedname>QfGridModel::prepareMarkers</qualifiedname>
+        <read>prepareMarkers</read>
+        <write>setPrepareMarkers</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="74" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1ab25456315b6847588f5da64556196d7d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::prepareAnnotations</definition>
+        <argsstring></argsstring>
+        <name>prepareAnnotations</name>
+        <qualifiedname>QfGridModel::prepareAnnotations</qualifiedname>
+        <read>prepareAnnotations</read>
+        <write>setPrepareAnnotations</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="75" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1aebb5122c3ac4ad77eea65cedde8a4469" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfGridModel::majorLinesPath</definition>
+        <argsstring></argsstring>
+        <name>majorLinesPath</name>
+        <qualifiedname>QfGridModel::majorLinesPath</qualifiedname>
+        <read>majorLinesPath</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="77" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1aecf7eb894844b62afdb1c7e50faea4b8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfGridModel::minorLinesPath</definition>
+        <argsstring></argsstring>
+        <name>minorLinesPath</name>
+        <qualifiedname>QfGridModel::minorLinesPath</qualifiedname>
+        <read>minorLinesPath</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="78" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a0526faf9562fe528d4d6f4c71c9a9b68" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfGridModel::markersPath</definition>
+        <argsstring></argsstring>
+        <name>markersPath</name>
+        <qualifiedname>QfGridModel::markersPath</qualifiedname>
+        <read>markersPath</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="79" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a1bd41b6df02daf791302cfeb320dfb5d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfGridAnnotation" kindref="compound">QfGridAnnotation</ref> &gt;</type>
+        <definition>QList&lt;QfGridAnnotation&gt; QfGridModel::annotations</definition>
+        <argsstring></argsstring>
+        <name>annotations</name>
+        <qualifiedname>QfGridModel::annotations</qualifiedname>
+        <read>annotations</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="80" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a77c5ca251a26bcd7863044425f54cbbb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::autoColor</definition>
+        <argsstring></argsstring>
+        <name>autoColor</name>
+        <qualifiedname>QfGridModel::autoColor</qualifiedname>
+        <read>autoColor</read>
+        <write>setAutoColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="82" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1ad4390eea8ad69b27a5d976d0b8808f9a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::majorLineColor</definition>
+        <argsstring></argsstring>
+        <name>majorLineColor</name>
+        <qualifiedname>QfGridModel::majorLineColor</qualifiedname>
+        <read>majorLineColor</read>
+        <write>setMajorLineColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="83" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a4dcd3f21661de56386ea180df1d74aa4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::minorLineColor</definition>
+        <argsstring></argsstring>
+        <name>minorLineColor</name>
+        <qualifiedname>QfGridModel::minorLineColor</qualifiedname>
+        <read>minorLineColor</read>
+        <write>setMinorLineColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="84" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1ad4dcbb6120c91869d4c6f989da7a7210" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::markerColor</definition>
+        <argsstring></argsstring>
+        <name>markerColor</name>
+        <qualifiedname>QfGridModel::markerColor</qualifiedname>
+        <read>markerColor</read>
+        <write>setMarkerColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="85" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a028e19c4e3e3f4d7fb4f5b219c40bb21" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::annotationColor</definition>
+        <argsstring></argsstring>
+        <name>annotationColor</name>
+        <qualifiedname>QfGridModel::annotationColor</qualifiedname>
+        <read>annotationColor</read>
+        <write>setAnnotationColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="87" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1adc772bab383546d5b32276e4104b5166" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::annotationOutlineColor</definition>
+        <argsstring></argsstring>
+        <name>annotationOutlineColor</name>
+        <qualifiedname>QfGridModel::annotationOutlineColor</qualifiedname>
+        <read>annotationOutlineColor</read>
+        <write>setAnnotationOutlineColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="88" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a8c881018c0999b0c9cd4608fa76862ac" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::annotationHasOutline</definition>
+        <argsstring></argsstring>
+        <name>annotationHasOutline</name>
+        <qualifiedname>QfGridModel::annotationHasOutline</qualifiedname>
+        <read>annotationHasOutline</read>
+        <write>setAnnotationHasOutline</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="89" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridModel_1a282dd5898f2bde05fdcb0cac6ccdf9a7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfGridModel::annotationPrecision</definition>
+        <argsstring></argsstring>
+        <name>annotationPrecision</name>
+        <qualifiedname>QfGridModel::annotationPrecision</qualifiedname>
+        <read>annotationPrecision</read>
+        <write>setAnnotationPrecision</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="90" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGridModel_1a107203a0c032730827dd04e064c72895" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::mEnabled</definition>
+        <argsstring></argsstring>
+        <name>mEnabled</name>
+        <qualifiedname>QfGridModel::mEnabled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="300" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a1e5833caf2d869c232f10ad617595613" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfGridModel::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfGridModel::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="302" column="25" bodyfile="src/core/qfgridmodel.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a44ab9eade99cbecdeb2e7b0aa87ea33e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::mIndeterminate</definition>
+        <argsstring></argsstring>
+        <name>mIndeterminate</name>
+        <qualifiedname>QfGridModel::mIndeterminate</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="304" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1ae225ce0279ff3b1dd972552c22b97d35" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfGridModel::mIndeterminateInterval</definition>
+        <argsstring></argsstring>
+        <name>mIndeterminateInterval</name>
+        <qualifiedname>QfGridModel::mIndeterminateInterval</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="305" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a99722da2e7ab3e7c9659d3e65be03f64" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfGridModel::mXInterval</definition>
+        <argsstring></argsstring>
+        <name>mXInterval</name>
+        <qualifiedname>QfGridModel::mXInterval</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="307" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1abe3b7e67fc70a63e2f516479ba7e2ec5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfGridModel::mYInterval</definition>
+        <argsstring></argsstring>
+        <name>mYInterval</name>
+        <qualifiedname>QfGridModel::mYInterval</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="308" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a341e9d8e12df8d6c10d67f6b93ee4326" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfGridModel::mXOffset</definition>
+        <argsstring></argsstring>
+        <name>mXOffset</name>
+        <qualifiedname>QfGridModel::mXOffset</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="309" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a697b6b711987645508487732e4783b5e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfGridModel::mYOffset</definition>
+        <argsstring></argsstring>
+        <name>mYOffset</name>
+        <qualifiedname>QfGridModel::mYOffset</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="310" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a865973d75f601472584b1db8a7dba414" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::mPrepareLines</definition>
+        <argsstring></argsstring>
+        <name>mPrepareLines</name>
+        <qualifiedname>QfGridModel::mPrepareLines</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="312" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1aac7609ee19e9b7fea3fcc75e53f2c3dd" prot="private" static="no" mutable="no">
+        <type>QList&lt; QList&lt; QPointF &gt; &gt;</type>
+        <definition>QList&lt;QList&lt;QPointF&gt; &gt; QfGridModel::mMajorLines</definition>
+        <argsstring></argsstring>
+        <name>mMajorLines</name>
+        <qualifiedname>QfGridModel::mMajorLines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="313" column="11" bodyfile="src/core/qfgridmodel.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a9a5b5e6102c85d8096b89252d4d803cf" prot="private" static="no" mutable="no">
+        <type>QList&lt; QList&lt; QPointF &gt; &gt;</type>
+        <definition>QList&lt;QList&lt;QPointF&gt; &gt; QfGridModel::mMinorLines</definition>
+        <argsstring></argsstring>
+        <name>mMinorLines</name>
+        <qualifiedname>QfGridModel::mMinorLines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="314" column="11" bodyfile="src/core/qfgridmodel.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1afc7fcc9dd156e1cefa4e3a4e2ba23832" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfGridModel::mMajorLinesPath</definition>
+        <argsstring></argsstring>
+        <name>mMajorLinesPath</name>
+        <qualifiedname>QfGridModel::mMajorLinesPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="315" column="13" bodyfile="src/core/qfgridmodel.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1aad2f2ebbb639fc0117a139566d3351c8" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfGridModel::mMinorLinesPath</definition>
+        <argsstring></argsstring>
+        <name>mMinorLinesPath</name>
+        <qualifiedname>QfGridModel::mMinorLinesPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="316" column="13" bodyfile="src/core/qfgridmodel.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a9046642b7ba4193abfad1131fe18f9d1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::mPrepareMarkers</definition>
+        <argsstring></argsstring>
+        <name>mPrepareMarkers</name>
+        <qualifiedname>QfGridModel::mPrepareMarkers</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="318" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1ab999b6dcf4b2a72544410e40658ccb29" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPointF &gt;</type>
+        <definition>QList&lt;QPointF&gt; QfGridModel::mMarkers</definition>
+        <argsstring></argsstring>
+        <name>mMarkers</name>
+        <qualifiedname>QfGridModel::mMarkers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="319" column="11" bodyfile="src/core/qfgridmodel.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a6a9a1cf7c2d13d840420532fb27901df" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfGridModel::mMarkersPath</definition>
+        <argsstring></argsstring>
+        <name>mMarkersPath</name>
+        <qualifiedname>QfGridModel::mMarkersPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="320" column="13" bodyfile="src/core/qfgridmodel.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a9f180328f27e28570de36ced5d365043" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::mPrepareAnnotations</definition>
+        <argsstring></argsstring>
+        <name>mPrepareAnnotations</name>
+        <qualifiedname>QfGridModel::mPrepareAnnotations</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="322" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1ab39a0d02856a882f02c03e113c7e03e6" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classQfGridAnnotation" kindref="compound">QfGridAnnotation</ref> &gt;</type>
+        <definition>QList&lt;QfGridAnnotation&gt; QfGridModel::mAnnotations</definition>
+        <argsstring></argsstring>
+        <name>mAnnotations</name>
+        <qualifiedname>QfGridModel::mAnnotations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="323" column="11" bodyfile="src/core/qfgridmodel.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a89d3202a5c82b0453c09fd6b0670c117" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::mAutoColor</definition>
+        <argsstring></argsstring>
+        <name>mAutoColor</name>
+        <qualifiedname>QfGridModel::mAutoColor</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="325" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a0ff7060cebd43bc54e496f61b9ac4f5b" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::mMajorLineColor</definition>
+        <argsstring></argsstring>
+        <name>mMajorLineColor</name>
+        <qualifiedname>QfGridModel::mMajorLineColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0, 100 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="326" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a0f61208328e85e84413df462171732d6" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::mMinorLineColor</definition>
+        <argsstring></argsstring>
+        <name>mMinorLineColor</name>
+        <qualifiedname>QfGridModel::mMinorLineColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0, 20 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="327" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a058f2d0c512f472c1e011caab378522a" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::mMarkerColor</definition>
+        <argsstring></argsstring>
+        <name>mMarkerColor</name>
+        <qualifiedname>QfGridModel::mMarkerColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0, 100 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="328" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1acf3dd0b2b548350e5ec6200648af4f52" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::mAnnotationColor</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationColor</name>
+        <qualifiedname>QfGridModel::mAnnotationColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="330" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a2e5f387c4f632934418354422acb3fe8" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::mAnnotationOutlineColor</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationOutlineColor</name>
+        <qualifiedname>QfGridModel::mAnnotationOutlineColor</qualifiedname>
+        <initializer>= QColor( 255, 255, 255, 100 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="331" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a56ef74ddc81e87b917434868e5014e3b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfGridModel::mAnnotationHasOutline</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationHasOutline</name>
+        <qualifiedname>QfGridModel::mAnnotationHasOutline</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="332" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1a5b4039090a9f98413aa1b2ac49ae28a8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfGridModel::mAnnotationPrecision</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationPrecision</name>
+        <qualifiedname>QfGridModel::mAnnotationPrecision</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="333" column="9" bodyfile="src/core/qfgridmodel.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridModel_1abf7b2492c290298d5a9b33664780f795" prot="private" static="no" mutable="no">
+        <type>QLocale</type>
+        <definition>QLocale QfGridModel::mLocale</definition>
+        <argsstring></argsstring>
+        <name>mLocale</name>
+        <qualifiedname>QfGridModel::mLocale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="335" column="13" bodyfile="src/core/qfgridmodel.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGridModel_1a61743efe359f400cbc0b865541f772de" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfGridModel::QfGridModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfGridModel</name>
+        <qualifiedname>QfGridModel::QfGridModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="94" column="14" bodyfile="src/core/qfgridmodel.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1adcfd054211e8599e70458ddf4d4c830d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfGridModel::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfGridModel::enabled</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE when grid elements will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="97" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a0e8c67f9ebfecd06f900600c7cbe6fa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>QfGridModel::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether grid elements will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="100" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="24" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1abd9a2675e17a65fb2cf61e5df91c1623" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfGridModel::indeterminate</definition>
+        <argsstring>() const</argsstring>
+        <name>indeterminate</name>
+        <qualifiedname>QfGridModel::indeterminate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when grid will adopt an indeterminate behavior and ignore the interval and offset values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="106" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1ab18556283c4f4e70617e0243de88e69a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setIndeterminate</definition>
+        <argsstring>(bool indeterminate)</argsstring>
+        <name>setIndeterminate</name>
+        <qualifiedname>QfGridModel::setIndeterminate</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>indeterminate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the grid will adopt an indeterminate behavior and ignore the interval and offset values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="112" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="42" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1aa93a9cb1b3fdc481cba19c88f844f1aa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfGridModel::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfGridModel::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns the map settings object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="115" column="25" bodyfile="src/core/qfgridmodel.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1ac3892fdd91d833e7a6af2668e1c9b664" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfGridModel::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map settings object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="118" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="56" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a256fda9e9d36324906495edba4537bdb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfGridModel::xInterval</definition>
+        <argsstring>() const</argsstring>
+        <name>xInterval</name>
+        <qualifiedname>QfGridModel::xInterval</qualifiedname>
+        <briefdescription>
+<para>Returns the grid X interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="121" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1aa7f53fdbeff49720e37c6743051271ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setXInterval</definition>
+        <argsstring>(double interval)</argsstring>
+        <name>setXInterval</name>
+        <qualifiedname>QfGridModel::setXInterval</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>interval</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid X interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="124" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="80" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a8635fe22274fc42f56de11afe032caba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfGridModel::yInterval</definition>
+        <argsstring>() const</argsstring>
+        <name>yInterval</name>
+        <qualifiedname>QfGridModel::yInterval</qualifiedname>
+        <briefdescription>
+<para>Returns the grid Y interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="127" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a294adaf11081841adc1fdf1ffaf0acd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setYInterval</definition>
+        <argsstring>(double interval)</argsstring>
+        <name>setYInterval</name>
+        <qualifiedname>QfGridModel::setYInterval</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>interval</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid Y interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="130" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="91" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a8178d8b215ddbd13f257e2c78c1493d9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfGridModel::xOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>xOffset</name>
+        <qualifiedname>QfGridModel::xOffset</qualifiedname>
+        <briefdescription>
+<para>Returns the grid X interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="133" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a7ac43a35015217df09ba9b9dcfc4d0b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setXOffset</definition>
+        <argsstring>(double offset)</argsstring>
+        <name>setXOffset</name>
+        <qualifiedname>QfGridModel::setXOffset</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid X interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="136" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="102" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a42e5890980d38858db3e621309b78aad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfGridModel::yOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>yOffset</name>
+        <qualifiedname>QfGridModel::yOffset</qualifiedname>
+        <briefdescription>
+<para>Returns the grid Y interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="139" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a4bd61d705dcdc47b8d9b232ee8f3c6b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setYOffset</definition>
+        <argsstring>(double offset)</argsstring>
+        <name>setYOffset</name>
+        <qualifiedname>QfGridModel::setYOffset</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid Y interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="142" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="113" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a9edcf673fd8017e2a56323eafdfadbd4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfGridModel::prepareLines</definition>
+        <argsstring>() const</argsstring>
+        <name>prepareLines</name>
+        <qualifiedname>QfGridModel::prepareLines</qualifiedname>
+        <briefdescription>
+<para>Returns whether grid lines will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="145" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="145" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a0437d4b020216343eb11244d57462677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setPrepareLines</definition>
+        <argsstring>(bool prepare)</argsstring>
+        <name>setPrepareLines</name>
+        <qualifiedname>QfGridModel::setPrepareLines</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>prepare</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether grid lines will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="148" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="124" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a24363485545ff648ba121392c50fb28d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfGridModel::majorLinesPath</definition>
+        <argsstring>() const</argsstring>
+        <name>majorLinesPath</name>
+        <qualifiedname>QfGridModel::majorLinesPath</qualifiedname>
+        <briefdescription>
+<para>Returns the grid major lines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="151" column="13" bodyfile="src/core/qfgridmodel.h" bodystart="151" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a0b52767a1f423ab09c94b308450e48bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfGridModel::minorLinesPath</definition>
+        <argsstring>() const</argsstring>
+        <name>minorLinesPath</name>
+        <qualifiedname>QfGridModel::minorLinesPath</qualifiedname>
+        <briefdescription>
+<para>Returns the grid minor lines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="154" column="13" bodyfile="src/core/qfgridmodel.h" bodystart="154" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a7edf51a4955a5d6202abb0f2fc10f0a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfGridModel::prepareMarkers</definition>
+        <argsstring>() const</argsstring>
+        <name>prepareMarkers</name>
+        <qualifiedname>QfGridModel::prepareMarkers</qualifiedname>
+        <briefdescription>
+<para>Returns whether grid markers will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="157" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="157" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1ac4d15ca613ce6781367fddf7d03b3927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setPrepareMarkers</definition>
+        <argsstring>(bool prepare)</argsstring>
+        <name>setPrepareMarkers</name>
+        <qualifiedname>QfGridModel::setPrepareMarkers</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>prepare</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether grid markers will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="160" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="153" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a86687ffc41fbbd1af584165356b30603" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfGridModel::markersPath</definition>
+        <argsstring>() const</argsstring>
+        <name>markersPath</name>
+        <qualifiedname>QfGridModel::markersPath</qualifiedname>
+        <briefdescription>
+<para>Returns the grid markers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="163" column="13" bodyfile="src/core/qfgridmodel.h" bodystart="163" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a7c5d0657da370f444a2cc67cb63b6339" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfGridModel::prepareAnnotations</definition>
+        <argsstring>() const</argsstring>
+        <name>prepareAnnotations</name>
+        <qualifiedname>QfGridModel::prepareAnnotations</qualifiedname>
+        <briefdescription>
+<para>Returns whether grid annotations will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="166" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="166" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a6e2c3fae694b8207837ed2557198c77d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setPrepareAnnotations</definition>
+        <argsstring>(bool prepare)</argsstring>
+        <name>setPrepareAnnotations</name>
+        <qualifiedname>QfGridModel::setPrepareAnnotations</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>prepare</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether grid annotations will be prepared. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="169" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="176" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1ae14f5795e014a70aec19c7fe8965aa8b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfGridAnnotation" kindref="compound">QfGridAnnotation</ref> &gt;</type>
+        <definition>QList&lt; QfGridAnnotation &gt; QfGridModel::annotations</definition>
+        <argsstring>() const</argsstring>
+        <name>annotations</name>
+        <qualifiedname>QfGridModel::annotations</qualifiedname>
+        <briefdescription>
+<para>Returns the grid annotations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="172" column="11" bodyfile="src/core/qfgridmodel.h" bodystart="172" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a6144e874b1024eeb51eeda83486fb4a2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfGridModel::autoColor</definition>
+        <argsstring>() const</argsstring>
+        <name>autoColor</name>
+        <qualifiedname>QfGridModel::autoColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether grid line and marker colors will be automatically assigned to colors derived from the map canvas background color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="178" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="178" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1ad349d3904901692d5ea0aebadb910ad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setAutoColor</definition>
+        <argsstring>(bool autoColor)</argsstring>
+        <name>setAutoColor</name>
+        <qualifiedname>QfGridModel::setAutoColor</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>autoColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set whether grid line and marker colors will be automatically assigned to colors derived from the map canvas background color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="184" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="198" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a121033aafa1de066993616f3c7f0c995" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::majorLineColor</definition>
+        <argsstring>() const</argsstring>
+        <name>majorLineColor</name>
+        <qualifiedname>QfGridModel::majorLineColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid major line color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="187" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="187" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a6c82f0881e8e614c42ac4c1976556cd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setMajorLineColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setMajorLineColor</name>
+        <qualifiedname>QfGridModel::setMajorLineColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid major line color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="190" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="214" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a4b517e2a53d26daec90f22904f640fe9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::minorLineColor</definition>
+        <argsstring>() const</argsstring>
+        <name>minorLineColor</name>
+        <qualifiedname>QfGridModel::minorLineColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid minor line color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="193" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="193" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a9b6e0a14c66a59404eabb0434f663655" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setMinorLineColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setMinorLineColor</name>
+        <qualifiedname>QfGridModel::setMinorLineColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid minor line color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="196" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="225" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1afb1d62d299aa3534415e247a71dac5b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::markerColor</definition>
+        <argsstring>() const</argsstring>
+        <name>markerColor</name>
+        <qualifiedname>QfGridModel::markerColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid marker color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="199" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="199" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1af7950ca59b3b871801e2b064c80032b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setMarkerColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setMarkerColor</name>
+        <qualifiedname>QfGridModel::setMarkerColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid marker color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="202" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="236" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1ac5e7fdd629a3df3f30fa7d0139acc7f5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::annotationColor</definition>
+        <argsstring>() const</argsstring>
+        <name>annotationColor</name>
+        <qualifiedname>QfGridModel::annotationColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid annotation text color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="205" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="205" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a4e7de7e65550ce67522d0b70d7484bc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setAnnotationColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setAnnotationColor</name>
+        <qualifiedname>QfGridModel::setAnnotationColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid annotation text color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="208" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="247" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a0e7d1697f84831521410f9c49c632ef4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfGridModel::annotationOutlineColor</definition>
+        <argsstring>() const</argsstring>
+        <name>annotationOutlineColor</name>
+        <qualifiedname>QfGridModel::annotationOutlineColor</qualifiedname>
+        <briefdescription>
+<para>Returns the grid annotation text outline color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="211" column="12" bodyfile="src/core/qfgridmodel.h" bodystart="211" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a8b2743236c52f2afc3ef6af6e37fe108" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setAnnotationOutlineColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setAnnotationOutlineColor</name>
+        <qualifiedname>QfGridModel::setAnnotationOutlineColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid annotation text outline color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="214" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="258" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a83a53cf7730ab0dd2fd36c65ec30c42a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfGridModel::annotationHasOutline</definition>
+        <argsstring>() const</argsstring>
+        <name>annotationHasOutline</name>
+        <qualifiedname>QfGridModel::annotationHasOutline</qualifiedname>
+        <briefdescription>
+<para>Returns whether annotation text have an outline color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="217" column="10" bodyfile="src/core/qfgridmodel.h" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1ad1143617a760fd9eb2756460d1d2ce5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setAnnotationHasOutline</definition>
+        <argsstring>(bool hasOutline)</argsstring>
+        <name>setAnnotationHasOutline</name>
+        <qualifiedname>QfGridModel::setAnnotationHasOutline</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hasOutline</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether annotation text have an outline color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="220" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="269" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a2df35e0ef9a942e1045b2b21bb7c277c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfGridModel::annotationPrecision</definition>
+        <argsstring>() const</argsstring>
+        <name>annotationPrecision</name>
+        <qualifiedname>QfGridModel::annotationPrecision</qualifiedname>
+        <briefdescription>
+<para>Returns the annotation text decimal precision. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="223" column="9" bodyfile="src/core/qfgridmodel.h" bodystart="223" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1a47228a83769ac351f257048526ceaac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::setAnnotationPrecision</definition>
+        <argsstring>(int precision)</argsstring>
+        <name>setAnnotationPrecision</name>
+        <qualifiedname>QfGridModel::setAnnotationPrecision</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>precision</declname>
+        </param>
+        <briefdescription>
+<para>Sets the annotation text decimal precision. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="226" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="280" bodyend="289"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfGridModel_1a916b2728749db264b497d268444be346" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>QfGridModel::enabledChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid enabled setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="230" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1abb319e00fa39b2faf6f6abd5db3f77b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::indeterminateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>indeterminateChanged</name>
+        <qualifiedname>QfGridModel::indeterminateChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid indeterminate setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="233" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a117bf80158dbedfd0c25859a23ed9c93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfGridModel::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the map settings object has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="236" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1afc12502ac9148d12a32200c28266139f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::xIntervalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>xIntervalChanged</name>
+        <qualifiedname>QfGridModel::xIntervalChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid X interval has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="239" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1ad9e9bd1a99fa89978a54f55e53568496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::yIntervalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>yIntervalChanged</name>
+        <qualifiedname>QfGridModel::yIntervalChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid Y interval has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="242" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1af4e6a6e4714988323c964b71eebc8c13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::xOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>xOffsetChanged</name>
+        <qualifiedname>QfGridModel::xOffsetChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid X offset has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="245" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a05d75a0f111b7ff80501e7ecbd1d7e23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::yOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>yOffsetChanged</name>
+        <qualifiedname>QfGridModel::yOffsetChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid Y offset has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="248" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a4f43b0387bdc706d1704b35d1a58f559" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::prepareLinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>prepareLinesChanged</name>
+        <qualifiedname>QfGridModel::prepareLinesChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when grid lines preparation setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="251" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a9fbd60cfd01fdfd4151fd8d593b4842d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::prepareMarkersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>prepareMarkersChanged</name>
+        <qualifiedname>QfGridModel::prepareMarkersChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when grid markers preparation setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="254" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1abcb2a357e3b0444a75018bffec275a26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::prepareAnnotationsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>prepareAnnotationsChanged</name>
+        <qualifiedname>QfGridModel::prepareAnnotationsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when grid annotations preparation setting has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="257" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a21d1af0b01a92bea989df59a6bf58ee0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::majorLinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>majorLinesChanged</name>
+        <qualifiedname>QfGridModel::majorLinesChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid major lines have changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="260" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1ace238997685f5194eb993641d75d641f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::minorLinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>minorLinesChanged</name>
+        <qualifiedname>QfGridModel::minorLinesChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid minor lines have changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="263" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1acb1a6fea693117f521a3233efc81ca69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::markersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>markersChanged</name>
+        <qualifiedname>QfGridModel::markersChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid markers have changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="266" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a621d784aa3308bb680486610143108a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::annotationsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationsChanged</name>
+        <qualifiedname>QfGridModel::annotationsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotations have changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="269" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a441a37eb72d8b7d21c96d88d41a6ff94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::autoColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>autoColorChanged</name>
+        <qualifiedname>QfGridModel::autoColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid line and marker colors are automatically assigned. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="272" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1ae4d7aa3eac1f892993fec37e402b8243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::majorLineColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>majorLineColorChanged</name>
+        <qualifiedname>QfGridModel::majorLineColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid major line color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="275" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a944aa1a7eae473a4efe8cd7a6a4aa1c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::minorLineColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>minorLineColorChanged</name>
+        <qualifiedname>QfGridModel::minorLineColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid minor line color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="278" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a3d99dc7b9c5cbe4c2e77b7e0c63e1d5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::markerColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>markerColorChanged</name>
+        <qualifiedname>QfGridModel::markerColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid marker color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="281" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1ada14dbe0cdd7bc3616a034ecf83cad64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::annotationColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationColorChanged</name>
+        <qualifiedname>QfGridModel::annotationColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotation text color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="284" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a5ef0fced00e9470d0a64bd4ffef35c84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::annotationOutlineColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationOutlineColorChanged</name>
+        <qualifiedname>QfGridModel::annotationOutlineColorChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotation text outline color has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="287" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a725cca51d3d51387cdde015cbadda29f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::annotationHasOutlineChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationHasOutlineChanged</name>
+        <qualifiedname>QfGridModel::annotationHasOutlineChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotation text outline visibility has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="290" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGridModel_1a1ccc1333147e20685b30af8c4186efc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::annotationPrecisionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>annotationPrecisionChanged</name>
+        <qualifiedname>QfGridModel::annotationPrecisionChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the grid annotation text decimal precision has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="293" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfGridModel_1acd366fcadd8b4e8c5b3f1fa62f9d92f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfGridModel::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="296" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="291" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1af288da474e115e81e493e9c8e06b431e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>QfGridModel::update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="297" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="318" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGridModel_1afb71d46fbc5fe157eace0f688d3d0898" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGridModel::updateColors</definition>
+        <argsstring>()</argsstring>
+        <name>updateColors</name>
+        <qualifiedname>QfGridModel::updateColors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="298" column="10" bodyfile="src/core/qfgridmodel.cpp" bodystart="540" bodyend="553"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This model manages lists of lines, markers, and annotations representing a grid. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfGridModel</label>
+        <link refid="classQfGridModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfGridModel</label>
+        <link refid="classQfGridModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfgridmodel.h" line="59" column="1" bodyfile="src/core/qfgridmodel.h" bodystart="60" bodyend="336"/>
+    <listofallmembers>
+      <member refid="classQfGridModel_1a028e19c4e3e3f4d7fb4f5b219c40bb21" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationColor</name></member>
+      <member refid="classQfGridModel_1ac5e7fdd629a3df3f30fa7d0139acc7f5" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationColor</name></member>
+      <member refid="classQfGridModel_1ada14dbe0cdd7bc3616a034ecf83cad64" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationColorChanged</name></member>
+      <member refid="classQfGridModel_1a8c881018c0999b0c9cd4608fa76862ac" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationHasOutline</name></member>
+      <member refid="classQfGridModel_1a83a53cf7730ab0dd2fd36c65ec30c42a" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationHasOutline</name></member>
+      <member refid="classQfGridModel_1a725cca51d3d51387cdde015cbadda29f" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationHasOutlineChanged</name></member>
+      <member refid="classQfGridModel_1adc772bab383546d5b32276e4104b5166" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationOutlineColor</name></member>
+      <member refid="classQfGridModel_1a0e7d1697f84831521410f9c49c632ef4" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationOutlineColor</name></member>
+      <member refid="classQfGridModel_1a5ef0fced00e9470d0a64bd4ffef35c84" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationOutlineColorChanged</name></member>
+      <member refid="classQfGridModel_1a282dd5898f2bde05fdcb0cac6ccdf9a7" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationPrecision</name></member>
+      <member refid="classQfGridModel_1a2df35e0ef9a942e1045b2b21bb7c277c" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationPrecision</name></member>
+      <member refid="classQfGridModel_1a1ccc1333147e20685b30af8c4186efc9" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationPrecisionChanged</name></member>
+      <member refid="classQfGridModel_1a1bd41b6df02daf791302cfeb320dfb5d" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotations</name></member>
+      <member refid="classQfGridModel_1ae14f5795e014a70aec19c7fe8965aa8b" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotations</name></member>
+      <member refid="classQfGridModel_1a621d784aa3308bb680486610143108a7" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>annotationsChanged</name></member>
+      <member refid="classQfGridModel_1a77c5ca251a26bcd7863044425f54cbbb" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>autoColor</name></member>
+      <member refid="classQfGridModel_1a6144e874b1024eeb51eeda83486fb4a2" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>autoColor</name></member>
+      <member refid="classQfGridModel_1a441a37eb72d8b7d21c96d88d41a6ff94" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>autoColorChanged</name></member>
+      <member refid="classQfGridModel_1acd366fcadd8b4e8c5b3f1fa62f9d92f4" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>clear</name></member>
+      <member refid="classQfGridModel_1ab36dd9ff72ad08ad5e555097653597f8" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>enabled</name></member>
+      <member refid="classQfGridModel_1adcfd054211e8599e70458ddf4d4c830d" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>enabled</name></member>
+      <member refid="classQfGridModel_1a916b2728749db264b497d268444be346" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>enabledChanged</name></member>
+      <member refid="classQfGridModel_1ab9efef98d1e22af3311eeb907c775a1f" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>indeterminate</name></member>
+      <member refid="classQfGridModel_1abd9a2675e17a65fb2cf61e5df91c1623" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>indeterminate</name></member>
+      <member refid="classQfGridModel_1abb319e00fa39b2faf6f6abd5db3f77b4" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>indeterminateChanged</name></member>
+      <member refid="classQfGridModel_1ad4390eea8ad69b27a5d976d0b8808f9a" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>majorLineColor</name></member>
+      <member refid="classQfGridModel_1a121033aafa1de066993616f3c7f0c995" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>majorLineColor</name></member>
+      <member refid="classQfGridModel_1ae4d7aa3eac1f892993fec37e402b8243" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>majorLineColorChanged</name></member>
+      <member refid="classQfGridModel_1a21d1af0b01a92bea989df59a6bf58ee0" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>majorLinesChanged</name></member>
+      <member refid="classQfGridModel_1aebb5122c3ac4ad77eea65cedde8a4469" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>majorLinesPath</name></member>
+      <member refid="classQfGridModel_1a24363485545ff648ba121392c50fb28d" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>majorLinesPath</name></member>
+      <member refid="classQfGridModel_1acf3dd0b2b548350e5ec6200648af4f52" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mAnnotationColor</name></member>
+      <member refid="classQfGridModel_1a56ef74ddc81e87b917434868e5014e3b" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mAnnotationHasOutline</name></member>
+      <member refid="classQfGridModel_1a2e5f387c4f632934418354422acb3fe8" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mAnnotationOutlineColor</name></member>
+      <member refid="classQfGridModel_1a5b4039090a9f98413aa1b2ac49ae28a8" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mAnnotationPrecision</name></member>
+      <member refid="classQfGridModel_1ab39a0d02856a882f02c03e113c7e03e6" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mAnnotations</name></member>
+      <member refid="classQfGridModel_1af966c9e288a5a04644aa598901f20b41" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>mapSettings</name></member>
+      <member refid="classQfGridModel_1aa93a9cb1b3fdc481cba19c88f844f1aa" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>mapSettings</name></member>
+      <member refid="classQfGridModel_1a117bf80158dbedfd0c25859a23ed9c93" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfGridModel_1ad4dcbb6120c91869d4c6f989da7a7210" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>markerColor</name></member>
+      <member refid="classQfGridModel_1afb1d62d299aa3534415e247a71dac5b0" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>markerColor</name></member>
+      <member refid="classQfGridModel_1a3d99dc7b9c5cbe4c2e77b7e0c63e1d5c" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>markerColorChanged</name></member>
+      <member refid="classQfGridModel_1acb1a6fea693117f521a3233efc81ca69" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>markersChanged</name></member>
+      <member refid="classQfGridModel_1a0526faf9562fe528d4d6f4c71c9a9b68" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>markersPath</name></member>
+      <member refid="classQfGridModel_1a86687ffc41fbbd1af584165356b30603" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>markersPath</name></member>
+      <member refid="classQfGridModel_1a89d3202a5c82b0453c09fd6b0670c117" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mAutoColor</name></member>
+      <member refid="classQfGridModel_1a107203a0c032730827dd04e064c72895" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mEnabled</name></member>
+      <member refid="classQfGridModel_1a44ab9eade99cbecdeb2e7b0aa87ea33e" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mIndeterminate</name></member>
+      <member refid="classQfGridModel_1ae225ce0279ff3b1dd972552c22b97d35" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mIndeterminateInterval</name></member>
+      <member refid="classQfGridModel_1a4dcd3f21661de56386ea180df1d74aa4" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>minorLineColor</name></member>
+      <member refid="classQfGridModel_1a4b517e2a53d26daec90f22904f640fe9" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>minorLineColor</name></member>
+      <member refid="classQfGridModel_1a944aa1a7eae473a4efe8cd7a6a4aa1c0" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>minorLineColorChanged</name></member>
+      <member refid="classQfGridModel_1ace238997685f5194eb993641d75d641f" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>minorLinesChanged</name></member>
+      <member refid="classQfGridModel_1aecf7eb894844b62afdb1c7e50faea4b8" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>minorLinesPath</name></member>
+      <member refid="classQfGridModel_1a0b52767a1f423ab09c94b308450e48bd" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>minorLinesPath</name></member>
+      <member refid="classQfGridModel_1abf7b2492c290298d5a9b33664780f795" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mLocale</name></member>
+      <member refid="classQfGridModel_1a0ff7060cebd43bc54e496f61b9ac4f5b" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMajorLineColor</name></member>
+      <member refid="classQfGridModel_1aac7609ee19e9b7fea3fcc75e53f2c3dd" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMajorLines</name></member>
+      <member refid="classQfGridModel_1afc7fcc9dd156e1cefa4e3a4e2ba23832" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMajorLinesPath</name></member>
+      <member refid="classQfGridModel_1a1e5833caf2d869c232f10ad617595613" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMapSettings</name></member>
+      <member refid="classQfGridModel_1a058f2d0c512f472c1e011caab378522a" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMarkerColor</name></member>
+      <member refid="classQfGridModel_1ab999b6dcf4b2a72544410e40658ccb29" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMarkers</name></member>
+      <member refid="classQfGridModel_1a6a9a1cf7c2d13d840420532fb27901df" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMarkersPath</name></member>
+      <member refid="classQfGridModel_1a0f61208328e85e84413df462171732d6" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMinorLineColor</name></member>
+      <member refid="classQfGridModel_1a9a5b5e6102c85d8096b89252d4d803cf" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMinorLines</name></member>
+      <member refid="classQfGridModel_1aad2f2ebbb639fc0117a139566d3351c8" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mMinorLinesPath</name></member>
+      <member refid="classQfGridModel_1a9f180328f27e28570de36ced5d365043" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mPrepareAnnotations</name></member>
+      <member refid="classQfGridModel_1a865973d75f601472584b1db8a7dba414" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mPrepareLines</name></member>
+      <member refid="classQfGridModel_1a9046642b7ba4193abfad1131fe18f9d1" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mPrepareMarkers</name></member>
+      <member refid="classQfGridModel_1a99722da2e7ab3e7c9659d3e65be03f64" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mXInterval</name></member>
+      <member refid="classQfGridModel_1a341e9d8e12df8d6c10d67f6b93ee4326" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mXOffset</name></member>
+      <member refid="classQfGridModel_1abe3b7e67fc70a63e2f516479ba7e2ec5" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mYInterval</name></member>
+      <member refid="classQfGridModel_1a697b6b711987645508487732e4783b5e" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>mYOffset</name></member>
+      <member refid="classQfGridModel_1ab25456315b6847588f5da64556196d7d" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareAnnotations</name></member>
+      <member refid="classQfGridModel_1a7c5d0657da370f444a2cc67cb63b6339" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareAnnotations</name></member>
+      <member refid="classQfGridModel_1abcb2a357e3b0444a75018bffec275a26" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareAnnotationsChanged</name></member>
+      <member refid="classQfGridModel_1af955a9dedcc4b97a31e7891df73109ba" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareLines</name></member>
+      <member refid="classQfGridModel_1a9edcf673fd8017e2a56323eafdfadbd4" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareLines</name></member>
+      <member refid="classQfGridModel_1a4f43b0387bdc706d1704b35d1a58f559" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareLinesChanged</name></member>
+      <member refid="classQfGridModel_1a131d71531e57c330990b7e8697b14285" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareMarkers</name></member>
+      <member refid="classQfGridModel_1a7edf51a4955a5d6202abb0f2fc10f0a7" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareMarkers</name></member>
+      <member refid="classQfGridModel_1a9fbd60cfd01fdfd4151fd8d593b4842d" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>prepareMarkersChanged</name></member>
+      <member refid="classQfGridModel_1a61743efe359f400cbc0b865541f772de" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>QfGridModel</name></member>
+      <member refid="classQfGridModel_1a4e7de7e65550ce67522d0b70d7484bc3" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setAnnotationColor</name></member>
+      <member refid="classQfGridModel_1ad1143617a760fd9eb2756460d1d2ce5c" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setAnnotationHasOutline</name></member>
+      <member refid="classQfGridModel_1a8b2743236c52f2afc3ef6af6e37fe108" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setAnnotationOutlineColor</name></member>
+      <member refid="classQfGridModel_1a47228a83769ac351f257048526ceaac7" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setAnnotationPrecision</name></member>
+      <member refid="classQfGridModel_1ad349d3904901692d5ea0aebadb910ad6" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setAutoColor</name></member>
+      <member refid="classQfGridModel_1a0e8c67f9ebfecd06f900600c7cbe6fa8" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setEnabled</name></member>
+      <member refid="classQfGridModel_1ab18556283c4f4e70617e0243de88e69a" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setIndeterminate</name></member>
+      <member refid="classQfGridModel_1a6c82f0881e8e614c42ac4c1976556cd2" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setMajorLineColor</name></member>
+      <member refid="classQfGridModel_1ac3892fdd91d833e7a6af2668e1c9b664" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setMapSettings</name></member>
+      <member refid="classQfGridModel_1af7950ca59b3b871801e2b064c80032b4" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setMarkerColor</name></member>
+      <member refid="classQfGridModel_1a9b6e0a14c66a59404eabb0434f663655" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setMinorLineColor</name></member>
+      <member refid="classQfGridModel_1a6e2c3fae694b8207837ed2557198c77d" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setPrepareAnnotations</name></member>
+      <member refid="classQfGridModel_1a0437d4b020216343eb11244d57462677" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setPrepareLines</name></member>
+      <member refid="classQfGridModel_1ac4d15ca613ce6781367fddf7d03b3927" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setPrepareMarkers</name></member>
+      <member refid="classQfGridModel_1aa7f53fdbeff49720e37c6743051271ed" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setXInterval</name></member>
+      <member refid="classQfGridModel_1a7ac43a35015217df09ba9b9dcfc4d0b5" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setXOffset</name></member>
+      <member refid="classQfGridModel_1a294adaf11081841adc1fdf1ffaf0acd2" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setYInterval</name></member>
+      <member refid="classQfGridModel_1a4bd61d705dcdc47b8d9b232ee8f3c6b8" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>setYOffset</name></member>
+      <member refid="classQfGridModel_1af288da474e115e81e493e9c8e06b431e" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>update</name></member>
+      <member refid="classQfGridModel_1afb71d46fbc5fe157eace0f688d3d0898" prot="private" virt="non-virtual"><scope>QfGridModel</scope><name>updateColors</name></member>
+      <member refid="classQfGridModel_1a4de1ea04b53f3b4a8810d60d67b21dec" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>xInterval</name></member>
+      <member refid="classQfGridModel_1a256fda9e9d36324906495edba4537bdb" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>xInterval</name></member>
+      <member refid="classQfGridModel_1afc12502ac9148d12a32200c28266139f" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>xIntervalChanged</name></member>
+      <member refid="classQfGridModel_1abb3cab571a0bfe3eab80a2c8821641ad" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>xOffset</name></member>
+      <member refid="classQfGridModel_1a8178d8b215ddbd13f257e2c78c1493d9" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>xOffset</name></member>
+      <member refid="classQfGridModel_1af4e6a6e4714988323c964b71eebc8c13" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>xOffsetChanged</name></member>
+      <member refid="classQfGridModel_1a7bfeb829de3146a7a84f1983a42910b7" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>yInterval</name></member>
+      <member refid="classQfGridModel_1a8635fe22274fc42f56de11afe032caba" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>yInterval</name></member>
+      <member refid="classQfGridModel_1ad9e9bd1a99fa89978a54f55e53568496" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>yIntervalChanged</name></member>
+      <member refid="classQfGridModel_1ac517dc1b2afa9b89de8019c842812429" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>yOffset</name></member>
+      <member refid="classQfGridModel_1a42e5890980d38858db3e621309b78aad" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>yOffset</name></member>
+      <member refid="classQfGridModel_1a05d75a0f111b7ff80501e7ecbd1d7e23" prot="public" virt="non-virtual"><scope>QfGridModel</scope><name>yOffsetChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

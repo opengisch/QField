@@ -1,0 +1,1044 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfRubberbandShape" kind="class" language="C++" prot="public">
+    <compoundname>QfRubberbandShape</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <derivedcompoundref refid="classQfRubberband" prot="public" virt="non-virtual">QfRubberband</derivedcompoundref>
+    <includes refid="qfrubberbandshape_8h" local="no">qfrubberbandshape.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfRubberbandShape_1a4b8a0022eb82d8eda9a9868b17ba203c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfRubberbandShape::freeze</definition>
+        <argsstring></argsstring>
+        <name>freeze</name>
+        <qualifiedname>QfRubberbandShape::freeze</qualifiedname>
+        <read>freeze</read>
+        <write>setFreeze</write>
+        <briefdescription>
+<para>When set to TRUE, changes to the linked rubber band or vertex model as well as map settings will be ignored and the rubber band shape data will be left untouched. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="39" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1af0b47ebb049c302534ef1e60f8e0bf33" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfRubberbandShape::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfRubberbandShape::model</qualifiedname>
+        <read>model</read>
+        <write>setModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="41" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1ac62e7ad7890f7f1e9c16198488d072bf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel * QfRubberbandShape::vertexModel</definition>
+        <argsstring></argsstring>
+        <name>vertexModel</name>
+        <qualifiedname>QfRubberbandShape::vertexModel</qualifiedname>
+        <read>vertexModel</read>
+        <write>setVertexModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="42" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1a4e7a55e662146030b7c87a4300abbe32" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfRubberbandShape::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfRubberbandShape::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="43" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1ade9d153e5cc33f87a4d72bd64a51cc86" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandShape::geometryType</definition>
+        <argsstring></argsstring>
+        <name>geometryType</name>
+        <qualifiedname>QfRubberbandShape::geometryType</qualifiedname>
+        <read>geometryType</read>
+        <write>setGeometryType</write>
+        <briefdescription>
+<para><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="46" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1a9dcb5aff08449340b3ede2f1bddb76f9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfRubberbandShape::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfRubberbandShape::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+<para>Color of the rubberband. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="49" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1a60b6c64d8e8f3f413b0480215de022a7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfRubberbandShape::outlineColor</definition>
+        <argsstring></argsstring>
+        <name>outlineColor</name>
+        <qualifiedname>QfRubberbandShape::outlineColor</qualifiedname>
+        <read>outlineColor</read>
+        <write>setOutlineColor</write>
+        <briefdescription>
+<para>Color of the rubberband outline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="51" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1a12951c4f19678b53fb3502ff0360b1c5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal QfRubberbandShape::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>QfRubberbandShape::lineWidth</qualifiedname>
+        <read>lineWidth</read>
+        <write>setLineWidth</write>
+        <briefdescription>
+<para>Line width of the rubberband. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="53" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1a430efb1cd782609d847df60defbdc1a1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt;QPolygonF&gt; QfRubberbandShape::polylines</definition>
+        <argsstring></argsstring>
+        <name>polylines</name>
+        <qualifiedname>QfRubberbandShape::polylines</qualifiedname>
+        <read>polylines</read>
+        <briefdescription>
+<para>List of polylines representing the rubber band. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="56" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberbandShape_1ae943559162d94a9b6f853d04a8657ca3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandShape::polylinesType</definition>
+        <argsstring></argsstring>
+        <name>polylinesType</name>
+        <qualifiedname>QfRubberbandShape::polylinesType</qualifiedname>
+        <read>polylinesType</read>
+        <briefdescription>
+<para>The geometry type associated to the polylines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="58" column="5" bodyfile="src/core/qfrubberbandshape.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfRubberbandShape_1a35a61e448b9e4d1ea8796fcc868a96da" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel* QfRubberbandShape::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>QfRubberbandShape::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="131" column="23" bodyfile="src/core/qfrubberbandshape.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1a20b7b5dd13b2ec878dea925eb18540e6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel* QfRubberbandShape::mVertexModel</definition>
+        <argsstring></argsstring>
+        <name>mVertexModel</name>
+        <qualifiedname>QfRubberbandShape::mVertexModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="132" column="19" bodyfile="src/core/qfrubberbandshape.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1ac8031fe3449dbcfa0569eacd41295700" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfRubberbandShape::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfRubberbandShape::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="133" column="25" bodyfile="src/core/qfrubberbandshape.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1a3b6740ca2fbd5bcc715b09f666d91890" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfRubberbandShape::mFreeze</definition>
+        <argsstring></argsstring>
+        <name>mFreeze</name>
+        <qualifiedname>QfRubberbandShape::mFreeze</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="134" column="10" bodyfile="src/core/qfrubberbandshape.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1a9b53aca9fa2d444bd9512a43c6e9def0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfRubberbandShape::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>QfRubberbandShape::mDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="135" column="10" bodyfile="src/core/qfrubberbandshape.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1aa1098afdec3a770b4c4bc162fd1b2954" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfRubberbandShape::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>QfRubberbandShape::mColor</qualifiedname>
+        <initializer>= QColor( 192, 57, 43, 150 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="136" column="12" bodyfile="src/core/qfrubberbandshape.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1a07067c6c6183c2ffa3cb986bb2e97739" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfRubberbandShape::mOutlineColor</definition>
+        <argsstring></argsstring>
+        <name>mOutlineColor</name>
+        <qualifiedname>QfRubberbandShape::mOutlineColor</qualifiedname>
+        <initializer>= QColor( 255, 255, 255, 100 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="137" column="12" bodyfile="src/core/qfrubberbandshape.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1a3a83c13c675fc27b726962c5c96d2f0a" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float QfRubberbandShape::mWidth</definition>
+        <argsstring></argsstring>
+        <name>mWidth</name>
+        <qualifiedname>QfRubberbandShape::mWidth</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="138" column="11" bodyfile="src/core/qfrubberbandshape.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1af178394da318a6900978730c00ee5f2c" prot="private" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandShape::mGeometryType</definition>
+        <argsstring></argsstring>
+        <name>mGeometryType</name>
+        <qualifiedname>QfRubberbandShape::mGeometryType</qualifiedname>
+        <initializer>= Qgis::GeometryType::Null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="139" column="24" bodyfile="src/core/qfrubberbandshape.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1a61be7c6cbb7549893bee16d43b517b93" prot="private" static="no" mutable="no">
+        <type>QgsPointXY</type>
+        <definition>QgsPointXY QfRubberbandShape::mGeometryCorner</definition>
+        <argsstring></argsstring>
+        <name>mGeometryCorner</name>
+        <qualifiedname>QfRubberbandShape::mGeometryCorner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="140" column="16" bodyfile="src/core/qfrubberbandshape.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1af387f8b69cc7c5a8a2dc3beba3774917" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfRubberbandShape::mGeometryMUPP</definition>
+        <argsstring></argsstring>
+        <name>mGeometryMUPP</name>
+        <qualifiedname>QfRubberbandShape::mGeometryMUPP</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="141" column="12" bodyfile="src/core/qfrubberbandshape.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1a99e650bd6df75c61ed0e71545dc61c20" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt;QPolygonF&gt; QfRubberbandShape::mPolylines</definition>
+        <argsstring></argsstring>
+        <name>mPolylines</name>
+        <qualifiedname>QfRubberbandShape::mPolylines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="142" column="11" bodyfile="src/core/qfrubberbandshape.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1a12849ac2479bd6ec969f77d5c87c5353" prot="private" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandShape::mPolylinesType</definition>
+        <argsstring></argsstring>
+        <name>mPolylinesType</name>
+        <qualifiedname>QfRubberbandShape::mPolylinesType</qualifiedname>
+        <initializer>= Qgis::GeometryType::Null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="143" column="24" bodyfile="src/core/qfrubberbandshape.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQfRubberbandShape_1a54e86057ef771c60a60f130aa0c90723" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double QfRubberbandShape::MAX_SIZE</definition>
+        <argsstring></argsstring>
+        <name>MAX_SIZE</name>
+        <qualifiedname>QfRubberbandShape::MAX_SIZE</qualifiedname>
+        <initializer>= 250000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="145" column="29" bodyfile="src/core/qfrubberbandshape.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRubberbandShape_1add33dd2bf4d90349554b362d706291d8" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double QfRubberbandShape::MAX_OFFSET</definition>
+        <argsstring></argsstring>
+        <name>MAX_OFFSET</name>
+        <qualifiedname>QfRubberbandShape::MAX_OFFSET</qualifiedname>
+        <initializer>= 200000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="146" column="29" bodyfile="src/core/qfrubberbandshape.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfRubberbandShape_1aee587fd7abe91130605890c5981852e2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfRubberbandShape::QfRubberbandShape</definition>
+        <argsstring>(QQuickItem *parent=nullptr)</argsstring>
+        <name>QfRubberbandShape</name>
+        <qualifiedname>QfRubberbandShape::QfRubberbandShape</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="61" column="14" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1abb43956b35dabb003b7e86cbf03f8538" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfRubberbandShape::model</definition>
+        <argsstring>() const</argsstring>
+        <name>model</name>
+        <qualifiedname>QfRubberbandShape::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="63" column="23" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1aa33263c5853a924634a87687cf6ef44a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::setModel</definition>
+        <argsstring>(QfRubberbandModel *model)</argsstring>
+        <name>setModel</name>
+        <qualifiedname>QfRubberbandShape::setModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="64" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="36" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a8b9cf7e373ce55bc767ebb560a603748" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel * QfRubberbandShape::vertexModel</definition>
+        <argsstring>() const</argsstring>
+        <name>vertexModel</name>
+        <qualifiedname>QfRubberbandShape::vertexModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="66" column="19" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a7cdf9e055f184c1e635960fd7bfca500" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::setVertexModel</definition>
+        <argsstring>(QfVertexModel *vertexModel)</argsstring>
+        <name>setVertexModel</name>
+        <qualifiedname>QfRubberbandShape::setVertexModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+          <declname>vertexModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="67" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="71" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a2889f824950857627d99ec47a07d3f6d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfRubberbandShape::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfRubberbandShape::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="69" column="25" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1ae9583a0c2ee2f98f0e79e3e0c71078df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfRubberbandShape::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="70" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="162" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a144968739ab201ecdcf2127d334249d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfRubberbandShape::freeze</definition>
+        <argsstring>() const</argsstring>
+        <name>freeze</name>
+        <qualifiedname>QfRubberbandShape::freeze</qualifiedname>
+        <briefdescription>
+<para>When set to TRUE, changes to the linked rubber band or vertex model as well as map settings will be ignored and the rubber band shape data will be left untouched.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="73" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a0f2a3a32416a11d6647de6d1ccec14f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::setFreeze</definition>
+        <argsstring>(bool freeze)</argsstring>
+        <name>setFreeze</name>
+        <qualifiedname>QfRubberbandShape::setFreeze</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>freeze</declname>
+        </param>
+        <briefdescription>
+<para>When set to TRUE, changes to the linked rubber band or vertex model as well as map settings will be ignored and the rubber band shape data will be left untouched.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="75" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="105" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a81b0cfc2003ca5bb89fa29a630b73b63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfRubberbandShape::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>QfRubberbandShape::color</qualifiedname>
+        <briefdescription>
+<para>Color of the rubberband.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="78" column="12" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="306" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1afccf40c13f7f24220d603d9f05c4dd02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>QfRubberbandShape::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Color of the rubberband.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="80" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="311" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a763c9fff17efd0b10778f7cb1514ae8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfRubberbandShape::outlineColor</definition>
+        <argsstring>() const</argsstring>
+        <name>outlineColor</name>
+        <qualifiedname>QfRubberbandShape::outlineColor</qualifiedname>
+        <briefdescription>
+<para>Color of the rubberband outline.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="83" column="12" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="321" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a7d0d2282e7da5e4c74359bf626671c2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::setOutlineColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setOutlineColor</name>
+        <qualifiedname>QfRubberbandShape::setOutlineColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Color of the rubberband outline.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="85" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="326" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1aa600833c98904c0a3c3071307ba97016" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float QfRubberbandShape::lineWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>QfRubberbandShape::lineWidth</qualifiedname>
+        <briefdescription>
+<para>Line width of the rubberband.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="88" column="11" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="291" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1aa96f7c9d94383db12bb439a39707d6df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::setLineWidth</definition>
+        <argsstring>(float width)</argsstring>
+        <name>setLineWidth</name>
+        <qualifiedname>QfRubberbandShape::setLineWidth</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+<para>Line width of the rubberband.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="90" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="296" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1afbf2c246b213cd9aed0c2a1b454d8ca8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandShape::geometryType</definition>
+        <argsstring>() const</argsstring>
+        <name>geometryType</name>
+        <qualifiedname>QfRubberbandShape::geometryType</qualifiedname>
+        <briefdescription>
+<para><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="93" column="24" bodyfile="src/core/qfrubberbandshape.h" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a18836ff059c075f5006da44f031b13a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::setGeometryType</definition>
+        <argsstring>(const Qgis::GeometryType geometryType)</argsstring>
+        <name>setGeometryType</name>
+        <qualifiedname>QfRubberbandShape::setGeometryType</qualifiedname>
+        <param>
+          <type>const Qgis::GeometryType</type>
+          <declname>geometryType</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="95" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="281" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1ae6d05d438a6b6685a6d28ce0bf97a6ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt; QPolygonF &gt; QfRubberbandShape::polylines</definition>
+        <argsstring>() const</argsstring>
+        <name>polylines</name>
+        <qualifiedname>QfRubberbandShape::polylines</qualifiedname>
+        <briefdescription>
+<para>List of polylines representing the rubber band.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="98" column="11" bodyfile="src/core/qfrubberbandshape.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1a30ef86371cd355905c8c01e811aa9e80" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfRubberbandShape::polylinesType</definition>
+        <argsstring>() const</argsstring>
+        <name>polylinesType</name>
+        <qualifiedname>QfRubberbandShape::polylinesType</qualifiedname>
+        <briefdescription>
+<para>The geometry type associated to the polylines.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="101" column="24" bodyfile="src/core/qfrubberbandshape.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfRubberbandShape_1a6e5d23456a3d513ed60d0a50dba32892" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::modelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelChanged</name>
+        <qualifiedname>QfRubberbandShape::modelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="104" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1aaab1acf6f4829106673910159441bc24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::vertexModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexModelChanged</name>
+        <qualifiedname>QfRubberbandShape::vertexModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="105" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1a8d1c186c3f65a26b561eba3cfa1ce7e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfRubberbandShape::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="106" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1a4845aa995a0a3f2f3d764e23699a9b01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::freezeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>freezeChanged</name>
+        <qualifiedname>QfRubberbandShape::freezeChanged</qualifiedname>
+        <briefdescription>
+<para>When set to TRUE, changes to the linked rubber band or vertex model as well as map settings will be ignored and the rubber band shape data will be left untouched.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="108" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1ad3ef09c94f46df45fe8ead2d6cdd99d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>QfRubberbandShape::colorChanged</qualifiedname>
+        <briefdescription>
+<para>Color of the rubberband.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="110" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1a791201e96832a741881eae127dd34ee0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::outlineColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>outlineColorChanged</name>
+        <qualifiedname>QfRubberbandShape::outlineColorChanged</qualifiedname>
+        <briefdescription>
+<para>Color of the rubberband outline.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="112" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1ab87b1cc5e15dc4d4f9465cce9d1db714" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::lineWidthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineWidthChanged</name>
+        <qualifiedname>QfRubberbandShape::lineWidthChanged</qualifiedname>
+        <briefdescription>
+<para>Line width of the rubberband.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="114" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1a72b0f8ad71323c1d62321d1e52acb37d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::geometryTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryTypeChanged</name>
+        <qualifiedname>QfRubberbandShape::geometryTypeChanged</qualifiedname>
+        <briefdescription>
+<para><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="116" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1a5dc245f6377ee16f2804dbe82ad353e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::polylinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>polylinesChanged</name>
+        <qualifiedname>QfRubberbandShape::polylinesChanged</qualifiedname>
+        <briefdescription>
+<para>List of polylines representing the rubber band.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="118" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfRubberbandShape_1a2c604c20650498a8628927427f523e1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::polylinesTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>polylinesTypeChanged</name>
+        <qualifiedname>QfRubberbandShape::polylinesTypeChanged</qualifiedname>
+        <briefdescription>
+<para>The geometry type associated to the polylines.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="120" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfRubberbandShape_1af9406a56c1c17af4ad6e0b665b60f444" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::markDirty</definition>
+        <argsstring>()</argsstring>
+        <name>markDirty</name>
+        <qualifiedname>QfRubberbandShape::markDirty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="123" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="226" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfRubberbandShape_1a66fc5c5bf43edf1ec3799b71cc02d8c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::visibleExtentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visibleExtentChanged</name>
+        <qualifiedname>QfRubberbandShape::visibleExtentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="124" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="219" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfRubberbandShape_1ae6dbb8ce37420c989ee2430756301ea3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::rotationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rotationChanged</name>
+        <qualifiedname>QfRubberbandShape::rotationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="125" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="214" bodyend="217"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfRubberbandShape_1a1a3a210d15cb1e6f8ed00cb22a21ed73" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::updateTransform</definition>
+        <argsstring>()</argsstring>
+        <name>updateTransform</name>
+        <qualifiedname>QfRubberbandShape::updateTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="128" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="186" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRubberbandShape_1ad4077ddba3fd2a74ae7af965dd9530bf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRubberbandShape::createPolylines</definition>
+        <argsstring>()</argsstring>
+        <name>createPolylines</name>
+        <qualifiedname>QfRubberbandShape::createPolylines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfrubberbandshape.h" line="129" column="10" bodyfile="src/core/qfrubberbandshape.cpp" bodystart="232" bodyend="279"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classQfRubberbandShape" kindref="compound">QfRubberbandShape</ref> class is used to provide the shape data to draw rubber bands on the map canvas using the QML Shape item. It is aimed to be used with either a <ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> or a <ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="3">
+        <label>QfRubberband</label>
+        <link refid="classQfRubberband"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfRubberbandShape</label>
+        <link refid="classQfRubberbandShape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Rubberband</label>
+        <link refid="classRubberband"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>QfRubberbandShape</label>
+        <link refid="classQfRubberbandShape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfrubberbandshape.h" line="34" column="1" bodyfile="src/core/qfrubberbandshape.h" bodystart="35" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classQfRubberbandShape_1a9dcb5aff08449340b3ede2f1bddb76f9" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>color</name></member>
+      <member refid="classQfRubberbandShape_1a81b0cfc2003ca5bb89fa29a630b73b63" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>color</name></member>
+      <member refid="classQfRubberbandShape_1ad3ef09c94f46df45fe8ead2d6cdd99d6" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>colorChanged</name></member>
+      <member refid="classQfRubberbandShape_1ad4077ddba3fd2a74ae7af965dd9530bf" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>createPolylines</name></member>
+      <member refid="classQfRubberbandShape_1a4b8a0022eb82d8eda9a9868b17ba203c" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>freeze</name></member>
+      <member refid="classQfRubberbandShape_1a144968739ab201ecdcf2127d334249d6" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>freeze</name></member>
+      <member refid="classQfRubberbandShape_1a4845aa995a0a3f2f3d764e23699a9b01" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>freezeChanged</name></member>
+      <member refid="classQfRubberbandShape_1ade9d153e5cc33f87a4d72bd64a51cc86" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>geometryType</name></member>
+      <member refid="classQfRubberbandShape_1afbf2c246b213cd9aed0c2a1b454d8ca8" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>geometryType</name></member>
+      <member refid="classQfRubberbandShape_1a72b0f8ad71323c1d62321d1e52acb37d" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>geometryTypeChanged</name></member>
+      <member refid="classQfRubberbandShape_1a12951c4f19678b53fb3502ff0360b1c5" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>lineWidth</name></member>
+      <member refid="classQfRubberbandShape_1aa600833c98904c0a3c3071307ba97016" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>lineWidth</name></member>
+      <member refid="classQfRubberbandShape_1ab87b1cc5e15dc4d4f9465cce9d1db714" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>lineWidthChanged</name></member>
+      <member refid="classQfRubberbandShape_1a4e7a55e662146030b7c87a4300abbe32" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mapSettings</name></member>
+      <member refid="classQfRubberbandShape_1a2889f824950857627d99ec47a07d3f6d" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mapSettings</name></member>
+      <member refid="classQfRubberbandShape_1a8d1c186c3f65a26b561eba3cfa1ce7e3" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfRubberbandShape_1af9406a56c1c17af4ad6e0b665b60f444" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>markDirty</name></member>
+      <member refid="classQfRubberbandShape_1add33dd2bf4d90349554b362d706291d8" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>MAX_OFFSET</name></member>
+      <member refid="classQfRubberbandShape_1a54e86057ef771c60a60f130aa0c90723" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>MAX_SIZE</name></member>
+      <member refid="classQfRubberbandShape_1aa1098afdec3a770b4c4bc162fd1b2954" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mColor</name></member>
+      <member refid="classQfRubberbandShape_1a9b53aca9fa2d444bd9512a43c6e9def0" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mDirty</name></member>
+      <member refid="classQfRubberbandShape_1a3b6740ca2fbd5bcc715b09f666d91890" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mFreeze</name></member>
+      <member refid="classQfRubberbandShape_1a61be7c6cbb7549893bee16d43b517b93" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mGeometryCorner</name></member>
+      <member refid="classQfRubberbandShape_1af387f8b69cc7c5a8a2dc3beba3774917" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mGeometryMUPP</name></member>
+      <member refid="classQfRubberbandShape_1af178394da318a6900978730c00ee5f2c" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mGeometryType</name></member>
+      <member refid="classQfRubberbandShape_1ac8031fe3449dbcfa0569eacd41295700" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mMapSettings</name></member>
+      <member refid="classQfRubberbandShape_1af0b47ebb049c302534ef1e60f8e0bf33" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>model</name></member>
+      <member refid="classQfRubberbandShape_1abb43956b35dabb003b7e86cbf03f8538" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>model</name></member>
+      <member refid="classQfRubberbandShape_1a6e5d23456a3d513ed60d0a50dba32892" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>modelChanged</name></member>
+      <member refid="classQfRubberbandShape_1a07067c6c6183c2ffa3cb986bb2e97739" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mOutlineColor</name></member>
+      <member refid="classQfRubberbandShape_1a99e650bd6df75c61ed0e71545dc61c20" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mPolylines</name></member>
+      <member refid="classQfRubberbandShape_1a12849ac2479bd6ec969f77d5c87c5353" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mPolylinesType</name></member>
+      <member refid="classQfRubberbandShape_1a35a61e448b9e4d1ea8796fcc868a96da" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mRubberbandModel</name></member>
+      <member refid="classQfRubberbandShape_1a20b7b5dd13b2ec878dea925eb18540e6" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mVertexModel</name></member>
+      <member refid="classQfRubberbandShape_1a3a83c13c675fc27b726962c5c96d2f0a" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>mWidth</name></member>
+      <member refid="classQfRubberbandShape_1a60b6c64d8e8f3f413b0480215de022a7" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>outlineColor</name></member>
+      <member refid="classQfRubberbandShape_1a763c9fff17efd0b10778f7cb1514ae8b" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>outlineColor</name></member>
+      <member refid="classQfRubberbandShape_1a791201e96832a741881eae127dd34ee0" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>outlineColorChanged</name></member>
+      <member refid="classQfRubberbandShape_1a430efb1cd782609d847df60defbdc1a1" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>polylines</name></member>
+      <member refid="classQfRubberbandShape_1ae6d05d438a6b6685a6d28ce0bf97a6ed" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>polylines</name></member>
+      <member refid="classQfRubberbandShape_1a5dc245f6377ee16f2804dbe82ad353e1" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>polylinesChanged</name></member>
+      <member refid="classQfRubberbandShape_1ae943559162d94a9b6f853d04a8657ca3" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>polylinesType</name></member>
+      <member refid="classQfRubberbandShape_1a30ef86371cd355905c8c01e811aa9e80" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>polylinesType</name></member>
+      <member refid="classQfRubberbandShape_1a2c604c20650498a8628927427f523e1d" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>polylinesTypeChanged</name></member>
+      <member refid="classQfRubberbandShape_1aee587fd7abe91130605890c5981852e2" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>QfRubberbandShape</name></member>
+      <member refid="classQfRubberbandShape_1ae6dbb8ce37420c989ee2430756301ea3" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>rotationChanged</name></member>
+      <member refid="classQfRubberbandShape_1afccf40c13f7f24220d603d9f05c4dd02" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>setColor</name></member>
+      <member refid="classQfRubberbandShape_1a0f2a3a32416a11d6647de6d1ccec14f1" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>setFreeze</name></member>
+      <member refid="classQfRubberbandShape_1a18836ff059c075f5006da44f031b13a1" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>setGeometryType</name></member>
+      <member refid="classQfRubberbandShape_1aa96f7c9d94383db12bb439a39707d6df" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>setLineWidth</name></member>
+      <member refid="classQfRubberbandShape_1ae9583a0c2ee2f98f0e79e3e0c71078df" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>setMapSettings</name></member>
+      <member refid="classQfRubberbandShape_1aa33263c5853a924634a87687cf6ef44a" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>setModel</name></member>
+      <member refid="classQfRubberbandShape_1a7d0d2282e7da5e4c74359bf626671c2d" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>setOutlineColor</name></member>
+      <member refid="classQfRubberbandShape_1a7cdf9e055f184c1e635960fd7bfca500" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>setVertexModel</name></member>
+      <member refid="classQfRubberbandShape_1a1a3a210d15cb1e6f8ed00cb22a21ed73" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>updateTransform</name></member>
+      <member refid="classQfRubberbandShape_1ac62e7ad7890f7f1e9c16198488d072bf" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>vertexModel</name></member>
+      <member refid="classQfRubberbandShape_1a8b9cf7e373ce55bc767ebb560a603748" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>vertexModel</name></member>
+      <member refid="classQfRubberbandShape_1aaab1acf6f4829106673910159441bc24" prot="public" virt="non-virtual"><scope>QfRubberbandShape</scope><name>vertexModelChanged</name></member>
+      <member refid="classQfRubberbandShape_1a66fc5c5bf43edf1ec3799b71cc02d8c6" prot="private" virt="non-virtual"><scope>QfRubberbandShape</scope><name>visibleExtentChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBookmarkHighlight" kind="class" language="C++" prot="public">
+    <compoundname>BookmarkHighlight</compoundname>
+    <basecompoundref refid="classQfBookmarkHighlight" prot="public" virt="non-virtual">QfBookmarkHighlight</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BookmarkHighlight</label>
+        <link refid="classBookmarkHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfBookmarkHighlight</label>
+        <link refid="classQfBookmarkHighlight"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Repeater</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BookmarkHighlight</label>
+        <link refid="classBookmarkHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfBookmarkHighlight</label>
+        <link refid="classQfBookmarkHighlight"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Repeater</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/BookmarkHighlight.qml" line="2" column="1" bodyfile="src/app/qml_compat/BookmarkHighlight.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfBookmarkHighlight_1a09ea4272b4b2f6a229f5579062cf0216" prot="public" virt="non-virtual"><scope>BookmarkHighlight</scope><name>mapSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

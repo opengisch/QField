@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfRubberband3D" kind="class" language="C++" prot="public">
+    <compoundname>QfRubberband3D</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Node</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfRubberband3D_1a7468d129173cda55369800efd91fe08a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfRubberband3D::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfRubberband3D::rubberbandModel</qualifiedname>
+        <read>dummyGetter_rubberbandModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfRubberband3D.qml" line="11" column="1" bodyfile="src/3d/qml/QfRubberband3D.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberband3D_1a4b0f3c045130962ef29ae092e10c8533" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfRubberband3D::terrainProvider</definition>
+        <argsstring></argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>QfRubberband3D::terrainProvider</qualifiedname>
+        <read>dummyGetter_terrainProvider_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfRubberband3D.qml" line="13" column="1" bodyfile="src/3d/qml/QfRubberband3D.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberband3D_1af7c4aaa2a23e717b6ee1fb571f87f8f3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfRubberband3D::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfRubberband3D::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfRubberband3D.qml" line="15" column="1" bodyfile="src/3d/qml/QfRubberband3D.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberband3D_1afeb8bbad2e5155ffeb7016dce16448a6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfRubberband3D::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>QfRubberband3D::radius</qualifiedname>
+        <read>dummyGetter_radius_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfRubberband3D.qml" line="17" column="1" bodyfile="src/3d/qml/QfRubberband3D.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberband3D_1aed8c61eebc6786a5b5edb750e5943912" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfRubberband3D::segments</definition>
+        <argsstring></argsstring>
+        <name>segments</name>
+        <qualifiedname>QfRubberband3D::segments</qualifiedname>
+        <read>dummyGetter_segments_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfRubberband3D.qml" line="19" column="1" bodyfile="src/3d/qml/QfRubberband3D.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRubberband3D_1aa8e54c8fcebc9f13cf27af4f3e767689" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfRubberband3D::heightOffset</definition>
+        <argsstring></argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>QfRubberband3D::heightOffset</qualifiedname>
+        <read>dummyGetter_heightOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfRubberband3D.qml" line="21" column="1" bodyfile="src/3d/qml/QfRubberband3D.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfRubberband3D_1ab6ce8eecf32ea30b5b0e1ab3fccbafed" prot="private" static="no" mutable="no">
+        <type>Model</type>
+        <definition>Model QfRubberband3D::rubberbandModel3D</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel3D</name>
+        <qualifiedname>QfRubberband3D::rubberbandModel3D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfRubberband3D.qml" line="23" column="7" bodyfile="src/3d/qml/QfRubberband3D.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Wraps <ref refid="classQf3DRubberbandGeometry" kindref="compound">Qf3DRubberbandGeometry</ref> in a ready-to-use Node with a matte PBR material. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>QfRubberband3D</label>
+        <link refid="classQfRubberband3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>QfRubberband3D</label>
+        <link refid="classQfRubberband3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qml/QfRubberband3D.qml" line="8" column="1" bodyfile="src/3d/qml/QfRubberband3D.qml" bodystart="8" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classQfRubberband3D_1af7c4aaa2a23e717b6ee1fb571f87f8f3" prot="public" virt="non-virtual"><scope>QfRubberband3D</scope><name>color</name></member>
+      <member refid="classQfRubberband3D_1aa8e54c8fcebc9f13cf27af4f3e767689" prot="public" virt="non-virtual"><scope>QfRubberband3D</scope><name>heightOffset</name></member>
+      <member refid="classQfRubberband3D_1afeb8bbad2e5155ffeb7016dce16448a6" prot="public" virt="non-virtual"><scope>QfRubberband3D</scope><name>radius</name></member>
+      <member refid="classQfRubberband3D_1a7468d129173cda55369800efd91fe08a" prot="public" virt="non-virtual"><scope>QfRubberband3D</scope><name>rubberbandModel</name></member>
+      <member refid="classQfRubberband3D_1ab6ce8eecf32ea30b5b0e1ab3fccbafed" prot="private" virt="non-virtual"><scope>QfRubberband3D</scope><name>rubberbandModel3D</name></member>
+      <member refid="classQfRubberband3D_1aed8c61eebc6786a5b5edb750e5943912" prot="public" virt="non-virtual"><scope>QfRubberband3D</scope><name>segments</name></member>
+      <member refid="classQfRubberband3D_1a4b0f3c045130962ef29ae092e10c8533" prot="public" virt="non-virtual"><scope>QfRubberband3D</scope><name>terrainProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

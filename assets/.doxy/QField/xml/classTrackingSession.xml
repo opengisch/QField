@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTrackingSession" kind="class" language="C++" prot="public">
+    <compoundname>TrackingSession</compoundname>
+    <basecompoundref refid="classQfTrackingSession" prot="public" virt="non-virtual">QfTrackingSession</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfTrackingSession</label>
+        <link refid="classQfTrackingSession"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TrackingSession</label>
+        <link refid="classTrackingSession"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfTrackingSession</label>
+        <link refid="classQfTrackingSession"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TrackingSession</label>
+        <link refid="classTrackingSession"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/TrackingSession.qml" line="2" column="1" bodyfile="src/app/qml_compat/TrackingSession.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfTrackingSession_1abce9ab2fa35cbbfc59dae7aba08e5b61" prot="public" virt="non-virtual"><scope>TrackingSession</scope><name>cloudUserInformation</name></member>
+      <member refid="classQfTrackingSession_1abdbd54d682bc85d59877171ffbd08581" prot="public" virt="non-virtual"><scope>TrackingSession</scope><name>featureCreated</name></member>
+      <member refid="classQfTrackingSession_1a3155da5511bf11229f44bd13f175d872" prot="public" virt="non-virtual"><scope>TrackingSession</scope><name>filterAccuracy</name></member>
+      <member refid="classQfTrackingSession_1a742973fcd255f079a6c09ff61dc0be0e" prot="public" virt="non-virtual"><scope>TrackingSession</scope><name>mapSettings</name></member>
+      <member refid="classQfTrackingSession_1a86df34d144d644c11b6ad996cfc6b992" prot="public" virt="non-virtual"><scope>TrackingSession</scope><name>positioning</name></member>
+      <member refid="classQfTrackingSession_1ae05a34e866f2e6c7014a0fd5852db1a9" prot="public" virt="non-virtual"><scope>TrackingSession</scope><name>project</name></member>
+      <member refid="classQfTrackingSession_1a119c1f7987bfc7f5052db67adf2570ad" prot="public" virt="non-virtual"><scope>TrackingSession</scope><name>tracker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

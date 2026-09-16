@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBookmarkLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>QfBookmarkLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="qfbookmarklocatorfilter_8h" local="no">qfbookmarklocatorfilter.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfBookmarkLocatorFilter_1aa2ffa1ebbdae3a100ab7efc7e87a24d7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionOrigin</name>
+        <qualifiedname>QfBookmarkLocatorFilter::ActionOrigin</qualifiedname>
+        <enumvalue id="classQfBookmarkLocatorFilter_1aa2ffa1ebbdae3a100ab7efc7e87a24d7abfd0f1206ef33cc0c0d987fb4832c831" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBookmarkLocatorFilter_1aa2ffa1ebbdae3a100ab7efc7e87a24d7a0259bf4b5469325665491963cdd77099" prot="public">
+          <name>QfNavigation</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Origin of the action which triggers the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="37" column="5" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="38" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBookmarkLocatorFilter_1a76bd873014656d95beeec38036eb6bda" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+        <definition>QfLocatorModelSuperBridge* QfBookmarkLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>QfBookmarkLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="57" column="31" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1ac41a20e83d4fdaea6c4c9646974606cb" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfBookmarkLocatorFilter::QfBookmarkLocatorFilter</definition>
+        <argsstring>(QfLocatorModelSuperBridge *locatorBridge, QObject *parent=nullptr)</argsstring>
+        <name>QfBookmarkLocatorFilter</name>
+        <qualifiedname>QfBookmarkLocatorFilter::QfBookmarkLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="43" column="14" bodyfile="src/core/locator/qfbookmarklocatorfilter.cpp" bodystart="26" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1a582fe21305dc718e4d90aac8146178f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfBookmarkLocatorFilter" kindref="compound">QfBookmarkLocatorFilter</ref> *</type>
+        <definition>QfBookmarkLocatorFilter * QfBookmarkLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>QfBookmarkLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="44" column="29" bodyfile="src/core/locator/qfbookmarklocatorfilter.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1a4fdae2eda7074b2d23066ff38364634a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfBookmarkLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>QfBookmarkLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="45" column="13" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1af715545e0bd9fc5040df1d7ef2846366" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfBookmarkLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>QfBookmarkLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="46" column="13" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1acda9436f34a4f5805a9142e127d364ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfBookmarkLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>QfBookmarkLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="47" column="13" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1ab97eb1822bc7c7784618272022a3eba6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority QfBookmarkLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>QfBookmarkLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="48" column="14" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1a30e86d5898b45eff2e99a1d59baf9df9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfBookmarkLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>QfBookmarkLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="49" column="13" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1a65cea6c10dabd00b5160eb5ab963a695" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsLocatorFilter::Flags</type>
+        <definition>QgsLocatorFilter::Flags QfBookmarkLocatorFilter::flags</definition>
+        <argsstring>() const override</argsstring>
+        <name>flags</name>
+        <qualifiedname>QfBookmarkLocatorFilter::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="50" column="29" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1ac6482e96d3326171c9653812cb4c845f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>QfBookmarkLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="52" column="10" bodyfile="src/core/locator/qfbookmarklocatorfilter.cpp" bodystart="38" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1a49bae7981715e1383d93e4bb8a343db7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>QfBookmarkLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="53" column="10" bodyfile="src/core/locator/qfbookmarklocatorfilter.cpp" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkLocatorFilter_1ac5a139ffb7ce416b96ce1de00fd4b3ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>QfBookmarkLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfbookmarklocatorfilter.h" line="54" column="10" bodyfile="src/core/locator/qfbookmarklocatorfilter.cpp" bodystart="65" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQfGotoLocatorFilter" kindref="compound">QfGotoLocatorFilter</ref> is a locator filter to search for and display coordinates. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfBookmarkLocatorFilter</label>
+        <link refid="classQfBookmarkLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfBookmarkLocatorFilter</label>
+        <link refid="classQfBookmarkLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/qfbookmarklocatorfilter.h" line="31" column="1" bodyfile="src/core/locator/qfbookmarklocatorfilter.h" bodystart="32" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classQfBookmarkLocatorFilter_1aa2ffa1ebbdae3a100ab7efc7e87a24d7" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>ActionOrigin</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1a582fe21305dc718e4d90aac8146178f3" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>clone</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1acda9436f34a4f5805a9142e127d364ca" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>description</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1af715545e0bd9fc5040df1d7ef2846366" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1ac6482e96d3326171c9653812cb4c845f" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1a65cea6c10dabd00b5160eb5ab963a695" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>flags</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1a76bd873014656d95beeec38036eb6bda" prot="private" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1a4fdae2eda7074b2d23066ff38364634a" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>name</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1aa2ffa1ebbdae3a100ab7efc7e87a24d7abfd0f1206ef33cc0c0d987fb4832c831" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>Normal</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1a30e86d5898b45eff2e99a1d59baf9df9" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1ab97eb1822bc7c7784618272022a3eba6" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>priority</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1ac41a20e83d4fdaea6c4c9646974606cb" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>QfBookmarkLocatorFilter</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1aa2ffa1ebbdae3a100ab7efc7e87a24d7a0259bf4b5469325665491963cdd77099" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>QfNavigation</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1a49bae7981715e1383d93e4bb8a343db7" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classQfBookmarkLocatorFilter_1ac5a139ffb7ce416b96ce1de00fd4b3ff" prot="public" virt="non-virtual"><scope>QfBookmarkLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFileReceiver" kind="class" language="C++" prot="public">
+    <compoundname>QfFileReceiver</compoundname>
+    <basecompoundref refid="classQfNmeaGnssReceiver" prot="public" virt="non-virtual">QfNmeaGnssReceiver</basecompoundref>
+    <includes refid="qffilereceiver_8h" local="no">qffilereceiver.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classQfFileReceiver_1a50b1816c2d9487c692b9f789ca8db919" prot="public" static="yes" mutable="no">
+        <type>QLatin1String</type>
+        <definition>QLatin1String QfFileReceiver::identifier</definition>
+        <argsstring></argsstring>
+        <name>identifier</name>
+        <qualifiedname>QfFileReceiver::identifier</qualifiedname>
+        <initializer>= QLatin1String( &quot;file&quot; )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="38" column="26" bodyfile="src/core/positioning/qffilereceiver.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFileReceiver_1aa33f699c8abb993994b181a1f5983eed" prot="private" static="no" mutable="no">
+        <type>QFile</type>
+        <definition>QFile QfFileReceiver::mLogs</definition>
+        <argsstring></argsstring>
+        <name>mLogs</name>
+        <qualifiedname>QfFileReceiver::mLogs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="46" column="11" bodyfile="src/core/positioning/qffilereceiver.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFileReceiver_1a1881d901614ea4e547ac57d0a9381d5d" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfFileReceiver::mTimer</definition>
+        <argsstring></argsstring>
+        <name>mTimer</name>
+        <qualifiedname>QfFileReceiver::mTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="47" column="12" bodyfile="src/core/positioning/qffilereceiver.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFileReceiver_1ac99694627da9806d356f49a37ca51c8f" prot="private" static="no" mutable="no">
+        <type>QBuffer *</type>
+        <definition>QBuffer* QfFileReceiver::mBuffer</definition>
+        <argsstring></argsstring>
+        <name>mBuffer</name>
+        <qualifiedname>QfFileReceiver::mBuffer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="48" column="13" bodyfile="src/core/positioning/qffilereceiver.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFileReceiver_1aece67464df616912fbc92764bbfb3af2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFileReceiver::QfFileReceiver</definition>
+        <argsstring>(const QString &amp;filePath=QString(), const int interval=0, QObject *parent=nullptr)</argsstring>
+        <name>QfFileReceiver</name>
+        <qualifiedname>QfFileReceiver::QfFileReceiver</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filePath</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>interval</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="35" column="14" bodyfile="src/core/positioning/qffilereceiver.cpp" bodystart="23" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFileReceiver_1ad295ac9bd6e33a40081ff4648dbd4dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFileReceiver::~QfFileReceiver</definition>
+        <argsstring>()</argsstring>
+        <name>~QfFileReceiver</name>
+        <qualifiedname>QfFileReceiver::~QfFileReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="36" column="5" bodyfile="src/core/positioning/qffilereceiver.cpp" bodystart="45" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfFileReceiver_1ab46abe07a5a00434951bf473c92dc43a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfFileReceiver::handleConnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>QfFileReceiver::handleConnectDevice</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1ab9f5973a983d7cd8cb88cacd5bc0be19">handleConnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="41" column="10" bodyfile="src/core/positioning/qffilereceiver.cpp" bodystart="52" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFileReceiver_1aee020cca4da5372aea3db8967732eb10" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfFileReceiver::handleDisconnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>QfFileReceiver::handleDisconnectDevice</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1a5ab9458d00d4521488b13c7d7788ef8c">handleDisconnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="42" column="10" bodyfile="src/core/positioning/qffilereceiver.cpp" bodystart="68" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFileReceiver_1ab3224ebd656b2dd2fbcc3e0d286d2c32" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFileReceiver::readLogsLine</definition>
+        <argsstring>()</argsstring>
+        <name>readLogsLine</name>
+        <qualifiedname>QfFileReceiver::readLogsLine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qffilereceiver.h" line="44" column="10" bodyfile="src/core/positioning/qffilereceiver.cpp" bodystart="78" bodyend="91"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classQfFileReceiver" kindref="compound">QfFileReceiver</ref> replays a provided NMEA log file in a loop. Useful to debug external GNSS devices. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="3">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfFileReceiver</label>
+        <link refid="classQfFileReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNmeaGnssReceiver</label>
+        <link refid="classQfNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="3">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfFileReceiver</label>
+        <link refid="classQfFileReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNmeaGnssReceiver</label>
+        <link refid="classQfNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qffilereceiver.h" line="30" column="1" bodyfile="src/core/positioning/qffilereceiver.h" bodystart="31" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classQfAbstractGnssReceiver_1aac097e8d39901f49bfba6633783ce784" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>batteryLevel</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa540bc95579e25facd7da0621a162cec" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>batteryLevelChanged</name></member>
+      <member refid="classQfNmeaGnssReceiver_1aa7ce2c6965aa606add03e9141f55d80d" prot="public" virt="virtual"><scope>QfFileReceiver</scope><name>capabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>Capability</name></member>
+      <member refid="classQfAbstractGnssReceiver_1acd13344a5df00287f22cc4f1108b2505" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>connectDevice</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa3a6cd080093891093d85fd6500320f0" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classQfFileReceiver_1ab46abe07a5a00434951bf473c92dc43a" prot="private" virt="virtual"><scope>QfFileReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classQfFileReceiver_1aee020cca4da5372aea3db8967732eb10" prot="private" virt="virtual"><scope>QfFileReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classQfFileReceiver_1a50b1816c2d9487c692b9f789ca8db919" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>identifier</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a9790d1624471555daa6f9458fd452162" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>initNmeaConnection</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a76c09326f896a708603bcd38ca07d927" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>lastError</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a24a6fe2fb4dd37c5d0a17e606fe77c" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a757b5533e1968510d599257e7e359d9a" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aaf98efbbd5b1f4c3bfc153ec081a6cf7" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a32149f1fa2d70af22b8ea711b5f0f75e" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>Logging</name></member>
+      <member refid="classQfFileReceiver_1ac99694627da9806d356f49a37ca51c8f" prot="private" virt="non-virtual"><scope>QfFileReceiver</scope><name>mBuffer</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a6a79860a50f7fa69eb0e36129704a77e" prot="protected" virt="non-virtual"><scope>QfFileReceiver</scope><name>mLastGnssPositionValid</name></member>
+      <member refid="classQfFileReceiver_1aa33f699c8abb993994b181a1f5983eed" prot="private" virt="non-virtual"><scope>QfFileReceiver</scope><name>mLogs</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a2553cea5efd8d8b6f0efc30529dccd05" prot="protected" virt="non-virtual"><scope>QfFileReceiver</scope><name>mNmeaConnection</name></member>
+      <member refid="classQfFileReceiver_1a1881d901614ea4e547ac57d0a9381d5d" prot="private" virt="non-virtual"><scope>QfFileReceiver</scope><name>mTimer</name></member>
+      <member refid="classQfNmeaGnssReceiver_1abeedff36d0f38a92107611c8d55ba912" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>nmeaSentenceReceived</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a8eb58b06d873c2e100d0b74ec9215238" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325af35004204d33f6a62fc45d6962ee2a58" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>NtripCorrection</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a80c5495e9869643dc3d2ca95f604f3a9" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>onCorrectionDataReceived</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a73d1b405c90412d84b32ec9e03e32f55" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab2303acc969f562c75ecabf988c64c62" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>QfAbstractGnssReceiver</name></member>
+      <member refid="classQfFileReceiver_1aece67464df616912fbc92764bbfb3af2" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>QfFileReceiver</name></member>
+      <member refid="classQfNmeaGnssReceiver_1afdffe6b403fc52ee5e29fd309ada3632" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>QfNmeaGnssReceiver</name></member>
+      <member refid="classQfFileReceiver_1ab3224ebd656b2dd2fbcc3e0d286d2c32" prot="private" virt="non-virtual"><scope>QfFileReceiver</scope><name>readLogsLine</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af56b337ca8d29574f31d63892af25a07" prot="protected" virt="non-virtual"><scope>QfFileReceiver</scope><name>setSocketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a6994043dce54d0ca8819344a88e234" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>setValid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8725d739983222c78dc93417c5afec45" prot="public" virt="virtual"><scope>QfFileReceiver</scope><name>socketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af2ed915f4e3a0db45e29fde997f84c1c" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a95d28d113cc788e37d63bbef8a54fcef" prot="public" virt="virtual"><scope>QfFileReceiver</scope><name>socketStateString</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab1b149cfbdd0c1d20cc4c2c055eecb05" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1add322c32a7897bba08ddd8f6aeec0e34" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>startLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a0b03f384c24e5b473352d8c2de0dec23" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>stopLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a28ca8d6d79d1394da7b0e79521a0a845" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>valid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a26ee820f395b20f02ed32629d1dbb5c1" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>validChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a49b0d1da3fa61943bc6687f07b7b6f0f" prot="public" virt="virtual"><scope>QfFileReceiver</scope><name>~QfAbstractGnssReceiver</name></member>
+      <member refid="classQfFileReceiver_1ad295ac9bd6e33a40081ff4648dbd4dc6" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>~QfFileReceiver</name></member>
+      <member refid="classQfNmeaGnssReceiver_1ab937d625faa2ec21a2bdbcc85d419349" prot="public" virt="non-virtual"><scope>QfFileReceiver</scope><name>~QfNmeaGnssReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoParameterAngle" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoParameterAngle</compoundname>
+    <basecompoundref refid="classQfCogoParameterWidgetBase" prot="public" virt="non-virtual">QfCogoParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoParameterAngle_1ad8a8d9906da4fc6120f76d78845ed01d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterAngle::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCogoParameterAngle::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" line="8" column="5" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterAngle_1a4161768c7574398c41b2b32d0a61496c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterAngle::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCogoParameterAngle::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" line="9" column="5" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterAngle_1ac6f2c771d738f2d519dee8955270617c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfCogoParameterAngle::angleField</definition>
+        <argsstring></argsstring>
+        <name>angleField</name>
+        <qualifiedname>QfCogoParameterAngle::angleField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" line="10" column="13" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoParameterAngle_1a812f3630da30a151a8b2c0b59076d16b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoParameterAngle::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>QfCogoParameterAngle::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" line="13" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCogoParameterAngle</label>
+        <link refid="classQfCogoParameterAngle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoParameterWidgetBase</label>
+        <link refid="classQfCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCogoParameterAngle</label>
+        <link refid="classQfCogoParameterAngle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoParameterWidgetBase</label>
+        <link refid="classQfCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" line="7" column="1" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterAngle.qml" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classQfCogoParameterAngle_1ac6f2c771d738f2d519dee8955270617c" prot="private" virt="non-virtual"><scope>QfCogoParameterAngle</scope><name>angleField</name></member>
+      <member refid="classQfCogoParameterAngle_1a4161768c7574398c41b2b32d0a61496c" prot="private" virt="non-virtual"><scope>QfCogoParameterAngle</scope><name>height</name></member>
+      <member refid="classQfCogoParameterAngle_1a812f3630da30a151a8b2c0b59076d16b" prot="public" virt="non-virtual"><scope>QfCogoParameterAngle</scope><name>processValue</name></member>
+      <member refid="classQfCogoParameterWidgetBase_1a31b2a7aa825831608188d5c97cf5d8a6" prot="public" virt="non-virtual"><scope>QfCogoParameterAngle</scope><name>requestPosition</name></member>
+      <member refid="classQfCogoParameterWidgetBase_1a021ef367435f055140add8a42b7ea339" prot="public" virt="non-virtual"><scope>QfCogoParameterAngle</scope><name>valueChangeRequested</name></member>
+      <member refid="classQfCogoParameterAngle_1ad8a8d9906da4fc6120f76d78845ed01d" prot="private" virt="non-virtual"><scope>QfCogoParameterAngle</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfButton" kind="class" language="C++" prot="public">
+    <compoundname>QfButton</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Button</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfButton_1a8f229b6ebb8f857cbecca0cc77a2ef67" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfButton::bgcolor</definition>
+        <argsstring></argsstring>
+        <name>bgcolor</name>
+        <qualifiedname>QfButton::bgcolor</qualifiedname>
+        <read>dummyGetter_bgcolor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="16" column="1" bodyfile="src/gui/qml/QfButton.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfButton_1af2465e1a53822298b992bae0930a41e0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfButton::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfButton::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="18" column="1" bodyfile="src/gui/qml/QfButton.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfButton_1a7ce99cab79a85e57f5594e589f93448e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfButton::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>QfButton::radius</qualifiedname>
+        <read>dummyGetter_radius_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="20" column="1" bodyfile="src/gui/qml/QfButton.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfButton_1a30df65718494d8a12715f7c1ff80e270" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfButton::borderColor</definition>
+        <argsstring></argsstring>
+        <name>borderColor</name>
+        <qualifiedname>QfButton::borderColor</qualifiedname>
+        <read>dummyGetter_borderColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="22" column="1" bodyfile="src/gui/qml/QfButton.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfButton_1a0a6c9eb093d23f994d0ec7a238802018" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfButton::dropdown</definition>
+        <argsstring></argsstring>
+        <name>dropdown</name>
+        <qualifiedname>QfButton::dropdown</qualifiedname>
+        <read>dummyGetter_dropdown_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="24" column="1" bodyfile="src/gui/qml/QfButton.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfButton_1a01423a525338bb4a2d068165a76fe50f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfButton::progressValue</definition>
+        <argsstring></argsstring>
+        <name>progressValue</name>
+        <qualifiedname>QfButton::progressValue</qualifiedname>
+        <read>dummyGetter_progressValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="26" column="1" bodyfile="src/gui/qml/QfButton.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfButton_1a983f22e5b5dee624d0f5f0d6124d3339" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfButton::showProgress</definition>
+        <argsstring></argsstring>
+        <name>showProgress</name>
+        <qualifiedname>QfButton::showProgress</qualifiedname>
+        <read>dummyGetter_showProgress_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="28" column="1" bodyfile="src/gui/qml/QfButton.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfButton_1a37aa2ce3a3caab7c1b61b3aae16d2f76" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::verticalPadding</definition>
+        <argsstring></argsstring>
+        <name>verticalPadding</name>
+        <qualifiedname>QfButton::verticalPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="32" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a5a937a84d9eba2f931283b84bea35b42" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QfButton::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="33" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a14010de347830c4bd657516874f115c8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QfButton::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="34" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1afcde67ccfe910c87aa67c866f920b22d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::topInset</definition>
+        <argsstring></argsstring>
+        <name>topInset</name>
+        <qualifiedname>QfButton::topInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="35" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a7f5f549e3d03dd32b9581876fd8db26c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::bottomInset</definition>
+        <argsstring></argsstring>
+        <name>bottomInset</name>
+        <qualifiedname>QfButton::bottomInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="36" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1ab8c884991450379127f15e646e9ecd56" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::leftInset</definition>
+        <argsstring></argsstring>
+        <name>leftInset</name>
+        <qualifiedname>QfButton::leftInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="37" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a7db9bb21479c38b5c9c63ef334334ac0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::rightInset</definition>
+        <argsstring></argsstring>
+        <name>rightInset</name>
+        <qualifiedname>QfButton::rightInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="38" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1ae256fa35bfb51fdbf00d08682130d105" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::focusPolicy</definition>
+        <argsstring></argsstring>
+        <name>focusPolicy</name>
+        <qualifiedname>QfButton::focusPolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="39" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a0d1d2fc24e10373a6f2501848fd7478c" prot="private" static="no" mutable="no">
+        <type>var icon</type>
+        <definition>var icon QfButton::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfButton::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="40" column="9" bodyfile="src/gui/qml/QfButton.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a7f93ea1ed1b7b3d765dac9771a8fb252" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>QfButton::font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="41" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a7dc3b44f3516f7f459bb142330b8f23e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfButton::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="42" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a1445d6f6bc026ec6fe204024eebf8089" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfButton::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>QfButton::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="43" column="5" bodyfile="src/gui/qml/QfButton.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1ac4d34bbd3f3ffee76fe0342e6778a5e8" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfButton::dropdownArea</definition>
+        <argsstring></argsstring>
+        <name>dropdownArea</name>
+        <qualifiedname>QfButton::dropdownArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="44" column="11" bodyfile="src/gui/qml/QfButton.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfButton_1a7c5b8e55bb24249b86d2bd49c8ad7fec" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfButton::dropdownArrow</definition>
+        <argsstring></argsstring>
+        <name>dropdownArrow</name>
+        <qualifiedname>QfButton::dropdownArrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="45" column="7" bodyfile="src/gui/qml/QfButton.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfButton_1a6b0d9e63ed597e6973f7d826c2f30e91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfButton::dropdownClicked</definition>
+        <argsstring>()</argsstring>
+        <name>dropdownClicked</name>
+        <qualifiedname>QfButton::dropdownClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfButton.qml" line="30" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Button</label>
+      </node>
+      <node id="1">
+        <label>QfButton</label>
+        <link refid="classQfButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Button</label>
+      </node>
+      <node id="1">
+        <label>QfButton</label>
+        <link refid="classQfButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfButton.qml" line="13" column="1" bodyfile="src/gui/qml/QfButton.qml" bodystart="13" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classQfButton_1a7dc3b44f3516f7f459bb142330b8f23e" prot="private" virt="non-virtual"><scope>QfButton</scope><name>background</name></member>
+      <member refid="classQfButton_1a8f229b6ebb8f857cbecca0cc77a2ef67" prot="public" virt="non-virtual"><scope>QfButton</scope><name>bgcolor</name></member>
+      <member refid="classQfButton_1a30df65718494d8a12715f7c1ff80e270" prot="public" virt="non-virtual"><scope>QfButton</scope><name>borderColor</name></member>
+      <member refid="classQfButton_1a7f5f549e3d03dd32b9581876fd8db26c" prot="private" virt="non-virtual"><scope>QfButton</scope><name>bottomInset</name></member>
+      <member refid="classQfButton_1af2465e1a53822298b992bae0930a41e0" prot="public" virt="non-virtual"><scope>QfButton</scope><name>color</name></member>
+      <member refid="classQfButton_1a0d1d2fc24e10373a6f2501848fd7478c" prot="private" virt="non-virtual"><scope>QfButton</scope><name>color</name></member>
+      <member refid="classQfButton_1a1445d6f6bc026ec6fe204024eebf8089" prot="private" virt="non-virtual"><scope>QfButton</scope><name>contentItem</name></member>
+      <member refid="classQfButton_1a0a6c9eb093d23f994d0ec7a238802018" prot="public" virt="non-virtual"><scope>QfButton</scope><name>dropdown</name></member>
+      <member refid="classQfButton_1ac4d34bbd3f3ffee76fe0342e6778a5e8" prot="private" virt="non-virtual"><scope>QfButton</scope><name>dropdownArea</name></member>
+      <member refid="classQfButton_1a7c5b8e55bb24249b86d2bd49c8ad7fec" prot="private" virt="non-virtual"><scope>QfButton</scope><name>dropdownArrow</name></member>
+      <member refid="classQfButton_1a6b0d9e63ed597e6973f7d826c2f30e91" prot="public" virt="non-virtual"><scope>QfButton</scope><name>dropdownClicked</name></member>
+      <member refid="classQfButton_1ae256fa35bfb51fdbf00d08682130d105" prot="private" virt="non-virtual"><scope>QfButton</scope><name>focusPolicy</name></member>
+      <member refid="classQfButton_1a7f93ea1ed1b7b3d765dac9771a8fb252" prot="private" virt="non-virtual"><scope>QfButton</scope><name>font</name></member>
+      <member refid="classQfButton_1ab8c884991450379127f15e646e9ecd56" prot="private" virt="non-virtual"><scope>QfButton</scope><name>leftInset</name></member>
+      <member refid="classQfButton_1a5a937a84d9eba2f931283b84bea35b42" prot="private" virt="non-virtual"><scope>QfButton</scope><name>leftPadding</name></member>
+      <member refid="classQfButton_1a01423a525338bb4a2d068165a76fe50f" prot="public" virt="non-virtual"><scope>QfButton</scope><name>progressValue</name></member>
+      <member refid="classQfButton_1a7ce99cab79a85e57f5594e589f93448e" prot="public" virt="non-virtual"><scope>QfButton</scope><name>radius</name></member>
+      <member refid="classQfButton_1a7db9bb21479c38b5c9c63ef334334ac0" prot="private" virt="non-virtual"><scope>QfButton</scope><name>rightInset</name></member>
+      <member refid="classQfButton_1a14010de347830c4bd657516874f115c8" prot="private" virt="non-virtual"><scope>QfButton</scope><name>rightPadding</name></member>
+      <member refid="classQfButton_1a983f22e5b5dee624d0f5f0d6124d3339" prot="public" virt="non-virtual"><scope>QfButton</scope><name>showProgress</name></member>
+      <member refid="classQfButton_1afcde67ccfe910c87aa67c866f920b22d" prot="private" virt="non-virtual"><scope>QfButton</scope><name>topInset</name></member>
+      <member refid="classQfButton_1a37aa2ce3a3caab7c1b61b3aae16d2f76" prot="private" virt="non-virtual"><scope>QfButton</scope><name>verticalPadding</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

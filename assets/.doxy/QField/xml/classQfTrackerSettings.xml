@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTrackerSettings" kind="class" language="C++" prot="public">
+    <compoundname>QfTrackerSettings</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classTrackerSettings" prot="public" virt="non-virtual">TrackerSettings</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTrackerSettings_1a06fe49a8d9daf367370ac8c640019c04" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfTrackerSettings::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="11" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a7be1d4c4e87f9c6a1f36ccbf9fa62936" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfTrackerSettings::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="12" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a9dbf6e46dfb374888bf94eb0482d0c5b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfTrackerSettings::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="13" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1ad9d4f5318b18cb83e83f8f6b3302569d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfTrackerSettings::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="14" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a9e85b72eb66126e842845a17938fa97c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfTrackerSettings::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="15" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a313a9f53852c5328e828e6c67f1f5ef6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfTrackerSettings::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="16" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a91d012c27424259bc314664a46f1095d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfTrackerSettings::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="17" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a2dac0d153d2cc88c7146a78f8498ad60" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::onLayerChanged</definition>
+        <argsstring></argsstring>
+        <name>onLayerChanged</name>
+        <qualifiedname>QfTrackerSettings::onLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="26" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a4eb41359534a02cd2f0be83fea33119d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>QfTrackerSettings::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="33" column="5" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a82213992783ad841363280e343404479" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout QfTrackerSettings::trackerSettingsGrid</definition>
+        <argsstring></argsstring>
+        <name>trackerSettingsGrid</name>
+        <qualifiedname>QfTrackerSettings::trackerSettingsGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="34" column="12" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a71f2f7a1a33bb67aafe0296250756238" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QfTrackerSettings::layersComboBox</definition>
+        <argsstring></argsstring>
+        <name>layersComboBox</name>
+        <qualifiedname>QfTrackerSettings::layersComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="35" column="12" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a4720284a56dce7186a06d94f0306f46e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfTrackerSettings::timeInterval</definition>
+        <argsstring></argsstring>
+        <name>timeInterval</name>
+        <qualifiedname>QfTrackerSettings::timeInterval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="36" column="10" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a216fe83555b8227cd488a0c12095225f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfTrackerSettings::timeIntervalValue</definition>
+        <argsstring></argsstring>
+        <name>timeIntervalValue</name>
+        <qualifiedname>QfTrackerSettings::timeIntervalValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="37" column="13" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a07437a3b79ab593716f18008eb273d14" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfTrackerSettings::minimumDistance</definition>
+        <argsstring></argsstring>
+        <name>minimumDistance</name>
+        <qualifiedname>QfTrackerSettings::minimumDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="38" column="10" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1aa9678a1b4fa4574d6c6b8a7b33557598" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDistanceArea" kindref="compound">QfDistanceArea</ref></type>
+        <definition>QfDistanceArea QfTrackerSettings::infoDistanceArea</definition>
+        <argsstring></argsstring>
+        <name>infoDistanceArea</name>
+        <qualifiedname>QfTrackerSettings::infoDistanceArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="39" column="16" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a9d8a2fbb81caa31ff6ba318f3212cc24" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfTrackerSettings::minimumDistanceValue</definition>
+        <argsstring></argsstring>
+        <name>minimumDistanceValue</name>
+        <qualifiedname>QfTrackerSettings::minimumDistanceValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="40" column="13" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a72df486c8b5ee144189e09971bfdafba" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfTrackerSettings::sensorCapture</definition>
+        <argsstring></argsstring>
+        <name>sensorCapture</name>
+        <qualifiedname>QfTrackerSettings::sensorCapture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="41" column="10" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1aaf7de03bcdc6f0813671e01999c84238" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfTrackerSettings::allConstraints</definition>
+        <argsstring></argsstring>
+        <name>allConstraints</name>
+        <qualifiedname>QfTrackerSettings::allConstraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="42" column="10" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a5a254b830ee4f10f395aac948ad9857c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfTrackerSettings::erroneousDistanceSafeguard</definition>
+        <argsstring></argsstring>
+        <name>erroneousDistanceSafeguard</name>
+        <qualifiedname>QfTrackerSettings::erroneousDistanceSafeguard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="43" column="10" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a0221b664f11cc5d9d397bf5516579f72" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfTrackerSettings::erroneousDistanceValue</definition>
+        <argsstring></argsstring>
+        <name>erroneousDistanceValue</name>
+        <qualifiedname>QfTrackerSettings::erroneousDistanceValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="44" column="13" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a7af24c6f206277d19a0149936dffd2db" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfTrackerSettings::measureLabel</definition>
+        <argsstring></argsstring>
+        <name>measureLabel</name>
+        <qualifiedname>QfTrackerSettings::measureLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="45" column="7" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1ae3e1b72f64c3b0ef089f8aaa67719b1c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QfTrackerSettings::measureComboBox</definition>
+        <argsstring></argsstring>
+        <name>measureComboBox</name>
+        <qualifiedname>QfTrackerSettings::measureComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="46" column="12" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1ad72a884683f18ec8e03662bbfe46412d" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfTrackerSettings::measureTipLabel</definition>
+        <argsstring></argsstring>
+        <name>measureTipLabel</name>
+        <qualifiedname>QfTrackerSettings::measureTipLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="47" column="7" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1aadcade8d8d83d15db31ffdd2b174c7a8" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfTrackerSettings::bottomRow</definition>
+        <argsstring></argsstring>
+        <name>bottomRow</name>
+        <qualifiedname>QfTrackerSettings::bottomRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="48" column="11" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a317fa5ff4cb51fe896313f31451676bf" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfTrackerSettings::startTrackingButton</definition>
+        <argsstring></argsstring>
+        <name>startTrackingButton</name>
+        <qualifiedname>QfTrackerSettings::startTrackingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="49" column="10" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1a1811bbf2eb419ec1cf0ea473c82de296" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfTrackerSettings::resumeTrackingButton</definition>
+        <argsstring></argsstring>
+        <name>resumeTrackingButton</name>
+        <qualifiedname>QfTrackerSettings::resumeTrackingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="50" column="10" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackerSettings_1af69ba5e95e4c91741c0b2135582d86bf" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref></type>
+        <definition>QfFeatureModel QfTrackerSettings::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfTrackerSettings::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="51" column="16" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTrackerSettings_1aaad003df6457b2e4d1b3ff3fa029f99d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfTrackerSettings::availableLayersCount</definition>
+        <argsstring></argsstring>
+        <name>availableLayersCount</name>
+        <qualifiedname>QfTrackerSettings::availableLayersCount</qualifiedname>
+        <read>dummyGetter_availableLayersCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="20" column="1" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTrackerSettings_1a23b5583c96fe6acbc7dbf21bee503664" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::tracker</definition>
+        <argsstring></argsstring>
+        <name>tracker</name>
+        <qualifiedname>QfTrackerSettings::tracker</qualifiedname>
+        <read>dummyGetter_tracker_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="22" column="1" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTrackerSettings_1a9aa47eb12437cef910ab0ab2c96ee236" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfTrackerSettings::layer</definition>
+        <argsstring></argsstring>
+        <name>layer</name>
+        <qualifiedname>QfTrackerSettings::layer</qualifiedname>
+        <read>dummyGetter_layer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="24" column="1" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfTrackerSettings_1af6148437b7b9b55043e0c82dad2a2b2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTrackerSettings::applySettingsToTracker</definition>
+        <argsstring>()</argsstring>
+        <name>applySettingsToTracker</name>
+        <qualifiedname>QfTrackerSettings::applySettingsToTracker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="29" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTrackerSettings_1a8ca7bf4d4e61644b80a1523481130c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTrackerSettings::prepareSettings</definition>
+        <argsstring>(requestedLayer=undefined)</argsstring>
+        <name>prepareSettings</name>
+        <qualifiedname>QfTrackerSettings::prepareSettings</qualifiedname>
+        <param>
+          <type>requestedLayer</type>
+          <defval>undefined</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfTrackerSettings.qml" line="31" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfTrackerSettings</label>
+        <link refid="classQfTrackerSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TrackerSettings</label>
+        <link refid="classTrackerSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfTrackerSettings</label>
+        <link refid="classQfTrackerSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfTrackerSettings.qml" line="10" column="1" bodyfile="src/app/qml/QfTrackerSettings.qml" bodystart="10" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classQfTrackerSettings_1aaf7de03bcdc6f0813671e01999c84238" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>allConstraints</name></member>
+      <member refid="classQfTrackerSettings_1af6148437b7b9b55043e0c82dad2a2b2d" prot="public" virt="non-virtual"><scope>QfTrackerSettings</scope><name>applySettingsToTracker</name></member>
+      <member refid="classQfTrackerSettings_1aaad003df6457b2e4d1b3ff3fa029f99d" prot="public" virt="non-virtual"><scope>QfTrackerSettings</scope><name>availableLayersCount</name></member>
+      <member refid="classQfTrackerSettings_1aadcade8d8d83d15db31ffdd2b174c7a8" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>bottomRow</name></member>
+      <member refid="classQfTrackerSettings_1a313a9f53852c5328e828e6c67f1f5ef6" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>closePolicy</name></member>
+      <member refid="classQfTrackerSettings_1a5a254b830ee4f10f395aac948ad9857c" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>erroneousDistanceSafeguard</name></member>
+      <member refid="classQfTrackerSettings_1a0221b664f11cc5d9d397bf5516579f72" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>erroneousDistanceValue</name></member>
+      <member refid="classQfTrackerSettings_1af69ba5e95e4c91741c0b2135582d86bf" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>featureModel</name></member>
+      <member refid="classQfTrackerSettings_1a91d012c27424259bc314664a46f1095d" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>focus</name></member>
+      <member refid="classQfTrackerSettings_1a9dbf6e46dfb374888bf94eb0482d0c5b" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>height</name></member>
+      <member refid="classQfTrackerSettings_1aa9678a1b4fa4574d6c6b8a7b33557598" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>infoDistanceArea</name></member>
+      <member refid="classQfTrackerSettings_1a9aa47eb12437cef910ab0ab2c96ee236" prot="public" virt="non-virtual"><scope>QfTrackerSettings</scope><name>layer</name></member>
+      <member refid="classQfTrackerSettings_1a71f2f7a1a33bb67aafe0296250756238" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>layersComboBox</name></member>
+      <member refid="classQfTrackerSettings_1ae3e1b72f64c3b0ef089f8aaa67719b1c" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>measureComboBox</name></member>
+      <member refid="classQfTrackerSettings_1a7af24c6f206277d19a0149936dffd2db" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>measureLabel</name></member>
+      <member refid="classQfTrackerSettings_1ad72a884683f18ec8e03662bbfe46412d" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>measureTipLabel</name></member>
+      <member refid="classQfTrackerSettings_1a07437a3b79ab593716f18008eb273d14" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>minimumDistance</name></member>
+      <member refid="classQfTrackerSettings_1a9d8a2fbb81caa31ff6ba318f3212cc24" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>minimumDistanceValue</name></member>
+      <member refid="classQfTrackerSettings_1a4eb41359534a02cd2f0be83fea33119d" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>onAboutToHide</name></member>
+      <member refid="classQfTrackerSettings_1a2dac0d153d2cc88c7146a78f8498ad60" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>onLayerChanged</name></member>
+      <member refid="classQfTrackerSettings_1a06fe49a8d9daf367370ac8c640019c04" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>parent</name></member>
+      <member refid="classQfTrackerSettings_1a8ca7bf4d4e61644b80a1523481130c09" prot="public" virt="non-virtual"><scope>QfTrackerSettings</scope><name>prepareSettings</name></member>
+      <member refid="classQfTrackerSettings_1a1811bbf2eb419ec1cf0ea473c82de296" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>resumeTrackingButton</name></member>
+      <member refid="classQfTrackerSettings_1a72df486c8b5ee144189e09971bfdafba" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>sensorCapture</name></member>
+      <member refid="classQfTrackerSettings_1a317fa5ff4cb51fe896313f31451676bf" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>startTrackingButton</name></member>
+      <member refid="classQfTrackerSettings_1a4720284a56dce7186a06d94f0306f46e" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>timeInterval</name></member>
+      <member refid="classQfTrackerSettings_1a216fe83555b8227cd488a0c12095225f" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>timeIntervalValue</name></member>
+      <member refid="classQfTrackerSettings_1a23b5583c96fe6acbc7dbf21bee503664" prot="public" virt="non-virtual"><scope>QfTrackerSettings</scope><name>tracker</name></member>
+      <member refid="classQfTrackerSettings_1a82213992783ad841363280e343404479" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>trackerSettingsGrid</name></member>
+      <member refid="classQfTrackerSettings_1a7be1d4c4e87f9c6a1f36ccbf9fa62936" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>width</name></member>
+      <member refid="classQfTrackerSettings_1ad9d4f5318b18cb83e83f8f6b3302569d" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>x</name></member>
+      <member refid="classQfTrackerSettings_1a9e85b72eb66126e842845a17938fa97c" prot="private" virt="non-virtual"><scope>QfTrackerSettings</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

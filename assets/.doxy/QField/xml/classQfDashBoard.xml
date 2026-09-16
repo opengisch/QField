@@ -1,0 +1,837 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDashBoard" kind="class" language="C++" prot="public">
+    <compoundname>QfDashBoard</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Drawer</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDashBoard_1a279fa071f10dd0946d739037a9091706" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::objectName</definition>
+        <argsstring></argsstring>
+        <name>objectName</name>
+        <qualifiedname>QfDashBoard::objectName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="12" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1ad946f54994402a0a643e267f6d0c71be" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfDashBoard::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfDashBoard::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="43" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a9eae7f54c8c2933ac0f7c90e83ad7cb9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfDashBoard::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="44" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a242f87adc7269713f1d8f22ac5d814ff" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfDashBoard::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="45" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a4e3f31ed66ce8a9741909dca33c33517" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::edge</definition>
+        <argsstring></argsstring>
+        <name>edge</name>
+        <qualifiedname>QfDashBoard::edge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="46" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a092681481528c1fe585e3f9122350b1d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::dragMargin</definition>
+        <argsstring></argsstring>
+        <name>dragMargin</name>
+        <qualifiedname>QfDashBoard::dragMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="47" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a017b8b4c60c12defd0239bf13e3336d1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::interactive</definition>
+        <argsstring></argsstring>
+        <name>interactive</name>
+        <qualifiedname>QfDashBoard::interactive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="48" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a92ee47b3171669330fc8d4f3609bbcc3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::topPadding</definition>
+        <argsstring></argsstring>
+        <name>topPadding</name>
+        <qualifiedname>QfDashBoard::topPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="49" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a29500ed9fcafe2d6b983384f83450526" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QfDashBoard::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="50" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a85f6d22b752e42d0897ef9de73a9b17f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QfDashBoard::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="51" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a253469b36ef0fc29688bb2df93683519" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::bottomPadding</definition>
+        <argsstring></argsstring>
+        <name>bottomPadding</name>
+        <qualifiedname>QfDashBoard::bottomPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="52" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1adf1f431541d458380b0f53358e13699b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>QfDashBoard::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="53" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a7cb6c70dad95d1dcfe6f8b0cca0df200" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfDashBoard::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="54" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1afcb0c29b2d06c73e900cfed405998d4d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfDashBoard::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="55" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1ae50381d893e277018fb1a709e0b3a8c7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::onActiveLayerChanged</definition>
+        <argsstring></argsstring>
+        <name>onActiveLayerChanged</name>
+        <qualifiedname>QfDashBoard::onActiveLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="56" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a664cafa2d7193b92101c2c191b2bd5c3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDashBoard::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfDashBoard::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="57" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1ac52ff71989004fe3801f9dd1df136ce5" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::closeButton</definition>
+        <argsstring></argsstring>
+        <name>closeButton</name>
+        <qualifiedname>QfDashBoard::closeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="58" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a86a08dcc5184f713517892679df33903" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable QfDashBoard::buttonsRowContainer</definition>
+        <argsstring></argsstring>
+        <name>buttonsRowContainer</name>
+        <qualifiedname>QfDashBoard::buttonsRowContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="59" column="11" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a494303f08178c89979e2186832e11f6d" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row QfDashBoard::buttonsRow</definition>
+        <argsstring></argsstring>
+        <name>buttonsRow</name>
+        <qualifiedname>QfDashBoard::buttonsRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="60" column="5" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a3a9f852f2592dead5af57f7dde831a9e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::measurementButton</definition>
+        <argsstring></argsstring>
+        <name>measurementButton</name>
+        <qualifiedname>QfDashBoard::measurementButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="61" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a73e356bf6b15747c11d29245a13245ec" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::view3DButton</definition>
+        <argsstring></argsstring>
+        <name>view3DButton</name>
+        <qualifiedname>QfDashBoard::view3DButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="62" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a44a74ed43df4dbc5c8eca00b83399ca5" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::printItemButton</definition>
+        <argsstring></argsstring>
+        <name>printItemButton</name>
+        <qualifiedname>QfDashBoard::printItemButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="63" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a88d9175d76faac7c0cd0cd54e4a1a960" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::cloudButton</definition>
+        <argsstring></argsstring>
+        <name>cloudButton</name>
+        <qualifiedname>QfDashBoard::cloudButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="64" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1afe4a1f577325b06ef097bc19730572c8" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::projectFolderButton</definition>
+        <argsstring></argsstring>
+        <name>projectFolderButton</name>
+        <qualifiedname>QfDashBoard::projectFolderButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="65" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a6e796a6590e7e53a6374da0a16ef635e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::menuButton</definition>
+        <argsstring></argsstring>
+        <name>menuButton</name>
+        <qualifiedname>QfDashBoard::menuButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="66" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a3cf975827b51c04c8f39dee8a46af64f" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfDashBoard::projectInformationLayout</definition>
+        <argsstring></argsstring>
+        <name>projectInformationLayout</name>
+        <qualifiedname>QfDashBoard::projectInformationLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="67" column="11" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1af72d187b6efe03e1b02026e89630835d" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfDashBoard::projectTitleText</definition>
+        <argsstring></argsstring>
+        <name>projectTitleText</name>
+        <qualifiedname>QfDashBoard::projectTitleText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="68" column="6" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a7350e533c3021570284c69b876ddef7f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::temporalButton</definition>
+        <argsstring></argsstring>
+        <name>temporalButton</name>
+        <qualifiedname>QfDashBoard::temporalButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="69" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a320584045e102ae835eac938954b2493" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfDashBoard::projectInformationButton</definition>
+        <argsstring></argsstring>
+        <name>projectInformationButton</name>
+        <qualifiedname>QfDashBoard::projectInformationButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="70" column="14" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a39a232ba8dad565bf3c82c2590919302" prot="private" static="no" mutable="no">
+        <type>GroupBox</type>
+        <definition>GroupBox QfDashBoard::mapThemeContainer</definition>
+        <argsstring></argsstring>
+        <name>mapThemeContainer</name>
+        <qualifiedname>QfDashBoard::mapThemeContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="71" column="10" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a8940a65a244c1ccb939c7cc769a49a9a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QfDashBoard::mapThemeComboBox</definition>
+        <argsstring></argsstring>
+        <name>mapThemeComboBox</name>
+        <qualifiedname>QfDashBoard::mapThemeComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="72" column="12" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1ae2bd7a7b8654f85ae620b2d50f1661ed" prot="private" static="no" mutable="no">
+        <type>GroupBox</type>
+        <definition>GroupBox QfDashBoard::legendContainer</definition>
+        <argsstring></argsstring>
+        <name>legendContainer</name>
+        <qualifiedname>QfDashBoard::legendContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="73" column="10" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a2fcee5329c3a18a1bb3c8d995bcef5a1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLegend" kindref="compound">QfLegend</ref></type>
+        <definition>QfLegend QfDashBoard::legend</definition>
+        <argsstring></argsstring>
+        <name>legend</name>
+        <qualifiedname>QfDashBoard::legend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="74" column="10" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1aeb02187651c2c966e0714a192bed12ce" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfDashBoard::bottomRow</definition>
+        <argsstring></argsstring>
+        <name>bottomRow</name>
+        <qualifiedname>QfDashBoard::bottomRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="75" column="11" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1ab1cb175a7eaa6777818f8a6020542ebd" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfDashBoard::homeButton</definition>
+        <argsstring></argsstring>
+        <name>homeButton</name>
+        <qualifiedname>QfDashBoard::homeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="76" column="10" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1a216b761c929269fb74b94a07fb2517c4" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfDashBoard::modeSwitch</definition>
+        <argsstring></argsstring>
+        <name>modeSwitch</name>
+        <qualifiedname>QfDashBoard::modeSwitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="77" column="10" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1ac5bfbb0a82c8503143ebed6e027c5bd0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTemporalProperties" kindref="compound">QfTemporalProperties</ref></type>
+        <definition>QfTemporalProperties QfDashBoard::temporalProperties</definition>
+        <argsstring></argsstring>
+        <name>temporalProperties</name>
+        <qualifiedname>QfDashBoard::temporalProperties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="78" column="22" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDashBoard_1adf9d13f640e00d1224257acfc3012ebc" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfInformationPopup" kindref="compound">QfInformationPopup</ref></type>
+        <definition>QfInformationPopup QfDashBoard::informationPopup</definition>
+        <argsstring></argsstring>
+        <name>informationPopup</name>
+        <qualifiedname>QfDashBoard::informationPopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="79" column="20" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDashBoard_1ae704f796cbb2f66bf09e9f588c1f5e14" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDashBoard::preventFromOpening</definition>
+        <argsstring></argsstring>
+        <name>preventFromOpening</name>
+        <qualifiedname>QfDashBoard::preventFromOpening</qualifiedname>
+        <read>dummyGetter_preventFromOpening_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="29" column="1" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDashBoard_1a1b617f14077e897ea4615d4d5fb07fc6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDashBoard::allowInteractive</definition>
+        <argsstring></argsstring>
+        <name>allowInteractive</name>
+        <qualifiedname>QfDashBoard::allowInteractive</qualifiedname>
+        <read>dummyGetter_allowInteractive_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="31" column="1" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDashBoard_1adedf4ffb96bb9b118de3d6f32e3df7b0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDashBoard::allowActiveLayerChange</definition>
+        <argsstring></argsstring>
+        <name>allowActiveLayerChange</name>
+        <qualifiedname>QfDashBoard::allowActiveLayerChange</qualifiedname>
+        <read>dummyGetter_allowActiveLayerChange_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="33" column="1" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDashBoard_1a25a37d4cd2376bea1ef7bdc7358f6313" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer</type>
+        <definition>QgsVectorLayer QfDashBoard::activeLayer</definition>
+        <argsstring></argsstring>
+        <name>activeLayer</name>
+        <qualifiedname>QfDashBoard::activeLayer</qualifiedname>
+        <read>dummyGetter_activeLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="35" column="1" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDashBoard_1a20eb8c37bfb023765b5c4b264859033d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFlatLayerTreeModel" kindref="compound">QfFlatLayerTreeModel</ref></type>
+        <definition>QfFlatLayerTreeModel QfDashBoard::layerTree</definition>
+        <argsstring></argsstring>
+        <name>layerTree</name>
+        <qualifiedname>QfDashBoard::layerTree</qualifiedname>
+        <read>dummyGetter_layerTree_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="37" column="1" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDashBoard_1afd86d077ae05d660e0334c2c453e92dc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfDashBoard::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfDashBoard::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="39" column="1" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDashBoard_1add57f51fc8689e9ba4c417a2a1f87211" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudProjectsModel" kindref="compound">QfCloudProjectsModel</ref></type>
+        <definition>QfCloudProjectsModel QfDashBoard::cloudProjectsModel</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectsModel</name>
+        <qualifiedname>QfDashBoard::cloudProjectsModel</qualifiedname>
+        <read>dummyGetter_cloudProjectsModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="41" column="1" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfDashBoard_1a1ad27c5fd1013c5b607ab29d8b3898d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDashBoard::showMainMenu</definition>
+        <argsstring>(point p)</argsstring>
+        <name>showMainMenu</name>
+        <qualifiedname>QfDashBoard::showMainMenu</qualifiedname>
+        <param>
+          <type>point</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDashBoard_1ad5978e201f88aa79593f86e7df5e37cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDashBoard::showPrintLayouts</definition>
+        <argsstring>(point p)</argsstring>
+        <name>showPrintLayouts</name>
+        <qualifiedname>QfDashBoard::showPrintLayouts</qualifiedname>
+        <param>
+          <type>point</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="17" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDashBoard_1a55ce208e92709574c600c4915f158b52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDashBoard::showCloudPopup</definition>
+        <argsstring>()</argsstring>
+        <name>showCloudPopup</name>
+        <qualifiedname>QfDashBoard::showCloudPopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="19" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDashBoard_1a2482af716d086a655fdb6eb4d46dc16b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDashBoard::showProjectFolder</definition>
+        <argsstring>()</argsstring>
+        <name>showProjectFolder</name>
+        <qualifiedname>QfDashBoard::showProjectFolder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="21" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDashBoard_1a4dce63faf90174c4fbccd3fca118e17b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDashBoard::toggleMeasurementTool</definition>
+        <argsstring>()</argsstring>
+        <name>toggleMeasurementTool</name>
+        <qualifiedname>QfDashBoard::toggleMeasurementTool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="23" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDashBoard_1a0b8cfef8079d3f5f4e61a863533e7ed6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDashBoard::toggle3DView</definition>
+        <argsstring>()</argsstring>
+        <name>toggle3DView</name>
+        <qualifiedname>QfDashBoard::toggle3DView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="25" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDashBoard_1a50ceb2b5f4c79135248f76ff6d326b69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDashBoard::returnHome</definition>
+        <argsstring>()</argsstring>
+        <name>returnHome</name>
+        <qualifiedname>QfDashBoard::returnHome</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfDashBoard.qml" line="27" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Drawer</label>
+      </node>
+      <node id="1">
+        <label>QfDashBoard</label>
+        <link refid="classQfDashBoard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Drawer</label>
+      </node>
+      <node id="1">
+        <label>QfDashBoard</label>
+        <link refid="classQfDashBoard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfDashBoard.qml" line="11" column="1" bodyfile="src/app/qml/QfDashBoard.qml" bodystart="11" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classQfDashBoard_1a25a37d4cd2376bea1ef7bdc7358f6313" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>activeLayer</name></member>
+      <member refid="classQfDashBoard_1adedf4ffb96bb9b118de3d6f32e3df7b0" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>allowActiveLayerChange</name></member>
+      <member refid="classQfDashBoard_1a1b617f14077e897ea4615d4d5fb07fc6" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>allowInteractive</name></member>
+      <member refid="classQfDashBoard_1a664cafa2d7193b92101c2c191b2bd5c3" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>background</name></member>
+      <member refid="classQfDashBoard_1a253469b36ef0fc29688bb2df93683519" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>bottomPadding</name></member>
+      <member refid="classQfDashBoard_1aeb02187651c2c966e0714a192bed12ce" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>bottomRow</name></member>
+      <member refid="classQfDashBoard_1a494303f08178c89979e2186832e11f6d" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>buttonsRow</name></member>
+      <member refid="classQfDashBoard_1a86a08dcc5184f713517892679df33903" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>buttonsRowContainer</name></member>
+      <member refid="classQfDashBoard_1afcb0c29b2d06c73e900cfed405998d4d" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>clip</name></member>
+      <member refid="classQfDashBoard_1ac52ff71989004fe3801f9dd1df136ce5" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>closeButton</name></member>
+      <member refid="classQfDashBoard_1a88d9175d76faac7c0cd0cd54e4a1a960" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>cloudButton</name></member>
+      <member refid="classQfDashBoard_1add57f51fc8689e9ba4c417a2a1f87211" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>cloudProjectsModel</name></member>
+      <member refid="classQfDashBoard_1a092681481528c1fe585e3f9122350b1d" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>dragMargin</name></member>
+      <member refid="classQfDashBoard_1a4e3f31ed66ce8a9741909dca33c33517" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>edge</name></member>
+      <member refid="classQfDashBoard_1a7cb6c70dad95d1dcfe6f8b0cca0df200" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>focus</name></member>
+      <member refid="classQfDashBoard_1a242f87adc7269713f1d8f22ac5d814ff" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>height</name></member>
+      <member refid="classQfDashBoard_1ab1cb175a7eaa6777818f8a6020542ebd" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>homeButton</name></member>
+      <member refid="classQfDashBoard_1adf9d13f640e00d1224257acfc3012ebc" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>informationPopup</name></member>
+      <member refid="classQfDashBoard_1a017b8b4c60c12defd0239bf13e3336d1" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>interactive</name></member>
+      <member refid="classQfDashBoard_1a20eb8c37bfb023765b5c4b264859033d" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>layerTree</name></member>
+      <member refid="classQfDashBoard_1a29500ed9fcafe2d6b983384f83450526" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>leftPadding</name></member>
+      <member refid="classQfDashBoard_1a2fcee5329c3a18a1bb3c8d995bcef5a1" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>legend</name></member>
+      <member refid="classQfDashBoard_1ae2bd7a7b8654f85ae620b2d50f1661ed" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>legendContainer</name></member>
+      <member refid="classQfDashBoard_1afd86d077ae05d660e0334c2c453e92dc" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>mapSettings</name></member>
+      <member refid="classQfDashBoard_1a8940a65a244c1ccb939c7cc769a49a9a" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>mapThemeComboBox</name></member>
+      <member refid="classQfDashBoard_1a39a232ba8dad565bf3c82c2590919302" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>mapThemeContainer</name></member>
+      <member refid="classQfDashBoard_1a3a9f852f2592dead5af57f7dde831a9e" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>measurementButton</name></member>
+      <member refid="classQfDashBoard_1a6e796a6590e7e53a6374da0a16ef635e" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>menuButton</name></member>
+      <member refid="classQfDashBoard_1a216b761c929269fb74b94a07fb2517c4" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>modeSwitch</name></member>
+      <member refid="classQfDashBoard_1a279fa071f10dd0946d739037a9091706" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>objectName</name></member>
+      <member refid="classQfDashBoard_1ae50381d893e277018fb1a709e0b3a8c7" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>onActiveLayerChanged</name></member>
+      <member refid="classQfDashBoard_1ad946f54994402a0a643e267f6d0c71be" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>onCompleted</name></member>
+      <member refid="classQfDashBoard_1adf1f431541d458380b0f53358e13699b" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>position</name></member>
+      <member refid="classQfDashBoard_1ae704f796cbb2f66bf09e9f588c1f5e14" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>preventFromOpening</name></member>
+      <member refid="classQfDashBoard_1a44a74ed43df4dbc5c8eca00b83399ca5" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>printItemButton</name></member>
+      <member refid="classQfDashBoard_1afe4a1f577325b06ef097bc19730572c8" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>projectFolderButton</name></member>
+      <member refid="classQfDashBoard_1a320584045e102ae835eac938954b2493" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>projectInformationButton</name></member>
+      <member refid="classQfDashBoard_1a3cf975827b51c04c8f39dee8a46af64f" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>projectInformationLayout</name></member>
+      <member refid="classQfDashBoard_1af72d187b6efe03e1b02026e89630835d" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>projectTitleText</name></member>
+      <member refid="classQfDashBoard_1a50ceb2b5f4c79135248f76ff6d326b69" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>returnHome</name></member>
+      <member refid="classQfDashBoard_1a85f6d22b752e42d0897ef9de73a9b17f" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>rightPadding</name></member>
+      <member refid="classQfDashBoard_1a55ce208e92709574c600c4915f158b52" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>showCloudPopup</name></member>
+      <member refid="classQfDashBoard_1a1ad27c5fd1013c5b607ab29d8b3898d9" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>showMainMenu</name></member>
+      <member refid="classQfDashBoard_1ad5978e201f88aa79593f86e7df5e37cd" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>showPrintLayouts</name></member>
+      <member refid="classQfDashBoard_1a2482af716d086a655fdb6eb4d46dc16b" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>showProjectFolder</name></member>
+      <member refid="classQfDashBoard_1a7350e533c3021570284c69b876ddef7f" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>temporalButton</name></member>
+      <member refid="classQfDashBoard_1ac5bfbb0a82c8503143ebed6e027c5bd0" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>temporalProperties</name></member>
+      <member refid="classQfDashBoard_1a0b8cfef8079d3f5f4e61a863533e7ed6" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>toggle3DView</name></member>
+      <member refid="classQfDashBoard_1a4dce63faf90174c4fbccd3fca118e17b" prot="public" virt="non-virtual"><scope>QfDashBoard</scope><name>toggleMeasurementTool</name></member>
+      <member refid="classQfDashBoard_1a92ee47b3171669330fc8d4f3609bbcc3" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>topPadding</name></member>
+      <member refid="classQfDashBoard_1a73e356bf6b15747c11d29245a13245ec" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>view3DButton</name></member>
+      <member refid="classQfDashBoard_1a9eae7f54c8c2933ac0f7c90e83ad7cb9" prot="private" virt="non-virtual"><scope>QfDashBoard</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,992 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDrawingCanvas" kind="class" language="C++" prot="public">
+    <compoundname>QfDrawingCanvas</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickPaintedItem</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDrawingCanvas_1a2a1079a22df52108ef3e78441d75c1cf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDrawingCanvas::isEmpty</definition>
+        <argsstring></argsstring>
+        <name>isEmpty</name>
+        <qualifiedname>QfDrawingCanvas::isEmpty</qualifiedname>
+        <read>isEmpty</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property is set to TRUE when no canvas has been created or a previously created canvas has been cleared. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="59" column="5" bodyfile="src/core/qfdrawingcanvas.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDrawingCanvas_1ac8a0dcd8d5ea2fb74681df00af667fc7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDrawingCanvas::isDirty</definition>
+        <argsstring></argsstring>
+        <name>isDirty</name>
+        <qualifiedname>QfDrawingCanvas::isDirty</qualifiedname>
+        <read>isDirty</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property is set to TRUE when a created canvas has been modified. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="64" column="5" bodyfile="src/core/qfdrawingcanvas.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDrawingCanvas_1ab7a5a038089b21c7befeb8cd52eee447" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfDrawingCanvas::frameColor</definition>
+        <argsstring></argsstring>
+        <name>frameColor</name>
+        <qualifiedname>QfDrawingCanvas::frameColor</qualifiedname>
+        <read>frameColor</read>
+        <write>setFrameColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the color of the canvas frame. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="69" column="5" bodyfile="src/core/qfdrawingcanvas.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDrawingCanvas_1aba8275d12d54a9d6a6d6a6a6320d5de6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfDrawingCanvas::zoomFactor</definition>
+        <argsstring></argsstring>
+        <name>zoomFactor</name>
+        <qualifiedname>QfDrawingCanvas::zoomFactor</qualifiedname>
+        <read>zoomFactor</read>
+        <write>setZoomFactor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the current zoom factor of the canvas. A value of 1.0 means the canvas is at native resolutio (i.e. one screen pixel represents one canvas pixel). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="75" column="5" bodyfile="src/core/qfdrawingcanvas.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDrawingCanvas_1abeb5f68ba0747eb38d17645234894130" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QPointF</type>
+        <definition>QPointF QfDrawingCanvas::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <qualifiedname>QfDrawingCanvas::offset</qualifiedname>
+        <read>offset</read>
+        <write>setOffset</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the offset from the center of the canvas as a result of panning operations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="81" column="5" bodyfile="src/core/qfdrawingcanvas.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDrawingCanvas_1a69666e235bfe605d6b69b3220e2dc8c2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structQfDrawingStroke" kindref="compound">QfDrawingStroke</ref></type>
+        <definition>QfDrawingStroke QfDrawingCanvas::currentStroke</definition>
+        <argsstring></argsstring>
+        <name>currentStroke</name>
+        <qualifiedname>QfDrawingCanvas::currentStroke</qualifiedname>
+        <read>currentStroke</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="83" column="5" bodyfile="src/core/qfdrawingcanvas.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDrawingCanvas_1a6527ac26fed279683307bd01da978d6d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfDrawingCanvas::mIsEmpty</definition>
+        <argsstring></argsstring>
+        <name>mIsEmpty</name>
+        <qualifiedname>QfDrawingCanvas::mIsEmpty</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="204" column="10" bodyfile="src/core/qfdrawingcanvas.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1a1883d79478c445964acc6b87f779fb65" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfDrawingCanvas::mIsDirty</definition>
+        <argsstring></argsstring>
+        <name>mIsDirty</name>
+        <qualifiedname>QfDrawingCanvas::mIsDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="205" column="10" bodyfile="src/core/qfdrawingcanvas.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1a0905ce3cfb77a118dedf78f0e3457e55" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDrawingCanvas::mLoadedImagePath</definition>
+        <argsstring></argsstring>
+        <name>mLoadedImagePath</name>
+        <qualifiedname>QfDrawingCanvas::mLoadedImagePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="207" column="13" bodyfile="src/core/qfdrawingcanvas.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1ae5f8965181f309774395ca142127fa6c" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfDrawingCanvas::mFrameColor</definition>
+        <argsstring></argsstring>
+        <name>mFrameColor</name>
+        <qualifiedname>QfDrawingCanvas::mFrameColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="209" column="12" bodyfile="src/core/qfdrawingcanvas.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1a33ee16810805503d9a5524f440df788d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfDrawingCanvas::mZoomFactor</definition>
+        <argsstring></argsstring>
+        <name>mZoomFactor</name>
+        <qualifiedname>QfDrawingCanvas::mZoomFactor</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="210" column="12" bodyfile="src/core/qfdrawingcanvas.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1ab5a43b0b64dae7af1e913dc8a87b6ce4" prot="private" static="no" mutable="no">
+        <type>QPointF</type>
+        <definition>QPointF QfDrawingCanvas::mOffset</definition>
+        <argsstring></argsstring>
+        <name>mOffset</name>
+        <qualifiedname>QfDrawingCanvas::mOffset</qualifiedname>
+        <initializer>= QPointF( 0, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="211" column="13" bodyfile="src/core/qfdrawingcanvas.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1afda334346ea6c2c08c0d688af398db30" prot="private" static="no" mutable="no">
+        <type>QImage</type>
+        <definition>QImage QfDrawingCanvas::mBackgroundImage</definition>
+        <argsstring></argsstring>
+        <name>mBackgroundImage</name>
+        <qualifiedname>QfDrawingCanvas::mBackgroundImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="213" column="12" bodyfile="src/core/qfdrawingcanvas.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1aa97416610b7b9bc7e4ae9c60f6ba1d03" prot="private" static="no" mutable="no">
+        <type>QImage</type>
+        <definition>QImage QfDrawingCanvas::mDrawingImage</definition>
+        <argsstring></argsstring>
+        <name>mDrawingImage</name>
+        <qualifiedname>QfDrawingCanvas::mDrawingImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="214" column="12" bodyfile="src/core/qfdrawingcanvas.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1aa360621638e6130740243f2849375dec" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structQfDrawingStroke" kindref="compound">QfDrawingStroke</ref> &gt;</type>
+        <definition>QList&lt;QfDrawingStroke&gt; QfDrawingCanvas::mStrokes</definition>
+        <argsstring></argsstring>
+        <name>mStrokes</name>
+        <qualifiedname>QfDrawingCanvas::mStrokes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="216" column="11" bodyfile="src/core/qfdrawingcanvas.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingCanvas_1acf311363cc6a656918d40b04d8715ac7" prot="private" static="no" mutable="no">
+        <type><ref refid="structQfDrawingStroke" kindref="compound">QfDrawingStroke</ref></type>
+        <definition>QfDrawingStroke QfDrawingCanvas::mCurrentStroke</definition>
+        <argsstring></argsstring>
+        <name>mCurrentStroke</name>
+        <qualifiedname>QfDrawingCanvas::mCurrentStroke</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="217" column="21" bodyfile="src/core/qfdrawingcanvas.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfDrawingCanvas_1a2b0af3ec9471f85a9f27dd3708e60398" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfDrawingCanvas::QfDrawingCanvas</definition>
+        <argsstring>(QQuickItem *parent=nullptr)</argsstring>
+        <name>QfDrawingCanvas</name>
+        <qualifiedname>QfDrawingCanvas::QfDrawingCanvas</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="86" column="5" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="27" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a861a388309d0aeb626add31506b2e8d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfDrawingCanvas::~QfDrawingCanvas</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QfDrawingCanvas</name>
+        <qualifiedname>QfDrawingCanvas::~QfDrawingCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="87" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a4d2e746b72e5895ee0119d0a0ed5c9f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::paint</definition>
+        <argsstring>(QPainter *painter) override</argsstring>
+        <name>paint</name>
+        <qualifiedname>QfDrawingCanvas::paint</qualifiedname>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="89" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="362" bodyend="389"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a6a107f41f026842f0c4924fbc0c1dc69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfDrawingCanvas::isEmpty</definition>
+        <argsstring>() const</argsstring>
+        <name>isEmpty</name>
+        <qualifiedname>QfDrawingCanvas::isEmpty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property is set to TRUE when no canvas has been created or a previously created canvas has been cleared.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="92" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="166" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a38d9bb936e87fed1b9ea435d19d14923" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::setIsEmpty</definition>
+        <argsstring>(bool empty)</argsstring>
+        <name>setIsEmpty</name>
+        <qualifiedname>QfDrawingCanvas::setIsEmpty</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>empty</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property is set to TRUE when no canvas has been created or a previously created canvas has been cleared.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="95" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="171" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a541c54b2b32d9bf12625f04f238970a5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfDrawingCanvas::isDirty</definition>
+        <argsstring>() const</argsstring>
+        <name>isDirty</name>
+        <qualifiedname>QfDrawingCanvas::isDirty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property is set to TRUE when a created canvas has been modified.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="98" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1aeb69dfd613ca36f55cb5a0617ab96cba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::setIsDirty</definition>
+        <argsstring>(bool dirty)</argsstring>
+        <name>setIsDirty</name>
+        <qualifiedname>QfDrawingCanvas::setIsDirty</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>dirty</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property is set to TRUE when a created canvas has been modified.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="101" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="187" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a0be3b1c23152113293378c294ced8b27" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfDrawingCanvas::frameColor</definition>
+        <argsstring>() const</argsstring>
+        <name>frameColor</name>
+        <qualifiedname>QfDrawingCanvas::frameColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the color of the canvas frame.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="104" column="12" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a8ea3d2f876f2d5d85db50ad10f0a4bde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::setFrameColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setFrameColor</name>
+        <qualifiedname>QfDrawingCanvas::setFrameColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the color of the canvas frame.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="107" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="203" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1aa4e93358831c5278cc1118b387f9cbde" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfDrawingCanvas::zoomFactor</definition>
+        <argsstring>() const</argsstring>
+        <name>zoomFactor</name>
+        <qualifiedname>QfDrawingCanvas::zoomFactor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the current zoom factor of the canvas. A value of 1.0 means the canvas is at native resolutio (i.e. one screen pixel represents one canvas pixel).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="110" column="12" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="216" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a247e2fe9e69126a4efc68d4d66bf6595" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::setZoomFactor</definition>
+        <argsstring>(double factor)</argsstring>
+        <name>setZoomFactor</name>
+        <qualifiedname>QfDrawingCanvas::setZoomFactor</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>factor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the current zoom factor of the canvas. A value of 1.0 means the canvas is at native resolutio (i.e. one screen pixel represents one canvas pixel).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="113" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="221" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a0b2fe5e378c38581d2a183f7b23d5fa9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPointF</type>
+        <definition>QPointF QfDrawingCanvas::offset</definition>
+        <argsstring>() const</argsstring>
+        <name>offset</name>
+        <qualifiedname>QfDrawingCanvas::offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the offset from the center of the canvas as a result of panning operations.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="116" column="13" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="234" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a1a7a26566e24f12ddf30c80091486013" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::setOffset</definition>
+        <argsstring>(const QPointF &amp;offset)</argsstring>
+        <name>setOffset</name>
+        <qualifiedname>QfDrawingCanvas::setOffset</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the offset from the center of the canvas as a result of panning operations.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="119" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="239" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a95261dc5d2dcac7ff2d65fadca40fba4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structQfDrawingStroke" kindref="compound">QfDrawingStroke</ref></type>
+        <definition>QfDrawingStroke QfDrawingCanvas::currentStroke</definition>
+        <argsstring>() const</argsstring>
+        <name>currentStroke</name>
+        <qualifiedname>QfDrawingCanvas::currentStroke</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="121" column="21" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="252" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a88a20f9bb94367b4c77bc0c227707769" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::createBlankCanvas</definition>
+        <argsstring>(int width, int height, QColor backgroundColor=QColor(255, 255, 255))</argsstring>
+        <name>createBlankCanvas</name>
+        <qualifiedname>QfDrawingCanvas::createBlankCanvas</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>QColor</type>
+          <declname>backgroundColor</declname>
+          <defval>QColor(255, 255, 255)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a blank drawing canvas. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the width of the canvas. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the height of the canvas. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>backgroundColor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the background color of the canvas. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="129" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="35" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a749cf74ddef0209d6b070556491bad8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::createCanvasFromImage</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>createCanvasFromImage</name>
+        <qualifiedname>QfDrawingCanvas::createCanvasFromImage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a drawing canvas from a given image which will be the background on which the drawing will be overlayed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the image path. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="136" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="50" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a744ce4764c0e702613bfc26ec9f3b31a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfDrawingCanvas::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the drawing canvas. <simplesect kind="see"><para><ref refid="classQfDrawingCanvas_1a2a1079a22df52108ef3e78441d75c1cf" kindref="member">isEmpty()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="142" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="79" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1abd9635d5cb04beeb8aa55aceb84c2301" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::undo</definition>
+        <argsstring>()</argsstring>
+        <name>undo</name>
+        <qualifiedname>QfDrawingCanvas::undo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Undos the last drawing operation. <simplesect kind="see"><para><ref refid="classQfDrawingCanvas_1ac8a0dcd8d5ea2fb74681df00af667fc7" kindref="member">isDirty()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="148" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="322" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a057e526c3c048c0892c7c29c3427786c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfDrawingCanvas::save</definition>
+        <argsstring>() const</argsstring>
+        <name>save</name>
+        <qualifiedname>QfDrawingCanvas::save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the drawing canvas to a temporary location. <simplesect kind="return"><para>the temporary file path of the saved image. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="154" column="25" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="95" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a083529bf68fae967956f8ae0dd2f8789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::fitCanvas</definition>
+        <argsstring>()</argsstring>
+        <name>fitCanvas</name>
+        <qualifiedname>QfDrawingCanvas::fitCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fits the drawing canvas to match available width and height. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="159" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="129" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a3d675a3849f6288ad6a30364337d3ad3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::pan</definition>
+        <argsstring>(const QPointF &amp;oldPosition, const QPointF &amp;newPosition)</argsstring>
+        <name>pan</name>
+        <qualifiedname>QfDrawingCanvas::pan</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>oldPosition</declname>
+        </param>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>newPosition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pans the drawing canvas by the distance between two points. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="164" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="155" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a584b09c6a20faab34333e0997aa1f60c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::zoom</definition>
+        <argsstring>(double scale)</argsstring>
+        <name>zoom</name>
+        <qualifiedname>QfDrawingCanvas::zoom</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Zooms the drawing canvas by the provided <emphasis>scale</emphasis> value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="169" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1ae2a6664fba9bf846e3898a21f70f632c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::strokeBegin</definition>
+        <argsstring>(const QPointF &amp;point, const QColor color=QColor(0, 0, 0))</argsstring>
+        <name>strokeBegin</name>
+        <qualifiedname>QfDrawingCanvas::strokeBegin</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const QColor</type>
+          <declname>color</declname>
+          <defval>QColor(0, 0, 0)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Begins a stroke operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the first point of the stroke </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the color of the stroke </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="176" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="257" bodyend="264"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a5669021c76085b1eec73c0aa0471dd54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::strokeMove</definition>
+        <argsstring>(const QPointF &amp;point)</argsstring>
+        <name>strokeMove</name>
+        <qualifiedname>QfDrawingCanvas::strokeMove</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a new <emphasis>point</emphasis> to the current stroke path. <simplesect kind="note"><para>The function strokeBegin must have been called prior to this function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="182" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="266" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a40c9c9dc97009420677bbbc08919b514" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingCanvas::strokeEnd</definition>
+        <argsstring>(const QPointF &amp;point)</argsstring>
+        <name>strokeEnd</name>
+        <qualifiedname>QfDrawingCanvas::strokeEnd</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ends the current stroke with a final <emphasis>point</emphasis> added to the stroke path. <simplesect kind="note"><para>The function strokeBegin must have been called prior to this function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="188" column="22" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="282" bodyend="304"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfDrawingCanvas_1a171bbb4b7ce1927e34130871bd7fa8a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::isEmptyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isEmptyChanged</name>
+        <qualifiedname>QfDrawingCanvas::isEmptyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="191" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDrawingCanvas_1a8a6f782793c0a2f78a42c15f609d7331" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::isDirtyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isDirtyChanged</name>
+        <qualifiedname>QfDrawingCanvas::isDirtyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="192" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDrawingCanvas_1ad94ab522e2a0ffce5b206594574b9f1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::frameColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>frameColorChanged</name>
+        <qualifiedname>QfDrawingCanvas::frameColorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="193" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDrawingCanvas_1a7572a73736f203d493f85a2aa7186bca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::zoomFactorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>zoomFactorChanged</name>
+        <qualifiedname>QfDrawingCanvas::zoomFactorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="194" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDrawingCanvas_1a6626980f7fb30f4ceca2dbab1414c933" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::offsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>offsetChanged</name>
+        <qualifiedname>QfDrawingCanvas::offsetChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="195" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDrawingCanvas_1a2ba7f9c07c91422fe7abdd6fad27a8a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::currentStrokeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentStrokeChanged</name>
+        <qualifiedname>QfDrawingCanvas::currentStrokeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="196" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfDrawingCanvas_1a907962c4ae00480b5e6bcaf94780d95e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingCanvas::drawStroke</definition>
+        <argsstring>(QPainter *painter, const QfDrawingStroke &amp;stroke, bool onCanvas=true) const</argsstring>
+        <name>drawStroke</name>
+        <qualifiedname>QfDrawingCanvas::drawStroke</qualifiedname>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structQfDrawingStroke" kindref="compound">QfDrawingStroke</ref> &amp;</type>
+          <declname>stroke</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>onCanvas</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="199" column="10" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="306" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a85871716c4b8724dc7c9552f73fc7db1" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPointF</type>
+        <definition>QPointF QfDrawingCanvas::itemToCanvas</definition>
+        <argsstring>(const QPointF &amp;point) const</argsstring>
+        <name>itemToCanvas</name>
+        <qualifiedname>QfDrawingCanvas::itemToCanvas</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="201" column="13" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="346" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingCanvas_1a6c9e8ab85804e81d68db42967b0dd274" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPointF</type>
+        <definition>QPointF QfDrawingCanvas::canvasToItem</definition>
+        <argsstring>(const QPointF &amp;point) const</argsstring>
+        <name>canvasToItem</name>
+        <qualifiedname>QfDrawingCanvas::canvasToItem</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdrawingcanvas.h" line="202" column="13" bodyfile="src/core/qfdrawingcanvas.cpp" bodystart="354" bodyend="360"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="1">
+        <label>QfDrawingCanvas</label>
+        <link refid="classQfDrawingCanvas"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="1">
+        <label>QfDrawingCanvas</label>
+        <link refid="classQfDrawingCanvas"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfdrawingcanvas.h" line="51" column="1" bodyfile="src/core/qfdrawingcanvas.h" bodystart="52" bodyend="218"/>
+    <listofallmembers>
+      <member refid="classQfDrawingCanvas_1a6c9e8ab85804e81d68db42967b0dd274" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>canvasToItem</name></member>
+      <member refid="classQfDrawingCanvas_1a744ce4764c0e702613bfc26ec9f3b31a" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>clear</name></member>
+      <member refid="classQfDrawingCanvas_1a88a20f9bb94367b4c77bc0c227707769" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>createBlankCanvas</name></member>
+      <member refid="classQfDrawingCanvas_1a749cf74ddef0209d6b070556491bad8c" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>createCanvasFromImage</name></member>
+      <member refid="classQfDrawingCanvas_1a69666e235bfe605d6b69b3220e2dc8c2" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>currentStroke</name></member>
+      <member refid="classQfDrawingCanvas_1a95261dc5d2dcac7ff2d65fadca40fba4" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>currentStroke</name></member>
+      <member refid="classQfDrawingCanvas_1a2ba7f9c07c91422fe7abdd6fad27a8a3" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>currentStrokeChanged</name></member>
+      <member refid="classQfDrawingCanvas_1a907962c4ae00480b5e6bcaf94780d95e" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>drawStroke</name></member>
+      <member refid="classQfDrawingCanvas_1a083529bf68fae967956f8ae0dd2f8789" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>fitCanvas</name></member>
+      <member refid="classQfDrawingCanvas_1ab7a5a038089b21c7befeb8cd52eee447" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>frameColor</name></member>
+      <member refid="classQfDrawingCanvas_1a0be3b1c23152113293378c294ced8b27" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>frameColor</name></member>
+      <member refid="classQfDrawingCanvas_1ad94ab522e2a0ffce5b206594574b9f1c" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>frameColorChanged</name></member>
+      <member refid="classQfDrawingCanvas_1ac8a0dcd8d5ea2fb74681df00af667fc7" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>isDirty</name></member>
+      <member refid="classQfDrawingCanvas_1a541c54b2b32d9bf12625f04f238970a5" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>isDirty</name></member>
+      <member refid="classQfDrawingCanvas_1a8a6f782793c0a2f78a42c15f609d7331" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>isDirtyChanged</name></member>
+      <member refid="classQfDrawingCanvas_1a2a1079a22df52108ef3e78441d75c1cf" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>isEmpty</name></member>
+      <member refid="classQfDrawingCanvas_1a6a107f41f026842f0c4924fbc0c1dc69" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>isEmpty</name></member>
+      <member refid="classQfDrawingCanvas_1a171bbb4b7ce1927e34130871bd7fa8a2" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>isEmptyChanged</name></member>
+      <member refid="classQfDrawingCanvas_1a85871716c4b8724dc7c9552f73fc7db1" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>itemToCanvas</name></member>
+      <member refid="classQfDrawingCanvas_1afda334346ea6c2c08c0d688af398db30" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mBackgroundImage</name></member>
+      <member refid="classQfDrawingCanvas_1acf311363cc6a656918d40b04d8715ac7" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mCurrentStroke</name></member>
+      <member refid="classQfDrawingCanvas_1aa97416610b7b9bc7e4ae9c60f6ba1d03" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mDrawingImage</name></member>
+      <member refid="classQfDrawingCanvas_1ae5f8965181f309774395ca142127fa6c" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mFrameColor</name></member>
+      <member refid="classQfDrawingCanvas_1a1883d79478c445964acc6b87f779fb65" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mIsDirty</name></member>
+      <member refid="classQfDrawingCanvas_1a6527ac26fed279683307bd01da978d6d" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mIsEmpty</name></member>
+      <member refid="classQfDrawingCanvas_1a0905ce3cfb77a118dedf78f0e3457e55" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mLoadedImagePath</name></member>
+      <member refid="classQfDrawingCanvas_1ab5a43b0b64dae7af1e913dc8a87b6ce4" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mOffset</name></member>
+      <member refid="classQfDrawingCanvas_1aa360621638e6130740243f2849375dec" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mStrokes</name></member>
+      <member refid="classQfDrawingCanvas_1a33ee16810805503d9a5524f440df788d" prot="private" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>mZoomFactor</name></member>
+      <member refid="classQfDrawingCanvas_1abeb5f68ba0747eb38d17645234894130" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>offset</name></member>
+      <member refid="classQfDrawingCanvas_1a0b2fe5e378c38581d2a183f7b23d5fa9" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>offset</name></member>
+      <member refid="classQfDrawingCanvas_1a6626980f7fb30f4ceca2dbab1414c933" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>offsetChanged</name></member>
+      <member refid="classQfDrawingCanvas_1a4d2e746b72e5895ee0119d0a0ed5c9f5" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>paint</name></member>
+      <member refid="classQfDrawingCanvas_1a3d675a3849f6288ad6a30364337d3ad3" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>pan</name></member>
+      <member refid="classQfDrawingCanvas_1a2b0af3ec9471f85a9f27dd3708e60398" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>QfDrawingCanvas</name></member>
+      <member refid="classQfDrawingCanvas_1a057e526c3c048c0892c7c29c3427786c" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>save</name></member>
+      <member refid="classQfDrawingCanvas_1a8ea3d2f876f2d5d85db50ad10f0a4bde" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>setFrameColor</name></member>
+      <member refid="classQfDrawingCanvas_1aeb69dfd613ca36f55cb5a0617ab96cba" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>setIsDirty</name></member>
+      <member refid="classQfDrawingCanvas_1a38d9bb936e87fed1b9ea435d19d14923" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>setIsEmpty</name></member>
+      <member refid="classQfDrawingCanvas_1a1a7a26566e24f12ddf30c80091486013" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>setOffset</name></member>
+      <member refid="classQfDrawingCanvas_1a247e2fe9e69126a4efc68d4d66bf6595" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>setZoomFactor</name></member>
+      <member refid="classQfDrawingCanvas_1ae2a6664fba9bf846e3898a21f70f632c" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>strokeBegin</name></member>
+      <member refid="classQfDrawingCanvas_1a40c9c9dc97009420677bbbc08919b514" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>strokeEnd</name></member>
+      <member refid="classQfDrawingCanvas_1a5669021c76085b1eec73c0aa0471dd54" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>strokeMove</name></member>
+      <member refid="classQfDrawingCanvas_1abd9635d5cb04beeb8aa55aceb84c2301" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>undo</name></member>
+      <member refid="classQfDrawingCanvas_1a584b09c6a20faab34333e0997aa1f60c" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>zoom</name></member>
+      <member refid="classQfDrawingCanvas_1aba8275d12d54a9d6a6d6a6a6320d5de6" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>zoomFactor</name></member>
+      <member refid="classQfDrawingCanvas_1aa4e93358831c5278cc1118b387f9cbde" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>zoomFactor</name></member>
+      <member refid="classQfDrawingCanvas_1a7572a73736f203d493f85a2aa7186bca" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>zoomFactorChanged</name></member>
+      <member refid="classQfDrawingCanvas_1a861a388309d0aeb626add31506b2e8d2" prot="public" virt="non-virtual"><scope>QfDrawingCanvas</scope><name>~QfDrawingCanvas</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProjectSource" kind="class" language="C++" prot="public">
+    <compoundname>QfProjectSource</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <derivedcompoundref refid="classQfAndroidProjectSource" prot="public" virt="non-virtual">QfAndroidProjectSource</derivedcompoundref>
+    <derivedcompoundref refid="classQfIosProjectSource" prot="public" virt="non-virtual">QfIosProjectSource</derivedcompoundref>
+    <includes refid="qfprojectsource_8h" local="no">qfprojectsource.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfProjectSource_1aa82e948d313a99a510e226abd8401202" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfProjectSource::QfProjectSource</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfProjectSource</name>
+        <qualifiedname>QfProjectSource::QfProjectSource</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectsource.h" line="40" column="14" bodyfile="src/core/qfprojectsource.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProjectSource_1a697f5a684892c360904c307a65c15697" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual QfProjectSource::~QfProjectSource</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QfProjectSource</name>
+        <qualifiedname>QfProjectSource::~QfProjectSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectsource.h" line="42" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfProjectSource_1adc4532110af12c95850a2c101e6bfdc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectSource::projectOpened</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>projectOpened</name>
+        <qualifiedname>QfProjectSource::projectOpened</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal communicates, when a project has been opened. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfprojectsource.h" line="48" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class represents an ongoing open project intent. It will notify the system with the <ref refid="classQfProjectSource_1adc4532110af12c95850a2c101e6bfdc5" kindref="member">projectOpened()</ref> signal once the user has selected a project to open.</para>
+<para>The path can either be a QGIS project file (.qgs, .qgz) or a supported vector/raster dataset. The latter will trigger the creation of a project within which the dataset will be loaded.</para>
+<para>The default implementation does nothing. You probably want to have a look at the <ref refid="classQfAndroidProjectSource" kindref="compound">QfAndroidProjectSource</ref> subclass. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="3">
+        <label>QfAndroidProjectSource</label>
+        <link refid="classQfAndroidProjectSource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QfIosProjectSource</label>
+        <link refid="classQfIosProjectSource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfProjectSource</label>
+        <link refid="classQfProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfProjectSource</label>
+        <link refid="classQfProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfprojectsource.h" line="36" column="1" bodyfile="src/core/qfprojectsource.h" bodystart="37" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classQfProjectSource_1adc4532110af12c95850a2c101e6bfdc5" prot="public" virt="non-virtual"><scope>QfProjectSource</scope><name>projectOpened</name></member>
+      <member refid="classQfProjectSource_1aa82e948d313a99a510e226abd8401202" prot="public" virt="non-virtual"><scope>QfProjectSource</scope><name>QfProjectSource</name></member>
+      <member refid="classQfProjectSource_1a697f5a684892c360904c307a65c15697" prot="public" virt="virtual"><scope>QfProjectSource</scope><name>~QfProjectSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

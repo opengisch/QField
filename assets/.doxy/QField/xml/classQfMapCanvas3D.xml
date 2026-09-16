@@ -1,0 +1,696 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMapCanvas3D" kind="class" language="C++" prot="public">
+    <compoundname>QfMapCanvas3D</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a15a47fd38d6fe577fa552e7be15cc1ee" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMapCanvas3D::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfMapCanvas3D::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="15" column="5" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1ad0d9d3320b873f16949fbbf2deed93fd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMapCanvas3D::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfMapCanvas3D::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="16" column="5" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a07818f866566c752ef6f0050bdbcbece" prot="private" static="no" mutable="no">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref></type>
+        <definition>Qf3DTerrainProvider QfMapCanvas3D::mapTerrainProvider</definition>
+        <argsstring></argsstring>
+        <name>mapTerrainProvider</name>
+        <qualifiedname>QfMapCanvas3D::mapTerrainProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="59" column="21" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a520d07c0c2611375ea2117f5509e1572" prot="private" static="no" mutable="no">
+        <type><ref refid="classQf3DMapTextureData" kindref="compound">Qf3DMapTextureData</ref></type>
+        <definition>Qf3DMapTextureData QfMapCanvas3D::mapTextureData</definition>
+        <argsstring></argsstring>
+        <name>mapTextureData</name>
+        <qualifiedname>QfMapCanvas3D::mapTextureData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="60" column="20" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a111a23e8dcac448c8cde8c2c2419f28c" prot="private" static="no" mutable="no">
+        <type>View3D</type>
+        <definition>View3D QfMapCanvas3D::view3d</definition>
+        <argsstring></argsstring>
+        <name>view3d</name>
+        <qualifiedname>QfMapCanvas3D::view3d</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="61" column="8" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a93c34b28507d18fbc210cb63432b01e4" prot="private" static="no" mutable="no">
+        <type>PerspectiveCamera</type>
+        <definition>PerspectiveCamera QfMapCanvas3D::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <qualifiedname>QfMapCanvas3D::camera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="62" column="19" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a8138bdae66f2aa7e85e22c08dbf542e4" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTerrainMesh" kindref="compound">QfTerrainMesh</ref></type>
+        <definition>QfTerrainMesh QfMapCanvas3D::terrainMesh</definition>
+        <argsstring></argsstring>
+        <name>terrainMesh</name>
+        <qualifiedname>QfMapCanvas3D::terrainMesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="63" column="15" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a494d8c9e81b67280098d13098f1909ff" prot="private" static="no" mutable="no">
+        <type>Node</type>
+        <definition>Node QfMapCanvas3D::gnssMarker</definition>
+        <argsstring></argsstring>
+        <name>gnssMarker</name>
+        <qualifiedname>QfMapCanvas3D::gnssMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="64" column="6" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1ad35b45316b085e18d83ffa546b45d448" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMapToView3D" kindref="compound">QfMapToView3D</ref></type>
+        <definition>QfMapToView3D QfMapCanvas3D::gnssMarkerMapToScreen3D</definition>
+        <argsstring></argsstring>
+        <name>gnssMarkerMapToScreen3D</name>
+        <qualifiedname>QfMapCanvas3D::gnssMarkerMapToScreen3D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="65" column="15" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a6a55ec9cdeb2cf4fb46dc2446a0decd1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureListSelectionHighlight3D" kindref="compound">QfFeatureListSelectionHighlight3D</ref></type>
+        <definition>QfFeatureListSelectionHighlight3D QfMapCanvas3D::selectionHighlight</definition>
+        <argsstring></argsstring>
+        <name>selectionHighlight</name>
+        <qualifiedname>QfMapCanvas3D::selectionHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="66" column="35" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1af886725cc00841415ac687a9684e089f" prot="private" static="no" mutable="no">
+        <type>Repeater3D</type>
+        <definition>Repeater3D QfMapCanvas3D::trackingRubberbands</definition>
+        <argsstring></argsstring>
+        <name>trackingRubberbands</name>
+        <qualifiedname>QfMapCanvas3D::trackingRubberbands</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="67" column="12" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1a1f074c02a7639d4d2ce14f46e435b774" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTouchCameraController" kindref="compound">QfTouchCameraController</ref></type>
+        <definition>QfTouchCameraController QfMapCanvas3D::cameraController</definition>
+        <argsstring></argsstring>
+        <name>cameraController</name>
+        <qualifiedname>QfMapCanvas3D::cameraController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="68" column="25" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1ab9c11843217d9bee3da2bb797b0c2879" prot="private" static="no" mutable="no">
+        <type>NumberAnimation</type>
+        <definition>NumberAnimation QfMapCanvas3D::openingAnimation</definition>
+        <argsstring></argsstring>
+        <name>openingAnimation</name>
+        <qualifiedname>QfMapCanvas3D::openingAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="69" column="17" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapCanvas3D_1ae35ff196125d257d413068c68c4121f3" prot="private" static="no" mutable="no">
+        <type>SequentialAnimation</type>
+        <definition>SequentialAnimation QfMapCanvas3D::closingAnimation</definition>
+        <argsstring></argsstring>
+        <name>closingAnimation</name>
+        <qualifiedname>QfMapCanvas3D::closingAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="70" column="21" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMapCanvas3D_1ab50c18b2045789951a752c9fc7c72378" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMapCanvas3D::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfMapCanvas3D::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="19" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a509a882f62dafd1bdbfd0b3e7cbe458f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMapCanvas3D::terrainExtent</definition>
+        <argsstring></argsstring>
+        <name>terrainExtent</name>
+        <qualifiedname>QfMapCanvas3D::terrainExtent</qualifiedname>
+        <read>dummyGetter_terrainExtent_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="21" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1abaccdcdc2dd9b570990b33572875ea41" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMapCanvas3D::terrainGeometry</definition>
+        <argsstring></argsstring>
+        <name>terrainGeometry</name>
+        <qualifiedname>QfMapCanvas3D::terrainGeometry</qualifiedname>
+        <read>dummyGetter_terrainGeometry_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="23" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a9f14c28daacd8a16667e88bfa70d179e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMapCanvas3D::isLoading</definition>
+        <argsstring></argsstring>
+        <name>isLoading</name>
+        <qualifiedname>QfMapCanvas3D::isLoading</qualifiedname>
+        <read>dummyGetter_isLoading_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="25" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a6b8c7995d6f340ad7057cf94d8740f88" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMapCanvas3D::isFirstLoad</definition>
+        <argsstring></argsstring>
+        <name>isFirstLoad</name>
+        <qualifiedname>QfMapCanvas3D::isFirstLoad</qualifiedname>
+        <read>dummyGetter_isFirstLoad_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="27" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a996ae1b78491c9e4fd8bc2fb27de9c39" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMapCanvas3D::eyeDomeLightingMode</definition>
+        <argsstring></argsstring>
+        <name>eyeDomeLightingMode</name>
+        <qualifiedname>QfMapCanvas3D::eyeDomeLightingMode</qualifiedname>
+        <read>dummyGetter_eyeDomeLightingMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="29" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a51942980c0e37f890f42a7834f0cd9ab" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMapCanvas3D::extentMode</definition>
+        <argsstring></argsstring>
+        <name>extentMode</name>
+        <qualifiedname>QfMapCanvas3D::extentMode</qualifiedname>
+        <read>dummyGetter_extentMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="31" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a5f375496da4356b61a870940e0612185" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMapCanvas3D::gnssActive</definition>
+        <argsstring></argsstring>
+        <name>gnssActive</name>
+        <qualifiedname>QfMapCanvas3D::gnssActive</qualifiedname>
+        <read>dummyGetter_gnssActive_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="33" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1ad3d59909d3ca50a1edcbd9692f0c0948" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfMapCanvas3D::gnssPosition</definition>
+        <argsstring></argsstring>
+        <name>gnssPosition</name>
+        <qualifiedname>QfMapCanvas3D::gnssPosition</qualifiedname>
+        <read>dummyGetter_gnssPosition_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="35" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a2d3a42dea86a0cdf30c716a724103a81" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfMapCanvas3D::gnssSpeed</definition>
+        <argsstring></argsstring>
+        <name>gnssSpeed</name>
+        <qualifiedname>QfMapCanvas3D::gnssSpeed</qualifiedname>
+        <read>dummyGetter_gnssSpeed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="37" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1aaf13357c013190bb5c6a4fc84fae9841" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfMapCanvas3D::gnssDirection</definition>
+        <argsstring></argsstring>
+        <name>gnssDirection</name>
+        <qualifiedname>QfMapCanvas3D::gnssDirection</qualifiedname>
+        <read>dummyGetter_gnssDirection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="39" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1ae5f3c07524ca423c2aaaa1b360b106f7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfMapCanvas3D::gnssMarkerColor</definition>
+        <argsstring></argsstring>
+        <name>gnssMarkerColor</name>
+        <qualifiedname>QfMapCanvas3D::gnssMarkerColor</qualifiedname>
+        <read>dummyGetter_gnssMarkerColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="41" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1aeee78ae268ca8dcada8f4161d670ed82" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfMapCanvas3D::gnssMarkerSemiOpaqueColor</definition>
+        <argsstring></argsstring>
+        <name>gnssMarkerSemiOpaqueColor</name>
+        <qualifiedname>QfMapCanvas3D::gnssMarkerSemiOpaqueColor</qualifiedname>
+        <read>dummyGetter_gnssMarkerSemiOpaqueColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="43" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a54de77679222304657bf996ae6509f9e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureListModelSelection" kindref="compound">QfFeatureListModelSelection</ref></type>
+        <definition>QfFeatureListModelSelection QfMapCanvas3D::selectionModel</definition>
+        <argsstring></argsstring>
+        <name>selectionModel</name>
+        <qualifiedname>QfMapCanvas3D::selectionModel</qualifiedname>
+        <read>dummyGetter_selectionModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="45" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a4fa99a8a68a4a60627db39645ecb567f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMapCanvas3D::selectionColor</definition>
+        <argsstring></argsstring>
+        <name>selectionColor</name>
+        <qualifiedname>QfMapCanvas3D::selectionColor</qualifiedname>
+        <read>dummyGetter_selectionColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="47" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1afaf6fbfffceb5ff89a7b2cb6a31827d9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref></type>
+        <definition>QfTrackingModel QfMapCanvas3D::trackingModel</definition>
+        <argsstring></argsstring>
+        <name>trackingModel</name>
+        <qualifiedname>QfMapCanvas3D::trackingModel</qualifiedname>
+        <read>dummyGetter_trackingModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="49" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1abf157c81f3f10d9704210947e23b0f5b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMapCanvas3D::terrainProvider</definition>
+        <argsstring></argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>QfMapCanvas3D::terrainProvider</qualifiedname>
+        <read>dummyGetter_terrainProvider_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="51" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvas3D_1a4bb8ff7204209a10719b318514587d11" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Item</type>
+        <definition>Item QfMapCanvas3D::pluginContainer</definition>
+        <argsstring></argsstring>
+        <name>pluginContainer</name>
+        <qualifiedname>QfMapCanvas3D::pluginContainer</qualifiedname>
+        <read>dummyGetter_pluginContainer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="53" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfMapCanvas3D_1aab538d9ee6341befffe5ef2f24b17c1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::cameraInteractionDetected</definition>
+        <argsstring>()</argsstring>
+        <name>cameraInteractionDetected</name>
+        <qualifiedname>QfMapCanvas3D::cameraInteractionDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="55" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMapCanvas3D_1ad31a1675223cbd76ff047a2ab60a597d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::featureIdentifyRequested</definition>
+        <argsstring>(point screenPoint)</argsstring>
+        <name>featureIdentifyRequested</name>
+        <qualifiedname>QfMapCanvas3D::featureIdentifyRequested</qualifiedname>
+        <param>
+          <type>point</type>
+          <declname>screenPoint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="57" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfMapCanvas3D_1aa33d2f88f01fdd8452bfde4c9e242910" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::playOpeningAnimation</definition>
+        <argsstring>()</argsstring>
+        <name>playOpeningAnimation</name>
+        <qualifiedname>QfMapCanvas3D::playOpeningAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="73" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvas3D_1a01bcde26e7ecb5a5b9e1293d87d5ffa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::playClosingAnimation</definition>
+        <argsstring>(callback)</argsstring>
+        <name>playClosingAnimation</name>
+        <qualifiedname>QfMapCanvas3D::playClosingAnimation</qualifiedname>
+        <param>
+          <type>callback</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="75" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvas3D_1af4ce5b13822ff3a1ead10e37bf11e077" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::positionCameraForTerrain</definition>
+        <argsstring>()</argsstring>
+        <name>positionCameraForTerrain</name>
+        <qualifiedname>QfMapCanvas3D::positionCameraForTerrain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="77" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvas3D_1a594e0ef9a2206043e2346ce2190ff039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::geoTo3D</definition>
+        <argsstring>(geoX, geoY)</argsstring>
+        <name>geoTo3D</name>
+        <qualifiedname>QfMapCanvas3D::geoTo3D</qualifiedname>
+        <param>
+          <type>geoX</type>
+        </param>
+        <param>
+          <type>geoY</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="79" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvas3D_1a61ddfac0ced0a8709da16a4c6f6ea6b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::lookAtPoint</definition>
+        <argsstring>(pos3d, distance)</argsstring>
+        <name>lookAtPoint</name>
+        <qualifiedname>QfMapCanvas3D::lookAtPoint</qualifiedname>
+        <param>
+          <type>pos3d</type>
+        </param>
+        <param>
+          <type>distance</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="81" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvas3D_1a9152bfbf0e5fc58aab6246f9cbe5054d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::zoomIn</definition>
+        <argsstring>()</argsstring>
+        <name>zoomIn</name>
+        <qualifiedname>QfMapCanvas3D::zoomIn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="83" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvas3D_1a9819f89240188ed1090556dfa2e4f8b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvas3D::zoomOut</definition>
+        <argsstring>()</argsstring>
+        <name>zoomOut</name>
+        <qualifiedname>QfMapCanvas3D::zoomOut</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfMapCanvas3D.qml" line="85" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfMapCanvas3D</label>
+        <link refid="classQfMapCanvas3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfMapCanvas3D</label>
+        <link refid="classQfMapCanvas3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qml/QfMapCanvas3D.qml" line="14" column="1" bodyfile="src/3d/qml/QfMapCanvas3D.qml" bodystart="14" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classQfMapCanvas3D_1a93c34b28507d18fbc210cb63432b01e4" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>camera</name></member>
+      <member refid="classQfMapCanvas3D_1a1f074c02a7639d4d2ce14f46e435b774" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>cameraController</name></member>
+      <member refid="classQfMapCanvas3D_1aab538d9ee6341befffe5ef2f24b17c1f" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>cameraInteractionDetected</name></member>
+      <member refid="classQfMapCanvas3D_1ae35ff196125d257d413068c68c4121f3" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>closingAnimation</name></member>
+      <member refid="classQfMapCanvas3D_1a51942980c0e37f890f42a7834f0cd9ab" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>extentMode</name></member>
+      <member refid="classQfMapCanvas3D_1a996ae1b78491c9e4fd8bc2fb27de9c39" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>eyeDomeLightingMode</name></member>
+      <member refid="classQfMapCanvas3D_1ad31a1675223cbd76ff047a2ab60a597d" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>featureIdentifyRequested</name></member>
+      <member refid="classQfMapCanvas3D_1a15a47fd38d6fe577fa552e7be15cc1ee" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>focus</name></member>
+      <member refid="classQfMapCanvas3D_1a594e0ef9a2206043e2346ce2190ff039" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>geoTo3D</name></member>
+      <member refid="classQfMapCanvas3D_1a5f375496da4356b61a870940e0612185" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>gnssActive</name></member>
+      <member refid="classQfMapCanvas3D_1aaf13357c013190bb5c6a4fc84fae9841" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>gnssDirection</name></member>
+      <member refid="classQfMapCanvas3D_1a494d8c9e81b67280098d13098f1909ff" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>gnssMarker</name></member>
+      <member refid="classQfMapCanvas3D_1ae5f3c07524ca423c2aaaa1b360b106f7" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>gnssMarkerColor</name></member>
+      <member refid="classQfMapCanvas3D_1ad35b45316b085e18d83ffa546b45d448" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>gnssMarkerMapToScreen3D</name></member>
+      <member refid="classQfMapCanvas3D_1aeee78ae268ca8dcada8f4161d670ed82" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>gnssMarkerSemiOpaqueColor</name></member>
+      <member refid="classQfMapCanvas3D_1ad3d59909d3ca50a1edcbd9692f0c0948" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>gnssPosition</name></member>
+      <member refid="classQfMapCanvas3D_1a2d3a42dea86a0cdf30c716a724103a81" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>gnssSpeed</name></member>
+      <member refid="classQfMapCanvas3D_1a6b8c7995d6f340ad7057cf94d8740f88" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>isFirstLoad</name></member>
+      <member refid="classQfMapCanvas3D_1a9f14c28daacd8a16667e88bfa70d179e" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>isLoading</name></member>
+      <member refid="classQfMapCanvas3D_1a61ddfac0ced0a8709da16a4c6f6ea6b0" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>lookAtPoint</name></member>
+      <member refid="classQfMapCanvas3D_1ab50c18b2045789951a752c9fc7c72378" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>mapSettings</name></member>
+      <member refid="classQfMapCanvas3D_1a07818f866566c752ef6f0050bdbcbece" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>mapTerrainProvider</name></member>
+      <member refid="classQfMapCanvas3D_1a520d07c0c2611375ea2117f5509e1572" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>mapTextureData</name></member>
+      <member refid="classQfMapCanvas3D_1ab9c11843217d9bee3da2bb797b0c2879" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>openingAnimation</name></member>
+      <member refid="classQfMapCanvas3D_1a01bcde26e7ecb5a5b9e1293d87d5ffa4" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>playClosingAnimation</name></member>
+      <member refid="classQfMapCanvas3D_1aa33d2f88f01fdd8452bfde4c9e242910" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>playOpeningAnimation</name></member>
+      <member refid="classQfMapCanvas3D_1a4bb8ff7204209a10719b318514587d11" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>pluginContainer</name></member>
+      <member refid="classQfMapCanvas3D_1af4ce5b13822ff3a1ead10e37bf11e077" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>positionCameraForTerrain</name></member>
+      <member refid="classQfMapCanvas3D_1a4fa99a8a68a4a60627db39645ecb567f" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>selectionColor</name></member>
+      <member refid="classQfMapCanvas3D_1a6a55ec9cdeb2cf4fb46dc2446a0decd1" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>selectionHighlight</name></member>
+      <member refid="classQfMapCanvas3D_1a54de77679222304657bf996ae6509f9e" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>selectionModel</name></member>
+      <member refid="classQfMapCanvas3D_1a509a882f62dafd1bdbfd0b3e7cbe458f" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>terrainExtent</name></member>
+      <member refid="classQfMapCanvas3D_1abaccdcdc2dd9b570990b33572875ea41" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>terrainGeometry</name></member>
+      <member refid="classQfMapCanvas3D_1a8138bdae66f2aa7e85e22c08dbf542e4" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>terrainMesh</name></member>
+      <member refid="classQfMapCanvas3D_1abf157c81f3f10d9704210947e23b0f5b" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>terrainProvider</name></member>
+      <member refid="classQfMapCanvas3D_1afaf6fbfffceb5ff89a7b2cb6a31827d9" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>trackingModel</name></member>
+      <member refid="classQfMapCanvas3D_1af886725cc00841415ac687a9684e089f" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>trackingRubberbands</name></member>
+      <member refid="classQfMapCanvas3D_1a111a23e8dcac448c8cde8c2c2419f28c" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>view3d</name></member>
+      <member refid="classQfMapCanvas3D_1ad0d9d3320b873f16949fbbf2deed93fd" prot="private" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>visible</name></member>
+      <member refid="classQfMapCanvas3D_1a9152bfbf0e5fc58aab6246f9cbe5054d" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>zoomIn</name></member>
+      <member refid="classQfMapCanvas3D_1a9819f89240188ed1090556dfa2e4f8b9" prot="public" virt="non-virtual"><scope>QfMapCanvas3D</scope><name>zoomOut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

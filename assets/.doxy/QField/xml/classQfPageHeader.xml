@@ -1,0 +1,503 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPageHeader" kind="class" language="C++" prot="public">
+    <compoundname>QfPageHeader</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ToolBar</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPageHeader_1a65a0a01e2aed9de0b16720a0e4645bce" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPageHeader::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfPageHeader::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="13" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1a079fb565953bf0aef2e0803a26470c30" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPageHeader::backgroundFill</definition>
+        <argsstring></argsstring>
+        <name>backgroundFill</name>
+        <qualifiedname>QfPageHeader::backgroundFill</qualifiedname>
+        <read>dummyGetter_backgroundFill_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="15" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1a5c09eaec80f9aa5c338625d50e0c0ea8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPageHeader::backAsCancel</definition>
+        <argsstring></argsstring>
+        <name>backAsCancel</name>
+        <qualifiedname>QfPageHeader::backAsCancel</qualifiedname>
+        <read>dummyGetter_backAsCancel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="17" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1a0323f43e100aaa96ee8eae38bdf420bc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPageHeader::showBackButton</definition>
+        <argsstring></argsstring>
+        <name>showBackButton</name>
+        <qualifiedname>QfPageHeader::showBackButton</qualifiedname>
+        <read>dummyGetter_showBackButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="19" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1a3572db782e0a999923f1d33a93815be2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPageHeader::showApplyButton</definition>
+        <argsstring></argsstring>
+        <name>showApplyButton</name>
+        <qualifiedname>QfPageHeader::showApplyButton</qualifiedname>
+        <read>dummyGetter_showApplyButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="21" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1aeb1a68c42eaa2ac8110981f2116a2ee5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPageHeader::showCancelButton</definition>
+        <argsstring></argsstring>
+        <name>showCancelButton</name>
+        <qualifiedname>QfPageHeader::showCancelButton</qualifiedname>
+        <read>dummyGetter_showCancelButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="23" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1a6914cf79d9ea576e2decde477e860eb8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPageHeader::showRemoveButton</definition>
+        <argsstring></argsstring>
+        <name>showRemoveButton</name>
+        <qualifiedname>QfPageHeader::showRemoveButton</qualifiedname>
+        <read>dummyGetter_showRemoveButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="25" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1adbfc25f5b6d38479005babbbb7824a65" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPageHeader::showMenuButton</definition>
+        <argsstring></argsstring>
+        <name>showMenuButton</name>
+        <qualifiedname>QfPageHeader::showMenuButton</qualifiedname>
+        <read>dummyGetter_showMenuButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="27" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1a95fa66b60d64eca418a3a0aefb6acfd2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPageHeader::busyIndicatorState</definition>
+        <argsstring></argsstring>
+        <name>busyIndicatorState</name>
+        <qualifiedname>QfPageHeader::busyIndicatorState</qualifiedname>
+        <read>dummyGetter_busyIndicatorState_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="29" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1a2538c6ccf48d5be3eeb41cbf703e58ae" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPageHeader::busyIndicatorValue</definition>
+        <argsstring></argsstring>
+        <name>busyIndicatorValue</name>
+        <qualifiedname>QfPageHeader::busyIndicatorValue</qualifiedname>
+        <read>dummyGetter_busyIndicatorValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="31" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPageHeader_1a5514c0ed5e07a39c91a0391c563dd519" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPageHeader::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>QfPageHeader::topMargin</qualifiedname>
+        <read>dummyGetter_topMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="33" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPageHeader_1a53b20d3e0d91a949fb8a35a1e07deb5a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPageHeader::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfPageHeader::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="47" column="5" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a4ee31169501958523961a027d719b282" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPageHeader::topPadding</definition>
+        <argsstring></argsstring>
+        <name>topPadding</name>
+        <qualifiedname>QfPageHeader::topPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="48" column="5" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a57df787a54c8eba0c0428935e3e0af11" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPageHeader::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QfPageHeader::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="49" column="5" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1ab2169d993281527c2bdb9a9077e822e1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPageHeader::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QfPageHeader::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="50" column="5" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a1698e86f37f40b080f70aa9bd6a2fe41" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPageHeader::bottomPadding</definition>
+        <argsstring></argsstring>
+        <name>bottomPadding</name>
+        <qualifiedname>QfPageHeader::bottomPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="51" column="5" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a615c313b5123315fb32b6b0f9401382e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPageHeader::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfPageHeader::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="52" column="5" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1ab8b4150711d2d401cfdb3933bbcb8852" prot="private" static="no" mutable="no">
+        <type>var Material</type>
+        <definition>var Material QfPageHeader::foreground</definition>
+        <argsstring></argsstring>
+        <name>foreground</name>
+        <qualifiedname>QfPageHeader::foreground</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="53" column="13" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a6c36b0eb97a7c14c18a1a6565ef25451" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPageHeader::backButton</definition>
+        <argsstring></argsstring>
+        <name>backButton</name>
+        <qualifiedname>QfPageHeader::backButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="54" column="14" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1af59fe782ca3f144be12203f18cb776ce" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPageHeader::applyButton</definition>
+        <argsstring></argsstring>
+        <name>applyButton</name>
+        <qualifiedname>QfPageHeader::applyButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="55" column="14" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a0405807a4d14c1c6b98b2fa884b0d6b8" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfPageHeader::titleLabel</definition>
+        <argsstring></argsstring>
+        <name>titleLabel</name>
+        <qualifiedname>QfPageHeader::titleLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="56" column="7" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a64d9abdfb72ab0df8b9be390af658774" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPageHeader::removeButton</definition>
+        <argsstring></argsstring>
+        <name>removeButton</name>
+        <qualifiedname>QfPageHeader::removeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="57" column="14" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a21a60feaf408c43f511b3adc3339b145" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPageHeader::cancelButton</definition>
+        <argsstring></argsstring>
+        <name>cancelButton</name>
+        <qualifiedname>QfPageHeader::cancelButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="58" column="14" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPageHeader_1a8a278aaf2f6841d7bde09ef98a98295e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPageHeader::menuButton</definition>
+        <argsstring></argsstring>
+        <name>menuButton</name>
+        <qualifiedname>QfPageHeader::menuButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="59" column="14" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfPageHeader_1a49a5226bda0e98c611729a3b22a4c43d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPageHeader::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>QfPageHeader::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="35" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPageHeader_1a5af20b83821dfdce01f85a998af3d663" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPageHeader::apply</definition>
+        <argsstring>()</argsstring>
+        <name>apply</name>
+        <qualifiedname>QfPageHeader::apply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="37" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPageHeader_1a801ccbf76dd2290e08fee037258999f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPageHeader::back</definition>
+        <argsstring>()</argsstring>
+        <name>back</name>
+        <qualifiedname>QfPageHeader::back</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="39" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPageHeader_1a3c9cefba91db5d37740c854504ca9bb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPageHeader::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>QfPageHeader::finished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="41" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPageHeader_1ab4a8f8ac441a4a4dd77bac40040bd846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPageHeader::remove</definition>
+        <argsstring>()</argsstring>
+        <name>remove</name>
+        <qualifiedname>QfPageHeader::remove</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="43" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPageHeader_1a9b5e89374bb84ca55d6c025e3c271f73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPageHeader::openMenu</definition>
+        <argsstring>()</argsstring>
+        <name>openMenu</name>
+        <qualifiedname>QfPageHeader::openMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPageHeader.qml" line="45" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfPageHeader</label>
+        <link refid="classQfPageHeader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ToolBar</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfPageHeader</label>
+        <link refid="classQfPageHeader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ToolBar</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfPageHeader.qml" line="10" column="1" bodyfile="src/gui/qml/QfPageHeader.qml" bodystart="10" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classQfPageHeader_1a5af20b83821dfdce01f85a998af3d663" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>apply</name></member>
+      <member refid="classQfPageHeader_1af59fe782ca3f144be12203f18cb776ce" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>applyButton</name></member>
+      <member refid="classQfPageHeader_1a801ccbf76dd2290e08fee037258999f2" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>back</name></member>
+      <member refid="classQfPageHeader_1a5c09eaec80f9aa5c338625d50e0c0ea8" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>backAsCancel</name></member>
+      <member refid="classQfPageHeader_1a6c36b0eb97a7c14c18a1a6565ef25451" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>backButton</name></member>
+      <member refid="classQfPageHeader_1a615c313b5123315fb32b6b0f9401382e" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>background</name></member>
+      <member refid="classQfPageHeader_1a079fb565953bf0aef2e0803a26470c30" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>backgroundFill</name></member>
+      <member refid="classQfPageHeader_1a1698e86f37f40b080f70aa9bd6a2fe41" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>bottomPadding</name></member>
+      <member refid="classQfPageHeader_1a95fa66b60d64eca418a3a0aefb6acfd2" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>busyIndicatorState</name></member>
+      <member refid="classQfPageHeader_1a2538c6ccf48d5be3eeb41cbf703e58ae" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>busyIndicatorValue</name></member>
+      <member refid="classQfPageHeader_1a49a5226bda0e98c611729a3b22a4c43d" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>cancel</name></member>
+      <member refid="classQfPageHeader_1a21a60feaf408c43f511b3adc3339b145" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>cancelButton</name></member>
+      <member refid="classQfPageHeader_1a3c9cefba91db5d37740c854504ca9bb8" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>finished</name></member>
+      <member refid="classQfPageHeader_1ab8b4150711d2d401cfdb3933bbcb8852" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>foreground</name></member>
+      <member refid="classQfPageHeader_1a53b20d3e0d91a949fb8a35a1e07deb5a" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>height</name></member>
+      <member refid="classQfPageHeader_1a57df787a54c8eba0c0428935e3e0af11" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>leftPadding</name></member>
+      <member refid="classQfPageHeader_1a8a278aaf2f6841d7bde09ef98a98295e" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>menuButton</name></member>
+      <member refid="classQfPageHeader_1a9b5e89374bb84ca55d6c025e3c271f73" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>openMenu</name></member>
+      <member refid="classQfPageHeader_1ab4a8f8ac441a4a4dd77bac40040bd846" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>remove</name></member>
+      <member refid="classQfPageHeader_1a64d9abdfb72ab0df8b9be390af658774" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>removeButton</name></member>
+      <member refid="classQfPageHeader_1ab2169d993281527c2bdb9a9077e822e1" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>rightPadding</name></member>
+      <member refid="classQfPageHeader_1a3572db782e0a999923f1d33a93815be2" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>showApplyButton</name></member>
+      <member refid="classQfPageHeader_1a0323f43e100aaa96ee8eae38bdf420bc" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>showBackButton</name></member>
+      <member refid="classQfPageHeader_1aeb1a68c42eaa2ac8110981f2116a2ee5" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>showCancelButton</name></member>
+      <member refid="classQfPageHeader_1adbfc25f5b6d38479005babbbb7824a65" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>showMenuButton</name></member>
+      <member refid="classQfPageHeader_1a6914cf79d9ea576e2decde477e860eb8" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>showRemoveButton</name></member>
+      <member refid="classQfPageHeader_1a65a0a01e2aed9de0b16720a0e4645bce" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>title</name></member>
+      <member refid="classQfPageHeader_1a0405807a4d14c1c6b98b2fa884b0d6b8" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>titleLabel</name></member>
+      <member refid="classQfPageHeader_1a5514c0ed5e07a39c91a0391c563dd519" prot="public" virt="non-virtual"><scope>QfPageHeader</scope><name>topMargin</name></member>
+      <member refid="classQfPageHeader_1a4ee31169501958523961a027d719b282" prot="private" virt="non-virtual"><scope>QfPageHeader</scope><name>topPadding</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

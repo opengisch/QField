@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLegend" kind="class" language="C++" prot="public">
+    <compoundname>QfLegend</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ListView</basecompoundref>
+    <derivedcompoundref refid="classLegend" prot="public" virt="non-virtual">Legend</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLegend_1a840b76328d4c001316f317c22b4feb04" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfInformationPopup" kindref="compound">QfInformationPopup</ref></type>
+        <definition>QfInformationPopup QfLegend::informationPopup</definition>
+        <argsstring></argsstring>
+        <name>informationPopup</name>
+        <qualifiedname>QfLegend::informationPopup</qualifiedname>
+        <read>dummyGetter_informationPopup_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="15" column="1" bodyfile="src/gui/qml/QfLegend.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegend_1ac7cec2dd4f61c548b00d6e8ac7f86514" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLegend::isVisible</definition>
+        <argsstring></argsstring>
+        <name>isVisible</name>
+        <qualifiedname>QfLegend::isVisible</qualifiedname>
+        <read>dummyGetter_isVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="17" column="1" bodyfile="src/gui/qml/QfLegend.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegend_1a34043b45a5721f56563c1d925a6ef519" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>VectorLayer</type>
+        <definition>VectorLayer QfLegend::activeLayer</definition>
+        <argsstring></argsstring>
+        <name>activeLayer</name>
+        <qualifiedname>QfLegend::activeLayer</qualifiedname>
+        <read>dummyGetter_activeLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="19" column="1" bodyfile="src/gui/qml/QfLegend.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegend_1af8d07b652ea7a0f96ce5387abff2dce7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLegend::allowActiveLayerChange</definition>
+        <argsstring></argsstring>
+        <name>allowActiveLayerChange</name>
+        <qualifiedname>QfLegend::allowActiveLayerChange</qualifiedname>
+        <read>dummyGetter_allowActiveLayerChange_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="21" column="1" bodyfile="src/gui/qml/QfLegend.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLegend_1a892eda42cc87433c3c649fa1ddd93364" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegend::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfLegend::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="23" column="5" bodyfile="src/gui/qml/QfLegend.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegend_1a119478a21d9615d4233c3c7486d7907a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegend::flickableDirection</definition>
+        <argsstring></argsstring>
+        <name>flickableDirection</name>
+        <qualifiedname>QfLegend::flickableDirection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="24" column="5" bodyfile="src/gui/qml/QfLegend.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegend_1af8c9ddbc895d047827293b6d2a652f3c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegend::boundsBehavior</definition>
+        <argsstring></argsstring>
+        <name>boundsBehavior</name>
+        <qualifiedname>QfLegend::boundsBehavior</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="25" column="5" bodyfile="src/gui/qml/QfLegend.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegend_1a7fee4ce29d6c55ee16f84216d7dc3006" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegend::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfLegend::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="26" column="5" bodyfile="src/gui/qml/QfLegend.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegend_1aa0d966b1d11012f7705361856da025db" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegend::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfLegend::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="27" column="5" bodyfile="src/gui/qml/QfLegend.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegend_1ae45078b5b33f797483d892e9fa7bd829" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegend::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>QfLegend::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="32" column="5" bodyfile="src/gui/qml/QfLegend.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegend_1acfce68d9040c80fb9db5ba7bb4326ac6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLayerTreeItemProperties" kindref="compound">QfLayerTreeItemProperties</ref></type>
+        <definition>QfLayerTreeItemProperties QfLegend::itemProperties</definition>
+        <argsstring></argsstring>
+        <name>itemProperties</name>
+        <qualifiedname>QfLegend::itemProperties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="33" column="27" bodyfile="src/gui/qml/QfLegend.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLegend_1a65e4b986ba962d4aa8b5e26caa3073e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLegend::openProperties</definition>
+        <argsstring>(index)</argsstring>
+        <name>openProperties</name>
+        <qualifiedname>QfLegend::openProperties</qualifiedname>
+        <param>
+          <type>index</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegend.qml" line="30" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Legend</label>
+        <link refid="classLegend"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ListView</label>
+      </node>
+      <node id="1">
+        <label>QfLegend</label>
+        <link refid="classQfLegend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ListView</label>
+      </node>
+      <node id="1">
+        <label>QfLegend</label>
+        <link refid="classQfLegend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfLegend.qml" line="12" column="1" bodyfile="src/gui/qml/QfLegend.qml" bodystart="12" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classQfLegend_1a34043b45a5721f56563c1d925a6ef519" prot="public" virt="non-virtual"><scope>QfLegend</scope><name>activeLayer</name></member>
+      <member refid="classQfLegend_1af8d07b652ea7a0f96ce5387abff2dce7" prot="public" virt="non-virtual"><scope>QfLegend</scope><name>allowActiveLayerChange</name></member>
+      <member refid="classQfLegend_1af8c9ddbc895d047827293b6d2a652f3c" prot="private" virt="non-virtual"><scope>QfLegend</scope><name>boundsBehavior</name></member>
+      <member refid="classQfLegend_1a7fee4ce29d6c55ee16f84216d7dc3006" prot="private" virt="non-virtual"><scope>QfLegend</scope><name>clip</name></member>
+      <member refid="classQfLegend_1ae45078b5b33f797483d892e9fa7bd829" prot="private" virt="non-virtual"><scope>QfLegend</scope><name>delegate</name></member>
+      <member refid="classQfLegend_1a119478a21d9615d4233c3c7486d7907a" prot="private" virt="non-virtual"><scope>QfLegend</scope><name>flickableDirection</name></member>
+      <member refid="classQfLegend_1a840b76328d4c001316f317c22b4feb04" prot="public" virt="non-virtual"><scope>QfLegend</scope><name>informationPopup</name></member>
+      <member refid="classQfLegend_1ac7cec2dd4f61c548b00d6e8ac7f86514" prot="public" virt="non-virtual"><scope>QfLegend</scope><name>isVisible</name></member>
+      <member refid="classQfLegend_1acfce68d9040c80fb9db5ba7bb4326ac6" prot="private" virt="non-virtual"><scope>QfLegend</scope><name>itemProperties</name></member>
+      <member refid="classQfLegend_1a892eda42cc87433c3c649fa1ddd93364" prot="private" virt="non-virtual"><scope>QfLegend</scope><name>model</name></member>
+      <member refid="classQfLegend_1a65e4b986ba962d4aa8b5e26caa3073e1" prot="public" virt="non-virtual"><scope>QfLegend</scope><name>openProperties</name></member>
+      <member refid="classQfLegend_1aa0d966b1d11012f7705361856da025db" prot="private" virt="non-virtual"><scope>QfLegend</scope><name>spacing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

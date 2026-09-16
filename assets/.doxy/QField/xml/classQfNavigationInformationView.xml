@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNavigationInformationView" kind="class" language="C++" prot="public">
+    <compoundname>QfNavigationInformationView</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <derivedcompoundref refid="classNavigationInformationView" prot="public" virt="non-virtual">NavigationInformationView</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfNavigationInformationView_1a490834f256bdf4a89e8271dddc090242" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfNavigation" kindref="compound">QfNavigation</ref></type>
+        <definition>QfNavigation QfNavigationInformationView::navigation</definition>
+        <argsstring></argsstring>
+        <name>navigation</name>
+        <qualifiedname>QfNavigationInformationView::navigation</qualifiedname>
+        <read>dummyGetter_navigation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="13" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1a2774f1ca70578f0d053d3167004b5859" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfNavigationInformationView::coordinates</definition>
+        <argsstring></argsstring>
+        <name>coordinates</name>
+        <qualifiedname>QfNavigationInformationView::coordinates</qualifiedname>
+        <read>dummyGetter_coordinates_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="15" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1ab3f3c240e404adbd23356b4a67f3b715" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNavigationInformationView::coordinatesIsXY</definition>
+        <argsstring></argsstring>
+        <name>coordinatesIsXY</name>
+        <qualifiedname>QfNavigationInformationView::coordinatesIsXY</qualifiedname>
+        <read>dummyGetter_coordinatesIsXY_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="17" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1a3996a6981d6fc72eaa563db33b19ccb6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNavigationInformationView::coordinatesIsGeographic</definition>
+        <argsstring></argsstring>
+        <name>coordinatesIsGeographic</name>
+        <qualifiedname>QfNavigationInformationView::coordinatesIsGeographic</qualifiedname>
+        <read>dummyGetter_coordinatesIsGeographic_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="19" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1a597309cee48b7bc21fe85f9b3f0be342" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfNavigationInformationView::ceilsCount</definition>
+        <argsstring></argsstring>
+        <name>ceilsCount</name>
+        <qualifiedname>QfNavigationInformationView::ceilsCount</qualifiedname>
+        <read>dummyGetter_ceilsCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="21" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1adddb5b7f9856f01ea57bf44fb4350802" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigationInformationView::cellHeight</definition>
+        <argsstring></argsstring>
+        <name>cellHeight</name>
+        <qualifiedname>QfNavigationInformationView::cellHeight</qualifiedname>
+        <read>dummyGetter_cellHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="23" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1abb8ae834d8ebdd9020d285041bafe71a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfNavigationInformationView::cellPadding</definition>
+        <argsstring></argsstring>
+        <name>cellPadding</name>
+        <qualifiedname>QfNavigationInformationView::cellPadding</qualifiedname>
+        <read>dummyGetter_cellPadding_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="25" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1a4c3a6e3519b561550e7eb739f1f4eebf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfNavigationInformationView::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QfNavigationInformationView::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="27" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1a4be3ede896651d479177cbb0cf8d6fa4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfNavigationInformationView::alternateBackgroundColor</definition>
+        <argsstring></argsstring>
+        <name>alternateBackgroundColor</name>
+        <qualifiedname>QfNavigationInformationView::alternateBackgroundColor</qualifiedname>
+        <read>dummyGetter_alternateBackgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="29" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1a5d0056696f63fe265fe727ee30099958" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfNavigationInformationView::textColor</definition>
+        <argsstring></argsstring>
+        <name>textColor</name>
+        <qualifiedname>QfNavigationInformationView::textColor</qualifiedname>
+        <read>dummyGetter_textColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="31" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNavigationInformationView_1a2635d2bce79a2e4991c4daa3e050da78" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfNavigationInformationView::contentHeight</definition>
+        <argsstring></argsstring>
+        <name>contentHeight</name>
+        <qualifiedname>QfNavigationInformationView::contentHeight</qualifiedname>
+        <read>dummyGetter_contentHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="33" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNavigationInformationView_1a9e8d018990e53619c8592579d671c93a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfNavigationInformationView::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfNavigationInformationView::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="35" column="5" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationInformationView_1a3437728aabdd2946fd6bec4d866d9a7f" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfNavigationInformationView::featureVertexTimer</definition>
+        <argsstring></argsstring>
+        <name>featureVertexTimer</name>
+        <qualifiedname>QfNavigationInformationView::featureVertexTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="36" column="7" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationInformationView_1a889648407435c47206c7b211fcdfebcb" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfNavigationInformationView::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>QfNavigationInformationView::content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="37" column="14" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationInformationView_1acb99a48e9ae091880965a5c50cd82634" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfNavigationInformationView::previousFeatureVertex</definition>
+        <argsstring></argsstring>
+        <name>previousFeatureVertex</name>
+        <qualifiedname>QfNavigationInformationView::previousFeatureVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="38" column="14" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationInformationView_1ab4fa788427be62ffcb3f019215d73281" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfNavigationInformationView::nextFeatureVertex</definition>
+        <argsstring></argsstring>
+        <name>nextFeatureVertex</name>
+        <qualifiedname>QfNavigationInformationView::nextFeatureVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="39" column="14" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationInformationView_1a4e533d40c554a0da7fb475f80d84d5d4" prot="private" static="no" mutable="no">
+        <type>Grid</type>
+        <definition>Grid QfNavigationInformationView::grid</definition>
+        <argsstring></argsstring>
+        <name>grid</name>
+        <qualifiedname>QfNavigationInformationView::grid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfNavigationInformationView.qml" line="40" column="6" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>NavigationInformationView</label>
+        <link refid="classNavigationInformationView"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfNavigationInformationView</label>
+        <link refid="classQfNavigationInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfNavigationInformationView</label>
+        <link refid="classQfNavigationInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfNavigationInformationView.qml" line="10" column="1" bodyfile="src/gui/qml/QfNavigationInformationView.qml" bodystart="10" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classQfNavigationInformationView_1a4be3ede896651d479177cbb0cf8d6fa4" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>alternateBackgroundColor</name></member>
+      <member refid="classQfNavigationInformationView_1a4c3a6e3519b561550e7eb739f1f4eebf" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>backgroundColor</name></member>
+      <member refid="classQfNavigationInformationView_1a597309cee48b7bc21fe85f9b3f0be342" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>ceilsCount</name></member>
+      <member refid="classQfNavigationInformationView_1adddb5b7f9856f01ea57bf44fb4350802" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>cellHeight</name></member>
+      <member refid="classQfNavigationInformationView_1abb8ae834d8ebdd9020d285041bafe71a" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>cellPadding</name></member>
+      <member refid="classQfNavigationInformationView_1a9e8d018990e53619c8592579d671c93a" prot="private" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>color</name></member>
+      <member refid="classQfNavigationInformationView_1a889648407435c47206c7b211fcdfebcb" prot="private" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>content</name></member>
+      <member refid="classQfNavigationInformationView_1a2635d2bce79a2e4991c4daa3e050da78" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>contentHeight</name></member>
+      <member refid="classQfNavigationInformationView_1a2774f1ca70578f0d053d3167004b5859" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>coordinates</name></member>
+      <member refid="classQfNavigationInformationView_1a3996a6981d6fc72eaa563db33b19ccb6" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>coordinatesIsGeographic</name></member>
+      <member refid="classQfNavigationInformationView_1ab3f3c240e404adbd23356b4a67f3b715" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>coordinatesIsXY</name></member>
+      <member refid="classQfNavigationInformationView_1a3437728aabdd2946fd6bec4d866d9a7f" prot="private" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>featureVertexTimer</name></member>
+      <member refid="classQfNavigationInformationView_1a4e533d40c554a0da7fb475f80d84d5d4" prot="private" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>grid</name></member>
+      <member refid="classQfNavigationInformationView_1a490834f256bdf4a89e8271dddc090242" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>navigation</name></member>
+      <member refid="classQfNavigationInformationView_1ab4fa788427be62ffcb3f019215d73281" prot="private" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>nextFeatureVertex</name></member>
+      <member refid="classQfNavigationInformationView_1acb99a48e9ae091880965a5c50cd82634" prot="private" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>previousFeatureVertex</name></member>
+      <member refid="classQfNavigationInformationView_1a5d0056696f63fe265fe727ee30099958" prot="public" virt="non-virtual"><scope>QfNavigationInformationView</scope><name>textColor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

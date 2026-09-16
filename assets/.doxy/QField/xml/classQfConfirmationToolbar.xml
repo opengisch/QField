@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfConfirmationToolbar" kind="class" language="C++" prot="public">
+    <compoundname>QfConfirmationToolbar</compoundname>
+    <basecompoundref refid="classQfVisibilityFadingRow" prot="public" virt="non-virtual">QfVisibilityFadingRow</basecompoundref>
+    <derivedcompoundref refid="classConfirmationToolbar" prot="public" virt="non-virtual">ConfirmationToolbar</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfConfirmationToolbar_1ab61eb677cd8aa150564dffdd71ef6614" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfConfirmationToolbar::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfConfirmationToolbar::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfConfirmationToolbar.qml" line="10" column="5" bodyfile="src/gui/qml/QfConfirmationToolbar.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfConfirmationToolbar_1a5d0901b6910fa162d3e78e563c82f215" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfConfirmationToolbar::cancelButton</definition>
+        <argsstring></argsstring>
+        <name>cancelButton</name>
+        <qualifiedname>QfConfirmationToolbar::cancelButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfConfirmationToolbar.qml" line="21" column="14" bodyfile="src/gui/qml/QfConfirmationToolbar.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfConfirmationToolbar_1a4d377036c6559e150df2c03ad5240cda" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfConfirmationToolbar::confirmButton</definition>
+        <argsstring></argsstring>
+        <name>confirmButton</name>
+        <qualifiedname>QfConfirmationToolbar::confirmButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfConfirmationToolbar.qml" line="22" column="14" bodyfile="src/gui/qml/QfConfirmationToolbar.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfConfirmationToolbar_1af761061564381eadddad80ec28585c8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfConfirmationToolbar::confirm</definition>
+        <argsstring>()</argsstring>
+        <name>confirm</name>
+        <qualifiedname>QfConfirmationToolbar::confirm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfConfirmationToolbar.qml" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfConfirmationToolbar_1ad3765805ac85134aba8d3bcc7f22b2de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfConfirmationToolbar::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>QfConfirmationToolbar::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfConfirmationToolbar.qml" line="19" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>ConfirmationToolbar</label>
+        <link refid="classConfirmationToolbar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfConfirmationToolbar</label>
+        <link refid="classQfConfirmationToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfConfirmationToolbar</label>
+        <link refid="classQfConfirmationToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfConfirmationToolbar.qml" line="9" column="1" bodyfile="src/gui/qml/QfConfirmationToolbar.qml" bodystart="9" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classQfConfirmationToolbar_1ad3765805ac85134aba8d3bcc7f22b2de" prot="public" virt="non-virtual"><scope>QfConfirmationToolbar</scope><name>cancel</name></member>
+      <member refid="classQfConfirmationToolbar_1a5d0901b6910fa162d3e78e563c82f215" prot="private" virt="non-virtual"><scope>QfConfirmationToolbar</scope><name>cancelButton</name></member>
+      <member refid="classQfConfirmationToolbar_1af761061564381eadddad80ec28585c8e" prot="public" virt="non-virtual"><scope>QfConfirmationToolbar</scope><name>confirm</name></member>
+      <member refid="classQfConfirmationToolbar_1a4d377036c6559e150df2c03ad5240cda" prot="private" virt="non-virtual"><scope>QfConfirmationToolbar</scope><name>confirmButton</name></member>
+      <member refid="classQfConfirmationToolbar_1ab61eb677cd8aa150564dffdd71ef6614" prot="private" virt="non-virtual"><scope>QfConfirmationToolbar</scope><name>spacing</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>QfConfirmationToolbar</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

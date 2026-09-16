@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCameraOrientationNormalizer" kind="class" language="C++" prot="public">
+    <compoundname>QfCameraOrientationNormalizer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfcameraorientationnormalizer_8h" local="no">qfcameraorientationnormalizer.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982" prot="public" static="no" strong="no">
+        <type></type>
+        <name>CameraPosition</name>
+        <qualifiedname>QfCameraOrientationNormalizer::CameraPosition</qualifiedname>
+        <enumvalue id="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982a6f37e3a5be62ab02d0817ced7326e2cc" prot="public">
+          <name>UnspecifiedPosition</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982a7a25ab0156062226d64051fb1d8390b1" prot="public">
+          <name>BackFace</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982a4c4745021b775de053a27657f40be66f" prot="public">
+          <name>FrontFace</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Camera position, matching the integer values of QCameraDevice::Position. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="56" column="5" bodyfile="src/core/qfcameraorientationnormalizer.h" bodystart="57" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCameraOrientationNormalizer_1a51bdf02c117f36c26f77d1cf98b75fb9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfCameraOrientationNormalizer::previewRotation</definition>
+        <argsstring></argsstring>
+        <name>previewRotation</name>
+        <qualifiedname>QfCameraOrientationNormalizer::previewRotation</qualifiedname>
+        <read>previewRotation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="51" column="5" bodyfile="src/core/qfcameraorientationnormalizer.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCameraOrientationNormalizer_1ad54e5f4faa4655089d57b8cf09e557c4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982" kindref="member">QfCameraOrientationNormalizer::CameraPosition</ref></type>
+        <definition>QfCameraOrientationNormalizer::CameraPosition QfCameraOrientationNormalizer::cameraPosition</definition>
+        <argsstring></argsstring>
+        <name>cameraPosition</name>
+        <qualifiedname>QfCameraOrientationNormalizer::cameraPosition</qualifiedname>
+        <read>cameraPosition</read>
+        <write>setCameraPosition</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="52" column="5" bodyfile="src/core/qfcameraorientationnormalizer.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCameraOrientationNormalizer_1a688b8543fd4716790c7a77eb2873d79f" prot="private" static="no" mutable="no">
+        <type>Qt::ScreenOrientation</type>
+        <definition>Qt::ScreenOrientation QfCameraOrientationNormalizer::mCurrentOrientation</definition>
+        <argsstring></argsstring>
+        <name>mCurrentOrientation</name>
+        <qualifiedname>QfCameraOrientationNormalizer::mCurrentOrientation</qualifiedname>
+        <initializer>= Qt::PortraitOrientation</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="125" column="27" bodyfile="src/core/qfcameraorientationnormalizer.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCameraOrientationNormalizer_1a5523a168897723c2e31ed79cca6c2512" prot="private" static="no" mutable="no">
+        <type>Qt::ScreenOrientation</type>
+        <definition>Qt::ScreenOrientation QfCameraOrientationNormalizer::mCaptureOrientation</definition>
+        <argsstring></argsstring>
+        <name>mCaptureOrientation</name>
+        <qualifiedname>QfCameraOrientationNormalizer::mCaptureOrientation</qualifiedname>
+        <initializer>= Qt::PortraitOrientation</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="126" column="27" bodyfile="src/core/qfcameraorientationnormalizer.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCameraOrientationNormalizer_1a8fe40a398eaa1deba0438e30739c0a96" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfCameraOrientationNormalizer::mPreviewRotation</definition>
+        <argsstring></argsstring>
+        <name>mPreviewRotation</name>
+        <qualifiedname>QfCameraOrientationNormalizer::mPreviewRotation</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="127" column="9" bodyfile="src/core/qfcameraorientationnormalizer.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCameraOrientationNormalizer_1a335f90e6c65a88a4590833521068c025" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982" kindref="member">CameraPosition</ref></type>
+        <definition>CameraPosition QfCameraOrientationNormalizer::mCameraPosition</definition>
+        <argsstring></argsstring>
+        <name>mCameraPosition</name>
+        <qualifiedname>QfCameraOrientationNormalizer::mCameraPosition</qualifiedname>
+        <initializer>= UnspecifiedPosition</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="128" column="20" bodyfile="src/core/qfcameraorientationnormalizer.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCameraOrientationNormalizer_1aeccc9bacab94efbf4be1c29bca1da498" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCameraOrientationNormalizer::QfCameraOrientationNormalizer</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfCameraOrientationNormalizer</name>
+        <qualifiedname>QfCameraOrientationNormalizer::QfCameraOrientationNormalizer</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Constructs the normalizer and starts tracking screen orientation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="65" column="14" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="26" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCameraOrientationNormalizer_1abbb0f31f291cb786bcb2f5dc28ff6b2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfCameraOrientationNormalizer::previewRotation</definition>
+        <argsstring>() const</argsstring>
+        <name>previewRotation</name>
+        <qualifiedname>QfCameraOrientationNormalizer::previewRotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the rotation in degrees that the live camera preview (VideoOutput) must be rotated by to appear upright, compensating for the incorrect preview orientation on iOS and Windows. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="72" column="9" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCameraOrientationNormalizer_1ae3d58deeb5613a15ce40e22c9e1461ec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982" kindref="member">QfCameraOrientationNormalizer::CameraPosition</ref></type>
+        <definition>QfCameraOrientationNormalizer::CameraPosition QfCameraOrientationNormalizer::cameraPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>cameraPosition</name>
+        <qualifiedname>QfCameraOrientationNormalizer::cameraPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the active camera&apos;s position (front, back, or unspecified), used to apply the additional horizontal mirror correction that front-facing cameras require when normalizing saved photos. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="79" column="51" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCameraOrientationNormalizer_1a1340cccfd70553464dd1991599d79d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCameraOrientationNormalizer::setCameraPosition</definition>
+        <argsstring>(QfCameraOrientationNormalizer::CameraPosition position)</argsstring>
+        <name>setCameraPosition</name>
+        <qualifiedname>QfCameraOrientationNormalizer::setCameraPosition</qualifiedname>
+        <param>
+          <type><ref refid="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982" kindref="member">QfCameraOrientationNormalizer::CameraPosition</ref></type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the active camera&apos;s <emphasis>position</emphasis>. Bound from the QML camera&apos;s device position so orientation correction can distinguish the front-facing camera. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="86" column="10" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="48" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCameraOrientationNormalizer_1a79adce5989686f7bbf549c8fb8fd57ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCameraOrientationNormalizer::recordCaptureOrientation</definition>
+        <argsstring>()</argsstring>
+        <name>recordCaptureOrientation</name>
+        <qualifiedname>QfCameraOrientationNormalizer::recordCaptureOrientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Records the current screen orientation. Call at shutter press so that <ref refid="classQfCameraOrientationNormalizer_1a80f6a11826b51f419c2b12f2e85ad793" kindref="member">normalizeImageOrientation()</ref> has a ground-truth reference. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="92" column="22" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="60" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCameraOrientationNormalizer_1a80f6a11826b51f419c2b12f2e85ad793" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfCameraOrientationNormalizer::normalizeImageOrientation</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>normalizeImageOrientation</name>
+        <qualifiedname>QfCameraOrientationNormalizer::normalizeImageOrientation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ensures the JPEG at <emphasis>path</emphasis> has pixels matching the orientation recorded by <ref refid="classQfCameraOrientationNormalizer_1a79adce5989686f7bbf549c8fb8fd57ac" kindref="member">recordCaptureOrientation()</ref>. Rotates the image if pixel dimensions contradict the capture orientation and strips any non-identity EXIF orientation tag.</para>
+<para>Returns false without touching the file when no correction is needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="102" column="22" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="66" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCameraOrientationNormalizer_1a9c78938a0ee81d4d1f6963f5908810d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfCameraOrientationNormalizer::applyEditsToImage</definition>
+        <argsstring>(const QString &amp;path, int rotation, bool mirror)</argsstring>
+        <name>applyEditsToImage</name>
+        <qualifiedname>QfCameraOrientationNormalizer::applyEditsToImage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rotation</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>mirror</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bakes a user-chosen adjustment into the JPEG at <emphasis>path</emphasis>, letting the user manually correct a photo before saving. Unlike the orientation compensation, this applies on all platforms. <emphasis>rotation</emphasis> is a clockwise angle in degrees (any multiple of 90) and <emphasis>mirror</emphasis> applies a horizontal flip. The mirror is applied before the rotation to match the live preview.</para>
+<para>Returns false without touching the file when there is nothing to apply (zero rotation and no mirror). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="114" column="22" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="136" bodyend="172"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCameraOrientationNormalizer_1afcf1d2ea54f532706fe539c9acb854df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCameraOrientationNormalizer::previewRotationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>previewRotationChanged</name>
+        <qualifiedname>QfCameraOrientationNormalizer::previewRotationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="117" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCameraOrientationNormalizer_1aacdfb80f378432f2b4757662a6090691" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCameraOrientationNormalizer::cameraPositionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cameraPositionChanged</name>
+        <qualifiedname>QfCameraOrientationNormalizer::cameraPositionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="118" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfCameraOrientationNormalizer_1a4bb86ef6b84a7e55f54cd2343da39784" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCameraOrientationNormalizer::handleScreenOrientationChanged</definition>
+        <argsstring>(Qt::ScreenOrientation orientation)</argsstring>
+        <name>handleScreenOrientationChanged</name>
+        <qualifiedname>QfCameraOrientationNormalizer::handleScreenOrientationChanged</qualifiedname>
+        <param>
+          <type>Qt::ScreenOrientation</type>
+          <declname>orientation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="121" column="10" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="174" bodyend="183"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfCameraOrientationNormalizer_1ab0b1fe8e374a4e0ace1c6d0c0ea2e295" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCameraOrientationNormalizer::updatePreviewRotation</definition>
+        <argsstring>()</argsstring>
+        <name>updatePreviewRotation</name>
+        <qualifiedname>QfCameraOrientationNormalizer::updatePreviewRotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfcameraorientationnormalizer.h" line="124" column="10" bodyfile="src/core/qfcameraorientationnormalizer.cpp" bodystart="185" bodyend="203"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Compensates for incorrect camera orientation on iOS and Windows, and applies user-requested photo adjustments on all platforms. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>On iOS and Windows, Qt Multimedia&apos;s backend produces an inverted camera preview in landscape mode and writes captured photos with incorrect orientation or bogus EXIF tags (QTBUG-118594). The preview and saved-image corrections below are limited to those platforms.</para>
+<para>Separately, and on all platforms, this class can bake a user-chosen rotation and mirror into a captured photo before it is saved.</para>
+<para>This class provides: <emphasis>previewRotation</emphasis> for correcting the live VideoOutput orientation (iOS and Windows only) <emphasis>cameraPosition</emphasis> to distinguish the front-facing camera, which needs an additional mirror correction <emphasis><ref refid="classQfCameraOrientationNormalizer_1a80f6a11826b51f419c2b12f2e85ad793" kindref="member">normalizeImageOrientation()</ref></emphasis> for correcting saved JPEG files (iOS and Windows only) <emphasis><ref refid="classQfCameraOrientationNormalizer_1a9c78938a0ee81d4d1f6963f5908810d0" kindref="member">applyEditsToImage()</ref></emphasis> for baking a user-chosen rotation and mirror into a saved JPEG (all platforms) </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCameraOrientationNormalizer</label>
+        <link refid="classQfCameraOrientationNormalizer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCameraOrientationNormalizer</label>
+        <link refid="classQfCameraOrientationNormalizer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfcameraorientationnormalizer.h" line="47" column="1" bodyfile="src/core/qfcameraorientationnormalizer.h" bodystart="48" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classQfCameraOrientationNormalizer_1a9c78938a0ee81d4d1f6963f5908810d0" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>applyEditsToImage</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982a7a25ab0156062226d64051fb1d8390b1" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>BackFace</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>CameraPosition</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1ad54e5f4faa4655089d57b8cf09e557c4" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>cameraPosition</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1ae3d58deeb5613a15ce40e22c9e1461ec" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>cameraPosition</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1aacdfb80f378432f2b4757662a6090691" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>cameraPositionChanged</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982a4c4745021b775de053a27657f40be66f" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>FrontFace</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a4bb86ef6b84a7e55f54cd2343da39784" prot="private" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>handleScreenOrientationChanged</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a335f90e6c65a88a4590833521068c025" prot="private" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>mCameraPosition</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a5523a168897723c2e31ed79cca6c2512" prot="private" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>mCaptureOrientation</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a688b8543fd4716790c7a77eb2873d79f" prot="private" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>mCurrentOrientation</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a8fe40a398eaa1deba0438e30739c0a96" prot="private" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>mPreviewRotation</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a80f6a11826b51f419c2b12f2e85ad793" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>normalizeImageOrientation</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a51bdf02c117f36c26f77d1cf98b75fb9" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>previewRotation</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1abbb0f31f291cb786bcb2f5dc28ff6b2f" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>previewRotation</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1afcf1d2ea54f532706fe539c9acb854df" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>previewRotationChanged</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1aeccc9bacab94efbf4be1c29bca1da498" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>QfCameraOrientationNormalizer</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a79adce5989686f7bbf549c8fb8fd57ac" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>recordCaptureOrientation</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1a1340cccfd70553464dd1991599d79d41" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>setCameraPosition</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1ac3ccf7044f39d5296adfc8960c16d982a6f37e3a5be62ab02d0817ced7326e2cc" prot="public" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>UnspecifiedPosition</name></member>
+      <member refid="classQfCameraOrientationNormalizer_1ab0b1fe8e374a4e0ace1c6d0c0ea2e295" prot="private" virt="non-virtual"><scope>QfCameraOrientationNormalizer</scope><name>updatePreviewRotation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
