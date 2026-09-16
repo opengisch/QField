@@ -14,7 +14,7 @@ Item {
     visible: positionSource.active
     mapSettings: navigation.mapSettings
     geometry: QfGeometryWrapper {
-      crs: navigation.mapSettings.crs ? navigation.mapSettings.crs : QfCoordinateReferenceSystemUtils.invalidCrs()
+      crs: navigation.mapSettings.destinationCrs ? navigation.mapSettings.destinationCrs : QfCoordinateReferenceSystemUtils.invalidCrs()
       qgsGeometry: navigation.path
     }
     color: QfTheme.navigationColorSemiOpaque
