@@ -5609,11 +5609,10 @@ ApplicationWindow {
     id: busyOverlay
     objectName: 'busyOverlay'
 
-    parent: Overlay.overlay
-    z: dashBoard.z + 1
-
     property bool isPrinting: false
 
+    parent: dashBoard.opened ? Overlay.overlay : mainWindow.contentItem
+    z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
     state: iface.hasProjectOnLaunch() ? "visible" : "hidden"
   }
 
