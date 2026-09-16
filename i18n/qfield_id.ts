@@ -4837,18 +4837,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>aborted</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation type="unfinished"/>
     </message>
@@ -5280,6 +5268,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6410,6 +6414,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Local Projects &amp; Datasets</source>
         <translation>Local Projects &amp; Datasets</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Folders</translation>
@@ -6479,11 +6487,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Send compressed folder to...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
+        <source>Upload folder to WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>

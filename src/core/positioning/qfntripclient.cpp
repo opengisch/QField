@@ -373,12 +373,11 @@ void QfNtripSocket::onConnected()
     case QfNtripSettings::NtripVersion2:
     {
       request.append( "GET " + mp + " HTTP/1.1\r\n" );
+      request.append( "User-Agent: NTRIP QFieldClient/2.0\r\n" );
+      request.append( "Authorization: Basic " + base64 + "\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
       request.append( "Ntrip-Version: Ntrip/2.0\r\n" );
-      request.append( "User-Agent: QField NTRIP Client/2.0\r\n" );
       request.append( "Accept: */*\r\n" );
-      request.append( "Authorization: Basic " + base64 + "\r\n" );
-      request.append( "Connection: close\r\n" );
       request.append( "\r\n" );
       break;
     }
@@ -386,11 +385,10 @@ void QfNtripSocket::onConnected()
     case QfNtripSettings::NtripVersion1:
     {
       request.append( "GET " + mp + " HTTP/1.0\r\n" );
-      request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
-      request.append( "User-Agent: QField NTRIP Client/1.0\r\n" );
-      request.append( "Accept: */*\r\n" );
+      request.append( "User-Agent: NTRIP QFieldClient/1.0\r\n" );
       request.append( "Authorization: Basic " + base64 + "\r\n" );
-      request.append( "Connection: close\r\n" );
+      request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
+      request.append( "Accept: */*\r\n" );
       request.append( "\r\n" );
       break;
     }
@@ -583,12 +581,9 @@ void QfNtripSocket::processChunkedData( const QByteArray &data )
 
 void QfNtripSocket::onDisconnected()
 {
-  if ( mHeadersSent )
-  {
-    // Server-initiated disconnection after stream was connected
-    emit streamDisconnected();
-  }
-  else if ( !mPendingError )
+  emit streamDisconnected();
+
+  if ( !mPendingError )
   {
     // Connection failed or disconnected before headers were processed
     emit errorOccurred( QStringLiteral( "Disconnected from NTRIP caster " ) + mHost

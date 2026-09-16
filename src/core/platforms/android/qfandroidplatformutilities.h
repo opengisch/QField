@@ -54,7 +54,7 @@ class QfAndroidPlatformUtilities : public QfPlatformUtilities
     void removeDataset( const QString &path ) const override;
 
     void exportFolderTo( const QString &path ) const override;
-    void sendCompressedFolderTo( const QString &path ) const override;
+    void sendCompressedFolderTo( const QString &path, const QString &fileName = QString() ) const override;
     void removeFolder( const QString &path ) const override;
 
     QfResourceSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent = nullptr ) override;

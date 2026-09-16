@@ -4844,18 +4844,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>anulowano</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Ścieżka lokalna nie istnieje</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Nie można użyć lokalnej ścieżki do przesłania, ponieważ zawiera ona wiele plików projektów.</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>W lokalnej ścieżce do przesłania brakuje prawidłowego pliku projektu.</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Błąd sieci. Nie udało się przesłać pliku `%1`.</translation>
     </message>
@@ -5289,6 +5277,22 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>%1 in layer %2</source>
         <translation>%1 w warstwie %2</translation>
     </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation>Nie znaleziono folderu projektu.</translation>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation>W folderze projektu znajduje się więcej niż jeden plik projekt – przenieś projekt do osobnego folderu i spróbuj jeszcze raz.</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation>W folderze projektu nie ma poprawnego pliku projektu.</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation>W folderze projektu nie ma pliku projektu.</translation>
+    </message>
 </context>
 <context>
     <name>QfCodeReader</name>
@@ -5643,7 +5647,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"/>
+        <translation>Pochylenie</translation>
     </message>
     <message>
         <source>Heading sigma</source>
@@ -6424,6 +6428,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Local Projects &amp; Datasets</source>
         <translation>Lokalne projekty i zestawy danych</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Katalogi</translation>
@@ -6493,12 +6501,16 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Wyślij skompresowany katalog do...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Prześlij katalog na serwer WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation>Prześlij folder do WebDAV</translation>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Pobierz katalog z serwera WebDAV</translation>
+        <source>Upload file to WebDAV</source>
+        <translation>Prześlij plik do WebDAV</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation>Pobierz folder z serwera WebDAV</translation>
     </message>
     <message>
         <source>Delete folder</source>

@@ -4838,18 +4838,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>异常退出</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>本地路径不存在</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>无法使用本地路径上传，因为它有多个工程文件</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>上传的本地路径缺少有效的工程文件</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>网络错误。上传文件 `%1` 失败。</translation>
     </message>
@@ -5282,6 +5270,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>%1 in layer %2</source>
         <translation>%1在图层%2中</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation>未找到工程文件夹。</translation>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation>工程文件夹包含多个工程文件，请将该工程移至自己的文件夹，然后重试。</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation>工程文件夹未包含有效工程文件。</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation>工程文件夹未包含工程文件。</translation>
     </message>
 </context>
 <context>
@@ -6412,6 +6416,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Local Projects &amp; Datasets</source>
         <translation>本地工程和数据集</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>文件夹</translation>
@@ -6481,12 +6489,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>将文件夹压缩并发送到...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>将文件夹上传到WebDAV服务器</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>从WebDAV服务器下载文件夹</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

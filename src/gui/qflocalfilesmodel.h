@@ -32,6 +32,8 @@ class QfLocalFilesModel : public QAbstractListModel
     Q_PROPERTY( int currentDepth READ currentDepth NOTIFY currentPathChanged )
     Q_PROPERTY( bool isDeletedAllowedInCurrentPath READ isDeletedAllowedInCurrentPath NOTIFY currentPathChanged )
     Q_PROPERTY( bool inSelectionMode READ inSelectionMode NOTIFY inSelectionModeChanged )
+    Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectionDetailsChanged )
+    Q_PROPERTY( qint64 selectedSize READ selectedSize NOTIFY selectionDetailsChanged )
 
   public:
     enum ItemMetaType
@@ -121,6 +123,12 @@ class QfLocalFilesModel : public QAbstractListModel
     //! Returns whether list is in multi-selection mode or not
     bool inSelectionMode();
 
+    //! Returns the number of checked items
+    int selectedCount() const;
+
+    //! Returns the summed size of checked items in bytes
+    qint64 selectedSize() const;
+
     //! Set checked state of an item in list
     Q_INVOKABLE void setChecked( const int &mIdx, const bool &checked );
 
@@ -132,6 +140,8 @@ class QfLocalFilesModel : public QAbstractListModel
     void currentPathChanged();
 
     void inSelectionModeChanged();
+
+    void selectionDetailsChanged();
 
   private:
     void reloadModel();

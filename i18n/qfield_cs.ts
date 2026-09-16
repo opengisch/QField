@@ -4842,18 +4842,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation>zrušeno</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation type="unfinished"/>
     </message>
@@ -5285,6 +5273,22 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6421,6 +6425,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>Local Projects &amp; Datasets</source>
         <translation>Místní projekty a datové sady</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Složky</translation>
@@ -6490,11 +6498,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation>Odeslat komprimovanou složku do...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
+        <source>Upload folder to WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>

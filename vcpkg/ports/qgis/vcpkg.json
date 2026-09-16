@@ -79,16 +79,9 @@
         "jpeg",
         "network",
         "opengl",
-        {
-          "name": "openssl",
-          "platform": "!ios"
-        },
+        "openssl",
         "pcre2",
         "png",
-        {
-          "name": "securetransport",
-          "platform": "ios"
-        },
         "sql",
         "sql-sqlite",
         "testlib",

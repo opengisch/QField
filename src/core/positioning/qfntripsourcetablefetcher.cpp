@@ -97,11 +97,11 @@ void QfNtripSourceTableFetcher::onSocketConnected()
     case QfNtripSettings::NtripVersion2:
     {
       request.append( "GET / HTTP/1.1\r\n" );
+      request.append( "User-Agent: NTRIP QFieldClient/2.0\r\n" );
+      request.append( "Authorization: Basic " + base64 + "\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
       request.append( "Ntrip-Version: Ntrip/2.0\r\n" );
-      request.append( "User-Agent: QField NTRIP Client/2.0\r\n" );
       request.append( "Accept: */*\r\n" );
-      request.append( "Authorization: Basic " + base64 + "\r\n" );
       request.append( "Connection: close\r\n" );
       request.append( "\r\n" );
       break;
@@ -109,10 +109,10 @@ void QfNtripSourceTableFetcher::onSocketConnected()
     case QfNtripSettings::NtripVersion1:
     {
       request.append( "GET / HTTP/1.0\r\n" );
-      request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
-      request.append( "User-Agent: QField NTRIP Client/1.0\r\n" );
-      request.append( "Accept: */*\r\n" );
+      request.append( "User-Agent: NTRIP QFieldClient/1.0\r\n" );
       request.append( "Authorization: Basic " + base64 + "\r\n" );
+      request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
+      request.append( "Accept: */*\r\n" );
       request.append( "Connection: close\r\n" );
       request.append( "\r\n" );
       break;

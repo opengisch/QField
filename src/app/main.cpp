@@ -52,6 +52,11 @@
 #include <QTranslator>
 #include <QtWebView/QtWebView>
 
+#if defined( Q_OS_IOS )
+#include <QSslCertificate>
+#include <QSslConfiguration>
+#endif
+
 #include <proj.h>
 
 #if HAVE_STATIC_QCA_PLUGINS
@@ -66,11 +71,7 @@ void initGraphics()
 #ifdef WITH_SPIX
   // Set antialiasing method to vertex to get same antialiasing across environments
   qputenv( "QSG_ANTIALIASING_METHOD", "vertex" );
-#endif
 
-#if not defined( Q_OS_ANDROID )
-  // Enables antialiasing in QML scenes
-  // Avoid enabling on Android OS as it leads to serious regressions on old devices
   QSurfaceFormat format;
   format.setSamples( 4 );
   QSurfaceFormat::setDefaultFormat( format );
@@ -175,6 +176,13 @@ int main( int argc, char **argv )
 
   QfPlatformUtilities *platformUtils = QfPlatformUtilities::instance();
   platformUtils->initSystem();
+
+#if defined( RELATIVE_PREFIX_PATH ) && defined( Q_OS_IOS )
+  const QList<QSslCertificate> certs = QSslCertificate::fromPath( QDir::toNativeSeparators( QfPlatformUtilities::instance()->systemSharedDataLocation() + "/cacert.pem" ) );
+  QSslConfiguration sslConfig = QSslConfiguration::defaultConfiguration();
+  sslConfig.setCaCertificates( certs );
+  QSslConfiguration::setDefaultConfiguration( sslConfig );
+#endif
 
   // Let's make sure we have a writable path for the QGIS profile on every platform
   const QString profilePath = platformUtils->systemLocalDataLocation( QStringLiteral( "profiles/default" ) );

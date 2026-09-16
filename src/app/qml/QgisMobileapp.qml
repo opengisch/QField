@@ -1100,6 +1100,7 @@ ApplicationWindow {
     /** Tracking sessions **/
     Repeater {
       id: trackings
+      objectName: "trackings"
 
       model: trackingModel
 
@@ -2227,6 +2228,7 @@ ApplicationWindow {
 
     Column {
       id: zoomToolbar
+      objectName: "zoomToolbar"
       anchors.right: parent.right
       anchors.rightMargin: mainWindow.sceneRightMargin + 10
       anchors.bottom: parent.bottom
@@ -2331,6 +2333,7 @@ ApplicationWindow {
     /* The main menu */
     Row {
       id: mainMenuBar
+      objectName: "mainMenuBar"
       visible: !screenLocker.enabled
       width: childrenRect.width
       height: childrenRect.height
@@ -2412,6 +2415,7 @@ ApplicationWindow {
 
     Column {
       id: mainToolbar
+      objectName: "mainToolbar"
       visible: !screenLocker.enabled
       anchors.left: mainMenuBar.left
       anchors.top: mainMenuBar.bottom
@@ -2919,6 +2923,7 @@ ApplicationWindow {
 
     Column {
       id: locationToolbar
+      objectName: "locationToolbar"
       anchors.right: parent.right
       anchors.rightMargin: mainWindow.sceneRightMargin + 4
       anchors.bottom: digitizingToolbarContainer.top
@@ -3008,7 +3013,7 @@ ApplicationWindow {
             name: "On"
             PropertyChanges {
               target: gnssButton
-              iconSource: trackings.count > 0 ? QfTheme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? QfTheme.getThemeVectorIcon("ic_location_valid_white_24dp") : QfTheme.getThemeVectorIcon("ic_location_white_24dp")
+              iconSource: trackingModel.activeCount > 0 ? QfTheme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? QfTheme.getThemeVectorIcon("ic_location_valid_white_24dp") : QfTheme.getThemeVectorIcon("ic_location_white_24dp")
               iconColor: followActive ? QfTheme.toolButtonColor : QfTheme.positionColor
               bgcolor: followActive ? QfTheme.positionColor : QfTheme.toolButtonBackgroundColor
             }

@@ -4833,18 +4833,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Megszakítva</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Nincs ilyen helyi elérési út</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>A feltöltés helyi elérési útja nem jó, mivel több projektfájlt tartalmaz.</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>A feltöltés helyi elérési útja nem tartalmaz egy érvényes projektfájlt.</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Hálózati hiba. Sikertelen a `%1` fájl feltöltése.</translation>
     </message>
@@ -5276,6 +5264,22 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6407,6 +6411,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Local Projects &amp; Datasets</source>
         <translation>Helyi projektek és adathalmazok</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Mappák</translation>
@@ -6476,12 +6484,16 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Tömörített mappa küldése...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Mappa feltöltése WebDAV szerverre</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Mappa letöltése WebDAV szerverről</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

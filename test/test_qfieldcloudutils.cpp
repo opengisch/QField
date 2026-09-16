@@ -18,7 +18,10 @@
 #include "qfieldcloud/qfcloudconnection.h"
 #include "utils/qfcloudutils.h"
 
+#include <QDir>
+#include <QFile>
 #include <QJsonObject>
+#include <QTemporaryDir>
 
 
 TEST_CASE( "CloudSubscriptionInformation" )
@@ -83,5 +86,43 @@ TEST_CASE( "QFieldCloudUtils::subscriptionManagementUrl" )
   SECTION( "Community plan takes precedence over owner check" )
   {
     REQUIRE( QfCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Community" ), QStringLiteral( "org_owner" ), QStringLiteral( "alice" ) ) == QStringLiteral( "https://app.qfield.cloud/plans" ) );
+  }
+}
+
+
+void writeFile( const QString &filePath, const QByteArray &content )
+{
+  QFile file( filePath );
+  REQUIRE( file.open( QIODevice::WriteOnly ) );
+  file.write( content );
+}
+
+
+TEST_CASE( "QFieldCloudUtils::checkCloudifyFeasibility" )
+{
+  QTemporaryDir projectDir;
+  REQUIRE( projectDir.isValid() );
+
+  const QString projectFilePath = QStringLiteral( "%1/project.qgz" ).arg( projectDir.path() );
+
+  SECTION( "Missing folder returns an error" )
+  {
+    REQUIRE_FALSE( QfCloudUtils::checkCloudifyFeasibility( QStringLiteral( "%1/missing" ).arg( projectDir.path() ) ).isEmpty() );
+  }
+
+  SECTION( "Folder without a valid project file returns an error" )
+  {
+    REQUIRE_FALSE( QfCloudUtils::checkCloudifyFeasibility( projectDir.path() ).isEmpty() );
+    writeFile( projectFilePath, QByteArray() );
+    REQUIRE_FALSE( QfCloudUtils::checkCloudifyFeasibility( projectDir.path() ).isEmpty() );
+  }
+
+  SECTION( "A single project file passes, a second one returns an error" )
+  {
+    writeFile( projectFilePath, QByteArray( "project" ) );
+    REQUIRE( QfCloudUtils::checkCloudifyFeasibility( projectDir.path() ).isEmpty() );
+    REQUIRE( QfCloudUtils::checkCloudifyFeasibility( projectFilePath ).isEmpty() );
+    writeFile( QStringLiteral( "%1/other.qgs" ).arg( projectDir.path() ), QByteArray( "project" ) );
+    REQUIRE_FALSE( QfCloudUtils::checkCloudifyFeasibility( projectDir.path() ).isEmpty() );
   }
 }

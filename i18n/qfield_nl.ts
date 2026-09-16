@@ -4839,18 +4839,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation>afgebroken</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation type="unfinished"/>
     </message>
@@ -5282,6 +5270,22 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6414,6 +6418,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Local Projects &amp; Datasets</source>
         <translation>Lokale Projecten &amp; Datasets</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Mappen</translation>
@@ -6483,12 +6491,16 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Verzend gecomprimeerde map naar...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Map uploaden naar WebDAV-server</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Map downloaden van WebDAV-server</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

@@ -4818,18 +4818,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>ລະບົບຖືກຢຸດ</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>ບໍ່ມີເສັ້ນທາງທ້ອງຖິ່ນ</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>ບໍ່ສາມາດໃຊ້ເສັ້ນທາງທ້ອງຖິ່ນເພື່ອອັບໂຫລດໄດ້ເນື່ອງຈາກມັນມີໄຟລ໌ໂຄງການຫຼາຍອັນ</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>ເສັ້ນທາງທ້ອງຖິ່ນທີ່ຈະອັບໂຫລດບໍ່ມີໄຟລ໌ໂຄງການທີ່ຖືກຕ້ອງ</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>ເຄືອຂ່າຍຜິດພາດ. ອັບໂຫລດໄຟລ໌ `%1` ບໍ່ສຳເລັດ.</translation>
     </message>
@@ -5261,6 +5249,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6385,6 +6389,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Local Projects &amp; Datasets</source>
         <translation>ໂຄງການ ແລະ ຊຸດຂໍ້ມູນທ້ອງຖິ່ນ</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>ໂຟນເດີ</translation>
@@ -6454,12 +6462,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ສົ່ງໂຟນເດີທີ່ຖືກບີບອັດໄປ...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>ອັບໂຫລດໂຟນເດີໄປໃສ່ເຊີບເວີ WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>ດາວໂຫລດໂຟນເດີຈາກເຊີບເວີ WebDAV</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

@@ -4845,18 +4845,6 @@ Messaggio dell&apos;errore: %4</translation>
         <translation>interrotto</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation type="unfinished"/>
     </message>
@@ -5288,6 +5276,22 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6422,6 +6426,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>Local Projects &amp; Datasets</source>
         <translation>Progetti &amp; Dataset Locali</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Cartelle</translation>
@@ -6491,11 +6499,15 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <translation>Invia cartella compressa a...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
+        <source>Upload folder to WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>

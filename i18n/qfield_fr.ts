@@ -4837,18 +4837,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>avorté</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Le chemin local n&apos;existe pas</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>Le chemin d&apos;accès local pour le téléchargement ne peut pas être utilisé car il contient plusieurs fichiers projet</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>Le chemin local pour le téléchargement n&apos;a pas de fichier de projet valide.</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Erreur réseau. Échec du téléversement du fichier `%1`.</translation>
     </message>
@@ -5281,6 +5269,22 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>%1 in layer %2</source>
         <translation>%1 dans couche %2</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation>Le dossier du projet est introuvable.</translation>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation>Le dossier du projet contient plus d&apos;un fichier projet, déplace le fichier projet dans un dossier à part et réessaie.</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation>Le dossier du projet ne contient pas de fichier projet valide.</translation>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation>Le dossier du projet ne contient pas de fichier projet.</translation>
     </message>
 </context>
 <context>
@@ -6415,6 +6419,10 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <source>Local Projects &amp; Datasets</source>
         <translation>Projets locaux et jeux de données</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation><numerusform>%n article(s) sélectionné(s)</numerusform><numerusform>%n article(s) sélectionné(s)</numerusform><numerusform>%n élément(s) sélectionné(s)</numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Dossiers</translation>
@@ -6484,12 +6492,16 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Envoyer le dossier compressé à...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Envoyer le dossier au serveur WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation>Téléverser le dossier sur WebDAV</translation>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Télécharger le dossier depuis le serveur WebDAV</translation>
+        <source>Upload file to WebDAV</source>
+        <translation>Téléverser le fichier sur WebDAV</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation>Télécharger le dossier depuis WebDAV</translation>
     </message>
     <message>
         <source>Delete folder</source>

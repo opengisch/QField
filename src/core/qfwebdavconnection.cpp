@@ -947,7 +947,6 @@ void QfWebdavConnection::downloadPath( const QString &localPath )
         emit progressChanged();
 
         mIsDownloadingPath = true;
-        emit isDownloadingPathChanged();
         const QUrl url( mUrl );
         emit confirmationRequested( url.host(), mUsername );
       }
@@ -1184,6 +1183,15 @@ void QfWebdavConnection::confirmRequest()
 {
   if ( mIsDownloadingPath || mIsUploadingPath )
   {
+    if ( mIsDownloadingPath )
+    {
+      emit isDownloadingPathChanged();
+    }
+    else if ( mIsUploadingPath )
+    {
+      emit isUploadingPathChanged();
+    }
+
     mWebdavItems.clear();
     mLastError.clear();
     setupConnection();
@@ -1297,7 +1305,6 @@ void QfWebdavConnection::beginUpload( bool requireConfirmation )
   emit progressChanged();
 
   mIsUploadingPath = true;
-  emit isUploadingPathChanged();
 
   if ( requireConfirmation )
   {

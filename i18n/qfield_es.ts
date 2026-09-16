@@ -4839,18 +4839,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>abortado</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>La ruta local no existe</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>La ruta local para subir no se puede usar porque contiene múltiples archivos de proyecto</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>La ruta local para subir carece de un archivo de proyecto válido</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>Error de red. Error al subir el archivo `%1`.</translation>
     </message>
@@ -5282,6 +5270,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6416,6 +6420,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>Local Projects &amp; Datasets</source>
         <translation>Proyectos y conjuntos de datos locales</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>Carpetas</translation>
@@ -6485,12 +6493,16 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>Enviar carpeta comprimida a...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Subir carpeta al servidor WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Descargar carpeta del servidor WebDAV</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

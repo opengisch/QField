@@ -4838,18 +4838,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>중단됨</translation>
     </message>
     <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>로컬 경로가 존재하지 않습니다</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>업로드할 로컬 경로에 프로젝트 파일이 여러 개 있어 사용할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>업로드할 로컬 경로에 유효한 프로젝트 파일이 없습니다</translation>
-    </message>
-    <message>
         <source>Network error. Failed to upload file `%1`.</source>
         <translation>네트워크 오류. 파일 `%1`을(를) 업로드하지 못했습니다.</translation>
     </message>
@@ -5282,6 +5270,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>%1 in layer %2</source>
         <translation>레이어 %2의 %1</translation>
+    </message>
+    <message>
+        <source>The project folder could not be found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a valid project file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder does not contain a project file.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6411,6 +6415,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Local Projects &amp; Datasets</source>
         <translation>로컬 프로젝트 및 데이터셋</translation>
     </message>
+    <message numerus="yes">
+        <source>%n item(s) selected</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
     <message>
         <source>Folders</source>
         <translation>폴더</translation>
@@ -6480,12 +6488,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>압축한 폴더 보내기...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>WebDAV 서버로 폴더 업로드</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>WebDAV 서버에서 폴더 내려받기</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>
