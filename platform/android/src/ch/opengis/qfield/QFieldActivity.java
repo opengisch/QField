@@ -816,15 +816,17 @@ public class QFieldActivity extends QtActivity {
         return;
     }
 
-    private void sendCompressedFolderTo(String path) {
+    private void sendCompressedFolderTo(String path, String fileName) {
         showBlockingProgressDialog(getString(R.string.processing_message));
 
         executorService.execute(new Runnable() {
             @Override
             public void run() {
                 File file = new File(path);
-                File temporaryFile =
-                    new File(getCacheDir(), file.getName() + ".zip");
+                String zipName = (fileName == null || fileName.isEmpty())
+                                     ? file.getName()
+                                     : fileName;
+                File temporaryFile = new File(getCacheDir(), zipName + ".zip");
                 QFieldUtils.folderToZip(file.getPath(),
                                         temporaryFile.getPath());
                 dismissBlockingProgressDialog();

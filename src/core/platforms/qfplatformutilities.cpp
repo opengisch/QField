@@ -334,9 +334,10 @@ void QfPlatformUtilities::sendDatasetTo( const QString &path ) const
   }
 }
 
-void QfPlatformUtilities::sendCompressedFolderTo( const QString &path ) const
+void QfPlatformUtilities::sendCompressedFolderTo( const QString &path, const QString &fileName ) const
 {
-  const QString tempZipPath = QStringLiteral( "%1/%2.zip" ).arg( QDir::tempPath(), QFileInfo( path ).fileName() );
+  const QString zipName = fileName.isEmpty() ? QFileInfo( path ).fileName() : QfFileUtils::sanitizeFilePathPart( fileName );
+  const QString tempZipPath = QStringLiteral( "%1/%2.zip" ).arg( QDir::tempPath(), zipName );
   QFile::remove( tempZipPath );
 
   QStringList files;
