@@ -284,11 +284,14 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     for ( const QString &dataDir : dataDirs )
     {
       QDir configurationsDir( QStringLiteral( "%1/auth/" ).arg( dataDir ) );
+      QgsApplication::instance()->messageLog()->logMessage( configurationsDir.absolutePath() );
       if ( configurationsDir.exists() )
       {
         const QStringList configurations = configurationsDir.entryList( QStringList() << QStringLiteral( "*.xml" ) << QStringLiteral( "*.XML" ), QDir::Files );
+        QgsApplication::instance()->messageLog()->logMessage( configurations.join( QStringLiteral( ", " ) ) );
         for ( const QString &configuration : configurations )
         {
+          QgsApplication::instance()->messageLog()->logMessage( configurationsDir.absoluteFilePath( configuration ) );
           QgsApplication::authManager()->importAuthenticationConfigsFromXml( configurationsDir.absoluteFilePath( configuration ), QString(), true );
         }
       }
