@@ -361,17 +361,20 @@ void QfFeatureListModel::gatherFeatureList()
   QString searchTermExpression;
   if ( !mSearchTerm.isEmpty() )
   {
-    QString escapedSearchTerm = QgsExpression::quotedValue( QgsStringUtils::unaccent( mSearchTerm ) ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
-    searchTermExpression = QStringLiteral( " unaccent( %1 ) ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
-
+    QString escapedSearchTerm = QgsExpression::quotedValue( QgsStringUtils::unaccent( mSearchTerm.trimmed() ) ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
     QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
-    if ( !searchTermParts.isEmpty() )
+
+    if ( searchTermParts.size() > 1 )
     {
       for ( QString &searchTermPart : searchTermParts )
       {
-        searchTermPart = QStringLiteral( "unaccent( %1 ) ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
+        searchTermPart = QStringLiteral( "@search_string ILIKE '%%1%'" ).arg( searchTermPart );
       }
-      searchTermExpression += QStringLiteral( "OR (%2) " ).arg( searchTermParts.join( QStringLiteral( " AND " ) ) );
+      searchTermExpression = QStringLiteral( "with_variable('search_string', unaccent(%1), %2)" ).arg( fieldDisplayString, searchTermParts.join( QStringLiteral( " AND " ) ) );
+    }
+    else
+    {
+      searchTermExpression = QStringLiteral( "unaccent(%1) ILIKE '%%2%'" ).arg( fieldDisplayString, escapedSearchTerm );
     }
   }
 
@@ -397,7 +400,7 @@ void QfFeatureListModel::gatherFeatureList()
     request.setFilterExpression( mFilterExpression );
     if ( mFilterExpression.isEmpty() )
     {
-      request.setFilterExpression( QStringLiteral( " (%1) " ).arg( searchTermExpression ) );
+      request.setFilterExpression( QStringLiteral( "%1" ).arg( searchTermExpression ) );
     }
     else if ( searchTermExpression.isEmpty() )
     {
@@ -405,7 +408,7 @@ void QfFeatureListModel::gatherFeatureList()
     }
     else
     {
-      request.setFilterExpression( QStringLiteral( " (%1) AND (%2) " ).arg( mFilterExpression, searchTermExpression ) );
+      request.setFilterExpression( QStringLiteral( "(%1) AND (%2)" ).arg( mFilterExpression, searchTermExpression ) );
     }
   }
 
