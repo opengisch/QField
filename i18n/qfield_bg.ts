@@ -6493,12 +6493,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Сподели компресираната директория...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Качи директорията на WebDAV сървър</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Изтегли директорията от WebDAV сървър</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

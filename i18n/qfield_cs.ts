@@ -6498,11 +6498,15 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation>Odeslat komprimovanou složku do...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
+        <source>Upload folder to WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>

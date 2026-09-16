@@ -6462,12 +6462,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ສົ່ງໂຟນເດີທີ່ຖືກບີບອັດໄປ...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>ອັບໂຫລດໂຟນເດີໄປໃສ່ເຊີບເວີ WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>ດາວໂຫລດໂຟນເດີຈາກເຊີບເວີ WebDAV</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

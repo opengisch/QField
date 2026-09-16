@@ -6501,12 +6501,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Надіслати стиснуту папку до...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Завантаження папки на сервер WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Завантажити папку із сервера WebDAV</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

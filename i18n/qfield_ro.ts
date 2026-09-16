@@ -6499,11 +6499,15 @@ Motiv:
         <translation>Trimite-ți folderul compresat către...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
+        <source>Upload folder to WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>

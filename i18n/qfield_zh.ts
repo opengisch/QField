@@ -6489,12 +6489,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>将文件夹压缩并发送到...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>将文件夹上传到WebDAV服务器</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>从WebDAV服务器下载文件夹</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

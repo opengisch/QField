@@ -6495,12 +6495,16 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
         <translation>L채het채 pakattu hakemisto ...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>L채het채 kansio WebDAV-palvelimelle</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Lataa kansio webDAV-palvelimelta</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

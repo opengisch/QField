@@ -5647,7 +5647,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"/>
+        <translation>Pochylenie</translation>
     </message>
     <message>
         <source>Heading sigma</source>
@@ -6501,12 +6501,16 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Wyślij skompresowany katalog do...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Prześlij katalog na serwer WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation>Prześlij folder do WebDAV</translation>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Pobierz katalog z serwera WebDAV</translation>
+        <source>Upload file to WebDAV</source>
+        <translation>Prześlij plik do WebDAV</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation>Pobierz folder z serwera WebDAV</translation>
     </message>
     <message>
         <source>Delete folder</source>

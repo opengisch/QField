@@ -6492,12 +6492,16 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <translation>Skicka komprimerad mapp till...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Ladda upp mappen till WebDAV-servern</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Hämta mappen från WebDAV-servern</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

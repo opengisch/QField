@@ -6492,12 +6492,16 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Envoyer le dossier compressé à...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Envoyer le dossier au serveur WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation>Téléverser le dossier sur WebDAV</translation>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Télécharger le dossier depuis le serveur WebDAV</translation>
+        <source>Upload file to WebDAV</source>
+        <translation>Téléverser le fichier sur WebDAV</translation>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation>Télécharger le dossier depuis WebDAV</translation>
     </message>
     <message>
         <source>Delete folder</source>

@@ -6478,11 +6478,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Gửi thư mục nén tới...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Tải thư mục lên máy chủ WebDAV</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
         <translation type="unfinished"/>
     </message>
     <message>

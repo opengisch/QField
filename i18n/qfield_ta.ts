@@ -6483,12 +6483,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>சுருக்கப்பட்ட கோப்புறையை இதற்கு அனுப்பு...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>WebDAV சர்வரில் கோப்புறையைப் பதிவேற்றவும்</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>WebDAV சேவையகத்திலிருந்து கோப்புறையைப் பதிவிறக்கவும்</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

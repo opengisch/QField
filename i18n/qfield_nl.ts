@@ -6491,12 +6491,16 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Verzend gecomprimeerde map naar...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Map uploaden naar WebDAV-server</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Map downloaden van WebDAV-server</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

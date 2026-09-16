@@ -6487,12 +6487,16 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Komprimierten Ordner senden an...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Ordner zu WebDAV Server hochladen</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Ordner von WebDAV Server herunterladen</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>

@@ -6501,12 +6501,16 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
         <translation>Siųsti suspaustą aplanką į...</translation>
     </message>
     <message>
-        <source>Upload folder to WebDAV server</source>
-        <translation>Įkelti aplanką į WebDAV serverį</translation>
+        <source>Upload folder to WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Download folder from WebDAV server</source>
-        <translation>Atsisiųsti aplanką iš WebDAV serverio</translation>
+        <source>Upload file to WebDAV</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Download folder from WebDAV</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>
