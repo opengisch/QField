@@ -46,7 +46,7 @@ void QfMarkupManager::setHiddenCollectionNames( const QStringList &hiddenCollect
 QList<QfMarkupCollection *> QfMarkupManager::visibleCollections() const
 {
   QList<QfMarkupCollection *> visibleCollections;
-  for ( QfMarkupCollection *collection : mCollections )
+  for ( QfMarkupCollection *collection : mCollections ) // cppcheck-suppress constVariablePointer
   {
     if ( !mHiddenCollectionNames.contains( collection->name() ) )
     {
