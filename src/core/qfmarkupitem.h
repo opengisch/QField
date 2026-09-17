@@ -38,9 +38,25 @@ class QfMarkupItem
     QfMarkupItem() = default;
     explicit QfMarkupItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color );
 
+    /**
+     * Returns the markup item label.
+     */
     QString label() const { return mLabel; }
+
+    /**
+     * Returns the markup item description.
+     */
     QString description() const { return mDescription; }
+
+    /**
+     * Returns the markup item geometry.
+     * \note The geometry CRS must be WGS84
+     */
     QgsGeometry geometry() const { return mGeometry; }
+
+    /**
+     * Returns the markup item color.
+     */
     QColor color() const { return mColor; }
 
   private:

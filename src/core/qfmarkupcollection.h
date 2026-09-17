@@ -37,23 +37,59 @@ class QfMarkupCollection : public QObject
   public:
     explicit QfMarkupCollection( const QString &name = QString(), QObject *parent = nullptr );
 
+    /**
+     * Returns the name of the collection.
+     */
     QString name() const { return mName; }
+
+    /**
+     * Sets the name of the collection.
+     */
     void setName( const QString &name );
 
+    /**
+     * Returns the number of items in the collection.
+     */
     qsizetype count() const { return mItems.size(); }
 
+    /**
+     * Returns the list of items in the collection.
+     */
     QList<QfMarkupItem> items() const { return mItems.values(); }
 
+    /**
+     * Adds an \a item into the collection.
+     */
     void addItem( const QfMarkupItem &item );
+
+    /**
+     * Replaces an item matching the provided \a uuid with a new \a item within the collection.
+     */
     void replaceItem( const QString &uuid, const QfMarkupItem &item );
+
+    /**
+     * Removes an item matching the provided \a uuid from the collection.
+     */
     void removeItem( const QString &uuid );
 
+    /**
+     * Restore a collection from the content of a GeoJSON at the provided \a path.
+     */
     bool readGeoJson( const QString &path );
+
+    /**
+     * Saves the collection from the content of a GeoJSON at the provided \a path.
+     */
     bool writeGeoJson( const QString &path );
 
   signals:
+    //! Emitted when the collection name changed.
     void nameChanged();
+
+    //! Emitted when the number of items in the collection changed.
     void countChanged();
+
+    //! Emitted when the list of items in the collection changed.
     void itemsChanged();
 
   private:

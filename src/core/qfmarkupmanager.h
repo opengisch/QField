@@ -41,26 +41,62 @@ class QfMarkupManager : public QObject
   public:
     explicit QfMarkupManager( QObject *parent = nullptr );
 
+    /**
+     * Returns the list of collection names present in the markup manager.
+     */
     QStringList collectionNames() const { return mCollections.keys(); };
+
+    /**
+     * Returns the list of collections present in the markup manager.
+     */
     QList<QfMarkupCollection *> collections() const { return mCollections.values(); }
 
+    /**
+     * Returns the list of collection names that are hidden. Matching collection
+     * names will not be part of the list of collections returned by the markup
+     * manager visibleCollections() function.
+     */
     QStringList hiddenCollectionNames() const { return mHiddenCollectionNames; }
+
+    /**
+     * Sets the list of collection names that are hidden. Matching collection
+     * names will not be part of the list of collections returned by the markup
+     * manager visibleCollections() function.
+     */
     void setHiddenCollectionNames( const QStringList &hiddenCollectionNames );
 
+    /**
+     * Returns the list of visible collections present in the markup manager.
+     */
     QList<QfMarkupCollection *> visibleCollections() const;
 
+    /**
+     * Returns TRUE if any of the collections present in the markup manager contains
+     * one or more items.
+     */
     bool hasItems() const;
 
+    /**
+     * Resets the markup manager's list of collections by loading compatible GeoJSON
+     * files present in the provided \a path. If a \a prefix is provided, the markup manager
+     * will only load GeoJSON files beginning by the prefix.
+     */
     Q_INVOKABLE void reset( const QString &path, const QString &prefix = QString() );
 
   signals:
+    //! Emitted when the list of hidden collection names has changed.
     void hiddenCollectionNamesChanged();
 
+    //! Emitted when the list of collections has changed.
     void collectionsChanged();
+
+    //! Emitted when the list of visible collections has changed.
     void visibleCollectionsChanged();
 
+    //! Emitted when the item count of a loaded collection has changed.
     void hasItemsChanged();
 
+    //! Emitted when a collection's list of items has changed.
     void collectionItemsChanged( const QString &name );
 
   private slots:
