@@ -23,6 +23,10 @@
 
 class QfResourceSource;
 
+#ifdef __OBJC__
+@class QFieldVolumeButtonObserver;
+#endif
+
 class QfIosPlatformUtilities : public QfPlatformUtilities
 {
   public:
@@ -68,6 +72,15 @@ class QfIosPlatformUtilities : public QfPlatformUtilities
     void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func ) override;
     virtual Qt::PermissionStatus checkMicrophonePermission() const override;
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func ) override;
+
+    void setHandleVolumeKeys( const bool handle ) override;
+
+  private:
+#ifdef __OBJC__
+    QFieldVolumeButtonObserver *mVolumeButtonObserver = nullptr;
+#else
+    void *mVolumeButtonObserver = nullptr;
+#endif
 };
 
 #endif

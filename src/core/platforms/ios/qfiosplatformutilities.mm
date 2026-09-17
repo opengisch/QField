@@ -64,17 +64,104 @@
 }
 @end
 
+#pragma mark -
+#pragma mark Volume Button Observer
+
+@interface QFieldVolumeButtonObserver : NSObject {
+  float _lastVolume;
+  BOOL _observing;
+}
+- (void)start;
+- (void)stop;
+@end
+
+@implementation QFieldVolumeButtonObserver
+
+- (void)start {
+  if (_observing) {
+    return;
+  }
+  AVAudioSession *session = [AVAudioSession sharedInstance];
+  NSError *error = nil;
+  [session setActive:YES error:&error];
+  _lastVolume = session.outputVolume;
+  [session addObserver:self
+            forKeyPath:@"outputVolume"
+               options:NSKeyValueObservingOptionNew
+               context:NULL];
+  _observing = YES;
+}
+
+- (void)stop {
+  if (!_observing) {
+    return;
+  }
+  @try {
+    [[AVAudioSession sharedInstance] removeObserver:self
+                                         forKeyPath:@"outputVolume"
+                                            context:NULL];
+  } @catch (__unused NSException *exception) {
+  }
+  _observing = NO;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey, id> *)change
+                       context:(void *)context {
+  if (![keyPath isEqualToString:@"outputVolume"]) {
+    [super observeValueForKeyPath:keyPath
+                         ofObject:object
+                           change:change
+                          context:context];
+    return;
+  }
+
+  NSNumber *newValueNumber = change[NSKeyValueChangeNewKey];
+  if (newValueNumber == nil) {
+    return;
+  }
+  const float newVolume = newValueNumber.floatValue;
+  const float previousVolume = _lastVolume;
+  _lastVolume = newVolume;
+
+  if (!QfAppInterface::instance()) {
+    return;
+  }
+
+  if (newVolume > previousVolume) {
+    emit QfAppInterface::instance()->volumeKeyUp(Qt::Key_VolumeUp);
+  } else if (newVolume < previousVolume) {
+    emit QfAppInterface::instance()->volumeKeyUp(Qt::Key_VolumeDown);
+  }
+}
+
+@end
+
 QfIosPlatformUtilities::QfIosPlatformUtilities() : QfPlatformUtilities() {
   NSError *sessionError = nil;
   [[AVAudioSession sharedInstance]
       setCategory:AVAudioSessionCategoryPlayAndRecord
             error:&sessionError];
+  mVolumeButtonObserver = [[QFieldVolumeButtonObserver alloc] init];
+}
+
+void QfIosPlatformUtilities::setHandleVolumeKeys(const bool handle) {
+  if (!mVolumeButtonObserver) {
+    return;
+  }
+  if (handle) {
+    [mVolumeButtonObserver start];
+  } else {
+    [mVolumeButtonObserver stop];
+  }
 }
 
 QfPlatformUtilities::Capabilities QfIosPlatformUtilities::capabilities() const {
   QfPlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
-      CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive;
+      CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive |
+      VolumeKeys;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
