@@ -24,6 +24,7 @@ Item {
     model: rubberband.model.vertices
     delegate: Shape {
       id: shape
+
       QfMapToScreen {
         id: vertexToScreen
         mapSettings: rubberband.mapSettings
@@ -37,6 +38,7 @@ Item {
 
       width: isClosingArea && (index === 0 || index === rubberband.model.vertexCount - 1) ? 20 : 10
       height: width
+      preferredRendererType: Shape.CurveRenderer
 
       ShapePath {
         strokeColor: "#96ffffff"
