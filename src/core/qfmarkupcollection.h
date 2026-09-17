@@ -45,8 +45,8 @@ class QfMarkupCollection : public QObject
     QList<QfMarkupItem> items() const { return mItems.values(); }
 
     void addItem( const QfMarkupItem &item );
-    void replaceItem( const QString &itemUuid, const QfMarkupItem &item );
-    void removeItem( const QString &itemUuid );
+    void replaceItem( const QString &uuid, const QfMarkupItem &item );
+    void removeItem( const QString &uuid );
 
     bool readGeoJson( const QString &path );
     bool writeGeoJson( const QString &path );
