@@ -105,6 +105,10 @@
   _observing = NO;
 }
 
+- (void)dealloc {
+  [self stop];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary<NSKeyValueChangeKey, id> *)change
