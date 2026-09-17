@@ -467,6 +467,7 @@ Drawer {
       objectName: "markupContainer"
       Layout.fillWidth: true
       Layout.preferredHeight: Math.min(markupLegend.contentHeight + topPadding + bottomPadding, dashBoard.height / 3)
+      visible: markupManager.hasItems
       title: qsTr("Markups")
       leftPadding: 5
       rightPadding: 5
@@ -492,7 +493,6 @@ Drawer {
       QfMarkupLegend {
         id: markupLegend
         objectName: "markupLegend"
-        visible: true
         anchors.fill: parent
         anchors.leftMargin: mainWindow.sceneLeftMargin + 5
         anchors.rightMargin: 5

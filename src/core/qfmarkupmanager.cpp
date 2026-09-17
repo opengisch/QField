@@ -56,6 +56,11 @@ QList<QfMarkupCollection *> QfMarkupManager::visibleCollections() const
   return visibleCollections;
 }
 
+bool QfMarkupManager::hasItems() const
+{
+  return std::any_of( mCollections.begin(), mCollections.end(), []( const QfMarkupCollection *collection ) { return collection->count() > 0; } );
+}
+
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
 {
   qDeleteAll( mCollections );
@@ -90,6 +95,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
 
   emit collectionsChanged();
   emit visibleCollectionsChanged();
+  emit hasItemsChanged();
 }
 
 void QfMarkupManager::insertCollection( QfMarkupCollection *collection )
@@ -106,6 +112,7 @@ void QfMarkupManager::insertCollection( QfMarkupCollection *collection )
   }
 
   connect( collection, &QfMarkupCollection::itemsChanged, this, &QfMarkupManager::processCollectionItemsChanged );
+  connect( collection, &QfMarkupCollection::countChanged, this, &QfMarkupManager::hasItemsChanged );
 
   mCollections.insert( collection->name(), collection );
 }

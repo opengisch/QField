@@ -98,7 +98,7 @@ ListView {
           id: markupCollectionName
           width: rectangle.width - collectionVisibility.width - line.leftPadding - 5
           padding: 3
-          leftPadding: 0
+          leftPadding: 3
           text: collectionName
           horizontalAlignment: Text.AlignLeft
           font: QfTheme.tipFont

@@ -36,6 +36,8 @@ class QfMarkupManager : public QObject
     Q_PROPERTY( QStringList hiddenCollectionNames READ hiddenCollectionNames WRITE setHiddenCollectionNames NOTIFY hiddenCollectionNamesChanged )
     Q_PROPERTY( QList<QfMarkupCollection *> visibleCollections READ visibleCollections NOTIFY visibleCollectionsChanged )
 
+    Q_PROPERTY( bool hasItems READ hasItems NOTIFY hasItemsChanged )
+
   public:
     explicit QfMarkupManager( QObject *parent = nullptr );
 
@@ -47,6 +49,8 @@ class QfMarkupManager : public QObject
 
     QList<QfMarkupCollection *> visibleCollections() const;
 
+    bool hasItems() const;
+
     Q_INVOKABLE void reset( const QString &path, const QString &prefix = QString() );
 
   signals:
@@ -54,6 +58,8 @@ class QfMarkupManager : public QObject
 
     void collectionsChanged();
     void visibleCollectionsChanged();
+
+    void hasItemsChanged();
 
     void collectionItemsChanged( const QString &name );
 
