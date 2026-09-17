@@ -171,7 +171,9 @@ Page {
         QfWelcomeCard.Panel {
           id: intro
           message: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
-          actionsFillWidth: false
+          Item {
+            Layout.fillWidth: true
+          }
 
           QfToolButton {
             iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
@@ -183,6 +185,11 @@ Page {
               feedbackView.currentIndex = 0;
             }
           }
+
+          Item {
+            Layout.fillWidth: true
+          }
+
           QfToolButton {
             iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
             iconColor: QfTheme.buttonColor
@@ -196,6 +203,10 @@ Page {
                 feedbackView.collapse();
               }
             }
+          }
+
+          Item {
+            Layout.fillWidth: true
           }
         }
 

@@ -9,7 +9,7 @@ import org.qfield.core
 Item {
   id: root
 
-  property alias currentIndex: view.currentIndex
+  property int currentIndex: 0
   property alias count: view.count
 
   default property alias panels: view.contentData
@@ -33,7 +33,6 @@ Item {
     property alias message: messageText.text
     default property alias actions: actionRow.children
     property int messageAlignment: Text.AlignHCenter
-    property alias actionsFillWidth: actionRow.fillWidth
 
     implicitWidth: parent ? parent.width : 0
     implicitHeight: panelLayout.implicitHeight
@@ -67,10 +66,7 @@ Item {
       RowLayout {
         id: actionRow
 
-        property bool fillWidth: true
-
-        Layout.fillWidth: fillWidth
-        Layout.alignment: fillWidth ? Qt.AlignLeft : Qt.AlignHCenter
+        Layout.fillWidth: true
         Layout.leftMargin: 12
         Layout.rightMargin: 12
         Layout.bottomMargin: children.length > 0 ? 8 : 0
@@ -92,5 +88,8 @@ Item {
     anchors.fill: parent
     clip: true
     interactive: false
+    currentIndex: root.currentIndex
+    onCountChanged: view.currentIndex = root.currentIndex
+    Component.onCompleted: view.currentIndex = root.currentIndex
   }
 }
