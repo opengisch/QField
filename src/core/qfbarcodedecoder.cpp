@@ -97,7 +97,7 @@ bool QfBarcodeDecoder::decodeImage( const QImage &image )
     options.setMinLineCount( 5 );
     options.setMaxNumberOfSymbols( 1 );
 
-    ZXing::Result result = ZXing::ReadBarcode( imageView, options );
+    auto result = ZXing::ReadBarcode( imageView, options );
     const std::string text = result.text();
     QString resultText = QString::fromStdString( text.c_str() );
 
