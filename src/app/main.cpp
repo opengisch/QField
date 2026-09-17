@@ -228,14 +228,8 @@ int main( int argc, char **argv )
     QLocale customLocale( customLanguage );
     QLocale::setDefault( customLocale );
     QgsApplication::setTranslation( customLanguage );
-    // Set locale to emit QgsApplication's localeChanged signal
-    QgsApplication::setLocale( QLocale() );
+    QgsApplication::setLocale( QLocale() ); // Set locale to emit QgsApplication's localeChanged signal
   }
-
-  QLocale locale;
-  const QString localeName = locale.name();
-  const qsizetype localeTagSeparator = localeName.indexOf( QStringLiteral( "_" ) );
-  QgsApplication::settingsLocaleUserLocale->setValue( localeName.mid( 0, localeTagSeparator ) );
 
   const QString qfieldFontName( qgetenv( "QFIELD_FONT_NAME" ) );
   if ( !qfieldFontName.isEmpty() )
@@ -368,6 +362,11 @@ int main( int argc, char **argv )
 
   app.installTranslator( qtTranslator );
   app.installTranslator( qfieldTranslator );
+
+  QLocale locale;
+  const QString localeName = locale.name();
+  const qsizetype localeTagSeparator = localeName.indexOf( QStringLiteral( "_" ) );
+  QgsApplication::settingsLocaleUserLocale->setValue( localeName.mid( 0, localeTagSeparator ) );
 
   qputenv( "QT_QUICK_CONTROLS_STYLE", QByteArray( "Material" ) );
   qputenv( "QT_QUICK_CONTROLS_MATERIAL_VARIANT", QByteArray( "Dense" ) );
