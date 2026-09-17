@@ -6418,7 +6418,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>%n item(s) selected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n项已选择</numerusform></translation>
     </message>
     <message>
         <source>Folders</source>
@@ -6490,15 +6490,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>将文件夹上传到WebDAV</translation>
     </message>
     <message>
         <source>Upload file to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>将文件上传到WebDAV</translation>
     </message>
     <message>
         <source>Download folder from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>从WebDAV下载文件夹</translation>
     </message>
     <message>
         <source>Delete folder</source>

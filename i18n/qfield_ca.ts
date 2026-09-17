@@ -3104,7 +3104,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Failed to delete sidecar file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut suprimir el fitxer sidecar: %1 - %2</translation>
     </message>
 </context>
 <context>
@@ -4144,7 +4144,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished"/>
+        <translation>El més alt</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
@@ -5199,7 +5199,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Enter your project description</source>
-        <translation type="unfinished"/>
+        <translation>Introdueix la descripció del teu projecte</translation>
     </message>
 </context>
 <context>
@@ -5277,19 +5277,19 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>The project folder could not be found.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha trobat la carpeta del projecte.</translation>
     </message>
     <message>
         <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
-        <translation type="unfinished"/>
+        <translation>La carpeta del projecte conté més d&apos;un fitxer de projecte. Mou el projecte a una carpeta pròpia i torna-ho a intentar.</translation>
     </message>
     <message>
         <source>The project folder does not contain a valid project file.</source>
-        <translation type="unfinished"/>
+        <translation>La carpeta del projecte no conté un fitxer de projecte vàlid.</translation>
     </message>
     <message>
         <source>The project folder does not contain a project file.</source>
-        <translation type="unfinished"/>
+        <translation>La carpeta del projecte no conté cap fitxer de projecte.</translation>
     </message>
 </context>
 <context>
@@ -6377,12 +6377,13 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>No es pot afegir un objecte a la capa &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation type="unfinished"/>
+        <translation>No es pot confirmar el nou objecte a la capa &quot;%1&quot;. Motiu:
+%2</translation>
     </message>
 </context>
 <context>
@@ -6424,7 +6425,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message numerus="yes">
         <source>%n item(s) selected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n element(s) seleccionat(s)</numerusform><numerusform>%n element seleccionat(s)</numerusform></translation>
     </message>
     <message>
         <source>Folders</source>
@@ -6496,15 +6497,15 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Puja la carpeta a WebDAV</translation>
     </message>
     <message>
         <source>Upload file to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Puja l&apos;arxiu a WebDAV</translation>
     </message>
     <message>
         <source>Download folder from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Baixa la carpeta des de WebDAV</translation>
     </message>
     <message>
         <source>Delete folder</source>
@@ -7110,7 +7111,7 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
     <message>
         <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut moure el fitxer sidecar &apos;%1&apos; al costat de &apos;%2&apos;</translation>
     </message>
 </context>
 <context>
@@ -9275,19 +9276,19 @@ per mostrar les accions</translation>
     </message>
     <message>
         <source>Printing %1</source>
-        <translation type="unfinished"/>
+        <translation>Imprimint %1</translation>
     </message>
     <message>
         <source>Print failed</source>
-        <translation type="unfinished"/>
+        <translation>Error d&apos;impressió</translation>
     </message>
     <message>
         <source>Printed and placed in your project layouts folder</source>
-        <translation type="unfinished"/>
+        <translation>Imprès i col·locat a la carpeta de dissenys del vostre projecte</translation>
     </message>
     <message>
         <source>Open folder</source>
-        <translation type="unfinished"/>
+        <translation>Obre la carpeta</translation>
     </message>
 </context>
 <context>
