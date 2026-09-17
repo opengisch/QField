@@ -145,10 +145,7 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
 
         polyline << QgsPointXY( pointArray.at( 0 ).toDouble(), pointArray.at( 1 ).toDouble() );
       }
-      if ( polyline.size() >= 2 )
-      {
-        geometry = QgsGeometry::fromPolylineXY( polyline );
-      }
+      geometry = QgsGeometry::fromPolylineXY( polyline );
     }
     else if ( geometryType == QStringLiteral( "Polygon" ) && geometryCoordinates.size() >= 1 )
     {
@@ -186,6 +183,7 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
 
         polygon << polyline;
       }
+      geometry = QgsGeometry::fromPolygonXY( polygon );
     }
 
     if ( geometry.isEmpty() )
@@ -199,7 +197,6 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
     {
       continue;
     }
-
     const QString label = propertiesObject.value( QStringLiteral( "label" ) ).toString();
     const QString description = propertiesObject.value( QStringLiteral( "description" ) ).toString();
     const QColor color = QgsColorUtils::colorFromString( propertiesObject.value( QStringLiteral( "color" ) ).toString() );

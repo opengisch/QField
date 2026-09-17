@@ -44,6 +44,8 @@ set(QFIELD_GUI_QML_FILES
     QfLocationMarker.qml
     QfLocatorItem.qml
     QfLocatorSettings.qml
+    QfMarkupCollectionRenderer.qml
+    QfMarkupItemRenderer.qml
     QfMarkupLegend.qml
     QfMenu.qml
     QfMessageLog.qml

@@ -1053,7 +1053,7 @@ ApplicationWindow {
    * - Digitizing QfRubberband
    **************************************************/
 
-    // Model for pie menu and context menu feature identification
+    /** Model for pie menu and context menu feature identification **/
     QfMultiFeatureListModel {
       id: menuFeatureListModel
     }
@@ -1084,6 +1084,19 @@ ApplicationWindow {
             featureListForm.extentController.zoomToAllFeatures();
           }
         }
+      }
+    }
+
+    /** Markup collections **/
+    Repeater {
+      id: markupCollections
+      objectName: "markupCollections"
+
+      model: markupManager.visibleCollections
+
+      QfMarkupCollectionRenderer {
+        markupCollection: modelData
+        mapSettings: mapCanvas.mapSettings
       }
     }
 

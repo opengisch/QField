@@ -60,6 +60,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
 {
   qDeleteAll( mCollections );
   mCollections.clear();
+  emit collectionsChanged();
 
   const QFileInfo fi( path );
   mPath = fi.absoluteFilePath();
@@ -76,7 +77,6 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
       {
         collection->setName( tr( "Unnamed collecton" ) );
       }
-
       insertCollection( collection );
     }
   }
@@ -89,6 +89,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
   }
 
   emit collectionsChanged();
+  emit visibleCollectionsChanged();
 }
 
 void QfMarkupManager::insertCollection( QfMarkupCollection *collection )
