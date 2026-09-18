@@ -143,24 +143,43 @@ void QfDigitizingLayerBaseModel::removeLayers( const QStringList &layerIds )
 
 void QfDigitizingLayerBaseModel::addLayers( const QList<QgsMapLayer *> &layers )
 {
-  if ( !layers.isEmpty() )
+  QList<QgsMapLayer *> mapLayers;
+  for ( QgsMapLayer *layer : layers ) // cppcheck-suppress constVariablePointer
   {
-    beginInsertRows( QModelIndex(), mLayers.size(), mLayers.size() + layers.size() - 1 );
-    for ( QgsMapLayer *layer : layers ) // cppcheck-suppress constVariablePointer
+    if ( !layer )
     {
-      if ( !layer )
-      {
-        continue;
-      }
-
-      DigitizingLayer l;
-      l.name = layer->name();
-      l.type = QfDigitizingLayerModel::MapLayer;
-      l.mapLayer = layer;
-      mLayers.append( l );
+      continue;
     }
-    endInsertRows();
+
+    QgsVectorLayer *vlayer = dynamic_cast<QgsVectorLayer *>( layer );
+    if ( !vlayer || !vlayer->readOnly() )
+    {
+      continue;
+    }
+
+    if ( layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() && !layer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked_expression_active" ), false ).toBool() )
+    {
+      continue;
+    }
+
+    mapLayers << layer;
   }
+
+  if ( mapLayers.isEmpty() )
+  {
+    return;
+  }
+
+  beginInsertRows( QModelIndex(), mLayers.size(), mLayers.size() + mapLayers.size() - 1 );
+  for ( QgsMapLayer *mapLayer : mapLayers ) // cppcheck-suppress constVariablePointer
+  {
+    DigitizingLayer layer;
+    layer.name = mapLayer->name();
+    layer.type = QfDigitizingLayerModel::MapLayer;
+    layer.mapLayer = mapLayer;
+    mLayers.append( layer );
+  }
+  endInsertRows();
 }
 
 void QfDigitizingLayerBaseModel::removeCollections( const QStringList &collectionUuids )
