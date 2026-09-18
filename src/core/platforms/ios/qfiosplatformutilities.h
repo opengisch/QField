@@ -1,11 +1,11 @@
 /***************************************************************************
-    qfiosplatformutilities.h  -  utilities for qfield
+  qfiosplatformutilities.h  -  utilities for qfield
 
-      -------------------
-    begin                : November 2020
-    copyright            : (C) 2020 by Denis Rouzaud
-    email                : denis@opengis.ch
- ***************************************************************************/
+  -------------------
+  begin                : November 2020
+  copyright            : (C) 2020 by Denis Rouzaud
+  email                : denis@opengis.ch
+***************************************************************************/
 
 /***************************************************************************
  *                                                                         *
@@ -23,9 +23,7 @@
 
 class QfResourceSource;
 
-#ifdef __OBJC__
-@class QFieldVolumeButtonObserver;
-#endif
+Q_FORWARD_DECLARE_OBJC_CLASS( QFieldVolumeButtonObserver );
 
 class QfIosPlatformUtilities : public QfPlatformUtilities
 {
@@ -76,11 +74,7 @@ class QfIosPlatformUtilities : public QfPlatformUtilities
     void setHandleVolumeKeys( const bool handle ) override;
 
   private:
-#ifdef __OBJC__
     QFieldVolumeButtonObserver *mVolumeButtonObserver = nullptr;
-#else
-    void *mVolumeButtonObserver = nullptr;
-#endif
 };
 
 #endif

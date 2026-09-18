@@ -1,11 +1,11 @@
 /***************************************************************************
-                            qfiosplatformutilities.mm  -  utilities for qfield
+  qfiosplatformutilities.mm  -  utilities for qfield
 
-                              -------------------
-              begin                : November 2020
-              copyright            : (C) 2020 by Denis Rouzaud
-              email                : denis@opengis.ch
- ***************************************************************************/
+  -------------------
+  begin                : November 2020
+  copyright            : (C) 2020 by Denis Rouzaud
+  email                : denis@opengis.ch
+***************************************************************************/
 
 /***************************************************************************
  *                                                                         *
@@ -25,6 +25,7 @@
 
 #include <AVFoundation/AVFoundation.h>
 #include <CoreLocation/CoreLocation.h>
+#include <MediaPlayer/MediaPlayer.h>
 #include <MobileCoreServices/MobileCoreServices.h>
 #include <UIKit/UIDocumentInteractionController.h>
 #include <UIKit/UIKit.h>
@@ -67,9 +68,15 @@
 #pragma mark -
 #pragma mark Volume Button Observer
 
+static const float sVolumeStep = 0.0625f;
+static const float sMaxVolume = 0.99999f - sVolumeStep;
+static const float sMinVolume = 0.00001f + sVolumeStep;
+
 @interface QFieldVolumeButtonObserver : NSObject {
-  float _lastVolume;
+  MPVolumeView *_volumeView;
+  float _initialVolume;
   BOOL _observing;
+  BOOL _appIsActive;
 }
 - (void)start;
 - (void)stop;
@@ -77,18 +84,63 @@
 
 @implementation QFieldVolumeButtonObserver
 
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    _appIsActive = YES;
+    _volumeView = [[MPVolumeView alloc]
+        initWithFrame:CGRectMake(MAXFLOAT, MAXFLOAT, 0, 0)];
+    _volumeView.hidden = YES;
+    [[UIApplication sharedApplication].windows.firstObject
+        addSubview:_volumeView];
+  }
+  return self;
+}
+
+- (void)setSystemVolume:(float)volume {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+  dispatch_async(dispatch_get_main_queue(), ^{
+      [[MPMusicPlayerController applicationMusicPlayer] setVolume:volume];
+  });
+#pragma clang diagnostic pop
+}
+
+- (void)captureInitialVolume {
+  _initialVolume = [AVAudioSession sharedInstance].outputVolume;
+  if (_initialVolume > sMaxVolume) {
+    _initialVolume = sMaxVolume;
+    [self setSystemVolume:_initialVolume];
+  } else if (_initialVolume < sMinVolume) {
+    _initialVolume = sMinVolume;
+    [self setSystemVolume:_initialVolume];
+  }
+}
+
 - (void)start {
   if (_observing) {
     return;
   }
   AVAudioSession *session = [AVAudioSession sharedInstance];
   NSError *error = nil;
+  [self captureInitialVolume];
   [session setActive:YES error:&error];
-  _lastVolume = session.outputVolume;
   [session addObserver:self
             forKeyPath:@"outputVolume"
                options:NSKeyValueObservingOptionNew
                context:NULL];
+  _volumeView.hidden = NO;
+
+  [[NSNotificationCenter defaultCenter]
+      addObserver:self
+         selector:@selector(applicationDidChangeActive:)
+             name:UIApplicationWillResignActiveNotification
+           object:nil];
+  [[NSNotificationCenter defaultCenter]
+      addObserver:self
+         selector:@selector(applicationDidChangeActive:)
+             name:UIApplicationDidBecomeActiveNotification
+           object:nil];
   _observing = YES;
 }
 
@@ -102,11 +154,25 @@
                                             context:NULL];
   } @catch (__unused NSException *exception) {
   }
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+  _volumeView.hidden = YES;
   _observing = NO;
 }
 
 - (void)dealloc {
   [self stop];
+  MPVolumeView *volumeView = _volumeView;
+  dispatch_async(dispatch_get_main_queue(), ^{
+      [volumeView removeFromSuperview];
+  });
+}
+
+- (void)applicationDidChangeActive:(NSNotification *)notification {
+  _appIsActive = [notification.name
+      isEqualToString:UIApplicationDidBecomeActiveNotification];
+  if (_observing && _appIsActive) {
+    [self captureInitialVolume];
+  }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -126,18 +192,23 @@
     return;
   }
   const float newVolume = newValueNumber.floatValue;
-  const float previousVolume = _lastVolume;
-  _lastVolume = newVolume;
 
-  if (!QfAppInterface::instance()) {
+  if (!_appIsActive) {
+    return;
+  }
+  if (newVolume == _initialVolume) {
     return;
   }
 
-  if (newVolume > previousVolume) {
-    emit QfAppInterface::instance()->volumeKeyUp(Qt::Key_VolumeUp);
-  } else if (newVolume < previousVolume) {
-    emit QfAppInterface::instance()->volumeKeyUp(Qt::Key_VolumeDown);
+  if (QfAppInterface::instance()) {
+    if (newVolume > _initialVolume) {
+      emit QfAppInterface::instance()->volumeKeyUp(Qt::Key_VolumeUp);
+    } else {
+      emit QfAppInterface::instance()->volumeKeyUp(Qt::Key_VolumeDown);
+    }
   }
+
+  [self setSystemVolume:_initialVolume];
 }
 
 @end
