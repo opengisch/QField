@@ -214,7 +214,7 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
 {
   const QFileInfo fi( path );
   const QDir dir( fi.absolutePath() );
-  if ( !dir.exists() && dir.mkpath( fi.absolutePath() ) )
+  if ( !dir.exists() && !dir.mkpath( fi.absolutePath() ) )
   {
     return false;
   }
@@ -232,7 +232,7 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
   QJsonArray featuresArray;
   for ( auto [uuid, item] : mItems.asKeyValueRange() )
   {
-    const QgsGeometry geometry = item.geometry();
+    const QgsGeometry &geometry = item.geometry();
     if ( !QgsWkbTypes::isSingleType( geometry.wkbType() ) )
     {
       continue;

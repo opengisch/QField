@@ -16,8 +16,6 @@
 
 #include "qfmarkupitem.h"
 
-#include <QUuid>
-
 
 QfMarkupItem::QfMarkupItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )
   : mLabel( label )

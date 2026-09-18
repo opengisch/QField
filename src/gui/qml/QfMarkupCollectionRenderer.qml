@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Shapes
 import org.qgis
 import org.qfield.core
 import org.qfield.gui
@@ -10,11 +9,9 @@ import org.qfield.gui
 Item {
   id: markupCollectionRenderer
 
-  /// type:QfMarkupCollection
-  property var markupCollection: undefined
-
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
+  property QfMarkupCollection markupCollection
 
   Repeater {
     model: markupCollection ? markupCollection.items : []

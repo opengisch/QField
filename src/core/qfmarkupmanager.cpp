@@ -80,7 +80,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
     {
       if ( collection->name().isEmpty() )
       {
-        collection->setName( tr( "Unnamed collecton" ) );
+        collection->setName( tr( "Unnamed collection" ) );
       }
       insertCollection( collection );
     }
