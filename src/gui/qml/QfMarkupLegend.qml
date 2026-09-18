@@ -103,7 +103,7 @@ ListView {
           horizontalAlignment: Text.AlignLeft
           font: QfTheme.tipFont
           elide: Text.ElideRight
-          opacity: true ? 1 : 0.25
+          opacity: isVisibleCollection ? 1 : 0.25
           color: {
             if (isSelectedCollection) {
               return QfTheme.mainOverlayColor;
