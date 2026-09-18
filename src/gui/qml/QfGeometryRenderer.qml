@@ -58,13 +58,13 @@ Item {
           id: _ct
           sourceCrs: geometryWrapper.crs
           sourcePosition: modelData
-          destinationCrs: mapCanvas.mapSettings.destinationCrs
-          transformContext: qgisProject.transformContext
+          destinationCrs: geometryRenderer.mapSettings.destinationCrs
+          transformContext: qgisProject ? qgisProject.transformContext : QfCoordinateReferenceSystemUtils.emptyTransformContext()
         }
 
         QfMapToScreen {
           id: mapToScreenPosition
-          mapSettings: mapCanvas.mapSettings
+          mapSettings: geometryRenderer.mapSettings
           mapPoint: _ct.projectedPosition
         }
 

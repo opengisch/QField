@@ -32,6 +32,7 @@ QfLinePolygonShape {
   Shape {
     id: shape
     anchors.fill: parent
+    preferredRendererType: Shape.CurveRenderer
 
     ShapePath {
       id: shapePath

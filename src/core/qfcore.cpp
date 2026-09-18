@@ -64,6 +64,9 @@
 #include "qflinepolygonshape.h"
 #include "qfmaplayermodel.h"
 #include "qfmaptoscreen.h"
+#include "qfmarkupcollection.h"
+#include "qfmarkupitem.h"
+#include "qfmarkupmanager.h"
 #include "qfmultifeaturelistmodel.h"
 #include "qfnavigation.h"
 #include "qfnavigationmodel.h"
@@ -182,6 +185,7 @@ namespace QfCore
     qmlRegisterType<QfLocatorModelSuperBridge>( "org.qfield.core", 1, 0, "QfLocatorModelSuperBridge" );
     qmlRegisterType<QfMapLayerModel>( "org.qfield.core", 1, 0, "QfMapLayerModel" );
     qmlRegisterType<QfMapToScreen>( "org.qfield.core", 1, 0, "QfMapToScreen" );
+    qmlRegisterType<QfMarkupCollection>( "org.qfield.core", 1, 0, "QfMarkupCollection" );
     qmlRegisterType<QfMultiFeatureListModel>( "org.qfield.core", 1, 0, "QfMultiFeatureListModel" );
     qmlRegisterType<QfNavigation>( "org.qfield.core", 1, 0, "QfNavigation" );
     qmlRegisterType<QfNavigationModel>( "org.qfield.core", 1, 0, "QfNavigationModel" );
@@ -234,14 +238,16 @@ namespace QfCore
 
     qmlRegisterUncreatableType<QfAbstractGnssReceiver>( "org.qfield.core", 1, 0, "QfAbstractGnssReceiver", "" );
     qmlRegisterUncreatableType<QfAppInterface>( "org.qfield.core", 1, 0, "QfAppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );
-    qmlRegisterUncreatableType<QfBookmarkModel>( "org.qfield.core", 1, 0, "QfBookmarkModel", "The BookmarkModel is available as context property `bookmarkModel`" );
+    qmlRegisterUncreatableType<QfBookmarkModel>( "org.qfield.core", 1, 0, "QfBookmarkModel", "The QfBookmarkModel is available as context property `bookmarkModel`" );
     qmlRegisterUncreatableType<QfCogoParameter>( "org.qfield.core", 1, 0, "cogoParameter", "Used for property values" );
     qmlRegisterUncreatableType<QfCogoVisualGuide>( "org.qfield.core", 1, 0, "cogoVisualGuide", "Used for property values" );
     qmlRegisterUncreatableType<QfDeltaFileWrapper>( "org.qfield.core", 1, 0, "QfDeltaFileWrapper", "" );
-    qmlRegisterUncreatableType<QfFlatLayerTreeModel>( "org.qfield.core", 1, 0, "QfFlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
+    qmlRegisterUncreatableType<QfFlatLayerTreeModel>( "org.qfield.core", 1, 0, "QfFlatLayerTreeModel", "The QfFlatLayerTreeModel is available as context property `flatLayerTree`." );
     qmlRegisterUncreatableType<QfGnssPositionInformation>( "org.qfield.core", 1, 0, "gnssPositionInformation", "Used for property values" );
     qmlRegisterUncreatableType<QfGridAnnotation>( "org.qfield.core", 1, 0, "gridAnnotation", "Used for property values" );
     qmlRegisterUncreatableType<QfLayerObserver>( "org.qfield.core", 1, 0, "QfLayerObserver", "" );
+    qmlRegisterUncreatableType<QfMarkupItem>( "org.qfield.core", 1, 0, "QfMarkupItem", "" );
+    qmlRegisterUncreatableType<QfMarkupManager>( "org.qfield.core", 1, 0, "QfMarkupManager", "The QfMarkupManager is available as context property `markupManager`" );
     qmlRegisterUncreatableType<QfNtripSettings>( "org.qfield.core", 1, 0, "ntripSettings", "Used for property values" );
     qmlRegisterUncreatableType<QfPlatformUtilities>( "org.qfield.core", 1, 0, "QfPlatformUtilities", "" );
     qmlRegisterUncreatableType<QgsGpkgFlusher>( "org.qfield.core", 1, 0, "QgsGpkgFlusher", "The gpkgFlusher is available as context property `gpkgFlusher`" );

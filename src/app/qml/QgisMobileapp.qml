@@ -1053,7 +1053,7 @@ ApplicationWindow {
    * - Digitizing QfRubberband
    **************************************************/
 
-    // Model for pie menu and context menu feature identification
+    /** Model for pie menu and context menu feature identification **/
     QfMultiFeatureListModel {
       id: menuFeatureListModel
     }
@@ -1084,6 +1084,19 @@ ApplicationWindow {
             featureListForm.extentController.zoomToAllFeatures();
           }
         }
+      }
+    }
+
+    /** Markup collections **/
+    Repeater {
+      id: markupCollections
+      objectName: "markupCollections"
+
+      model: markupManager.visibleCollections
+
+      QfMarkupCollectionRenderer {
+        markupCollection: modelData
+        mapSettings: mapCanvas.mapSettings
       }
     }
 
@@ -4869,6 +4882,7 @@ ApplicationWindow {
       busyOverlay.state = "visible";
       navigation.clearDestinationFeature();
       projectInfo.filePath = '';
+      markupManager.reset('');
       readProjectTimer.start();
     }
 
@@ -4991,9 +5005,11 @@ ApplicationWindow {
             settings.setValue("/QField/showCloudButtonGuide", false);
           }
         }
+        markupManager.reset(QfFileUtils.absolutePath(qgisProject.fileName) + '/markups', projectInfo.cloudUserInformation.username);
       } else {
         projectInfo.hasInsertRights = true;
         projectInfo.hasEditRights = true;
+        markupManager.reset(QfFileUtils.absolutePath(qgisProject.fileName) + '/markups');
       }
       if (stateMachine.state === "digitize" && !qfieldAuthRequestHandler.hasPendingAuthRequest) {
         dashBoard.ensureEditableLayerSelected();

@@ -14,6 +14,8 @@ QfRubberbandShape {
 
   Shape {
     anchors.fill: parent
+    preferredRendererType: Shape.CurveRenderer
+
     ShapePath {
       strokeColor: rubberbandShape.outlineColor
       strokeWidth: rubberbandShape.lineWidth / rubberbandShape.scale + 2
@@ -26,6 +28,7 @@ QfRubberbandShape {
         path: activePolyline
       }
     }
+
     ShapePath {
       strokeColor: rubberbandShape.color
       strokeWidth: rubberbandShape.lineWidth / rubberbandShape.scale

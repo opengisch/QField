@@ -61,6 +61,7 @@
 #include "qflinepolygonshape.h"
 #include "qflocalfilesimageprovider.h"
 #include "qflocatormodelsuperbridge.h"
+#include "qfmarkupmanager.h"
 #include "qfmessagelogmodel.h"
 #include "qfntripsourcetablefetcher.h"
 #include "qfplatformutilities.h"
@@ -249,6 +250,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   } );
 
   mTrackingModel = new QfTrackingModel( this );
+  mMarkupManager = new QfMarkupManager( this );
   mFocusStack = std::make_unique<QfFocusStack>( this );
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
   mLayerObserver = std::make_unique<QfLayerObserver>( mProject );
@@ -436,13 +438,13 @@ void QgisMobileapp::registerGlobalVariables()
   rootContext()->setContextProperty( "drawingTemplateModel", mDrawingTemplateModel );
   rootContext()->setContextProperty( "qfieldAuthRequestHandler", mAuthRequestHandler );
   rootContext()->setContextProperty( "trackingModel", mTrackingModel );
+  rootContext()->setContextProperty( "markupManager", mMarkupManager );
   addImageProvider( QLatin1String( "legend" ), mLegendImageProvider );
   addImageProvider( QLatin1String( "asynclegend" ), mAsyncLegendImageProvider );
   addImageProvider( QLatin1String( "localfiles" ), mLocalFilesImageProvider );
   addImageProvider( QLatin1String( "projects" ), mProjectsImageProvider );
   addImageProvider( QLatin1String( "barcode" ), mBarcodeImageProvider );
 }
-
 
 void QgisMobileapp::loadProjectQuirks()
 {
