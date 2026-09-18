@@ -108,6 +108,21 @@ QfFlatLayerTreeModel *QfProjectInfo::layerTree() const
   return mLayerTree;
 }
 
+void QfProjectInfo::setMarkupManager( QfMarkupManager *markupManager )
+{
+  if ( mMarkupManager == markupManager )
+    return;
+
+  mMarkupManager = markupManager;
+
+  emit markupManagerChanged();
+}
+
+QfMarkupManager *QfProjectInfo::markupManager() const
+{
+  return mMarkupManager;
+}
+
 void QfProjectInfo::setTrackingModel( QfTrackingModel *trackingModel )
 {
   if ( mTrackingModel == trackingModel )
@@ -446,6 +461,43 @@ QgsMapLayer *QfProjectInfo::activeLayer() const
     layerId = QgsProject::instance()->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialActiveLayer" ) );
   }
   return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;
+}
+
+void QfProjectInfo::setActiveCollection( QfMarkupCollection *collection )
+{
+  if ( mFilePath.isEmpty() || !mMarkupManager )
+    return;
+
+  QString collectionUuid;
+  if ( collection )
+  {
+    const QStringList uuids = mMarkupManager->collectionUuids();
+    for ( const QString &uuid : uuids )
+    {
+      QfMarkupCollection *c = mMarkupManager->collection( collectionUuid );
+      if ( c == collection )
+      {
+        collectionUuid = uuid;
+        break;
+      }
+    }
+  }
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "activeCollection" ), collectionUuid );
+  mSettings.endGroup();
+
+  emit activeCollectionChanged();
+}
+
+QfMarkupCollection *QfProjectInfo::activeCollection() const
+{
+  QString collectionUuid;
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ) )
+  {
+    collectionUuid = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+  }
+  return !collectionUuid.isEmpty() ? mMarkupManager->collection( collectionUuid ) : nullptr;
 }
 
 void QfProjectInfo::mapThemeChanged()

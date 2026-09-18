@@ -111,6 +111,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
   }
 
   emit collectionsAdded( mCollections.keys() );
+
   emit collectionsChanged();
   emit visibleCollectionsChanged();
   emit hasItemsChanged();
