@@ -337,7 +337,7 @@ ApplicationWindow {
       projectInfo.stateMode = mode;
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys);
       dashBoard.ensureEditableLayerSelected();
-      if (dashBoard.activeLayer) {
+      if (projectInfo.activeLayer) {
         displayToast(qsTr('You are now in digitize mode on layer %1').arg(dashBoard.activeLayer.name));
       } else {
         displayToast(qsTr('You are now in digitize mode'));
@@ -1984,6 +1984,22 @@ ApplicationWindow {
     positioningSettings: positioningSettings
 
     cogoOperationSettings.mapSettings: mapCanvas.mapSettings
+
+    isDigitizing: stateMachine.state === "digitize"
+    activeDigitizingLayer: dashBoard.activeLayer
+    activeDigitizingCollection: dashBoard.activeCollection
+
+    onActiveDigitizingLayerChanged: {
+      if (activeDigitizingLayer && dashBoard.activeLayer !== activeDigitizingLayer) {
+        dashBoard.activeLayer = activeDigitizingLayer;
+      }
+    }
+
+    onActiveDigitizingCollectionChanged: {
+      if (activeDigitizingCollection && dashBoard.activeCollection !== activeDigitizingCollection) {
+        dashBoard.activeCollection = activeDigitizingCollection;
+      }
+    }
   }
 
   /**************************************************

@@ -38,6 +38,7 @@
 #include "qfbookmarkmodel.h"
 #include "qfcameraorientationnormalizer.h"
 #include "qfcore.h"
+#include "qfdigitizinglayermodel.h"
 #include "qfdigitizinglogger.h"
 #include "qfdistancearea.h"
 #include "qfdrawingcanvas.h"
@@ -168,6 +169,7 @@ namespace QfCore
     qmlRegisterType<QfCogoOperationsModel>( "org.qfield.core", 1, 0, "QfCogoOperationsModel" );
     qmlRegisterType<QfDeltaChangesModel>( "org.qfield.core", 1, 0, "QfDeltaChangesModel" );
     qmlRegisterType<QfDeltaListModel>( "org.qfield.core", 1, 0, "QfDeltaListModel" );
+    qmlRegisterType<QfDigitizingLayerModel>( "org.qfield.core", 1, 0, "QfDigitizingLayerModel" );
     qmlRegisterType<QfDigitizingLogger>( "org.qfield.core", 1, 0, "QfDigitizingLogger" );
     qmlRegisterType<QfDistanceArea>( "org.qfield.core", 1, 0, "QfDistanceArea" );
     qmlRegisterType<QfDrawingCanvas>( "org.qfield.core", 1, 0, "QfDrawingCanvas" );
