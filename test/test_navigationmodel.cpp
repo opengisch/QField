@@ -197,3 +197,60 @@ TEST_CASE( "NavigationModel: data roles" )
     REQUIRE( roleNames.value( QfNavigationModel::PointType ) == QByteArray( "PointType" ) );
   }
 }
+
+
+TEST_CASE( "NavigationModel: setCrs" )
+{
+  QTemporaryDir settingsDirectory;
+  REQUIRE( settingsDirectory.isValid() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+
+  const QgsCoordinateReferenceSystem wgs84( QStringLiteral( "EPSG:4326" ) );
+  const QgsCoordinateReferenceSystem webMercator( QStringLiteral( "EPSG:3857" ) );
+
+  SECTION( "reprojects stored points into the new coordinate reference system" )
+  {
+    QfNavigationModel model;
+    model.setCrs( wgs84 );
+    model.setDestination( QgsPoint( 7.0, 46.0 ) );
+
+    QSignalSpy destinationChangedSpy( &model, &QfNavigationModel::destinationChanged );
+    model.setCrs( webMercator );
+
+    const QgsPoint reprojected = model.destination();
+    INFO( "reprojected " << describePoint( reprojected ) << " expected (779236.4358021, 5780349.2199191)" );
+    CAPTURE( model.rowCount( QModelIndex() ), destinationChangedSpy.count() );
+    REQUIRE( model.rowCount( QModelIndex() ) == 1 );
+    REQUIRE( destinationChangedSpy.count() == 1 );
+    REQUIRE( reprojected.x() == Catch::Approx( 779236.4358021 ).margin( 1e-3 ) );
+    REQUIRE( reprojected.y() == Catch::Approx( 5780349.2199191 ).margin( 1e-3 ) );
+  }
+
+  SECTION( "setting the identical crs is a no-op that leaves points untouched" )
+  {
+    QfNavigationModel model;
+    model.setCrs( wgs84 );
+    model.setDestination( QgsPoint( 7.0, 46.0 ) );
+
+    QSignalSpy destinationChangedSpy( &model, &QfNavigationModel::destinationChanged );
+    model.setCrs( wgs84 );
+
+    INFO( "destination " << describePoint( model.destination() ) );
+    CAPTURE( destinationChangedSpy.count() );
+    REQUIRE( destinationChangedSpy.count() == 0 );
+    REQUIRE( model.destination().x() == 7.0 );
+    REQUIRE( model.destination().y() == 46.0 );
+  }
+
+  SECTION( "changing the crs on an empty model stores it without touching rows" )
+  {
+    QfNavigationModel model;
+
+    QSignalSpy destinationChangedSpy( &model, &QfNavigationModel::destinationChanged );
+    model.setCrs( webMercator );
+
+    CAPTURE( destinationChangedSpy.count(), model.rowCount( QModelIndex() ) );
+    REQUIRE( destinationChangedSpy.count() == 0 );
+    REQUIRE( model.rowCount( QModelIndex() ) == 0 );
+  }
+}
