@@ -69,6 +69,7 @@ set(QFIELD_CORE_SRCS
     qfbarcodedecoder.cpp
     qfbookmarkmodel.cpp
     qfcameraorientationnormalizer.cpp
+    qfdigitizinglayermodel.cpp
     qfdigitizinglogger.cpp
     qfdistancearea.cpp
     qfdrawingcanvas.cpp
@@ -191,6 +192,7 @@ set(QFIELD_CORE_HDRS
     qfbarcodedecoder.h
     qfbookmarkmodel.h
     qfcameraorientationnormalizer.h
+    qfdigitizinglayermodel.h
     qfdigitizinglogger.h
     qfdistancearea.h
     qfdrawingcanvas.h
