@@ -281,35 +281,50 @@ QVariant QfDigitizingLayerBaseModel::data( const QModelIndex &index, int role ) 
 
     case QfDigitizingLayerModel::IdRole:
     {
-      if ( layer.type == QfDigitizingLayerModel::MapLayer && layer.mapLayer )
+      switch ( layer.type )
       {
-        return layer.mapLayer->id();
-      }
-      else if ( layer.type == QfDigitizingLayerModel::MarkupCollection && layer.markupCollection )
-      {
-        // TODO
-        return QString();
-      }
-      return QString();
-    }
+        case QfDigitizingLayerModel::MapLayer:
+        {
+          if ( layer.mapLayer )
+          {
+            return layer.mapLayer->id();
+          }
+        }
 
-    case QfDigitizingLayerModel::CollectionRole:
-    {
-      return QVariant::fromValue<QfMarkupCollection *>( layer.markupCollection );
+        case QfDigitizingLayerModel::MarkupCollection:
+        {
+          if ( layer.markupCollection )
+          {
+            // TODO
+            return QString();
+          }
+        }
+      }
+
+      return QString();
     }
 
     case QfDigitizingLayerModel::LayerRole:
     {
-      return QVariant::fromValue<QgsMapLayer *>( layer.mapLayer );
+      switch ( layer.type )
+      {
+        case QfDigitizingLayerModel::MapLayer:
+        {
+          return QVariant::fromValue<QgsMapLayer *>( layer.mapLayer );
+        }
+
+        case QfDigitizingLayerModel::MarkupCollection:
+        {
+          return QVariant::fromValue<QfMarkupCollection *>( layer.markupCollection );
+        }
+      }
+
+      return QVariant();
     }
 
     case QfDigitizingLayerModel::LayerTypeRole:
     {
-      if ( layer.mapLayer )
-      {
-        return QVariant::fromValue<Qgis::LayerType>( layer.mapLayer->type() );
-      }
-      return QVariant();
+      return QVariant::fromValue<QfDigitizingLayerModel::LayerType>( layer.type );
     }
 
     case QfDigitizingLayerModel::GeometryTypeRole:
@@ -333,12 +348,10 @@ QHash<int, QByteArray> QfDigitizingLayerBaseModel::roleNames() const
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
 
   roles[QfDigitizingLayerModel::IdRole] = "Id";
-  roles[QfDigitizingLayerModel::TypeRole] = "Type";
-  roles[QfDigitizingLayerModel::NameRole] = "Name";
   roles[QfDigitizingLayerModel::LayerTypeRole] = "LayerType";
-  roles[QfDigitizingLayerModel::GeometryTypeRole] = "GeometryType";
+  roles[QfDigitizingLayerModel::NameRole] = "Name";
   roles[QfDigitizingLayerModel::LayerRole] = "LayerPointer";
-  roles[QfDigitizingLayerModel::CollectionRole] = "CollectionPointer";
+  roles[QfDigitizingLayerModel::GeometryTypeRole] = "GeometryType";
 
   return roles;
 }
