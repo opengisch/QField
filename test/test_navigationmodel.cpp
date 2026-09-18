@@ -150,3 +150,50 @@ TEST_CASE( "NavigationModel: setDestination" )
     REQUIRE( model.destination().y() == 47.0 );
   }
 }
+
+
+TEST_CASE( "NavigationModel: data roles" )
+{
+  QTemporaryDir settingsDirectory;
+  REQUIRE( settingsDirectory.isValid() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+
+  QfNavigationModel model;
+  model.setDestination( QgsPoint( 7.0, 46.0 ) );
+
+  SECTION( "Point role returns the destination as a point geometry" )
+  {
+    const QgsGeometry geometry = model.index( 0, 0 ).data( QfNavigationModel::Point ).value<QgsGeometry>();
+    REQUIRE_FALSE( geometry.isNull() );
+
+    const QgsPointXY point = geometry.asPoint();
+    INFO( "geometry point (" << QString::number( point.x(), 'f', 10 ) << ", " << QString::number( point.y(), 'f', 10 ) << ")" );
+    REQUIRE( point.x() == 7.0 );
+    REQUIRE( point.y() == 46.0 );
+  }
+
+  SECTION( "PointType role marks the single point as the destination" )
+  {
+    const int pointType = model.index( 0, 0 ).data( QfNavigationModel::PointType ).toInt();
+    CAPTURE( pointType, static_cast<int>( QfNavigationModel::Destination ) );
+    REQUIRE( pointType == QfNavigationModel::Destination );
+  }
+
+  SECTION( "an out-of-range row is an invalid variant" )
+  {
+    REQUIRE_FALSE( model.data( model.index( 1, 0 ), QfNavigationModel::Point ).isValid() );
+    REQUIRE_FALSE( model.data( model.index( -1, 0 ), QfNavigationModel::Point ).isValid() );
+  }
+
+  SECTION( "an unhandled role is an invalid variant" )
+  {
+    REQUIRE_FALSE( model.index( 0, 0 ).data( Qt::UserRole + 999 ).isValid() );
+  }
+
+  SECTION( "roleNames exposes the custom role byte arrays" )
+  {
+    const QHash<int, QByteArray> roleNames = model.roleNames();
+    REQUIRE( roleNames.value( QfNavigationModel::Point ) == QByteArray( "Point" ) );
+    REQUIRE( roleNames.value( QfNavigationModel::PointType ) == QByteArray( "PointType" ) );
+  }
+}
