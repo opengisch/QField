@@ -43,27 +43,25 @@ class QfDigitizingLayerModel : public QSortFilterProxyModel
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
     //! The markup manager from which makrup collections will be taken from.
-    Q_PROPERTY( QfMarkupManager *markupManager READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
+    Q_PROPERTY( QfMarkupManager *markups READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
 
   public:
     enum Role
     {
       IdRole = Qt::UserRole + 1,
-      TypeRole,
       NameRole,
-      CollectionRole,
-      LayerRole,
       LayerTypeRole,
+      LayerRole,
       GeometryTypeRole,
     };
     Q_ENUM( Role )
 
-    enum Type
+    enum LayerType
     {
       MapLayer = 1,
       MarkupCollection
     };
-    Q_ENUM( Type )
+    Q_ENUM( LayerType )
 
     //! The constructor
     explicit QfDigitizingLayerModel( QObject *parent = nullptr );
@@ -181,7 +179,7 @@ class QfDigitizingLayerBaseModel : public QAbstractListModel
   private:
     struct DigitizingLayer
     {
-        QfDigitizingLayerModel::Type type = QfDigitizingLayerModel::MapLayer;
+        QfDigitizingLayerModel::LayerType type = QfDigitizingLayerModel::MapLayer;
         QString name;
         QgsMapLayer *mapLayer = nullptr;
         QfMarkupCollection *markupCollection = nullptr;
