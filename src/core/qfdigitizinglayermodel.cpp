@@ -169,7 +169,7 @@ void QfDigitizingLayerBaseModel::addLayers( const QList<QgsMapLayer *> &layers )
     }
 
     QgsVectorLayer *vlayer = dynamic_cast<QgsVectorLayer *>( layer );
-    if ( !vlayer || !vlayer->readOnly() )
+    if ( !vlayer || vlayer->readOnly() )
     {
       continue;
     }
