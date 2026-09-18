@@ -44,7 +44,17 @@ class QfMarkupManager : public QObject
     /**
      * Returns the list of collection names present in the markup manager.
      */
-    QStringList collectionNames() const { return mCollections.keys(); };
+    QStringList collectionNames() const;
+
+    /**
+     * Returns the list of collection UUIDs present in the markup manager.
+     */
+    QStringList collectionUuids() const { return mCollections.keys(); };
+
+    /**
+     * Returns the collection present in the markup manager matching the \a uuid.
+     */
+    QfMarkupCollection *collection( const QString &uuid ) const;
 
     /**
      * Returns the list of collections present in the markup manager.
@@ -97,13 +107,19 @@ class QfMarkupManager : public QObject
     void hasItemsChanged();
 
     //! Emitted when a collection's list of items has changed.
-    void collectionItemsChanged( const QString &name );
+    void collectionItemsChanged( const QString &uuid );
+
+    //! Emitted when collections are about to be removed.
+    void collectionsWillBeRemoved( const QStringList &uuids );
+
+    //! Emitted when collections are about to be removed.
+    void collectionsAdded( const QStringList &uuids );
 
   private slots:
     void processCollectionItemsChanged();
 
   private:
-    void insertCollection( QfMarkupCollection *collection );
+    void insertCollection( const QString &collectionUuid, QfMarkupCollection *collection );
 
     QString mPath;
     QString mPrefix;

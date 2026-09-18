@@ -176,7 +176,7 @@ class QfDigitizingLayerBaseModel : public QAbstractListModel
     void addLayers( const QList<QgsMapLayer *> &layers );
 
     void removeCollections( const QStringList &collectionUuids );
-    void addCollections( const QList<QfMarkupCollection *> &collections );
+    void addCollections( const QStringList &collectionUuids );
 
   private:
     struct DigitizingLayer
