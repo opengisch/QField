@@ -1602,6 +1602,7 @@ void QfCloudProject::push( bool shouldDownloadUpdates )
 
   if ( !mDeltaFileWrapper->toFile() )
   {
+    QgsMessageLog::logMessage( tr( "The changes waiting to be pushed could not be written to disk, so they were not sent: %1" ).arg( mDeltaFileWrapper->errorString() ), QStringLiteral( "QFieldCloud" ), Qgis::Critical );
     return;
   }
 
@@ -1659,6 +1660,7 @@ void QfCloudProject::push( bool shouldDownloadUpdates )
   if ( deltaFileToUpload.isEmpty() )
   {
     mDeltaFileWrapper->setIsPushing( false );
+    writePendingDeltas();
     setStatus( ProjectStatus::Idle );
     return;
   }
@@ -1691,6 +1693,7 @@ void QfCloudProject::push( bool shouldDownloadUpdates )
       QgsMessageLog::logMessage( QStringLiteral( "Failed to upload delta file, reason:\n%1\n%2" ).arg( deltasReply->errorString(), mDeltaFilePushStatusString ) );
 
       mDeltaFileWrapper->setIsPushing( false );
+      writePendingDeltas();
 
       cancelPush();
       return;
@@ -1817,6 +1820,14 @@ void QfCloudProject::push( bool shouldDownloadUpdates )
         }
     }
   } );
+}
+
+void QfCloudProject::writePendingDeltas()
+{
+  if ( mDeltaFileWrapper->isDirty() && !mDeltaFileWrapper->toFile() )
+  {
+    QgsMessageLog::logMessage( QStringLiteral( "Failed to write the delta file after the push. %1" ).arg( mDeltaFileWrapper->errorString() ) );
+  }
 }
 
 void QfCloudProject::cancelPush()

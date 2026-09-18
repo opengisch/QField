@@ -112,6 +112,8 @@ void QfCloudProjectsModel::setLayerObserver( QfLayerObserver *layerObserver )
     return;
   }
 
+  refreshCurrentProject();
+
   emit layerObserverChanged();
 }
 
@@ -124,6 +126,7 @@ void QfCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId 
 {
   if ( mCurrentProjectId == currentProjectId )
   {
+    refreshCurrentProject();
     return;
   }
 
@@ -137,6 +140,37 @@ void QfCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId 
 
   emit currentProjectIdChanged();
   emit currentProjectChanged();
+}
+
+void QfCloudProjectsModel::refreshCurrentProject()
+{
+  if ( mCurrentProjectId.isEmpty() )
+  {
+    return;
+  }
+
+  QfCloudProject *project = findProject( mCurrentProjectId );
+  const bool changed = mCurrentProject != project || !project;
+
+  mCurrentProject = project;
+
+  if ( mLayerObserver )
+  {
+    mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
+  }
+
+  if ( changed )
+  {
+    emit currentProjectChanged();
+  }
+}
+
+void QfCloudProjectsModel::writeCurrentProjectDeltas()
+{
+  if ( mCurrentProject && mCurrentProject->deltaFileWrapper() && mCurrentProject->deltaFileWrapper()->isDirty() )
+  {
+    mCurrentProject->deltaFileWrapper()->toFile();
+  }
 }
 
 QfCloudProject *QfCloudProjectsModel::currentProject() const
@@ -365,6 +399,8 @@ void QfCloudProjectsModel::removeLocalProject( const QString &projectId )
         beginRemoveRows( QModelIndex(), projectIndex.row(), projectIndex.row() );
         delete mProjects.takeAt( projectIndex.row() );
         endRemoveRows();
+
+        refreshCurrentProject();
       }
     }
   }
@@ -497,6 +533,8 @@ void QfCloudProjectsModel::resetProjects()
 {
   if ( !mProjects.isEmpty() )
   {
+    writeCurrentProjectDeltas();
+
     beginResetModel();
     qDeleteAll( mProjects );
     mProjects.clear();
@@ -586,6 +624,8 @@ void QfCloudProjectsModel::projectListReceived()
 
   if ( resetModel && projectFetchOffset == 0 )
   {
+    writeCurrentProjectDeltas();
+
     beginResetModel();
     qDeleteAll( mProjects );
     mProjects.clear();
@@ -621,18 +661,6 @@ void QfCloudProjectsModel::projectListReceived()
   }
   else
   {
-    // All projects fetched, refresh current project details if found
-    if ( !mCurrentProjectId.isEmpty() )
-    {
-      mCurrentProject = findProject( mCurrentProjectId );
-      emit currentProjectChanged();
-
-      if ( mLayerObserver )
-      {
-        mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
-      }
-    }
-
     mIsRefreshing = false;
     emit isRefreshingChanged();
   }
@@ -704,9 +732,10 @@ void QfCloudProjectsModel::insertProjects( const QList<QfCloudProject *> &projec
           mProjects[i]->setDataLastUpdatedAt( project->dataLastUpdatedAt() );
           mProjects[i]->setRestrictedDataLastUpdatedAt( project->restrictedDataLastUpdatedAt() );
           emit dataChanged( index( i, 0 ), index( i, 0 ) );
-
-          delete project;
         }
+
+        delete project;
+
         found = true;
         break;
       }
@@ -922,6 +951,8 @@ void QfCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool 
           continue;
         }
 
+        Q_ASSERT( projectId == cloudProject->id() );
+
         // If the cloud project is a special shared dataset project or if the cloud project
         // had a folder but was not downloaded properly, do not add to the model
         if ( cloudProject->type() == QfCloudProject::ProjectType::SharedDatasets || cloudProject->localPath().isEmpty() )
@@ -932,13 +963,13 @@ void QfCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool 
         {
           userSpecificProjects.push_back( cloudProject );
         }
-
-        Q_ASSERT( projectId == cloudProject->id() );
       }
     }
 
     insertProjects( userSpecificProjects );
   }
+
+  refreshCurrentProject();
 }
 
 int QfCloudProjectsModel::rowCount( const QModelIndex &parent ) const
@@ -1221,10 +1252,12 @@ void QfCloudProjectsModel::projectCreationReceived()
   QfCloudProject *cloudProject = QfCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher ); // cppcheck-suppress constVariablePointer
   if ( cloudProject )
   {
-    insertProjects( QList<QfCloudProject *>() << cloudProject );
-    emit projectCreated( cloudProject->id(), fromProjectId, false, QString() );
+    const QString createdProjectId = cloudProject->id();
 
-    if ( QfCloudProject *project = findProject( cloudProject->id() ) )
+    insertProjects( QList<QfCloudProject *>() << cloudProject );
+    emit projectCreated( createdProjectId, fromProjectId, false, QString() );
+
+    if ( QfCloudProject *project = findProject( createdProjectId ) )
     {
       project->setStatus( QfCloudProject::ProjectStatus::Creating );
       project->ensureProjectCreated();
