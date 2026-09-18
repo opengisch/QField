@@ -26,8 +26,8 @@ QfDigitizingLayerBaseModel::QfDigitizingLayerBaseModel( QObject *parent )
 void QfDigitizingLayerBaseModel::resetModel()
 {
   beginResetModel();
-
   mLayers.clear();
+
   if ( mEnabled )
   {
     if ( mProject )
@@ -37,7 +37,7 @@ void QfDigitizingLayerBaseModel::resetModel()
 
     if ( mMarkupManager )
     {
-      addCollections( mMarkupManager->collections() );
+      addCollections( mMarkupManager->collectionUuids() );
     }
   }
 
@@ -54,17 +54,32 @@ void QfDigitizingLayerBaseModel::setEnabled( bool enabled )
   mEnabled = enabled;
   emit enabledChanged();
 
-  if ( mProject )
+  if ( mEnabled )
   {
-    if ( mEnabled )
+    if ( mProject )
     {
       connect( mProject, &QgsProject::layersAdded, this, &QfDigitizingLayerBaseModel::addLayers );
       connect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &QfDigitizingLayerBaseModel::removeLayers );
     }
-    else
+
+    if ( mMarkupManager )
+    {
+      connect( mMarkupManager, &QfMarkupManager::collectionsAdded, this, &QfDigitizingLayerBaseModel::addCollections );
+      connect( mMarkupManager, &QfMarkupManager::collectionsWillBeRemoved, this, &QfDigitizingLayerBaseModel::removeCollections );
+    }
+  }
+  else
+  {
+    if ( mProject )
     {
       disconnect( mProject, &QgsProject::layersAdded, this, &QfDigitizingLayerBaseModel::addLayers );
       disconnect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &QfDigitizingLayerBaseModel::removeLayers );
+    }
+
+    if ( mMarkupManager )
+    {
+      disconnect( mMarkupManager, &QfMarkupManager::collectionsAdded, this, &QfDigitizingLayerBaseModel::addCollections );
+      disconnect( mMarkupManager, &QfMarkupManager::collectionsWillBeRemoved, this, &QfDigitizingLayerBaseModel::removeCollections );
     }
   }
 
@@ -105,7 +120,8 @@ void QfDigitizingLayerBaseModel::setMarkupManager( QfMarkupManager *markupManage
 
   if ( mEnabled && mMarkupManager )
   {
-    //TODO
+    disconnect( mMarkupManager, &QfMarkupManager::collectionsAdded, this, &QfDigitizingLayerBaseModel::addCollections );
+    disconnect( mMarkupManager, &QfMarkupManager::collectionsWillBeRemoved, this, &QfDigitizingLayerBaseModel::removeCollections );
   }
 
   mMarkupManager = markupManager;
@@ -113,7 +129,8 @@ void QfDigitizingLayerBaseModel::setMarkupManager( QfMarkupManager *markupManage
 
   if ( mEnabled && mMarkupManager )
   {
-    //TODO
+    connect( mMarkupManager, &QfMarkupManager::collectionsAdded, this, &QfDigitizingLayerBaseModel::addCollections );
+    connect( mMarkupManager, &QfMarkupManager::collectionsWillBeRemoved, this, &QfDigitizingLayerBaseModel::removeCollections );
   }
 
   resetModel();
@@ -191,9 +208,8 @@ void QfDigitizingLayerBaseModel::removeCollections( const QStringList &collectio
 
   for ( const QString &collectionUuid : collectionUuids )
   {
-    auto match = std::find_if( mLayers.begin(), mLayers.end(), [&collectionUuid]( const DigitizingLayer &l ) {
-      // TODO
-      return l.type == QfDigitizingLayerModel::MarkupCollection && false;
+    auto match = std::find_if( mLayers.begin(), mLayers.end(), [this, &collectionUuid]( const DigitizingLayer &l ) {
+      return l.type == QfDigitizingLayerModel::MarkupCollection && mMarkupManager->collection( collectionUuid );
     } );
     if ( match != mLayers.end() )
     {
@@ -205,26 +221,35 @@ void QfDigitizingLayerBaseModel::removeCollections( const QStringList &collectio
   }
 }
 
-void QfDigitizingLayerBaseModel::addCollections( const QList<QfMarkupCollection *> &collections )
+void QfDigitizingLayerBaseModel::addCollections( const QStringList &collectionUuids )
 {
-  if ( !collections.isEmpty() )
+  QList<QfMarkupCollection *> collections;
+  for ( const QString &collectionUuid : collectionUuids )
   {
-    beginInsertRows( QModelIndex(), mLayers.size(), mLayers.size() + collections.size() - 1 );
-    for ( QfMarkupCollection *collection : collections ) // cppcheck-suppress constVariablePointer
+    QfMarkupCollection *collection = mMarkupManager->collection( collectionUuid );
+    if ( !collection )
     {
-      if ( !collection )
-      {
-        continue;
-      }
-
-      DigitizingLayer l;
-      l.name = collection->name();
-      l.type = QfDigitizingLayerModel::MarkupCollection;
-      l.markupCollection = collection;
-      mLayers.append( l );
+      continue;
     }
-    endInsertRows();
+
+    collections << collection;
   }
+
+  if ( collections.isEmpty() )
+  {
+    return;
+  }
+
+  beginInsertRows( QModelIndex(), mLayers.size(), mLayers.size() + collections.size() - 1 );
+  for ( QfMarkupCollection *collection : collections ) // cppcheck-suppress constVariablePointer
+  {
+    DigitizingLayer layer;
+    layer.name = collection->name();
+    layer.type = QfDigitizingLayerModel::MarkupCollection;
+    layer.markupCollection = collection;
+    mLayers.append( layer );
+  }
+  endInsertRows();
 }
 
 int QfDigitizingLayerBaseModel::rowCount( const QModelIndex &parent ) const

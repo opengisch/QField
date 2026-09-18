@@ -27,6 +27,21 @@ QfMarkupManager::QfMarkupManager( QObject *parent )
 {
 }
 
+QStringList QfMarkupManager::collectionNames() const
+{
+  QStringList names;
+  for ( const QfMarkupCollection *collection : mCollections )
+  {
+    names << collection->name();
+  }
+  return names;
+}
+
+QfMarkupCollection *QfMarkupManager::collection( const QString &uuid ) const
+{
+  return mCollections.contains( uuid ) ? mCollections[uuid] : nullptr;
+}
+
 void QfMarkupManager::setHiddenCollectionNames( const QStringList &hiddenCollectionNames )
 {
   if ( mHiddenCollectionNames == hiddenCollectionNames )
@@ -63,6 +78,7 @@ bool QfMarkupManager::hasItems() const
 
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
 {
+  emit collectionsWillBeRemoved( mCollections.keys() );
   qDeleteAll( mCollections );
   mCollections.clear();
   emit collectionsChanged();
@@ -82,7 +98,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
       {
         collection->setName( tr( "Unnamed collection" ) );
       }
-      insertCollection( collection );
+      insertCollection( collectionGeoJsonPaths.filePath(), collection );
     }
   }
 
@@ -90,15 +106,17 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
   {
     // A default markup collection is added
     QfMarkupCollection *collection = new QfMarkupCollection( tr( "Default collection" ) );
-    insertCollection( collection );
+    const QString geoJsonPath = QStringLiteral( "%1/%2%3.geojson" ).arg( mPath, !mPrefix.isEmpty() ? QStringLiteral( "%1-" ).arg( mPrefix ) : QString(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+    insertCollection( geoJsonPath, collection );
   }
 
+  emit collectionsAdded( mCollections.keys() );
   emit collectionsChanged();
   emit visibleCollectionsChanged();
   emit hasItemsChanged();
 }
 
-void QfMarkupManager::insertCollection( QfMarkupCollection *collection )
+void QfMarkupManager::insertCollection( const QString &collectionUuid, QfMarkupCollection *collection )
 {
   if ( mCollections.contains( collection->name() ) )
   {
@@ -114,7 +132,7 @@ void QfMarkupManager::insertCollection( QfMarkupCollection *collection )
   connect( collection, &QfMarkupCollection::itemsChanged, this, &QfMarkupManager::processCollectionItemsChanged );
   connect( collection, &QfMarkupCollection::countChanged, this, &QfMarkupManager::hasItemsChanged );
 
-  mCollections.insert( collection->name(), collection );
+  mCollections.insert( collectionUuid, collection );
 }
 
 void QfMarkupManager::processCollectionItemsChanged()
@@ -124,7 +142,8 @@ void QfMarkupManager::processCollectionItemsChanged()
   {
     return;
   }
-  emit collectionItemsChanged( collection->name() );
+  const QString geoJsonPath = mCollections.key( collection );
+  emit collectionItemsChanged( geoJsonPath );
 
   QString filename = collection->name();
   if ( !mPrefix.isEmpty() )
