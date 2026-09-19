@@ -26,9 +26,7 @@ Item {
   }
 
   // Digitizing layer
-  property alias isDigitizing: digitizingLayerInformationView.visible
-  property alias activeDigitizingLayer: digitizingLayerInformationView.activeDigitizingLayer
-  property alias activeDigitizingCollection: digitizingLayerInformationView.activeDigitizingCollection
+  property alias digitizingLayerInformationView: digitizingLayerInformationView
 
   // COGO
   property alias cogoOperationSettings: cogoOperationSettings

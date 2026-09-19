@@ -1985,19 +1985,18 @@ ApplicationWindow {
 
     cogoOperationSettings.mapSettings: mapCanvas.mapSettings
 
-    isDigitizing: stateMachine.state === "digitize"
-    activeDigitizingLayer: dashBoard.activeLayer
-    activeDigitizingCollection: dashBoard.activeCollection
-
-    onActiveDigitizingLayerChanged: {
-      if (activeDigitizingLayer && dashBoard.activeLayer !== activeDigitizingLayer) {
-        dashBoard.activeLayer = activeDigitizingLayer;
+    digitizingLayerInformationView.visible: stateMachine.state === "digitize"
+    digitizingLayerInformationView.isDigitizing: digitizingToolbar.isDigitizing
+    digitizingLayerInformationView.activeDigitizingLayer: dashBoard.activeLayer
+    digitizingLayerInformationView.activeDigitizingCollection: dashBoard.activeCollection
+    digitizingLayerInformationView.onActiveDigitizingLayerChanged: {
+      if (digitizingLayerInformationView.activeDigitizingLayer && dashBoard.activeLayer !== digitizingLayerInformationView.activeDigitizingLayer) {
+        dashBoard.activeLayer = digitizingLayerInformationView.activeDigitizingLayer;
       }
     }
-
-    onActiveDigitizingCollectionChanged: {
-      if (activeDigitizingCollection && dashBoard.activeCollection !== activeDigitizingCollection) {
-        dashBoard.activeCollection = activeDigitizingCollection;
+    digitizingLayerInformationView.onActiveDigitizingCollectionChanged: {
+      if (digitizingLayerInformationView.activeDigitizingCollection && dashBoard.activeCollection !== digitizingLayerInformationView.activeDigitizingCollection) {
+        dashBoard.activeCollection = digitizingLayerInformationView.activeDigitizingCollection;
       }
     }
   }
