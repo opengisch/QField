@@ -14,6 +14,7 @@ ListView {
   id: markupLegend
 
   property bool isVisible: false
+  property bool allowActiveCollectionChange: true
   property QfMarkupCollection activeCollection
 
   model: markupManager.collections
@@ -41,7 +42,9 @@ ListView {
       enabled: true
       acceptedButtons: Qt.LeftButton | Qt.RightButton
       onClicked: mouse => {
-        markupLegend.activeCollection = collection;
+        if (allowActiveCollectionChange) {
+          markupLegend.activeCollection = collection;
+        }
       }
     }
 
