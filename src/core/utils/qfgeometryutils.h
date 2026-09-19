@@ -61,6 +61,9 @@ class QFIELD_CORE_EXPORT QfGeometryUtils : public QObject
 
     explicit QfGeometryUtils( QObject *parent = nullptr );
 
+    //! Returns a QgsGeometryfrom a rubberband model. The wktType is unknown, the type will be determined from the shape formed by the point sequence in the rubberband model..
+    static Q_INVOKABLE QgsGeometry geometryFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, double mapUnitsPerPoint, Qgis::WkbType wkbType = Qgis::WkbType::Unknown );
+
     //! Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model.
     static Q_INVOKABLE QgsGeometry polygonFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType = Qgis::WkbType::Unknown );
 

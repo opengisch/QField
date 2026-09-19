@@ -148,6 +148,7 @@ void QfMarkupManager::processCollectionItemsChanged()
   {
     return;
   }
+
   const QString geoJsonPath = mCollections.key( collection );
   emit collectionItemsChanged( geoJsonPath );
 

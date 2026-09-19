@@ -40,13 +40,15 @@ void QfMarkupCollection::setName( const QString &name )
   emit nameChanged();
 }
 
-void QfMarkupCollection::addItem( const QfMarkupItem &item )
+QString QfMarkupCollection::addItem( const QfMarkupItem &item )
 {
   const QString uuid = QUuid::createUuid().toString( QUuid::WithoutBraces );
   mItems.insert( uuid, item );
 
   emit countChanged();
   emit itemsChanged();
+
+  return uuid;
 }
 
 void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &item )
@@ -325,4 +327,9 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
   geoJsonFile.write( geoJsonString.toUtf8() );
 
   return true;
+}
+
+QfMarkupItem QfMarkupCollection::createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )
+{
+  return QfMarkupItem( label, description, geometry, color );
 }

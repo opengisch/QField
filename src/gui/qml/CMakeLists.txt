@@ -48,6 +48,7 @@ set(QFIELD_GUI_QML_FILES
     QfMarkupCollectionRenderer.qml
     QfMarkupItemRenderer.qml
     QfMarkupLegend.qml
+    QfMarkupToolbar.qml
     QfMenu.qml
     QfMessageLog.qml
     QfMeterBar.qml
