@@ -1986,7 +1986,7 @@ ApplicationWindow {
     cogoOperationSettings.mapSettings: mapCanvas.mapSettings
 
     digitizingLayerInformationView.visible: stateMachine.state === "digitize"
-    digitizingLayerInformationView.isDigitizing: digitizingToolbar.isDigitizing
+    digitizingLayerInformationView.isDigitizing: digitizingToolbar.isDigitizing || geometryEditingVertexModel.vertexCount > 0
     digitizingLayerInformationView.activeDigitizingLayer: dashBoard.activeLayer
     digitizingLayerInformationView.activeDigitizingCollection: dashBoard.activeCollection
     digitizingLayerInformationView.onActiveDigitizingLayerChanged: {
