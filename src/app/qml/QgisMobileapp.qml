@@ -3277,7 +3277,7 @@ ApplicationWindow {
       anchors.right: parent.right
       anchors.rightMargin: mainWindow.sceneRightMargin + 4
       anchors.bottom: parent.bottom
-      anchors.bottomMargin: 4
+      anchors.bottomMargin: digitizingToolbar.stateVisible || geometryEditorsToolbar.stateVisible || moveFeaturesToolbar.stateVisible || rotateFeaturesToolbar.stateVisible ? 8 : 4
 
       spacing: 4
 
