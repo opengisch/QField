@@ -84,9 +84,13 @@ bool QfMarkupManager::hasItems() const
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
 {
   emit collectionsWillBeRemoved( mCollections.keys() );
+
   qDeleteAll( mCollections );
   mCollections.clear();
+
   emit collectionsChanged();
+  emit visibleCollectionsChanged();
+  emit hasItemsChanged();
 
   const QFileInfo fi( path );
   mPath = fi.absoluteFilePath();
