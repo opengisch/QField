@@ -32,6 +32,7 @@ Rectangle {
       property bool skipCurrentIndexChange: false
 
       Layout.fillWidth: true
+      enabled: !digitizingLayerInformationView.isDigitizing
 
       model: QfDigitizingLayerModel {
         id: digitizingLayerModel
