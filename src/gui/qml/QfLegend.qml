@@ -15,8 +15,8 @@ ListView {
 
   property QfInformationPopup informationPopup
   property bool isVisible: false
-  property VectorLayer activeLayer
   property bool allowActiveLayerChange
+  property VectorLayer activeLayer
 
   model: flatLayerTree
   flickableDirection: Flickable.VerticalFlick

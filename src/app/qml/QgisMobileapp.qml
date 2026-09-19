@@ -531,6 +531,30 @@ ApplicationWindow {
     clip: true
 
     DragHandler {
+      id: markupHandler
+
+      enabled: markupToolbar.stateVisible && markupToolbar.isMarking
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType
+      dragThreshold: 0
+
+      onActiveChanged: {
+        if (!active) {
+          markupToolbar.processMarkup();
+          coordinateLocator.sourceLocation = undefined;
+        }
+      }
+
+      onCentroidChanged: {
+        if (active) {
+          if (centroid.position !== Qt.point(0, 0)) {
+            coordinateLocator.sourceLocation = centroid.position;
+            markupToolbar.addVertex();
+          }
+        }
+      }
+    }
+
+    DragHandler {
       id: freehandHandler
       property bool isDigitizing: false
       property int freehandStartVertexIndex: -1
@@ -605,7 +629,7 @@ ApplicationWindow {
 
     HoverHandler {
       id: hoverHandler
-      enabled: !digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen
+      enabled: !markupToolbar.stateVisible && (!digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen)
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchPad | PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
 
       grabPermissions: PointerHandler.TakeOverForbidden
@@ -914,11 +938,18 @@ ApplicationWindow {
                 digitizingToolbar.addVertex();
               }
             }
-          } else {
-            if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
-              identifyTool.isMenuRequest = false;
-              identifyTool.identify(point);
-            }
+            return;
+          }
+          if (markupToolbar.stateVisible && markupToolbar.isMarking) {
+            coordinateLocator.sourceLocation = point;
+            markupToolbar.addVertex();
+            markupToolbar.processMarkup();
+            coordinateLocator.sourceLocation = undefined;
+            return;
+          }
+          if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
+            identifyTool.isMenuRequest = false;
+            identifyTool.identify(point);
           }
         }
       }
@@ -940,7 +971,16 @@ ApplicationWindow {
           if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
             coordinateLocator.sourceLocation = point;
           }
-        } else if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
+          return;
+        }
+        if (markupToolbar.stateVisible && markupToolbar.isMarking) {
+          coordinateLocator.sourceLocation = point;
+          markupToolbar.addVertex();
+          markupToolbar.processMarkup();
+          coordinateLocator.sourceLocation = undefined;
+          return;
+        }
+        if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
           identifyTool.isMenuRequest = false;
           identifyTool.identify(point);
         }
@@ -1150,6 +1190,7 @@ ApplicationWindow {
 
       mapSettings: mapCanvas.mapSettings
       showVertices: digitizingToolbar.cogoEnabled
+      color: markupToolbar.stateVisible && markupToolbar.pickedColor !== undefined ? markupToolbar.pickedColor : ""
 
       model: QfRubberbandModel {
         frozen: false
@@ -1183,7 +1224,8 @@ ApplicationWindow {
           }
           return Number.NaN;
         }
-        vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
+        vectorLayer: !markupToolbar.stateVisible ? digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer : null
+        geometryType: markupToolbar.stateVisible ? Qgis.GeometryType.Line : vectorLayer.geometryType
         crs: mapCanvas.mapSettings.destinationCrs
       }
 
@@ -1249,7 +1291,7 @@ ApplicationWindow {
       objectName: "coordinateLocator"
       anchors.fill: parent
       anchors.bottomMargin: mapCanvasMap.allowMargins ? informationDrawer.height > mainWindow.sceneBottomMargin ? informationDrawer.height : 0 : 0
-      visible: (stateMachine.state === "digitize" || stateMachine.state === 'measure')
+      visible: !markupToolbar.stateVisible && (stateMachine.state === "digitize" || stateMachine.state === 'measure')
       highlightColor: digitizingToolbar.isDigitizing ? currentRubberband.color : "#CFD8DC"
       mapSettings: mapCanvas.mapSettings
       currentLayer: dashBoard.activeLayer
@@ -3473,6 +3515,16 @@ ApplicationWindow {
         }
       }
 
+      QfMarkupToolbar {
+        id: markupToolbar
+
+        markupCollection: dashBoard.activeCollection
+        rubberbandModel: currentRubberband ? currentRubberband.model : null
+        mapSettings: mapCanvas.mapSettings
+
+        stateVisible: stateMachine.state === "digitize" && dashBoard.activeCollection
+      }
+
       QfConfirmationToolbar {
         id: moveFeaturesToolbar
 
@@ -4920,17 +4972,6 @@ ApplicationWindow {
       projectInfo.filePath = path;
       stateMachine.state = projectInfo.stateMode;
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse');
-      let activeLayer = projectInfo.activeLayer;
-      if (flatLayerTree.mapTheme != '') {
-        const defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
-        if (defaultActiveLayer !== null) {
-          activeLayer = defaultActiveLayer;
-        }
-      }
-      if (!qfieldAuthRequestHandler.hasPendingAuthRequest) {
-        // only set active layer when not handling layer credentials
-        dashBoard.activeLayer = activeLayer;
-      }
       drawingTemplateModel.projectFilePath = path;
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
       const titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
@@ -5026,9 +5067,29 @@ ApplicationWindow {
         projectInfo.hasEditRights = true;
         markupManager.reset(QfFileUtils.absolutePath(qgisProject.fileName) + '/markups');
       }
-      if (stateMachine.state === "digitize" && !qfieldAuthRequestHandler.hasPendingAuthRequest) {
-        dashBoard.ensureEditableLayerSelected();
+
+      let activeLayer = projectInfo.activeLayer;
+      if (flatLayerTree.mapTheme != '') {
+        const defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
+        if (defaultActiveLayer !== null) {
+          activeLayer = defaultActiveLayer;
+        }
       }
+      let activeCollection = projectInfo.activeCollection;
+      if (!qfieldAuthRequestHandler.hasPendingAuthRequest) {
+        // only set active layer when not handling layer credentials
+        if (activeCollection != null) {
+          dashBoard.activeLayer = null;
+          dashBoard.activeCollection = activeCollection;
+        } else {
+          dashBoard.activeLayer = activeLayer;
+          dashBoard.activeCollection = null;
+          if (stateMachine.state === "digitize") {
+            dashBoard.ensureEditableLayerSelected();
+          }
+        }
+      }
+
       const distanceString = iface.readProjectEntry("Measurement", "/DistanceUnits", "");
       const decodedDistanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters;
       projectInfo.distanceUnits = decodedDistanceUnits !== Qgis.DistanceUnit.Unknown ? decodedDistanceUnits : mapCanvas.mapSettings.destinationCrs.mapUnits;
@@ -5138,6 +5199,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
     trackingModel: trackings.model
+    markups: markupManager
 
     property var distanceUnits: Qgis.DistanceUnit.Meters
     property var areaUnits: Qgis.AreaUnit.SquareMeters

@@ -40,13 +40,15 @@ void QfMarkupCollection::setName( const QString &name )
   emit nameChanged();
 }
 
-void QfMarkupCollection::addItem( const QfMarkupItem &item )
+QString QfMarkupCollection::addItem( const QfMarkupItem &item )
 {
   const QString uuid = QUuid::createUuid().toString( QUuid::WithoutBraces );
   mItems.insert( uuid, item );
 
   emit countChanged();
   emit itemsChanged();
+
+  return uuid;
 }
 
 void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &item )
@@ -245,10 +247,8 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
       case Qgis::GeometryType::Point:
       {
         const QgsPointXY point = geometry.asPoint();
-        QJsonArray pointArray;
-        pointArray.append( QJsonValue( point.x() ) );
-        pointArray.append( QJsonValue( point.y() ) );
-        geometryCoordinates.append( QJsonValue( pointArray ) );
+        geometryCoordinates.append( QJsonValue( point.x() ) );
+        geometryCoordinates.append( QJsonValue( point.y() ) );
         geometryType = QStringLiteral( "Point" );
         break;
       }
@@ -256,15 +256,13 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
       case Qgis::GeometryType::Line:
       {
         const QgsPolylineXY polyline = geometry.asPolyline();
-        QJsonArray pointsArray;
         for ( const QgsPointXY &point : polyline )
         {
           QJsonArray pointArray;
           pointArray.append( QJsonValue( point.x() ) );
           pointArray.append( QJsonValue( point.y() ) );
-          pointsArray.append( QJsonValue( pointArray ) );
+          geometryCoordinates.append( QJsonValue( pointArray ) );
         }
-        geometryCoordinates.append( QJsonValue( pointsArray ) );
         geometryType = QStringLiteral( "LineString" );
         break;
       }
@@ -272,7 +270,6 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
       case Qgis::GeometryType::Polygon:
       {
         const QgsPolygonXY polygon = geometry.asPolygon();
-        QJsonArray partsArray;
         for ( const QgsPolylineXY &part : polygon )
         {
           QJsonArray partArray;
@@ -283,9 +280,8 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
             pointArray.append( QJsonValue( point.y() ) );
             partArray.append( QJsonValue( pointArray ) );
           }
-          partsArray.append( QJsonValue( partArray ) );
+          geometryCoordinates.append( QJsonValue( partArray ) );
         }
-        geometryCoordinates.append( QJsonValue( partsArray ) );
         geometryType = QStringLiteral( "Polygon" );
         break;
       }
@@ -305,10 +301,10 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
     geometryObject.insert( QStringLiteral( "coordinates" ), QJsonValue( geometryCoordinates ) );
 
     QJsonObject propertiesObject;
-    geometryObject.insert( QStringLiteral( "uuid" ), QJsonValue( uuid ) );
-    geometryObject.insert( QStringLiteral( "label" ), QJsonValue( item.label() ) );
-    geometryObject.insert( QStringLiteral( "description" ), QJsonValue( item.description() ) );
-    geometryObject.insert( QStringLiteral( "color" ), QJsonValue( QgsColorUtils::colorToString( item.color() ) ) );
+    propertiesObject.insert( QStringLiteral( "uuid" ), QJsonValue( uuid ) );
+    propertiesObject.insert( QStringLiteral( "label" ), QJsonValue( item.label() ) );
+    propertiesObject.insert( QStringLiteral( "description" ), QJsonValue( item.description() ) );
+    propertiesObject.insert( QStringLiteral( "color" ), QJsonValue( QgsColorUtils::colorToString( item.color() ) ) );
 
     QJsonObject featureObject;
     featureObject.insert( QStringLiteral( "type" ), QJsonValue( QStringLiteral( "Feature" ) ) );
@@ -325,4 +321,9 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
   geoJsonFile.write( geoJsonString.toUtf8() );
 
   return true;
+}
+
+QfMarkupItem QfMarkupCollection::createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )
+{
+  return QfMarkupItem( label, description, geometry, color );
 }

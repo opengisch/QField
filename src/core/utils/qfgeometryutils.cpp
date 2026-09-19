@@ -31,6 +31,36 @@ QfGeometryUtils::QfGeometryUtils( QObject *parent )
 {
 }
 
+QgsGeometry QfGeometryUtils::geometryFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, double mapUnitsPerPoint, Qgis::WkbType wkbType )
+{
+  const bool checkPolygon = rubberBandModel->vertexCount() >= 5;
+  const bool checkLine = rubberBandModel->vertexCount() >= 3;
+
+  if ( checkPolygon )
+  {
+    if ( rubberBandModel->firstCoordinate().distance( rubberBandModel->lastCoordinate() ) < mapUnitsPerPoint * 5 )
+    {
+      return polygonFromRubberband( rubberBandModel, crs, wkbType );
+    }
+  }
+
+  if ( checkLine )
+  {
+    if ( rubberBandModel->firstCoordinate().distance( rubberBandModel->lastCoordinate() ) > mapUnitsPerPoint * 5 )
+    {
+      return lineFromRubberband( rubberBandModel, crs, wkbType );
+    }
+  }
+
+  QgsPointSequence ring = rubberBandModel->pointSequence( crs, Qgis::WkbType::Point, false );
+  if ( !ring.isEmpty() )
+  {
+    return QgsGeometry( new QgsPoint( ring.first() ) );
+  }
+
+  return QgsGeometry();
+}
+
 QgsGeometry QfGeometryUtils::polygonFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType )
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( crs, Qgis::WkbType::Point, true );

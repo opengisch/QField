@@ -502,6 +502,8 @@ Drawer {
         onActiveCollectionChanged: {
           if (activeCollection) {
             legend.activeLayer = null;
+            projectInfo.activeLayer = null;
+            projectInfo.activeCollection = activeCollection;
           }
         }
       }
@@ -573,6 +575,8 @@ Drawer {
         onActiveLayerChanged: {
           if (activeLayer) {
             markupLegend.activeCollection = null;
+            projectInfo.activeCollection = null;
+            projectInfo.activeLayer = activeLayer;
           }
         }
       }
