@@ -42,7 +42,7 @@ class QfDigitizingLayerModel : public QSortFilterProxyModel
     //! The project from which map layers will be taken from.
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
-    //! The markup manager from which makrup collections will be taken from.
+    //! The markup manager from which markup collections will be taken from.
     Q_PROPERTY( QfMarkupManager *markups READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
 
   public:

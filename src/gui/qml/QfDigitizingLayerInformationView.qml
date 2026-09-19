@@ -44,7 +44,7 @@ Rectangle {
       }
       textRole: "Name"
 
-      font: Theme.tipFont
+      font: QfTheme.tipFont
 
       indicator.visible: digitizingLayerInformationView.allowActiveDigitizingLayerChange
 

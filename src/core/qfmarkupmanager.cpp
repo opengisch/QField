@@ -37,6 +37,11 @@ QStringList QfMarkupManager::collectionNames() const
   return names;
 }
 
+QString QfMarkupManager::collectionUuid( QfMarkupCollection *collection ) const
+{
+  return mCollections.key( collection );
+}
+
 QfMarkupCollection *QfMarkupManager::collection( const QString &uuid ) const
 {
   return mCollections.contains( uuid ) ? mCollections[uuid] : nullptr;
