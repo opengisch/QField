@@ -23,8 +23,7 @@ Drawer {
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
   property bool allowInteractive: true
-  /// type:bool
-  property alias allowActiveLayerChange: legend.allowActiveLayerChange
+  property bool allowActiveLayerChange: true
   /// type:QgsVectorLayer
   property alias activeLayer: legend.activeLayer
   /// type:QfMarkupCollection
@@ -498,6 +497,7 @@ Drawer {
         anchors.fill: parent
         anchors.leftMargin: mainWindow.sceneLeftMargin + 5
         anchors.rightMargin: 5
+        allowActiveCollectionChange: dashBoard.allowActiveLayerChange
 
         onActiveCollectionChanged: {
           if (activeCollection) {
@@ -568,6 +568,7 @@ Drawer {
         anchors.rightMargin: 5
         bottomMargin: bottomRow.height + 4
         informationPopup: informationPopup
+        allowActiveLayerChange: dashBoard.allowActiveLayerChange
 
         onActiveLayerChanged: {
           if (activeLayer) {

@@ -1986,7 +1986,7 @@ ApplicationWindow {
     cogoOperationSettings.mapSettings: mapCanvas.mapSettings
 
     digitizingLayerInformationView.visible: stateMachine.state === "digitize"
-    digitizingLayerInformationView.isDigitizing: digitizingToolbar.isDigitizing || geometryEditingVertexModel.vertexCount > 0
+    digitizingLayerInformationView.allowActiveDigitizingLayerChange: dashBoard.allowActiveLayerChange
     digitizingLayerInformationView.activeDigitizingLayer: dashBoard.activeLayer
     digitizingLayerInformationView.activeDigitizingCollection: dashBoard.activeCollection
     digitizingLayerInformationView.onActiveDigitizingLayerChanged: {
@@ -3560,7 +3560,7 @@ ApplicationWindow {
     id: dashBoard
     objectName: "dashBoard"
 
-    allowActiveLayerChange: !digitizingToolbar.isDigitizing
+    allowActiveLayerChange: !digitizingToolbar.isDigitizing && geometryEditingVertexModel.vertexCount === 0
     cloudProjectsModel: cloudProjectsModel
     allowInteractive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
     mapSettings: mapCanvas.mapSettings

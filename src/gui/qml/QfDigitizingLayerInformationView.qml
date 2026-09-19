@@ -13,7 +13,7 @@ import org.qfield.gui
 Rectangle {
   id: digitizingLayerInformationView
 
-  property bool isDigitizing: false
+  property bool allowActiveDigitizingLayerChange: true
   property VectorLayer activeDigitizingLayer
   property QfMarkupCollection activeDigitizingCollection
 
@@ -46,7 +46,7 @@ Rectangle {
 
       font: Theme.tipFont
 
-      indicator.visible: !digitizingLayerInformationView.isDigitizing
+      indicator.visible: digitizingLayerInformationView.allowActiveDigitizingLayerChange
 
       background: MaterialTextContainer {
         implicitWidth: 120
@@ -167,7 +167,7 @@ Rectangle {
         text: digitizingLayerComboBox.currentText
         font: QfTheme.tipFont
 
-        onClicked: if (!digitizingLayerInformationView.isDigitizing) {
+        onClicked: if (digitizingLayerInformationView.allowActiveDigitizingLayerChange) {
           digitizingLayerComboBox.popup.open();
         }
 
