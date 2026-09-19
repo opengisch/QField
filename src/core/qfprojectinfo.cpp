@@ -53,6 +53,7 @@ void QfProjectInfo::setFilePath( const QString &filePath )
   emit filePathChanged();
   emit stateModeChanged();
   emit activeLayerChanged();
+  emit activeCollectionChanged();
 }
 
 QString QfProjectInfo::filePath() const
@@ -485,13 +486,13 @@ QString QfProjectInfo::stateMode() const
 
 void QfProjectInfo::setActiveLayer( QgsMapLayer *layer )
 {
-  if ( mFilePath.isEmpty() || !layer )
+  if ( mFilePath.isEmpty() )
   {
     return;
   }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-  mSettings.setValue( QStringLiteral( "activeLayer" ), layer->id() );
+  mSettings.setValue( QStringLiteral( "activeLayer" ), layer ? layer->id() : QString() );
   mSettings.endGroup();
 
   emit activeLayerChanged();
@@ -528,9 +529,10 @@ void QfProjectInfo::setActiveCollection( QfMarkupCollection *collection )
 QfMarkupCollection *QfProjectInfo::activeCollection() const
 {
   QString collectionUuid;
-  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ) )
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeCollection" ).arg( mFilePath ) ) )
   {
-    collectionUuid = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+    collectionUuid = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeCollection" ).arg( mFilePath ) ).toString();
+    qDebug() << collectionUuid;
   }
   return !collectionUuid.isEmpty() ? mMarkupManager->collection( collectionUuid ) : nullptr;
 }

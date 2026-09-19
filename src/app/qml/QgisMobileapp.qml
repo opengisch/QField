@@ -4971,17 +4971,6 @@ ApplicationWindow {
       projectInfo.filePath = path;
       stateMachine.state = projectInfo.stateMode;
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && stateMachine.state != 'browse');
-      let activeLayer = projectInfo.activeLayer;
-      if (flatLayerTree.mapTheme != '') {
-        const defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
-        if (defaultActiveLayer !== null) {
-          activeLayer = defaultActiveLayer;
-        }
-      }
-      if (!qfieldAuthRequestHandler.hasPendingAuthRequest) {
-        // only set active layer when not handling layer credentials
-        dashBoard.activeLayer = activeLayer;
-      }
       drawingTemplateModel.projectFilePath = path;
       mapCanvasBackground.color = mapCanvas.mapSettings.backgroundColor;
       const titleDecorationConfiguration = projectInfo.getTitleDecorationConfiguration();
@@ -5077,9 +5066,29 @@ ApplicationWindow {
         projectInfo.hasEditRights = true;
         markupManager.reset(QfFileUtils.absolutePath(qgisProject.fileName) + '/markups');
       }
-      if (stateMachine.state === "digitize" && !qfieldAuthRequestHandler.hasPendingAuthRequest) {
-        dashBoard.ensureEditableLayerSelected();
+
+      let activeLayer = projectInfo.activeLayer;
+      if (flatLayerTree.mapTheme != '') {
+        const defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
+        if (defaultActiveLayer !== null) {
+          activeLayer = defaultActiveLayer;
+        }
       }
+      let activeCollection = projectInfo.activeCollection;
+      if (!qfieldAuthRequestHandler.hasPendingAuthRequest) {
+        // only set active layer when not handling layer credentials
+        if (activeCollection != null) {
+          dashBoard.activeLayer = null;
+          dashBoard.activeCollection = activeCollection;
+        } else {
+          dashBoard.activeLayer = activeLayer;
+          dashBoard.activeCollection = null;
+          if (stateMachine.state === "digitize") {
+            dashBoard.ensureEditableLayerSelected();
+          }
+        }
+      }
+
       const distanceString = iface.readProjectEntry("Measurement", "/DistanceUnits", "");
       const decodedDistanceUnits = distanceString !== "" ? UnitTypes.decodeDistanceUnit(distanceString) : Qgis.DistanceUnit.Meters;
       projectInfo.distanceUnits = decodedDistanceUnits !== Qgis.DistanceUnit.Unknown ? decodedDistanceUnits : mapCanvas.mapSettings.destinationCrs.mapUnits;
@@ -5189,6 +5198,7 @@ ApplicationWindow {
     mapSettings: mapCanvas.mapSettings
     layerTree: dashBoard.layerTree
     trackingModel: trackings.model
+    markups: markupManager
 
     property var distanceUnits: Qgis.DistanceUnit.Meters
     property var areaUnits: Qgis.AreaUnit.SquareMeters

@@ -60,7 +60,7 @@ class QfProjectInfo : public QObject
     /**
      * The markup manager used to keep track of collections.
      */
-    Q_PROPERTY( QfMarkupManager *markupManager READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
+    Q_PROPERTY( QfMarkupManager *markups READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
 
     /**
      * The state mode (browse vs. digitizing) for the currently opened project.
