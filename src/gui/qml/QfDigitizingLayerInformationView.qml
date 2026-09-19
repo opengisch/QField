@@ -67,13 +67,14 @@ Rectangle {
         }
 
         popup: Popup {
+          id: digitizingLayerPopup
           y: digitizingLayerComboBox.height - 1
           width: digitizingLayerComboBox.width
           implicitHeight: contentItem.implicitHeight + 2
-          padding: 1
-          font: QfTheme.tipFont
           topMargin: mainWindow.sceneTopMargin
           bottomMargin: mainWindow.sceneTopMargin
+          padding: 1
+          font: QfTheme.tipFont
 
           onAboutToShow: {
             contentItem.model = digitizingLayerComboBox.delegateModel;
@@ -81,6 +82,17 @@ Rectangle {
 
           onAboutToHide: {
             contentItem.model = null;
+          }
+
+          background: Rectangle {
+            radius: digitizingLayerPopup.Material.roundedScale
+            color: QfTheme.controlBackgroundColor
+
+            layer.enabled: digitizingLayerPopup.Material.elevation > 0
+            layer.effect: RoundedElevationEffect {
+              elevation: digitizingLayerPopup.Material.elevation
+              roundedScale: digitizingLayerPopup.Material.roundedScale
+            }
           }
 
           contentItem: ListView {
