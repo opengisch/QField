@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 import org.qgis
 import org.qfield.core
@@ -16,12 +18,13 @@ Rectangle {
   property QfMarkupCollection activeDigitizingCollection
 
   width: parent.width
-  height: childrenRect.height + 10
+  height: digitizingLayerInformationRow.height + 10
   color: QfTheme.mainBackgroundColorSemiOpaque
   radius: 8
   clip: true
 
   RowLayout {
+    id: digitizingLayerInformationRow
     width: parent.width - 10
     height: childrenRect.height
     anchors.centerIn: parent
@@ -32,7 +35,6 @@ Rectangle {
       property bool skipCurrentIndexChange: false
 
       Layout.fillWidth: true
-      enabled: !digitizingLayerInformationView.isDigitizing
 
       model: QfDigitizingLayerModel {
         id: digitizingLayerModel
@@ -44,10 +46,24 @@ Rectangle {
 
       font: Theme.tipFont
 
+      indicator.visible: !digitizingLayerInformationView.isDigitizing
+
+      background: MaterialTextContainer {
+        implicitWidth: 120
+        implicitHeight: digitizingLayerComboBox.Material.textFieldHeight
+
+        filled: false
+        outlineColor: "transparent"
+        focusedOutlineColor: digitizingLayerComboBox.Material.accentColor
+        controlHasActiveFocus: false
+        controlHasText: true
+        horizontalPadding: digitizingLayerComboBox.Material.textFieldHorizontalPadding
+      }
+
       popup: Popup {
         y: digitizingLayerComboBox.height - 1
         width: digitizingLayerComboBox.width
-        implicitHeight: contentItem.implicitHeight
+        implicitHeight: contentItem.implicitHeight + 2
         padding: 1
         font: QfTheme.tipFont
         topMargin: mainWindow.sceneTopMargin
@@ -151,7 +167,14 @@ Rectangle {
         text: digitizingLayerComboBox.currentText
         font: QfTheme.tipFont
 
-        onClicked: digitizingLayerComboBox.popup.open()
+        onClicked: if (!digitizingLayerInformationView.isDigitizing) {
+          digitizingLayerComboBox.popup.open();
+        }
+
+        Component.onCompleted: {
+          background.color = Qt.binding(() => QfTheme.mainBackgroundColorSemiOpaque);
+          background.radius = 4;
+        }
       }
 
       onCurrentIndexChanged: {
