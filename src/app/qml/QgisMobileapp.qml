@@ -1984,6 +1984,21 @@ ApplicationWindow {
     positioningSettings: positioningSettings
 
     cogoOperationSettings.mapSettings: mapCanvas.mapSettings
+
+    digitizingLayerInformationView.visible: stateMachine.state === "digitize"
+    digitizingLayerInformationView.allowActiveDigitizingLayerChange: dashBoard.allowActiveLayerChange
+    digitizingLayerInformationView.activeDigitizingLayer: dashBoard.activeLayer
+    digitizingLayerInformationView.activeDigitizingCollection: dashBoard.activeCollection
+    digitizingLayerInformationView.onActiveDigitizingLayerChanged: {
+      if (digitizingLayerInformationView.activeDigitizingLayer && dashBoard.activeLayer !== digitizingLayerInformationView.activeDigitizingLayer) {
+        dashBoard.activeLayer = digitizingLayerInformationView.activeDigitizingLayer;
+      }
+    }
+    digitizingLayerInformationView.onActiveDigitizingCollectionChanged: {
+      if (digitizingLayerInformationView.activeDigitizingCollection && dashBoard.activeCollection !== digitizingLayerInformationView.activeDigitizingCollection) {
+        dashBoard.activeCollection = digitizingLayerInformationView.activeDigitizingCollection;
+      }
+    }
   }
 
   /**************************************************
@@ -3262,7 +3277,7 @@ ApplicationWindow {
       anchors.right: parent.right
       anchors.rightMargin: mainWindow.sceneRightMargin + 4
       anchors.bottom: parent.bottom
-      anchors.bottomMargin: 4
+      anchors.bottomMargin: digitizingToolbar.stateVisible || geometryEditorsToolbar.stateVisible || moveFeaturesToolbar.stateVisible || rotateFeaturesToolbar.stateVisible ? 8 : 4
 
       spacing: 4
 
@@ -3545,7 +3560,7 @@ ApplicationWindow {
     id: dashBoard
     objectName: "dashBoard"
 
-    allowActiveLayerChange: !digitizingToolbar.isDigitizing
+    allowActiveLayerChange: !digitizingToolbar.isDigitizing && geometryEditingVertexModel.vertexCount === 0
     cloudProjectsModel: cloudProjectsModel
     allowInteractive: !welcomeScreen.visible && !qfieldSettings.visible && !qfieldCloudScreen.visible && !qfieldLocalDataPickerScreen.visible && !codeReader.visible && !screenLocker.enabled
     mapSettings: mapCanvas.mapSettings

@@ -23,6 +23,7 @@ set(QFIELD_GUI_QML_FILES
     QfConfirmationToolbar.qml
     QfContainerCard.qml
     QfDialog.qml
+    QfDigitizingLayerInformationView.qml
     QfDigitizingToolbar.qml
     QfDropShadow.qml
     QfEgenioussDeviceChooser.qml

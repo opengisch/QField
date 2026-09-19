@@ -23,10 +23,11 @@ Drawer {
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
   property bool allowInteractive: true
-  /// type:bool
-  property alias allowActiveLayerChange: legend.allowActiveLayerChange
+  property bool allowActiveLayerChange: true
   /// type:QgsVectorLayer
   property alias activeLayer: legend.activeLayer
+  /// type:QfMarkupCollection
+  property alias activeCollection: markupLegend.activeCollection
   /// type:QfFlatLayerTreeModel
   property alias layerTree: legend.model
   /// type:QgsQuickMapSettings
@@ -467,7 +468,7 @@ Drawer {
       objectName: "markupContainer"
       Layout.fillWidth: true
       Layout.preferredHeight: Math.min(markupLegend.contentHeight + topPadding + bottomPadding, dashBoard.height / 3)
-      visible: markupManager.hasItems
+      visible: markupManager.hasItems || stateMachine.state === "digitize"
       title: qsTr("Markups")
       leftPadding: 5
       rightPadding: 5
@@ -496,6 +497,13 @@ Drawer {
         anchors.fill: parent
         anchors.leftMargin: mainWindow.sceneLeftMargin + 5
         anchors.rightMargin: 5
+        allowActiveCollectionChange: dashBoard.allowActiveLayerChange
+
+        onActiveCollectionChanged: {
+          if (activeCollection) {
+            legend.activeLayer = null;
+          }
+        }
       }
     }
 
@@ -560,6 +568,13 @@ Drawer {
         anchors.rightMargin: 5
         bottomMargin: bottomRow.height + 4
         informationPopup: informationPopup
+        allowActiveLayerChange: dashBoard.allowActiveLayerChange
+
+        onActiveLayerChanged: {
+          if (activeLayer) {
+            markupLegend.activeCollection = null;
+          }
+        }
       }
     }
   }

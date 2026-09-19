@@ -44,7 +44,9 @@ QfProjectInfo::QfProjectInfo( QObject *parent )
 void QfProjectInfo::setFilePath( const QString &filePath )
 {
   if ( mFilePath == filePath )
+  {
     return;
+  }
 
   mFilePath = filePath;
 
@@ -61,7 +63,9 @@ QString QfProjectInfo::filePath() const
 void QfProjectInfo::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( !mapSettings )
+  {
     return;
+  }
 
   if ( mMapSettings )
   {
@@ -86,7 +90,9 @@ QgsQuickMapSettings *QfProjectInfo::mapSettings() const
 void QfProjectInfo::setLayerTree( QfFlatLayerTreeModel *layerTree )
 {
   if ( mLayerTree == layerTree )
+  {
     return;
+  }
 
   if ( mLayerTree )
   {
@@ -108,10 +114,29 @@ QfFlatLayerTreeModel *QfProjectInfo::layerTree() const
   return mLayerTree;
 }
 
+void QfProjectInfo::setMarkupManager( QfMarkupManager *markupManager )
+{
+  if ( mMarkupManager == markupManager )
+  {
+    return;
+  }
+
+  mMarkupManager = markupManager;
+
+  emit markupManagerChanged();
+}
+
+QfMarkupManager *QfProjectInfo::markupManager() const
+{
+  return mMarkupManager;
+}
+
 void QfProjectInfo::setTrackingModel( QfTrackingModel *trackingModel )
 {
   if ( mTrackingModel == trackingModel )
+  {
     return;
+  }
 
   mTrackingModel = trackingModel;
 
@@ -127,7 +152,9 @@ QfTrackingModel *QfProjectInfo::trackingModel() const
 void QfProjectInfo::saveTracker( QgsVectorLayer *layer )
 {
   if ( !layer || !mTrackingModel || !mTrackingModel->layerInTracking( layer ) )
+  {
     return;
+  }
 
   const QfTracker *tracker = mTrackingModel->trackerForLayer( layer );
 
@@ -146,10 +173,14 @@ void QfProjectInfo::saveTracker( QgsVectorLayer *layer )
 QModelIndex QfProjectInfo::restoreTracker( QgsVectorLayer *layer )
 {
   if ( !layer || !mTrackingModel || mTrackingModel->layerInTracking( layer ) )
+  {
     return QModelIndex();
+  }
 
   if ( !mSettings.contains( QStringLiteral( "/qgis/projectInfo/trackers/%1/minimumDistance" ).arg( layer->id() ) ) )
+  {
     return QModelIndex();
+  }
 
   QModelIndex index = mTrackingModel->createTracker( layer );
   QfTracker *tracker = mTrackingModel->data( index, QfTrackingModel::TrackerPointer ).value<QfTracker *>();
@@ -185,7 +216,9 @@ void QfProjectInfo::extentChanged()
 void QfProjectInfo::saveExtent()
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   const QgsRectangle extent = mMapSettings->extent();
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
@@ -201,7 +234,9 @@ void QfProjectInfo::rotationChanged()
 void QfProjectInfo::saveRotation()
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "rotation" ), mMapSettings->rotation() );
@@ -216,7 +251,9 @@ void QfProjectInfo::temporalStateChanged()
 void QfProjectInfo::saveTemporalState()
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "isTemporal" ), mMapSettings->isTemporal() );
@@ -228,7 +265,9 @@ void QfProjectInfo::saveTemporalState()
 void QfProjectInfo::saveLayerStyle( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() || !layer )
+  {
     return;
+  }
 
   const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
 
@@ -256,7 +295,9 @@ void QfProjectInfo::saveLayerStyle( QgsMapLayer *layer )
 void QfProjectInfo::saveLayerTreeState()
 {
   if ( mFilePath.isEmpty() || !mLayerTree )
+  {
     return;
+  }
 
   const bool isDataset = QgsProject::instance()->readBoolEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), false );
   if ( !isDataset )
@@ -281,7 +322,9 @@ void QfProjectInfo::saveLayerTreeState()
 bool QfProjectInfo::snappingEnabled() const
 {
   if ( mFilePath.isEmpty() )
+  {
     return false;
+  }
 
   return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/layerSnapping/enabled" ).arg( mFilePath ), false ).toBool();
 }
@@ -289,7 +332,9 @@ bool QfProjectInfo::snappingEnabled() const
 void QfProjectInfo::setSnappingEnabled( bool enabled )
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/layerSnapping" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "enabled" ), enabled );
@@ -301,7 +346,9 @@ void QfProjectInfo::setSnappingEnabled( bool enabled )
 QfCloudUserInformation QfProjectInfo::cloudUserInformation() const
 {
   if ( mFilePath.isEmpty() )
+  {
     return QfCloudUserInformation( QString(), QString() );
+  }
 
   QfCloudUserInformation userinfo(
     mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/cloudUserInfo/json" ).arg( mFilePath ), QStringLiteral( "{}" ) )
@@ -314,10 +361,14 @@ QfCloudUserInformation QfProjectInfo::cloudUserInformation() const
 void QfProjectInfo::setCloudUserInformation( const QfCloudUserInformation &cloudUserInformation )
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   if ( cloudUserInformation.isEmpty() )
+  {
     return;
+  }
 
   // Inject variables into the global scope until we have a better solution upstream
   QgsExpressionContextUtils::setGlobalVariable( "cloud_username", cloudUserInformation.username );
@@ -338,11 +389,15 @@ void QfProjectInfo::restoreCloudUserInformation()
 void QfProjectInfo::saveLayerSnappingConfiguration( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer );
   if ( !vlayer )
+  {
     return;
+  }
 
   QgsSnappingConfig config = QgsProject::instance()->snappingConfig();
   QgsSnappingConfig::IndividualLayerSettings layerConfig = config.individualLayerSettings( vlayer );
@@ -369,11 +424,15 @@ void QfProjectInfo::saveLayerSnappingConfiguration( QgsMapLayer *layer )
 void QfProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( layer );
   if ( !vlayer )
+  {
     return;
+  }
 
   QVariantMap rememberedFields;
   QgsEditFormConfig config = vlayer->editFormConfig();
@@ -405,7 +464,9 @@ void QfProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
 void QfProjectInfo::setStateMode( const QString &mode )
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "stateMode" ), mode );
@@ -425,7 +486,9 @@ QString QfProjectInfo::stateMode() const
 void QfProjectInfo::setActiveLayer( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() || !layer )
+  {
     return;
+  }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "activeLayer" ), layer->id() );
@@ -448,10 +511,36 @@ QgsMapLayer *QfProjectInfo::activeLayer() const
   return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;
 }
 
+void QfProjectInfo::setActiveCollection( QfMarkupCollection *collection )
+{
+  if ( mFilePath.isEmpty() || !mMarkupManager )
+  {
+    return;
+  }
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "activeCollection" ), mMarkupManager->collectionUuid( collection ) );
+  mSettings.endGroup();
+
+  emit activeCollectionChanged();
+}
+
+QfMarkupCollection *QfProjectInfo::activeCollection() const
+{
+  QString collectionUuid;
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ) )
+  {
+    collectionUuid = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+  }
+  return !collectionUuid.isEmpty() ? mMarkupManager->collection( collectionUuid ) : nullptr;
+}
+
 void QfProjectInfo::mapThemeChanged()
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
   if ( !mLayerTree->mapTheme().isEmpty() )
@@ -469,7 +558,9 @@ void QfProjectInfo::mapThemeChanged()
 void QfProjectInfo::saveVariable( const QString &name, const QString &value )
 {
   if ( mFilePath.isEmpty() )
+  {
     return;
+  }
 
   mSettings.setValue( QStringLiteral( "/qgis/projectInfo/%1/variables/%2" ).arg( mFilePath, name ), value );
 }

@@ -14,9 +14,10 @@ ListView {
   id: markupLegend
 
   property bool isVisible: false
-  property string activeCollectionName: ""
+  property bool allowActiveCollectionChange: true
+  property QfMarkupCollection activeCollection
 
-  model: markupManager.collectionNames
+  model: markupManager.collections
   flickableDirection: Flickable.VerticalFlick
   boundsBehavior: Flickable.StopAtBounds
   clip: true
@@ -25,8 +26,9 @@ ListView {
   delegate: Rectangle {
     id: rectangle
 
-    property string collectionName: modelData
-    property bool isSelectedCollection: collectionName == activeCollectionName
+    property QfMarkupCollection collection: modelData
+    property string collectionName: modelData.name
+    property bool isSelectedCollection: markupLegend.activeCollection == collection
     property bool isVisibleCollection: markupManager.hiddenCollectionNames.indexOf(collectionName) === -1
 
     width: ListView.view.width
@@ -40,7 +42,9 @@ ListView {
       enabled: true
       acceptedButtons: Qt.LeftButton | Qt.RightButton
       onClicked: mouse => {
-        activeCollectionName = collectionName;
+        if (allowActiveCollectionChange) {
+          markupLegend.activeCollection = collection;
+        }
       }
     }
 
@@ -103,7 +107,7 @@ ListView {
           horizontalAlignment: Text.AlignLeft
           font: QfTheme.tipFont
           elide: Text.ElideRight
-          opacity: true ? 1 : 0.25
+          opacity: isVisibleCollection ? 1 : 0.25
           color: {
             if (isSelectedCollection) {
               return QfTheme.mainOverlayColor;

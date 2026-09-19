@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
+import org.qgis
 import org.qfield.core
 import org.qfield.gui
 
@@ -23,6 +24,9 @@ Item {
       easing.type: Easing.OutQuart
     }
   }
+
+  // Digitizing layer
+  property alias digitizingLayerInformationView: digitizingLayerInformationView
 
   // COGO
   property alias cogoOperationSettings: cogoOperationSettings
@@ -52,6 +56,10 @@ Item {
     leftPadding: 5
     rightPadding: 5
     spacing: 8
+
+    QfDigitizingLayerInformationView {
+      id: digitizingLayerInformationView
+    }
 
     QfCogoOperationSettings {
       id: cogoOperationSettings
