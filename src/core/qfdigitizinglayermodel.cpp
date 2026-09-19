@@ -531,6 +531,13 @@ QVariantMap QfDigitizingLayerModel::get( int row ) const
 
 bool QfDigitizingLayerModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
+  const int leftLayerType = mModel->data( left, QfDigitizingLayerModel::LayerTypeRole ).toInt();
+  const int rightLayerType = mModel->data( right, QfDigitizingLayerModel::LayerTypeRole ).toInt();
+  if ( leftLayerType != rightLayerType )
+  {
+    return leftLayerType > rightLayerType;
+  }
+
   const QString leftStr = mModel->data( left, QfDigitizingLayerModel::NameRole ).toString();
   const QString rightStr = mModel->data( right, QfDigitizingLayerModel::NameRole ).toString();
   return QString::localeAwareCompare( leftStr, rightStr ) < 0;
