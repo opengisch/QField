@@ -90,6 +90,14 @@ QfVisibilityFadingRow {
     }
   }
 
+  function addVertex() {
+    if (!rubberbandModel) {
+      return;
+    }
+
+    rubberbandModel.addVertex();
+  }
+
   function processMarkup() {
     if (!rubberbandModel) {
       return;

@@ -548,7 +548,7 @@ ApplicationWindow {
         if (active) {
           if (centroid.position !== Qt.point(0, 0)) {
             coordinateLocator.sourceLocation = centroid.position;
-            digitizingToolbar.addVertex();
+            markupToolbar.addVertex();
           }
         }
       }
@@ -938,11 +938,18 @@ ApplicationWindow {
                 digitizingToolbar.addVertex();
               }
             }
-          } else {
-            if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
-              identifyTool.isMenuRequest = false;
-              identifyTool.identify(point);
-            }
+            return;
+          }
+          if (markupToolbar.stateVisible && markupToolbar.isMarking) {
+            coordinateLocator.sourceLocation = point;
+            markupToolbar.addVertex();
+            markupToolbar.processMarkup();
+            coordinateLocator.sourceLocation = undefined;
+            return;
+          }
+          if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
+            identifyTool.isMenuRequest = false;
+            identifyTool.identify(point);
           }
         }
       }
@@ -964,7 +971,16 @@ ApplicationWindow {
           if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
             coordinateLocator.sourceLocation = point;
           }
-        } else if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
+          return;
+        }
+        if (markupToolbar.stateVisible && markupToolbar.isMarking) {
+          coordinateLocator.sourceLocation = point;
+          markupToolbar.addVertex();
+          markupToolbar.processMarkup();
+          coordinateLocator.sourceLocation = undefined;
+          return;
+        }
+        if (!featureListForm.canvasOperationRequested && !overlayFeatureFormDrawer.opened && featureListForm.state !== "FeatureFormEdit") {
           identifyTool.isMenuRequest = false;
           identifyTool.identify(point);
         }
