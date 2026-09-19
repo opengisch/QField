@@ -5386,6 +5386,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>The project is read-only.</source>
         <translation>Il progetto è in sola lettura.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6769,6 +6773,17 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Abilita il localizzatore %1 come impostazione predefinita</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

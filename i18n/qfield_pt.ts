@@ -5382,6 +5382,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6765,6 +6769,17 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Ativar e definir este localizador % 1 como padrão.</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

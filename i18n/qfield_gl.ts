@@ -5380,6 +5380,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>The project is read-only.</source>
         <translation>O proxecto é de só lectura.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6761,6 +6765,17 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Activar o localizador %1 de forma predeterminada</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

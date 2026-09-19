@@ -5378,6 +5378,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>The project is read-only.</source>
         <translation>Ce projet est en lecture seule.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6762,6 +6766,17 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Activer le localisateur %1 par défaut</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

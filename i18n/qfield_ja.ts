@@ -5379,6 +5379,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>The project is read-only.</source>
         <translation>プロジェクトは読み取り専用です。</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6758,6 +6762,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Enable %1 locator by default</source>
         <translation>%1 ロケーターをデフォルトで有効にする</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

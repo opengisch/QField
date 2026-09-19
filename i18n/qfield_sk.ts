@@ -5383,6 +5383,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6767,6 +6771,17 @@ Dôvod:
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Zapnúť %1 filter predvolene</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

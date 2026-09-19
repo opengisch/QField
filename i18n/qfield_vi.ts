@@ -5372,6 +5372,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>The project is read-only.</source>
         <translation>Dự án ở chế độ chỉ đọc.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6748,6 +6752,17 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Bật bộ định vị %1 theo mặc định</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

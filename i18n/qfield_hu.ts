@@ -5374,6 +5374,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>The project is read-only.</source>
         <translation>A projekt csak olvasható.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6754,6 +6758,17 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Enable %1 locator by default</source>
         <translation>%1 kereső alapból elérhető</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

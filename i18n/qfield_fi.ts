@@ -5383,6 +5383,10 @@ epäonnistui, syy: %2</translation>
         <source>The project is read-only.</source>
         <translation>Projekti on vain luku -tilassa.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6765,6 +6769,17 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Ota %1 paikannin käyttöön oletuksena</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

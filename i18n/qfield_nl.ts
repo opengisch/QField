@@ -5380,6 +5380,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>The project is read-only.</source>
         <translation>Het project is alleen-lezen.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6761,6 +6765,17 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Gebruik standaard de locatiefilter %1</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

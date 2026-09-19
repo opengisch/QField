@@ -5380,6 +5380,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>The project is read-only.</source>
         <translation>El proyecto es de sólo lectura.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6763,6 +6767,17 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Habilitar el localizador %1 de forma predeterminada</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

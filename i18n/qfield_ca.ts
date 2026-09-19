@@ -5383,6 +5383,10 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <source>The project is read-only.</source>
         <translation>El projecte és de només lectura.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6766,6 +6770,17 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Activa el localitzador %1 per defecte</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

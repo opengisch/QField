@@ -5385,6 +5385,10 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <source>The project is read-only.</source>
         <translation>Projektas skirtas tik skaityti.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6771,6 +6775,17 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Pagal numatymą įjungti %1 vietos nustatymo priemonę</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5381,6 +5381,10 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <source>The project is read-only.</source>
         <translation>Projektet är skrivskyddat.</translation>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6762,6 +6766,17 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Aktivera lokaliseringsverktyget %1 som standard</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

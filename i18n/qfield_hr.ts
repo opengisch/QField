@@ -5376,6 +5376,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>The project is read-only.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfDialog</name>
@@ -6759,6 +6763,17 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     <message>
         <source>Enable %1 locator by default</source>
         <translation>Uključi %1 lokator kao zadani</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupManager</name>
+    <message>
+        <source>Unnamed collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default collection</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
