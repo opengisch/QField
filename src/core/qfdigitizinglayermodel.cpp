@@ -163,7 +163,7 @@ void QfDigitizingLayerBaseModel::addLayers( const QList<QgsMapLayer *> &layers )
   QList<QgsMapLayer *> mapLayers;
   for ( QgsMapLayer *layer : layers ) // cppcheck-suppress constVariablePointer
   {
-    if ( !layer )
+    if ( !layer || layer->flags().testFlag( QgsMapLayer::Private ) )
     {
       continue;
     }
