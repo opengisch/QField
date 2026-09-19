@@ -52,6 +52,11 @@ class QfMarkupManager : public QObject
     QStringList collectionUuids() const { return mCollections.keys(); };
 
     /**
+     * Returns the list UUID matching the \a collection.
+     */
+    QString collectionUuid( QfMarkupCollection *collection ) const;
+
+    /**
      * Returns the collection present in the markup manager matching the \a uuid.
      */
     QfMarkupCollection *collection( const QString &uuid ) const;

@@ -337,7 +337,7 @@ ApplicationWindow {
       projectInfo.stateMode = mode;
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys);
       dashBoard.ensureEditableLayerSelected();
-      if (projectInfo.activeLayer) {
+      if (dashBoard.activeLayer) {
         displayToast(qsTr('You are now in digitize mode on layer %1').arg(dashBoard.activeLayer.name));
       } else {
         displayToast(qsTr('You are now in digitize mode'));

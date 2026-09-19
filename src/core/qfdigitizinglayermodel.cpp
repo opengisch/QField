@@ -226,7 +226,7 @@ void QfDigitizingLayerBaseModel::addCollections( const QStringList &collectionUu
   QList<QfMarkupCollection *> collections;
   for ( const QString &collectionUuid : collectionUuids )
   {
-    QfMarkupCollection *collection = mMarkupManager->collection( collectionUuid );
+    QfMarkupCollection *collection = mMarkupManager->collection( collectionUuid ); // cppcheck-suppress constVariablePointer
     if ( !collection )
     {
       continue;
@@ -293,10 +293,9 @@ QVariant QfDigitizingLayerBaseModel::data( const QModelIndex &index, int role ) 
 
         case QfDigitizingLayerModel::MarkupCollection:
         {
-          if ( layer.markupCollection )
+          if ( layer.markupCollection && mMarkupManager )
           {
-            // TODO
-            return QString();
+            return mMarkupManager->collectionUuid( layer.markupCollection );
           }
         }
       }
