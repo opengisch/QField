@@ -1,7 +1,7 @@
 /***************************************************************************
                         test_navigationmodel
                         --------------------
-  begin                : March 2026
+  begin                : September 2026
   copyright            : (C) 2026 by Kaustuv Pokharel
   email                : kaustuv@opengis.ch
 ***************************************************************************/
@@ -251,6 +251,94 @@ TEST_CASE( "NavigationModel: setCrs" )
 
     CAPTURE( destinationChangedSpy.count(), model.rowCount( QModelIndex() ) );
     REQUIRE( destinationChangedSpy.count() == 0 );
+    REQUIRE( model.rowCount( QModelIndex() ) == 0 );
+  }
+}
+
+
+TEST_CASE( "NavigationModel: clear" )
+{
+  QTemporaryDir settingsDirectory;
+  REQUIRE( settingsDirectory.isValid() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+
+  QfNavigationModel model;
+  model.setDestination( QgsPoint( 7.0, 46.0 ) );
+  REQUIRE( model.rowCount( QModelIndex() ) == 1 );
+
+  SECTION( "empties the model and resets it" )
+  {
+    QSignalSpy modelResetSpy( &model, &QAbstractItemModel::modelReset );
+    model.clear();
+
+    CAPTURE( modelResetSpy.count(), model.rowCount( QModelIndex() ) );
+    REQUIRE( modelResetSpy.count() == 1 );
+    REQUIRE( model.rowCount( QModelIndex() ) == 0 );
+    REQUIRE( model.destination().isEmpty() );
+  }
+
+  SECTION( "removes the persisted navigation settings" )
+  {
+    model.clear();
+
+    QSettings settings;
+    const bool pointsKeyPresent = settings.contains( navigationPointsKey );
+    CAPTURE( pointsKeyPresent );
+    REQUIRE_FALSE( pointsKeyPresent );
+  }
+}
+
+
+TEST_CASE( "NavigationModel: persistence" )
+{
+  QTemporaryDir settingsDirectory;
+  REQUIRE( settingsDirectory.isValid() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+
+  SECTION( "setDestination writes the point and crs to settings" )
+  {
+    QfNavigationModel model;
+    model.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
+    model.setDestination( QgsPoint( 7.0, 46.0 ) );
+
+    QSettings settings;
+    const QStringList persistedPoints = settings.value( navigationPointsKey ).toStringList();
+    const QString persistedCrs = settings.value( navigationCrsKey ).toString();
+    const QString expectedWkt = QgsPoint( 7.0, 46.0 ).asWkt();
+
+    INFO( "persisted points=[" << persistedPoints.join( QStringLiteral( "; " ) ) << "] expectedWkt=" << expectedWkt );
+    CAPTURE( persistedPoints.size(), persistedCrs.isEmpty() );
+    REQUIRE( persistedPoints.size() == 1 );
+    REQUIRE( persistedPoints.first() == expectedWkt );
+    REQUIRE_FALSE( persistedCrs.isEmpty() );
+  }
+
+  SECTION( "restore rebuilds the destination saved by a previous model" )
+  {
+    {
+      QfNavigationModel savingModel;
+      savingModel.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
+      savingModel.setDestination( QgsPoint( 7.0, 46.0 ) );
+    }
+
+    QfNavigationModel restoringModel;
+    REQUIRE( restoringModel.rowCount( QModelIndex() ) == 0 );
+
+    restoringModel.restore();
+
+    const QgsPoint restored = restoringModel.destination();
+    INFO( "restored " << describePoint( restored ) );
+    CAPTURE( restoringModel.rowCount( QModelIndex() ) );
+    REQUIRE( restoringModel.rowCount( QModelIndex() ) == 1 );
+    REQUIRE( restored.x() == 7.0 );
+    REQUIRE( restored.y() == 46.0 );
+  }
+
+  SECTION( "restore does nothing when no navigation settings are stored" )
+  {
+    QfNavigationModel model;
+    model.restore();
+    CAPTURE( model.rowCount( QModelIndex() ) );
     REQUIRE( model.rowCount( QModelIndex() ) == 0 );
   }
 }
