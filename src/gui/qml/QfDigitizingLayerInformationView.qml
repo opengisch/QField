@@ -39,10 +39,119 @@ Rectangle {
         project: qgisProject
         markups: markupManager
       }
-
       textRole: "Name"
 
       font: Theme.tipFont
+
+      popup: Popup {
+        y: digitizingLayerComboBox.height - 1
+        width: digitizingLayerComboBox.width
+        implicitHeight: contentItem.implicitHeight
+        padding: 1
+        font: QfTheme.tipFont
+        topMargin: mainWindow.sceneTopMargin
+        bottomMargin: mainWindow.sceneTopMargin
+
+        onAboutToShow: {
+          contentItem.model = digitizingLayerComboBox.delegateModel;
+        }
+
+        onAboutToHide: {
+          contentItem.model = null;
+        }
+
+        contentItem: ListView {
+          clip: true
+          implicitHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneTopMargin, contentHeight)
+          currentIndex: digitizingLayerComboBox.highlightedIndex
+
+          section.property: "LayerType"
+          section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+          section.delegate: Component {
+            Rectangle {
+              width: parent.width
+              height: 30
+              color: QfTheme.controlBorderColor
+
+              Text {
+                anchors {
+                  horizontalCenter: parent.horizontalCenter
+                  verticalCenter: parent.verticalCenter
+                }
+                font: QfTheme.strongResultFont
+                color: QfTheme.mainTextColor
+                text: {
+                  if (section == "MapLayer") {
+                    return qsTr("Map Layers");
+                  } else if (section == "MarkupCollection") {
+                    return qsTr("Markups");
+                  }
+                  return '';
+                }
+              }
+            }
+          }
+          ScrollIndicator.vertical: ScrollIndicator {}
+        }
+      }
+
+      delegate: ItemDelegate {
+        width: digitizingLayerComboBox.width
+        height: 36
+        icon.source: {
+          if (LayerType === QfDigitizingLayerModel.MapLayer) {
+            switch (GeometryType) {
+            case Qgis.GeometryType.Point:
+              return QfTheme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+            case Qgis.GeometryType.Line:
+              return QfTheme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+            case Qgis.GeometryType.Polygon:
+              return QfTheme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+            case Qgis.GeometryType.Null:
+            case Qgis.GeometryType.Unknown:
+              return QfTheme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
+            }
+          }
+          return '';
+        }
+        icon.width: 18
+        icon.height: 18
+        icon.color: "transparent"
+        text: Name
+        font: QfTheme.tipFont
+        highlighted: digitizingLayerComboBox.highlightedIndex === index
+      }
+
+      contentItem: MenuItem {
+        width: digitizingLayerComboBox.width
+        height: 36
+
+        icon.source: {
+          const digitizingLayerDetails = digitizingLayerModel.get(digitizingLayerComboBox.currentIndex);
+          if (digitizingLayerDetails["LayerType"] === QfDigitizingLayerModel.MapLayer) {
+            switch (digitizingLayerDetails["GeometryType"]) {
+            case Qgis.GeometryType.Point:
+              return QfTheme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+            case Qgis.GeometryType.Line:
+              return QfTheme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+            case Qgis.GeometryType.Polygon:
+              return QfTheme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+            case Qgis.GeometryType.Null:
+            case Qgis.GeometryType.Unknown:
+              return QfTheme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
+            }
+          }
+          return '';
+        }
+        icon.width: 18
+        icon.height: 18
+        icon.color: "transparent"
+
+        text: digitizingLayerComboBox.currentText
+        font: QfTheme.tipFont
+
+        onClicked: digitizingLayerComboBox.popup.open()
+      }
 
       onCurrentIndexChanged: {
         if (skipCurrentIndexChange) {
