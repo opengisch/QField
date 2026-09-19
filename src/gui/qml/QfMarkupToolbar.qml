@@ -97,7 +97,7 @@ QfVisibilityFadingRow {
 
     if (markupCollection) {
       rubberbandModel.smoothSegment(0, rubberbandModel.vertexCount - 2, mapSettings.mapUnitsPerPoint * 1.5);
-      const geometry = QfGeometryUtils.geometryFromRubberband(rubberbandModel, QfCoordinateReferenceSystemUtils.wgs84Crs(), mapSettings.mapUnitsPerPoint);
+      const geometry = QfGeometryUtils.geometryFromRubberband(rubberbandModel, QfCoordinateReferenceSystemUtils.wgs84Crs(), mapSettings.mapUnitsPerPoint * 5);
       const item = markupCollection.createItem("", "", geometry, pickedColor);
       const uuid = markupCollection.addItem(item);
     }
