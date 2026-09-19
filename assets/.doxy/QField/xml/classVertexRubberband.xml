@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classVertexRubberband" kind="class" language="C++" prot="public">
+    <compoundname>VertexRubberband</compoundname>
+    <basecompoundref refid="classQfVertexRubberband" prot="public" virt="non-virtual">QfVertexRubberband</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classVertexRubberband_1a74c1025ac885e4a62b4522f20c243bdd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var VertexRubberband::vertexColor</definition>
+        <argsstring></argsstring>
+        <name>vertexColor</name>
+        <qualifiedname>VertexRubberband::vertexColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml_compat/VertexRubberband.qml" line="4" column="5" bodyfile="src/app/qml_compat/VertexRubberband.qml" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexRubberband_1aac1cf9c29308541554431ded01581bfd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var VertexRubberband::vertexBorderColor</definition>
+        <argsstring></argsstring>
+        <name>vertexBorderColor</name>
+        <qualifiedname>VertexRubberband::vertexBorderColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml_compat/VertexRubberband.qml" line="5" column="5" bodyfile="src/app/qml_compat/VertexRubberband.qml" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexRubberband_1ad4411c897e22af37b8896a0a5568fa7c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var VertexRubberband::selectedVertexColor</definition>
+        <argsstring></argsstring>
+        <name>selectedVertexColor</name>
+        <qualifiedname>VertexRubberband::selectedVertexColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml_compat/VertexRubberband.qml" line="6" column="5" bodyfile="src/app/qml_compat/VertexRubberband.qml" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexRubberband_1a80ef3e8f0d38e0f238c4d0407511455b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var VertexRubberband::selectedVertexBorderColor</definition>
+        <argsstring></argsstring>
+        <name>selectedVertexBorderColor</name>
+        <qualifiedname>VertexRubberband::selectedVertexBorderColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml_compat/VertexRubberband.qml" line="7" column="5" bodyfile="src/app/qml_compat/VertexRubberband.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexRubberband_1ab40efd84351bbe13ec84498f29d7eac3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var VertexRubberband::newVertexColor</definition>
+        <argsstring></argsstring>
+        <name>newVertexColor</name>
+        <qualifiedname>VertexRubberband::newVertexColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml_compat/VertexRubberband.qml" line="8" column="5" bodyfile="src/app/qml_compat/VertexRubberband.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVertexRubberband_1a91868c0ecdf5e84469e2048b0c159841" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var VertexRubberband::newVertexBorderColor</definition>
+        <argsstring></argsstring>
+        <name>newVertexBorderColor</name>
+        <qualifiedname>VertexRubberband::newVertexBorderColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml_compat/VertexRubberband.qml" line="9" column="5" bodyfile="src/app/qml_compat/VertexRubberband.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfVertexRubberband</label>
+        <link refid="classQfVertexRubberband"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Repeater</label>
+      </node>
+      <node id="1">
+        <label>VertexRubberband</label>
+        <link refid="classVertexRubberband"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfVertexRubberband</label>
+        <link refid="classQfVertexRubberband"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Repeater</label>
+      </node>
+      <node id="1">
+        <label>VertexRubberband</label>
+        <link refid="classVertexRubberband"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/VertexRubberband.qml" line="3" column="1" bodyfile="src/app/qml_compat/VertexRubberband.qml" bodystart="3" bodyend="10"/>
+    <listofallmembers>
+      <member refid="classQfVertexRubberband_1a818a1eccb4c7f7cd278d2f420988e306" prot="public" virt="non-virtual"><scope>VertexRubberband</scope><name>isAddingVertex</name></member>
+      <member refid="classQfVertexRubberband_1a59505aa216b0a053c6a71dacfaf6414d" prot="public" virt="non-virtual"><scope>VertexRubberband</scope><name>isCycling</name></member>
+      <member refid="classQfVertexRubberband_1a035346918caf3985cddc145f89c63c5d" prot="public" virt="non-virtual"><scope>VertexRubberband</scope><name>isVisible</name></member>
+      <member refid="classQfVertexRubberband_1ab254bc8f3029cd2414872ff9c530cc86" prot="public" virt="non-virtual"><scope>VertexRubberband</scope><name>mapSettings</name></member>
+      <member refid="classVertexRubberband_1a91868c0ecdf5e84469e2048b0c159841" prot="private" virt="non-virtual"><scope>VertexRubberband</scope><name>newVertexBorderColor</name></member>
+      <member refid="classVertexRubberband_1ab40efd84351bbe13ec84498f29d7eac3" prot="private" virt="non-virtual"><scope>VertexRubberband</scope><name>newVertexColor</name></member>
+      <member refid="classVertexRubberband_1a80ef3e8f0d38e0f238c4d0407511455b" prot="private" virt="non-virtual"><scope>VertexRubberband</scope><name>selectedVertexBorderColor</name></member>
+      <member refid="classVertexRubberband_1ad4411c897e22af37b8896a0a5568fa7c" prot="private" virt="non-virtual"><scope>VertexRubberband</scope><name>selectedVertexColor</name></member>
+      <member refid="classVertexRubberband_1aac1cf9c29308541554431ded01581bfd" prot="private" virt="non-virtual"><scope>VertexRubberband</scope><name>vertexBorderColor</name></member>
+      <member refid="classVertexRubberband_1a74c1025ac885e4a62b4522f20c243bdd" prot="private" virt="non-virtual"><scope>VertexRubberband</scope><name>vertexColor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

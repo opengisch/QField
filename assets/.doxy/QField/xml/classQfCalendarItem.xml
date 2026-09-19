@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCalendarItem" kind="class" language="C++" prot="public">
+    <compoundname>QfCalendarItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCalendarItem_1a314a606ea19cbbd2de83ae1bf127c553" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>date</type>
+        <definition>date QfCalendarItem::initialDate</definition>
+        <argsstring></argsstring>
+        <name>initialDate</name>
+        <qualifiedname>QfCalendarItem::initialDate</qualifiedname>
+        <read>dummyGetter_initialDate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarItem.qml" line="12" column="1" bodyfile="src/gui/qml/QfCalendarItem.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCalendarItem_1a568256fd2e458fb78b87b721f3e2ca2e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCalendarItem::compactMode</definition>
+        <argsstring></argsstring>
+        <name>compactMode</name>
+        <qualifiedname>QfCalendarItem::compactMode</qualifiedname>
+        <read>dummyGetter_compactMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarItem.qml" line="14" column="1" bodyfile="src/gui/qml/QfCalendarItem.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCalendarItem_1af0f5113339e4827c8948a2e06cd8fe3c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCalendarItem::month</definition>
+        <argsstring></argsstring>
+        <name>month</name>
+        <qualifiedname>QfCalendarItem::month</qualifiedname>
+        <read>dummyGetter_month_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarItem.qml" line="16" column="1" bodyfile="src/gui/qml/QfCalendarItem.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCalendarItem_1a9764f51eddcf8cf70776fb21c77509e8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCalendarItem::year</definition>
+        <argsstring></argsstring>
+        <name>year</name>
+        <qualifiedname>QfCalendarItem::year</qualifiedname>
+        <read>dummyGetter_year_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarItem.qml" line="18" column="1" bodyfile="src/gui/qml/QfCalendarItem.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCalendarItem_1a9a6591ce2eb587ddf9aaa84b6e7827e1" prot="private" static="no" mutable="no">
+        <type>MonthGrid</type>
+        <definition>MonthGrid QfCalendarItem::calendar</definition>
+        <argsstring></argsstring>
+        <name>calendar</name>
+        <qualifiedname>QfCalendarItem::calendar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarItem.qml" line="22" column="11" bodyfile="src/gui/qml/QfCalendarItem.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCalendarItem_1a9148fba2b3745aa3aee7cd351ba763d3" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfCalendarItem::changeCalendarTimer</definition>
+        <argsstring></argsstring>
+        <name>changeCalendarTimer</name>
+        <qualifiedname>QfCalendarItem::changeCalendarTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarItem.qml" line="23" column="7" bodyfile="src/gui/qml/QfCalendarItem.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCalendarItem_1a52f7e46e5838e8d2dc0949af895743d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCalendarItem::dateClicked</definition>
+        <argsstring>(var date)</argsstring>
+        <name>dateClicked</name>
+        <qualifiedname>QfCalendarItem::dateClicked</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>date</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCalendarItem.qml" line="20" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCalendarItem</label>
+        <link refid="classQfCalendarItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCalendarItem</label>
+        <link refid="classQfCalendarItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfCalendarItem.qml" line="9" column="1" bodyfile="src/gui/qml/QfCalendarItem.qml" bodystart="9" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classQfCalendarItem_1a9a6591ce2eb587ddf9aaa84b6e7827e1" prot="private" virt="non-virtual"><scope>QfCalendarItem</scope><name>calendar</name></member>
+      <member refid="classQfCalendarItem_1a9148fba2b3745aa3aee7cd351ba763d3" prot="private" virt="non-virtual"><scope>QfCalendarItem</scope><name>changeCalendarTimer</name></member>
+      <member refid="classQfCalendarItem_1a568256fd2e458fb78b87b721f3e2ca2e" prot="public" virt="non-virtual"><scope>QfCalendarItem</scope><name>compactMode</name></member>
+      <member refid="classQfCalendarItem_1a52f7e46e5838e8d2dc0949af895743d8" prot="public" virt="non-virtual"><scope>QfCalendarItem</scope><name>dateClicked</name></member>
+      <member refid="classQfCalendarItem_1a314a606ea19cbbd2de83ae1bf127c553" prot="public" virt="non-virtual"><scope>QfCalendarItem</scope><name>initialDate</name></member>
+      <member refid="classQfCalendarItem_1af0f5113339e4827c8948a2e06cd8fe3c" prot="public" virt="non-virtual"><scope>QfCalendarItem</scope><name>month</name></member>
+      <member refid="classQfCalendarItem_1a9764f51eddcf8cf70776fb21c77509e8" prot="public" virt="non-virtual"><scope>QfCalendarItem</scope><name>year</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="todo" kind="page">
+    <compoundname>todo</compoundname>
+    <title>Todo List</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>Member <ref refid="classQfDeltaFileWrapper_1a1988d8d2c653fdc5b59a17d8686b6556" kindref="member">QfDeltaFileWrapper::apply</ref>  (const QgsProject *project)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000003"/>TEST  </para>
+</listitem>
+<varlistentry><term>Member <ref refid="classQfDeltaFileWrapper_1a1cd928fc366d4ae4bb2683115fa856a2" kindref="member">QfDeltaFileWrapper::applyReversed</ref>  (const QgsProject *project)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000004"/>TEST  </para>
+</listitem>
+<varlistentry><term>Member <ref refid="classQfDeltaFileWrapper_1af429bcaf4e0f08035a33fc9c9e966da0" kindref="member">QfDeltaFileWrapper::deltaLayerIds</ref>  () const</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000001"/>TEST  </para>
+</listitem>
+<varlistentry><term>Member <ref refid="classQfDeltaFileWrapper_1afd604eeb53f4b690a046b9e8172803f1" kindref="member">QfDeltaFileWrapper::isDeltaBeingApplied</ref>  () const</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000002"/>TEST </para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+    <location file="todo"/>
+  </compounddef>
+</doxygen>

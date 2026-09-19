@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureListForm" kind="class" language="C++" prot="public">
+    <compoundname>FeatureListForm</compoundname>
+    <basecompoundref refid="classQfFeatureListForm" prot="public" virt="non-virtual">QfFeatureListForm</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureListForm</label>
+        <link refid="classFeatureListForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Pane</label>
+      </node>
+      <node id="2">
+        <label>QfFeatureListForm</label>
+        <link refid="classQfFeatureListForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPaneDrawer</label>
+        <link refid="classQfPaneDrawer"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureListForm</label>
+        <link refid="classFeatureListForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Pane</label>
+      </node>
+      <node id="2">
+        <label>QfFeatureListForm</label>
+        <link refid="classQfFeatureListForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPaneDrawer</label>
+        <link refid="classQfPaneDrawer"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/FeatureListForm.qml" line="2" column="1" bodyfile="src/app/qml_compat/FeatureListForm.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfFeatureListForm_1a0423a37b4adf6d990717affc11f7c1aa" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>algorithm</name></member>
+      <member refid="classQfFeatureListForm_1a2da1351b7362d25b534a7a21322cb1ab" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>allowDelete</name></member>
+      <member refid="classQfFeatureListForm_1ae1f580552d6b6b6f19b2e29d8582f69e" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>allowEdit</name></member>
+      <member refid="classQfFeatureListForm_1a308abbce85664ea8b0de62293883e03d" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>canvasOperationRequested</name></member>
+      <member refid="classQfFeatureListForm_1a0b4ecb202087db3b03146ab9a64d1013" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>codeReader</name></member>
+      <member refid="classQfPaneDrawer_1a3d87cc2208337720912d471f31698cfe" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>collapsed</name></member>
+      <member refid="classQfFeatureListForm_1a182432ded75b527488be6be250dcc12a" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>digitizingToolbar</name></member>
+      <member refid="classQfFeatureListForm_1aced1b840eea4182e7e7505b89638bc7a" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>editGeometry</name></member>
+      <member refid="classQfFeatureListForm_1ab8cbc10019de8771fa9818ed2562ea8a" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>extentController</name></member>
+      <member refid="classQfFeatureListForm_1a4a43fd410893bde212cf21eb3a8e4db6" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>formOpenedFromSingleIdentify</name></member>
+      <member refid="classQfPaneDrawer_1a2c058006b0d920db8b5ce16b98d35b7c" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>isDragging</name></member>
+      <member refid="classQfPaneDrawer_1a8f1662990e15603b5d732968edc40e71" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>isVertical</name></member>
+      <member refid="classQfFeatureListForm_1a9543128310d64c95d1405bfc8f4c67b3" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>mapSettings</name></member>
+      <member refid="classQfFeatureListForm_1a1db359bd4f5a44b3e384a40df674ed06" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>model</name></member>
+      <member refid="classQfFeatureListForm_1ad2978a02f74ee887f71fe44ca063ce57" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>moveFeaturesToolbar</name></member>
+      <member refid="classQfFeatureListForm_1aeb18c9c3dc14649d44db4abafcbe7ed2" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>multiSelection</name></member>
+      <member refid="classQfFeatureListForm_1a9e28a2d78ff971b3da7bff96c67bde9c" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>requestCancel</name></member>
+      <member refid="classQfFeatureListForm_1a513639bf1af983af55e79dfc0d77c32d" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfFeatureListForm_1a5dd0a013f15e14b1880c58da0e811f20" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>rotateFeaturesToolbar</name></member>
+      <member refid="classQfFeatureListForm_1a085754d04336b77eb682f3126cec9720" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>selection</name></member>
+      <member refid="classQfFeatureListForm_1a76cede47bf5550d3f5f4ba53a497e6ad" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>selectionColor</name></member>
+      <member refid="classQfFeatureListForm_1aa97889e55a0695d2ca15b07615fb0b6c" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>showMessage</name></member>
+      <member refid="classQfPaneDrawer_1a4df2c713f02fe09c5de8ad1bd0e6c1ab" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>statusIndicatorDragged</name></member>
+      <member refid="classQfPaneDrawer_1a6ecf6a1796fff4e1930a6ceb46033514" prot="public" virt="non-virtual"><scope>FeatureListForm</scope><name>statusIndicatorDragReleased</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

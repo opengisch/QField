@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLinePolygon" kind="class" language="C++" prot="public">
+    <compoundname>QfLinePolygon</compoundname>
+    <basecompoundref refid="classQfLinePolygonShape" prot="public" virt="non-virtual">QfLinePolygonShape</basecompoundref>
+    <derivedcompoundref refid="classLinePolygon" prot="public" virt="non-virtual">LinePolygon</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLinePolygon_1abb834a298689e586ced3c9f97cbaae9a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLinePolygon::onPolylinesChanged</definition>
+        <argsstring></argsstring>
+        <name>onPolylinesChanged</name>
+        <qualifiedname>QfLinePolygon::onPolylinesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfLinePolygon.qml" line="9" column="5" bodyfile="src/core/qml/QfLinePolygon.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygon_1af6136cf3e402b7022361db9e99acf3f1" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfLinePolygon::componentPathPolyline</definition>
+        <argsstring></argsstring>
+        <name>componentPathPolyline</name>
+        <qualifiedname>QfLinePolygon::componentPathPolyline</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfLinePolygon.qml" line="10" column="11" bodyfile="src/core/qml/QfLinePolygon.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygon_1a3fcd47b19af6426133eceb6318a30a54" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfLinePolygon::shape</definition>
+        <argsstring></argsstring>
+        <name>shape</name>
+        <qualifiedname>QfLinePolygon::shape</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfLinePolygon.qml" line="11" column="7" bodyfile="src/core/qml/QfLinePolygon.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLinePolygon_1a4c89a3a502389b52642f85b4e0bbf62e" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfLinePolygon::shapePath</definition>
+        <argsstring></argsstring>
+        <name>shapePath</name>
+        <qualifiedname>QfLinePolygon::shapePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfLinePolygon.qml" line="12" column="11" bodyfile="src/core/qml/QfLinePolygon.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>LinePolygon</label>
+        <link refid="classLinePolygon"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>QfLinePolygon</label>
+        <link refid="classQfLinePolygon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfLinePolygonShape</label>
+        <link refid="classQfLinePolygonShape"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>QfLinePolygon</label>
+        <link refid="classQfLinePolygon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfLinePolygonShape</label>
+        <link refid="classQfLinePolygonShape"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qml/QfLinePolygon.qml" line="8" column="1" bodyfile="src/core/qml/QfLinePolygon.qml" bodystart="8" bodyend="13"/>
+    <listofallmembers>
+      <member refid="classQfLinePolygonShape_1ab35f9c436b4795b28484ec78738c1ceb" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>color</name></member>
+      <member refid="classQfLinePolygonShape_1a44e26e76ccf202c0e8b2189b038f367a" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>color</name></member>
+      <member refid="classQfLinePolygonShape_1ac24489bf7470eaecee6253de02ddb496" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>colorChanged</name></member>
+      <member refid="classQfLinePolygon_1af6136cf3e402b7022361db9e99acf3f1" prot="private" virt="non-virtual"><scope>QfLinePolygon</scope><name>componentPathPolyline</name></member>
+      <member refid="classQfLinePolygonShape_1aadd51aeed9528b6eb82ef15af61f5bec" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>geometry</name></member>
+      <member refid="classQfLinePolygonShape_1ab1e98389f69c8e8590408aa2c2bd3f02" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>geometry</name></member>
+      <member refid="classQfLinePolygonShape_1ac215e2b2b4edd4a0c49fe44ac29a5c85" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>geometryChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a25f7de5300ab791a893dce7de8aa8996" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>lineWidth</name></member>
+      <member refid="classQfLinePolygonShape_1a240583158eb75d96e570206e542f02c4" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>lineWidth</name></member>
+      <member refid="classQfLinePolygonShape_1ae0884fe7e67cf7d9cebebfad4d8e4000" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>lineWidthChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a9609b9ec6a16c2a5c3d3bd30a9b2a732" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>mapSettings</name></member>
+      <member refid="classQfLinePolygonShape_1a635a852223a22e9875902a9f61bc6d4b" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>mapSettings</name></member>
+      <member refid="classQfLinePolygonShape_1aff940a4144a9c06f293cf142c63d5697" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfLinePolygon_1abb834a298689e586ced3c9f97cbaae9a" prot="private" virt="non-virtual"><scope>QfLinePolygon</scope><name>onPolylinesChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a8faa1d2d029b1838224b2f067d4f8ec8" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>polylines</name></member>
+      <member refid="classQfLinePolygonShape_1a358e6577cef129115dd1f0633c070334" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>polylines</name></member>
+      <member refid="classQfLinePolygonShape_1a02675f18fb45c26088ea802969f4ffbe" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>polylinesChanged</name></member>
+      <member refid="classQfLinePolygonShape_1aae4307cad6f36e0fb8137df9cce756de" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>polylinesType</name></member>
+      <member refid="classQfLinePolygonShape_1a5e74a4923b6fe38b9081a4b5a9220f8a" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>polylinesType</name></member>
+      <member refid="classQfLinePolygonShape_1a108fc97912e5c15b0f3d94edeff13dde" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>polylinesTypeChanged</name></member>
+      <member refid="classQfLinePolygonShape_1a1c6566e82e107e0650cb6c05549d205b" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>QfLinePolygonShape</name></member>
+      <member refid="classQfLinePolygonShape_1a5024199242cf1b1b03b3ed22e1d8d67a" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>setColor</name></member>
+      <member refid="classQfLinePolygonShape_1ad2240d7cc0050a0cc9b92cc869886052" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>setGeometry</name></member>
+      <member refid="classQfLinePolygonShape_1a8c9ef94a519ce268bd7d9675edbba04f" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>setLineWidth</name></member>
+      <member refid="classQfLinePolygonShape_1ac068e8a2308bc0ae7842d580c9afdbe3" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>setMapSettings</name></member>
+      <member refid="classQfLinePolygon_1a3fcd47b19af6426133eceb6318a30a54" prot="private" virt="non-virtual"><scope>QfLinePolygon</scope><name>shape</name></member>
+      <member refid="classQfLinePolygon_1a4c89a3a502389b52642f85b4e0bbf62e" prot="private" virt="non-virtual"><scope>QfLinePolygon</scope><name>shapePath</name></member>
+      <member refid="classQfLinePolygonShape_1ad482cdb4d9ed3d7bf7f40c4cddb28c2a" prot="public" virt="non-virtual"><scope>QfLinePolygon</scope><name>updated</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

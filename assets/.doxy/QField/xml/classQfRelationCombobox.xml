@@ -1,0 +1,566 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfRelationCombobox" kind="class" language="C++" prot="public">
+    <compoundname>QfRelationCombobox</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classRelationCombobox" prot="public" virt="non-virtual">RelationCombobox</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfRelationCombobox_1aa1df2ab151a5f7a7597b0fdba119381a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureCheckListModel" kindref="compound">QfFeatureCheckListModel</ref></type>
+        <definition>QfFeatureCheckListModel QfRelationCombobox::featureListModel</definition>
+        <argsstring></argsstring>
+        <name>featureListModel</name>
+        <qualifiedname>QfRelationCombobox::featureListModel</qualifiedname>
+        <read>dummyGetter_featureListModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="13" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1a3c0790ea538c34008dffa15caecff132" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfRelationCombobox::useCompleter</definition>
+        <argsstring></argsstring>
+        <name>useCompleter</name>
+        <qualifiedname>QfRelationCombobox::useCompleter</qualifiedname>
+        <read>dummyGetter_useCompleter_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="15" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1a1201cacde3c4875e72eac3a422b29ab6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfRelationCombobox::useSearch</definition>
+        <argsstring></argsstring>
+        <name>useSearch</name>
+        <qualifiedname>QfRelationCombobox::useSearch</qualifiedname>
+        <read>dummyGetter_useSearch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="17" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1ae210c2f554a57de415728b5436b340a6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfRelationCombobox::allowAddFeature</definition>
+        <argsstring></argsstring>
+        <name>allowAddFeature</name>
+        <qualifiedname>QfRelationCombobox::allowAddFeature</qualifiedname>
+        <read>dummyGetter_allowAddFeature_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="19" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1a18e364568d9faed1d726671cd24c0124" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfRelationCombobox::relation</definition>
+        <argsstring></argsstring>
+        <name>relation</name>
+        <qualifiedname>QfRelationCombobox::relation</qualifiedname>
+        <read>dummyGetter_relation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="21" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1ac0fdcf476c5bc1851ea7c433071ea320" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfRelationCombobox::layerResolver</definition>
+        <argsstring></argsstring>
+        <name>layerResolver</name>
+        <qualifiedname>QfRelationCombobox::layerResolver</qualifiedname>
+        <read>dummyGetter_layerResolver_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="23" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1af0b691ff59506d528cc957bba888d99b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfRelationCombobox::currentKeyValue</definition>
+        <argsstring></argsstring>
+        <name>currentKeyValue</name>
+        <qualifiedname>QfRelationCombobox::currentKeyValue</qualifiedname>
+        <read>dummyGetter_currentKeyValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="25" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1a496497ef462bcef28e21f6ee2d353a32" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfRelationCombobox::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>QfRelationCombobox::count</qualifiedname>
+        <read>dummyGetter_count_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="28" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1ae87630173da3c8ca6dc697ed03d0eeca" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfEmbeddedFeatureForm" kindref="compound">QfEmbeddedFeatureForm</ref></type>
+        <definition>QfEmbeddedFeatureForm QfRelationCombobox::embeddedFeatureForm</definition>
+        <argsstring></argsstring>
+        <name>embeddedFeatureForm</name>
+        <qualifiedname>QfRelationCombobox::embeddedFeatureForm</qualifiedname>
+        <read>dummyGetter_embeddedFeatureForm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="30" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1ab569eb9f968789e2fa2f974e2a6b54cf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfRelationCombobox::searchPopup</definition>
+        <argsstring></argsstring>
+        <name>searchPopup</name>
+        <qualifiedname>QfRelationCombobox::searchPopup</qualifiedname>
+        <read>dummyGetter_searchPopup_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="33" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfRelationCombobox_1a22c063cff901fe80fbb815d321c35343" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfRelationCombobox::displayedTextColor</definition>
+        <argsstring></argsstring>
+        <name>displayedTextColor</name>
+        <qualifiedname>QfRelationCombobox::displayedTextColor</qualifiedname>
+        <read>dummyGetter_displayedTextColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="35" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfRelationCombobox_1ac44750b596c4bfcb05320593c4c6df35" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfRelationCombobox::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfRelationCombobox::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="39" column="14" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a9b8ca57fc9edbb630f1b6ff81bccb9a9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfRelationCombobox::onCurrentKeyValueChanged</definition>
+        <argsstring></argsstring>
+        <name>onCurrentKeyValueChanged</name>
+        <qualifiedname>QfRelationCombobox::onCurrentKeyValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="40" column="5" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1acbb0c9c898c505c41dc8f7d2e6387528" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfRelationCombobox::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfRelationCombobox::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="41" column="5" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a8ce1bc1a039b66ec2b8e9d2375a19611" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfPopup" kindref="compound">QfPopup</ref></type>
+        <definition>QfPopup QfRelationCombobox::searchFeaturePopup</definition>
+        <argsstring></argsstring>
+        <name>searchFeaturePopup</name>
+        <qualifiedname>QfRelationCombobox::searchFeaturePopup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="42" column="9" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a6e33d1696163d0e57975c7ea95d05289" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSearchBar" kindref="compound">QfSearchBar</ref></type>
+        <definition>QfSearchBar QfRelationCombobox::searchBar</definition>
+        <argsstring></argsstring>
+        <name>searchBar</name>
+        <qualifiedname>QfRelationCombobox::searchBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="43" column="13" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1afa3b8abf951c510aba5e02495b09c012" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfRelationCombobox::resultsList</definition>
+        <argsstring></argsstring>
+        <name>resultsList</name>
+        <qualifiedname>QfRelationCombobox::resultsList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="44" column="10" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a8e0640132f0ce926ca641c4d0372d5cb" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QfRelationCombobox::comboBox</definition>
+        <argsstring></argsstring>
+        <name>comboBox</name>
+        <qualifiedname>QfRelationCombobox::comboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="45" column="12" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1ac5d903a3c76e17a2db101caf6b0209fe" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfRelationCombobox::searchable</definition>
+        <argsstring></argsstring>
+        <name>searchable</name>
+        <qualifiedname>QfRelationCombobox::searchable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="46" column="11" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a20287534a7c1490767f7425ffc3a329b" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfRelationCombobox::searchableLabel</definition>
+        <argsstring></argsstring>
+        <name>searchableLabel</name>
+        <qualifiedname>QfRelationCombobox::searchableLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="47" column="6" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a0e5dd96b6adbcf287f9ed1853db6baa7" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfRelationCombobox::searchableText</definition>
+        <argsstring></argsstring>
+        <name>searchableText</name>
+        <qualifiedname>QfRelationCombobox::searchableText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="48" column="11" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1aab879af8ec11d9d80f0799d659a850ae" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfRelationCombobox::searchableTimer</definition>
+        <argsstring></argsstring>
+        <name>searchableTimer</name>
+        <qualifiedname>QfRelationCombobox::searchableTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="49" column="7" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1abb128f306c68ba133be57a9c2b691aea" prot="private" static="no" mutable="no">
+        <type>Canvas</type>
+        <definition>Canvas QfRelationCombobox::dropDownArrowCanvas</definition>
+        <argsstring></argsstring>
+        <name>dropDownArrowCanvas</name>
+        <qualifiedname>QfRelationCombobox::dropDownArrowCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="50" column="8" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a545381103ff810c956b12a803aab4d2f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfRelationCombobox::searchButton</definition>
+        <argsstring></argsstring>
+        <name>searchButton</name>
+        <qualifiedname>QfRelationCombobox::searchButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="51" column="14" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a649d7c6d3394eec79291687463b8b115" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfRelationCombobox::addFeatureButton</definition>
+        <argsstring></argsstring>
+        <name>addFeatureButton</name>
+        <qualifiedname>QfRelationCombobox::addFeatureButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="52" column="14" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1ac7fb1b10aafb0163434de05ea40d9275" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfRelationCombobox::invalidWarning</definition>
+        <argsstring></argsstring>
+        <name>invalidWarning</name>
+        <qualifiedname>QfRelationCombobox::invalidWarning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="53" column="6" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a9e5aee262fcfa1464cae220b382f777c" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfRelationCombobox::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfRelationCombobox::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="54" column="13" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfRelationCombobox_1a663917b6f99b7f0e81861bdcd35402f4" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfRelationCombobox::embeddedPopupLoader</definition>
+        <argsstring></argsstring>
+        <name>embeddedPopupLoader</name>
+        <qualifiedname>QfRelationCombobox::embeddedPopupLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="55" column="8" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfRelationCombobox_1af7e8437869592e20ef6ad63a3458f15d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRelationCombobox::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfRelationCombobox::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="37" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfRelationCombobox_1a83c884116ffa793265fb36dbb455737f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRelationCombobox::requestedGeometryReceived</definition>
+        <argsstring>(geometry)</argsstring>
+        <name>requestedGeometryReceived</name>
+        <qualifiedname>QfRelationCombobox::requestedGeometryReceived</qualifiedname>
+        <param>
+          <type>geometry</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="58" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRelationCombobox_1a25f6049a129d71d6318604bf421599fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRelationCombobox::ensureEmbeddedFormLoaded</definition>
+        <argsstring>()</argsstring>
+        <name>ensureEmbeddedFormLoaded</name>
+        <qualifiedname>QfRelationCombobox::ensureEmbeddedFormLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="60" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRelationCombobox_1a54ec1986a0f51626f308625b6817cc2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRelationCombobox::showAddFeaturePopup</definition>
+        <argsstring>(geometry)</argsstring>
+        <name>showAddFeaturePopup</name>
+        <qualifiedname>QfRelationCombobox::showAddFeaturePopup</qualifiedname>
+        <param>
+          <type>geometry</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfRelationCombobox.qml" line="62" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfRelationCombobox</label>
+        <link refid="classQfRelationCombobox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="3">
+        <label>RelationCombobox</label>
+        <link refid="classRelationCombobox"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfRelationCombobox</label>
+        <link refid="classQfRelationCombobox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfRelationCombobox.qml" line="10" column="1" bodyfile="src/gui/qml/QfRelationCombobox.qml" bodystart="10" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classQfRelationCombobox_1a649d7c6d3394eec79291687463b8b115" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>addFeatureButton</name></member>
+      <member refid="classQfRelationCombobox_1ae210c2f554a57de415728b5436b340a6" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>allowAddFeature</name></member>
+      <member refid="classQfRelationCombobox_1a8e0640132f0ce926ca641c4d0372d5cb" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>comboBox</name></member>
+      <member refid="classQfRelationCombobox_1a496497ef462bcef28e21f6ee2d353a32" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>count</name></member>
+      <member refid="classQfRelationCombobox_1af0b691ff59506d528cc957bba888d99b" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>currentKeyValue</name></member>
+      <member refid="classQfRelationCombobox_1a22c063cff901fe80fbb815d321c35343" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>displayedTextColor</name></member>
+      <member refid="classQfRelationCombobox_1abb128f306c68ba133be57a9c2b691aea" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>dropDownArrowCanvas</name></member>
+      <member refid="classQfRelationCombobox_1ae87630173da3c8ca6dc697ed03d0eeca" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>embeddedFeatureForm</name></member>
+      <member refid="classQfRelationCombobox_1a663917b6f99b7f0e81861bdcd35402f4" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>embeddedPopupLoader</name></member>
+      <member refid="classQfRelationCombobox_1a25f6049a129d71d6318604bf421599fe" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>ensureEmbeddedFormLoaded</name></member>
+      <member refid="classQfRelationCombobox_1aa1df2ab151a5f7a7597b0fdba119381a" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>featureListModel</name></member>
+      <member refid="classQfRelationCombobox_1a9e5aee262fcfa1464cae220b382f777c" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>fontMetrics</name></member>
+      <member refid="classQfRelationCombobox_1acbb0c9c898c505c41dc8f7d2e6387528" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>height</name></member>
+      <member refid="classQfRelationCombobox_1ac7fb1b10aafb0163434de05ea40d9275" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>invalidWarning</name></member>
+      <member refid="classQfRelationCombobox_1ac0fdcf476c5bc1851ea7c433071ea320" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>layerResolver</name></member>
+      <member refid="classQfRelationCombobox_1ac44750b596c4bfcb05320593c4c6df35" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>onCompleted</name></member>
+      <member refid="classQfRelationCombobox_1a9b8ca57fc9edbb630f1b6ff81bccb9a9" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>onCurrentKeyValueChanged</name></member>
+      <member refid="classQfRelationCombobox_1a18e364568d9faed1d726671cd24c0124" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>relation</name></member>
+      <member refid="classQfRelationCombobox_1a83c884116ffa793265fb36dbb455737f" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>requestedGeometryReceived</name></member>
+      <member refid="classQfRelationCombobox_1af7e8437869592e20ef6ad63a3458f15d" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfRelationCombobox_1afa3b8abf951c510aba5e02495b09c012" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>resultsList</name></member>
+      <member refid="classQfRelationCombobox_1ac5d903a3c76e17a2db101caf6b0209fe" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>searchable</name></member>
+      <member refid="classQfRelationCombobox_1a20287534a7c1490767f7425ffc3a329b" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>searchableLabel</name></member>
+      <member refid="classQfRelationCombobox_1a0e5dd96b6adbcf287f9ed1853db6baa7" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>searchableText</name></member>
+      <member refid="classQfRelationCombobox_1aab879af8ec11d9d80f0799d659a850ae" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>searchableTimer</name></member>
+      <member refid="classQfRelationCombobox_1a6e33d1696163d0e57975c7ea95d05289" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>searchBar</name></member>
+      <member refid="classQfRelationCombobox_1a545381103ff810c956b12a803aab4d2f" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>searchButton</name></member>
+      <member refid="classQfRelationCombobox_1a8ce1bc1a039b66ec2b8e9d2375a19611" prot="private" virt="non-virtual"><scope>QfRelationCombobox</scope><name>searchFeaturePopup</name></member>
+      <member refid="classQfRelationCombobox_1ab569eb9f968789e2fa2f974e2a6b54cf" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>searchPopup</name></member>
+      <member refid="classQfRelationCombobox_1a54ec1986a0f51626f308625b6817cc2d" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>showAddFeaturePopup</name></member>
+      <member refid="classQfRelationCombobox_1a3c0790ea538c34008dffa15caecff132" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>useCompleter</name></member>
+      <member refid="classQfRelationCombobox_1a1201cacde3c4875e72eac3a422b29ab6" prot="public" virt="non-virtual"><scope>QfRelationCombobox</scope><name>useSearch</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

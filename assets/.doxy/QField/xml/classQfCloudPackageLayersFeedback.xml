@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudPackageLayersFeedback" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudPackageLayersFeedback</compoundname>
+    <basecompoundref refid="classQfDialog" prot="public" virt="non-virtual">QfDialog</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudPackageLayersFeedback_1a9fc1bb30f3868b25e9b6ccefdc272199" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfCloudPackageLayersFeedback::selectedCount</definition>
+        <argsstring></argsstring>
+        <name>selectedCount</name>
+        <qualifiedname>QfCloudPackageLayersFeedback::selectedCount</qualifiedname>
+        <read>dummyGetter_selectedCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="12" column="1" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudPackageLayersFeedback_1a3a1aabdbf4d4305065fe091e8c09f8e2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudPackageLayersFeedback::isDeleted</definition>
+        <argsstring></argsstring>
+        <name>isDeleted</name>
+        <qualifiedname>QfCloudPackageLayersFeedback::isDeleted</qualifiedname>
+        <read>dummyGetter_isDeleted_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="14" column="1" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudPackageLayersFeedback_1adc8ff4964364b0b858a6c794ed68a41d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCloudPackageLayersFeedback::packagedLayersListViewModel</definition>
+        <argsstring></argsstring>
+        <name>packagedLayersListViewModel</name>
+        <qualifiedname>QfCloudPackageLayersFeedback::packagedLayersListViewModel</qualifiedname>
+        <read>dummyGetter_packagedLayersListViewModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="16" column="1" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudPackageLayersFeedback_1a9e6dec5178eb2ec5233a05f85fb14db7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPackageLayersFeedback::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfCloudPackageLayersFeedback::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="18" column="5" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPackageLayersFeedback_1a379f6d277040c8b6536add98619a30af" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPackageLayersFeedback::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCloudPackageLayersFeedback::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="19" column="5" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPackageLayersFeedback_1a1695158643236eaedc901947374151ec" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPackageLayersFeedback::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCloudPackageLayersFeedback::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="20" column="5" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPackageLayersFeedback_1acd80b7c2ec68403e4bf497f079149bfe" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudPackageLayersFeedback::layout</definition>
+        <argsstring></argsstring>
+        <name>layout</name>
+        <qualifiedname>QfCloudPackageLayersFeedback::layout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="21" column="14" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPackageLayersFeedback_1aca8ad1567cd549020a7f9643bc646149" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfCloudPackageLayersFeedback::packagedLayersListView</definition>
+        <argsstring></argsstring>
+        <name>packagedLayersListView</name>
+        <qualifiedname>QfCloudPackageLayersFeedback::packagedLayersListView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="22" column="10" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Dialog</label>
+      </node>
+      <node id="1">
+        <label>QfCloudPackageLayersFeedback</label>
+        <link refid="classQfCloudPackageLayersFeedback"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfDialog</label>
+        <link refid="classQfDialog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Dialog</label>
+      </node>
+      <node id="1">
+        <label>QfCloudPackageLayersFeedback</label>
+        <link refid="classQfCloudPackageLayersFeedback"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfDialog</label>
+        <link refid="classQfDialog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudPackageLayersFeedback.qml" line="9" column="1" bodyfile="src/app/qml/QfCloudPackageLayersFeedback.qml" bodystart="9" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classQfCloudPackageLayersFeedback_1a1695158643236eaedc901947374151ec" prot="private" virt="non-virtual"><scope>QfCloudPackageLayersFeedback</scope><name>height</name></member>
+      <member refid="classQfCloudPackageLayersFeedback_1a3a1aabdbf4d4305065fe091e8c09f8e2" prot="public" virt="non-virtual"><scope>QfCloudPackageLayersFeedback</scope><name>isDeleted</name></member>
+      <member refid="classQfCloudPackageLayersFeedback_1acd80b7c2ec68403e4bf497f079149bfe" prot="private" virt="non-virtual"><scope>QfCloudPackageLayersFeedback</scope><name>layout</name></member>
+      <member refid="classQfCloudPackageLayersFeedback_1aca8ad1567cd549020a7f9643bc646149" prot="private" virt="non-virtual"><scope>QfCloudPackageLayersFeedback</scope><name>packagedLayersListView</name></member>
+      <member refid="classQfCloudPackageLayersFeedback_1adc8ff4964364b0b858a6c794ed68a41d" prot="public" virt="non-virtual"><scope>QfCloudPackageLayersFeedback</scope><name>packagedLayersListViewModel</name></member>
+      <member refid="classQfCloudPackageLayersFeedback_1a9e6dec5178eb2ec5233a05f85fb14db7" prot="private" virt="non-virtual"><scope>QfCloudPackageLayersFeedback</scope><name>parent</name></member>
+      <member refid="classQfCloudPackageLayersFeedback_1a9fc1bb30f3868b25e9b6ccefdc272199" prot="public" virt="non-virtual"><scope>QfCloudPackageLayersFeedback</scope><name>selectedCount</name></member>
+      <member refid="classQfCloudPackageLayersFeedback_1a379f6d277040c8b6536add98619a30af" prot="private" virt="non-virtual"><scope>QfCloudPackageLayersFeedback</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

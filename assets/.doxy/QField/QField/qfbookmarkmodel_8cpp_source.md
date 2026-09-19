@@ -1,0 +1,448 @@
+
+
+# File qfbookmarkmodel.cpp
+
+[**File List**](files.md) **>** [**core**](dir_aebb8dcc11953d78e620bbef0b9e2183.md) **>** [**qfbookmarkmodel.cpp**](qfbookmarkmodel_8cpp.md)
+
+[Go to the documentation of this file](qfbookmarkmodel_8cpp.md)
+
+
+```C++
+/***************************************************************************
+                            qfbookmarkmodel.cpp
+                              -------------------
+              begin                : 12.12.2021
+              copyright            : (C) 2021 by Mathieu Pellerin
+              email                : mathieu (at) opengis.ch
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#include "qfbookmarkmodel.h"
+#include "qfplatformutilities.h"
+
+#include <qgsapplication.h>
+#include <qgscoordinatetransform.h>
+#include <qgsgeometry.h>
+#include <qgsproject.h>
+#include <qgsvectorfilewriter.h>
+#include <qgsvectorlayer.h>
+
+#include <algorithm>
+
+QfBookmarkModel::QfBookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager, QObject *parent )
+  : QSortFilterProxyModel( parent )
+  , mModel( new QgsBookmarkManagerModel( manager, projectManager, this ) )
+  , mManager( manager )
+{
+  setSourceModel( mModel.get() );
+
+  // Bookmarks are always grouped by section so the list can render color sections.
+  setSortRole( QfBookmarkModel::BookmarkSection );
+  sort( 0 );
+}
+
+QVariant QfBookmarkModel::data( const QModelIndex &index, int role ) const
+{
+  QModelIndex sourceIndex = mapToSource( index );
+  if ( !sourceIndex.isValid() )
+    return QVariant();
+
+  switch ( role )
+  {
+    case QfBookmarkModel::BookmarkId:
+      return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Id ) );
+
+    case QfBookmarkModel::BookmarkName:
+      return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Name ) );
+
+    case QfBookmarkModel::BookmarkGroup:
+    {
+      const QString group = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
+      return group.isEmpty() ? QStringLiteral( "green" ) : group;
+    }
+
+    case QfBookmarkModel::BookmarkPoint:
+    {
+      const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+      const QgsGeometry geom( new QgsPoint( rect.center() ) );
+      return geom;
+    }
+
+    case QfBookmarkModel::BookmarkCrs:
+    {
+      const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+      return rect.crs();
+    }
+
+    case QfBookmarkModel::BookmarkUser:
+    {
+      return isUserBookmark( sourceIndex.row() );
+    }
+
+    case QfBookmarkModel::BookmarkSelected:
+    {
+      const QString id = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Id ) ).toString();
+      return mSelectedIds.contains( id );
+    }
+
+    case QfBookmarkModel::BookmarkSection:
+    {
+      if ( !isUserBookmark( sourceIndex.row() ) )
+      {
+        return QStringLiteral( "project" );
+      }
+      const QString group = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
+      return group.isEmpty() ? QStringLiteral( "green" ) : group;
+    }
+  }
+
+  return QVariant();
+}
+
+QHash<int, QByteArray> QfBookmarkModel::roleNames() const
+{
+  QHash<int, QByteArray> roleNames = QAbstractProxyModel::roleNames();
+  roleNames[QfBookmarkModel::BookmarkId] = "BookmarkId";
+  roleNames[QfBookmarkModel::BookmarkName] = "BookmarkName";
+  roleNames[QfBookmarkModel::BookmarkGroup] = "BookmarkGroup";
+  roleNames[QfBookmarkModel::BookmarkPoint] = "BookmarkPoint";
+  roleNames[QfBookmarkModel::BookmarkCrs] = "BookmarkCrs";
+  roleNames[QfBookmarkModel::BookmarkUser] = "BookmarkUser";
+  roleNames[QfBookmarkModel::BookmarkSelected] = "BookmarkSelected";
+  roleNames[QfBookmarkModel::BookmarkSection] = "BookmarkSection";
+  return roleNames;
+}
+
+void QfBookmarkModel::setMapSettings( QgsQuickMapSettings *mapSettings )
+{
+  if ( mMapSettings == mapSettings )
+    return;
+
+  mMapSettings = mapSettings;
+
+  emit mapSettingsChanged();
+}
+
+void QfBookmarkModel::setExtentFromBookmark( const QModelIndex &index )
+{
+  QModelIndex sourceIndex = mapToSource( index );
+  if ( !sourceIndex.isValid() || !mMapSettings )
+    return;
+
+  const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+  QgsCoordinateTransform transform( rect.crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+  QgsRectangle transformedRect;
+  try
+  {
+    transformedRect = transform.transform( rect );
+  }
+  catch ( const QgsException &e )
+  {
+    Q_UNUSED( e )
+    return;
+  }
+  catch ( ... )
+  {
+    // catch any other errors
+    return;
+  }
+
+  const double scale = mMapSettings->computeScaleForExtent( transformedRect, true );
+  emit requestJumpToPoint( QgsPoint( transformedRect.center() ), scale, true );
+}
+
+QgsPoint QfBookmarkModel::getBookmarkPoint( int idx )
+{
+  QModelIndex sourceIndex = mapToSource( index( idx, 0 ) );
+  if ( !sourceIndex.isValid() || !mMapSettings )
+    return QgsPoint();
+
+  const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+  QgsCoordinateTransform transform( rect.crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+  try
+  {
+    return QgsPoint( transform.transform( rect.center() ) );
+  }
+  catch ( const QgsException &e )
+  {
+    Q_UNUSED( e )
+    return QgsPoint();
+  }
+  catch ( ... )
+  {
+    // catch any other errors
+    return QgsPoint();
+  }
+}
+
+QString QfBookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
+{
+  if ( !mMapSettings )
+    return QString();
+
+  QgsRectangle extent = mMapSettings->extent();
+  const QgsPointXY center = extent.center();
+
+  const double xDiff = point.x() - center.x();
+  const double yDiff = point.y() - center.y();
+
+  extent.setXMinimum( extent.xMinimum() + xDiff );
+  extent.setXMaximum( extent.xMaximum() + xDiff );
+  extent.setYMinimum( extent.yMinimum() + yDiff );
+  extent.setYMaximum( extent.yMaximum() + yDiff );
+
+  QgsBookmark bookmark;
+  bookmark.setExtent( QgsReferencedRectangle( extent, mMapSettings->destinationCrs() ) );
+  bookmark.setName( name );
+  bookmark.setGroup( group );
+
+  const QString uuid = mManager->addBookmark( bookmark );
+  store();
+
+  return uuid;
+}
+
+void QfBookmarkModel::updateBookmarkDetails( const QString &id, const QString &name, const QString &group )
+{
+  QgsBookmark bookmark = mManager->bookmarkById( id );
+  bookmark.setName( name );
+  bookmark.setGroup( group );
+  mManager->updateBookmark( bookmark );
+}
+
+void QfBookmarkModel::removeBookmark( const QString &id )
+{
+  mManager->removeBookmark( id );
+  store();
+}
+
+QgsPoint QfBookmarkModel::getBookmarkPoint( const QString &id )
+{
+  const QgsBookmark bookmark = mManager->bookmarkById( id );
+  return QgsPoint( bookmark.extent().center() );
+}
+
+QgsCoordinateReferenceSystem QfBookmarkModel::getBookmarkCrs( const QString &id )
+{
+  const QgsBookmark bookmark = mManager->bookmarkById( id );
+  return bookmark.extent().crs();
+}
+
+void QfBookmarkModel::store()
+{
+  const QString filePath = QStringLiteral( "%1/bookmarks.xml" ).arg( QgsApplication::qgisSettingsDirPath() );
+  if ( !filePath.isEmpty() )
+  {
+    QFile f( filePath );
+    if ( !f.open( QFile::WriteOnly | QIODevice::Truncate ) )
+    {
+      return;
+    }
+
+    QDomDocument doc;
+    QDomElement elem = mManager->writeXml( doc );
+    doc.appendChild( elem );
+
+    QTextStream out( &f );
+    doc.save( out, 2 );
+    f.close();
+  }
+}
+
+void QfBookmarkModel::setHideProjectBookmarks( bool hideProjectBookmarks )
+{
+  if ( mHideProjectBookmarks == hideProjectBookmarks )
+    return;
+
+  beginFilterChange();
+  mHideProjectBookmarks = hideProjectBookmarks;
+  endFilterChange();
+
+  emit hideProjectBookmarksChanged();
+}
+
+bool QfBookmarkModel::isUserBookmark( int sourceRow ) const
+{
+  return mModel->data( mModel->index( sourceRow, QgsBookmarkManagerModel::ColumnStore ), Qt::CheckStateRole ).value<Qt::CheckState>() != Qt::Checked;
+}
+
+bool QfBookmarkModel::filterAcceptsRow( int sourceRow, const QModelIndex & ) const
+{
+  if ( !mHideProjectBookmarks )
+    return true;
+
+  // The drawer scopes the list to bookmarks created in QField (user bookmarks).
+  return isUserBookmark( sourceRow );
+}
+
+void QfBookmarkModel::toggleSelected( const QString &id )
+{
+  if ( id.isEmpty() )
+    return;
+
+  // Only user bookmarks (those owned by the user manager) can be selected.
+  if ( mManager->bookmarkById( id ).id().isEmpty() )
+    return;
+
+  if ( mSelectedIds.contains( id ) )
+  {
+    mSelectedIds.remove( id );
+  }
+  else
+  {
+    mSelectedIds.insert( id );
+  }
+
+  const int count = rowCount();
+  if ( count > 0 )
+  {
+    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { QfBookmarkModel::BookmarkSelected } );
+  }
+  emit selectedCountChanged();
+}
+
+void QfBookmarkModel::clearSelection()
+{
+  if ( mSelectedIds.isEmpty() )
+    return;
+
+  mSelectedIds.clear();
+
+  const int count = rowCount();
+  if ( count > 0 )
+  {
+    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { QfBookmarkModel::BookmarkSelected } );
+  }
+  emit selectedCountChanged();
+}
+
+int QfBookmarkModel::deleteSelected()
+{
+  if ( mSelectedIds.isEmpty() )
+  {
+    return 0;
+  }
+
+  const int deleted = static_cast<int>( std::count_if( mSelectedIds.constBegin(), mSelectedIds.constEnd(), [this]( const QString &id ) {
+    return mManager->removeBookmark( id );
+  } ) );
+
+  // Persist once after all removals rather than on every bookmark.
+  store();
+
+  mSelectedIds.clear();
+  emit selectedCountChanged();
+
+  return deleted;
+}
+
+bool QfBookmarkModel::exportBookmarks( bool selectedOnly )
+{
+  QgsFields fields;
+  fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
+
+  const QgsCoordinateReferenceSystem exportCrs( QStringLiteral( "EPSG:4326" ) );
+
+  const QString filePath = QStringLiteral( "%1/qfield_bookmarks_%2.gpkg" )
+                             .arg( QDir::tempPath(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+
+  QgsVectorFileWriter::SaveVectorOptions writerOptions;
+  writerOptions.layerName = QStringLiteral( "bookmarks" );
+  std::unique_ptr<QgsVectorFileWriter> writer( QgsVectorFileWriter::create( filePath, fields, Qgis::WkbType::Polygon, exportCrs, QgsProject::instance()->transformContext(), writerOptions ) );
+
+  if ( writer->hasError() != QgsVectorFileWriter::NoError )
+  {
+    return false;
+  }
+
+  bool hasFeatures = false;
+  const QList<QgsBookmark> bookmarks = mManager->bookmarks();
+  for ( const QgsBookmark &bookmark : bookmarks )
+  {
+    if ( selectedOnly && !mSelectedIds.contains( bookmark.id() ) )
+    {
+      continue;
+    }
+
+    const QgsReferencedRectangle extent = bookmark.extent();
+    QgsRectangle exportRect = extent;
+    if ( extent.crs() != exportCrs )
+    {
+      QgsCoordinateTransform transform( extent.crs(), exportCrs, QgsProject::instance()->transformContext() );
+      try
+      {
+        exportRect = transform.transformBoundingBox( extent );
+      }
+      catch ( const QgsException & )
+      {
+        continue;
+      }
+    }
+
+    QgsFeature feature( fields );
+    feature.setGeometry( QgsGeometry::fromRect( exportRect ) );
+    feature.setAttribute( QStringLiteral( "title" ), bookmark.name() );
+    feature.setAttribute( QStringLiteral( "color" ), bookmark.group() );
+
+    if ( writer->addFeature( feature ) )
+    {
+      hasFeatures = true;
+    }
+  }
+
+  writer.reset(); // flush and close the GeoPackage before handing off the path
+
+  if ( !hasFeatures )
+  {
+    return false;
+  }
+
+  QfPlatformUtilities::instance()->sendDatasetTo( filePath );
+  return true;
+}
+
+int QfBookmarkModel::groupRank( const QString &group ) const
+{
+  if ( group == QLatin1String( "orange" ) )
+  {
+    return 1;
+  }
+  else if ( group == QLatin1String( "red" ) )
+  {
+    return 2;
+  }
+  else if ( group == QLatin1String( "blue" ) )
+  {
+    return 3;
+  }
+
+  // Default (empty group) comes first.
+  return 0;
+}
+
+bool QfBookmarkModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+{
+  // Project bookmarks form their own section, listed before the user bookmark color groups.
+  const int leftRank = isUserBookmark( sourceLeft.row() ) ? groupRank( mModel->data( sourceLeft, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString() ) : -1;
+  const int rightRank = isUserBookmark( sourceRight.row() ) ? groupRank( mModel->data( sourceRight, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString() ) : -1;
+
+  if ( leftRank != rightRank )
+  {
+    return leftRank < rightRank;
+  }
+
+  // Within a section, preserve creation order (source row order).
+  return sourceLeft.row() < sourceRight.row();
+}
+```
+
+

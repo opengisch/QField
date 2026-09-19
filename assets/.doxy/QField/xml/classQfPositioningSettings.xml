@@ -1,0 +1,682 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPositioningSettings" kind="class" language="C++" prot="public">
+    <compoundname>QfPositioningSettings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Settings</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfPositioningSettings_1aeb84f3d5d5461151ceb732d852f0d35e" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FollowMode</name>
+        <qualifiedname>QfPositioningSettings::FollowMode</qualifiedname>
+        <enumvalue id="classQfPositioningSettings_1aeb84f3d5d5461151ceb732d852f0d35eaae729b97e00ca6e39722e1ecb6247b75" prot="public">
+          <name>PositionOnly</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfPositioningSettings_1aeb84f3d5d5461151ceb732d852f0d35ea21b3268526ca3d71430c78ec6bbdcfce" prot="public">
+          <name>PositionAndCompass</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfPositioningSettings_1aeb84f3d5d5461151ceb732d852f0d35eadd5e60703cf29720c6fbe6dbc232815f" prot="public">
+          <name>PositionAndDirection</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="9" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="9" bodyend="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPositioningSettings_1a0b3330288378f4ec9861fde7edc72080" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::positioningActivated</definition>
+        <argsstring></argsstring>
+        <name>positioningActivated</name>
+        <qualifiedname>QfPositioningSettings::positioningActivated</qualifiedname>
+        <read>dummyGetter_positioningActivated_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="15" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ac4c8d23fd5a4090c53659857ca7e1dfa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::positioningCoordinateLock</definition>
+        <argsstring></argsstring>
+        <name>positioningCoordinateLock</name>
+        <qualifiedname>QfPositioningSettings::positioningCoordinateLock</qualifiedname>
+        <read>dummyGetter_positioningCoordinateLock_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="17" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a291bf934822137a6685cef431d10ee55" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfPositioningSettings::positioningDevice</definition>
+        <argsstring></argsstring>
+        <name>positioningDevice</name>
+        <qualifiedname>QfPositioningSettings::positioningDevice</qualifiedname>
+        <read>dummyGetter_positioningDevice_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="19" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a7b5b487d6e5a152927f2c535f6ddb7ff" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfPositioningSettings::positioningDeviceName</definition>
+        <argsstring></argsstring>
+        <name>positioningDeviceName</name>
+        <qualifiedname>QfPositioningSettings::positioningDeviceName</qualifiedname>
+        <read>dummyGetter_positioningDeviceName_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="21" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ac1f35d0d92460c7d7dafe7f7b5ff4d89" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfPositioningSettings::elevationCorrectionMode</definition>
+        <argsstring></argsstring>
+        <name>elevationCorrectionMode</name>
+        <qualifiedname>QfPositioningSettings::elevationCorrectionMode</qualifiedname>
+        <read>dummyGetter_elevationCorrectionMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="23" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a5ddc9189349eefef33ffe5d70cb5a8d0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::logging</definition>
+        <argsstring></argsstring>
+        <name>logging</name>
+        <qualifiedname>QfPositioningSettings::logging</qualifiedname>
+        <read>dummyGetter_logging_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="25" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ac454f162ab869f930a87a790132b9560" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::showPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>showPositionInformation</name>
+        <qualifiedname>QfPositioningSettings::showPositionInformation</qualifiedname>
+        <read>dummyGetter_showPositionInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="27" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a7d9378c34f5af7a074a57a512ba56408" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::enableNtrip</definition>
+        <argsstring></argsstring>
+        <name>enableNtrip</name>
+        <qualifiedname>QfPositioningSettings::enableNtrip</qualifiedname>
+        <read>dummyGetter_enableNtrip_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="29" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a503cbf67c6289b62776b10d901cec3b7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfPositioningSettings::ntripSettings</definition>
+        <argsstring></argsstring>
+        <name>ntripSettings</name>
+        <qualifiedname>QfPositioningSettings::ntripSettings</qualifiedname>
+        <read>dummyGetter_ntripSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="31" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1afc5a8fc790c7ef878a92d0651555f842" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::alwaysShowPreciseView</definition>
+        <argsstring></argsstring>
+        <name>alwaysShowPreciseView</name>
+        <qualifiedname>QfPositioningSettings::alwaysShowPreciseView</qualifiedname>
+        <read>dummyGetter_alwaysShowPreciseView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="33" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1aa18d20e51a6536e6c4db955823b72ddb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfPositioningSettings::preciseViewPrecision</definition>
+        <argsstring></argsstring>
+        <name>preciseViewPrecision</name>
+        <qualifiedname>QfPositioningSettings::preciseViewPrecision</qualifiedname>
+        <read>dummyGetter_preciseViewPrecision_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="35" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1af8298fdc3fb9755ef98b5c9b2c76afb1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::preciseViewProximityAlarm</definition>
+        <argsstring></argsstring>
+        <name>preciseViewProximityAlarm</name>
+        <qualifiedname>QfPositioningSettings::preciseViewProximityAlarm</qualifiedname>
+        <read>dummyGetter_preciseViewProximityAlarm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="37" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a8b52a787c5918ca7e8f32241410f9875" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::preciseViewAutoRotate</definition>
+        <argsstring></argsstring>
+        <name>preciseViewAutoRotate</name>
+        <qualifiedname>QfPositioningSettings::preciseViewAutoRotate</qualifiedname>
+        <read>dummyGetter_preciseViewAutoRotate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="39" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a6979bc2a7efecbaea91d1dc7cc1b21df" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfPositioningSettings::preciseViewRotationSource</definition>
+        <argsstring></argsstring>
+        <name>preciseViewRotationSource</name>
+        <qualifiedname>QfPositioningSettings::preciseViewRotationSource</qualifiedname>
+        <read>dummyGetter_preciseViewRotationSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="41" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a5d31c70ba2416fffe506ba6b29bd092c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::accuracyIndicator</definition>
+        <argsstring></argsstring>
+        <name>accuracyIndicator</name>
+        <qualifiedname>QfPositioningSettings::accuracyIndicator</qualifiedname>
+        <read>dummyGetter_accuracyIndicator_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="43" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1af0808a89ca018bebf787a75549e17523" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfPositioningSettings::accuracyBad</definition>
+        <argsstring></argsstring>
+        <name>accuracyBad</name>
+        <qualifiedname>QfPositioningSettings::accuracyBad</qualifiedname>
+        <read>dummyGetter_accuracyBad_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="45" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a562d705898aad2d748df392a127a56c4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfPositioningSettings::accuracyExcellent</definition>
+        <argsstring></argsstring>
+        <name>accuracyExcellent</name>
+        <qualifiedname>QfPositioningSettings::accuracyExcellent</qualifiedname>
+        <read>dummyGetter_accuracyExcellent_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="47" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a6d8ba847c7e1637bddad97cf3ff8ba3c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::accuracyRequirement</definition>
+        <argsstring></argsstring>
+        <name>accuracyRequirement</name>
+        <qualifiedname>QfPositioningSettings::accuracyRequirement</qualifiedname>
+        <read>dummyGetter_accuracyRequirement_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="49" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a8b59c0b669f1237b6d695713ac2f3272" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::averagedPositioning</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioning</name>
+        <qualifiedname>QfPositioningSettings::averagedPositioning</qualifiedname>
+        <read>dummyGetter_averagedPositioning_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="51" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ac852d3cdf8f9cc7aeefea1cd8a209a34" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfPositioningSettings::averagedPositioningMinimumCount</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioningMinimumCount</name>
+        <qualifiedname>QfPositioningSettings::averagedPositioningMinimumCount</qualifiedname>
+        <read>dummyGetter_averagedPositioningMinimumCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="53" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a75a7eaacb153f66d4fe017080b140b12" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::averagedPositioningAutomaticStop</definition>
+        <argsstring></argsstring>
+        <name>averagedPositioningAutomaticStop</name>
+        <qualifiedname>QfPositioningSettings::averagedPositioningAutomaticStop</qualifiedname>
+        <read>dummyGetter_averagedPositioningAutomaticStop_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="55" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a1dcf206e76becf456f2c30ba51e10b8a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfPositioningSettings::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>QfPositioningSettings::antennaHeight</qualifiedname>
+        <read>dummyGetter_antennaHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="57" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a7b1e4485df5fa8dd705abffa4a07d26b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::antennaHeightActivated</definition>
+        <argsstring></argsstring>
+        <name>antennaHeightActivated</name>
+        <qualifiedname>QfPositioningSettings::antennaHeightActivated</qualifiedname>
+        <read>dummyGetter_antennaHeightActivated_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="59" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a8d3a58cd1802d3ca05777ce7bdfc1a7c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::skipAltitudeCorrection</definition>
+        <argsstring></argsstring>
+        <name>skipAltitudeCorrection</name>
+        <qualifiedname>QfPositioningSettings::skipAltitudeCorrection</qualifiedname>
+        <read>dummyGetter_skipAltitudeCorrection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="61" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a7e19e29c8e0dfafa3b00bab63de4976f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfPositioningSettings::verticalGrid</definition>
+        <argsstring></argsstring>
+        <name>verticalGrid</name>
+        <qualifiedname>QfPositioningSettings::verticalGrid</qualifiedname>
+        <read>dummyGetter_verticalGrid_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="63" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a6837b767da0652249d35432abe0b70c6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::trackerTimeIntervalConstraint</definition>
+        <argsstring></argsstring>
+        <name>trackerTimeIntervalConstraint</name>
+        <qualifiedname>QfPositioningSettings::trackerTimeIntervalConstraint</qualifiedname>
+        <read>dummyGetter_trackerTimeIntervalConstraint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="65" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ae118f824aeffe2327af2e534e1ebfcaf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioningSettings::trackerTimeInterval</definition>
+        <argsstring></argsstring>
+        <name>trackerTimeInterval</name>
+        <qualifiedname>QfPositioningSettings::trackerTimeInterval</qualifiedname>
+        <read>dummyGetter_trackerTimeInterval_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="67" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ac352c77a347b2b1dab083b5e2ad935d9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::trackerMinimumDistanceConstraint</definition>
+        <argsstring></argsstring>
+        <name>trackerMinimumDistanceConstraint</name>
+        <qualifiedname>QfPositioningSettings::trackerMinimumDistanceConstraint</qualifiedname>
+        <read>dummyGetter_trackerMinimumDistanceConstraint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="69" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1accce4761676dc37d751d9fa99c24b5d0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioningSettings::trackerMinimumDistance</definition>
+        <argsstring></argsstring>
+        <name>trackerMinimumDistance</name>
+        <qualifiedname>QfPositioningSettings::trackerMinimumDistance</qualifiedname>
+        <read>dummyGetter_trackerMinimumDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="71" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ab7a32a887a8eeb0f30682b3310009d41" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::trackerSensorCaptureConstraint</definition>
+        <argsstring></argsstring>
+        <name>trackerSensorCaptureConstraint</name>
+        <qualifiedname>QfPositioningSettings::trackerSensorCaptureConstraint</qualifiedname>
+        <read>dummyGetter_trackerSensorCaptureConstraint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="73" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1af5d363d18d79013f1b690f3c2a2e54c4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::trackerMeetAllConstraints</definition>
+        <argsstring></argsstring>
+        <name>trackerMeetAllConstraints</name>
+        <qualifiedname>QfPositioningSettings::trackerMeetAllConstraints</qualifiedname>
+        <read>dummyGetter_trackerMeetAllConstraints_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="75" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a8bde943e44d621558bce02ec0f8be471" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::trackerErroneousDistanceSafeguard</definition>
+        <argsstring></argsstring>
+        <name>trackerErroneousDistanceSafeguard</name>
+        <qualifiedname>QfPositioningSettings::trackerErroneousDistanceSafeguard</qualifiedname>
+        <read>dummyGetter_trackerErroneousDistanceSafeguard_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="77" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a50e73b8cda22cae40300c7c337842c0d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioningSettings::trackerErroneousDistance</definition>
+        <argsstring></argsstring>
+        <name>trackerErroneousDistance</name>
+        <qualifiedname>QfPositioningSettings::trackerErroneousDistance</qualifiedname>
+        <read>dummyGetter_trackerErroneousDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="79" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ad6d11855dde5d1c272b945bab2b71139" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfPositioningSettings::trackerMeasureType</definition>
+        <argsstring></argsstring>
+        <name>trackerMeasureType</name>
+        <qualifiedname>QfPositioningSettings::trackerMeasureType</qualifiedname>
+        <read>dummyGetter_trackerMeasureType_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="81" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a583652b40932a9c3b94a86dda6f5d86d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfPositioningSettings::digitizingMeasureType</definition>
+        <argsstring></argsstring>
+        <name>digitizingMeasureType</name>
+        <qualifiedname>QfPositioningSettings::digitizingMeasureType</qualifiedname>
+        <read>dummyGetter_digitizingMeasureType_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="83" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ad96dc7ac3b6b8b5e394eea97ea4d0dc0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::geofencingPreventDigitizingDuringAlert</definition>
+        <argsstring></argsstring>
+        <name>geofencingPreventDigitizingDuringAlert</name>
+        <qualifiedname>QfPositioningSettings::geofencingPreventDigitizingDuringAlert</qualifiedname>
+        <read>dummyGetter_geofencingPreventDigitizingDuringAlert_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="85" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1ae8e537ea5f9e157f32bc1837a623cc8e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioningSettings::egenioussEnabled</definition>
+        <argsstring></argsstring>
+        <name>egenioussEnabled</name>
+        <qualifiedname>QfPositioningSettings::egenioussEnabled</qualifiedname>
+        <read>dummyGetter_egenioussEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="87" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningSettings_1a1c050c098d82bdb2c9aaeb2762657645" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfPositioningSettings::positionFollowMode</definition>
+        <argsstring></argsstring>
+        <name>positionFollowMode</name>
+        <qualifiedname>QfPositioningSettings::positionFollowMode</qualifiedname>
+        <read>dummyGetter_positionFollowMode_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPositioningSettings.qml" line="89" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfPositioningSettings</label>
+        <link refid="classQfPositioningSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Settings</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfPositioningSettings</label>
+        <link refid="classQfPositioningSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Settings</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfPositioningSettings.qml" line="7" column="1" bodyfile="src/app/qml/QfPositioningSettings.qml" bodystart="7" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classQfPositioningSettings_1af0808a89ca018bebf787a75549e17523" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>accuracyBad</name></member>
+      <member refid="classQfPositioningSettings_1a562d705898aad2d748df392a127a56c4" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>accuracyExcellent</name></member>
+      <member refid="classQfPositioningSettings_1a5d31c70ba2416fffe506ba6b29bd092c" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>accuracyIndicator</name></member>
+      <member refid="classQfPositioningSettings_1a6d8ba847c7e1637bddad97cf3ff8ba3c" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>accuracyRequirement</name></member>
+      <member refid="classQfPositioningSettings_1afc5a8fc790c7ef878a92d0651555f842" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>alwaysShowPreciseView</name></member>
+      <member refid="classQfPositioningSettings_1a1dcf206e76becf456f2c30ba51e10b8a" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>antennaHeight</name></member>
+      <member refid="classQfPositioningSettings_1a7b1e4485df5fa8dd705abffa4a07d26b" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>antennaHeightActivated</name></member>
+      <member refid="classQfPositioningSettings_1a8b59c0b669f1237b6d695713ac2f3272" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>averagedPositioning</name></member>
+      <member refid="classQfPositioningSettings_1a75a7eaacb153f66d4fe017080b140b12" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>averagedPositioningAutomaticStop</name></member>
+      <member refid="classQfPositioningSettings_1ac852d3cdf8f9cc7aeefea1cd8a209a34" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>averagedPositioningMinimumCount</name></member>
+      <member refid="classQfPositioningSettings_1a583652b40932a9c3b94a86dda6f5d86d" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>digitizingMeasureType</name></member>
+      <member refid="classQfPositioningSettings_1ae8e537ea5f9e157f32bc1837a623cc8e" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>egenioussEnabled</name></member>
+      <member refid="classQfPositioningSettings_1ac1f35d0d92460c7d7dafe7f7b5ff4d89" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>elevationCorrectionMode</name></member>
+      <member refid="classQfPositioningSettings_1a7d9378c34f5af7a074a57a512ba56408" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>enableNtrip</name></member>
+      <member refid="classQfPositioningSettings_1aeb84f3d5d5461151ceb732d852f0d35e" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>FollowMode</name></member>
+      <member refid="classQfPositioningSettings_1ad96dc7ac3b6b8b5e394eea97ea4d0dc0" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>geofencingPreventDigitizingDuringAlert</name></member>
+      <member refid="classQfPositioningSettings_1a5ddc9189349eefef33ffe5d70cb5a8d0" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>logging</name></member>
+      <member refid="classQfPositioningSettings_1a503cbf67c6289b62776b10d901cec3b7" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>ntripSettings</name></member>
+      <member refid="classQfPositioningSettings_1a1c050c098d82bdb2c9aaeb2762657645" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>positionFollowMode</name></member>
+      <member refid="classQfPositioningSettings_1a0b3330288378f4ec9861fde7edc72080" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>positioningActivated</name></member>
+      <member refid="classQfPositioningSettings_1ac4c8d23fd5a4090c53659857ca7e1dfa" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>positioningCoordinateLock</name></member>
+      <member refid="classQfPositioningSettings_1a291bf934822137a6685cef431d10ee55" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>positioningDevice</name></member>
+      <member refid="classQfPositioningSettings_1a7b5b487d6e5a152927f2c535f6ddb7ff" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>positioningDeviceName</name></member>
+      <member refid="classQfPositioningSettings_1a8b52a787c5918ca7e8f32241410f9875" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>preciseViewAutoRotate</name></member>
+      <member refid="classQfPositioningSettings_1aa18d20e51a6536e6c4db955823b72ddb" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>preciseViewPrecision</name></member>
+      <member refid="classQfPositioningSettings_1af8298fdc3fb9755ef98b5c9b2c76afb1" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>preciseViewProximityAlarm</name></member>
+      <member refid="classQfPositioningSettings_1a6979bc2a7efecbaea91d1dc7cc1b21df" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>preciseViewRotationSource</name></member>
+      <member refid="classQfPositioningSettings_1ac454f162ab869f930a87a790132b9560" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>showPositionInformation</name></member>
+      <member refid="classQfPositioningSettings_1a8d3a58cd1802d3ca05777ce7bdfc1a7c" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>skipAltitudeCorrection</name></member>
+      <member refid="classQfPositioningSettings_1a50e73b8cda22cae40300c7c337842c0d" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerErroneousDistance</name></member>
+      <member refid="classQfPositioningSettings_1a8bde943e44d621558bce02ec0f8be471" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerErroneousDistanceSafeguard</name></member>
+      <member refid="classQfPositioningSettings_1ad6d11855dde5d1c272b945bab2b71139" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerMeasureType</name></member>
+      <member refid="classQfPositioningSettings_1af5d363d18d79013f1b690f3c2a2e54c4" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerMeetAllConstraints</name></member>
+      <member refid="classQfPositioningSettings_1accce4761676dc37d751d9fa99c24b5d0" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerMinimumDistance</name></member>
+      <member refid="classQfPositioningSettings_1ac352c77a347b2b1dab083b5e2ad935d9" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerMinimumDistanceConstraint</name></member>
+      <member refid="classQfPositioningSettings_1ab7a32a887a8eeb0f30682b3310009d41" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerSensorCaptureConstraint</name></member>
+      <member refid="classQfPositioningSettings_1ae118f824aeffe2327af2e534e1ebfcaf" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerTimeInterval</name></member>
+      <member refid="classQfPositioningSettings_1a6837b767da0652249d35432abe0b70c6" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>trackerTimeIntervalConstraint</name></member>
+      <member refid="classQfPositioningSettings_1a7e19e29c8e0dfafa3b00bab63de4976f" prot="public" virt="non-virtual"><scope>QfPositioningSettings</scope><name>verticalGrid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

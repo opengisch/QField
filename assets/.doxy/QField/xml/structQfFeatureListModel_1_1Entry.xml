@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfFeatureListModel_1_1Entry" kind="struct" language="C++" prot="private">
+    <compoundname>QfFeatureListModel::Entry</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfFeatureListModel_1_1Entry_1a67db172e597cbaba92a4e4e79870ecf8" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::Entry::displayString</definition>
+        <argsstring></argsstring>
+        <name>displayString</name>
+        <qualifiedname>QfFeatureListModel::Entry::displayString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="288" column="17" bodyfile="src/core/qffeaturelistmodel.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureListModel_1_1Entry_1a5e2b639dff2af2e875471a938080bca1" prot="public" static="no" mutable="no">
+        <type>QVariant</type>
+        <definition>QVariant QfFeatureListModel::Entry::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <qualifiedname>QfFeatureListModel::Entry::key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="289" column="18" bodyfile="src/core/qffeaturelistmodel.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureListModel_1_1Entry_1ab2233bedd40952fca47c67dc2fa2e9c0" prot="public" static="no" mutable="no">
+        <type>QVariant</type>
+        <definition>QVariant QfFeatureListModel::Entry::group</definition>
+        <argsstring></argsstring>
+        <name>group</name>
+        <qualifiedname>QfFeatureListModel::Entry::group</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="290" column="18" bodyfile="src/core/qffeaturelistmodel.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureListModel_1_1Entry_1ad69757e31e3f2480d08b3b3c1084d2a8" prot="public" static="no" mutable="no">
+        <type>QgsFeatureId</type>
+        <definition>QgsFeatureId QfFeatureListModel::Entry::fid</definition>
+        <argsstring></argsstring>
+        <name>fid</name>
+        <qualifiedname>QfFeatureListModel::Entry::fid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="291" column="22" bodyfile="src/core/qffeaturelistmodel.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureListModel_1_1Entry_1ab1cb293f73393fab24440ba8836f2be8" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureListModel::Entry::orderByValue</definition>
+        <argsstring></argsstring>
+        <name>orderByValue</name>
+        <qualifiedname>QfFeatureListModel::Entry::orderByValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="292" column="17" bodyfile="src/core/qffeaturelistmodel.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureListModel_1_1Entry_1a653cd268a70eec85386669bba150ec58" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfFeatureListModel::Entry::fuzzyScore</definition>
+        <argsstring></argsstring>
+        <name>fuzzyScore</name>
+        <qualifiedname>QfFeatureListModel::Entry::fuzzyScore</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="293" column="16" bodyfile="src/core/qffeaturelistmodel.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfFeatureListModel_1_1Entry_1a8d4a3871b703ed0c54f82751edd6c145" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureListModel::Entry::Entry</definition>
+        <argsstring>(const QString &amp;displayString, const QVariant &amp;key, const QVariant &amp;group, const QgsFeatureId &amp;fid, const QString &amp;orderByValue)</argsstring>
+        <name>Entry</name>
+        <qualifiedname>QfFeatureListModel::Entry::Entry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>displayString</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>group</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureId &amp;</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>orderByValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="277" column="9" bodyfile="src/core/qffeaturelistmodel.h" bodystart="277" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfFeatureListModel_1_1Entry_1af049c9df23534ead371b7e2b98d5cddc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureListModel::Entry::Entry</definition>
+        <argsstring>()=default</argsstring>
+        <name>Entry</name>
+        <qualifiedname>QfFeatureListModel::Entry::Entry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturelistmodel.h" line="286" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qffeaturelistmodel.h" line="275" column="5" bodyfile="src/core/qffeaturelistmodel.h" bodystart="276" bodyend="294"/>
+    <listofallmembers>
+      <member refid="structQfFeatureListModel_1_1Entry_1a67db172e597cbaba92a4e4e79870ecf8" prot="public" virt="non-virtual"><scope>QfFeatureListModel::Entry</scope><name>displayString</name></member>
+      <member refid="structQfFeatureListModel_1_1Entry_1a8d4a3871b703ed0c54f82751edd6c145" prot="public" virt="non-virtual"><scope>QfFeatureListModel::Entry</scope><name>Entry</name></member>
+      <member refid="structQfFeatureListModel_1_1Entry_1af049c9df23534ead371b7e2b98d5cddc" prot="public" virt="non-virtual"><scope>QfFeatureListModel::Entry</scope><name>Entry</name></member>
+      <member refid="structQfFeatureListModel_1_1Entry_1ad69757e31e3f2480d08b3b3c1084d2a8" prot="public" virt="non-virtual"><scope>QfFeatureListModel::Entry</scope><name>fid</name></member>
+      <member refid="structQfFeatureListModel_1_1Entry_1a653cd268a70eec85386669bba150ec58" prot="public" virt="non-virtual"><scope>QfFeatureListModel::Entry</scope><name>fuzzyScore</name></member>
+      <member refid="structQfFeatureListModel_1_1Entry_1ab2233bedd40952fca47c67dc2fa2e9c0" prot="public" virt="non-virtual"><scope>QfFeatureListModel::Entry</scope><name>group</name></member>
+      <member refid="structQfFeatureListModel_1_1Entry_1a5e2b639dff2af2e875471a938080bca1" prot="public" virt="non-virtual"><scope>QfFeatureListModel::Entry</scope><name>key</name></member>
+      <member refid="structQfFeatureListModel_1_1Entry_1ab1cb293f73393fab24440ba8836f2be8" prot="public" virt="non-virtual"><scope>QfFeatureListModel::Entry</scope><name>orderByValue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

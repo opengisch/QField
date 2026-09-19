@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDigitizingLayerInformationView" kind="class" language="C++" prot="public">
+    <compoundname>QfDigitizingLayerInformationView</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDigitizingLayerInformationView_1a29ca8b7bc1db835abc2e523b0cbc5666" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingLayerInformationView::allowActiveDigitizingLayerChange</definition>
+        <argsstring></argsstring>
+        <name>allowActiveDigitizingLayerChange</name>
+        <qualifiedname>QfDigitizingLayerInformationView::allowActiveDigitizingLayerChange</qualifiedname>
+        <read>dummyGetter_allowActiveDigitizingLayerChange_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="15" column="1" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLayerInformationView_1a4b1fd81bcf2e35e896b821541855d87e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>VectorLayer</type>
+        <definition>VectorLayer QfDigitizingLayerInformationView::activeDigitizingLayer</definition>
+        <argsstring></argsstring>
+        <name>activeDigitizingLayer</name>
+        <qualifiedname>QfDigitizingLayerInformationView::activeDigitizingLayer</qualifiedname>
+        <read>dummyGetter_activeDigitizingLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="17" column="1" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLayerInformationView_1a568e24b5d15c31b6d49270cba9f66638" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref></type>
+        <definition>QfMarkupCollection QfDigitizingLayerInformationView::activeDigitizingCollection</definition>
+        <argsstring></argsstring>
+        <name>activeDigitizingCollection</name>
+        <qualifiedname>QfDigitizingLayerInformationView::activeDigitizingCollection</qualifiedname>
+        <read>dummyGetter_activeDigitizingCollection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="19" column="1" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1a7e27871ffefe900a00e124af1642dfd0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDigitizingLayerInformationView::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfDigitizingLayerInformationView::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="21" column="5" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1a92d9074c4a1113d3a1f46e4c38952fe8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDigitizingLayerInformationView::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfDigitizingLayerInformationView::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="22" column="5" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1acc3eafcdd5d8de4a3460475a25e578c8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDigitizingLayerInformationView::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfDigitizingLayerInformationView::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="23" column="5" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1af9e932a3b0f165f1b2d2ee555a89c2f9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDigitizingLayerInformationView::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>QfDigitizingLayerInformationView::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="24" column="5" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1ab5aab78024becaf8765324e8555079fe" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDigitizingLayerInformationView::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfDigitizingLayerInformationView::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="25" column="5" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1ab8698440c4a05aac4c7c4bca67b17956" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfDigitizingLayerInformationView::digitizingLayerInformationRow</definition>
+        <argsstring></argsstring>
+        <name>digitizingLayerInformationRow</name>
+        <qualifiedname>QfDigitizingLayerInformationView::digitizingLayerInformationRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="26" column="11" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1abf1846c8ae089d8f7174300b4574d02c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QfDigitizingLayerInformationView::digitizingLayerComboBox</definition>
+        <argsstring></argsstring>
+        <name>digitizingLayerComboBox</name>
+        <qualifiedname>QfDigitizingLayerInformationView::digitizingLayerComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="27" column="12" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1a97f61e967ec422af39e7e1860408ee46" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDigitizingLayerInformationView::onActiveDigitizingLayerChanged</definition>
+        <argsstring></argsstring>
+        <name>onActiveDigitizingLayerChanged</name>
+        <qualifiedname>QfDigitizingLayerInformationView::onActiveDigitizingLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="28" column="5" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerInformationView_1a54805f49a6d48a9984a2a0fa03a18996" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfDigitizingLayerInformationView::onActiveDigitizingCollectionChanged</definition>
+        <argsstring></argsstring>
+        <name>onActiveDigitizingCollectionChanged</name>
+        <qualifiedname>QfDigitizingLayerInformationView::onActiveDigitizingCollectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="29" column="5" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfDigitizingLayerInformationView</label>
+        <link refid="classQfDigitizingLayerInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfDigitizingLayerInformationView</label>
+        <link refid="classQfDigitizingLayerInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfDigitizingLayerInformationView.qml" line="12" column="1" bodyfile="src/gui/qml/QfDigitizingLayerInformationView.qml" bodystart="12" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classQfDigitizingLayerInformationView_1a568e24b5d15c31b6d49270cba9f66638" prot="public" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>activeDigitizingCollection</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1a4b1fd81bcf2e35e896b821541855d87e" prot="public" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>activeDigitizingLayer</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1a29ca8b7bc1db835abc2e523b0cbc5666" prot="public" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>allowActiveDigitizingLayerChange</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1ab5aab78024becaf8765324e8555079fe" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>clip</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1acc3eafcdd5d8de4a3460475a25e578c8" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>color</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1abf1846c8ae089d8f7174300b4574d02c" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>digitizingLayerComboBox</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1ab8698440c4a05aac4c7c4bca67b17956" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>digitizingLayerInformationRow</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1a92d9074c4a1113d3a1f46e4c38952fe8" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>height</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1a54805f49a6d48a9984a2a0fa03a18996" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>onActiveDigitizingCollectionChanged</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1a97f61e967ec422af39e7e1860408ee46" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>onActiveDigitizingLayerChanged</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1af9e932a3b0f165f1b2d2ee555a89c2f9" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>radius</name></member>
+      <member refid="classQfDigitizingLayerInformationView_1a7e27871ffefe900a00e124af1642dfd0" prot="private" virt="non-virtual"><scope>QfDigitizingLayerInformationView</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

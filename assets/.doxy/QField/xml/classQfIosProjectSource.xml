@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfIosProjectSource" kind="class" language="C++" prot="public">
+    <compoundname>QfIosProjectSource</compoundname>
+    <basecompoundref refid="classQfProjectSource" prot="public" virt="non-virtual">QfProjectSource</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfIosProjectSource_1aeb75b25a50e1e1f05695658e94eaed3a" prot="private" static="no" mutable="no">
+        <type>QQuickItem *</type>
+        <definition>QQuickItem* QfIosProjectSource::mParent</definition>
+        <argsstring></argsstring>
+        <name>mParent</name>
+        <qualifiedname>QfIosProjectSource::mParent</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosprojectsource.h" line="34" column="16" bodyfile="src/core/platforms/ios/qfiosprojectsource.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfIosProjectSource_1a3f2b16f0ed9b80d9104d9d40cbd7f51a" prot="private" static="no" mutable="no">
+        <type>ProjectDelegateContainer *</type>
+        <definition>ProjectDelegateContainer* QfIosProjectSource::mDelegate</definition>
+        <argsstring></argsstring>
+        <name>mDelegate</name>
+        <qualifiedname>QfIosProjectSource::mDelegate</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosprojectsource.h" line="36" column="30" bodyfile="src/core/platforms/ios/qfiosprojectsource.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfIosProjectSource_1a732a3e4ae287653c6b04fb8e00c3685d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfIosProjectSource::QfIosProjectSource</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfIosProjectSource</name>
+        <qualifiedname>QfIosProjectSource::QfIosProjectSource</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosprojectsource.h" line="26" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosProjectSource_1aeb8a27818109e3d1242277598782b6dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfIosProjectSource::projectFromFolder</definition>
+        <argsstring>(const QString &amp;folder) const</argsstring>
+        <name>projectFromFolder</name>
+        <qualifiedname>QfIosProjectSource::projectFromFolder</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>folder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosprojectsource.h" line="28" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQfIosProjectSource_1aefe864af584e5e650560af092ce91c5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIosProjectSource::pickProject</definition>
+        <argsstring>()</argsstring>
+        <name>pickProject</name>
+        <qualifiedname>QfIosProjectSource::pickProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosprojectsource.h" line="31" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfIosProjectSource</label>
+        <link refid="classQfIosProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProjectSource</label>
+        <link refid="classQfProjectSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfIosProjectSource</label>
+        <link refid="classQfIosProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProjectSource</label>
+        <link refid="classQfProjectSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/ios/qfiosprojectsource.h" line="21" column="1" bodyfile="src/core/platforms/ios/qfiosprojectsource.h" bodystart="22" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classQfIosProjectSource_1a3f2b16f0ed9b80d9104d9d40cbd7f51a" prot="private" virt="non-virtual"><scope>QfIosProjectSource</scope><name>mDelegate</name></member>
+      <member refid="classQfIosProjectSource_1aeb75b25a50e1e1f05695658e94eaed3a" prot="private" virt="non-virtual"><scope>QfIosProjectSource</scope><name>mParent</name></member>
+      <member refid="classQfIosProjectSource_1aefe864af584e5e650560af092ce91c5b" prot="public" virt="non-virtual"><scope>QfIosProjectSource</scope><name>pickProject</name></member>
+      <member refid="classQfIosProjectSource_1aeb8a27818109e3d1242277598782b6dc" prot="public" virt="non-virtual"><scope>QfIosProjectSource</scope><name>projectFromFolder</name></member>
+      <member refid="classQfProjectSource_1adc4532110af12c95850a2c101e6bfdc5" prot="public" virt="non-virtual"><scope>QfIosProjectSource</scope><name>projectOpened</name></member>
+      <member refid="classQfIosProjectSource_1a732a3e4ae287653c6b04fb8e00c3685d" prot="public" virt="non-virtual"><scope>QfIosProjectSource</scope><name>QfIosProjectSource</name></member>
+      <member refid="classQfProjectSource_1aa82e948d313a99a510e226abd8401202" prot="public" virt="non-virtual"><scope>QfIosProjectSource</scope><name>QfProjectSource</name></member>
+      <member refid="classQfProjectSource_1a697f5a684892c360904c307a65c15697" prot="public" virt="virtual"><scope>QfIosProjectSource</scope><name>~QfProjectSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

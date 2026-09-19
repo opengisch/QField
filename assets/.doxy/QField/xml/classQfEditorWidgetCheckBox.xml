@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEditorWidgetCheckBox" kind="class" language="C++" prot="public">
+    <compoundname>QfEditorWidgetCheckBox</compoundname>
+    <basecompoundref refid="classQfEditorWidgetBase" prot="public" virt="non-virtual">QfEditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEditorWidgetCheckBox_1acb02a0b4f3614df0ab39de23364a9bc6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetCheckBox::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfEditorWidgetCheckBox::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="7" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetCheckBox_1aeb81c828089da4340751b6271a2d94d9" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfEditorWidgetCheckBox::checkValue</definition>
+        <argsstring></argsstring>
+        <name>checkValue</name>
+        <qualifiedname>QfEditorWidgetCheckBox::checkValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="21" column="7" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetCheckBox_1aa19a259a66b21cb3399d2de76659dca0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch QfEditorWidgetCheckBox::checkBox</definition>
+        <argsstring></argsstring>
+        <name>checkBox</name>
+        <qualifiedname>QfEditorWidgetCheckBox::checkBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="22" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetCheckBox_1a60a66045ec5f7d75021702ba324f7b19" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea QfEditorWidgetCheckBox::checkArea</definition>
+        <argsstring></argsstring>
+        <name>checkArea</name>
+        <qualifiedname>QfEditorWidgetCheckBox::checkArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="23" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetCheckBox_1aff317a76d3727d7d6e157d7f2b47a524" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfEditorWidgetCheckBox::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfEditorWidgetCheckBox::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="24" column="13" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfEditorWidgetCheckBox_1ab9f386a1ee3a1930f80b5d83fbf2a9be" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetCheckBox::isBool</definition>
+        <argsstring></argsstring>
+        <name>isBool</name>
+        <qualifiedname>QfEditorWidgetCheckBox::isBool</qualifiedname>
+        <read>dummyGetter_isBool_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="11" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetCheckBox_1ae57f6b573e39c705f5ff30771b4f4181" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetCheckBox::checkedState</definition>
+        <argsstring></argsstring>
+        <name>checkedState</name>
+        <qualifiedname>QfEditorWidgetCheckBox::checkedState</qualifiedname>
+        <read>dummyGetter_checkedState_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="13" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetCheckBox_1a62aa98b7329c5c2a96d92e35a62ace9f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetCheckBox::uncheckedState</definition>
+        <argsstring></argsstring>
+        <name>uncheckedState</name>
+        <qualifiedname>QfEditorWidgetCheckBox::uncheckedState</qualifiedname>
+        <read>dummyGetter_uncheckedState_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="15" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetCheckBox_1accabbe2523b8912918b62d9179aaf221" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfEditorWidgetCheckBox::checkedLabel</definition>
+        <argsstring></argsstring>
+        <name>checkedLabel</name>
+        <qualifiedname>QfEditorWidgetCheckBox::checkedLabel</qualifiedname>
+        <read>dummyGetter_checkedLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="17" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetCheckBox_1a7b3521609dc251572f3643ab9fbd89aa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfEditorWidgetCheckBox::uncheckedLabel</definition>
+        <argsstring></argsstring>
+        <name>uncheckedLabel</name>
+        <qualifiedname>QfEditorWidgetCheckBox::uncheckedLabel</qualifiedname>
+        <read>dummyGetter_uncheckedLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="19" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetCheckBox</label>
+        <link refid="classQfEditorWidgetCheckBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetCheckBox</label>
+        <link refid="classQfEditorWidgetCheckBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" line="6" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetCheckBox.qml" bodystart="6" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classQfEditorWidgetCheckBox_1a60a66045ec5f7d75021702ba324f7b19" prot="private" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>checkArea</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1aa19a259a66b21cb3399d2de76659dca0" prot="private" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>checkBox</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1accabbe2523b8912918b62d9179aaf221" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>checkedLabel</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1ae57f6b573e39c705f5ff30771b4f4181" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>checkedState</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1aeb81c828089da4340751b6271a2d94d9" prot="private" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>checkValue</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1aff317a76d3727d7d6e157d7f2b47a524" prot="private" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>fontMetrics</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>hasMenu</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1acb02a0b4f3614df0ab39de23364a9bc6" prot="private" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>height</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1ab9f386a1ee3a1930f80b5d83fbf2a9be" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>isBool</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>isNull</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>menu</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>requestBarcode</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1a7b3521609dc251572f3643ab9fbd89aa" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>uncheckedLabel</name></member>
+      <member refid="classQfEditorWidgetCheckBox_1a62aa98b7329c5c2a96d92e35a62ace9f" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>uncheckedState</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>QfEditorWidgetCheckBox</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

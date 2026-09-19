@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFeatureIterator" kind="class" language="C++" prot="public">
+    <compoundname>QfFeatureIterator</compoundname>
+    <includes refid="qflayerutils_8h" local="no">qflayerutils.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFeatureIterator_1ad3f2469be6df000de8fac1ae9b9847c2" prot="private" static="no" mutable="no">
+        <type>QgsFeatureIterator</type>
+        <definition>QgsFeatureIterator QfFeatureIterator::mFeatureIterator</definition>
+        <argsstring></argsstring>
+        <name>mFeatureIterator</name>
+        <qualifiedname>QfFeatureIterator::mFeatureIterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qflayerutils.h" line="81" column="24" bodyfile="src/core/utils/qflayerutils.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureIterator_1a8efa90916daeb1e8e10319be1ebc4a85" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureIterator::mCurrentFeature</definition>
+        <argsstring></argsstring>
+        <name>mCurrentFeature</name>
+        <qualifiedname>QfFeatureIterator::mCurrentFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qflayerutils.h" line="82" column="16" bodyfile="src/core/utils/qflayerutils.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureIterator_1a492db8faad800fc0739f0a5557c3e2d4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureIterator::mHasNext</definition>
+        <argsstring></argsstring>
+        <name>mHasNext</name>
+        <qualifiedname>QfFeatureIterator::mHasNext</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qflayerutils.h" line="84" column="10" bodyfile="src/core/utils/qflayerutils.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureIterator_1a8a422fc9b43add50fc2001e331262321" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureIterator::mHasNextChecked</definition>
+        <argsstring></argsstring>
+        <name>mHasNextChecked</name>
+        <qualifiedname>QfFeatureIterator::mHasNextChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qflayerutils.h" line="85" column="10" bodyfile="src/core/utils/qflayerutils.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFeatureIterator_1af394170e3f6c0077a6d878a7d4cd8455" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureIterator::QfFeatureIterator</definition>
+        <argsstring>(QgsVectorLayer *layer=nullptr, const QgsFeatureRequest &amp;request=QgsFeatureRequest())</argsstring>
+        <name>QfFeatureIterator</name>
+        <qualifiedname>QfFeatureIterator::QfFeatureIterator</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>const QgsFeatureRequest &amp;</type>
+          <declname>request</declname>
+          <defval>QgsFeatureRequest()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qflayerutils.h" line="44" column="5" bodyfile="src/core/utils/qflayerutils.h" bodystart="44" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureIterator_1adc1ece41b1cea8c695dd8fb47363f520" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>Q_INVOKABLE bool QfFeatureIterator::hasNext</definition>
+        <argsstring>()</argsstring>
+        <name>hasNext</name>
+        <qualifiedname>QfFeatureIterator::hasNext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qflayerutils.h" line="52" column="22" bodyfile="src/core/utils/qflayerutils.h" bodystart="52" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureIterator_1a60275ae3d1f8770d4e26c52fa2cfe29b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>Q_INVOKABLE QgsFeature QfFeatureIterator::next</definition>
+        <argsstring>()</argsstring>
+        <name>next</name>
+        <qualifiedname>QfFeatureIterator::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qflayerutils.h" line="62" column="28" bodyfile="src/core/utils/qflayerutils.h" bodystart="62" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureIterator_1a6a6bc40cc9947be22525e60ec9b69690" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>Q_INVOKABLE void QfFeatureIterator::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <qualifiedname>QfFeatureIterator::close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qflayerutils.h" line="75" column="22" bodyfile="src/core/utils/qflayerutils.h" bodystart="75" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A class providing a feature iterator interface to be used within QML/javascript environment.</para>
+<para>Users of this class must manually call its close() once feature iteration is finished. </para>
+    </detaileddescription>
+    <location file="src/core/utils/qflayerutils.h" line="39" column="1" bodyfile="src/core/utils/qflayerutils.h" bodystart="40" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classQfFeatureIterator_1a6a6bc40cc9947be22525e60ec9b69690" prot="public" virt="non-virtual"><scope>QfFeatureIterator</scope><name>close</name></member>
+      <member refid="classQfFeatureIterator_1adc1ece41b1cea8c695dd8fb47363f520" prot="public" virt="non-virtual"><scope>QfFeatureIterator</scope><name>hasNext</name></member>
+      <member refid="classQfFeatureIterator_1a8efa90916daeb1e8e10319be1ebc4a85" prot="private" virt="non-virtual"><scope>QfFeatureIterator</scope><name>mCurrentFeature</name></member>
+      <member refid="classQfFeatureIterator_1ad3f2469be6df000de8fac1ae9b9847c2" prot="private" virt="non-virtual"><scope>QfFeatureIterator</scope><name>mFeatureIterator</name></member>
+      <member refid="classQfFeatureIterator_1a492db8faad800fc0739f0a5557c3e2d4" prot="private" virt="non-virtual"><scope>QfFeatureIterator</scope><name>mHasNext</name></member>
+      <member refid="classQfFeatureIterator_1a8a422fc9b43add50fc2001e331262321" prot="private" virt="non-virtual"><scope>QfFeatureIterator</scope><name>mHasNextChecked</name></member>
+      <member refid="classQfFeatureIterator_1a60275ae3d1f8770d4e26c52fa2cfe29b" prot="public" virt="non-virtual"><scope>QfFeatureIterator</scope><name>next</name></member>
+      <member refid="classQfFeatureIterator_1af394170e3f6c0077a6d878a7d4cd8455" prot="public" virt="non-virtual"><scope>QfFeatureIterator</scope><name>QfFeatureIterator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

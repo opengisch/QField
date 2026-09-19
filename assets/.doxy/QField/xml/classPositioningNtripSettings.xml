@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningNtripSettings" kind="class" language="C++" prot="public">
+    <compoundname>PositioningNtripSettings</compoundname>
+    <basecompoundref refid="classQfPositioningNtripSettings" prot="public" virt="non-virtual">QfPositioningNtripSettings</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningNtripSettings</label>
+        <link refid="classPositioningNtripSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningNtripSettings</label>
+        <link refid="classQfPositioningNtripSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningNtripSettings</label>
+        <link refid="classPositioningNtripSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningNtripSettings</label>
+        <link refid="classQfPositioningNtripSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/PositioningNtripSettings.qml" line="2" column="1" bodyfile="src/app/qml_compat/PositioningNtripSettings.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfPositioningNtripSettings_1a2523e8de735ddef151bdc172ab82a680" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>apply</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

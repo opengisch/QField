@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMarkupLegend" kind="class" language="C++" prot="public">
+    <compoundname>QfMarkupLegend</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ListView</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMarkupLegend_1a102d6005dff81391be67853d7e29eb60" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMarkupLegend::isVisible</definition>
+        <argsstring></argsstring>
+        <name>isVisible</name>
+        <qualifiedname>QfMarkupLegend::isVisible</qualifiedname>
+        <read>dummyGetter_isVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="15" column="1" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupLegend_1a700fea777a39601b2528930bd82f6fce" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMarkupLegend::allowActiveCollectionChange</definition>
+        <argsstring></argsstring>
+        <name>allowActiveCollectionChange</name>
+        <qualifiedname>QfMarkupLegend::allowActiveCollectionChange</qualifiedname>
+        <read>dummyGetter_allowActiveCollectionChange_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="17" column="1" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupLegend_1ab7df4b5ffe49b92d6b2ebebf8a6b2e31" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref></type>
+        <definition>QfMarkupCollection QfMarkupLegend::activeCollection</definition>
+        <argsstring></argsstring>
+        <name>activeCollection</name>
+        <qualifiedname>QfMarkupLegend::activeCollection</qualifiedname>
+        <read>dummyGetter_activeCollection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="19" column="1" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMarkupLegend_1a315e866a186ba57bdfdac6303a5d481d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegend::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfMarkupLegend::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="21" column="5" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegend_1a4b729bbfa36c85c071df9af6d2dc5c7f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegend::flickableDirection</definition>
+        <argsstring></argsstring>
+        <name>flickableDirection</name>
+        <qualifiedname>QfMarkupLegend::flickableDirection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="22" column="5" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegend_1a3dfa1eabdb84834d944d9dff5def56e1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegend::boundsBehavior</definition>
+        <argsstring></argsstring>
+        <name>boundsBehavior</name>
+        <qualifiedname>QfMarkupLegend::boundsBehavior</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="23" column="5" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegend_1aec1e4efd912f31ff38d26f8a2dc55e5c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegend::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfMarkupLegend::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="24" column="5" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegend_1a6b6bc3b3c2d5e28ca55e804c8509525f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegend::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfMarkupLegend::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="25" column="5" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegend_1a9b95b8d2f02725569de521a6b09a44ff" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegend::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>QfMarkupLegend::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegend.qml" line="26" column="5" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ListView</label>
+      </node>
+      <node id="1">
+        <label>QfMarkupLegend</label>
+        <link refid="classQfMarkupLegend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ListView</label>
+      </node>
+      <node id="1">
+        <label>QfMarkupLegend</label>
+        <link refid="classQfMarkupLegend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfMarkupLegend.qml" line="12" column="1" bodyfile="src/gui/qml/QfMarkupLegend.qml" bodystart="12" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classQfMarkupLegend_1ab7df4b5ffe49b92d6b2ebebf8a6b2e31" prot="public" virt="non-virtual"><scope>QfMarkupLegend</scope><name>activeCollection</name></member>
+      <member refid="classQfMarkupLegend_1a700fea777a39601b2528930bd82f6fce" prot="public" virt="non-virtual"><scope>QfMarkupLegend</scope><name>allowActiveCollectionChange</name></member>
+      <member refid="classQfMarkupLegend_1a3dfa1eabdb84834d944d9dff5def56e1" prot="private" virt="non-virtual"><scope>QfMarkupLegend</scope><name>boundsBehavior</name></member>
+      <member refid="classQfMarkupLegend_1aec1e4efd912f31ff38d26f8a2dc55e5c" prot="private" virt="non-virtual"><scope>QfMarkupLegend</scope><name>clip</name></member>
+      <member refid="classQfMarkupLegend_1a9b95b8d2f02725569de521a6b09a44ff" prot="private" virt="non-virtual"><scope>QfMarkupLegend</scope><name>delegate</name></member>
+      <member refid="classQfMarkupLegend_1a4b729bbfa36c85c071df9af6d2dc5c7f" prot="private" virt="non-virtual"><scope>QfMarkupLegend</scope><name>flickableDirection</name></member>
+      <member refid="classQfMarkupLegend_1a102d6005dff81391be67853d7e29eb60" prot="public" virt="non-virtual"><scope>QfMarkupLegend</scope><name>isVisible</name></member>
+      <member refid="classQfMarkupLegend_1a315e866a186ba57bdfdac6303a5d481d" prot="private" virt="non-virtual"><scope>QfMarkupLegend</scope><name>model</name></member>
+      <member refid="classQfMarkupLegend_1a6b6bc3b3c2d5e28ca55e804c8509525f" prot="private" virt="non-virtual"><scope>QfMarkupLegend</scope><name>spacing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMarkupItem" kind="class" language="C++" prot="public">
+    <compoundname>QfMarkupItem</compoundname>
+    <includes refid="qfmarkupitem_8h" local="no">qfmarkupitem.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMarkupItem_1a5dc6a290274f526b64f875096a4eff1b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupItem::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>QfMarkupItem::label</qualifiedname>
+        <read>label</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="32" column="5" bodyfile="src/core/qfmarkupitem.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupItem_1a88c88dd8ce1ad63dbe2a9ccdcfff4656" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupItem::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>QfMarkupItem::description</qualifiedname>
+        <read>description</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="33" column="5" bodyfile="src/core/qfmarkupitem.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupItem_1ac282c9221aa2a6aca43920df7f558b0a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfMarkupItem::geometry</definition>
+        <argsstring></argsstring>
+        <name>geometry</name>
+        <qualifiedname>QfMarkupItem::geometry</qualifiedname>
+        <read>geometry</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="34" column="5" bodyfile="src/core/qfmarkupitem.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupItem_1aba67c53bdc19eca5e3b9f8d889076ecf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfMarkupItem::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfMarkupItem::color</qualifiedname>
+        <read>color</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="35" column="5" bodyfile="src/core/qfmarkupitem.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMarkupItem_1abd1eb015b8c7d09d3363c08fa4c378a0" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupItem::mLabel</definition>
+        <argsstring></argsstring>
+        <name>mLabel</name>
+        <qualifiedname>QfMarkupItem::mLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="63" column="13" bodyfile="src/core/qfmarkupitem.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupItem_1abfa7b0a3dd42b54ad1dfbde7f1cf90fd" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupItem::mDescription</definition>
+        <argsstring></argsstring>
+        <name>mDescription</name>
+        <qualifiedname>QfMarkupItem::mDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="64" column="13" bodyfile="src/core/qfmarkupitem.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupItem_1aeb89b857721673cb090390669aa580ae" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfMarkupItem::mGeometry</definition>
+        <argsstring></argsstring>
+        <name>mGeometry</name>
+        <qualifiedname>QfMarkupItem::mGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="65" column="17" bodyfile="src/core/qfmarkupitem.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupItem_1a21d8d5017a61524e550be314b62ab293" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfMarkupItem::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>QfMarkupItem::mColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="66" column="12" bodyfile="src/core/qfmarkupitem.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfMarkupItem_1ab8a4470da1ff4ba592c5f43949259cc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfMarkupItem::QfMarkupItem</definition>
+        <argsstring>()=default</argsstring>
+        <name>QfMarkupItem</name>
+        <qualifiedname>QfMarkupItem::QfMarkupItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="38" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupItem_1a52df03f2bed93584d559e74cdfcdb4d8" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfMarkupItem::QfMarkupItem</definition>
+        <argsstring>(const QString &amp;label, const QString &amp;description, const QgsGeometry &amp;geometry, const QColor &amp;color)</argsstring>
+        <name>QfMarkupItem</name>
+        <qualifiedname>QfMarkupItem::QfMarkupItem</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="39" column="14" bodyfile="src/core/qfmarkupitem.cpp" bodystart="20" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupItem_1ab93219c2c2808c88342a246e1be12f7a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfMarkupItem::label</definition>
+        <argsstring>() const</argsstring>
+        <name>label</name>
+        <qualifiedname>QfMarkupItem::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the markup item label. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="44" column="13" bodyfile="src/core/qfmarkupitem.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupItem_1aebc7f457e8f2835b0df35dc737896e91" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfMarkupItem::description</definition>
+        <argsstring>() const</argsstring>
+        <name>description</name>
+        <qualifiedname>QfMarkupItem::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the markup item description. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="49" column="13" bodyfile="src/core/qfmarkupitem.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupItem_1ae3d7ed301517b2b66fcbdf014c9ca5a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfMarkupItem::geometry</definition>
+        <argsstring>() const</argsstring>
+        <name>geometry</name>
+        <qualifiedname>QfMarkupItem::geometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the markup item geometry. <simplesect kind="note"><para>The geometry CRS must be WGS84 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="55" column="17" bodyfile="src/core/qfmarkupitem.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupItem_1ac842ff1541de0b8147ce72a9bb3c124c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfMarkupItem::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>QfMarkupItem::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the markup item color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupitem.h" line="60" column="12" bodyfile="src/core/qfmarkupitem.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This class represents a markup item. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfmarkupitem.h" line="28" column="1" bodyfile="src/core/qfmarkupitem.h" bodystart="29" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classQfMarkupItem_1aba67c53bdc19eca5e3b9f8d889076ecf" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>color</name></member>
+      <member refid="classQfMarkupItem_1ac842ff1541de0b8147ce72a9bb3c124c" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>color</name></member>
+      <member refid="classQfMarkupItem_1a88c88dd8ce1ad63dbe2a9ccdcfff4656" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>description</name></member>
+      <member refid="classQfMarkupItem_1aebc7f457e8f2835b0df35dc737896e91" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>description</name></member>
+      <member refid="classQfMarkupItem_1ac282c9221aa2a6aca43920df7f558b0a" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>geometry</name></member>
+      <member refid="classQfMarkupItem_1ae3d7ed301517b2b66fcbdf014c9ca5a6" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>geometry</name></member>
+      <member refid="classQfMarkupItem_1a5dc6a290274f526b64f875096a4eff1b" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>label</name></member>
+      <member refid="classQfMarkupItem_1ab93219c2c2808c88342a246e1be12f7a" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>label</name></member>
+      <member refid="classQfMarkupItem_1a21d8d5017a61524e550be314b62ab293" prot="private" virt="non-virtual"><scope>QfMarkupItem</scope><name>mColor</name></member>
+      <member refid="classQfMarkupItem_1abfa7b0a3dd42b54ad1dfbde7f1cf90fd" prot="private" virt="non-virtual"><scope>QfMarkupItem</scope><name>mDescription</name></member>
+      <member refid="classQfMarkupItem_1aeb89b857721673cb090390669aa580ae" prot="private" virt="non-virtual"><scope>QfMarkupItem</scope><name>mGeometry</name></member>
+      <member refid="classQfMarkupItem_1abd1eb015b8c7d09d3363c08fa4c378a0" prot="private" virt="non-virtual"><scope>QfMarkupItem</scope><name>mLabel</name></member>
+      <member refid="classQfMarkupItem_1ab8a4470da1ff4ba592c5f43949259cc2" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>QfMarkupItem</name></member>
+      <member refid="classQfMarkupItem_1a52df03f2bed93584d559e74cdfcdb4d8" prot="public" virt="non-virtual"><scope>QfMarkupItem</scope><name>QfMarkupItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

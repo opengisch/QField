@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEditorWidgetColor" kind="class" language="C++" prot="public">
+    <compoundname>QfEditorWidgetColor</compoundname>
+    <basecompoundref refid="classQfEditorWidgetBase" prot="public" virt="non-virtual">QfEditorWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfEditorWidgetColor_1ad09454278da002896d954e5f73afe60e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfEditorWidgetColor::desiredHeight</definition>
+        <argsstring></argsstring>
+        <name>desiredHeight</name>
+        <qualifiedname>QfEditorWidgetColor::desiredHeight</qualifiedname>
+        <read>dummyGetter_desiredHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" line="9" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEditorWidgetColor_1a8e71bb85d96561ba24f11d13d1905aa1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetColor::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfEditorWidgetColor::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" line="11" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetColor_1a1604a85e46ac3c2c499a6c6db7232f2b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetColor::onEnabledChanged</definition>
+        <argsstring></argsstring>
+        <name>onEnabledChanged</name>
+        <qualifiedname>QfEditorWidgetColor::onEnabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" line="12" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetColor_1a8f6588ea78ba50fae904e3b356c0735d" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView QfEditorWidgetColor::colorContainer</definition>
+        <argsstring></argsstring>
+        <name>colorContainer</name>
+        <qualifiedname>QfEditorWidgetColor::colorContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" line="13" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetColor_1a4873d24f24dbc9dc1d9ee069bb178ae0" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfEditorWidgetColor::currentColorView</definition>
+        <argsstring></argsstring>
+        <name>currentColorView</name>
+        <qualifiedname>QfEditorWidgetColor::currentColorView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" line="14" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetColor_1acc55604ff18de5730d9bd9b83b6b0b18" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfEditorWidgetColor::colorArea</definition>
+        <argsstring></argsstring>
+        <name>colorArea</name>
+        <qualifiedname>QfEditorWidgetColor::colorArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" line="15" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetColor_1a2a5764cf9433b65f3d599ead3d0b6f27" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfEditorWidgetColor::selectColorView</definition>
+        <argsstring></argsstring>
+        <name>selectColorView</name>
+        <qualifiedname>QfEditorWidgetColor::selectColorView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" line="16" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetColor</label>
+        <link refid="classQfEditorWidgetColor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetColor</label>
+        <link refid="classQfEditorWidgetColor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" line="6" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetColor.qml" bodystart="6" bodyend="17"/>
+    <listofallmembers>
+      <member refid="classQfEditorWidgetColor_1acc55604ff18de5730d9bd9b83b6b0b18" prot="private" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>colorArea</name></member>
+      <member refid="classQfEditorWidgetColor_1a8f6588ea78ba50fae904e3b356c0735d" prot="private" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>colorContainer</name></member>
+      <member refid="classQfEditorWidgetColor_1a4873d24f24dbc9dc1d9ee069bb178ae0" prot="private" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>currentColorView</name></member>
+      <member refid="classQfEditorWidgetColor_1ad09454278da002896d954e5f73afe60e" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>desiredHeight</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>hasMenu</name></member>
+      <member refid="classQfEditorWidgetColor_1a8e71bb85d96561ba24f11d13d1905aa1" prot="private" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>height</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>isNull</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>menu</name></member>
+      <member refid="classQfEditorWidgetColor_1a1604a85e46ac3c2c499a6c6db7232f2b" prot="private" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>onEnabledChanged</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>requestBarcode</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEditorWidgetColor_1a2a5764cf9433b65f3d599ead3d0b6f27" prot="private" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>selectColorView</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>QfEditorWidgetColor</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
