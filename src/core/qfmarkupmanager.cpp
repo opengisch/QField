@@ -115,7 +115,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
   {
     // A default markup collection is added
     QfMarkupCollection *collection = new QfMarkupCollection( tr( "Default collection" ) );
-    const QString geoJsonPath = QStringLiteral( "%1/%2%3.geojson" ).arg( mPath, !mPrefix.isEmpty() ? QStringLiteral( "%1-" ).arg( mPrefix ) : QString(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+    const QString geoJsonPath = QStringLiteral( "%1/%2markup-%3.geojson" ).arg( mPath, !mPrefix.isEmpty() ? QStringLiteral( "%1-" ).arg( mPrefix ) : QString(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
     insertCollection( geoJsonPath, collection );
   }
 
@@ -153,16 +153,10 @@ void QfMarkupManager::processCollectionItemsChanged()
     return;
   }
 
-  const QString geoJsonPath = mCollections.key( collection );
+  QString geoJsonPath = mCollections.key( collection );
   emit collectionItemsChanged( geoJsonPath );
 
-  QString filename = collection->name();
-  if ( !mPrefix.isEmpty() )
-  {
-    filename.prepend( QStringLiteral( "%1-" ).arg( mPrefix ) );
-  }
-  filename = QfFileUtils::sanitizeFilePathPart( filename );
-  if ( !collection->writeGeoJson( QStringLiteral( "%1%2%3.geojson" ).arg( mPath, QDir::separator(), filename ) ) )
+  if ( !collection->writeGeoJson( geoJsonPath ) )
   {
     qInfo() << QStringLiteral( "Error: Markup collection '%1' could not be written on disk" ).arg( collection->name() );
   }
