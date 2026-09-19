@@ -1224,7 +1224,8 @@ ApplicationWindow {
           }
           return Number.NaN;
         }
-        vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
+        vectorLayer: !markupToolbar.stateVisible ? digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer : null
+        geometryType: markupToolbar.stateVisible || !vectorLayer ? Qgis.GeometryType.Line : vectorLayer.geometryType()
         crs: mapCanvas.mapSettings.destinationCrs
       }
 
