@@ -408,6 +408,201 @@ void QfCloudConnection::fetchLegacyAuthenticationProviders()
   } );
 }
 
+void QfCloudConnection::getSignupCaptcha()
+{
+  ensureCsrfToken( QStringLiteral( "/accounts/signup/" ), [this]( const QString &error ) {
+    if ( !error.isEmpty() )
+    {
+      emit signupCaptchaFailed( error );
+      return;
+    }
+
+    requestSignupCaptcha();
+  } );
+}
+
+void QfCloudConnection::ensureCsrfToken( const QString &formPath, const std::function<void( const QString &error )> &continuation )
+{
+  if ( !csrfToken().isEmpty() )
+  {
+    continuation( QString() );
+    return;
+  }
+
+  // Loading the form is what makes the server hand out the CSRF cookie its submission needs
+  QNetworkRequest request;
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy );
+  QfNetworkReply *reply = get( request, formPath );
+
+  connect( reply, &QfNetworkReply::finished, this, [reply, continuation]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    reply->deleteLater();
+    rawReply->deleteLater();
+
+    continuation( rawReply->error() != QNetworkReply::NoError ? errorString( rawReply ) : QString() );
+  } );
+}
+
+QByteArray QfCloudConnection::encodeFormBody( const QList<QPair<QString, QString>> &fields )
+{
+  QByteArray body;
+  for ( const QPair<QString, QString> &field : fields )
+  {
+    if ( !body.isEmpty() )
+    {
+      body.append( '&' );
+    }
+
+    body.append( QUrl::toPercentEncoding( field.first ) ).append( '=' ).append( QUrl::toPercentEncoding( field.second ) );
+  }
+
+  return body;
+}
+
+QfNetworkReply *QfCloudConnection::postForm( const QString &path, const QByteArray &body )
+{
+  QNetworkRequest request( QUrl( mUrl + path ) );
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded" );
+  request.setRawHeader( "X-CSRFToken", csrfToken() );
+  request.setRawHeader( "Referer", request.url().toEncoded() );
+  // The redirect itself tells an accepted submission apart from a form rendered again with errors
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy );
+  setClientHeaders( request );
+
+  return QfNetworkManager::post( request, body );
+}
+
+void QfCloudConnection::requestSignupCaptcha()
+{
+  QNetworkRequest request;
+  request.setRawHeader( "X-Requested-With", "XMLHttpRequest" );
+  QfNetworkReply *reply = get( request, QStringLiteral( "/captcha/refresh/" ) );
+
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    reply->deleteLater();
+    rawReply->deleteLater();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      emit signupCaptchaFailed( errorString( rawReply ) );
+      return;
+    }
+
+    const QJsonObject payload = QJsonDocument::fromJson( rawReply->readAll() ).object();
+    const QString key = payload.value( QStringLiteral( "key" ) ).toString();
+    const QString imageUrl = payload.value( QStringLiteral( "image_url" ) ).toString();
+
+    if ( key.isEmpty() || imageUrl.isEmpty() )
+    {
+      emit signupCaptchaFailed( tr( "Captcha temporary unavailable, please retry later" ) );
+      return;
+    }
+
+    emit signupCaptchaReceived( key, mUrl + imageUrl );
+  } );
+}
+
+void QfCloudConnection::registerAccount( const QString &email, const QString &username, const QString &password, bool hasAcceptedTermsOfService, bool hasNewsletterSubscription, const QString &referralCode, const QString &captchaKey, const QString &captchaAnswer )
+{
+  QList<QPair<QString, QString>> fields = {
+    { QStringLiteral( "email" ), email },
+    { QStringLiteral( "username" ), username },
+    { QStringLiteral( "password1" ), password },
+    { QStringLiteral( "password2" ), password },
+    { QStringLiteral( "timezone" ), QfCloudUtils::deviceTimeZoneId() },
+    { QStringLiteral( "referral_code" ), referralCode },
+    { QStringLiteral( "captcha_0" ), captchaKey },
+    { QStringLiteral( "captcha_1" ), captchaAnswer },
+  };
+
+  if ( hasAcceptedTermsOfService )
+  {
+    fields.append( { QStringLiteral( "has_accepted_tos" ), QStringLiteral( "on" ) } );
+  }
+  if ( hasNewsletterSubscription )
+  {
+    fields.append( { QStringLiteral( "has_newsletter_subscription" ), QStringLiteral( "on" ) } );
+  }
+
+  QfNetworkReply *reply = postForm( QStringLiteral( "/accounts/signup/" ), encodeFormBody( fields ) );
+
+  connect( reply, &QfNetworkReply::finished, this, [this, reply, username, password]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    reply->deleteLater();
+    rawReply->deleteLater();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      QVariantMap errors;
+      errors.insert( QString(), errorString( rawReply ) );
+      emit registrationFailed( errors );
+      return;
+    }
+
+    const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+    if ( httpCode >= 300 && httpCode < 400 )
+    {
+      // The form leaves us in a signed in web session, on which the API enforces CSRF instead of taking our credentials
+      const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
+      for ( const QNetworkCookie &cookie : cookies )
+      {
+        QgsNetworkAccessManager::instance()->cookieJar()->deleteCookie( cookie );
+      }
+
+      // The form answers the same way whether the account was created or the email was already taken,
+      // so the login that follows is what tells the two apart
+      QObject *registrationContext = new QObject( this );
+      connect( this, &QfCloudConnection::statusChanged, registrationContext, [this, registrationContext]() {
+        if ( mStatus != ConnectionStatus::LoggedIn )
+        {
+          return;
+        }
+
+        emit registered();
+        registrationContext->deleteLater();
+      } );
+      connect( this, &QfCloudConnection::loginFailed, registrationContext, [this, registrationContext]( const QString &reason ) {
+        QVariantMap errors;
+        errors.insert( QString(), tr( "%1\nIf this email already has an account, check your inbox for a message from QFieldCloud." ).arg( reason ) );
+        emit registrationFailed( errors );
+        registrationContext->deleteLater();
+      } );
+
+      setProvider( QString() );
+      setUsername( username );
+      login( password );
+      return;
+    }
+
+    QVariantMap errors = QfCloudUtils::signupFormErrors( QString::fromUtf8( rawReply->readAll() ) );
+    if ( errors.isEmpty() )
+    {
+      errors.insert( QString(), tr( "The server did not accept the registration" ) );
+    }
+    emit registrationFailed( errors );
+  } );
+}
+
+QByteArray QfCloudConnection::csrfToken() const
+{
+  const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
+  const QList<QNetworkCookie>::const_iterator match = std::find_if( cookies.begin(), cookies.end(), []( const QNetworkCookie &cookie ) { return cookie.name() == QLatin1String( "csrftoken" ); } );
+  return match != cookies.end() ? match->value() : QByteArray();
+}
+
 void QfCloudConnection::login( const QString &password )
 {
   if ( !mProvider.isEmpty() )
