@@ -19,7 +19,8 @@ Item {
     geometryWrapper.crs: QfCoordinateReferenceSystemUtils.wgs84Crs()
     geometryWrapper.qgsGeometry: markupItem.geometry
     color: markupItem.color
-    lineWidth: 3
-    pointSize: 12
+    lineWidth: 4.5
+    borderSize: 4
+    pointSize: 14
   }
 }
