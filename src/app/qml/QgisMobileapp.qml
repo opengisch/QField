@@ -3692,25 +3692,30 @@ ApplicationWindow {
     property bool shouldReturnHome: false
 
     function ensureEditableLayerSelected() {
-      var firstEditableLayer = null;
-      var activeLayerLocked = false;
-      for (var i = 0; i < layerTree.rowCount(); i++) {
-        var index = layerTree.index(i, 0);
+      let firstEditableLayer = null;
+      let activeLayerLocked = false;
+      for (let i = 0; i < layerTree.rowCount(); i++) {
+        let index = layerTree.index(i, 0);
         if (firstEditableLayer === null) {
           if (layerTree.data(index, QfFlatLayerTreeModel.Type) === QfFlatLayerTreeModel.Layer && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === false) {
             firstEditableLayer = layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer);
           }
         }
-        if (activeLayer != null && activeLayer === layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer)) {
+        if (activeLayer !== null && activeLayer === layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer)) {
           if (layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === true) {
             activeLayerLocked = true;
           } else {
             break;
           }
         }
-        if (firstEditableLayer !== null && (activeLayer == null || activeLayerLocked === true)) {
+        if (firstEditableLayer !== null && (activeLayer == null || activeLayerLocked)) {
           activeLayer = firstEditableLayer;
           break;
+        }
+      }
+      if (firstEditableLayer == null && (activeLayer == null || activeLayerLocked)) {
+        if (markupManager.collections.length > 0) {
+          activeCollection = markupManager.collections[0];
         }
       }
     }
@@ -5081,9 +5086,10 @@ ApplicationWindow {
         if (activeCollection != null) {
           dashBoard.activeLayer = null;
           dashBoard.activeCollection = activeCollection;
-        } else {
+        } else if (activeLayer != null) {
           dashBoard.activeLayer = activeLayer;
           dashBoard.activeCollection = null;
+        } else {
           if (stateMachine.state === "digitize") {
             dashBoard.ensureEditableLayerSelected();
           }
