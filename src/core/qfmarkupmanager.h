@@ -124,7 +124,7 @@ class QfMarkupManager : public QObject
     void processCollectionItemsChanged();
 
   private:
-    void insertCollection( const QString &collectionUuid, QfMarkupCollection *collection );
+    void insertCollection( QfMarkupCollection *collection, const QString &collectionPath = QString() );
 
     QString mPath;
     QString mPrefix;
@@ -132,6 +132,7 @@ class QfMarkupManager : public QObject
     QStringList mHiddenCollectionNames;
 
     QMap<QString, QfMarkupCollection *> mCollections;
+    QMap<QString, QString> mCollectionPaths;
 };
 
 #endif // QFMARKUPMANAGER_H

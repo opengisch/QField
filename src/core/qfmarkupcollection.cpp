@@ -25,6 +25,7 @@
 
 QfMarkupCollection::QfMarkupCollection( const QString &name, QObject *parent )
   : QObject( parent )
+  , mUuid( QUuid::createUuid().toString( QUuid::WithoutBraces ) )
   , mName( name )
 {
 }
@@ -40,15 +41,13 @@ void QfMarkupCollection::setName( const QString &name )
   emit nameChanged();
 }
 
-QString QfMarkupCollection::addItem( const QfMarkupItem &item )
+void QfMarkupCollection::addItem( const QfMarkupItem &item )
 {
-  const QString uuid = QUuid::createUuid().toString( QUuid::WithoutBraces );
-  mItems.insert( uuid, item );
+  qDebug() << "adding" << item.uuid();
+  mItems.insert( item.uuid(), item );
 
   emit countChanged();
   emit itemsChanged();
-
-  return uuid;
 }
 
 void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &item )
@@ -56,7 +55,7 @@ void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &i
   if ( mItems.contains( uuid ) )
   {
     mItems[uuid] = item;
-
+    mItems[uuid].mUuid = uuid;
     emit itemsChanged();
   }
 }
@@ -100,6 +99,13 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
 
   mName = geoJsonObject.value( QStringLiteral( "name" ) ).toString();
   emit nameChanged();
+
+  const QJsonObject metadataObject = geoJsonObject.value( QStringLiteral( "metadata" ) ).toObject();
+  if ( metadataObject.contains( QStringLiteral( "uuid" ) ) )
+  {
+    mUuid = metadataObject.value( QStringLiteral( "uuid" ) ).toString();
+    emit uuidChanged();
+  }
 
   mItems.clear();
   const QJsonArray features = geoJsonObject.value( QStringLiteral( "features" ) ).toArray();
@@ -203,7 +209,9 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
     const QString description = propertiesObject.value( QStringLiteral( "description" ) ).toString();
     const QColor color = QgsColorUtils::colorFromString( propertiesObject.value( QStringLiteral( "color" ) ).toString() );
 
-    mItems.insert( uuid, QfMarkupItem( label, description, geometry, color ) );
+    QfMarkupItem item( label, description, geometry, color );
+    item.mUuid = uuid;
+    mItems.insert( uuid, item );
   }
 
   emit countChanged();
@@ -230,6 +238,10 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
   QJsonObject geoJsonObject;
   geoJsonObject.insert( QStringLiteral( "type" ), QJsonValue( QStringLiteral( "FeatureCollection" ) ) );
   geoJsonObject.insert( QStringLiteral( "name" ), QJsonValue( mName ) );
+
+  QJsonObject metadataObject;
+  metadataObject.insert( QStringLiteral( "uuid" ), mUuid );
+  geoJsonObject.insert( QStringLiteral( "metadata" ), metadataObject );
 
   QJsonArray featuresArray;
   for ( auto [uuid, item] : mItems.asKeyValueRange() )
@@ -325,5 +337,7 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
 
 QfMarkupItem QfMarkupCollection::createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )
 {
-  return QfMarkupItem( label, description, geometry, color );
+  QfMarkupItem item( label, description, geometry, color );
+  qDebug() << "created" << item.uuid();
+  return item; //QfMarkupItem( label, description, geometry, color );
 }

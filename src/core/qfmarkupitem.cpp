@@ -18,9 +18,19 @@
 
 
 QfMarkupItem::QfMarkupItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )
-  : mLabel( label )
+  : mUuid( QUuid::createUuid().toString( QUuid::WithoutBraces ) )
+  , mLabel( label )
   , mDescription( description )
   , mGeometry( geometry )
   , mColor( color )
+{
+}
+
+QfMarkupItem::QfMarkupItem( const QfMarkupItem &other )
+  : mUuid( other.mUuid )
+  , mLabel( other.mLabel )
+  , mDescription( other.mDescription )
+  , mGeometry( other.mGeometry )
+  , mColor( other.mColor )
 {
 }

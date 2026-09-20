@@ -29,6 +29,7 @@ class QfMarkupItem
 {
     Q_GADGET
 
+    Q_PROPERTY( QString uuid READ uuid )
     Q_PROPERTY( QString label READ label )
     Q_PROPERTY( QString description READ description )
     Q_PROPERTY( QgsGeometry geometry READ geometry )
@@ -37,6 +38,11 @@ class QfMarkupItem
   public:
     QfMarkupItem() = default;
     explicit QfMarkupItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color );
+
+    /**
+     * Returns the markup item uuid.
+     */
+    QString uuid() const { return mUuid; }
 
     /**
      * Returns the markup item label.
@@ -59,11 +65,16 @@ class QfMarkupItem
      */
     QColor color() const { return mColor; }
 
+    QfMarkupItem( const QfMarkupItem &other );
+
   private:
+    QString mUuid;
     QString mLabel;
     QString mDescription;
     QgsGeometry mGeometry;
     QColor mColor;
+
+    friend class QfMarkupCollection;
 };
 
 #endif // QFMARKUPITEM_H
