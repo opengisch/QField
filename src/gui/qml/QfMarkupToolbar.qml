@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.impl
 import QtQuick.Effects
 import org.qgis
 import org.qfield.core
@@ -16,6 +17,7 @@ QfVisibilityFadingRow {
   property MapSettings mapSettings
 
   property var pickedColor: undefined
+  property bool isPickedColorLocked: false
 
   readonly property bool isMarking: rubberbandModel && markupToolbar.pickedColor != undefined
 
@@ -69,10 +71,26 @@ QfVisibilityFadingRow {
             height: width
             radius: width / 2
             color: modelData
+
+            IconLabel {
+              anchors.centerIn: parent
+              visible: markupToolbar.isPickedColorLocked && markupToolbar.pickedColor == modelData
+              width: 24
+              height: 24
+              icon.source: QfTheme.getThemeVectorIcon('ic_lock_black_24dp')
+              icon.color: "white"
+            }
           }
 
           onClicked: {
-            markupToolbar.pickedColor = modelData;
+            if (markupToolbar.pickedColor == undefined) {
+              markupToolbar.pickedColor = modelData;
+            } else if (!markupToolbar.isPickedColorLocked) {
+              markupToolbar.isPickedColorLocked = true;
+            } else {
+              markupToolbar.pickedColor = undefined;
+              markupToolbar.isPickedColorLocked = false;
+            }
           }
         }
       }
@@ -99,7 +117,10 @@ QfVisibilityFadingRow {
       const uuid = markupCollection.addItem(item);
     }
 
-    pickedColor = undefined;
+    if (!isPickedColorLocked) {
+      pickedColor = undefined;
+    }
+
     rubberbandModel.reset();
   }
 }
