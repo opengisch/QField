@@ -26,6 +26,8 @@
 #include <QSet>
 #include <QVariantMap>
 
+#include <functional>
+
 class QNetworkRequest;
 
 
@@ -174,6 +176,15 @@ class QfCloudConnection : public QObject
     Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
     Q_INVOKABLE void getServerInformation();
+
+    //! Fetches a new captcha challenge for the signup form, emits signupCaptchaReceived once ready.
+    Q_INVOKABLE void getSignupCaptcha();
+
+    /**
+     * Creates an account through the server signup form, then logs in with it.
+     * Emits registered on success, or registrationFailed with the validation messages keyed by field name.
+     */
+    Q_INVOKABLE void registerAccount( const QString &email, const QString &username, const QString &password, bool hasAcceptedTermsOfService, bool hasNewsletterSubscription, const QString &referralCode, const QString &captchaKey, const QString &captchaAnswer );
     QList<QfAuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 
@@ -274,6 +285,11 @@ class QfCloudConnection : public QObject
     void userOrganizationsReceived( const QStringList &organizations );
     void subscriptionInformationReceived( const QfCloudSubscriptionInformation &subscriptionInformation );
 
+    void signupCaptchaReceived( const QString &key, const QString &imageUrl );
+    void signupCaptchaFailed( const QString &reason );
+    void registered();
+    void registrationFailed( const QVariantMap &errors );
+
   private:
     void setStatus( ConnectionStatus status );
     void setState( ConnectionState state );
@@ -281,6 +297,21 @@ class QfCloudConnection : public QObject
     void invalidateToken();
     void processPendingAttachments();
     void fetchLegacyAuthenticationProviders();
+
+    //! Asks the server for a captcha challenge, assuming the CSRF cookie is already in the jar.
+    void requestSignupCaptcha();
+
+    //! Fetches the form at \a formPath when no CSRF cookie is around yet, then runs \a continuation with an empty error on success.
+    void ensureCsrfToken( const QString &formPath, const std::function<void( const QString &error )> &continuation );
+
+    //! Returns \a fields encoded as an HTML form submission body.
+    static QByteArray encodeFormBody( const QList<QPair<QString, QString>> &fields );
+
+    //! Submits \a body to the form at \a path the way a browser would, without following the redirect it answers with.
+    QfNetworkReply *postForm( const QString &path, const QByteArray &body );
+
+    //! Returns the CSRF token the server handed out for this connection, empty when there is none.
+    QByteArray csrfToken() const;
 
     void saveCookies();
     void restoreCookies();
