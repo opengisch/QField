@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(0 -16)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+  <path transform="translate(0,16)" d="m1.9676 5.5522 3.0615 6.8885" overflow="visible"/>
+  <g fill-rule="evenodd">
+   <path transform="translate(2 17)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(11 6)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(7 6)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(-2 8)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+  </g>
+ </g>
+ <g transform="translate(0,-16)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+  <path transform="translate(0,16)" d="m6.0304 12.333 4.0047-8.8104" overflow="visible"/>
+  <g fill-rule="evenodd">
+   <path transform="translate(2,17)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(11,6)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(7,6)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(-2,8)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+  </g>
+  <path transform="translate(0,16)" d="m11.778 2.5h1.4474" overflow="visible"/>
+  <g fill-rule="evenodd">
+   <path transform="translate(2,17)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(11,6)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(7,6)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+   <path transform="translate(-2,8)" d="m4.5 12.5c0 0.55228-0.44772 1-1 1s-1-0.44772-1-1 0.44772-1 1-1 1 0.44772 1 1z" overflow="visible"/>
+  </g>
+ </g>
+</svg>
