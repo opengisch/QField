@@ -47,15 +47,15 @@ QfMarkupCollection *QfMarkupManager::collection( const QString &uuid ) const
   return mCollections.contains( uuid ) ? mCollections[uuid] : nullptr;
 }
 
-void QfMarkupManager::setHiddenCollectionNames( const QStringList &hiddenCollectionNames )
+void QfMarkupManager::setHiddenCollectionUuids( const QStringList &hiddenCollectionUuids )
 {
-  if ( mHiddenCollectionNames == hiddenCollectionNames )
+  if ( mHiddenCollectionUuids == hiddenCollectionUuids )
   {
     return;
   }
 
-  mHiddenCollectionNames = hiddenCollectionNames;
-  emit hiddenCollectionNamesChanged();
+  mHiddenCollectionUuids = hiddenCollectionUuids;
+  emit hiddenCollectionUuidsChanged();
 
   if ( !mCollections.isEmpty() )
   {
@@ -68,7 +68,7 @@ QList<QfMarkupCollection *> QfMarkupManager::visibleCollections() const
   QList<QfMarkupCollection *> visibleCollections;
   for ( QfMarkupCollection *collection : mCollections ) // cppcheck-suppress constVariablePointer
   {
-    if ( !mHiddenCollectionNames.contains( collection->name() ) )
+    if ( !mHiddenCollectionUuids.contains( collection->uuid() ) )
     {
       visibleCollections << collection;
     }

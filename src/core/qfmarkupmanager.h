@@ -33,7 +33,7 @@ class QfMarkupManager : public QObject
     Q_PROPERTY( QStringList collectionNames READ collectionNames NOTIFY collectionsChanged )
     Q_PROPERTY( QList<QfMarkupCollection *> collections READ collections NOTIFY collectionsChanged )
 
-    Q_PROPERTY( QStringList hiddenCollectionNames READ hiddenCollectionNames WRITE setHiddenCollectionNames NOTIFY hiddenCollectionNamesChanged )
+    Q_PROPERTY( QStringList hiddenCollectionUuids READ hiddenCollectionUuids WRITE setHiddenCollectionUuids NOTIFY hiddenCollectionUuidsChanged )
     Q_PROPERTY( QList<QfMarkupCollection *> visibleCollections READ visibleCollections NOTIFY visibleCollectionsChanged )
 
     Q_PROPERTY( bool hasItems READ hasItems NOTIFY hasItemsChanged )
@@ -67,18 +67,18 @@ class QfMarkupManager : public QObject
     QList<QfMarkupCollection *> collections() const { return mCollections.values(); }
 
     /**
-     * Returns the list of collection names that are hidden. Matching collection
-     * names will not be part of the list of collections returned by the markup
+     * Returns the list of collection UUIDs that are hidden. Matching collection
+     * will not be part of the list of collections returned by the markup
      * manager visibleCollections() function.
      */
-    QStringList hiddenCollectionNames() const { return mHiddenCollectionNames; }
+    QStringList hiddenCollectionUuids() const { return mHiddenCollectionUuids; }
 
     /**
-     * Sets the list of collection names that are hidden. Matching collection
-     * names will not be part of the list of collections returned by the markup
+     * Sets the list of collection UUIDs that are hidden. Matching collection
+     * will not be part of the list of collections returned by the markup
      * manager visibleCollections() function.
      */
-    void setHiddenCollectionNames( const QStringList &hiddenCollectionNames );
+    void setHiddenCollectionUuids( const QStringList &hiddenCollectionUuids );
 
     /**
      * Returns the list of visible collections present in the markup manager.
@@ -99,8 +99,8 @@ class QfMarkupManager : public QObject
     Q_INVOKABLE void reset( const QString &path, const QString &prefix = QString() );
 
   signals:
-    //! Emitted when the list of hidden collection names has changed.
-    void hiddenCollectionNamesChanged();
+    //! Emitted when the list of hidden collection UUIDs has changed.
+    void hiddenCollectionUuidsChanged();
 
     //! Emitted when the list of collections has changed.
     void collectionsChanged();
@@ -129,7 +129,7 @@ class QfMarkupManager : public QObject
     QString mPath;
     QString mPrefix;
 
-    QStringList mHiddenCollectionNames;
+    QStringList mHiddenCollectionUuids;
 
     QMap<QString, QfMarkupCollection *> mCollections;
     QMap<QString, QString> mCollectionPaths;
