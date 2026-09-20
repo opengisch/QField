@@ -9,6 +9,7 @@ set(QFIELD_APP_QML_FILES
     QfCloudLogin.qml
     QfCloudPackageLayersFeedback.qml
     QfCloudPasswordField.qml
+    QfCloudPasswordReset.qml
     QfCloudPendingChanges.qml
     QfCloudPopup.qml
     QfCloudProjectDetails.qml
