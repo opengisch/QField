@@ -136,7 +136,7 @@ function(create_executable)
     add_executable(${exe_TARGET} ${exe_EXTRA_ARGS} ${QFIELD_SOURCES})
   endif()
 
-  if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  if(WITH_SENTRY AND CMAKE_SYSTEM_NAME STREQUAL "iOS")
     set_target_properties(
       ${exe_TARGET}
       PROPERTIES
