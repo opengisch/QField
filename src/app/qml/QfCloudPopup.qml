@@ -1069,7 +1069,7 @@ Popup {
       fetchSubscriptionInformation();
     }
     if (cloudConnection.status === QfCloudConnection.Connecting) {
-      displayToast(qsTr('Connecting cloud'));
+      displayToast(qsTr('Connecting...'));
     } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.isProjectOutdated) {
       displayToast(qsTr('This project has an updated project file on the cloud, you are advised to synchronize.'), 'attention');
     } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.isOutdated) {
