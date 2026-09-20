@@ -5066,11 +5066,16 @@ ApplicationWindow {
             settings.setValue("/QField/showCloudButtonGuide", false);
           }
         }
-        markupManager.reset(QfFileUtils.absolutePath(qgisProject.fileName) + '/markups', projectInfo.cloudUserInformation.username);
+        markupManager.reset(QfFileUtils.absolutePath(path) + '/markups', projectInfo.cloudUserInformation.username);
       } else {
         projectInfo.hasInsertRights = true;
         projectInfo.hasEditRights = true;
-        markupManager.reset(QfFileUtils.absolutePath(qgisProject.fileName) + '/markups');
+        let prefix = "";
+        const isDataset = iface.readProjectBoolEntry("QField", "isDataset", false);
+        if (isDataset) {
+          prefix = QfFileUtils.fileName(path, false);
+        }
+        markupManager.reset(QfFileUtils.absolutePath(path) + '/markups', prefix);
       }
 
       let activeLayer = projectInfo.activeLayer;
