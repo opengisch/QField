@@ -11,20 +11,15 @@ import org.qfield.gui
 Item {
   id: qfieldCloudPasswordReset
 
-  // The account an emailed link was issued for, and whether the server still accepts it
-  property alias currentStepIndex: stepView.currentIndex
-  property string username: ""
-  property bool isLinkValid: true
-
   property string email: ""
   property int resendCountdown: 0
-  property int sentLinkCount: 0
+  property bool isSendingResetLink: false
+  // Message sent back by the server, e.g. an email it does not know
+  property string resetError: ""
 
   readonly property bool isEmailValid: /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailField.text)
-  readonly property bool isRateLimited: sentLinkCount >= 3
 
   signal cancelled
-  signal finished
 
   implicitHeight: passwordResetLayout.implicitHeight
 
@@ -100,8 +95,8 @@ Item {
 
         Text {
           Layout.fillWidth: true
-          visible: qfieldCloudPasswordReset.isRateLimited
-          text: qsTr("Too many reset links requested. Wait a few minutes before trying again.")
+          visible: qfieldCloudPasswordReset.resetError !== ""
+          text: qfieldCloudPasswordReset.resetError
           font: QfTheme.tipFont
           color: QfTheme.errorColor
           wrapMode: Text.WordWrap
@@ -113,14 +108,15 @@ Item {
           Layout.fillWidth: true
           Layout.topMargin: 10
           text: qsTr("Send reset link")
-          enabled: qfieldCloudPasswordReset.isEmailValid && !qfieldCloudPasswordReset.isRateLimited
+          enabled: qfieldCloudPasswordReset.isEmailValid && !qfieldCloudPasswordReset.isSendingResetLink
           bgcolor: QfTheme.cloudColor
           color: QfTheme.light
+          showProgress: qfieldCloudPasswordReset.isSendingResetLink
 
           onClicked: {
-            qfieldCloudPasswordReset.sentLinkCount += 1;
-            qfieldCloudPasswordReset.resendCountdown = 45;
-            stepView.currentIndex = 1;
+            qfieldCloudPasswordReset.resetError = "";
+            qfieldCloudPasswordReset.isSendingResetLink = true;
+            cloudConnection.requestPasswordReset(emailField.text);
           }
         }
 
@@ -164,7 +160,7 @@ Item {
 
         Text {
           Layout.fillWidth: true
-          text: qsTr("We sent a reset link to %1. Opening it brings you right back to QField.").arg(emailField.text)
+          text: qsTr("We sent a reset link to %1. Open it to pick a new password.").arg(emailField.text)
           horizontalAlignment: Text.AlignHCenter
           font: QfTheme.defaultFont
           color: QfTheme.secondaryTextColor
@@ -190,20 +186,22 @@ Item {
           Layout.fillWidth: true
           Layout.topMargin: 10
           text: qfieldCloudPasswordReset.resendCountdown > 0 ? qsTr("Resend link in %1s").arg(qfieldCloudPasswordReset.resendCountdown) : qsTr("Resend link")
-          enabled: qfieldCloudPasswordReset.resendCountdown === 0 && !qfieldCloudPasswordReset.isRateLimited
+          enabled: qfieldCloudPasswordReset.resendCountdown === 0 && !qfieldCloudPasswordReset.isSendingResetLink
           bgcolor: QfTheme.cloudColor
           color: QfTheme.light
+          showProgress: qfieldCloudPasswordReset.isSendingResetLink
 
           onClicked: {
-            qfieldCloudPasswordReset.sentLinkCount += 1;
-            qfieldCloudPasswordReset.resendCountdown = 45;
+            qfieldCloudPasswordReset.resetError = "";
+            qfieldCloudPasswordReset.isSendingResetLink = true;
+            cloudConnection.requestPasswordReset(emailField.text);
           }
         }
 
         Text {
           Layout.fillWidth: true
-          visible: qfieldCloudPasswordReset.isRateLimited
-          text: qsTr("Too many reset links requested. Wait a few minutes before trying again.")
+          visible: qfieldCloudPasswordReset.resetError !== ""
+          text: qfieldCloudPasswordReset.resetError
           horizontalAlignment: Text.AlignHCenter
           font: QfTheme.tipFont
           color: QfTheme.errorColor
@@ -223,124 +221,6 @@ Item {
           }
         }
       }
-
-      ColumnLayout {
-        id: newPasswordStep
-        spacing: 10
-
-        RowLayout {
-          Layout.fillWidth: true
-          visible: qfieldCloudPasswordReset.isLinkValid
-          spacing: 10
-
-          Rectangle {
-            Layout.preferredWidth: 48
-            Layout.preferredHeight: 48
-            radius: width / 2
-            color: QfTheme.controlBackgroundAlternateColor
-
-            Image {
-              anchors.centerIn: parent
-              width: 40
-              height: 40
-              fillMode: Image.PreserveAspectFit
-              smooth: true
-              source: "qrc:/images/nyuki.svg"
-              sourceSize.width: 40
-              sourceSize.height: 40
-            }
-          }
-
-          Text {
-            Layout.fillWidth: true
-            text: qfieldCloudPasswordReset.username
-            font: QfTheme.strongFont
-            color: QfTheme.mainTextColor
-            wrapMode: Text.WordWrap
-          }
-        }
-
-        Text {
-          Layout.fillWidth: true
-          Layout.topMargin: 10
-          visible: qfieldCloudPasswordReset.isLinkValid
-          text: qsTr("Set a new password")
-          font: QfTheme.strongTitleFont
-          color: QfTheme.mainTextColor
-          wrapMode: Text.WordWrap
-        }
-
-        Text {
-          Layout.fillWidth: true
-          visible: qfieldCloudPasswordReset.isLinkValid
-          text: qsTr("Link verified. Pick a password and we will sign you in.")
-          font: QfTheme.tipFont
-          color: QfTheme.secondaryTextColor
-          wrapMode: Text.WordWrap
-        }
-
-        QfCloudPasswordField {
-          id: newPasswordField
-          objectName: "newPasswordField"
-          Layout.fillWidth: true
-          Layout.topMargin: 10
-          visible: qfieldCloudPasswordReset.isLinkValid
-          username: qfieldCloudPasswordReset.username
-          placeholderText: qsTr("New password")
-
-          onAccepted: {
-            if (savePasswordButton.enabled) {
-              savePasswordButton.clicked();
-            }
-          }
-        }
-
-        QfButton {
-          id: savePasswordButton
-          objectName: "savePasswordButton"
-          Layout.fillWidth: true
-          Layout.topMargin: 10
-          visible: qfieldCloudPasswordReset.isLinkValid
-          text: qsTr("Save and sign in")
-          enabled: newPasswordField.satisfiedRequirementCount === 3
-          bgcolor: QfTheme.cloudColor
-          color: QfTheme.light
-
-          onClicked: qfieldCloudPasswordReset.finished()
-        }
-
-        Text {
-          Layout.fillWidth: true
-          visible: qfieldCloudPasswordReset.isLinkValid
-          text: qsTr("Your other devices stay signed in.")
-          horizontalAlignment: Text.AlignHCenter
-          font: QfTheme.tipFont
-          color: QfTheme.secondaryTextColor
-          wrapMode: Text.WordWrap
-        }
-
-        QfContainerCard {
-          Layout.fillWidth: true
-          visible: !qfieldCloudPasswordReset.isLinkValid
-          accentColor: QfTheme.errorColor
-          iconSource: QfTheme.getThemeVectorIcon('ic_error_outline_24dp')
-          title: qsTr("This link no longer works")
-          description: qsTr("Reset links expire quickly and can only be used once. Ask for a fresh one to continue.")
-
-          QfButton {
-            Layout.fillWidth: true
-            Layout.topMargin: 4
-            text: qsTr("Send a new link")
-            bgcolor: QfTheme.cloudColor
-            color: QfTheme.light
-
-            onClicked: {
-              qfieldCloudPasswordReset.isLinkValid = true;
-              stepView.currentIndex = 0;
-            }
-          }
-        }
-      }
     }
 
     Text {
@@ -352,6 +232,21 @@ Item {
       font: QfTheme.tipFont
       color: QfTheme.secondaryTextColor
       wrapMode: Text.WordWrap
+    }
+  }
+
+  Connections {
+    target: cloudConnection
+
+    function onPasswordResetRequested() {
+      qfieldCloudPasswordReset.isSendingResetLink = false;
+      qfieldCloudPasswordReset.resendCountdown = 45;
+      stepView.currentIndex = 1;
+    }
+
+    function onPasswordResetFailed(reason) {
+      qfieldCloudPasswordReset.isSendingResetLink = false;
+      qfieldCloudPasswordReset.resetError = reason;
     }
   }
 

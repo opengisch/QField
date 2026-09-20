@@ -596,6 +596,45 @@ void QfCloudConnection::registerAccount( const QString &email, const QString &us
   } );
 }
 
+void QfCloudConnection::requestPasswordReset( const QString &email )
+{
+  ensureCsrfToken( QStringLiteral( "/accounts/password/reset/" ), [this, email]( const QString &error ) {
+    if ( !error.isEmpty() )
+    {
+      emit passwordResetFailed( error );
+      return;
+    }
+
+    QfNetworkReply *reply = postForm( QStringLiteral( "/accounts/password/reset/" ), encodeFormBody( { { QStringLiteral( "email" ), email } } ) );
+
+    connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
+      QNetworkReply *rawReply = reply->currentRawReply();
+
+      Q_ASSERT( reply->isFinished() );
+      Q_ASSERT( rawReply );
+
+      reply->deleteLater();
+      rawReply->deleteLater();
+
+      if ( rawReply->error() != QNetworkReply::NoError )
+      {
+        emit passwordResetFailed( errorString( rawReply ) );
+        return;
+      }
+
+      const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+      if ( httpCode >= 300 && httpCode < 400 )
+      {
+        emit passwordResetRequested();
+        return;
+      }
+
+      const QVariantMap errors = QfCloudUtils::signupFormErrors( QString::fromUtf8( rawReply->readAll() ) );
+      emit passwordResetFailed( errors.isEmpty() ? tr( "The server did not accept the request" ) : errors.first().toString() );
+    } );
+  } );
+}
+
 QByteArray QfCloudConnection::csrfToken() const
 {
   const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );

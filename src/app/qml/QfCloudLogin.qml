@@ -359,7 +359,6 @@ Item {
         email: usernameField.text.indexOf('@') > -1 ? usernameField.text : ''
 
         onCancelled: qfieldCloudLogin.isPasswordResetVisible = false
-        onFinished: qfieldCloudLogin.isPasswordResetVisible = false
       }
     }
   }

@@ -185,6 +185,12 @@ class QfCloudConnection : public QObject
      * Emits registered on success, or registrationFailed with the validation messages keyed by field name.
      */
     Q_INVOKABLE void registerAccount( const QString &email, const QString &username, const QString &password, bool hasAcceptedTermsOfService, bool hasNewsletterSubscription, const QString &referralCode, const QString &captchaKey, const QString &captchaAnswer );
+
+    /**
+     * Asks the server to email a password reset link to \a email.
+     * Emits passwordResetRequested once the server took the request, or passwordResetFailed.
+     */
+    Q_INVOKABLE void requestPasswordReset( const QString &email );
     QList<QfAuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 
@@ -289,6 +295,8 @@ class QfCloudConnection : public QObject
     void signupCaptchaFailed( const QString &reason );
     void registered();
     void registrationFailed( const QVariantMap &errors );
+    void passwordResetRequested();
+    void passwordResetFailed( const QString &reason );
 
   private:
     void setStatus( ConnectionStatus status );

@@ -21,6 +21,8 @@ TestCase {
 
   QfCloudConnection {
     id: cloudConnection
+    // Nothing listens there, so these tests never reach a real server
+    url: "http://127.0.0.1:9"
   }
 
   Window {
@@ -38,14 +40,6 @@ TestCase {
   property var emailField: findChild(qfieldCloudPasswordReset, "emailField")
   property var sendResetLinkButton: findChild(qfieldCloudPasswordReset, "sendResetLinkButton")
   property var resendResetLinkButton: findChild(qfieldCloudPasswordReset, "resendResetLinkButton")
-  property var newPasswordField: findChild(qfieldCloudPasswordReset, "newPasswordField")
-  property var savePasswordButton: findChild(qfieldCloudPasswordReset, "savePasswordButton")
-
-  SignalSpy {
-    id: finishedSpy
-    target: qfieldCloudPasswordReset
-    signalName: "finished"
-  }
 
   SignalSpy {
     id: cancelledSpy
@@ -55,21 +49,18 @@ TestCase {
 
   // This function is called after each test function that is executed in the TestCase type.
   function cleanup() {
-    qfieldCloudPasswordReset.currentStepIndex = 0;
-    qfieldCloudPasswordReset.sentLinkCount = 0;
+    stepView.currentIndex = 0;
     qfieldCloudPasswordReset.resendCountdown = 0;
-    qfieldCloudPasswordReset.isLinkValid = true;
-    qfieldCloudPasswordReset.username = "";
+    qfieldCloudPasswordReset.isSendingResetLink = false;
+    qfieldCloudPasswordReset.resetError = "";
     emailField.text = "";
-    newPasswordField.password = "";
-    finishedSpy.clear();
     cancelledSpy.clear();
   }
 
   /**
    * Tests the reset link request gating.
    *
-   * Scenario: a plausible email is required, and sending moves on to the inbox step
+   * Scenario: a plausible email is required, the request locks the button, and the server taking it moves on to the inbox step
    */
   function test_01_requestStepRequiresEmail() {
     compare(sendResetLinkButton.enabled, false);
@@ -78,6 +69,12 @@ TestCase {
     emailField.text = "mohsen@opengis.ch";
     verify(sendResetLinkButton.enabled);
     sendResetLinkButton.clicked();
+    verify(qfieldCloudPasswordReset.isSendingResetLink);
+    compare(sendResetLinkButton.enabled, false);
+    tryCompare(qfieldCloudPasswordReset, "isSendingResetLink", false, 10000);
+    verify(qfieldCloudPasswordReset.resetError !== "");
+    compare(stepView.currentIndex, 0);
+    cloudConnection.passwordResetRequested();
     compare(stepView.currentIndex, 1);
     compare(qfieldCloudPasswordReset.resendCountdown, 45);
   }
@@ -89,7 +86,7 @@ TestCase {
    */
   function test_02_resendIsHeldBackByCountdown() {
     emailField.text = "mohsen@opengis.ch";
-    sendResetLinkButton.clicked();
+    cloudConnection.passwordResetRequested();
     compare(resendResetLinkButton.enabled, false);
     qfieldCloudPasswordReset.resendCountdown = 2;
     tryCompare(qfieldCloudPasswordReset, "resendCountdown", 0, 5000);
@@ -97,61 +94,33 @@ TestCase {
   }
 
   /**
-   * Tests the rate limit after repeated requests.
-   *
-   * Scenario: a third request locks both the send and the resend buttons
-   */
-  function test_03_repeatedRequestsAreRateLimited() {
-    emailField.text = "mohsen@opengis.ch";
-    qfieldCloudPasswordReset.sentLinkCount = 3;
-    verify(qfieldCloudPasswordReset.isRateLimited);
-    compare(sendResetLinkButton.enabled, false);
-    qfieldCloudPasswordReset.resendCountdown = 0;
-    compare(resendResetLinkButton.enabled, false);
-  }
-
-  /**
-   * Tests the new password step reached through the emailed link.
-   *
-   * Scenario: the password requirements gate the save, which ends the flow signed in
-   */
-  function test_04_newPasswordStepEndsSignedIn() {
-    qfieldCloudPasswordReset.username = "mohsen";
-    qfieldCloudPasswordReset.currentStepIndex = 2;
-    compare(savePasswordButton.enabled, false);
-    newPasswordField.password = "1234567890";
-    compare(savePasswordButton.enabled, false);
-    newPasswordField.password = "chogha-zanbil-1979";
-    verify(savePasswordButton.enabled);
-    savePasswordButton.clicked();
-    compare(finishedSpy.count, 1);
-  }
-
-  /**
-   * Tests the expired link state.
-   *
-   * Scenario: an invalid link hides the form and offers a fresh request instead
-   */
-  function test_05_expiredLinkOffersANewOne() {
-    qfieldCloudPasswordReset.currentStepIndex = 2;
-    qfieldCloudPasswordReset.isLinkValid = false;
-    compare(newPasswordField.visible, false);
-    compare(savePasswordButton.visible, false);
-  }
-
-  /**
    * Tests going back from the inbox step.
    *
    * Scenario: back returns to the request step with the email kept, and leaves the flow from there
    */
-  function test_06_goBackFromInboxStep() {
+  function test_03_goBackFromInboxStep() {
     emailField.text = "mohsen@opengis.ch";
-    sendResetLinkButton.clicked();
+    cloudConnection.passwordResetRequested();
     qfieldCloudPasswordReset.goBack();
     compare(stepView.currentIndex, 0);
     compare(emailField.text, "mohsen@opengis.ch");
     compare(cancelledSpy.count, 0);
     qfieldCloudPasswordReset.goBack();
     compare(cancelledSpy.count, 1);
+  }
+
+  /**
+   * Tests a request the server turns down.
+   *
+   * Scenario: the message is shown on the request step and the button is given back
+   */
+  function test_04_rejectedRequestShowsTheServerMessage() {
+    emailField.text = "mohsen@opengis.ch";
+    qfieldCloudPasswordReset.isSendingResetLink = true;
+    cloudConnection.passwordResetFailed("The e-mail address is not assigned to any user account");
+    compare(qfieldCloudPasswordReset.isSendingResetLink, false);
+    compare(qfieldCloudPasswordReset.resetError, "The e-mail address is not assigned to any user account");
+    compare(stepView.currentIndex, 0);
+    verify(sendResetLinkButton.enabled);
   }
 }
