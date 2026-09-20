@@ -1103,7 +1103,9 @@ bool QgisMobileapp::print( const QString &layoutName )
   }
 
   if ( !layoutToPrint || layoutToPrint->pageCollection()->pageCount() == 0 )
+  {
     return false;
+  }
 
   mIsPrinting = true;
   emit printTriggered( layoutToPrint->name() );
@@ -1113,10 +1115,37 @@ bool QgisMobileapp::print( const QString &layoutName )
 
     QString openPath;
     bool success = false;
+
+    bool previousFollowVisibilityPreset = false;
+    QList<QgsMapLayer *> previousLayers;
+    const QList<QfMarkupCollection *> collections = mMarkupManager->visibleCollections();
+    QgsLayoutItemMap *map = layoutToPrint->referenceMap();
+    if ( map && !collections.isEmpty() )
+    {
+      previousFollowVisibilityPreset = map->followVisibilityPreset();
+      previousLayers = map->layers();
+
+      QgsExpressionContext context = map->createExpressionContext();
+      QList<QgsMapLayer *> layers = map->layersToRender( &context );
+
+      for ( QfMarkupCollection *collection : collections )
+      {
+        if ( !collection->items().isEmpty() )
+        {
+          layers.prepend( collection->asAnnotationLayer() );
+        }
+      }
+
+      map->setFollowVisibilityPreset( false );
+      map->setLayers( layers );
+    }
+
     if ( !layoutToPrint->atlas() || !layoutToPrint->atlas()->enabled() )
     {
-      if ( layoutToPrint->referenceMap() )
+      if ( map )
+      {
         layoutToPrint->referenceMap()->zoomToExtent( mMapCanvas->mapSettings()->visibleExtent() );
+      }
       layoutToPrint->refresh();
 
       QgsLayoutExporter exporter = QgsLayoutExporter( layoutToPrint );
@@ -1141,6 +1170,12 @@ bool QgisMobileapp::print( const QString &layoutName )
       {
         openPath = destination;
       }
+    }
+
+    if ( map && !collections.isEmpty() )
+    {
+      map->setFollowVisibilityPreset( previousFollowVisibilityPreset );
+      map->setLayers( previousLayers );
     }
 
     mIsPrinting = false;
