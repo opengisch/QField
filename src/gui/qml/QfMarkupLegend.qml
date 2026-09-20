@@ -98,6 +98,23 @@ ListView {
           }
         }
 
+        Item {
+          anchors.verticalCenter: parent.verticalCenter
+          height: 24
+          width: 24
+
+          Image {
+            anchors.fill: parent
+            anchors.margins: 4
+            fillMode: Image.PreserveAspectFit
+            cache: false
+            smooth: true
+            mipmap: true
+            source: QfTheme.getThemeVectorIcon('ic_markuplayer_18dp')
+            opacity: isVisibleCollection ? 1 : 0.25
+          }
+        }
+
         Text {
           id: markupCollectionName
           width: rectangle.width - collectionVisibility.width - line.leftPadding - 5
