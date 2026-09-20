@@ -367,6 +367,15 @@ class QfCloudUtils : public QObject
      */
     Q_INVOKABLE static QString subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username );
 
+    //! Returns the IANA identifier of the device time zone, e.g. Asia/Tehran.
+    Q_INVOKABLE static QString deviceTimeZoneId();
+
+    /**
+     * Returns the validation messages of a signup form page rendered by QFieldCloud, keyed by field name.
+     * Both captcha inputs are reported under "captcha", several messages for one field are joined by a new line.
+     */
+    static QVariantMap signupFormErrors( const QString &html );
+
 
     static QList<QfCloudDelta> parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid );
 
