@@ -5414,6 +5414,17 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
 </context>
 <context>
+    <name>QfDigitizingLayerInformationView</name>
+    <message>
+        <source>Map Layers</source>
+        <translation>Warstwy mapy</translation>
+    </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfDigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
@@ -6781,11 +6792,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
-        <translation type="unfinished"/>
+        <translation>Kolekcja bez nazwy</translation>
     </message>
     <message>
         <source>Default collection</source>
-        <translation type="unfinished"/>
+        <translation>Domyślna kolekcja</translation>
     </message>
 </context>
 <context>

@@ -5380,7 +5380,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Marques</translation>
     </message>
 </context>
 <context>
@@ -5404,6 +5404,17 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Close</source>
         <translation>Fermer</translation>
+    </message>
+</context>
+<context>
+    <name>QfDigitizingLayerInformationView</name>
+    <message>
+        <source>Map Layers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6772,11 +6783,11 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
-        <translation type="unfinished"/>
+        <translation>Collection sans titre</translation>
     </message>
     <message>
         <source>Default collection</source>
-        <translation type="unfinished"/>
+        <translation>Collection par défaut</translation>
     </message>
 </context>
 <context>

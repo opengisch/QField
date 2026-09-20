@@ -5435,6 +5435,17 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
+    <name>QfDigitizingLayerInformationView</name>
+    <message>
+        <source>Map Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QfDigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>

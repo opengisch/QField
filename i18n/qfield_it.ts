@@ -5415,6 +5415,17 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
 </context>
 <context>
+    <name>QfDigitizingLayerInformationView</name>
+    <message>
+        <source>Map Layers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfDigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>

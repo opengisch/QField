@@ -5381,7 +5381,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>置标</translation>
     </message>
 </context>
 <context>
@@ -5405,6 +5405,17 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Close</source>
         <translation>关闭</translation>
+    </message>
+</context>
+<context>
+    <name>QfDigitizingLayerInformationView</name>
+    <message>
+        <source>Map Layers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markups</source>
+        <translation>置标</translation>
     </message>
 </context>
 <context>
@@ -6769,11 +6780,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
-        <translation type="unfinished"/>
+        <translation>未命名集合</translation>
     </message>
     <message>
         <source>Default collection</source>
-        <translation type="unfinished"/>
+        <translation>默认集合</translation>
     </message>
 </context>
 <context>
