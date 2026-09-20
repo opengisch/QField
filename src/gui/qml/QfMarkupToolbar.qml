@@ -24,7 +24,7 @@ QfVisibilityFadingRow {
   Item {
     id: markupColorItem
 
-    width: (markupColorContent.contentWidth / markupColorContainer.contentModel.count * 3.5) + markupColorContainer.spacing * 2
+    width: Math.min(markupColorContent.contentWidth + markupColorContainer.spacing * 2, mainWindow.width / 2)
     height: QfTheme.toolButtonSize
 
     Container {
@@ -76,17 +76,6 @@ QfVisibilityFadingRow {
           }
         }
       }
-    }
-  }
-
-  QfToolButton {
-    id: newCollectionButton
-    round: true
-    //iconSource: QfTheme.getThemeVectorIcon("ic_clear_white_24dp")
-    bgcolor: QfTheme.toolButtonBackgroundColor
-
-    onClicked: {
-      //TODO
     }
   }
 
