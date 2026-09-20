@@ -16,6 +16,7 @@ Page {
   signal viewProjectFolder(string projectPath)
 
   property string requestedProjectDetails: ""
+  property bool requestedProjectCreation: false
   property string pendingCreatedProjectId: ""
   property bool pendingCreatedDownloadStarted: false
   property QfCloudStatus cloudServiceStatus: null
@@ -1031,6 +1032,7 @@ Page {
       if (trimmedName !== "") {
         busyOverlay.text = qsTr("Creating project…");
         busyOverlay.state = "visible";
+        qfieldCloudScreen.requestedProjectCreation = true;
         cloudProjectsModel.createProject(trimmedName, cloneProjectDescription.text.trim(), sourceProjectId);
       }
     }
@@ -1085,12 +1087,16 @@ Page {
     }
 
     function onProjectCreated(projectId, fromProjectId, hasError, errorString) {
+      if (!requestedProjectCreation) {
+        return;
+      }
       const isClone = fromProjectId !== "";
       if (hasError) {
         busyOverlay.state = "hidden";
         displayToast(isClone ? qsTr("Project cloning failed: %1").arg(errorString) : qsTr("Project creation failed: %1").arg(errorString));
         return;
       }
+      requestedProjectCreation = false;
       pendingCreatedProjectId = projectId;
       pendingCreatedDownloadStarted = false;
       busyOverlay.text = qsTr("Preparing project…");
