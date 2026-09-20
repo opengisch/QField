@@ -950,7 +950,7 @@ Popup {
     }
 
     function onProjectCreated(projectId, fromProjectId, hasError, errorString) {
-      if (fromProjectId !== "") {
+      if (pendingUploadPath == "") {
         return;
       }
       if (!qfieldCloudPopup.visible) {
@@ -964,6 +964,8 @@ Popup {
       if (createdCloudProject) {
         cloudProjectCreationConnection.target = createdCloudProject;
         createdCloudProject.uploadLocalPath(pendingUploadPath, true);
+        pendingUploadPath = "";
+        pendingCreationTitle = "";
       }
     }
   }
