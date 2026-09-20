@@ -20,7 +20,7 @@
 #include "qfmarkupitem.h"
 
 #include <QObject>
-
+#include <qgsannotationlayer.h>
 
 /**
  * \brief This class holds a collection of markup items.
@@ -88,6 +88,12 @@ class QfMarkupCollection : public QObject
      */
     bool writeGeoJson( const QString &path );
 
+    /**
+     * Returns a pointer to an annotation layer matching the content of the collection.
+     * \note The ownership remains with the collection.
+     */
+    QgsAnnotationLayer *asAnnotationLayer();
+
     Q_INVOKABLE static QfMarkupItem createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color );
 
   signals:
@@ -107,6 +113,7 @@ class QfMarkupCollection : public QObject
     QString mUuid;
     QString mName;
     QMap<QString, QfMarkupItem> mItems;
+    std::unique_ptr<QgsAnnotationLayer> mAnnotationLayer;
 };
 
 #endif // QFMARKUPCOLLECTION_H

@@ -20,7 +20,20 @@
 #include <QFileInfo>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <qgsannotationlineitem.h>
+#include <qgsannotationmarkeritem.h>
+#include <qgsannotationpolygonitem.h>
 #include <qgscolorutils.h>
+#include <qgscurve.h>
+#include <qgscurvepolygon.h>
+#include <qgsfillsymbol.h>
+#include <qgsfillsymbollayer.h>
+#include <qgslinesymbol.h>
+#include <qgslinesymbollayer.h>
+#include <qgsmarkersymbol.h>
+#include <qgsmarkersymbollayer.h>
+#include <qgssymbol.h>
+#include <qgssymbollayer.h>
 
 
 QfMarkupCollection::QfMarkupCollection( const QString &name, QObject *parent )
@@ -46,6 +59,8 @@ void QfMarkupCollection::addItem( const QfMarkupItem &item )
   qDebug() << "adding" << item.uuid();
   mItems.insert( item.uuid(), item );
 
+  mAnnotationLayer.reset();
+
   emit countChanged();
   emit itemsChanged();
 }
@@ -56,6 +71,9 @@ void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &i
   {
     mItems[uuid] = item;
     mItems[uuid].mUuid = uuid;
+
+    mAnnotationLayer.reset();
+
     emit itemsChanged();
   }
 }
@@ -65,6 +83,8 @@ void QfMarkupCollection::removeItem( const QString &uuid )
   if ( mItems.contains( uuid ) )
   {
     mItems.remove( uuid );
+
+    mAnnotationLayer.reset();
 
     emit countChanged();
     emit itemsChanged();
@@ -108,6 +128,9 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
   }
 
   mItems.clear();
+
+  mAnnotationLayer.reset();
+
   const QJsonArray features = geoJsonObject.value( QStringLiteral( "features" ) ).toArray();
   for ( const QJsonValueConstRef &feature : features )
   {
@@ -333,6 +356,72 @@ bool QfMarkupCollection::writeGeoJson( const QString &path )
   geoJsonFile.write( geoJsonString.toUtf8() );
 
   return true;
+}
+
+QgsAnnotationLayer *QfMarkupCollection::asAnnotationLayer()
+{
+  if ( mAnnotationLayer )
+  {
+    return mAnnotationLayer.get();
+  }
+
+  QgsAnnotationLayer::LayerOptions options( QgsProject::instance()->transformContext() );
+  mAnnotationLayer.reset( new QgsAnnotationLayer( mName, options ) );
+  mAnnotationLayer->setCrs( QgsCoordinateReferenceSystem( "EPSG:4326" ) );
+
+  for ( const QfMarkupItem &item : mItems )
+  {
+    QgsSymbolLayerList symbolLayers;
+    const QColor semiOpaqueColor = QColor( item.color().red(), item.color().green(), item.color().blue(), 100 );
+    switch ( item.geometry().type() )
+    {
+      case Qgis::GeometryType::Polygon:
+      {
+        if ( const QgsCurvePolygon *polygon = qgsgeometry_cast<const QgsCurvePolygon *>( item.geometry().constGet() ) )
+        {
+          QgsSimpleFillSymbolLayer *symbolLayer = new QgsSimpleFillSymbolLayer( semiOpaqueColor, DEFAULT_SIMPLEFILL_STYLE, item.color(), DEFAULT_SIMPLEFILL_BORDERSTYLE, 0.6 ); // cppcheck-suppress constVariablePointer
+          symbolLayers << symbolLayer;
+
+          QgsAnnotationPolygonItem *polygonItem = new QgsAnnotationPolygonItem( polygon->clone() );
+          polygonItem->setSymbol( new QgsFillSymbol( symbolLayers ) );
+          mAnnotationLayer->addItem( polygonItem );
+          break;
+        }
+      }
+
+      case Qgis::GeometryType::Line:
+      {
+        if ( const QgsCurve *line = qgsgeometry_cast<const QgsCurve *>( item.geometry().constGet() ) )
+        {
+          QgsSimpleLineSymbolLayer *symbolLayer = new QgsSimpleLineSymbolLayer( item.color(), 0.6 ); // cppcheck-suppress constVariablePointer
+          symbolLayers << symbolLayer;
+
+          QgsAnnotationLineItem *lineItem = new QgsAnnotationLineItem( line->clone() );
+          lineItem->setSymbol( new QgsLineSymbol( symbolLayers ) );
+          mAnnotationLayer->addItem( lineItem );
+          break;
+        }
+      }
+
+      case Qgis::GeometryType::Point:
+      {
+        QgsSimpleMarkerSymbolLayer *symbolLayer = new QgsSimpleMarkerSymbolLayer( Qgis::MarkerShape::Circle, 2.6, 0.0, DEFAULT_SCALE_METHOD, semiOpaqueColor, item.color() ); // cppcheck-suppress constVariablePointer
+        symbolLayer->setStrokeWidth( 0.6 );
+        symbolLayers << symbolLayer;
+
+        QgsAnnotationMarkerItem *markerItem = new QgsAnnotationMarkerItem( QgsPoint( item.geometry().asPoint() ) );
+        markerItem->setSymbol( new QgsMarkerSymbol( symbolLayers ) );
+        mAnnotationLayer->addItem( markerItem );
+        break;
+      }
+
+      case Qgis::GeometryType::Unknown:
+      case Qgis::GeometryType::Null:
+        break;
+    }
+  }
+
+  return mAnnotationLayer.get();
 }
 
 QfMarkupItem QfMarkupCollection::createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )
