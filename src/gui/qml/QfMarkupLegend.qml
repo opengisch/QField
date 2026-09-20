@@ -95,6 +95,7 @@ ListView {
                 hiddenCollectionUuids.splice(idx, 1);
               }
               markupManager.hiddenCollectionUuids = hiddenCollectionUuids;
+              projectInfo.saveVisibleMarkupCollections();
             }
           }
         }

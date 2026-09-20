@@ -148,6 +148,16 @@ class QfProjectInfo : public QObject
     Q_INVOKABLE void saveLayerRememberedFields( QgsMapLayer *layer );
 
     /**
+     * Saves the currently visible markup collections
+     */
+    Q_INVOKABLE void saveVisibleMarkupCollections();
+
+    /**
+     * Restores the currently visible markup collections
+     */
+    Q_INVOKABLE void restoreVisibleMarkupCollections();
+
+    /**
      * Saves the state \a mode for the current project
      */
     void setStateMode( const QString &mode );

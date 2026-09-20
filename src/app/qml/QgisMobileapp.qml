@@ -5099,6 +5099,8 @@ ApplicationWindow {
             dashBoard.ensureEditableLayerSelected();
           }
         }
+
+        projectInfo.restoreVisibleMarkupCollections();
       }
 
       const distanceString = iface.readProjectEntry("Measurement", "/DistanceUnits", "");

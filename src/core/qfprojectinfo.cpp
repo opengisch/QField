@@ -132,6 +132,33 @@ QfMarkupManager *QfProjectInfo::markupManager() const
   return mMarkupManager;
 }
 
+void QfProjectInfo::saveVisibleMarkupCollections()
+{
+  if ( mFilePath.isEmpty() || !mMarkupManager )
+  {
+    return;
+  }
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "hiddenCollectionUuids" ), mMarkupManager->hiddenCollectionUuids() );
+  mSettings.endGroup();
+}
+
+void QfProjectInfo::restoreVisibleMarkupCollections()
+{
+  if ( mFilePath.isEmpty() || !mMarkupManager )
+  {
+    return;
+  }
+
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  const QStringList hiddenCollectionUuids = mSettings.value( QStringLiteral( "hiddenCollectionUuids" ), QStringList() ).toStringList();
+  mSettings.endGroup();
+
+  mMarkupManager->setHiddenCollectionUuids( hiddenCollectionUuids );
+}
+
 void QfProjectInfo::setTrackingModel( QfTrackingModel *trackingModel )
 {
   if ( mTrackingModel == trackingModel )
@@ -148,7 +175,6 @@ QfTrackingModel *QfProjectInfo::trackingModel() const
 {
   return mTrackingModel;
 }
-
 
 void QfProjectInfo::saveTracker( QgsVectorLayer *layer )
 {
