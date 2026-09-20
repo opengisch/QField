@@ -8,6 +8,7 @@ set(QFIELD_APP_QML_FILES
     QfCloudDeltaHistory.qml
     QfCloudLogin.qml
     QfCloudPackageLayersFeedback.qml
+    QfCloudPasswordField.qml
     QfCloudPendingChanges.qml
     QfCloudPopup.qml
     QfCloudProjectDetails.qml
