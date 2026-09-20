@@ -14,6 +14,7 @@ set(QFIELD_APP_QML_FILES
     QfCloudPopup.qml
     QfCloudProjectDetails.qml
     QfCloudProjectFilter.qml
+    QfCloudRegister.qml
     QfCloudScreen.qml
     QfCloudStatusBanner.qml
     QfDashBoard.qml
