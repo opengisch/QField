@@ -18,6 +18,7 @@
 #define QFIELDTEST_MAIN
 
 #include "catch2.h"
+#include "qfnavigation.h"
 #include "qfnavigationmodel.h"
 
 #include <QCoreApplication>
@@ -25,8 +26,14 @@
 #include <QSignalSpy>
 #include <QTemporaryDir>
 #include <qgscoordinatereferencesystem.h>
+#include <qgsfeature.h>
 #include <qgsgeometry.h>
 #include <qgspoint.h>
+#include <qgsproject.h>
+#include <qgsquickmapsettings.h>
+#include <qgsvectorlayer.h>
+
+#include <cmath>
 
 
 class ScopedIniSettings
@@ -340,5 +347,289 @@ TEST_CASE( "NavigationModel: persistence" )
     model.restore();
     CAPTURE( model.rowCount( QModelIndex() ) );
     REQUIRE( model.rowCount( QModelIndex() ) == 0 );
+  }
+}
+
+
+TEST_CASE( "Navigation: destination point" )
+{
+  QTemporaryDir settingsDirectory;
+  REQUIRE( settingsDirectory.isValid() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+
+  QgsQuickMapSettings mapSettings;
+  mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
+  mapSettings.setOutputSize( QSize( 1000, 500 ) );
+  mapSettings.setExtent( QgsRectangle( 0.0, 0.0, 20.0, 60.0 ) );
+
+  QfNavigation navigation;
+  navigation.setMapSettings( &mapSettings );
+
+  SECTION( "is inactive until a destination is set" )
+  {
+    REQUIRE_FALSE( navigation.isActive() );
+    REQUIRE( navigation.destination().isEmpty() );
+  }
+
+  SECTION( "setting a destination point activates navigation" )
+  {
+    QSignalSpy destinationChangedSpy( &navigation, &QfNavigation::destinationChanged );
+    navigation.setDestination( QgsPoint( 8.0, 47.0 ) );
+
+    INFO( "destination " << describePoint( navigation.destination() ) );
+    CAPTURE( destinationChangedSpy.count() );
+    REQUIRE( navigation.isActive() );
+    REQUIRE( destinationChangedSpy.count() == 1 );
+    REQUIRE( navigation.destination().x() == Catch::Approx( 8.0 ) );
+    REQUIRE( navigation.destination().y() == Catch::Approx( 47.0 ) );
+  }
+
+  SECTION( "clear resets the destination and deactivates navigation" )
+  {
+    navigation.setDestination( QgsPoint( 8.0, 47.0 ) );
+    REQUIRE( navigation.isActive() );
+
+    navigation.clear();
+    REQUIRE_FALSE( navigation.isActive() );
+    REQUIRE( navigation.destination().isEmpty() );
+  }
+}
+
+
+TEST_CASE( "Navigation: distance and bearing" )
+{
+  QTemporaryDir settingsDirectory;
+  REQUIRE( settingsDirectory.isValid() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+
+  QgsQuickMapSettings mapSettings;
+  mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
+  mapSettings.setOutputSize( QSize( 1000, 500 ) );
+  mapSettings.setExtent( QgsRectangle( 0.0, 0.0, 20.0, 60.0 ) );
+
+  QfNavigation navigation;
+  navigation.setMapSettings( &mapSettings );
+
+  SECTION( "details are undefined without a location" )
+  {
+    navigation.setDestination( QgsPoint( 8.0, 47.0 ) );
+    CAPTURE( navigation.distance(), navigation.bearing() );
+    REQUIRE( std::isnan( navigation.distance() ) );
+    REQUIRE( std::isnan( navigation.bearing() ) );
+  }
+
+  SECTION( "a location and destination yield a finite distance and the exact bearing" )
+  {
+    navigation.setLocation( QgsPoint( 7.0, 46.0 ) );
+    navigation.setDestination( QgsPoint( 8.0, 47.0 ) );
+
+    const double distance = navigation.distance();
+    const double bearing = navigation.bearing();
+    INFO( "distance=" << QString::number( distance, 'f', 6 ) << " bearing=" << QString::number( bearing, 'f', 6 ) );
+    CAPTURE( distance, bearing );
+    REQUIRE( std::isfinite( distance ) );
+    REQUIRE( distance > 0.0 );
+    REQUIRE( bearing == Catch::Approx( 45.0 ).margin( 1e-6 ) );
+  }
+
+  SECTION( "bearing is measured clockwise from north" )
+  {
+    navigation.setLocation( QgsPoint( 7.0, 46.0 ) );
+
+    navigation.setDestination( QgsPoint( 7.0, 47.0 ) );
+    INFO( "north bearing=" << QString::number( navigation.bearing(), 'f', 6 ) );
+    REQUIRE( navigation.bearing() == Catch::Approx( 0.0 ).margin( 1e-6 ) );
+
+    navigation.setDestination( QgsPoint( 8.0, 46.0 ) );
+    INFO( "east bearing=" << QString::number( navigation.bearing(), 'f', 6 ) );
+    REQUIRE( navigation.bearing() == Catch::Approx( 90.0 ).margin( 1e-6 ) );
+  }
+
+  SECTION( "vertical distance is undefined when the points carry no z value" )
+  {
+    navigation.setLocation( QgsPoint( 7.0, 46.0 ) );
+    navigation.setDestination( QgsPoint( 8.0, 47.0 ) );
+    CAPTURE( navigation.verticalDistance() );
+    REQUIRE( std::isnan( navigation.verticalDistance() ) );
+  }
+
+  SECTION( "vertical distance is the z delta when both points carry a z value" )
+  {
+    navigation.setLocation( QgsPoint( 7.0, 46.0, 100.0 ) );
+    navigation.setDestination( QgsPoint( 8.0, 47.0, 250.0 ) );
+    const double verticalDistance = navigation.verticalDistance();
+    INFO( "verticalDistance=" << QString::number( verticalDistance, 'f', 6 ) );
+    REQUIRE( verticalDistance == Catch::Approx( 150.0 ).margin( 1e-6 ) );
+  }
+
+  SECTION( "an empty location clears the computed details" )
+  {
+    navigation.setLocation( QgsPoint( 7.0, 46.0 ) );
+    navigation.setDestination( QgsPoint( 8.0, 47.0 ) );
+    REQUIRE( std::isfinite( navigation.distance() ) );
+
+    navigation.setLocation( QgsPoint() );
+    CAPTURE( navigation.distance() );
+    REQUIRE( std::isnan( navigation.distance() ) );
+  }
+}
+TEST_CASE( "Navigation: feature as destination" )
+{
+  QTemporaryDir settingsDirectory;
+  REQUIRE( settingsDirectory.isValid() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+
+  QgsQuickMapSettings mapSettings;
+  mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
+  mapSettings.setOutputSize( QSize( 1000, 500 ) );
+  mapSettings.setExtent( QgsRectangle( 0.0, 0.0, 20.0, 60.0 ) );
+
+  QfNavigation navigation;
+  navigation.setMapSettings( &mapSettings );
+
+  SECTION( "a point feature becomes the destination with a single vertex" )
+  {
+    QgsVectorLayer layer( QStringLiteral( "Point?crs=epsg:4326&field=name:string" ), QStringLiteral( "points" ), QStringLiteral( "memory" ) );
+    REQUIRE( layer.isValid() );
+
+    QgsFeature feature( layer.fields() );
+    feature.setAttribute( QStringLiteral( "name" ), QStringLiteral( "Target" ) );
+    feature.setGeometry( QgsGeometry::fromPointXY( QgsPointXY( 8.0, 47.0 ) ) );
+
+    navigation.setDestinationFeature( feature, &layer );
+
+    INFO( "destination " << describePoint( navigation.destination() ) );
+    CAPTURE( navigation.destinationFeatureVertexCount(), navigation.destinationFeatureCurrentVertex() );
+    REQUIRE( navigation.isActive() );
+    REQUIRE( navigation.destinationFeatureVertexCount() == 1 );
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == 0 );
+    REQUIRE( navigation.destination().x() == Catch::Approx( 8.0 ) );
+    REQUIRE( navigation.destination().y() == Catch::Approx( 47.0 ) );
+  }
+
+  SECTION( "an empty geometry feature is ignored" )
+  {
+    QgsVectorLayer layer( QStringLiteral( "Point?crs=epsg:4326&field=name:string" ), QStringLiteral( "points" ), QStringLiteral( "memory" ) );
+    REQUIRE( layer.isValid() );
+
+    QgsFeature feature( layer.fields() );
+    feature.setAttribute( QStringLiteral( "name" ), QStringLiteral( "Empty" ) );
+
+    navigation.setDestinationFeature( feature, &layer );
+
+    REQUIRE_FALSE( navigation.isActive() );
+    REQUIRE( navigation.destinationFeatureVertexCount() == 0 );
+  }
+
+  SECTION( "a line feature exposes its centroid and vertices as destinations" )
+  {
+    QgsVectorLayer layer( QStringLiteral( "LineString?crs=epsg:4326&field=name:string" ), QStringLiteral( "lines" ), QStringLiteral( "memory" ) );
+    REQUIRE( layer.isValid() );
+
+    QgsPolylineXY line;
+    line << QgsPointXY( 2.0, 2.0 ) << QgsPointXY( 4.0, 2.0 ) << QgsPointXY( 6.0, 2.0 );
+    QgsFeature feature( layer.fields() );
+    feature.setAttribute( QStringLiteral( "name" ), QStringLiteral( "Route" ) );
+    feature.setGeometry( QgsGeometry::fromPolylineXY( line ) );
+
+    navigation.setDestinationFeature( feature, &layer );
+
+    CAPTURE( navigation.destinationFeatureVertexCount(), navigation.destinationFeatureCurrentVertex() );
+    REQUIRE( navigation.isActive() );
+    REQUIRE( navigation.destinationFeatureVertexCount() == 3 );
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == 0 );
+
+    navigation.nextDestinationVertex();
+    INFO( "first vertex destination " << describePoint( navigation.destination() ) );
+    CAPTURE( navigation.destinationFeatureCurrentVertex() );
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == 1 );
+    REQUIRE( navigation.destination().x() == Catch::Approx( 2.0 ) );
+    REQUIRE( navigation.destination().y() == Catch::Approx( 2.0 ) );
+
+    navigation.nextDestinationVertex();
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == 2 );
+    REQUIRE( navigation.destination().x() == Catch::Approx( 4.0 ) );
+
+    navigation.nextDestinationVertex();
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == 3 );
+    REQUIRE( navigation.destination().x() == Catch::Approx( 6.0 ) );
+
+    navigation.nextDestinationVertex();
+    CAPTURE( navigation.destinationFeatureCurrentVertex() );
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == 0 );
+  }
+
+  SECTION( "previousDestinationVertex wraps from the centroid to the last vertex" )
+  {
+    QgsVectorLayer layer( QStringLiteral( "LineString?crs=epsg:4326&field=name:string" ), QStringLiteral( "lines" ), QStringLiteral( "memory" ) );
+    REQUIRE( layer.isValid() );
+
+    QgsPolylineXY line;
+    line << QgsPointXY( 2.0, 2.0 ) << QgsPointXY( 4.0, 2.0 ) << QgsPointXY( 6.0, 2.0 );
+    QgsFeature feature( layer.fields() );
+    feature.setGeometry( QgsGeometry::fromPolylineXY( line ) );
+
+    navigation.setDestinationFeature( feature, &layer );
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == 0 );
+
+    navigation.previousDestinationVertex();
+    CAPTURE( navigation.destinationFeatureCurrentVertex() );
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == 3 );
+    REQUIRE( navigation.destination().x() == Catch::Approx( 6.0 ) );
+  }
+
+  SECTION( "clearDestinationFeature resets the feature vertex state" )
+  {
+    QgsVectorLayer layer( QStringLiteral( "Point?crs=epsg:4326&field=name:string" ), QStringLiteral( "points" ), QStringLiteral( "memory" ) );
+    REQUIRE( layer.isValid() );
+
+    QgsFeature feature( layer.fields() );
+    feature.setGeometry( QgsGeometry::fromPointXY( QgsPointXY( 8.0, 47.0 ) ) );
+    navigation.setDestinationFeature( feature, &layer );
+    REQUIRE( navigation.destinationFeatureVertexCount() == 1 );
+
+    navigation.clearDestinationFeature();
+    CAPTURE( navigation.destinationFeatureVertexCount(), navigation.destinationFeatureCurrentVertex() );
+    REQUIRE( navigation.destinationFeatureVertexCount() == 0 );
+    REQUIRE( navigation.destinationFeatureCurrentVertex() == -1 );
+  }
+}
+
+
+TEST_CASE( "Navigation: proximity alarm" )
+{
+  QTemporaryDir settingsDirectory;
+  REQUIRE( settingsDirectory.isValid() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+
+  QfNavigation navigation;
+
+  SECTION( "proximity alarm is disabled by default" )
+  {
+    REQUIRE_FALSE( navigation.proximityAlarm() );
+  }
+
+  SECTION( "enabling the proximity alarm emits and round-trips" )
+  {
+    QSignalSpy spy( &navigation, &QfNavigation::proximityAlarmChanged );
+    navigation.setProximityAlarm( true );
+    CAPTURE( spy.count() );
+    REQUIRE( navigation.proximityAlarm() );
+    REQUIRE( spy.count() == 1 );
+
+    navigation.setProximityAlarm( true );
+    REQUIRE( spy.count() == 1 );
+  }
+
+  SECTION( "the proximity alarm threshold emits and round-trips" )
+  {
+    QSignalSpy spy( &navigation, &QfNavigation::proximityAlarmThresholdChanged );
+    navigation.setProximityAlarmThreshold( 25.0 );
+    CAPTURE( navigation.proximityAlarmThreshold(), spy.count() );
+    REQUIRE( navigation.proximityAlarmThreshold() == Catch::Approx( 25.0 ) );
+    REQUIRE( spy.count() == 1 );
+
+    navigation.setProximityAlarmThreshold( 25.0 );
+    REQUIRE( spy.count() == 1 );
   }
 }
