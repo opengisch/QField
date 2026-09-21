@@ -60,7 +60,7 @@ class QfProjectInfo : public QObject
     /**
      * The markup manager used to keep track of collections.
      */
-    Q_PROPERTY( QfMarkupManager *markupManager READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
+    Q_PROPERTY( QfMarkupManager *markups READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
 
     /**
      * The state mode (browse vs. digitizing) for the currently opened project.
@@ -146,6 +146,16 @@ class QfProjectInfo : public QObject
      * Saves the vector \a layer fields that are remembered during feature additions
      */
     Q_INVOKABLE void saveLayerRememberedFields( QgsMapLayer *layer );
+
+    /**
+     * Saves the currently visible markup collections
+     */
+    Q_INVOKABLE void saveVisibleMarkupCollections();
+
+    /**
+     * Restores the currently visible markup collections
+     */
+    Q_INVOKABLE void restoreVisibleMarkupCollections();
 
     /**
      * Saves the state \a mode for the current project

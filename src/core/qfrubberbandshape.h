@@ -78,11 +78,15 @@ class QfRubberbandShape : public QQuickItem
     QColor color() const;
     //! \copydoc color
     void setColor( const QColor &color );
+    //! Returns the default color
+    Q_INVOKABLE static QColor defaultColor() { return QColor( 192, 57, 43, 150 ); }
 
     //! \copydoc outlineColor
     QColor outlineColor() const;
     //! \copydoc outlineColor
     void setOutlineColor( const QColor &color );
+    //! Returns the default outline color
+    Q_INVOKABLE static QColor defaultOutlineColor() { return QColor( 255, 255, 255, 100 ); }
 
     //! \copydoc lineWidth
     float lineWidth() const;
@@ -133,8 +137,8 @@ class QfRubberbandShape : public QQuickItem
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mFreeze = false;
     bool mDirty = false;
-    QColor mColor = QColor( 192, 57, 43, 150 );
-    QColor mOutlineColor = QColor( 255, 255, 255, 100 );
+    QColor mColor = defaultColor();
+    QColor mOutlineColor = defaultOutlineColor();
     float mWidth = 4;
     Qgis::GeometryType mGeometryType = Qgis::GeometryType::Null;
     QgsPointXY mGeometryCorner;

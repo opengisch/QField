@@ -365,7 +365,7 @@ void QfRubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVert
     geom = geom.simplify( simplificationTolerance );
   }
 
-  geom = geom.smooth();
+  geom = geom.smooth( 2 );
   geom = geom.makeValid();
 
   const QgsLineString *smoothed = qgsgeometry_cast<const QgsLineString *>( geom.constGet() );

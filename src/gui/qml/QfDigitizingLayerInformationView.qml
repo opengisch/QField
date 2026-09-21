@@ -68,7 +68,6 @@ Rectangle {
 
         popup: Popup {
           id: digitizingLayerPopup
-          y: digitizingLayerComboBox.height - 1
           width: digitizingLayerComboBox.width
           implicitHeight: contentItem.implicitHeight + 2
           topMargin: mainWindow.sceneTopMargin
@@ -134,24 +133,29 @@ Rectangle {
           width: digitizingLayerComboBox.width
           height: 36
           icon.source: {
-            if (LayerType === QfDigitizingLayerModel.MapLayer) {
+            switch (LayerType) {
+            case QfDigitizingLayerModel.MapLayer:
               switch (GeometryType) {
               case Qgis.GeometryType.Point:
-                return QfTheme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_point_18dp');
               case Qgis.GeometryType.Line:
-                return QfTheme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_line_18dp');
               case Qgis.GeometryType.Polygon:
-                return QfTheme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_polygon_18dp');
               case Qgis.GeometryType.Null:
               case Qgis.GeometryType.Unknown:
-                return QfTheme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
+                return QfTheme.getThemeVectorIcon('ic_table_18dp');
               }
+              return '';
+            case QfDigitizingLayerModel.MarkupCollection:
+              return QfTheme.getThemeVectorIcon('ic_markup_collection_18dp');
             }
+
             return '';
           }
-          icon.width: 18
-          icon.height: 18
-          icon.color: "transparent"
+          icon.width: 16
+          icon.height: 16
+          icon.color: QfTheme.mainTextColor
           text: Name
           font: QfTheme.tipFont
           highlighted: digitizingLayerComboBox.highlightedIndex === index
@@ -163,24 +167,28 @@ Rectangle {
 
           icon.source: {
             const digitizingLayerDetails = digitizingLayerModel.get(digitizingLayerComboBox.currentIndex);
-            if (digitizingLayerDetails["LayerType"] === QfDigitizingLayerModel.MapLayer) {
+            switch (digitizingLayerDetails["LayerType"]) {
+            case QfDigitizingLayerModel.MapLayer:
               switch (digitizingLayerDetails["GeometryType"]) {
               case Qgis.GeometryType.Point:
-                return QfTheme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_point_18dp');
               case Qgis.GeometryType.Line:
-                return QfTheme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_line_18dp');
               case Qgis.GeometryType.Polygon:
-                return QfTheme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_polygon_18dp');
               case Qgis.GeometryType.Null:
               case Qgis.GeometryType.Unknown:
-                return QfTheme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
+                return QfTheme.getThemeVectorIcon('ic_table_18dp');
               }
+              return '';
+            case QfDigitizingLayerModel.MarkupCollection:
+              return QfTheme.getThemeVectorIcon('ic_markup_collection_18dp');
             }
             return '';
           }
-          icon.width: 18
-          icon.height: 18
-          icon.color: "transparent"
+          icon.width: 16
+          icon.height: 16
+          icon.color: QfTheme.mainTextColor
 
           text: digitizingLayerComboBox.currentText
           font: QfTheme.tipFont

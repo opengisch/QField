@@ -28,8 +28,9 @@ ListView {
 
     property QfMarkupCollection collection: modelData
     property string collectionName: modelData.name
+    property string collectionUuid: modelData.uuid
     property bool isSelectedCollection: markupLegend.activeCollection == collection
-    property bool isVisibleCollection: markupManager.hiddenCollectionNames.indexOf(collectionName) === -1
+    property bool isVisibleCollection: markupManager.hiddenCollectionUuids.indexOf(collectionUuid) === -1
 
     width: ListView.view.width
     height: line.height + 7
@@ -86,15 +87,33 @@ ListView {
             bgcolor: "transparent"
             enabled: true
             onClicked: {
-              let hiddenCollectionNames = markupManager.hiddenCollectionNames;
-              const idx = hiddenCollectionNames.indexOf(collectionName);
+              let hiddenCollectionUuids = markupManager.hiddenCollectionUuids;
+              const idx = hiddenCollectionUuids.indexOf(collectionUuid);
               if (idx === -1) {
-                hiddenCollectionNames.push(collectionName);
+                hiddenCollectionUuids.push(collectionUuid);
               } else {
-                hiddenCollectionNames.splice(idx, 1);
+                hiddenCollectionUuids.splice(idx, 1);
               }
-              markupManager.hiddenCollectionNames = hiddenCollectionNames;
+              markupManager.hiddenCollectionUuids = hiddenCollectionUuids;
+              projectInfo.saveVisibleMarkupCollections();
             }
+          }
+        }
+
+        Item {
+          anchors.verticalCenter: parent.verticalCenter
+          height: 24
+          width: 24
+
+          Image {
+            anchors.fill: parent
+            anchors.margins: 4
+            fillMode: Image.PreserveAspectFit
+            cache: false
+            smooth: true
+            mipmap: true
+            source: QfTheme.getThemeVectorIcon('ic_markuplayer_18dp')
+            opacity: isVisibleCollection ? 1 : 0.25
           }
         }
 
@@ -102,7 +121,7 @@ ListView {
           id: markupCollectionName
           width: rectangle.width - collectionVisibility.width - line.leftPadding - 5
           padding: 3
-          leftPadding: 3
+          leftPadding: 0
           text: collectionName
           horizontalAlignment: Text.AlignLeft
           font: QfTheme.tipFont

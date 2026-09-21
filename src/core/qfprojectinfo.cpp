@@ -53,6 +53,7 @@ void QfProjectInfo::setFilePath( const QString &filePath )
   emit filePathChanged();
   emit stateModeChanged();
   emit activeLayerChanged();
+  emit activeCollectionChanged();
 }
 
 QString QfProjectInfo::filePath() const
@@ -131,6 +132,33 @@ QfMarkupManager *QfProjectInfo::markupManager() const
   return mMarkupManager;
 }
 
+void QfProjectInfo::saveVisibleMarkupCollections()
+{
+  if ( mFilePath.isEmpty() || !mMarkupManager )
+  {
+    return;
+  }
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  mSettings.setValue( QStringLiteral( "hiddenCollectionUuids" ), mMarkupManager->hiddenCollectionUuids() );
+  mSettings.endGroup();
+}
+
+void QfProjectInfo::restoreVisibleMarkupCollections()
+{
+  if ( mFilePath.isEmpty() || !mMarkupManager )
+  {
+    return;
+  }
+
+
+  mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
+  const QStringList hiddenCollectionUuids = mSettings.value( QStringLiteral( "hiddenCollectionUuids" ), QStringList() ).toStringList();
+  mSettings.endGroup();
+
+  mMarkupManager->setHiddenCollectionUuids( hiddenCollectionUuids );
+}
+
 void QfProjectInfo::setTrackingModel( QfTrackingModel *trackingModel )
 {
   if ( mTrackingModel == trackingModel )
@@ -147,7 +175,6 @@ QfTrackingModel *QfProjectInfo::trackingModel() const
 {
   return mTrackingModel;
 }
-
 
 void QfProjectInfo::saveTracker( QgsVectorLayer *layer )
 {
@@ -485,13 +512,13 @@ QString QfProjectInfo::stateMode() const
 
 void QfProjectInfo::setActiveLayer( QgsMapLayer *layer )
 {
-  if ( mFilePath.isEmpty() || !layer )
+  if ( mFilePath.isEmpty() )
   {
     return;
   }
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1" ).arg( mFilePath ) );
-  mSettings.setValue( QStringLiteral( "activeLayer" ), layer->id() );
+  mSettings.setValue( QStringLiteral( "activeLayer" ), layer ? layer->id() : QString() );
   mSettings.endGroup();
 
   emit activeLayerChanged();
@@ -528,9 +555,9 @@ void QfProjectInfo::setActiveCollection( QfMarkupCollection *collection )
 QfMarkupCollection *QfProjectInfo::activeCollection() const
 {
   QString collectionUuid;
-  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ) )
+  if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeCollection" ).arg( mFilePath ) ) )
   {
-    collectionUuid = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ).toString();
+    collectionUuid = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeCollection" ).arg( mFilePath ) ).toString();
   }
   return !collectionUuid.isEmpty() ? mMarkupManager->collection( collectionUuid ) : nullptr;
 }
