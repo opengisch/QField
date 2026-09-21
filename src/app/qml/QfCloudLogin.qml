@@ -20,15 +20,7 @@ Item {
   property QfCloudStatus cloudServiceStatus: null
 
   width: parent.width
-  height: {
-    if (isRegistrationVisible) {
-      return registrationLoader.height;
-    }
-    if (isPasswordResetVisible) {
-      return passwordResetLoader.height;
-    }
-    return connectionSettings.childrenRect.height;
-  }
+  height: connectionSettings.childrenRect.height
 
   FontMetrics {
     id: fontMetrics

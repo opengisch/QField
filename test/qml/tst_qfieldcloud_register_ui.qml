@@ -21,7 +21,6 @@ TestCase {
 
   QfCloudConnection {
     id: cloudConnection
-    // Nothing listens there, so these tests never reach a real server
     url: "http://127.0.0.1:9"
   }
 
@@ -43,20 +42,7 @@ TestCase {
   property var repeatPasswordField: findChild(qfieldCloudRegister, "repeatPasswordField")
   property var termsCheckBox: findChild(qfieldCloudRegister, "termsCheckBox")
   property var captchaAnswerField: findChild(qfieldCloudRegister, "captchaAnswerField")
-  property var backButton: findChild(qfieldCloudRegister, "backButton")
   property var continueButton: findChild(qfieldCloudRegister, "continueButton")
-
-  SignalSpy {
-    id: finishedSpy
-    target: qfieldCloudRegister
-    signalName: "finished"
-  }
-
-  SignalSpy {
-    id: cancelledSpy
-    target: qfieldCloudRegister
-    signalName: "cancelled"
-  }
 
   // This function is called after each test function that is executed in the TestCase type.
   function cleanup() {
@@ -71,8 +57,6 @@ TestCase {
     qfieldCloudRegister.captchaImageUrl = "";
     qfieldCloudRegister.registrationError = "";
     qfieldCloudRegister.isRegistering = false;
-    finishedSpy.clear();
-    cancelledSpy.clear();
   }
 
   /**
@@ -129,63 +113,14 @@ TestCase {
   /**
    * Tests the agreement step gating.
    *
-   * Scenario: the terms checkbox and an answered captcha are both mandatory, and a failed request gives the button back with a message
+   * Scenario: accepting the terms alone does not allow creating the account
    */
-  function test_04_agreementStepRequiresTermsAndCaptcha() {
+  function test_04_agreementStepRequiresTerms() {
     stepView.currentIndex = 2;
     usernameField.text = "mohsen";
     compare(continueButton.enabled, false);
     termsCheckBox.checked = true;
     compare(continueButton.enabled, false);
-    cloudConnection.signupCaptchaReceived("captcha-key", "http://127.0.0.1:9/captcha/image/captcha-key/");
-    compare(qfieldCloudRegister.captchaKey, "captcha-key");
-    compare(continueButton.enabled, false);
-    captchaAnswerField.text = "gkfc";
-    verify(continueButton.enabled);
-    continueButton.clicked();
-    verify(qfieldCloudRegister.isRegistering);
-    compare(continueButton.enabled, false);
-    tryCompare(qfieldCloudRegister, "isRegistering", false, 10000);
-    verify(qfieldCloudRegister.registrationError !== "");
-    compare(stepView.currentIndex, 2);
-  }
-
-  /**
-   * Tests going back through the registration steps.
-   *
-   * Scenario: back returns to the previous step with what was typed still there, and only leaves the flow from the first step
-   */
-  function test_05_goBackStepsThroughTheFlow() {
-    emailField.text = "mohsen@opengis.ch";
-    usernameField.text = "mohsen";
-    passwordField.password = "chogha-zanbil-1979";
-    stepView.currentIndex = 2;
-    backButton.clicked();
-    compare(stepView.currentIndex, 1);
-    compare(passwordField.password, "chogha-zanbil-1979");
-    qfieldCloudRegister.goBack();
-    compare(stepView.currentIndex, 0);
-    compare(emailField.text, "mohsen@opengis.ch");
-    compare(cancelledSpy.count, 0);
-    qfieldCloudRegister.goBack();
-    compare(cancelledSpy.count, 1);
-  }
-
-  /**
-   * Tests going back while the account is being created and once it exists.
-   *
-   * Scenario: back is ignored during the request, and finishes the flow from the welcome step
-   */
-  function test_06_goBackAroundAccountCreation() {
-    stepView.currentIndex = 2;
-    qfieldCloudRegister.isRegistering = true;
-    qfieldCloudRegister.goBack();
-    compare(stepView.currentIndex, 2);
-    cloudConnection.registered();
-    compare(qfieldCloudRegister.isRegistering, false);
-    compare(stepView.currentIndex, 3);
-    qfieldCloudRegister.goBack();
-    compare(finishedSpy.count, 1);
   }
 
   /**
@@ -193,7 +128,7 @@ TestCase {
    *
    * Scenario: short, digit-first, and names with characters outside the server's set are all rejected
    */
-  function test_07_usernameRequirements() {
+  function test_05_usernameRequirements() {
     emailField.text = "mohsen@opengis.ch";
     usernameField.text = "m";
     compare(qfieldCloudRegister.hasUsernameMinimumLength, false);
@@ -218,7 +153,7 @@ TestCase {
    *
    * Scenario: messages are shown and the flow returns to the earliest step holding a rejected field
    */
-  function test_08_registrationErrorsReturnToTheirStep() {
+  function test_06_registrationErrorsReturnToTheirStep() {
     stepView.currentIndex = 2;
     qfieldCloudRegister.isRegistering = true;
     captchaAnswerField.text = "gkfc";

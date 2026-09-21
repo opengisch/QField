@@ -367,7 +367,7 @@ class QfCloudUtils : public QObject
      */
     Q_INVOKABLE static QString subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username );
 
-    //! Returns the IANA identifier of the device time zone, e.g. Asia/Tehran.
+    //! Returns the IANA identifier of the device time zone.
     Q_INVOKABLE static QString deviceTimeZoneId();
 
     /**
