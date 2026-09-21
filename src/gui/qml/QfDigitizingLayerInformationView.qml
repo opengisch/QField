@@ -68,7 +68,6 @@ Rectangle {
 
         popup: Popup {
           id: digitizingLayerPopup
-          y: digitizingLayerComboBox.height - 1
           width: digitizingLayerComboBox.width
           implicitHeight: contentItem.implicitHeight + 2
           topMargin: mainWindow.sceneTopMargin
