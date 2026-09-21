@@ -684,7 +684,7 @@ Page {
 
       MenuItem {
         id: deleteFile
-        enabled: !itemMenu.itemMetaType === QfLocalFilesModel.Dataset && QfFileUtils.isDeletable(itemMenu.itemPath)
+        enabled: ((!qfieldLocalDataPickerScreen.projectFolderView && itemMenu.itemMetaType === QfLocalFilesModel.Folder) || itemMenu.itemMetaType === QfLocalFilesModel.File) && QfFileUtils.isDeletable(itemMenu.itemPath)
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -701,7 +701,7 @@ Page {
 
       MenuItem {
         id: removeDataset
-        enabled: itemMenu.itemMetaType === QfLocalFilesModel.Dataset && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
+        enabled: (!qfieldLocalDataPickerScreen.projectFolderView || itemMenu.itemType === QfLocalFilesModel.RasterDataset) && itemMenu.itemMetaType === QfLocalFilesModel.Dataset && table.model.isDeletedAllowedInCurrentPath
         visible: enabled
 
         font: QfTheme.defaultFont
