@@ -558,7 +558,6 @@ QfMarkupCollection *QfProjectInfo::activeCollection() const
   if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeCollection" ).arg( mFilePath ) ) )
   {
     collectionUuid = mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/activeCollection" ).arg( mFilePath ) ).toString();
-    qDebug() << collectionUuid;
   }
   return !collectionUuid.isEmpty() ? mMarkupManager->collection( collectionUuid ) : nullptr;
 }

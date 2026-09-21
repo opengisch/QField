@@ -54,15 +54,21 @@ void QfMarkupCollection::setName( const QString &name )
   emit nameChanged();
 }
 
-void QfMarkupCollection::addItem( const QfMarkupItem &item )
+QString QfMarkupCollection::addItem( const QfMarkupItem &item )
 {
-  qDebug() << "adding" << item.uuid();
-  mItems.insert( item.uuid(), item );
+  QfMarkupItem addedItem( item );
+  while ( mItems.contains( addedItem.uuid() ) )
+  {
+    addedItem.mUuid = QUuid::createUuid().toString( QUuid::WithoutBraces );
+  }
 
+  mItems.insert( addedItem.uuid(), addedItem );
   mAnnotationLayer.reset();
 
   emit countChanged();
   emit itemsChanged();
+
+  return addedItem.uuid();
 }
 
 void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &item )
@@ -426,7 +432,5 @@ QgsAnnotationLayer *QfMarkupCollection::asAnnotationLayer()
 
 QfMarkupItem QfMarkupCollection::createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )
 {
-  QfMarkupItem item( label, description, geometry, color );
-  qDebug() << "created" << item.uuid();
-  return item; //QfMarkupItem( label, description, geometry, color );
+  return QfMarkupItem( label, description, geometry, color );
 }

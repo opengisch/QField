@@ -38,7 +38,7 @@ QgsGeometry QfGeometryUtils::geometryFromRubberband( QfRubberbandModel *rubberBa
 
   if ( checkPolygon )
   {
-    if ( rubberBandModel->firstCoordinate().distance( rubberBandModel->lastCoordinate() ) < mapUnitsPerPoint * 5 )
+    if ( rubberBandModel->firstCoordinate().distance( rubberBandModel->lastCoordinate() ) < mapUnitsPerPoint * 20 )
     {
       return polygonFromRubberband( rubberBandModel, crs, wkbType );
     }
@@ -46,7 +46,7 @@ QgsGeometry QfGeometryUtils::geometryFromRubberband( QfRubberbandModel *rubberBa
 
   if ( checkLine )
   {
-    if ( rubberBandModel->firstCoordinate().distance( rubberBandModel->lastCoordinate() ) > mapUnitsPerPoint * 5 )
+    if ( rubberBandModel->firstCoordinate().distance( rubberBandModel->lastCoordinate() ) > mapUnitsPerPoint * 20 )
     {
       return lineFromRubberband( rubberBandModel, crs, wkbType );
     }

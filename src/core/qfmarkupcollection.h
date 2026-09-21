@@ -39,8 +39,8 @@ class QfMarkupCollection : public QObject
     explicit QfMarkupCollection( const QString &name = QString(), QObject *parent = nullptr );
 
     /**
-    * Returns the name of the collection.
-    */
+     * Returns the UUID of the collection.
+     */
     QString uuid() const { return mUuid; }
 
     /**
@@ -66,7 +66,7 @@ class QfMarkupCollection : public QObject
     /**
      * Adds an \a item into the collection and return its UUID.
      */
-    Q_INVOKABLE void addItem( const QfMarkupItem &item );
+    Q_INVOKABLE QString addItem( const QfMarkupItem &item );
 
     /**
      * Replaces an item matching the provided \a uuid with a new \a item within the collection.

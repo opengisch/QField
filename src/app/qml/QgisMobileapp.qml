@@ -1190,7 +1190,7 @@ ApplicationWindow {
 
       mapSettings: mapCanvas.mapSettings
       showVertices: digitizingToolbar.cogoEnabled
-      color: markupToolbar.stateVisible && markupToolbar.pickedColor !== undefined ? markupToolbar.pickedColor : ""
+      color: markupToolbar.stateVisible && markupToolbar.pickedColor !== undefined ? markupToolbar.pickedColor : defaultColor()
 
       model: QfRubberbandModel {
         frozen: false
