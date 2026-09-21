@@ -5411,7 +5411,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfDigitizingLayerInformationView</name>
     <message>
         <source>Map Layers</source>
-        <translation type="unfinished"/>
+        <translation>地图图层</translation>
     </message>
     <message>
         <source>Markups</source>
