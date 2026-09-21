@@ -144,7 +144,7 @@ public class QFieldPositioningService extends QtService {
 
         Notification.Builder builder =
             new Notification.Builder(this)
-                .setSmallIcon(R.drawable.qfield_logo)
+                .setSmallIcon(R.drawable.qfield_logo_vector)
                 .setWhen(System.currentTimeMillis())
                 .setOngoing(true)
                 .setContentTitle(getString(R.string.positioning_title))
@@ -181,7 +181,7 @@ public class QFieldPositioningService extends QtService {
 
         Notification.Builder builder =
             new Notification.Builder(this)
-                .setSmallIcon(R.drawable.qfield_logo)
+                .setSmallIcon(R.drawable.qfield_logo_vector)
                 .setWhen(System.currentTimeMillis())
                 .setOngoing(true)
                 .setContentTitle(getString(R.string.positioning_title))
