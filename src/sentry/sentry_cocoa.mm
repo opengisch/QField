@@ -20,7 +20,7 @@
 #include <QString>
 #include <QtGlobal>
 
-#import <Sentry.h>
+@import Sentry;
 
 namespace sentry_wrapper {
 static QtMessageHandler originalMessageHandler = nullptr;
