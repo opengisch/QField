@@ -31,6 +31,16 @@ Item {
     width: parent.width - 20
     spacing: 10
 
+    Text {
+      Layout.topMargin: 10
+      Layout.fillWidth: true
+      visible: qfieldCloudPasswordReset.resetError !== ""
+      text: qfieldCloudPasswordReset.resetError
+      font: QfTheme.defaultFont
+      color: QfTheme.errorColor
+      wrapMode: Text.WordWrap
+    }
+
     SwipeView {
       id: stepView
       objectName: "stepView"
@@ -82,24 +92,6 @@ Item {
               sendResetLinkButton.clicked();
             }
           }
-        }
-
-        Text {
-          Layout.fillWidth: true
-          visible: qfieldCloudPasswordReset.email !== "" && emailField.text === qfieldCloudPasswordReset.email
-          text: qsTr("Carried over from the sign-in form.")
-          font: QfTheme.tipFont
-          color: QfTheme.secondaryTextColor
-          wrapMode: Text.WordWrap
-        }
-
-        Text {
-          Layout.fillWidth: true
-          visible: qfieldCloudPasswordReset.resetError !== ""
-          text: qfieldCloudPasswordReset.resetError
-          font: QfTheme.tipFont
-          color: QfTheme.errorColor
-          wrapMode: Text.WordWrap
         }
 
         QfButton {
@@ -174,6 +166,7 @@ Item {
           horizontalAlignment: Text.AlignHCenter
           font: QfTheme.tipFont
           color: QfTheme.secondaryTextColor
+          linkColor: QfTheme.cloudColor
           textFormat: Text.RichText
           wrapMode: Text.WordWrap
 
@@ -196,16 +189,6 @@ Item {
             qfieldCloudPasswordReset.isSendingResetLink = true;
             cloudConnection.requestPasswordReset(emailField.text);
           }
-        }
-
-        Text {
-          Layout.fillWidth: true
-          visible: qfieldCloudPasswordReset.resetError !== ""
-          text: qfieldCloudPasswordReset.resetError
-          horizontalAlignment: Text.AlignHCenter
-          font: QfTheme.tipFont
-          color: QfTheme.errorColor
-          wrapMode: Text.WordWrap
         }
 
         Text {

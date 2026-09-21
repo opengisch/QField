@@ -13,13 +13,11 @@ Item {
 
   property bool isRegistering: false
   property bool isReferralCodeVisible: false
-  // Messages sent back by the server, e.g. a username already taken.
   property string registrationError: ""
   property string captchaKey: ""
   property string captchaImageUrl: ""
 
   readonly property bool isEmailValid: /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailField.text)
-  // Mirrors the username validators of QFieldCloud; reserved words and uniqueness are left to the server.
   readonly property bool hasUsernameMinimumLength: usernameField.text.length >= 3
   readonly property bool isUsernameStartingWithLetter: /^[a-zA-Z]/.test(usernameField.text)
   readonly property bool hasUsernameAllowedCharacters: /^[-a-zA-Z0-9_]+$/.test(usernameField.text)
@@ -336,7 +334,6 @@ Item {
             Layout.preferredWidth: captchaImage.sourceSize.width
             Layout.preferredHeight: captchaImage.sourceSize.height
             radius: 4
-            // The challenge letters come in random colors on a transparent background
             color: QfTheme.light
 
             Image {
@@ -447,7 +444,6 @@ Item {
     }
 
     Item {
-      // Keeps the navigation at the bottom when the steps are shorter than the view
       Layout.fillWidth: true
       Layout.fillHeight: true
     }
@@ -552,7 +548,6 @@ Item {
       } else if (errors.password1 !== undefined || errors.password2 !== undefined) {
         stepView.currentIndex = 1;
       }
-      // A captcha is only good for one attempt
       captchaAnswerField.text = "";
       cloudConnection.getSignupCaptcha();
     }

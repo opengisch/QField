@@ -21,7 +21,6 @@ TestCase {
 
   QfCloudConnection {
     id: cloudConnection
-    // Nothing listens there, so these tests never reach a real server
     url: "http://127.0.0.1:9"
   }
 

@@ -859,7 +859,7 @@ Popup {
               ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
               ScrollBar.vertical: QfScrollBar {}
               contentWidth: qfieldCloudLogin.width
-              contentHeight: qfieldCloudLogin.height
+              contentHeight: qfieldCloudLogin.childrenRect.height
               clip: true
 
               QfCloudLogin {
@@ -956,7 +956,6 @@ Popup {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
         } else if (popup.pendingAction == "connect" && !qfieldCloudLogin.isRegistrationVisible) {
-          // A new account first sees its welcome step
           popup.visible = false;
         }
       } else if (cloudConnection.status === QfCloudConnection.Disconnected) {
