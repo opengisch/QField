@@ -116,7 +116,13 @@ public class QFieldUtils {
 
             if (file.isDirectory()) {
                 String directoryPath = folder + file.getName() + "/";
-                new File(directoryPath).mkdir();
+                File newDirectory = new File(directoryPath);
+                if (!newDirectory.isDirectory() && !newDirectory.mkdirs()) {
+                    Log.e("QField",
+                          "documentFileToFolder: could not create directory: " +
+                              directoryPath);
+                    return false;
+                }
                 boolean success =
                     documentFileToFolder(file, directoryPath, resolver);
                 if (!success) {
@@ -124,12 +130,23 @@ public class QFieldUtils {
                 }
             } else {
                 String filePath = folder + file.getName();
-                try {
-                    InputStream input = resolver.openInputStream(file.getUri());
-                    QFieldUtils.inputStreamToFile(input, filePath);
+                // try-with-resources: the stream has to be closed here, the
+                // provider holds a file descriptor for each one and a folder
+                // with more files than the process descriptor limit would
+                // otherwise fail to copy part way through
+                try (InputStream input =
+                         resolver.openInputStream(file.getUri())) {
+                    if (!QFieldUtils.inputStreamToFile(input, filePath)) {
+                        Log.e("QField",
+                              "documentFileToFolder: could not write file: " +
+                                  filePath);
+                        return false;
+                    }
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    continue;
+                    Log.e("QField",
+                          "documentFileToFolder: could not read file: " +
+                              filePath + " (" + e.getMessage() + ")");
+                    return false;
                 }
             }
         }
