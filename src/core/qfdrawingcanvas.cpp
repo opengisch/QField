@@ -129,7 +129,7 @@ QString QfDrawingCanvas::save() const
   }
 
   // Insure correct permissions are allowing for user access
-  QFile::setPermissions( path, QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner );
+  QFile::setPermissions( path, QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup );
 
   return path;
 }
