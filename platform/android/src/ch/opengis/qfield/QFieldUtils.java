@@ -124,8 +124,8 @@ public class QFieldUtils {
                 }
             } else {
                 String filePath = folder + file.getName();
-                try {
-                    InputStream input = resolver.openInputStream(file.getUri());
+                try (InputStream input =
+                         resolver.openInputStream(file.getUri())) {
                     QFieldUtils.inputStreamToFile(input, filePath);
                 } catch (Exception e) {
                     e.printStackTrace();

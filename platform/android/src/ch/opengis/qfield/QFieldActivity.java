@@ -311,9 +311,8 @@ public class QFieldActivity extends QtActivity {
                         ContentResolver resolver = getContentResolver();
                         if (type != null && type.equals("application/zip")) {
                             String projectName = "";
-                            try {
-                                InputStream input =
-                                    resolver.openInputStream(uri);
+                            try (InputStream input =
+                                     resolver.openInputStream(uri)) {
                                 projectName =
                                     QFieldUtils.getArchiveProjectName(input);
                             } catch (Exception e) {
@@ -330,9 +329,8 @@ public class QFieldActivity extends QtActivity {
                                     i++;
                                 }
                                 new File(projectPath).mkdir();
-                                try {
-                                    InputStream input =
-                                        resolver.openInputStream(uri);
+                                try (InputStream input =
+                                         resolver.openInputStream(uri)) {
                                     QFieldUtils.zipToFolder(input, projectPath);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -366,9 +364,8 @@ public class QFieldActivity extends QtActivity {
                             Log.v("QField",
                                   "Importing document to file path: " +
                                       importFilePath);
-                            try {
-                                InputStream input =
-                                    resolver.openInputStream(uri);
+                            try (InputStream input =
+                                     resolver.openInputStream(uri)) {
                                 QFieldUtils.inputStreamToFile(input,
                                                               importFilePath);
                             } catch (Exception e) {
@@ -1040,9 +1037,8 @@ public class QFieldActivity extends QtActivity {
                         DocumentFile.fromSingleUri(context, datasetUri);
                     String importFilePath =
                         importDatasetPath + documentFile.getName();
-                    try {
-                        InputStream input =
-                            resolver.openInputStream(datasetUri);
+                    try (InputStream input =
+                             resolver.openInputStream(datasetUri)) {
                         imported = QFieldUtils.inputStreamToFile(
                             input, importFilePath);
                     } catch (Exception e) {
@@ -1140,8 +1136,7 @@ public class QFieldActivity extends QtActivity {
                     DocumentFile.fromSingleUri(context, archiveUri);
 
                 String projectName = "";
-                try {
-                    InputStream input = resolver.openInputStream(archiveUri);
+                try (InputStream input = resolver.openInputStream(archiveUri)) {
                     projectName = QFieldUtils.getArchiveProjectName(input);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1155,9 +1150,8 @@ public class QFieldActivity extends QtActivity {
                         "/";
                     new File(importPath).mkdir();
                     boolean imported = false;
-                    try {
-                        InputStream input =
-                            resolver.openInputStream(archiveUri);
+                    try (InputStream input =
+                             resolver.openInputStream(archiveUri)) {
                         imported = QFieldUtils.zipToFolder(input, importPath);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -1208,8 +1202,7 @@ public class QFieldActivity extends QtActivity {
                     new File(projectPath).getParentFile().getAbsolutePath() +
                     "/";
                 boolean imported = false;
-                try {
-                    InputStream input = resolver.openInputStream(archiveUri);
+                try (InputStream input = resolver.openInputStream(archiveUri)) {
                     imported = QFieldUtils.zipToFolder(input, projectFolder);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1390,8 +1383,8 @@ public class QFieldActivity extends QtActivity {
                 File result = new File(resourcePrefix + finalFilePath);
                 Log.d("QField",
                       "Selected gallery file: " + data.getData().toString());
-                try {
-                    InputStream in = getContentResolver().openInputStream(uri);
+                try (InputStream in =
+                         getContentResolver().openInputStream(uri)) {
                     QFieldUtils.inputStreamToFile(in, result.getPath());
                 } catch (Exception e) {
                     Log.d("QField", e.getMessage());
@@ -1418,8 +1411,8 @@ public class QFieldActivity extends QtActivity {
                 File result = new File(resourcePrefix + finalFilePath);
                 Log.d("QField", "Selected file picker file: " +
                                     data.getData().toString());
-                try {
-                    InputStream in = getContentResolver().openInputStream(uri);
+                try (InputStream in =
+                         getContentResolver().openInputStream(uri)) {
                     QFieldUtils.inputStreamToFile(in, result.getPath());
                 } catch (Exception e) {
                     Log.d("QField", e.getMessage());
