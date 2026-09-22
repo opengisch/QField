@@ -16,6 +16,7 @@
 
 #include "qfdrawingcanvas.h"
 
+#include <QFile>
 #include <QImageReader>
 #include <QPainter>
 #include <QPainterPath>
@@ -100,12 +101,13 @@ QString QfDrawingCanvas::save() const
   QPainter painter( &image );
   painter.drawImage( 0, 0, mDrawingImage );
 
+  QString path;
   if ( !mLoadedImagePath.isEmpty() )
   {
     QVariantMap metadata = QgsExifTools::readTags( mLoadedImagePath );
     if ( !metadata.isEmpty() )
     {
-      QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.jpg";
+      path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.jpg";
       image.save( path, "jpg", 88 );
       for ( const QString &key : metadata.keys() )
       {
@@ -117,12 +119,18 @@ QString QfDrawingCanvas::save() const
 
         QgsExifTools::tagImage( path, key, metadata[key] );
       }
-      return path;
     }
   }
 
-  QString path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.png";
-  image.save( path, "png", 80 );
+  if ( path.isEmpty() )
+  {
+    path = QStandardPaths::writableLocation( QStandardPaths::TempLocation ) + "/sketch.png";
+    image.save( path, "png", 80 );
+  }
+
+  // Insure correct permissions are allowing for user access
+  QFile::setPermissions( path, QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner );
+
   return path;
 }
 
