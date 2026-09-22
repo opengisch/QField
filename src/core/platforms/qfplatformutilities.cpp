@@ -243,6 +243,10 @@ bool QfPlatformUtilities::renameFile( const QString &oldFilePath, const QString 
     QFile oldfile( oldFilePath );
     oldfile.remove();
   }
+
+  // Insure correct permissions are allowing for user access
+  QFile::setPermissions( newFi.absoluteFilePath(), QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup );
+
   return ok;
 }
 
