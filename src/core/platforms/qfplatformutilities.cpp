@@ -245,7 +245,7 @@ bool QfPlatformUtilities::renameFile( const QString &oldFilePath, const QString 
   }
 
   // Insure correct permissions are allowing for user access
-  QFile::setPermissions( newFi.absoluteFilePath(), QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner );
+  QFile::setPermissions( newFi.absoluteFilePath(), QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup );
 
   return ok;
 }
