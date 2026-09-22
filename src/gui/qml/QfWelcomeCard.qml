@@ -6,16 +6,13 @@ import org.qfield.core
 /**
  * \ingroup qml_gui
  */
-Item {
+SwipeView {
   id: root
 
-  property int currentIndex: 0
-  property alias count: view.count
+  clip: true
+  interactive: false
 
-  default property alias panels: view.contentData
-
-  implicitWidth: parent ? parent.width : 0
-  implicitHeight: view.currentItem ? view.currentItem.implicitHeight : 0
+  implicitHeight: currentItem ? currentItem.implicitHeight : 0
 
   Behavior on implicitHeight {
     NumberAnimation {
@@ -26,6 +23,13 @@ Item {
 
   function collapse() {
     root.implicitHeight = 0;
+  }
+
+  background: Rectangle {
+    color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.1)
+    border.color: QfTheme.mainColorSemiOpaque
+    border.width: 1
+    radius: 8
   }
 
   component Panel: Item {
@@ -73,23 +77,5 @@ Item {
         spacing: 10
       }
     }
-  }
-
-  Rectangle {
-    anchors.fill: parent
-    color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.1)
-    border.color: QfTheme.mainColorSemiOpaque
-    border.width: 1
-    radius: 8
-  }
-
-  SwipeView {
-    id: view
-    anchors.fill: parent
-    clip: true
-    interactive: false
-    currentIndex: root.currentIndex
-    onCountChanged: view.currentIndex = root.currentIndex
-    Component.onCompleted: view.currentIndex = root.currentIndex
   }
 }
