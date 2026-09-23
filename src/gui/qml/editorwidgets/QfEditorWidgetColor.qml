@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 import org.qfield.core
 import org.qfield.gui
@@ -7,19 +9,11 @@ import org.qfield.gui
 QfEditorWidgetBase {
   id: colorControl
 
-  property double desiredHeight: QfTheme.toolButtonSize
-
-  height: desiredHeight
+  height: childrenRect.height
 
   anchors {
     right: parent.right
     left: parent.left
-  }
-
-  onEnabledChanged: {
-    if (!isEnabled && colorContainer.currentIndex > 0) {
-      colorContainer.currentIndex = 0;
-    }
   }
 
   SwipeView {
@@ -31,34 +25,43 @@ QfEditorWidgetBase {
       right: parent.right
     }
 
+    height: Math.max(Material.textFieldHeight + 2, QfTheme.toolButtonSize)
     clip: true
     interactive: false
     currentIndex: 0
 
+    enabled: isEnabled
+    onEnabledChanged: {
+      if (colorContainer.currentIndex > 0) {
+        colorContainer.currentIndex = 0;
+      }
+    }
+
     RowLayout {
       id: currentColorView
       width: colorControl.width
-      height: QfTheme.toolButtonSize
       spacing: 5
 
       Rectangle {
         id: colorArea
         Layout.fillWidth: true
-        Layout.preferredHeight: QfTheme.toolButtonSize
-        height: QfTheme.toolButtonSize
-        radius: height / 2
+        Layout.preferredHeight: Material.textFieldHeight
+        Layout.alignment: Qt.AlignVCenter
 
         color: value == null ? "transparent" : value
+        radius: 4
 
-        QfToolButton {
-          anchors.right: parent.right
-          width: QfTheme.toolButtonSize
-          height: QfTheme.toolButtonSize
+        TextField {
+          anchors.fill: parent
+          enabled: isEnabled
           visible: isEnabled
-          enabled: false
-          iconSource: QfTheme.getThemeVectorIcon("ic_ellipsis_black_24dp")
-          iconColor: "white"
-          bgcolor: "transparent"
+          Material.containerStyle: Material.Outlined
+
+          onActiveFocusChanged: {
+            if (activeFocus) {
+              colorPickerButton.clicked();
+            }
+          }
         }
 
         MouseArea {
@@ -66,8 +69,24 @@ QfEditorWidgetBase {
           enabled: isEnabled
 
           onClicked: {
-            colorContainer.currentIndex = 1;
+            colorPickerButton.clicked();
           }
+        }
+      }
+
+      QfToolButton {
+        id: colorPickerButton
+        Layout.preferredWidth: QfTheme.toolButtonSize
+        Layout.preferredHeight: QfTheme.toolButtonSize
+        Layout.alignment: Qt.AlignVCenter
+        visible: isEnabled
+        enabled: isEnabled
+        iconSource: QfTheme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+        iconColor: QfTheme.mainTextColor
+        bgcolor: "transparent"
+
+        onClicked: {
+          colorContainer.currentIndex = 1;
         }
       }
     }
@@ -75,7 +94,6 @@ QfEditorWidgetBase {
     RowLayout {
       id: selectColorView
       width: colorControl.width
-      height: QfTheme.toolButtonSize
       spacing: 5
 
       ListView {
