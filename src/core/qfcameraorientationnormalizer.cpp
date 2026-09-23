@@ -22,6 +22,7 @@
 #include <QImageWriter>
 #include <QScreen>
 #include <QTransform>
+#include <qgsexiftools.h>
 
 QfCameraOrientationNormalizer::QfCameraOrientationNormalizer( QObject *parent )
   : QObject( parent )
@@ -146,6 +147,8 @@ bool QfCameraOrientationNormalizer::applyEditsToImage( const QString &path, int 
     return false;
   }
 
+  const QVariantMap metadata = QgsExifTools::readTags( path );
+
   QImageReader reader( path );
   reader.setAutoTransform( false );
   QImage image = reader.read();
@@ -168,7 +171,23 @@ bool QfCameraOrientationNormalizer::applyEditsToImage( const QString &path, int 
   QImageWriter writer( path );
   writer.setTransformation( QImageIOHandler::TransformationNone );
   writer.setQuality( 95 );
-  return writer.write( image );
+  const bool success = writer.write( image );
+
+  if ( success && !metadata.isEmpty() )
+  {
+    for ( const QString &key : metadata.keys() )
+    {
+      if ( key == QLatin1String( "Exif.Image.Orientation" ) )
+      {
+        // The rotation transform already happened when we loaded the image, skip the tag
+        continue;
+      }
+
+      QgsExifTools::tagImage( path, key, metadata[key] );
+    }
+  }
+
+  return success;
 }
 
 void QfCameraOrientationNormalizer::handleScreenOrientationChanged( Qt::ScreenOrientation orientation )
