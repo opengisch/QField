@@ -30,6 +30,7 @@
 #include <QTemporaryFile>
 #include <qgis.h>
 #include <qgsapplication.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
@@ -129,6 +130,15 @@ void QfCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId 
 
   mCurrentProjectId = currentProjectId;
   mCurrentProject = findProject( mCurrentProjectId );
+
+  if ( mCurrentProject )
+  {
+    QgsExpressionContextUtils::setGlobalVariable( QStringLiteral( "cloud_teams" ), mCurrentProject->teams() );
+  }
+  else
+  {
+    QgsExpressionContextUtils::removeGlobalVariable( QStringLiteral( "cloud_teams" ) );
+  }
 
   if ( mLayerObserver )
   {
