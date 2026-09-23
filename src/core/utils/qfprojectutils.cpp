@@ -22,6 +22,7 @@
 #include <qgsattributeeditorcontainer.h>
 #include <qgsattributeeditorfield.h>
 #include <qgsattributeeditorrelation.h>
+#include <qgscolorutils.h>
 #include <qgsmaplayer.h>
 #include <qgsprojectdisplaysettings.h>
 #include <qgsrasterlayer.h>
@@ -81,6 +82,31 @@ Qgis::TransactionMode QfProjectUtils::transactionMode( QgsProject *project )
     return Qgis::TransactionMode::Disabled;
 
   return project->transactionMode();
+}
+
+QList<QColor> QfProjectUtils::colorPresets( QgsProject *project )
+{
+  QStringList colorStrings;
+  if ( project )
+  {
+    colorStrings = QgsProject::instance()->readListEntry( QStringLiteral( "Palette" ), QStringLiteral( "/Colors" ) );
+  }
+
+  if ( colorStrings.isEmpty() )
+  {
+    colorStrings << QStringLiteral( "228,26,28" )
+                 << QStringLiteral( "55,126,184" )
+                 << QStringLiteral( "77,175,74" )
+                 << QStringLiteral( "152,78,163" )
+                 << QStringLiteral( "255,127,0" );
+  }
+
+  QList<QColor> colors;
+  for ( const QString &colorString : std::as_const( colorStrings ) )
+  {
+    colors << QgsColorUtils::colorFromString( colorString );
+  }
+  return colors;
 }
 
 QString QfProjectUtils::title( QgsProject *project )

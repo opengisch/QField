@@ -63,6 +63,11 @@ class QfProjectUtils : public QObject
     Q_INVOKABLE static Qgis::TransactionMode transactionMode( QgsProject *project = nullptr );
 
     /**
+     * Returns the color presets for a given \a project.
+     */
+    Q_INVOKABLE static QList<QColor> colorPresets( QgsProject *project = nullptr );
+
+    /**
      * Returns the \a project title.
      */
     Q_INVOKABLE static QString title( QgsProject *project = nullptr );
