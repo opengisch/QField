@@ -23,6 +23,12 @@ QfVisibilityFadingRow {
 
   spacing: 4
 
+  onVisibleChanged: {
+    if (visible) {
+      markupColorRepeater.model = QfProjectUtils.colorPresets(qgisProject);
+    }
+  }
+
   Item {
     id: markupColorItem
 
@@ -57,7 +63,8 @@ QfVisibilityFadingRow {
       }
 
       Repeater {
-        model: ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00"] // Colobrewer 5-class qualitative set
+        id: markupColorRepeater
+        model: []
         delegate: QfToolButton {
           width: 40
           height: 40
