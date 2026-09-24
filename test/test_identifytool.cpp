@@ -29,7 +29,7 @@ TEST_CASE( "IdentifyTool" )
 
   SECTION( "deactivation without model does not crash" )
   {
-    REQUIRE_NOTHROW( tool.setDeactivated( true ) );
+    REQUIRE_NOTHROW( tool.setEnabled( false ) );
   }
 
   SECTION( "deactivation prevents identification" )
@@ -38,8 +38,8 @@ TEST_CASE( "IdentifyTool" )
     tool.setModel( &model );
     QSignalSpy finishedSpy( &tool, &QfIdentifyTool::identifyFinished );
 
-    tool.setDeactivated( true );
-    REQUIRE( tool.deactivated() );
+    tool.setEnabled( false );
+    REQUIRE( !tool.enabled() );
 
     // Identify should be a no operation when deactivated and must not emit finished
     tool.identify( QPointF( 100, 100 ) );

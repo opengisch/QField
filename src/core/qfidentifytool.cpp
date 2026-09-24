@@ -17,9 +17,9 @@
 #include "qfmultifeaturelistmodel.h"
 #include "qgsquickmapsettings.h"
 
+#include <QSettings>
 #include <qgsexpressioncontextutils.h>
 #include <qgsfeaturestore.h>
-#include <qgsproject.h>
 #include <qgsrasteridentifyresult.h>
 #include <qgsrasterlayer.h>
 #include <qgsrenderer.h>
@@ -45,7 +45,9 @@ QgsQuickMapSettings *QfIdentifyTool::mapSettings() const
 void QfIdentifyTool::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mapSettings == mMapSettings )
+  {
     return;
+  }
 
   mMapSettings = mapSettings;
   emit mapSettingsChanged();
@@ -53,8 +55,10 @@ void QfIdentifyTool::setMapSettings( QgsQuickMapSettings *mapSettings )
 
 void QfIdentifyTool::identify( const QPointF &point ) const
 {
-  if ( mDeactivated )
+  if ( !mEnabled )
+  {
     return;
+  }
 
   if ( !mModel || !mMapSettings )
   {
@@ -70,7 +74,9 @@ void QfIdentifyTool::identify( const QPointF &point ) const
   for ( QgsMapLayer *layer : layers )
   {
     if ( !layer->flags().testFlag( QgsMapLayer::Identifiable ) )
+    {
       continue;
+    }
 
     if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
     {
@@ -97,16 +103,22 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVe
   QList<IdentifyResult> results;
 
   if ( !layer || !layer->isSpatial() )
+  {
     return results;
+  }
 
   if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )
+  {
     return results;
+  }
 
   QString temporalFilter;
   if ( mMapSettings->isTemporal() )
   {
     if ( !layer->temporalProperties()->isVisibleInTemporalRange( mMapSettings->mapSettings().temporalRange() ) )
+    {
       return results;
+    }
 
     QgsVectorLayerTemporalContext temporalContext;
     temporalContext.setLayer( layer );
@@ -192,16 +204,22 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRa
 {
   QList<QfIdentifyTool::IdentifyResult> results;
   if ( !layer->dataProvider() || !layer->isValid() )
+  {
     return results;
+  }
 
   std::unique_ptr<QgsRasterDataProvider> dataProvider( layer->dataProvider()->clone() );
   const Qgis::RasterInterfaceCapabilities capabilities = dataProvider->capabilities();
 
   if ( !( capabilities & Qgis::RasterInterfaceCapability::Identify ) )
+  {
     return results;
+  }
 
   if ( !( capabilities & Qgis::RasterInterfaceCapability::IdentifyFeature ) )
+  {
     return results;
+  }
 
   const QgsPointXY pointInLayerCoordinates = toLayerCoordinates( layer, point );
   const double mapUnitsPerPixel = mMapSettings->mapSettings().mapUnitsPerPixel();
@@ -301,7 +319,9 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorTileLayer( Q
 {
   QList<QfIdentifyTool::IdentifyResult> results;
   if ( !layer || !layer->isSpatial() )
+  {
     return results;
+  }
 
   if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )
   {
@@ -387,21 +407,27 @@ QfMultiFeatureListModel *QfIdentifyTool::model() const
 void QfIdentifyTool::setModel( QfMultiFeatureListModel *model )
 {
   if ( model == mModel )
+  {
     return;
+  }
 
   mModel = model;
   emit modelChanged();
 }
 
-void QfIdentifyTool::setDeactivated( bool deactivated )
+void QfIdentifyTool::setEnabled( bool enabled )
 {
-  if ( mDeactivated == deactivated )
+  if ( mEnabled == enabled )
+  {
     return;
+  }
 
-  if ( deactivated && mModel )
+  mEnabled = enabled;
+
+  if ( !mEnabled && mModel )
+  {
     mModel->clear();
-
-  mDeactivated = deactivated;
+  }
 }
 
 double QfIdentifyTool::searchRadiusMU( const QgsRenderContext &context ) const
@@ -433,7 +459,9 @@ double QfIdentifyTool::searchRadiusMm() const
 void QfIdentifyTool::setSearchRadiusMm( double searchRadiusMm )
 {
   if ( mSearchRadiusMm == searchRadiusMm )
+  {
     return;
+  }
 
   mSearchRadiusMm = searchRadiusMm;
   emit searchRadiusMmChanged();

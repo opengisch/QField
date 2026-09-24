@@ -39,7 +39,7 @@ class QfIdentifyTool : public QObject
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
     Q_PROPERTY( QfMultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
-    Q_PROPERTY( bool deactivated READ deactivated WRITE setDeactivated NOTIFY deactivatedChanged )
+    Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
 
   public:
     struct IdentifyResult
@@ -67,22 +67,20 @@ class QfIdentifyTool : public QObject
     QfMultiFeatureListModel *model() const;
     void setModel( QfMultiFeatureListModel *model );
 
-    bool deactivated() const { return mDeactivated; }
-    void setDeactivated( bool deactivated );
+    bool enabled() const { return mEnabled; }
+    void setEnabled( bool enabled );
+
+    Q_INVOKABLE void identify( const QPointF &point ) const;
+    Q_INVOKABLE QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
+    Q_INVOKABLE QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
+    Q_INVOKABLE QList<IdentifyResult> identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
 
   signals:
     void mapSettingsChanged();
     void searchRadiusMmChanged();
     void modelChanged();
-    void deactivatedChanged();
+    void enabledChanged();
     void identifyFinished() const;
-
-  public slots:
-    void identify( const QPointF &point ) const;
-
-    QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
-    QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
-    QList<IdentifyResult> identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
 
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
@@ -96,7 +94,7 @@ class QfIdentifyTool : public QObject
 
     double mSearchRadiusMm;
 
-    bool mDeactivated = false;
+    bool mEnabled = true;
 };
 
 #endif // QFIDENTIFYTOOL_H
