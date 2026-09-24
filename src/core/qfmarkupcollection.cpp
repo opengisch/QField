@@ -28,6 +28,7 @@
 #include <qgscurvepolygon.h>
 #include <qgsfillsymbol.h>
 #include <qgsfillsymbollayer.h>
+#include <qgsgeometrycollection.h>
 #include <qgslinesymbol.h>
 #include <qgslinesymbollayer.h>
 #include <qgsmarkersymbol.h>
@@ -428,6 +429,32 @@ QgsAnnotationLayer *QfMarkupCollection::asAnnotationLayer()
   }
 
   return mAnnotationLayer.get();
+}
+
+QgsVectorLayer *QfMarkupCollection::asVectorLayer()
+{
+  if ( mVectorLayer )
+  {
+    return mVectorLayer.get();
+  }
+
+  mVectorLayer.reset( new QgsVectorLayer( QStringLiteral( "GeometryCollection?crs=EPSG:4326&field=uuid:string&field=label:string&field=description:string&field=color:string" ), mName, QStringLiteral( "memory" ) ) );
+  for ( const QfMarkupItem &item : mItems )
+  {
+    QgsFeature feature( mVectorLayer->fields() );
+    feature.setAttribute( QStringLiteral( "uuid" ), item.uuid() );
+    feature.setAttribute( QStringLiteral( "label" ), item.label() );
+    feature.setAttribute( QStringLiteral( "description" ), item.description() );
+    feature.setAttribute( QStringLiteral( "color" ), item.color().name( QColor::HexArgb ) );
+
+    QgsGeometryCollection geometryCollection;
+    geometryCollection.addGeometry( item.geometry().get()->clone() );
+    feature.setGeometry( QgsGeometry( geometryCollection.clone() ) );
+
+    mVectorLayer->dataProvider()->addFeature( feature, QgsFeatureSink::FastInsert );
+  }
+
+  return mVectorLayer.get();
 }
 
 QfMarkupItem QfMarkupCollection::createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )

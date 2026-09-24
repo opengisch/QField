@@ -21,6 +21,7 @@
 
 #include <QObject>
 #include <qgsannotationlayer.h>
+#include <qgsvectorlayer.h>
 
 /**
  * \brief This class holds a collection of markup items.
@@ -94,6 +95,16 @@ class QfMarkupCollection : public QObject
      */
     QgsAnnotationLayer *asAnnotationLayer();
 
+    /**
+     * Returns a pointer to a memory vector layer matching the content of the collection.
+     *
+     * The layer geometry type is a GeometryCollection and it can be used to modify
+     * the attributes and geometries of individual markup items within the collection.
+     *
+     * \note The ownership remains with the collection.
+     */
+    QgsVectorLayer *asVectorLayer();
+
     Q_INVOKABLE static QfMarkupItem createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color );
 
   signals:
@@ -114,6 +125,7 @@ class QfMarkupCollection : public QObject
     QString mName;
     QMap<QString, QfMarkupItem> mItems;
     std::unique_ptr<QgsAnnotationLayer> mAnnotationLayer;
+    std::unique_ptr<QgsVectorLayer> mVectorLayer;
 };
 
 #endif // QFMARKUPCOLLECTION_H
