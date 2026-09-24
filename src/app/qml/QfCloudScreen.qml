@@ -363,17 +363,6 @@ Page {
               border.width: 1
               radius: 2
 
-              ProgressBar {
-                anchors.bottom: line.bottom
-                anchors.left: line.left
-                anchors.right: parent.right
-                height: 4
-                indeterminate: PackagingStatus !== QfCloudProject.PackagingFinishedStatus && DownloadProgress === 0.0
-                value: DownloadProgress
-                visible: Status === QfCloudProject.ProjectStatus.Downloading
-                z: 1
-              }
-
               Row {
                 id: line
                 width: parent.width
@@ -523,6 +512,16 @@ Page {
                   width: QfTheme.toolButtonSize
                   height: QfTheme.toolButtonSize
                   anchors.verticalCenter: line.verticalCenter
+
+                  QfProgressRing {
+                    anchors.centerIn: parent
+                    size: parent.width * 0.75
+                    strokeWidth: 3
+                    backgroundColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.2)
+                    indeterminate: PackagingStatus !== QfCloudProject.PackagingFinishedStatus && DownloadProgress === 0.0
+                    value: DownloadProgress
+                    visible: Status === QfCloudProject.ProjectStatus.Downloading
+                  }
 
                   QfToolButton {
                     id: downloadActionButton
