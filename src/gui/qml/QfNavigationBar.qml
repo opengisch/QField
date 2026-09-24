@@ -351,7 +351,7 @@ Rectangle {
 
     property bool supportsEditing: false
     property bool isCreatedCloudFeature: false
-    property bool isMarkupItem: selection.focusedLayer && selection.focusedLayer.customProperty('QField/is_markup_collection') === true
+    property bool isMarkupItem: false
 
     anchors.right: menuButton.left
     anchors.top: parent.top
@@ -380,7 +380,8 @@ Rectangle {
 
       function onFocusedItemChanged() {
         editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing;
-        editGeomButton.supportsGeometryEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing && !selection.focusedGeometry.isNull && (selection.focusedLayer.geometryType() !== Qgis.GeometryType.Point || WkbTypes.isMultiType(selection.focusedLayer.wkbType()));
+        editButton.isMarkupItem = selection.focusedLayer && selection.focusedLayer.customProperty('QField/is_markup_collection') === true;
+        editGeomButton.supportsGeometryEditing = !editButton.isMarkupItem && selection.focusedLayer && selection.focusedLayer.supportsEditing && !selection.focusedGeometry.isNull && (selection.focusedLayer.geometryType() !== Qgis.GeometryType.Point || WkbTypes.isMultiType(selection.focusedLayer.wkbType()));
       }
       function onFocusedFeatureChanged() {
         if (QfCloudUtils.getProjectId(qgisProject.fileName) !== '') {
@@ -527,9 +528,10 @@ Rectangle {
       text: qsTr('Print Atlas Feature(s) to PDF')
       icon.source: QfTheme.getThemeVectorIcon("ic_print_black_24dp")
       enabled: toolBar.model && toolBar.model.selectedCount > 0 && QfLayerUtils.isAtlasCoverageLayer(toolBar.model.selectedLayer)
+      visible: !editButton.isMarkupItem
 
       font: QfTheme.defaultFont
-      height: 48
+      height: !editButton.isMarkupItem ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
@@ -539,7 +541,7 @@ Rectangle {
     }
 
     MenuSeparator {
-      enabled: mergeSelectedFeaturesBtn.visible || moveSelectedFeaturesBtn.visible || duplicateSelectedFeaturesBtn.visible || deleteSelectedFeaturesBtn.visible
+      enabled: !editButton.isMarkupItem && (mergeSelectedFeaturesBtn.visible || moveSelectedFeaturesBtn.visible || duplicateSelectedFeaturesBtn.visible || deleteSelectedFeaturesBtn.visible)
       visible: enabled
       width: parent.width
       height: enabled ? undefined : 0
@@ -548,7 +550,8 @@ Rectangle {
     MenuItem {
       id: mergeSelectedFeaturesBtn
       text: qsTr('Merge Selected Features')
-      height: 48
+      visible: !editButton.isMarkupItem
+      height: !editButton.isMarkupItem ? 48 : 0
       icon.source: QfTheme.getThemeVectorIcon("ic_merge_features_white_24dp")
       enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
 
@@ -574,7 +577,8 @@ Rectangle {
     MenuItem {
       id: duplicateSelectedFeaturesBtn
       text: qsTr('Duplicate Selected Feature(s)')
-      height: 48
+      visible: !editButton.isMarkupItem
+      height: !editButton.isMarkupItem ? 48 : 0
       icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
 
@@ -600,12 +604,16 @@ Rectangle {
 
     MenuSeparator {
       width: parent.width
+      enabled: !editButton.isMarkupItem
+      visible: enabled
+      height: enabled ? undefined : 0
     }
 
     MenuItem {
       id: processingSelectedFeaturesBtn
       text: qsTr('Process Selected Feature(s)')
-      height: 48
+      visible: !editButton.isMarkupItem
+      height: !editButton.isMarkupItem ? 48 : 0
       icon.source: QfTheme.getThemeVectorIcon("ic_processing_black_24dp")
       enabled: toolBar.model && toolBar.model.canProcessSelection && projectInfo.editRights
 
