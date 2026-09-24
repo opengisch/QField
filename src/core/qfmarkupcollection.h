@@ -67,17 +67,17 @@ class QfMarkupCollection : public QObject
     /**
      * Adds an \a item into the collection and return its UUID.
      */
-    Q_INVOKABLE QString addItem( const QfMarkupItem &item );
+    Q_INVOKABLE QString addItem( const QfMarkupItem &item, bool resetVectorLayer = true );
 
     /**
      * Replaces an item matching the provided \a uuid with a new \a item within the collection.
      */
-    Q_INVOKABLE void replaceItem( const QString &uuid, const QfMarkupItem &item );
+    Q_INVOKABLE void replaceItem( const QString &uuid, const QfMarkupItem &item, bool resetVectorLayer = true );
 
     /**
      * Removes an item matching the provided \a uuid from the collection.
      */
-    Q_INVOKABLE void removeItem( const QString &uuid );
+    Q_INVOKABLE void removeItem( const QString &uuid, bool resetVectorLayer = true );
 
     /**
      * Restore a collection from the content of a GeoJSON at the provided \a path.
@@ -121,6 +121,7 @@ class QfMarkupCollection : public QObject
     void itemsChanged();
 
   private:
+    void processFeatureDeleted( QgsFeatureId fid );
     void processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
 
     QString mUuid;
@@ -128,6 +129,7 @@ class QfMarkupCollection : public QObject
     QMap<QString, QfMarkupItem> mItems;
     std::unique_ptr<QgsAnnotationLayer> mAnnotationLayer;
     std::unique_ptr<QgsVectorLayer> mVectorLayer;
+    QMap<QgsFeatureId, QString> mFeatureUuids;
 };
 
 #endif // QFMARKUPCOLLECTION_H

@@ -55,7 +55,7 @@ void QfMarkupCollection::setName( const QString &name )
   emit nameChanged();
 }
 
-QString QfMarkupCollection::addItem( const QfMarkupItem &item )
+QString QfMarkupCollection::addItem( const QfMarkupItem &item, bool resetVectorLayer )
 {
   QfMarkupItem addedItem( item );
   while ( mItems.contains( addedItem.uuid() ) )
@@ -64,7 +64,12 @@ QString QfMarkupCollection::addItem( const QfMarkupItem &item )
   }
 
   mItems.insert( addedItem.uuid(), addedItem );
+
   mAnnotationLayer.reset();
+  if ( resetVectorLayer )
+  {
+    mVectorLayer.reset();
+  }
 
   emit countChanged();
   emit itemsChanged();
@@ -72,7 +77,7 @@ QString QfMarkupCollection::addItem( const QfMarkupItem &item )
   return addedItem.uuid();
 }
 
-void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &item )
+void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &item, bool resetVectorLayer )
 {
   if ( mItems.contains( uuid ) )
   {
@@ -80,18 +85,26 @@ void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &i
     mItems[uuid].mUuid = uuid;
 
     mAnnotationLayer.reset();
+    if ( resetVectorLayer )
+    {
+      mVectorLayer.reset();
+    }
 
     emit itemsChanged();
   }
 }
 
-void QfMarkupCollection::removeItem( const QString &uuid )
+void QfMarkupCollection::removeItem( const QString &uuid, bool resetVectorLayer )
 {
   if ( mItems.contains( uuid ) )
   {
     mItems.remove( uuid );
 
     mAnnotationLayer.reset();
+    if ( resetVectorLayer )
+    {
+      mVectorLayer.reset();
+    }
 
     emit countChanged();
     emit itemsChanged();
@@ -453,27 +466,36 @@ QgsVectorLayer *QfMarkupCollection::asVectorLayer()
     feature.setGeometry( QgsGeometry( geometryCollection.clone() ) );
 
     mVectorLayer->dataProvider()->addFeature( feature, QgsFeatureSink::FastInsert );
+    mFeatureUuids[feature.id()] = item.uuid();
   }
 
+
   connect( mVectorLayer.get(), &QgsVectorLayer::geometryChanged, this, &QfMarkupCollection::processGeometryChanged );
+  connect( mVectorLayer.get(), &QgsVectorLayer::featureDeleted, this, &QfMarkupCollection::processFeatureDeleted );
 
   return mVectorLayer.get();
 }
 
+void QfMarkupCollection::processFeatureDeleted( QgsFeatureId fid )
+{
+  if ( mFeatureUuids.contains( fid ) )
+  {
+    removeItem( mFeatureUuids[fid], false );
+  }
+}
+
 void QfMarkupCollection::processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
 {
-  QgsFeature feature = mVectorLayer->getFeature( fid );
-  const QString uuid = feature.attribute( QStringLiteral( "uuid" ) ).toString();
-  if ( mItems.contains( uuid ) )
+  if ( mFeatureUuids.contains( fid ) )
   {
     if ( QgsWkbTypes::flatType( geometry.wkbType() ) == Qgis::WkbType::GeometryCollection )
     {
       const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() );
       if ( !geometryCollection->isEmpty() )
       {
-        QfMarkupItem item = mItems.value( uuid );
+        QfMarkupItem item = mItems.value( mFeatureUuids[fid] );
         item.mGeometry = QgsGeometry( geometryCollection->geometryN( 0 )->clone() );
-        replaceItem( uuid, item );
+        replaceItem( mFeatureUuids[fid], item, false );
       }
     }
   }
