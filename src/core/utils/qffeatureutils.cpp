@@ -82,9 +82,16 @@ QString QfFeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &fe
 
 QgsRectangle QfFeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature, bool skipSinglePointLogic )
 {
-  if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
+  const bool isSpatial = layer && layer->geometryType() != Qgis::GeometryType::Null && ( layer->geometryType() != Qgis::GeometryType::Unknown || QgsWkbTypes::flatType( layer->wkbType() ) == Qgis::WkbType::GeometryCollection );
+  if ( mapSettings && isSpatial )
   {
-    QgsCoordinateTransform ct( layer->crs(), mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
+    QgsCoordinateReferenceSystem crs = layer->crs();
+    if ( layer->dataProvider() && QgsWkbTypes::flatType( layer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      crs = layer->dataProvider()->crs();
+    }
+
+    QgsCoordinateTransform ct( crs, mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
     QgsGeometry geom( feature.geometry() );
     if ( !geom.isNull() )
     {

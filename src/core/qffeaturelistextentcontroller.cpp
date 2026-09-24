@@ -18,6 +18,7 @@
 #include "qfmultifeaturelistmodel.h"
 
 #include <qgsgeometry.h>
+#include <qgsgeometrycollection.h>
 #include <qgsvectorlayer.h>
 
 QfFeatureListExtentController::QfFeatureListExtentController( QObject *parent )
@@ -52,16 +53,35 @@ void QfFeatureListExtentController::zoomToSelected( bool skipIfIntersects ) cons
   if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings && mSelection->focusedLayer() )
   {
     QgsVectorLayer *layer = mSelection->focusedLayer();
-    const QgsFeature feature = mSelection->focusedFeature();
+    QgsFeature feature = mSelection->focusedFeature();
 
-    if ( layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
+    if ( layer->geometryType() != Qgis::GeometryType::Null )
     {
-      if ( feature.geometry().type() == Qgis::GeometryType::Point && feature.geometry().constGet()->partCount() == 1 )
+      QgsGeometry geometry = feature.geometry();
+      if ( QgsWkbTypes::flatType( feature.geometry().wkbType() ) == Qgis::WkbType::GeometryCollection )
       {
+        const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( feature.geometry().constGet() );
+        if ( !geometryCollection->isEmpty() )
+        {
+          geometry = QgsGeometry( geometryCollection->geometryN( 0 )->clone() );
+        }
+      }
+
+      if ( geometry.type() == Qgis::GeometryType::Point && geometry.constGet()->partCount() == 1 )
+      {
+        QgsCoordinateReferenceSystem crs = layer->crs();
+        if ( QgsVectorLayer *vlayer = dynamic_cast<QgsVectorLayer *>( layer ) )
+        {
+          if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+          {
+            crs = vlayer->dataProvider()->crs();
+          }
+        }
+
         try
         {
-          const QgsCoordinateTransform ct( layer->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
-          const QgsPoint point( ct.transform( feature.geometry().asPoint() ) );
+          const QgsCoordinateTransform ct( crs, mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+          const QgsPoint point( ct.transform( geometry.asPoint() ) );
           if ( !point.isEmpty() )
           {
             emit requestJumpToPoint( point, -1.0, true );
@@ -113,7 +133,8 @@ void QfFeatureListExtentController::zoomToAllFeatures() const
   {
     const QModelIndex index = mModel->index( i, 0 );
     QgsVectorLayer *layer = qvariant_cast<QgsVectorLayer *>( mModel->data( index, QfMultiFeatureListModel::LayerRole ) );
-    if ( !layer || layer->geometryType() == Qgis::GeometryType::Unknown || layer->geometryType() == Qgis::GeometryType::Null )
+    const bool isSpatial = layer && layer->geometryType() != Qgis::GeometryType::Null && ( layer->geometryType() != Qgis::GeometryType::Unknown || QgsWkbTypes::flatType( layer->wkbType() ) == Qgis::WkbType::GeometryCollection );
+    if ( !isSpatial )
     {
       continue;
     }
@@ -121,13 +142,13 @@ void QfFeatureListExtentController::zoomToAllFeatures() const
     try
     {
       const QgsFeature feature = mModel->data( index, QfMultiFeatureListModel::FeatureRole ).value<QgsFeature>();
-      const QgsGeometry geom( feature.geometry() );
-      if ( geom.isNull() )
+      const QgsGeometry geometry( feature.geometry() );
+      if ( geometry.isNull() )
       {
         continue;
       }
 
-      if ( geom.type() != Qgis::GeometryType::Point || geom.constGet()->partCount() > 1 )
+      if ( geometry.type() != Qgis::GeometryType::Point || geometry.constGet()->partCount() > 1 )
       {
         isSinglePointGeometry = false;
       }
