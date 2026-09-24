@@ -121,6 +121,8 @@ class QfMarkupCollection : public QObject
     void itemsChanged();
 
   private:
+    void processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
+
     QString mUuid;
     QString mName;
     QMap<QString, QfMarkupItem> mItems;

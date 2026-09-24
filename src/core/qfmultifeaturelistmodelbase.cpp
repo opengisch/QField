@@ -965,7 +965,19 @@ bool QfMultiFeatureListModelBase::moveSelection( const double x, const double y,
     {
       geom.translate( x, y );
     }
-    isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      // QGIS threats a geometry collection is non-spatial, which in turn prohibits geometry changes via edit buffer
+      QgsGeometryMap geometryMap;
+      geometryMap[pair.second.id()] = geom;
+      vlayer->dataProvider()->changeGeometryValues( geometryMap );
+      emit vlayer->geometryChanged( pair.second.id(), geom );
+      isSuccess = true;
+    }
+    else
+    {
+      isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    }
     if ( !isSuccess )
     {
       QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );

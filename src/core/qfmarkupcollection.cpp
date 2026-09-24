@@ -454,7 +454,27 @@ QgsVectorLayer *QfMarkupCollection::asVectorLayer()
     mVectorLayer->dataProvider()->addFeature( feature, QgsFeatureSink::FastInsert );
   }
 
+  connect( mVectorLayer.get(), &QgsVectorLayer::geometryChanged, this, &QfMarkupCollection::processGeometryChanged );
   return mVectorLayer.get();
+}
+
+void QfMarkupCollection::processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
+{
+  QgsFeature feature = mVectorLayer->getFeature( fid );
+  const QString uuid = feature.attribute( QStringLiteral( "uuid" ) ).toString();
+  if ( mItems.contains( uuid ) )
+  {
+    if ( QgsWkbTypes::flatType( geometry.wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() );
+      if ( !geometryCollection->isEmpty() )
+      {
+        QfMarkupItem item = mItems.value( uuid );
+        item.mGeometry = QgsGeometry( geometryCollection->geometryN( 0 )->clone() );
+        replaceItem( uuid, item );
+      }
+    }
+  }
 }
 
 QfMarkupItem QfMarkupCollection::createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )
