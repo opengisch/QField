@@ -1106,6 +1106,7 @@ ApplicationWindow {
       property bool isPieMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
+      markups: markupManager
       model: isPieMenuRequest || isMenuRequest ? menuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
 

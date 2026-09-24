@@ -44,13 +44,29 @@ QgsQuickMapSettings *QfIdentifyTool::mapSettings() const
 
 void QfIdentifyTool::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
-  if ( mapSettings == mMapSettings )
+  if ( mMapSettings == mapSettings )
   {
     return;
   }
 
   mMapSettings = mapSettings;
   emit mapSettingsChanged();
+}
+
+QfMarkupManager *QfIdentifyTool::markupManager() const
+{
+  return mMarkupManager;
+}
+
+void QfIdentifyTool::setMarkupManager( QfMarkupManager *markupManager )
+{
+  if ( mMarkupManager == markupManager )
+  {
+    return;
+  }
+
+  mMarkupManager = markupManager;
+  emit markupManagerChanged();
 }
 
 void QfIdentifyTool::identify( const QPointF &point ) const
@@ -95,6 +111,16 @@ void QfIdentifyTool::identify( const QPointF &point ) const
     }
   }
 
+  if ( mMarkupManager )
+  {
+    const QList<QfMarkupCollection *> collections = mMarkupManager->visibleCollections();
+    for ( QfMarkupCollection *collection : collections )
+    {
+      QList<IdentifyResult> results = identifyVectorLayer( collection->asVectorLayer(), mapPoint );
+      mModel->appendFeatures( results );
+    }
+  }
+
   emit identifyFinished();
 }
 
@@ -102,7 +128,7 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVe
 {
   QList<IdentifyResult> results;
 
-  if ( !layer || !layer->isSpatial() )
+  if ( !layer || ( !layer->isSpatial() && layer->wkbType() != QgsWkbTypes::flatType( Qgis::WkbType::GeometryCollection ) ) )
   {
     return results;
   }
@@ -165,7 +191,9 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVe
     QgsFeatureIterator fit = layer->getFeatures( req );
     QgsFeature f;
     while ( fit.nextFeature( f ) )
+    {
       featureList << QgsFeature( f );
+    }
   }
   catch ( const QgsCsException &cse )
   {

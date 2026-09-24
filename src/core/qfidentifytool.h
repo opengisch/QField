@@ -16,6 +16,9 @@
 #ifndef QFIDENTIFYTOOL_H
 #define QFIDENTIFYTOOL_H
 
+#include "qfmarkupmanager.h"
+#include "qgsquickmapsettings.h"
+
 #include <QObject>
 #include <qgsfeature.h>
 #include <qgsmapsettings.h>
@@ -23,7 +26,6 @@
 #include <qgsrendercontext.h>
 
 class QgsMapLayer;
-class QgsQuickMapSettings;
 class QgsRasterLayer;
 class QgsVectorLayer;
 class QgsVectorTileLayer;
@@ -37,9 +39,11 @@ class QfIdentifyTool : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
+    Q_PROPERTY( QfMarkupManager *markups READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
     Q_PROPERTY( QfMultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
+
     Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
+    Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
 
   public:
     struct IdentifyResult
@@ -61,6 +65,9 @@ class QfIdentifyTool : public QObject
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    QfMarkupManager *markupManager() const;
+    void setMarkupManager( QfMarkupManager *markupManager );
+
     double searchRadiusMm() const;
     void setSearchRadiusMm( double searchRadiusMm );
 
@@ -77,24 +84,26 @@ class QfIdentifyTool : public QObject
 
   signals:
     void mapSettingsChanged();
-    void searchRadiusMmChanged();
+    void markupManagerChanged();
     void modelChanged();
     void enabledChanged();
+    void searchRadiusMmChanged();
+
     void identifyFinished() const;
 
   private:
-    QgsQuickMapSettings *mMapSettings = nullptr;
-    QfMultiFeatureListModel *mModel = nullptr;
-
     double searchRadiusMU( const QgsRenderContext &context ) const;
     double searchRadiusMU() const;
 
     QgsRectangle toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const;
     QgsPointXY toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &point ) const;
 
-    double mSearchRadiusMm;
+    QgsQuickMapSettings *mMapSettings = nullptr;
+    QfMarkupManager *mMarkupManager = nullptr;
+    QfMultiFeatureListModel *mModel = nullptr;
 
     bool mEnabled = true;
+    double mSearchRadiusMm;
 };
 
 #endif // QFIDENTIFYTOOL_H
