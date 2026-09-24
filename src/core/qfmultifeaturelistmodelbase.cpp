@@ -564,7 +564,7 @@ bool QfMultiFeatureListModelBase::canMergeSelection() const
   if ( !vlayer )
     return false;
 
-  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool();
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
   const bool isCapable = ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries );
   return !isLocked && isCapable;
 }
@@ -592,7 +592,7 @@ bool QfMultiFeatureListModelBase::canDuplicateSelection() const
   if ( !vlayer )
     return false;
 
-  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool();
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures;
   return !isLocked && isCapable;
 }
@@ -690,6 +690,9 @@ bool QfMultiFeatureListModelBase::canProcessSelection() const
 
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
   if ( !isCapable )
+    return false;
+
+  if ( vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool() )
     return false;
 
   const bool isDeprecadedGeometryLock = vlayer->customPropertyKeys().contains( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ) );

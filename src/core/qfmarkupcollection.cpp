@@ -439,6 +439,7 @@ QgsVectorLayer *QfMarkupCollection::asVectorLayer()
   }
 
   mVectorLayer.reset( new QgsVectorLayer( QStringLiteral( "GeometryCollection?crs=EPSG:4326&field=uuid:string&field=label:string&field=description:string&field=color:string" ), mName, QStringLiteral( "memory" ) ) );
+  mVectorLayer->setCustomProperty( QStringLiteral( "QField/is_markup_collection" ), true );
   for ( const QfMarkupItem &item : mItems )
   {
     QgsFeature feature( mVectorLayer->fields() );
@@ -455,6 +456,7 @@ QgsVectorLayer *QfMarkupCollection::asVectorLayer()
   }
 
   connect( mVectorLayer.get(), &QgsVectorLayer::geometryChanged, this, &QfMarkupCollection::processGeometryChanged );
+
   return mVectorLayer.get();
 }
 

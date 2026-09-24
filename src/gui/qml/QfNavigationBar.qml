@@ -351,6 +351,7 @@ Rectangle {
 
     property bool supportsEditing: false
     property bool isCreatedCloudFeature: false
+    property bool isMarkupItem: selection.focusedLayer && selection.focusedLayer.customProperty('QField/is_markup_collection') === true
 
     anchors.right: menuButton.left
     anchors.top: parent.top
@@ -628,7 +629,8 @@ Rectangle {
       leftPadding: 2
       rightPadding: 2
       spacing: 2
-      height: QfTheme.toolButtonSize
+      visible: !editButton.isMarkupItem
+      height: !editButton.isMarkupItem ? QfTheme.toolButtonSize : 0
       clip: true
 
       property color hoveredColor: Qt.hsla(QfTheme.mainTextColor.hslHue, QfTheme.mainTextColor.hslSaturation, QfTheme.mainTextColor.hslLightness, 0.2)
@@ -723,6 +725,8 @@ Rectangle {
 
     MenuSeparator {
       width: parent.width
+      height: !editButton.isMarkupItem ? undefined : 0
+      visible: !editButton.isMarkupItem
     }
 
     MenuItem {
@@ -759,7 +763,7 @@ Rectangle {
       id: processFeatureButton
       text: qsTr('Process Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_processing_black_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
+      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && !editButton.isMarkupItem && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
       visible: enabled
 
       font: QfTheme.defaultFont
@@ -787,7 +791,7 @@ Rectangle {
       id: duplicateFeatureBtn
       text: qsTr('Duplicate Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
-      enabled: (projectInfo.insertRights && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
+      enabled: (projectInfo.insertRights && !editButton.isMarkupItem && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
       visible: enabled
 
       font: QfTheme.defaultFont
@@ -827,7 +831,7 @@ Rectangle {
       id: transferFeatureAttributesBtn
       text: qsTr('Update Attributes from Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_transfer_into_black_24dp")
-      enabled: (projectInfo.insertRights && (!selection.focusedLayer || !featureForm.model.featureModel.attributeEditingLocked))
+      enabled: (projectInfo.insertRights && !editButton.isMarkupItem && (!selection.focusedLayer || !featureForm.model.featureModel.attributeEditingLocked))
       visible: enabled
 
       font: QfTheme.defaultFont
