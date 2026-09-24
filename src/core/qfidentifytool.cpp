@@ -469,14 +469,68 @@ double QfIdentifyTool::searchRadiusMU() const
   return searchRadiusMU( context );
 }
 
-QgsRectangle QfIdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const
+QgsRectangle QfIdentifyTool::toLayerCoordinates( QgsMapLayer *layer, QgsRectangle rect ) const
 {
-  return mMapSettings->mapSettings().mapToLayerCoordinates( layer, rect );
+  if ( !layer || !mMapSettings )
+  {
+    return rect;
+  }
+
+  QgsCoordinateReferenceSystem crs = layer->crs();
+  if ( QgsVectorLayer *vlayer = dynamic_cast<QgsVectorLayer *>( layer ) )
+  {
+    if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      crs = vlayer->dataProvider()->crs();
+    }
+  }
+
+  try
+  {
+    const QgsCoordinateTransform ct( mMapSettings->destinationCrs(), crs, mMapSettings->transformContext() );
+    if ( ct.isValid() )
+    {
+      rect = ct.transform( rect );
+    }
+  }
+  catch ( QgsCsException &cse )
+  {
+    qInfo() << QStringLiteral( "Identify tool Transform error caught: %1" ).arg( cse.what() );
+  }
+
+  return rect;
 }
 
-QgsPointXY QfIdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &point ) const
+QgsPointXY QfIdentifyTool::toLayerCoordinates( QgsMapLayer *layer, QgsPointXY point ) const
 {
-  return mMapSettings->mapSettings().mapToLayerCoordinates( layer, point );
+  if ( !layer || !mMapSettings )
+  {
+    return point;
+  }
+
+  QgsCoordinateReferenceSystem crs = layer->crs();
+  if ( QgsVectorLayer *vlayer = dynamic_cast<QgsVectorLayer *>( layer ) )
+  {
+    if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      crs = vlayer->dataProvider()->crs();
+    }
+  }
+
+  try
+  {
+    const QgsCoordinateTransform ct( mMapSettings->destinationCrs(), crs, mMapSettings->transformContext() );
+    if ( ct.isValid() )
+    {
+      point = ct.transform( point );
+    }
+  }
+  catch ( QgsCsException &cse )
+  {
+    qInfo() << QStringLiteral( "Identify tool Transform error caught: %1" ).arg( cse.what() );
+  }
+
+  return point;
 }
 
 double QfIdentifyTool::searchRadiusMm() const

@@ -95,8 +95,8 @@ class QfIdentifyTool : public QObject
     double searchRadiusMU( const QgsRenderContext &context ) const;
     double searchRadiusMU() const;
 
-    QgsRectangle toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const;
-    QgsPointXY toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &point ) const;
+    QgsRectangle toLayerCoordinates( QgsMapLayer *layer, QgsRectangle rect ) const;
+    QgsPointXY toLayerCoordinates( QgsMapLayer *layer, QgsPointXY point ) const;
 
     QgsQuickMapSettings *mMapSettings = nullptr;
     QfMarkupManager *mMarkupManager = nullptr;
