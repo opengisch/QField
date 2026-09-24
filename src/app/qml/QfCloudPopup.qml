@@ -920,7 +920,7 @@ Popup {
   Connections {
     target: cloudProjectsModel
 
-    function onPushFinished(projectId, hasError, errorString) {
+    function onPushFinished(projectId, isDownloadingProject, hasError, errorString) {
       transferError.hasError = hasError;
       if (transferError.visible) {
         transferError.detailsText = errorString;
