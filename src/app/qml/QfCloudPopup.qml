@@ -20,6 +20,8 @@ Popup {
   property string pendingCreationTitle: ""
   property string pendingUploadPath: ""
   property string lastSubscriptionUser: ""
+  property bool isSynchronizing: false
+  readonly property bool isUploading: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Pushing && !isSynchronizing)
 
   property date currentDateTime: new Date()
 
@@ -53,7 +55,7 @@ Popup {
       showCancelButton: false
       showApplyButton: false
 
-      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QfCloudConnection.Connecting || cloudProjectsModel.currentProject.status === QfCloudProject.Pushing || cloudProjectsModel.currentProject.status === QfCloudProject.Downloading) ? 'on' : 'off'
+      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QfCloudConnection.Connecting || (cloudProjectsModel.currentProject.status === QfCloudProject.Pushing && popup.isSynchronizing) || cloudProjectsModel.currentProject.status === QfCloudProject.Downloading) ? 'on' : 'off'
 
       topMargin: mainWindow.sceneTopMargin
 
@@ -199,7 +201,7 @@ Popup {
 
           Text {
             id: statusText
-            visible: (cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QfCloudProject.Downloading || cloudProjectsModel.currentProject.status === QfCloudProject.Pushing)) || (cloudProjectCreationConnection.target && (cloudProjectCreationConnection.target.status === QfCloudProject.Downloading))
+            visible: (cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QfCloudProject.Downloading || (cloudProjectsModel.currentProject.status === QfCloudProject.Pushing && popup.isSynchronizing))) || (cloudProjectCreationConnection.target && (cloudProjectCreationConnection.target.status === QfCloudProject.Downloading))
             font: QfTheme.tipFont
             color: QfTheme.secondaryTextColor
             text: {
@@ -407,11 +409,12 @@ Popup {
                 Layout.fillWidth: true
                 Layout.topMargin: 4
                 bgcolor: QfTheme.cloudColor
-                color: QfTheme.light
+                color: enabled ? QfTheme.light : QfTheme.mainTextDisabledColor
                 text: localProjectGrid.isCloudifying ? (localProjectGrid.cloudifyProgress > 0 ? qsTr('Cloudifying %1%').arg(Math.round(localProjectGrid.cloudifyProgress * 100)) : qsTr('Cloudifying')) : qsTr('Cloudify project')
                 enabled: !localProjectGrid.isCloudifying
                 showProgress: localProjectGrid.isCloudifying
                 progressValue: localProjectGrid.cloudifyProgress
+                progressColor: QfTheme.cloudColor
 
                 onClicked: {
                   if (qgisProject.fileName != "") {
@@ -427,7 +430,7 @@ Popup {
             Layout.margins: 10
             Layout.maximumWidth: 525
             Layout.alignment: Qt.AlignHCenter
-            visible: !connectionSettings.visible && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle
+            visible: !connectionSettings.visible && cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QfCloudProject.Idle || popup.isUploading)
 
             readonly property bool hasDeltaFileWrapper: !!cloudProjectsModel.layerObserver.deltaFileWrapper
             readonly property bool hasDeltaError: hasDeltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
@@ -582,12 +585,22 @@ Popup {
                 }
 
                 QfButton {
+                  readonly property real pushProgress: popup.isUploading && cloudProjectsModel.currentProject.pushDeltaProgress < 1 ? cloudProjectsModel.currentProject.pushDeltaProgress : 0
+
                   Layout.fillWidth: true
                   Layout.topMargin: 4
                   bgcolor: QfTheme.cloudColor
-                  color: QfTheme.light
-                  text: qsTr('Upload')
+                  color: enabled ? QfTheme.light : QfTheme.mainTextDisabledColor
+                  text: {
+                    if (popup.isUploading) {
+                      return pushProgress > 0 ? qsTr('Uploading %1%').arg(Math.round(pushProgress * 100)) : qsTr('Uploading');
+                    }
+                    return qsTr('Upload');
+                  }
                   enabled: cloudProjectGrid.canUpload
+                  showProgress: popup.isUploading
+                  progressValue: pushProgress
+                  progressColor: QfTheme.cloudColor
 
                   onClicked: projectPush(false)
                 }
@@ -921,6 +934,9 @@ Popup {
     target: cloudProjectsModel
 
     function onPushFinished(projectId, isDownloadingProject, hasError, errorString) {
+      if (projectId === cloudProjectsModel.currentProjectId && !isDownloadingProject) {
+        popup.isSynchronizing = false;
+      }
       transferError.hasError = hasError;
       if (transferError.visible) {
         transferError.detailsText = errorString;
@@ -928,6 +944,9 @@ Popup {
     }
 
     function onProjectDownloaded(projectId, projectName, projectOwner, hasError, errorString) {
+      if (projectId === cloudProjectsModel.currentProjectId) {
+        popup.isSynchronizing = false;
+      }
       if (hasError) {
         if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodeOverQuota}"`) >= 0) {
           // Let the storage meter and the toast message inviting users to upgrade subscription
@@ -1091,6 +1110,7 @@ Popup {
     }
 
     if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle) {
+      popup.isSynchronizing = shouldDownloadUpdates;
       cloudProjectsModel.projectPush(cloudProjectsModel.currentProjectId, shouldDownloadUpdates);
     }
   }
