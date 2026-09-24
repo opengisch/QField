@@ -11,8 +11,19 @@ SwipeView {
 
   clip: true
   interactive: false
+  property bool collapsed: false
+  Layout.preferredHeight: collapsed ? 0 : (currentItem ? currentItem.implicitHeight : implicitHeight)
 
-  implicitHeight: currentItem ? currentItem.implicitHeight : 0
+  // The index the card should rest on. SwipeView jumps to the last page as
+  // pages are appended incrementally, so we re-assert this once they settle.
+  property int startIndex: 0
+  onCountChanged: Qt.callLater(root.applyStartIndex)
+  Component.onCompleted: Qt.callLater(root.applyStartIndex)
+  function applyStartIndex() {
+    if (count > 0) {
+      currentIndex = Math.min(startIndex, count - 1);
+    }
+  }
 
   Behavior on implicitHeight {
     NumberAnimation {
@@ -22,7 +33,7 @@ SwipeView {
   }
 
   function collapse() {
-    root.implicitHeight = 0;
+    root.collapsed = true;
   }
 
   background: Rectangle {

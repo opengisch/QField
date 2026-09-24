@@ -149,7 +149,7 @@ Page {
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         Layout.preferredWidth: Math.min(410, welcomeLayout.width - 30)
-        currentIndex: 1
+        startIndex: 1
 
         QfWelcomeCard.Panel {
           id: ohno
@@ -243,7 +243,7 @@ Page {
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         Layout.preferredWidth: Math.min(410, welcomeLayout.width - 20)
-        currentIndex: 1
+        startIndex: 1
 
         QfWelcomeCard.Panel {
           id: collectionOhno
