@@ -60,7 +60,9 @@ QgsFeature QfFeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeomet
 QString QfFeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feature )
 {
   if ( !layer )
+  {
     return QString();
+  }
 
   QgsExpressionContext context = QgsExpressionContext()
                                  << QgsExpressionContextUtils::globalScope()
@@ -68,9 +70,12 @@ QString QfFeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &fe
                                  << QgsExpressionContextUtils::layerScope( layer );
   context.setFeature( feature );
 
-  QString name = QgsExpression( layer->displayExpression() ).evaluate( &context ).toString();
+  QgsExpression expression( layer->displayExpression() );
+  QString name = expression.evaluate( &context ).toString();
   if ( name.isEmpty() )
+  {
     name = QString::number( feature.id() );
+  }
 
   return name;
 }

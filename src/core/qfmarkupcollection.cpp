@@ -451,9 +451,10 @@ QgsVectorLayer *QfMarkupCollection::asVectorLayer()
     return mVectorLayer.get();
   }
 
-  mVectorLayer.reset( new QgsVectorLayer( QStringLiteral( "GeometryCollection?crs=EPSG:4326&field=color:string&field=label:string&field=description:string" ), mName, QStringLiteral( "memory" ) ) );
+  mVectorLayer.reset( new QgsVectorLayer( QStringLiteral( "GeometryCollection?crs=EPSG:4326&field=color:string&field=label:string&field=description:string" ), QStringLiteral( "%1: %2" ).arg( tr( "Markups" ), mName ), QStringLiteral( "memory" ) ) );
 
   mVectorLayer->setCustomProperty( QStringLiteral( "QField/is_markup_collection" ), true );
+  mVectorLayer->setDisplayExpression( QStringLiteral( "if(\"description\" is not null and \"description\" != '', if(length(\"description\") > 20, substr(\"description\", 1, 20) || '…', \"description\"), '%1')" ).arg( tr( "Markup item" ) ) );
 
   QVariantMap editorWidgetOptions;
   QgsEditorWidgetSetup editorWidgetSetup;
