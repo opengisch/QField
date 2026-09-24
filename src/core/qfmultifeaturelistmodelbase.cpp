@@ -365,10 +365,28 @@ QVariant QfMultiFeatureListModelBase::data( const QModelIndex &index, int role )
       return QVariant::fromValue<QgsMapLayer *>( feature->first );
 
     case QfMultiFeatureListModel::GeometryRole:
-      return QVariant::fromValue<QgsGeometry>( feature->second.geometry() );
+    {
+      QgsGeometry geometry = feature->second.geometry();
+      if ( QgsWkbTypes::flatType( geometry.wkbType() ) == Qgis::WkbType::GeometryCollection )
+      {
+        const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() );
+        if ( !geometryCollection->isEmpty() )
+        {
+          geometry = QgsGeometry( geometryCollection->geometryN( 0 )->clone() );
+        }
+      }
+      return QVariant::fromValue<QgsGeometry>( geometry );
+    }
 
     case QfMultiFeatureListModel::CrsRole:
+    {
+      if ( vlayer && vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+      {
+        // QGIS invalidates the CRS when the WKB type is GeometryCollection, fetch the CRS from the data provider
+        return QVariant::fromValue<QgsCoordinateReferenceSystem>( vlayer->dataProvider()->crs() );
+      }
       return QVariant::fromValue<QgsCoordinateReferenceSystem>( feature->first->crs() );
+    }
 
     case QfMultiFeatureListModel::DeleteFeatureRole:
       if ( vlayer )
