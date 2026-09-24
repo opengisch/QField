@@ -451,52 +451,99 @@ QgsVectorLayer *QfMarkupCollection::asVectorLayer()
     return mVectorLayer.get();
   }
 
-  mVectorLayer.reset( new QgsVectorLayer( QStringLiteral( "GeometryCollection?crs=EPSG:4326&field=uuid:string&field=label:string&field=description:string&field=color:string" ), mName, QStringLiteral( "memory" ) ) );
+  mVectorLayer.reset( new QgsVectorLayer( QStringLiteral( "GeometryCollection?crs=EPSG:4326&field=color:string&field=label:string&field=description:string" ), mName, QStringLiteral( "memory" ) ) );
+
   mVectorLayer->setCustomProperty( QStringLiteral( "QField/is_markup_collection" ), true );
+
+  QVariantMap editorWidgetOptions;
+  QgsEditorWidgetSetup editorWidgetSetup;
+
+  editorWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), editorWidgetOptions );
+  mVectorLayer->setEditorWidgetSetup( 0, editorWidgetSetup );
+  mVectorLayer->setFieldAlias( 0, tr( "Color" ) );
+
+  editorWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), editorWidgetOptions );
+  mVectorLayer->setEditorWidgetSetup( 1, editorWidgetSetup );
+  mVectorLayer->setFieldAlias( 1, tr( "Label" ) );
+
+  editorWidgetOptions.clear();
+  editorWidgetOptions[QStringLiteral( "IsMultiline" )] = true;
+  editorWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), editorWidgetOptions );
+  mVectorLayer->setEditorWidgetSetup( 2, editorWidgetSetup );
+  mVectorLayer->setFieldAlias( 2, tr( "Description" ) );
+
   for ( const QfMarkupItem &item : mItems )
   {
     QgsFeature feature( mVectorLayer->fields() );
-    feature.setAttribute( QStringLiteral( "uuid" ), item.uuid() );
     feature.setAttribute( QStringLiteral( "label" ), item.label() );
-    feature.setAttribute( QStringLiteral( "description" ), item.description() );
     feature.setAttribute( QStringLiteral( "color" ), item.color().name( QColor::HexArgb ) );
+    feature.setAttribute( QStringLiteral( "description" ), item.description() );
 
     QgsGeometryCollection geometryCollection;
     geometryCollection.addGeometry( item.geometry().get()->clone() );
     feature.setGeometry( QgsGeometry( geometryCollection.clone() ) );
 
-    mVectorLayer->dataProvider()->addFeature( feature, QgsFeatureSink::FastInsert );
+    mVectorLayer->dataProvider()->addFeature( feature );
     mFeatureUuids[feature.id()] = item.uuid();
   }
 
-
+  connect( mVectorLayer.get(), &QgsVectorLayer::attributeValueChanged, this, &QfMarkupCollection::processAttributeValueChanged );
   connect( mVectorLayer.get(), &QgsVectorLayer::geometryChanged, this, &QfMarkupCollection::processGeometryChanged );
   connect( mVectorLayer.get(), &QgsVectorLayer::featureDeleted, this, &QfMarkupCollection::processFeatureDeleted );
 
   return mVectorLayer.get();
 }
 
+void QfMarkupCollection::processAttributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value )
+{
+  if ( !mFeatureUuids.contains( fid ) )
+  {
+    return;
+  }
+
+  QfMarkupItem item = mItems.value( mFeatureUuids[fid] );
+  const QgsField field = mVectorLayer->fields().at( idx );
+  if ( field.name() == QStringLiteral( "label" ) )
+  {
+    item.mLabel = value.toString();
+  }
+  else if ( field.name() == QStringLiteral( "description" ) )
+  {
+    item.mDescription = value.toString();
+  }
+  else if ( field.name() == QStringLiteral( "color" ) )
+  {
+    item.mColor = QgsColorUtils::colorFromString( value.toString() );
+  }
+
+  replaceItem( mFeatureUuids[fid], item, false );
+}
+
 void QfMarkupCollection::processFeatureDeleted( QgsFeatureId fid )
 {
-  if ( mFeatureUuids.contains( fid ) )
+  if ( !mFeatureUuids.contains( fid ) )
   {
-    removeItem( mFeatureUuids[fid], false );
+    return;
   }
+
+  removeItem( mFeatureUuids[fid], false );
 }
 
 void QfMarkupCollection::processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
 {
-  if ( mFeatureUuids.contains( fid ) )
+  if ( !mFeatureUuids.contains( fid ) )
   {
-    if ( QgsWkbTypes::flatType( geometry.wkbType() ) == Qgis::WkbType::GeometryCollection )
+    return;
+  }
+
+  if ( QgsWkbTypes::flatType( geometry.wkbType() ) == Qgis::WkbType::GeometryCollection )
+  {
+    const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() );
+    if ( !geometryCollection->isEmpty() )
     {
-      const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() );
-      if ( !geometryCollection->isEmpty() )
-      {
-        QfMarkupItem item = mItems.value( mFeatureUuids[fid] );
-        item.mGeometry = QgsGeometry( geometryCollection->geometryN( 0 )->clone() );
-        replaceItem( mFeatureUuids[fid], item, false );
-      }
+      QfMarkupItem item = mItems.value( mFeatureUuids[fid] );
+      item.mGeometry = QgsGeometry( geometryCollection->geometryN( 0 )->clone() );
+      replaceItem( mFeatureUuids[fid], item, false );
     }
   }
 }

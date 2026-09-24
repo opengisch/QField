@@ -121,6 +121,7 @@ class QfMarkupCollection : public QObject
     void itemsChanged();
 
   private:
+    void processAttributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value );
     void processFeatureDeleted( QgsFeatureId fid );
     void processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
 
