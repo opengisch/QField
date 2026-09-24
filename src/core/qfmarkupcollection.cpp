@@ -150,6 +150,7 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
   mItems.clear();
 
   mAnnotationLayer.reset();
+  mVectorLayer.reset();
 
   const QJsonArray features = geoJsonObject.value( QStringLiteral( "features" ) ).toArray();
   for ( const QJsonValueConstRef &feature : features )
