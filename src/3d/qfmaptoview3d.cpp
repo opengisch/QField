@@ -35,7 +35,7 @@ void QfMapToView3D::setTerrainProvider( Qf3DTerrainProvider *provider )
 
   if ( mTerrainProvider )
   {
-    disconnect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &QfMapToView3D::transformPoint );
+    disconnect( mTerrainProvider, nullptr, this, nullptr );
   }
 
   mTerrainProvider = provider;
@@ -43,6 +43,8 @@ void QfMapToView3D::setTerrainProvider( Qf3DTerrainProvider *provider )
   if ( mTerrainProvider )
   {
     connect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &QfMapToView3D::transformPoint );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::normalizedDataChanged, this, &QfMapToView3D::transformPoint );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::transitionEnded, this, &QfMapToView3D::transformPoint );
   }
 
   emit terrainProviderChanged();
