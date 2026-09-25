@@ -560,8 +560,8 @@ Drawer {
         id: modeSwitch
         objectName: "modeSwitch"
         height: QfTheme.toolButtonSize
-        width: height * 1.9
-        leftPadding: height / 3
+        width: height * 2
+        leftPadding: height * 0.5 / 2
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         indicator: Rectangle {
