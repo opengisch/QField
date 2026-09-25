@@ -365,10 +365,28 @@ QVariant QfMultiFeatureListModelBase::data( const QModelIndex &index, int role )
       return QVariant::fromValue<QgsMapLayer *>( feature->first );
 
     case QfMultiFeatureListModel::GeometryRole:
-      return QVariant::fromValue<QgsGeometry>( feature->second.geometry() );
+    {
+      QgsGeometry geometry = feature->second.geometry();
+      if ( QgsWkbTypes::flatType( geometry.wkbType() ) == Qgis::WkbType::GeometryCollection )
+      {
+        const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() );
+        if ( !geometryCollection->isEmpty() )
+        {
+          geometry = QgsGeometry( geometryCollection->geometryN( 0 )->clone() );
+        }
+      }
+      return QVariant::fromValue<QgsGeometry>( geometry );
+    }
 
     case QfMultiFeatureListModel::CrsRole:
+    {
+      if ( vlayer && vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+      {
+        // QGIS invalidates the CRS when the WKB type is GeometryCollection, fetch the CRS from the data provider
+        return QVariant::fromValue<QgsCoordinateReferenceSystem>( vlayer->dataProvider()->crs() );
+      }
       return QVariant::fromValue<QgsCoordinateReferenceSystem>( feature->first->crs() );
+    }
 
     case QfMultiFeatureListModel::DeleteFeatureRole:
       if ( vlayer )
@@ -546,7 +564,7 @@ bool QfMultiFeatureListModelBase::canMergeSelection() const
   if ( !vlayer )
     return false;
 
-  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool();
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
   const bool isCapable = ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries );
   return !isLocked && isCapable;
 }
@@ -574,7 +592,7 @@ bool QfMultiFeatureListModelBase::canDuplicateSelection() const
   if ( !vlayer )
     return false;
 
-  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool();
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures;
   return !isLocked && isCapable;
 }
@@ -672,6 +690,9 @@ bool QfMultiFeatureListModelBase::canProcessSelection() const
 
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
   if ( !isCapable )
+    return false;
+
+  if ( vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool() )
     return false;
 
   const bool isDeprecadedGeometryLock = vlayer->customPropertyKeys().contains( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ) );
@@ -947,7 +968,18 @@ bool QfMultiFeatureListModelBase::moveSelection( const double x, const double y,
     {
       geom.translate( x, y );
     }
-    isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      // QGIS threats a geometry collection is non-spatial, which in turn prohibits geometry changes via edit buffer
+      QgsGeometryMap geometryMap;
+      geometryMap[pair.second.id()] = geom;
+      isSuccess = vlayer->dataProvider()->changeGeometryValues( geometryMap );
+      emit vlayer->geometryChanged( pair.second.id(), geom );
+    }
+    else
+    {
+      isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    }
     if ( !isSuccess )
     {
       QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );

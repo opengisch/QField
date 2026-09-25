@@ -28,6 +28,7 @@
 #include <qgscurvepolygon.h>
 #include <qgsfillsymbol.h>
 #include <qgsfillsymbollayer.h>
+#include <qgsgeometrycollection.h>
 #include <qgslinesymbol.h>
 #include <qgslinesymbollayer.h>
 #include <qgsmarkersymbol.h>
@@ -54,7 +55,7 @@ void QfMarkupCollection::setName( const QString &name )
   emit nameChanged();
 }
 
-QString QfMarkupCollection::addItem( const QfMarkupItem &item )
+QString QfMarkupCollection::addItem( const QfMarkupItem &item, bool resetVectorLayer )
 {
   QfMarkupItem addedItem( item );
   while ( mItems.contains( addedItem.uuid() ) )
@@ -63,7 +64,12 @@ QString QfMarkupCollection::addItem( const QfMarkupItem &item )
   }
 
   mItems.insert( addedItem.uuid(), addedItem );
+
   mAnnotationLayer.reset();
+  if ( resetVectorLayer )
+  {
+    mVectorLayer.reset();
+  }
 
   emit countChanged();
   emit itemsChanged();
@@ -71,7 +77,7 @@ QString QfMarkupCollection::addItem( const QfMarkupItem &item )
   return addedItem.uuid();
 }
 
-void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &item )
+void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &item, bool resetVectorLayer )
 {
   if ( mItems.contains( uuid ) )
   {
@@ -79,18 +85,26 @@ void QfMarkupCollection::replaceItem( const QString &uuid, const QfMarkupItem &i
     mItems[uuid].mUuid = uuid;
 
     mAnnotationLayer.reset();
+    if ( resetVectorLayer )
+    {
+      mVectorLayer.reset();
+    }
 
     emit itemsChanged();
   }
 }
 
-void QfMarkupCollection::removeItem( const QString &uuid )
+void QfMarkupCollection::removeItem( const QString &uuid, bool resetVectorLayer )
 {
   if ( mItems.contains( uuid ) )
   {
     mItems.remove( uuid );
 
     mAnnotationLayer.reset();
+    if ( resetVectorLayer )
+    {
+      mVectorLayer.reset();
+    }
 
     emit countChanged();
     emit itemsChanged();
@@ -136,6 +150,7 @@ bool QfMarkupCollection::readGeoJson( const QString &path )
   mItems.clear();
 
   mAnnotationLayer.reset();
+  mVectorLayer.reset();
 
   const QJsonArray features = geoJsonObject.value( QStringLiteral( "features" ) ).toArray();
   for ( const QJsonValueConstRef &feature : features )
@@ -428,6 +443,111 @@ QgsAnnotationLayer *QfMarkupCollection::asAnnotationLayer()
   }
 
   return mAnnotationLayer.get();
+}
+
+QgsVectorLayer *QfMarkupCollection::asVectorLayer()
+{
+  if ( mVectorLayer )
+  {
+    return mVectorLayer.get();
+  }
+
+  mVectorLayer.reset( new QgsVectorLayer( QStringLiteral( "GeometryCollection?crs=EPSG:4326&field=color:string&field=label:string&field=description:string" ), QStringLiteral( "%1: %2" ).arg( tr( "Markups" ), mName ), QStringLiteral( "memory" ) ) );
+
+  mVectorLayer->setCustomProperty( QStringLiteral( "QField/is_markup_collection" ), true );
+  mVectorLayer->setDisplayExpression( QStringLiteral( "if(\"description\" is not null and \"description\" != '', if(length(\"description\") > 20, substr(\"description\", 1, 20) || '…', \"description\"), '%1')" ).arg( tr( "Markup item" ) ) );
+
+  QVariantMap editorWidgetOptions;
+  QgsEditorWidgetSetup editorWidgetSetup;
+
+  editorWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), editorWidgetOptions );
+  mVectorLayer->setEditorWidgetSetup( 0, editorWidgetSetup );
+  mVectorLayer->setFieldAlias( 0, tr( "Color" ) );
+
+  editorWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), editorWidgetOptions );
+  mVectorLayer->setEditorWidgetSetup( 1, editorWidgetSetup );
+  mVectorLayer->setFieldAlias( 1, tr( "Label" ) );
+
+  editorWidgetOptions.clear();
+  editorWidgetOptions[QStringLiteral( "IsMultiline" )] = true;
+  editorWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), editorWidgetOptions );
+  mVectorLayer->setEditorWidgetSetup( 2, editorWidgetSetup );
+  mVectorLayer->setFieldAlias( 2, tr( "Description" ) );
+
+  for ( const QfMarkupItem &item : mItems )
+  {
+    QgsFeature feature( mVectorLayer->fields() );
+    feature.setAttribute( QStringLiteral( "label" ), item.label() );
+    feature.setAttribute( QStringLiteral( "color" ), item.color().name( QColor::HexArgb ) );
+    feature.setAttribute( QStringLiteral( "description" ), item.description() );
+
+    QgsGeometryCollection geometryCollection;
+    geometryCollection.addGeometry( item.geometry().get()->clone() );
+    feature.setGeometry( QgsGeometry( geometryCollection.clone() ) );
+
+    mVectorLayer->dataProvider()->addFeature( feature );
+    mFeatureUuids[feature.id()] = item.uuid();
+  }
+
+  connect( mVectorLayer.get(), &QgsVectorLayer::attributeValueChanged, this, &QfMarkupCollection::processAttributeValueChanged );
+  connect( mVectorLayer.get(), &QgsVectorLayer::geometryChanged, this, &QfMarkupCollection::processGeometryChanged );
+  connect( mVectorLayer.get(), &QgsVectorLayer::featureDeleted, this, &QfMarkupCollection::processFeatureDeleted );
+
+  return mVectorLayer.get();
+}
+
+void QfMarkupCollection::processAttributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value )
+{
+  if ( !mFeatureUuids.contains( fid ) )
+  {
+    return;
+  }
+
+  QfMarkupItem item = mItems.value( mFeatureUuids[fid] );
+  const QgsField field = mVectorLayer->fields().at( idx );
+  if ( field.name() == QStringLiteral( "label" ) )
+  {
+    item.mLabel = value.toString();
+  }
+  else if ( field.name() == QStringLiteral( "description" ) )
+  {
+    item.mDescription = value.toString();
+  }
+  else if ( field.name() == QStringLiteral( "color" ) )
+  {
+    item.mColor = QgsColorUtils::colorFromString( value.toString() );
+  }
+
+  replaceItem( mFeatureUuids[fid], item, false );
+}
+
+void QfMarkupCollection::processFeatureDeleted( QgsFeatureId fid )
+{
+  if ( !mFeatureUuids.contains( fid ) )
+  {
+    return;
+  }
+
+  removeItem( mFeatureUuids[fid], false );
+}
+
+void QfMarkupCollection::processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
+{
+  if ( !mFeatureUuids.contains( fid ) )
+  {
+    return;
+  }
+
+  if ( QgsWkbTypes::flatType( geometry.wkbType() ) == Qgis::WkbType::GeometryCollection )
+  {
+    const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( geometry.constGet() );
+    if ( !geometryCollection->isEmpty() )
+    {
+      QfMarkupItem item = mItems.value( mFeatureUuids[fid] );
+      item.mGeometry = QgsGeometry( geometryCollection->geometryN( 0 )->clone() );
+      replaceItem( mFeatureUuids[fid], item, false );
+    }
+  }
 }
 
 QfMarkupItem QfMarkupCollection::createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color )

@@ -16,6 +16,9 @@
 #ifndef QFIDENTIFYTOOL_H
 #define QFIDENTIFYTOOL_H
 
+#include "qfmarkupmanager.h"
+#include "qgsquickmapsettings.h"
+
 #include <QObject>
 #include <qgsfeature.h>
 #include <qgsmapsettings.h>
@@ -23,7 +26,6 @@
 #include <qgsrendercontext.h>
 
 class QgsMapLayer;
-class QgsQuickMapSettings;
 class QgsRasterLayer;
 class QgsVectorLayer;
 class QgsVectorTileLayer;
@@ -37,9 +39,11 @@ class QfIdentifyTool : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
+    Q_PROPERTY( QfMarkupManager *markups READ markupManager WRITE setMarkupManager NOTIFY markupManagerChanged )
     Q_PROPERTY( QfMultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
-    Q_PROPERTY( bool deactivated READ deactivated WRITE setDeactivated NOTIFY deactivatedChanged )
+
+    Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
+    Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
 
   public:
     struct IdentifyResult
@@ -61,42 +65,48 @@ class QfIdentifyTool : public QObject
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
+    QfMarkupManager *markupManager() const;
+    void setMarkupManager( QfMarkupManager *markupManager );
+
     double searchRadiusMm() const;
     void setSearchRadiusMm( double searchRadiusMm );
 
     QfMultiFeatureListModel *model() const;
     void setModel( QfMultiFeatureListModel *model );
 
-    bool deactivated() const { return mDeactivated; }
-    void setDeactivated( bool deactivated );
+    bool enabled() const { return mEnabled; }
+    void setEnabled( bool enabled );
 
-  signals:
-    void mapSettingsChanged();
-    void searchRadiusMmChanged();
-    void modelChanged();
-    void deactivatedChanged();
-    void identifyFinished() const;
-
-  public slots:
-    void identify( const QPointF &point ) const;
+    Q_INVOKABLE void identify( const QPointF &point ) const;
 
     QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
     QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
     QList<IdentifyResult> identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
 
-  private:
-    QgsQuickMapSettings *mMapSettings = nullptr;
-    QfMultiFeatureListModel *mModel = nullptr;
+  signals:
+    void mapSettingsChanged();
+    void markupManagerChanged();
+    void modelChanged();
+    void enabledChanged();
+    void searchRadiusMmChanged();
 
+    void identifyFinished() const;
+
+  private:
     double searchRadiusMU( const QgsRenderContext &context ) const;
     double searchRadiusMU() const;
 
-    QgsRectangle toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const;
-    QgsPointXY toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &point ) const;
+    QgsRectangle toLayerCoordinates( QgsMapLayer *layer, QgsRectangle rect ) const;
+    QgsPointXY toLayerCoordinates( QgsMapLayer *layer, QgsPointXY point ) const;
 
+    QgsQuickMapSettings *mMapSettings = nullptr;
+    QfMarkupManager *mMarkupManager = nullptr;
+    QfMultiFeatureListModel *mModel = nullptr;
+
+    bool mEnabled = true;
     double mSearchRadiusMm;
 
-    bool mDeactivated = false;
+    friend class IdentifyTool;
 };
 
 #endif // QFIDENTIFYTOOL_H

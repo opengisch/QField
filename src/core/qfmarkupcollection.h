@@ -21,6 +21,7 @@
 
 #include <QObject>
 #include <qgsannotationlayer.h>
+#include <qgsvectorlayer.h>
 
 /**
  * \brief This class holds a collection of markup items.
@@ -66,17 +67,17 @@ class QfMarkupCollection : public QObject
     /**
      * Adds an \a item into the collection and return its UUID.
      */
-    Q_INVOKABLE QString addItem( const QfMarkupItem &item );
+    Q_INVOKABLE QString addItem( const QfMarkupItem &item, bool resetVectorLayer = true );
 
     /**
      * Replaces an item matching the provided \a uuid with a new \a item within the collection.
      */
-    Q_INVOKABLE void replaceItem( const QString &uuid, const QfMarkupItem &item );
+    Q_INVOKABLE void replaceItem( const QString &uuid, const QfMarkupItem &item, bool resetVectorLayer = true );
 
     /**
      * Removes an item matching the provided \a uuid from the collection.
      */
-    Q_INVOKABLE void removeItem( const QString &uuid );
+    Q_INVOKABLE void removeItem( const QString &uuid, bool resetVectorLayer = true );
 
     /**
      * Restore a collection from the content of a GeoJSON at the provided \a path.
@@ -94,6 +95,16 @@ class QfMarkupCollection : public QObject
      */
     QgsAnnotationLayer *asAnnotationLayer();
 
+    /**
+     * Returns a pointer to a memory vector layer matching the content of the collection.
+     *
+     * The layer geometry type is a GeometryCollection and it can be used to modify
+     * the attributes and geometries of individual markup items within the collection.
+     *
+     * \note The ownership remains with the collection.
+     */
+    QgsVectorLayer *asVectorLayer();
+
     Q_INVOKABLE static QfMarkupItem createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color );
 
   signals:
@@ -110,10 +121,16 @@ class QfMarkupCollection : public QObject
     void itemsChanged();
 
   private:
+    void processAttributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value );
+    void processFeatureDeleted( QgsFeatureId fid );
+    void processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
+
     QString mUuid;
     QString mName;
     QMap<QString, QfMarkupItem> mItems;
     std::unique_ptr<QgsAnnotationLayer> mAnnotationLayer;
+    std::unique_ptr<QgsVectorLayer> mVectorLayer;
+    QMap<QgsFeatureId, QString> mFeatureUuids;
 };
 
 #endif // QFMARKUPCOLLECTION_H

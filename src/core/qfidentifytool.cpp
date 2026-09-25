@@ -17,9 +17,9 @@
 #include "qfmultifeaturelistmodel.h"
 #include "qgsquickmapsettings.h"
 
+#include <QSettings>
 #include <qgsexpressioncontextutils.h>
 #include <qgsfeaturestore.h>
-#include <qgsproject.h>
 #include <qgsrasteridentifyresult.h>
 #include <qgsrasterlayer.h>
 #include <qgsrenderer.h>
@@ -44,17 +44,37 @@ QgsQuickMapSettings *QfIdentifyTool::mapSettings() const
 
 void QfIdentifyTool::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
-  if ( mapSettings == mMapSettings )
+  if ( mMapSettings == mapSettings )
+  {
     return;
+  }
 
   mMapSettings = mapSettings;
   emit mapSettingsChanged();
 }
 
+QfMarkupManager *QfIdentifyTool::markupManager() const
+{
+  return mMarkupManager;
+}
+
+void QfIdentifyTool::setMarkupManager( QfMarkupManager *markupManager )
+{
+  if ( mMarkupManager == markupManager )
+  {
+    return;
+  }
+
+  mMarkupManager = markupManager;
+  emit markupManagerChanged();
+}
+
 void QfIdentifyTool::identify( const QPointF &point ) const
 {
-  if ( mDeactivated )
+  if ( !mEnabled )
+  {
     return;
+  }
 
   if ( !mModel || !mMapSettings )
   {
@@ -70,7 +90,9 @@ void QfIdentifyTool::identify( const QPointF &point ) const
   for ( QgsMapLayer *layer : layers )
   {
     if ( !layer->flags().testFlag( QgsMapLayer::Identifiable ) )
+    {
       continue;
+    }
 
     if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
     {
@@ -89,6 +111,16 @@ void QfIdentifyTool::identify( const QPointF &point ) const
     }
   }
 
+  if ( mMarkupManager )
+  {
+    const QList<QfMarkupCollection *> collections = mMarkupManager->visibleCollections();
+    for ( QfMarkupCollection *collection : collections )
+    {
+      QList<IdentifyResult> results = identifyVectorLayer( collection->asVectorLayer(), mapPoint );
+      mModel->appendFeatures( results );
+    }
+  }
+
   emit identifyFinished();
 }
 
@@ -96,17 +128,23 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVe
 {
   QList<IdentifyResult> results;
 
-  if ( !layer || !layer->isSpatial() )
+  if ( !layer || ( !layer->isSpatial() && layer->wkbType() != QgsWkbTypes::flatType( Qgis::WkbType::GeometryCollection ) ) )
+  {
     return results;
+  }
 
   if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )
+  {
     return results;
+  }
 
   QString temporalFilter;
   if ( mMapSettings->isTemporal() )
   {
     if ( !layer->temporalProperties()->isVisibleInTemporalRange( mMapSettings->mapSettings().temporalRange() ) )
+    {
       return results;
+    }
 
     QgsVectorLayerTemporalContext temporalContext;
     temporalContext.setLayer( layer );
@@ -153,7 +191,9 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVe
     QgsFeatureIterator fit = layer->getFeatures( req );
     QgsFeature f;
     while ( fit.nextFeature( f ) )
+    {
       featureList << QgsFeature( f );
+    }
   }
   catch ( const QgsCsException &cse )
   {
@@ -192,16 +232,22 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRa
 {
   QList<QfIdentifyTool::IdentifyResult> results;
   if ( !layer->dataProvider() || !layer->isValid() )
+  {
     return results;
+  }
 
   std::unique_ptr<QgsRasterDataProvider> dataProvider( layer->dataProvider()->clone() );
   const Qgis::RasterInterfaceCapabilities capabilities = dataProvider->capabilities();
 
   if ( !( capabilities & Qgis::RasterInterfaceCapability::Identify ) )
+  {
     return results;
+  }
 
   if ( !( capabilities & Qgis::RasterInterfaceCapability::IdentifyFeature ) )
+  {
     return results;
+  }
 
   const QgsPointXY pointInLayerCoordinates = toLayerCoordinates( layer, point );
   const double mapUnitsPerPixel = mMapSettings->mapSettings().mapUnitsPerPixel();
@@ -301,7 +347,9 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorTileLayer( Q
 {
   QList<QfIdentifyTool::IdentifyResult> results;
   if ( !layer || !layer->isSpatial() )
+  {
     return results;
+  }
 
   if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )
   {
@@ -387,21 +435,28 @@ QfMultiFeatureListModel *QfIdentifyTool::model() const
 void QfIdentifyTool::setModel( QfMultiFeatureListModel *model )
 {
   if ( model == mModel )
+  {
     return;
+  }
 
   mModel = model;
   emit modelChanged();
 }
 
-void QfIdentifyTool::setDeactivated( bool deactivated )
+void QfIdentifyTool::setEnabled( bool enabled )
 {
-  if ( mDeactivated == deactivated )
+  if ( mEnabled == enabled )
+  {
     return;
+  }
 
-  if ( deactivated && mModel )
+  mEnabled = enabled;
+  emit enabledChanged();
+
+  if ( !mEnabled && mModel )
+  {
     mModel->clear();
-
-  mDeactivated = deactivated;
+  }
 }
 
 double QfIdentifyTool::searchRadiusMU( const QgsRenderContext &context ) const
@@ -415,14 +470,68 @@ double QfIdentifyTool::searchRadiusMU() const
   return searchRadiusMU( context );
 }
 
-QgsRectangle QfIdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsRectangle &rect ) const
+QgsRectangle QfIdentifyTool::toLayerCoordinates( QgsMapLayer *layer, QgsRectangle rect ) const
 {
-  return mMapSettings->mapSettings().mapToLayerCoordinates( layer, rect );
+  if ( !layer || !mMapSettings )
+  {
+    return rect;
+  }
+
+  QgsCoordinateReferenceSystem crs = layer->crs();
+  if ( QgsVectorLayer *vlayer = dynamic_cast<QgsVectorLayer *>( layer ) )
+  {
+    if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      crs = vlayer->dataProvider()->crs();
+    }
+  }
+
+  try
+  {
+    const QgsCoordinateTransform ct( mMapSettings->destinationCrs(), crs, mMapSettings->transformContext() );
+    if ( ct.isValid() )
+    {
+      rect = ct.transform( rect );
+    }
+  }
+  catch ( QgsCsException &cse )
+  {
+    qInfo() << QStringLiteral( "Identify tool Transform error caught: %1" ).arg( cse.what() );
+  }
+
+  return rect;
 }
 
-QgsPointXY QfIdentifyTool::toLayerCoordinates( QgsMapLayer *layer, const QgsPointXY &point ) const
+QgsPointXY QfIdentifyTool::toLayerCoordinates( QgsMapLayer *layer, QgsPointXY point ) const
 {
-  return mMapSettings->mapSettings().mapToLayerCoordinates( layer, point );
+  if ( !layer || !mMapSettings )
+  {
+    return point;
+  }
+
+  QgsCoordinateReferenceSystem crs = layer->crs();
+  if ( QgsVectorLayer *vlayer = dynamic_cast<QgsVectorLayer *>( layer ) )
+  {
+    if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      crs = vlayer->dataProvider()->crs();
+    }
+  }
+
+  try
+  {
+    const QgsCoordinateTransform ct( mMapSettings->destinationCrs(), crs, mMapSettings->transformContext() );
+    if ( ct.isValid() )
+    {
+      point = ct.transform( point );
+    }
+  }
+  catch ( QgsCsException &cse )
+  {
+    qInfo() << QStringLiteral( "Identify tool Transform error caught: %1" ).arg( cse.what() );
+  }
+
+  return point;
 }
 
 double QfIdentifyTool::searchRadiusMm() const
@@ -433,7 +542,9 @@ double QfIdentifyTool::searchRadiusMm() const
 void QfIdentifyTool::setSearchRadiusMm( double searchRadiusMm )
 {
   if ( mSearchRadiusMm == searchRadiusMm )
+  {
     return;
+  }
 
   mSearchRadiusMm = searchRadiusMm;
   emit searchRadiusMmChanged();

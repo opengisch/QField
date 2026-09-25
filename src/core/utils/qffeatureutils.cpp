@@ -60,7 +60,9 @@ QgsFeature QfFeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeomet
 QString QfFeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feature )
 {
   if ( !layer )
+  {
     return QString();
+  }
 
   QgsExpressionContext context = QgsExpressionContext()
                                  << QgsExpressionContextUtils::globalScope()
@@ -68,18 +70,28 @@ QString QfFeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &fe
                                  << QgsExpressionContextUtils::layerScope( layer );
   context.setFeature( feature );
 
-  QString name = QgsExpression( layer->displayExpression() ).evaluate( &context ).toString();
+  QgsExpression expression( layer->displayExpression() );
+  QString name = expression.evaluate( &context ).toString();
   if ( name.isEmpty() )
+  {
     name = QString::number( feature.id() );
+  }
 
   return name;
 }
 
 QgsRectangle QfFeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature, bool skipSinglePointLogic )
 {
-  if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
+  const bool isSpatial = layer && layer->geometryType() != Qgis::GeometryType::Null && ( layer->geometryType() != Qgis::GeometryType::Unknown || QgsWkbTypes::flatType( layer->wkbType() ) == Qgis::WkbType::GeometryCollection );
+  if ( mapSettings && isSpatial )
   {
-    QgsCoordinateTransform ct( layer->crs(), mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
+    QgsCoordinateReferenceSystem crs = layer->crs();
+    if ( layer->dataProvider() && QgsWkbTypes::flatType( layer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      crs = layer->dataProvider()->crs();
+    }
+
+    QgsCoordinateTransform ct( crs, mapSettings->destinationCrs(), mapSettings->mapSettings().transformContext() );
     QgsGeometry geom( feature.geometry() );
     if ( !geom.isNull() )
     {

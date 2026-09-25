@@ -271,14 +271,14 @@ ApplicationWindow {
         name: "browse"
         PropertyChanges {
           target: identifyTool
-          deactivated: false
+          enabled: true
         }
       },
       State {
         name: "digitize"
         PropertyChanges {
           target: identifyTool
-          deactivated: false
+          enabled: true
         }
         PropertyChanges {
           target: mainWindow
@@ -289,7 +289,7 @@ ApplicationWindow {
         name: 'measure'
         PropertyChanges {
           target: identifyTool
-          deactivated: true
+          enabled: false
         }
         PropertyChanges {
           target: mainWindow
@@ -1106,6 +1106,7 @@ ApplicationWindow {
       property bool isPieMenuRequest: false
 
       mapSettings: mapCanvas.mapSettings
+      markups: markupManager
       model: isPieMenuRequest || isMenuRequest ? menuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
 
