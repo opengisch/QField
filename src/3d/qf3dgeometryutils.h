@@ -101,6 +101,9 @@ class QFIELD_3D_EXPORT Qf3DGeometryUtils
   private:
     //! Returns true if the triangle ( prev, cur, next ) of \a indices is an ear of \a ring on the XZ plane.
     static bool polygonIsEar( const QVector<QVector3D> &ring, const QVector<int> &indices, float eps, bool ccw, int prev, int cur, int next );
+
+    //! Returns true if \a ring has a positive shoelace area on the XZ plane.
+    static bool polygonIsCounterClockwise( const QVector<QVector3D> &ring );
 };
 
 #endif // QF3DGEOMETRYUTILS_H
