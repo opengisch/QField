@@ -451,6 +451,7 @@ void QfIdentifyTool::setEnabled( bool enabled )
   }
 
   mEnabled = enabled;
+  emit enabledChanged();
 
   if ( !mEnabled && mModel )
   {

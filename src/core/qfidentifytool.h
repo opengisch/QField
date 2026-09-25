@@ -78,9 +78,10 @@ class QfIdentifyTool : public QObject
     void setEnabled( bool enabled );
 
     Q_INVOKABLE void identify( const QPointF &point ) const;
-    Q_INVOKABLE QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
-    Q_INVOKABLE QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
-    Q_INVOKABLE QList<IdentifyResult> identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
+
+    QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
+    QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
+    QList<IdentifyResult> identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
 
   signals:
     void mapSettingsChanged();
@@ -104,6 +105,8 @@ class QfIdentifyTool : public QObject
 
     bool mEnabled = true;
     double mSearchRadiusMm;
+
+    friend class IdentifyTool;
 };
 
 #endif // QFIDENTIFYTOOL_H

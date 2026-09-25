@@ -973,9 +973,8 @@ bool QfMultiFeatureListModelBase::moveSelection( const double x, const double y,
       // QGIS threats a geometry collection is non-spatial, which in turn prohibits geometry changes via edit buffer
       QgsGeometryMap geometryMap;
       geometryMap[pair.second.id()] = geom;
-      vlayer->dataProvider()->changeGeometryValues( geometryMap );
+      isSuccess = vlayer->dataProvider()->changeGeometryValues( geometryMap );
       emit vlayer->geometryChanged( pair.second.id(), geom );
-      isSuccess = true;
     }
     else
     {
