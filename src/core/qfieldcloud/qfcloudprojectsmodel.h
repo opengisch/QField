@@ -243,6 +243,9 @@ class QfCloudProjectsModel : public QAbstractListModel
   private:
     void setupProjectConnections( QfCloudProject *project );
 
+    void refreshCurrentProject();
+    void writeCurrentProjectDeltas();
+
     QModelIndex findProjectIndex( const QString &projectId ) const;
 
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
