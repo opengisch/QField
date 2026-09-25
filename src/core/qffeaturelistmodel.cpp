@@ -349,32 +349,49 @@ void QfFeatureListModel::gatherFeatureList()
 
   referencedColumns << mDisplayValueField;
 
-  QgsFields fields = mCurrentLayer->fields();
-  int displayValueIndex = fields.indexOf( mDisplayValueField );
+  const QgsFields fields = mCurrentLayer->fields();
+  const int displayValueIndex = fields.indexOf( mDisplayValueField );
 
   request.setSubsetOfAttributes( referencedColumns, fields );
 
-  QString fieldDisplayString = displayValueIndex >= 0
-                                 ? QgsExpression::quotedColumnRef( mDisplayValueField )
-                                 : QStringLiteral( " ( %1 ) " ).arg( mCurrentLayer->displayExpression() );
+  const QString fieldDisplayString = displayValueIndex >= 0
+                                       ? QgsExpression::quotedColumnRef( mDisplayValueField )
+                                       : QStringLiteral( "%1" ).arg( mCurrentLayer->displayExpression() );
 
+  // Since the use of unaccent() function means the filter expression cannot be compiled on the provider
+  // side, we need to bail out of unaccented searchs when the layer contains a large number of features
+  const bool unaccentedSearch = mCurrentLayer->featureCount() < 15000;
   QString searchTermExpression;
   if ( !mSearchTerm.isEmpty() )
   {
-    QString escapedSearchTerm = QgsExpression::quotedValue( QgsStringUtils::unaccent( mSearchTerm.trimmed() ) ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
+    QString escapedSearchTerm = QgsExpression::quotedValue( unaccentedSearch ? QgsStringUtils::unaccent( mSearchTerm.trimmed() ) : mSearchTerm.trimmed() ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
     QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
 
     if ( searchTermParts.size() > 1 )
     {
       for ( QString &searchTermPart : searchTermParts )
       {
-        searchTermPart = QStringLiteral( "@search_string ILIKE '%%1%'" ).arg( searchTermPart );
+        searchTermPart = QStringLiteral( "(%1) ILIKE '%%2%'" ).arg( unaccentedSearch ? QStringLiteral( "@search_string" ) : fieldDisplayString, searchTermPart );
       }
-      searchTermExpression = QStringLiteral( "with_variable('search_string', unaccent(%1), %2)" ).arg( fieldDisplayString, searchTermParts.join( QStringLiteral( " AND " ) ) );
+      if ( unaccentedSearch )
+      {
+        searchTermExpression = QStringLiteral( "with_variable('search_string', unaccent(%1), %2)" ).arg( fieldDisplayString, searchTermParts.join( QStringLiteral( " AND " ) ) );
+      }
+      else
+      {
+        searchTermExpression = searchTermParts.join( QStringLiteral( " AND " ) );
+      }
     }
     else
     {
-      searchTermExpression = QStringLiteral( "unaccent(%1) ILIKE '%%2%'" ).arg( fieldDisplayString, escapedSearchTerm );
+      if ( unaccentedSearch )
+      {
+        searchTermExpression = QStringLiteral( "unaccent(%1) ILIKE '%%2%'" ).arg( fieldDisplayString, escapedSearchTerm );
+      }
+      else
+      {
+        searchTermExpression = QStringLiteral( "(%1) ILIKE '%%2%'" ).arg( fieldDisplayString, escapedSearchTerm );
+      }
     }
   }
 
