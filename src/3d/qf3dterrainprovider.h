@@ -198,6 +198,9 @@ class Qf3DTerrainProvider : public QObject
     void offsetScaleChanged();
     void isTransitioningChanged();
 
+    //! Emitted once the pan and zoom offsets are reset at the end of a transition
+    void transitionEnded();
+
     void isLoadingChanged();
 
   private:

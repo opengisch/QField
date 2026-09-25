@@ -75,6 +75,7 @@ void Qf3DRubberbandGeometry::setTerrainProvider( Qf3DTerrainProvider *provider )
   {
     connect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
     connect( mTerrainProvider, &Qf3DTerrainProvider::normalizedDataChanged, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::transitionEnded, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
   }
 
   mDirty = true;
