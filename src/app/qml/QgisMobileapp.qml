@@ -269,17 +269,9 @@ ApplicationWindow {
     states: [
       State {
         name: "browse"
-        PropertyChanges {
-          target: identifyTool
-          deactivated: false
-        }
       },
       State {
         name: "digitize"
-        PropertyChanges {
-          target: identifyTool
-          deactivated: false
-        }
         PropertyChanges {
           target: mainWindow
           currentRubberband: digitizingRubberband
@@ -287,10 +279,6 @@ ApplicationWindow {
       },
       State {
         name: 'measure'
-        PropertyChanges {
-          target: identifyTool
-          deactivated: true
-        }
         PropertyChanges {
           target: mainWindow
           currentRubberband: measuringTool.measuringRubberband
@@ -1061,10 +1049,12 @@ ApplicationWindow {
     /** The identify tool **/
     QfIdentifyTool {
       id: identifyTool
+      objectName: "identifyTool"
 
       property bool isMenuRequest: false
       property bool isPieMenuRequest: false
 
+      deactivated: stateMachine.state === 'measure'
       mapSettings: mapCanvas.mapSettings
       model: isPieMenuRequest || isMenuRequest ? menuFeatureListModel : featureListForm.model
       searchRadiusMm: 3
