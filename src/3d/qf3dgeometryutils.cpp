@@ -206,6 +206,19 @@ bool Qf3DGeometryUtils::polygonIsEar( const QVector<QVector3D> &ring, const QVec
   return true;
 }
 
+bool Qf3DGeometryUtils::polygonIsCounterClockwise( const QVector<QVector3D> &ring )
+{
+  // Shoelace winding
+  double area2 = 0;
+  const int n = ring.size();
+  for ( int i = 0; i < n; ++i )
+  {
+    const int j = ( i + 1 ) % n;
+    area2 += static_cast<double>( ring[i].x() ) * ring[j].z() - static_cast<double>( ring[j].x() ) * ring[i].z();
+  }
+  return area2 > 0;
+}
+
 void Qf3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &vertices,
                                               float extrusion,
                                               float r, float g, float b, float a,
@@ -225,10 +238,11 @@ void Qf3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &vertices
     return;
   }
 
+  const bool ccw = polygonIsCounterClockwise( ring );
   for ( int i = 0; i < n; ++i )
   {
-    const QVector3D &edgeStart = ring[i];
-    const QVector3D &edgeEnd = ring[( i + 1 ) % n];
+    const QVector3D &edgeStart = ccw ? ring[i] : ring[( i + 1 ) % n];
+    const QVector3D &edgeEnd = ccw ? ring[( i + 1 ) % n] : ring[i];
     const QVector3D edgeStartTop = edgeStart + QVector3D( 0, extrusion, 0 );
     const QVector3D edgeEndTop = edgeEnd + QVector3D( 0, extrusion, 0 );
 
@@ -309,14 +323,13 @@ void Qf3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertices,
     indices.append( i );
   }
 
-  // Shoelace winding
-  double area2 = 0;
-  for ( int i = 0; i < n; ++i )
-  {
-    const int j = ( i + 1 ) % n;
-    area2 += static_cast<double>( ring[i].x() ) * ring[j].z() - static_cast<double>( ring[j].x() ) * ring[i].z();
-  }
-  const bool ccw = area2 > 0;
+  const bool ccw = polygonIsCounterClockwise( ring );
+
+  const auto writeTriangle = [&iptr, baseVertex, ccw]( int first, int second, int third ) {
+    *iptr++ = baseVertex + first;
+    *iptr++ = baseVertex + ( ccw ? third : second );
+    *iptr++ = baseVertex + ( ccw ? second : third );
+  };
 
   const int expectedTriangles = n - 2;
   int trianglesWritten = 0;
@@ -333,9 +346,7 @@ void Qf3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertices,
 
       if ( polygonIsEar( ring, indices, eps, ccw, prev, i, next ) )
       {
-        *iptr++ = baseVertex + indices[prev];
-        *iptr++ = baseVertex + indices[i];
-        *iptr++ = baseVertex + indices[next];
+        writeTriangle( indices[prev], indices[i], indices[next] );
         indices.remove( i );
         earFound = true;
         ++trianglesWritten;
@@ -351,9 +362,7 @@ void Qf3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertices,
   // Fan fallback for the unprocessed remainder
   for ( int i = 1; i < indices.size() - 1 && trianglesWritten < expectedTriangles; ++i )
   {
-    *iptr++ = baseVertex + indices[0];
-    *iptr++ = baseVertex + indices[i];
-    *iptr++ = baseVertex + indices[i + 1];
+    writeTriangle( indices[0], indices[i], indices[i + 1] );
     ++trianglesWritten;
   }
   while ( trianglesWritten < expectedTriangles )

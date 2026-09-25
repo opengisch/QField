@@ -47,7 +47,6 @@ Node {
             alphaMode: model.extrusion > 0 ? PrincipledMaterial.Opaque : PrincipledMaterial.Blend
             depthDrawMode: Material.OpaqueOnlyDepthDraw
             cullMode: PrincipledMaterial.NoCulling
-            lighting: PrincipledMaterial.NoLighting
           }
         ]
       }
