@@ -19,9 +19,12 @@
 
 #include <QPainter>
 #include <qgis.h>
+#include <qgsannotationlayer.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgsmaplayer.h>
 #include <qgsmaprendererparalleljob.h>
 #include <qgsmapsettings.h>
+#include <qgsproject.h>
 
 
 Qf3DMapTextureData::Qf3DMapTextureData( QQuick3DObject *parent )
@@ -210,6 +213,26 @@ void Qf3DMapTextureData::render()
   renderSettings.setFlag( Qgis::MapSettingsFlag::UseRenderingOptimization );
   renderSettings.setFlag( Qgis::MapSettingsFlag::RenderPartialOutput, mIncrementalRendering );
   renderSettings.setOutputImageFormat( QImage::Format_RGBA8888 );
+
+  //build the expression context
+  QgsExpressionContext expressionContext;
+  expressionContext << QgsExpressionContextUtils::globalScope()
+                    << QgsExpressionContextUtils::mapSettingsScope( renderSettings );
+
+  QgsProject *project = mMapSettings->project();
+  if ( project )
+  {
+    expressionContext << QgsExpressionContextUtils::projectScope( project );
+
+    renderSettings.setLabelingEngineSettings( project->labelingEngineSettings() );
+
+    // render main annotation layer above all other layers
+    QList<QgsMapLayer *> allLayers = renderSettings.layers();
+    allLayers.insert( 0, project->mainAnnotationLayer() );
+    renderSettings.setLayers( allLayers );
+  }
+
+  renderSettings.setExpressionContext( expressionContext );
 
   mRenderJob.reset( new QgsMapRendererParallelJob( renderSettings ) );
 
