@@ -292,7 +292,6 @@ Item {
             alphaMode: PrincipledMaterial.Blend
             depthDrawMode: Material.OpaqueOnlyDepthDraw
             cullMode: PrincipledMaterial.NoCulling
-            lighting: PrincipledMaterial.NoLighting
           }
         }
       }
