@@ -24,6 +24,7 @@
 #include <QLockFile>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
+#include <QRegularExpression>
 #include <QSettings>
 #include <QTextDocumentFragment>
 #include <QTimer>
@@ -511,6 +512,54 @@ void QfCloudConnection::requestSignupCaptcha()
   } );
 }
 
+QVariantMap QfCloudConnection::signupFormErrors( const QString &html )
+{
+  // An invalid field sits in its own group, which may nest plain ones (e.g. the captcha)
+  const QRegularExpression invalidGroupExpression( QStringLiteral( "<div class=\"form-group is-invalid[^\"]*\">" ) );
+  const QRegularExpression fieldNameExpression( QStringLiteral( "name=\"([a-z0-9_]+)\"" ) );
+  const QRegularExpression messageExpression( QStringLiteral( "<div class=\"invalid-feedback\">(.*?)</div>" ), QRegularExpression::DotMatchesEverythingOption );
+
+  QList<qsizetype> groupStarts;
+  QRegularExpressionMatchIterator groupIterator = invalidGroupExpression.globalMatch( html );
+  while ( groupIterator.hasNext() )
+  {
+    groupStarts << groupIterator.next().capturedStart();
+  }
+
+  QVariantMap errors;
+  for ( qsizetype index = 0; index < groupStarts.size(); index++ )
+  {
+    const qsizetype groupEnd = index + 1 < groupStarts.size() ? groupStarts.at( index + 1 ) : html.size();
+    const QString group = html.mid( groupStarts.at( index ), groupEnd - groupStarts.at( index ) );
+
+    const QRegularExpressionMatch fieldNameMatch = fieldNameExpression.match( group );
+    if ( !fieldNameMatch.hasMatch() )
+    {
+      continue;
+    }
+
+    QString fieldName = fieldNameMatch.captured( 1 );
+    if ( fieldName.startsWith( QStringLiteral( "captcha_" ) ) )
+    {
+      fieldName = QStringLiteral( "captcha" );
+    }
+
+    QStringList messages;
+    QRegularExpressionMatchIterator messageIterator = messageExpression.globalMatch( group );
+    while ( messageIterator.hasNext() )
+    {
+      messages << QTextDocumentFragment::fromHtml( messageIterator.next().captured( 1 ) ).toPlainText().trimmed();
+    }
+
+    if ( !messages.isEmpty() )
+    {
+      errors.insert( fieldName, messages.join( QStringLiteral( "\n" ) ) );
+    }
+  }
+
+  return errors;
+}
+
 void QfCloudConnection::registerAccount( const QString &email, const QString &username, const QString &password, bool hasAcceptedTermsOfService, bool hasNewsletterSubscription, const QString &referralCode, const QString &captchaKey, const QString &captchaAnswer )
 {
   QList<QPair<QString, QString>> fields = {
@@ -590,7 +639,7 @@ void QfCloudConnection::registerAccount( const QString &email, const QString &us
       return;
     }
 
-    QVariantMap errors = QfCloudUtils::signupFormErrors( QString::fromUtf8( rawReply->readAll() ) );
+    QVariantMap errors = signupFormErrors( QString::fromUtf8( rawReply->readAll() ) );
     if ( errors.isEmpty() )
     {
       errors.insert( QString(), tr( "The server did not accept the registration" ) );
@@ -632,7 +681,7 @@ void QfCloudConnection::requestPasswordReset( const QString &email )
         return;
       }
 
-      const QVariantMap errors = QfCloudUtils::signupFormErrors( QString::fromUtf8( rawReply->readAll() ) );
+      const QVariantMap errors = signupFormErrors( QString::fromUtf8( rawReply->readAll() ) );
       emit passwordRequestFinished( errors.isEmpty() ? tr( "The server did not accept the request" ) : errors.first().toString() );
     } );
   } );
