@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMessageLog" kind="class" language="C++" prot="public">
+    <compoundname>QfMessageLog</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <derivedcompoundref refid="classMessageLog" prot="public" virt="non-virtual">MessageLog</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMessageLog_1ada8362a5db0dbe5bd7b419e936334a1d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMessageLog::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfMessageLog::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="12" column="1" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMessageLog_1a46b480a7aeee4893ac9fd70ba10927c7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfMessageLog::unreadMessagesCount</definition>
+        <argsstring></argsstring>
+        <name>unreadMessagesCount</name>
+        <qualifiedname>QfMessageLog::unreadMessagesCount</qualifiedname>
+        <read>dummyGetter_unreadMessagesCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="14" column="1" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMessageLog_1a2c2af784447c5bf24a0d08029b53b023" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMessageLog::unreadMessages</definition>
+        <argsstring></argsstring>
+        <name>unreadMessages</name>
+        <qualifiedname>QfMessageLog::unreadMessages</qualifiedname>
+        <read>dummyGetter_unreadMessages_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="16" column="1" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMessageLog_1ac745f0ec94b0f9348f144edb66a9cbef" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMessageLog::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfMessageLog::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="20" column="5" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a2b961b7f3649877a689fcff78943493e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMessageLog::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfMessageLog::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="21" column="5" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1aaaa175b567294d0470c161fb8d1b3355" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMessageLog::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QfMessageLog::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="22" column="5" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a0eb252396db4e4029c1a726a2fe3623e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMessageLog::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QfMessageLog::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="23" column="5" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a645bf978bd743817fd1e09c4933e002f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMessageLog::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>QfMessageLog::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="24" column="5" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a6b7dc3e885efc6489c47a2a6ef54597c" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfMessageLog::table</definition>
+        <argsstring></argsstring>
+        <name>table</name>
+        <qualifiedname>QfMessageLog::table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="25" column="10" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a5bff6bba93a5705a1ee0f16d2f4019d5" prot="private" static="no" mutable="no">
+        <type>TextEdit</type>
+        <definition>TextEdit QfMessageLog::copyHelper</definition>
+        <argsstring></argsstring>
+        <name>copyHelper</name>
+        <qualifiedname>QfMessageLog::copyHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="26" column="10" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a40322cc57b4811670dd37ae413fa8b02" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfMessageLog::submitLog</definition>
+        <argsstring></argsstring>
+        <name>submitLog</name>
+        <qualifiedname>QfMessageLog::submitLog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="27" column="10" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a4bffaa9c950a9e259fc5eff2fc38d519" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfMessageLog::applicationLogDialog</definition>
+        <argsstring></argsstring>
+        <name>applicationLogDialog</name>
+        <qualifiedname>QfMessageLog::applicationLogDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="28" column="10" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a35f36fc32dc2f52532e15a48720e925d" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QfMessageLog::applicationLogLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>applicationLogLabelMetrics</name>
+        <qualifiedname>QfMessageLog::applicationLogLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="29" column="13" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1ae15fb89795973af66b294ce0333a9d27" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfMessageLog::applicationLogLabel</definition>
+        <argsstring></argsstring>
+        <name>applicationLogLabel</name>
+        <qualifiedname>QfMessageLog::applicationLogLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="30" column="7" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a91bc2f216e3f3e5100062342029ec90c" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfMessageLog::appliationLogInput</definition>
+        <argsstring></argsstring>
+        <name>appliationLogInput</name>
+        <qualifiedname>QfMessageLog::appliationLogInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="31" column="11" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1a6ce1c39503eced23a309468b8b4283c0" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfMessageLog::includeCloudInformationCheckBox</definition>
+        <argsstring></argsstring>
+        <name>includeCloudInformationCheckBox</name>
+        <qualifiedname>QfMessageLog::includeCloudInformationCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="32" column="10" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1ade9edac8e47e51dd053e8380cf69f5ed" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMessageLog::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QfMessageLog::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="33" column="5" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLog_1aa12dc8968385aee1afcf35b111bf569b" prot="private" static="no" mutable="no">
+        <type>var Keys</type>
+        <definition>var Keys QfMessageLog::onReleased</definition>
+        <argsstring></argsstring>
+        <name>onReleased</name>
+        <qualifiedname>QfMessageLog::onReleased</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="34" column="9" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfMessageLog_1aa75c2b918c2312cee9815e8a8a5a0cd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMessageLog::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>QfMessageLog::finished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMessageLog.qml" line="18" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>MessageLog</label>
+        <link refid="classMessageLog"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QfMessageLog</label>
+        <link refid="classQfMessageLog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QfMessageLog</label>
+        <link refid="classQfMessageLog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfMessageLog.qml" line="9" column="1" bodyfile="src/gui/qml/QfMessageLog.qml" bodystart="9" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classQfMessageLog_1a91bc2f216e3f3e5100062342029ec90c" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>appliationLogInput</name></member>
+      <member refid="classQfMessageLog_1a4bffaa9c950a9e259fc5eff2fc38d519" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>applicationLogDialog</name></member>
+      <member refid="classQfMessageLog_1ae15fb89795973af66b294ce0333a9d27" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>applicationLogLabel</name></member>
+      <member refid="classQfMessageLog_1a35f36fc32dc2f52532e15a48720e925d" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>applicationLogLabelMetrics</name></member>
+      <member refid="classQfMessageLog_1a5bff6bba93a5705a1ee0f16d2f4019d5" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>copyHelper</name></member>
+      <member refid="classQfMessageLog_1aa75c2b918c2312cee9815e8a8a5a0cd2" prot="public" virt="non-virtual"><scope>QfMessageLog</scope><name>finished</name></member>
+      <member refid="classQfMessageLog_1a2b961b7f3649877a689fcff78943493e" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>focus</name></member>
+      <member refid="classQfMessageLog_1a645bf978bd743817fd1e09c4933e002f" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>header</name></member>
+      <member refid="classQfMessageLog_1a6ce1c39503eced23a309468b8b4283c0" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>includeCloudInformationCheckBox</name></member>
+      <member refid="classQfMessageLog_1aaaa175b567294d0470c161fb8d1b3355" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>leftPadding</name></member>
+      <member refid="classQfMessageLog_1ada8362a5db0dbe5bd7b419e936334a1d" prot="public" virt="non-virtual"><scope>QfMessageLog</scope><name>model</name></member>
+      <member refid="classQfMessageLog_1aa12dc8968385aee1afcf35b111bf569b" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>onReleased</name></member>
+      <member refid="classQfMessageLog_1ade9edac8e47e51dd053e8380cf69f5ed" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>onVisibleChanged</name></member>
+      <member refid="classQfMessageLog_1a0eb252396db4e4029c1a726a2fe3623e" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>rightPadding</name></member>
+      <member refid="classQfMessageLog_1a40322cc57b4811670dd37ae413fa8b02" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>submitLog</name></member>
+      <member refid="classQfMessageLog_1a6b7dc3e885efc6489c47a2a6ef54597c" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>table</name></member>
+      <member refid="classQfMessageLog_1a2c2af784447c5bf24a0d08029b53b023" prot="public" virt="non-virtual"><scope>QfMessageLog</scope><name>unreadMessages</name></member>
+      <member refid="classQfMessageLog_1a46b480a7aeee4893ac9fd70ba10927c7" prot="public" virt="non-virtual"><scope>QfMessageLog</scope><name>unreadMessagesCount</name></member>
+      <member refid="classQfMessageLog_1ac745f0ec94b0f9348f144edb66a9cbef" prot="private" virt="non-virtual"><scope>QfMessageLog</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

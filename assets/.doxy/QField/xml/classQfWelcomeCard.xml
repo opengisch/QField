@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfWelcomeCard" kind="class" language="C++" prot="public">
+    <compoundname>QfWelcomeCard</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">SwipeView</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfWelcomeCard_1abbe24de44baee7af29b08c8dfeb8b152" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfWelcomeCard::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfWelcomeCard::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="9" column="5" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1abf81d2f7976161522ba9dfea5c074bab" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfWelcomeCard::interactive</definition>
+        <argsstring></argsstring>
+        <name>interactive</name>
+        <qualifiedname>QfWelcomeCard::interactive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="10" column="5" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1ade41e110b9e829aa778fa4ed26a364ae" prot="private" static="no" mutable="no">
+        <type>var Layout</type>
+        <definition>var Layout QfWelcomeCard::preferredHeight</definition>
+        <argsstring></argsstring>
+        <name>preferredHeight</name>
+        <qualifiedname>QfWelcomeCard::preferredHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="15" column="11" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1aa18bc5d06fec1a0769908055b2e203bb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfWelcomeCard::onCountChanged</definition>
+        <argsstring></argsstring>
+        <name>onCountChanged</name>
+        <qualifiedname>QfWelcomeCard::onCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="21" column="5" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1a359cfc61961f373db513fb726b83da4d" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfWelcomeCard::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfWelcomeCard::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="22" column="14" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1a2cbd3cb5953d3bee416fbbbb15e13c2f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfWelcomeCard::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfWelcomeCard::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="29" column="5" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfWelcomeCard_1aa24adf015a6841ae18e1462cbd8aa8bd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfWelcomeCard::collapsed</definition>
+        <argsstring></argsstring>
+        <name>collapsed</name>
+        <qualifiedname>QfWelcomeCard::collapsed</qualifiedname>
+        <read>dummyGetter_collapsed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="13" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeCard_1a9c2539770f7ade864ce431c892db7fe5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfWelcomeCard::startIndex</definition>
+        <argsstring></argsstring>
+        <name>startIndex</name>
+        <qualifiedname>QfWelcomeCard::startIndex</qualifiedname>
+        <read>dummyGetter_startIndex_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="19" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfWelcomeCard_1ab519c5d7bfbd83f7161096f4d1d8ee3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfWelcomeCard::applyStartIndex</definition>
+        <argsstring>()</argsstring>
+        <name>applyStartIndex</name>
+        <qualifiedname>QfWelcomeCard::applyStartIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="25" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfWelcomeCard_1a4e48af109a2261d1d0b851e4e4d09320" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfWelcomeCard::collapse</definition>
+        <argsstring>()</argsstring>
+        <name>collapse</name>
+        <qualifiedname>QfWelcomeCard::collapse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="27" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfWelcomeCard</label>
+        <link refid="classQfWelcomeCard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SwipeView</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfWelcomeCard</label>
+        <link refid="classQfWelcomeCard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SwipeView</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfWelcomeCard.qml" line="8" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="8" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classQfWelcomeCard_1ab519c5d7bfbd83f7161096f4d1d8ee3e" prot="public" virt="non-virtual"><scope>QfWelcomeCard</scope><name>applyStartIndex</name></member>
+      <member refid="classQfWelcomeCard_1a2cbd3cb5953d3bee416fbbbb15e13c2f" prot="private" virt="non-virtual"><scope>QfWelcomeCard</scope><name>background</name></member>
+      <member refid="classQfWelcomeCard_1abbe24de44baee7af29b08c8dfeb8b152" prot="private" virt="non-virtual"><scope>QfWelcomeCard</scope><name>clip</name></member>
+      <member refid="classQfWelcomeCard_1a4e48af109a2261d1d0b851e4e4d09320" prot="public" virt="non-virtual"><scope>QfWelcomeCard</scope><name>collapse</name></member>
+      <member refid="classQfWelcomeCard_1aa24adf015a6841ae18e1462cbd8aa8bd" prot="public" virt="non-virtual"><scope>QfWelcomeCard</scope><name>collapsed</name></member>
+      <member refid="classQfWelcomeCard_1abf81d2f7976161522ba9dfea5c074bab" prot="private" virt="non-virtual"><scope>QfWelcomeCard</scope><name>interactive</name></member>
+      <member refid="classQfWelcomeCard_1a359cfc61961f373db513fb726b83da4d" prot="private" virt="non-virtual"><scope>QfWelcomeCard</scope><name>onCompleted</name></member>
+      <member refid="classQfWelcomeCard_1aa18bc5d06fec1a0769908055b2e203bb" prot="private" virt="non-virtual"><scope>QfWelcomeCard</scope><name>onCountChanged</name></member>
+      <member refid="classQfWelcomeCard_1ade41e110b9e829aa778fa4ed26a364ae" prot="private" virt="non-virtual"><scope>QfWelcomeCard</scope><name>preferredHeight</name></member>
+      <member refid="classQfWelcomeCard_1a9c2539770f7ade864ce431c892db7fe5" prot="public" virt="non-virtual"><scope>QfWelcomeCard</scope><name>startIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

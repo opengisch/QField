@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfMarkupItemRenderer_8qml" kind="file" language="C++">
+    <compoundname>QfMarkupItemRenderer.qml</compoundname>
+    <innerclass refid="classQfMarkupItemRenderer" prot="public">QfMarkupItemRenderer</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Shapes</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qgis</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>org.qfield.core</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">import<sp/>org.qfield.gui</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">Item<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>id:<sp/>markupItemRenderer</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>MapSettings<sp/>mapSettings</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>property<sp/>QfMarkupItem<sp/>markupItem</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>QfGeometryRenderer<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>mapSettings:<sp/>markupItemRenderer.mapSettings</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>geometryWrapper.crs:<sp/>QfCoordinateReferenceSystemUtils.wgs84Crs()</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>geometryWrapper.qgsGeometry:<sp/>markupItem.geometry</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>color:<sp/>markupItem.color</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>lineWidth:<sp/>4.5</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>borderSize:<sp/>4</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>pointSize:<sp/>14</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/gui/qml/QfMarkupItemRenderer.qml"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBookmarkList" kind="class" language="C++" prot="public">
+    <compoundname>BookmarkList</compoundname>
+    <basecompoundref refid="classQfBookmarkList" prot="public" virt="non-virtual">QfBookmarkList</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BookmarkList</label>
+        <link refid="classBookmarkList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Pane</label>
+      </node>
+      <node id="2">
+        <label>QfBookmarkList</label>
+        <link refid="classQfBookmarkList"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPaneDrawer</label>
+        <link refid="classQfPaneDrawer"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BookmarkList</label>
+        <link refid="classBookmarkList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Pane</label>
+      </node>
+      <node id="2">
+        <label>QfBookmarkList</label>
+        <link refid="classQfBookmarkList"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPaneDrawer</label>
+        <link refid="classQfPaneDrawer"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/BookmarkList.qml" line="2" column="1" bodyfile="src/app/qml_compat/BookmarkList.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfPaneDrawer_1a3d87cc2208337720912d471f31698cfe" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>collapsed</name></member>
+      <member refid="classQfPaneDrawer_1a2c058006b0d920db8b5ce16b98d35b7c" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>isDragging</name></member>
+      <member refid="classQfPaneDrawer_1abb06ab543bee39cb153d5f9d4e724a81" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>isFullscreen</name></member>
+      <member refid="classQfPaneDrawer_1a8f1662990e15603b5d732968edc40e71" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>isVertical</name></member>
+      <member refid="classQfBookmarkList_1abfd0feca356809b2bd20d4e5955b4fcb" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>model</name></member>
+      <member refid="classQfBookmarkList_1a880c89c091e6582f32a749469f7ad587" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>multiSelection</name></member>
+      <member refid="classQfBookmarkList_1a3b913b0ced8d1729163bbf70a70da823" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>requestBookmarkNavigation</name></member>
+      <member refid="classQfBookmarkList_1a8c6b38e280ef7812056c260f88c6e2ad" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>requestBookmarkProperties</name></member>
+      <member refid="classQfPaneDrawer_1a4df2c713f02fe09c5de8ad1bd0e6c1ab" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>statusIndicatorDragged</name></member>
+      <member refid="classQfPaneDrawer_1a6ecf6a1796fff4e1930a6ceb46033514" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>statusIndicatorDragReleased</name></member>
+      <member refid="classQfPaneDrawer_1a289556a9c53ee962fbb951d0aad0ee38" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>useDefaultMinHeight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMarkupCollection" kind="class" language="C++" prot="public">
+    <compoundname>QfMarkupCollection</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfmarkupcollection_8h" local="no">qfmarkupcollection.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMarkupCollection_1a23ad5b8cc69f2affda201a7938c14b9f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupCollection::uuid</definition>
+        <argsstring></argsstring>
+        <name>uuid</name>
+        <qualifiedname>QfMarkupCollection::uuid</qualifiedname>
+        <read>uuid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="34" column="5" bodyfile="src/core/qfmarkupcollection.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupCollection_1a31de13173bcb4ac09c0610ee99d46677" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupCollection::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfMarkupCollection::name</qualifiedname>
+        <read>name</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="35" column="5" bodyfile="src/core/qfmarkupcollection.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupCollection_1abd62120f880edcaa171086850eff5c1b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfMarkupCollection::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>QfMarkupCollection::count</qualifiedname>
+        <read>count</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="36" column="5" bodyfile="src/core/qfmarkupcollection.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupCollection_1a77b94505f6d9c174843b05872c0251e2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfMarkupItem" kindref="compound">QfMarkupItem</ref> &gt;</type>
+        <definition>QList&lt;QfMarkupItem&gt; QfMarkupCollection::items</definition>
+        <argsstring></argsstring>
+        <name>items</name>
+        <qualifiedname>QfMarkupCollection::items</qualifiedname>
+        <read>items</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="37" column="5" bodyfile="src/core/qfmarkupcollection.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMarkupCollection_1aff849e88e4b782db818ea37c55f5c4ee" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupCollection::mUuid</definition>
+        <argsstring></argsstring>
+        <name>mUuid</name>
+        <qualifiedname>QfMarkupCollection::mUuid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="128" column="13" bodyfile="src/core/qfmarkupcollection.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupCollection_1a604ac79fdcdc2016a2c288987d700801" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupCollection::mName</definition>
+        <argsstring></argsstring>
+        <name>mName</name>
+        <qualifiedname>QfMarkupCollection::mName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="129" column="13" bodyfile="src/core/qfmarkupcollection.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupCollection_1ad8acc299905039b88296a3f23108d26c" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, <ref refid="classQfMarkupItem" kindref="compound">QfMarkupItem</ref> &gt;</type>
+        <definition>QMap&lt;QString, QfMarkupItem&gt; QfMarkupCollection::mItems</definition>
+        <argsstring></argsstring>
+        <name>mItems</name>
+        <qualifiedname>QfMarkupCollection::mItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="130" column="10" bodyfile="src/core/qfmarkupcollection.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupCollection_1a83b284d7b2bccdc0c4991f208ff286fd" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsAnnotationLayer &gt;</type>
+        <definition>std::unique_ptr&lt;QgsAnnotationLayer&gt; QfMarkupCollection::mAnnotationLayer</definition>
+        <argsstring></argsstring>
+        <name>mAnnotationLayer</name>
+        <qualifiedname>QfMarkupCollection::mAnnotationLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="131" column="21" bodyfile="src/core/qfmarkupcollection.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupCollection_1a22cb528b6e1cfd930238bbcd3b153be6" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsVectorLayer &gt;</type>
+        <definition>std::unique_ptr&lt;QgsVectorLayer&gt; QfMarkupCollection::mVectorLayer</definition>
+        <argsstring></argsstring>
+        <name>mVectorLayer</name>
+        <qualifiedname>QfMarkupCollection::mVectorLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="132" column="21" bodyfile="src/core/qfmarkupcollection.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupCollection_1ab50b075dd2bee676ccedeac01dae156b" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QgsFeatureId, QString &gt;</type>
+        <definition>QMap&lt;QgsFeatureId, QString&gt; QfMarkupCollection::mFeatureUuids</definition>
+        <argsstring></argsstring>
+        <name>mFeatureUuids</name>
+        <qualifiedname>QfMarkupCollection::mFeatureUuids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="133" column="10" bodyfile="src/core/qfmarkupcollection.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfMarkupCollection_1a5cc552dbc4c42b13791646dc6d0d4fdd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfMarkupCollection::QfMarkupCollection</definition>
+        <argsstring>(const QString &amp;name=QString(), QObject *parent=nullptr)</argsstring>
+        <name>QfMarkupCollection</name>
+        <qualifiedname>QfMarkupCollection::QfMarkupCollection</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="40" column="14" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="40" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a1c3feee85a7927d6f39cffc4e72a14b2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfMarkupCollection::uuid</definition>
+        <argsstring>() const</argsstring>
+        <name>uuid</name>
+        <qualifiedname>QfMarkupCollection::uuid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the UUID of the collection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="45" column="13" bodyfile="src/core/qfmarkupcollection.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1aafba861b699d2bc998acb28e409e7f1d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfMarkupCollection::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <qualifiedname>QfMarkupCollection::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the name of the collection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="50" column="13" bodyfile="src/core/qfmarkupcollection.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a13d439546ad4829acedea857f8c7e30b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupCollection::setName</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>setName</name>
+        <qualifiedname>QfMarkupCollection::setName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the name of the collection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="55" column="10" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="47" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1ab013c7fbc83c333e6b09e2349af4f85a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>qsizetype</type>
+        <definition>qsizetype QfMarkupCollection::count</definition>
+        <argsstring>() const</argsstring>
+        <name>count</name>
+        <qualifiedname>QfMarkupCollection::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of items in the collection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="60" column="15" bodyfile="src/core/qfmarkupcollection.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a1bb10728110b8627aec19b3234edeaa3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfMarkupItem" kindref="compound">QfMarkupItem</ref> &gt;</type>
+        <definition>QList&lt; QfMarkupItem &gt; QfMarkupCollection::items</definition>
+        <argsstring>() const</argsstring>
+        <name>items</name>
+        <qualifiedname>QfMarkupCollection::items</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of items in the collection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="65" column="11" bodyfile="src/core/qfmarkupcollection.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1ad656ae7615a5db7d45eefa2cbd72578d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfMarkupCollection::addItem</definition>
+        <argsstring>(const QfMarkupItem &amp;item, bool resetVectorLayer=true)</argsstring>
+        <name>addItem</name>
+        <qualifiedname>QfMarkupCollection::addItem</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfMarkupItem" kindref="compound">QfMarkupItem</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resetVectorLayer</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an <emphasis>item</emphasis> into the collection and return its UUID. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="70" column="25" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="58" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a7625bb8787d47a4dcca944cab1aed18d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfMarkupCollection::replaceItem</definition>
+        <argsstring>(const QString &amp;uuid, const QfMarkupItem &amp;item, bool resetVectorLayer=true)</argsstring>
+        <name>replaceItem</name>
+        <qualifiedname>QfMarkupCollection::replaceItem</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classQfMarkupItem" kindref="compound">QfMarkupItem</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resetVectorLayer</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replaces an item matching the provided <emphasis>uuid</emphasis> with a new <emphasis>item</emphasis> within the collection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="75" column="22" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="80" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a452677cc77277454e316fcb94606b536" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfMarkupCollection::removeItem</definition>
+        <argsstring>(const QString &amp;uuid, bool resetVectorLayer=true)</argsstring>
+        <name>removeItem</name>
+        <qualifiedname>QfMarkupCollection::removeItem</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resetVectorLayer</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes an item matching the provided <emphasis>uuid</emphasis> from the collection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="80" column="22" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="97" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a8574cf6c3a626ae970c59275007f2454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfMarkupCollection::readGeoJson</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>readGeoJson</name>
+        <qualifiedname>QfMarkupCollection::readGeoJson</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restore a collection from the content of a GeoJSON at the provided <emphasis>path</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="85" column="10" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="114" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a13ff3abd021f79c707f0fdf7303348c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfMarkupCollection::writeGeoJson</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>writeGeoJson</name>
+        <qualifiedname>QfMarkupCollection::writeGeoJson</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the collection from the content of a GeoJSON at the provided <emphasis>path</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="90" column="10" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="267" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a56a585671bdffd14d5475abaf5563fab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsAnnotationLayer *</type>
+        <definition>QgsAnnotationLayer * QfMarkupCollection::asAnnotationLayer</definition>
+        <argsstring>()</argsstring>
+        <name>asAnnotationLayer</name>
+        <qualifiedname>QfMarkupCollection::asAnnotationLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a pointer to an annotation layer matching the content of the collection. <simplesect kind="note"><para>The ownership remains with the collection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="96" column="24" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="382" bodyend="446"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1aeee00d5424c3eabcf0ffbc1e63eaff1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfMarkupCollection::asVectorLayer</definition>
+        <argsstring>()</argsstring>
+        <name>asVectorLayer</name>
+        <qualifiedname>QfMarkupCollection::asVectorLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a pointer to a memory vector layer matching the content of the collection.</para>
+<para>The layer geometry type is a GeometryCollection and it can be used to modify the attributes and geometries of individual markup items within the collection.</para>
+<para><simplesect kind="note"><para>The ownership remains with the collection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="106" column="20" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="448" bodyend="497"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfMarkupCollection_1aef8ce67a9ff19423f64b089f5dd10601" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classQfMarkupItem" kindref="compound">QfMarkupItem</ref></type>
+        <definition>QfMarkupItem QfMarkupCollection::createItem</definition>
+        <argsstring>(const QString &amp;label, const QString &amp;description, const QgsGeometry &amp;geometry, const QColor &amp;color)</argsstring>
+        <name>createItem</name>
+        <qualifiedname>QfMarkupCollection::createItem</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="108" column="37" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="553" bodyend="556"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfMarkupCollection_1ae484ce8558bcb5d6d3f5cc4cd0e5bb18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupCollection::uuidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>uuidChanged</name>
+        <qualifiedname>QfMarkupCollection::uuidChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the UUID changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="112" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupCollection_1a4327012064cdbefbf671a957c8704ca1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupCollection::nameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>nameChanged</name>
+        <qualifiedname>QfMarkupCollection::nameChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the collection name changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="115" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupCollection_1a44ea65887a67ff6ea7f69bcbf922941e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupCollection::countChanged</definition>
+        <argsstring>()</argsstring>
+        <name>countChanged</name>
+        <qualifiedname>QfMarkupCollection::countChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the number of items in the collection changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="118" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupCollection_1abbe9e09421685b8fd66e44bfa02e3a05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupCollection::itemsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>itemsChanged</name>
+        <qualifiedname>QfMarkupCollection::itemsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the list of items in the collection changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="121" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfMarkupCollection_1a79289c704ed401dd2c0532855d018ffb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupCollection::processAttributeValueChanged</definition>
+        <argsstring>(QgsFeatureId fid, int idx, const QVariant &amp;value)</argsstring>
+        <name>processAttributeValueChanged</name>
+        <qualifiedname>QfMarkupCollection::processAttributeValueChanged</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="124" column="10" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="499" bodyend="522"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a1ea423d708ba4bb34804fd26f1ee2806" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupCollection::processFeatureDeleted</definition>
+        <argsstring>(QgsFeatureId fid)</argsstring>
+        <name>processFeatureDeleted</name>
+        <qualifiedname>QfMarkupCollection::processFeatureDeleted</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="125" column="10" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="524" bodyend="532"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupCollection_1a7c75bb366c8f2a1d2f4624f77e64277b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupCollection::processGeometryChanged</definition>
+        <argsstring>(QgsFeatureId fid, const QgsGeometry &amp;geometry)</argsstring>
+        <name>processGeometryChanged</name>
+        <qualifiedname>QfMarkupCollection::processGeometryChanged</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupcollection.h" line="126" column="10" bodyfile="src/core/qfmarkupcollection.cpp" bodystart="534" bodyend="551"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This class holds a collection of markup items. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfMarkupCollection</label>
+        <link refid="classQfMarkupCollection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfMarkupCollection</label>
+        <link refid="classQfMarkupCollection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfmarkupcollection.h" line="30" column="1" bodyfile="src/core/qfmarkupcollection.h" bodystart="31" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classQfMarkupCollection_1ad656ae7615a5db7d45eefa2cbd72578d" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>addItem</name></member>
+      <member refid="classQfMarkupCollection_1a56a585671bdffd14d5475abaf5563fab" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>asAnnotationLayer</name></member>
+      <member refid="classQfMarkupCollection_1aeee00d5424c3eabcf0ffbc1e63eaff1b" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>asVectorLayer</name></member>
+      <member refid="classQfMarkupCollection_1abd62120f880edcaa171086850eff5c1b" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>count</name></member>
+      <member refid="classQfMarkupCollection_1ab013c7fbc83c333e6b09e2349af4f85a" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>count</name></member>
+      <member refid="classQfMarkupCollection_1a44ea65887a67ff6ea7f69bcbf922941e" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>countChanged</name></member>
+      <member refid="classQfMarkupCollection_1aef8ce67a9ff19423f64b089f5dd10601" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>createItem</name></member>
+      <member refid="classQfMarkupCollection_1a77b94505f6d9c174843b05872c0251e2" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>items</name></member>
+      <member refid="classQfMarkupCollection_1a1bb10728110b8627aec19b3234edeaa3" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>items</name></member>
+      <member refid="classQfMarkupCollection_1abbe9e09421685b8fd66e44bfa02e3a05" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>itemsChanged</name></member>
+      <member refid="classQfMarkupCollection_1a83b284d7b2bccdc0c4991f208ff286fd" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>mAnnotationLayer</name></member>
+      <member refid="classQfMarkupCollection_1ab50b075dd2bee676ccedeac01dae156b" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>mFeatureUuids</name></member>
+      <member refid="classQfMarkupCollection_1ad8acc299905039b88296a3f23108d26c" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>mItems</name></member>
+      <member refid="classQfMarkupCollection_1a604ac79fdcdc2016a2c288987d700801" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>mName</name></member>
+      <member refid="classQfMarkupCollection_1aff849e88e4b782db818ea37c55f5c4ee" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>mUuid</name></member>
+      <member refid="classQfMarkupCollection_1a22cb528b6e1cfd930238bbcd3b153be6" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>mVectorLayer</name></member>
+      <member refid="classQfMarkupCollection_1a31de13173bcb4ac09c0610ee99d46677" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>name</name></member>
+      <member refid="classQfMarkupCollection_1aafba861b699d2bc998acb28e409e7f1d" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>name</name></member>
+      <member refid="classQfMarkupCollection_1a4327012064cdbefbf671a957c8704ca1" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>nameChanged</name></member>
+      <member refid="classQfMarkupCollection_1a79289c704ed401dd2c0532855d018ffb" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>processAttributeValueChanged</name></member>
+      <member refid="classQfMarkupCollection_1a1ea423d708ba4bb34804fd26f1ee2806" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>processFeatureDeleted</name></member>
+      <member refid="classQfMarkupCollection_1a7c75bb366c8f2a1d2f4624f77e64277b" prot="private" virt="non-virtual"><scope>QfMarkupCollection</scope><name>processGeometryChanged</name></member>
+      <member refid="classQfMarkupCollection_1a5cc552dbc4c42b13791646dc6d0d4fdd" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>QfMarkupCollection</name></member>
+      <member refid="classQfMarkupCollection_1a8574cf6c3a626ae970c59275007f2454" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>readGeoJson</name></member>
+      <member refid="classQfMarkupCollection_1a452677cc77277454e316fcb94606b536" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>removeItem</name></member>
+      <member refid="classQfMarkupCollection_1a7625bb8787d47a4dcca944cab1aed18d" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>replaceItem</name></member>
+      <member refid="classQfMarkupCollection_1a13d439546ad4829acedea857f8c7e30b" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>setName</name></member>
+      <member refid="classQfMarkupCollection_1a23ad5b8cc69f2affda201a7938c14b9f" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>uuid</name></member>
+      <member refid="classQfMarkupCollection_1a1c3feee85a7927d6f39cffc4e72a14b2" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>uuid</name></member>
+      <member refid="classQfMarkupCollection_1ae484ce8558bcb5d6d3f5cc4cd0e5bb18" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>uuidChanged</name></member>
+      <member refid="classQfMarkupCollection_1a13ff3abd021f79c707f0fdf7303348c9" prot="public" virt="non-virtual"><scope>QfMarkupCollection</scope><name>writeGeoJson</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfValueMapModel" kind="class" language="C++" prot="public">
+    <compoundname>QfValueMapModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <includes refid="qfvaluemapmodel_8h" local="no">qfvaluemapmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfValueMapModel_1a0d3913c5155a16145a4e8ed64f0e77c6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ValueMapRoles</name>
+        <qualifiedname>QfValueMapModel::ValueMapRoles</qualifiedname>
+        <enumvalue id="classQfValueMapModel_1a0d3913c5155a16145a4e8ed64f0e77c6a865df64ab615e9ba835628fa6681dd5d" prot="public">
+          <name>KeyRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+<para>obtain the key </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfValueMapModel_1a0d3913c5155a16145a4e8ed64f0e77c6a6b444991a862b0b66b873fa1b547910d" prot="public">
+          <name>ValueRole</name>
+          <briefdescription>
+<para>obtain the value </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The roles provided by this model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="47" column="5" bodyfile="src/gui/qfvaluemapmodel.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfValueMapModel_1a9fce5036707710aa4f27db00030b1138" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariant</type>
+        <definition>QVariant QfValueMapModel::valueMap</definition>
+        <argsstring></argsstring>
+        <name>valueMap</name>
+        <qualifiedname>QfValueMapModel::valueMap</qualifiedname>
+        <read>map</read>
+        <write>setMap</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A list of QVariantMap, wrapped in a QVariant.</para>
+<para>Like this:</para>
+<para>[{&apos;CH&apos;: &apos;Switzerland&apos;}, {&apos;DE&apos;: &apos;Germany&apos;}, {&apos;FR&apos;: &apos;France&apos;}] </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="42" column="5" bodyfile="src/gui/qfvaluemapmodel.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfValueMapModel_1af5451174b145b0483941a7c018174e55" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfValueMapModelBase" kindref="compound">QfValueMapModelBase</ref> *</type>
+        <definition>QfValueMapModelBase* QfValueMapModel::mSourceModel</definition>
+        <argsstring></argsstring>
+        <name>mSourceModel</name>
+        <qualifiedname>QfValueMapModel::mSourceModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="90" column="25" bodyfile="src/gui/qfvaluemapmodel.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfValueMapModel_1ae94512cba98193554eff3e4485527130" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfValueMapModel::QfValueMapModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfValueMapModel</name>
+        <qualifiedname>QfValueMapModel::QfValueMapModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new value map model </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="58" column="14" bodyfile="src/gui/qfvaluemapmodel.cpp" bodystart="22" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfValueMapModel_1a463455da6469fc2528c8f6a196f4f344" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfValueMapModel::map</definition>
+        <argsstring>() const</argsstring>
+        <name>map</name>
+        <qualifiedname>QfValueMapModel::map</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map, see the property description </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="63" column="14" bodyfile="src/gui/qfvaluemapmodel.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfValueMapModel_1af9be7b9d0d20f30ea7bc5ad525f50bd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfValueMapModel::setMap</definition>
+        <argsstring>(const QVariant &amp;map)</argsstring>
+        <name>setMap</name>
+        <qualifiedname>QfValueMapModel::setMap</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map, see the property description </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="68" column="10" bodyfile="src/gui/qfvaluemapmodel.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfValueMapModel_1acdc27c0e0210cbd61f039d00efed8236" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfValueMapModel::keyToIndex</definition>
+        <argsstring>(const QVariant &amp;key) const</argsstring>
+        <name>keyToIndex</name>
+        <qualifiedname>QfValueMapModel::keyToIndex</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the row (index) of a key or -1 if not found. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="73" column="21" bodyfile="src/gui/qfvaluemapmodel.cpp" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfValueMapModel_1ad76ea8cdccfda7664f5116ddd7e29ebd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant QfValueMapModel::keyForValue</definition>
+        <argsstring>(const QString &amp;value) const</argsstring>
+        <name>keyForValue</name>
+        <qualifiedname>QfValueMapModel::keyForValue</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the key for a value or an invalid QVariant if not found. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="78" column="26" bodyfile="src/gui/qfvaluemapmodel.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQfValueMapModel_1a7bd27478e94c48c6d0a6bd5e4cb4bf97" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfValueMapModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>QfValueMapModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="81" column="10" bodyfile="src/gui/qfvaluemapmodel.cpp" bodystart="53" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfValueMapModel_1a8d564a7b39f4c943222b86ce84c48731" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfValueMapModel::mapChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapChanged</name>
+        <qualifiedname>QfValueMapModel::mapChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the map changes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfvaluemapmodel.h" line="87" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A model that manages the key/value pairs for a ValueMap widget. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfValueMapModel</label>
+        <link refid="classQfValueMapModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfValueMapModel</label>
+        <link refid="classQfValueMapModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfvaluemapmodel.h" line="31" column="1" bodyfile="src/gui/qfvaluemapmodel.h" bodystart="32" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classQfValueMapModel_1a7bd27478e94c48c6d0a6bd5e4cb4bf97" prot="protected" virt="non-virtual"><scope>QfValueMapModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classQfValueMapModel_1ad76ea8cdccfda7664f5116ddd7e29ebd" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>keyForValue</name></member>
+      <member refid="classQfValueMapModel_1a0d3913c5155a16145a4e8ed64f0e77c6a865df64ab615e9ba835628fa6681dd5d" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>KeyRole</name></member>
+      <member refid="classQfValueMapModel_1acdc27c0e0210cbd61f039d00efed8236" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>keyToIndex</name></member>
+      <member refid="classQfValueMapModel_1a463455da6469fc2528c8f6a196f4f344" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>map</name></member>
+      <member refid="classQfValueMapModel_1a8d564a7b39f4c943222b86ce84c48731" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>mapChanged</name></member>
+      <member refid="classQfValueMapModel_1af5451174b145b0483941a7c018174e55" prot="private" virt="non-virtual"><scope>QfValueMapModel</scope><name>mSourceModel</name></member>
+      <member refid="classQfValueMapModel_1ae94512cba98193554eff3e4485527130" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>QfValueMapModel</name></member>
+      <member refid="classQfValueMapModel_1af9be7b9d0d20f30ea7bc5ad525f50bd6" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>setMap</name></member>
+      <member refid="classQfValueMapModel_1a9fce5036707710aa4f27db00030b1138" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>valueMap</name></member>
+      <member refid="classQfValueMapModel_1a0d3913c5155a16145a4e8ed64f0e77c6" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>ValueMapRoles</name></member>
+      <member refid="classQfValueMapModel_1a0d3913c5155a16145a4e8ed64f0e77c6a6b444991a862b0b66b873fa1b547910d" prot="public" virt="non-virtual"><scope>QfValueMapModel</scope><name>ValueRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfMarkupCollectionRenderer_8qml" kind="file" language="C++">
+    <compoundname>QfMarkupCollectionRenderer.qml</compoundname>
+    <innerclass refid="classQfMarkupCollectionRenderer" prot="public">QfMarkupCollectionRenderer</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>org.qgis</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qfield.core</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>org.qfield.gui</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">Item<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>id:<sp/>markupCollectionRenderer</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>property<sp/>MapSettings<sp/>mapSettings</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>QfMarkupCollection<sp/>markupCollection</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>Repeater<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>model:<sp/>markupCollection<sp/>?<sp/>markupCollection.items<sp/>:<sp/>[]</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>QfMarkupItemRenderer<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>markupItem:<sp/>modelData</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mapSettings:<sp/>markupCollectionRenderer.mapSettings</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/gui/qml/QfMarkupCollectionRenderer.qml"/>
+  </compounddef>
+</doxygen>

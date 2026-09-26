@@ -1,0 +1,570 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMarkupManager" kind="class" language="C++" prot="public">
+    <compoundname>QfMarkupManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfmarkupmanager_8h" local="no">qfmarkupmanager.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMarkupManager_1a6de98abb790cd6461b1f39814bfd47d8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QStringList</type>
+        <definition>QStringList QfMarkupManager::collectionNames</definition>
+        <argsstring></argsstring>
+        <name>collectionNames</name>
+        <qualifiedname>QfMarkupManager::collectionNames</qualifiedname>
+        <read>collectionNames</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="33" column="5" bodyfile="src/core/qfmarkupmanager.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupManager_1aefc0d13de952dce9e435fdac8883ed47" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> * &gt;</type>
+        <definition>QList&lt;QfMarkupCollection *&gt; QfMarkupManager::collections</definition>
+        <argsstring></argsstring>
+        <name>collections</name>
+        <qualifiedname>QfMarkupManager::collections</qualifiedname>
+        <read>collections</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="34" column="5" bodyfile="src/core/qfmarkupmanager.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupManager_1ae35b9a8dd4d6d41d15e666e22b05870c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QStringList</type>
+        <definition>QStringList QfMarkupManager::hiddenCollectionUuids</definition>
+        <argsstring></argsstring>
+        <name>hiddenCollectionUuids</name>
+        <qualifiedname>QfMarkupManager::hiddenCollectionUuids</qualifiedname>
+        <read>hiddenCollectionUuids</read>
+        <write>setHiddenCollectionUuids</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="36" column="5" bodyfile="src/core/qfmarkupmanager.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupManager_1a56e12de8a40ceafa5c659c71a78ddbfd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> * &gt;</type>
+        <definition>QList&lt;QfMarkupCollection *&gt; QfMarkupManager::visibleCollections</definition>
+        <argsstring></argsstring>
+        <name>visibleCollections</name>
+        <qualifiedname>QfMarkupManager::visibleCollections</qualifiedname>
+        <read>visibleCollections</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="37" column="5" bodyfile="src/core/qfmarkupmanager.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupManager_1ae164792f3325a9f70f5b02051f710664" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMarkupManager::hasItems</definition>
+        <argsstring></argsstring>
+        <name>hasItems</name>
+        <qualifiedname>QfMarkupManager::hasItems</qualifiedname>
+        <read>hasItems</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="39" column="5" bodyfile="src/core/qfmarkupmanager.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMarkupManager_1ad389f7a3732ad6a47edd803235b41394" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupManager::mPath</definition>
+        <argsstring></argsstring>
+        <name>mPath</name>
+        <qualifiedname>QfMarkupManager::mPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="129" column="13" bodyfile="src/core/qfmarkupmanager.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupManager_1a2f84dfd892d050999417ea101959a524" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfMarkupManager::mPrefix</definition>
+        <argsstring></argsstring>
+        <name>mPrefix</name>
+        <qualifiedname>QfMarkupManager::mPrefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="130" column="13" bodyfile="src/core/qfmarkupmanager.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupManager_1ae117664bc4d2ef9a1c1194b0376e6e2b" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList QfMarkupManager::mHiddenCollectionUuids</definition>
+        <argsstring></argsstring>
+        <name>mHiddenCollectionUuids</name>
+        <qualifiedname>QfMarkupManager::mHiddenCollectionUuids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="132" column="17" bodyfile="src/core/qfmarkupmanager.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupManager_1a7ff8d42cbf4e56b8a7e431e3de71084e" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, <ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> * &gt;</type>
+        <definition>QMap&lt;QString, QfMarkupCollection *&gt; QfMarkupManager::mCollections</definition>
+        <argsstring></argsstring>
+        <name>mCollections</name>
+        <qualifiedname>QfMarkupManager::mCollections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="134" column="10" bodyfile="src/core/qfmarkupmanager.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupManager_1aceda008b1576d8c991410bbd61210501" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QString &gt;</type>
+        <definition>QMap&lt;QString, QString&gt; QfMarkupManager::mCollectionPaths</definition>
+        <argsstring></argsstring>
+        <name>mCollectionPaths</name>
+        <qualifiedname>QfMarkupManager::mCollectionPaths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="135" column="10" bodyfile="src/core/qfmarkupmanager.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfMarkupManager_1aba79db24e0289225ec8df9e7f721f86c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfMarkupManager::QfMarkupManager</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfMarkupManager</name>
+        <qualifiedname>QfMarkupManager::QfMarkupManager</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="42" column="14" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1a8b558a285e1b97f5ec493bfdb6f5b581" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfMarkupManager::collectionNames</definition>
+        <argsstring>() const</argsstring>
+        <name>collectionNames</name>
+        <qualifiedname>QfMarkupManager::collectionNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of collection names present in the markup manager. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="47" column="17" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1a73826bd13554bd30b6990dbe54e6993e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfMarkupManager::collectionUuids</definition>
+        <argsstring>() const</argsstring>
+        <name>collectionUuids</name>
+        <qualifiedname>QfMarkupManager::collectionUuids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of collection UUIDs present in the markup manager. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="52" column="17" bodyfile="src/core/qfmarkupmanager.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1a934cffbb384675abe6aa2e7af7a8d758" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfMarkupManager::collectionUuid</definition>
+        <argsstring>(QfMarkupCollection *collection) const</argsstring>
+        <name>collectionUuid</name>
+        <qualifiedname>QfMarkupManager::collectionUuid</qualifiedname>
+        <param>
+          <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> *</type>
+          <declname>collection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list UUID matching the <emphasis>collection</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="57" column="13" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1acc67dd6823b36009e7b02e13a48fe64f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> *</type>
+        <definition>QfMarkupCollection * QfMarkupManager::collection</definition>
+        <argsstring>(const QString &amp;uuid) const</argsstring>
+        <name>collection</name>
+        <qualifiedname>QfMarkupManager::collection</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the collection present in the markup manager matching the <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="62" column="24" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1a2c2b0eccded62f59f5c9db883c037fbc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> * &gt;</type>
+        <definition>QList&lt; QfMarkupCollection * &gt; QfMarkupManager::collections</definition>
+        <argsstring>() const</argsstring>
+        <name>collections</name>
+        <qualifiedname>QfMarkupManager::collections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of collections present in the markup manager. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="67" column="11" bodyfile="src/core/qfmarkupmanager.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1abca8f213f6b3d0adc221558d3aa04eb0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList QfMarkupManager::hiddenCollectionUuids</definition>
+        <argsstring>() const</argsstring>
+        <name>hiddenCollectionUuids</name>
+        <qualifiedname>QfMarkupManager::hiddenCollectionUuids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of collection UUIDs that are hidden. Matching collection will not be part of the list of collections returned by the markup manager visibleCollections() function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="74" column="17" bodyfile="src/core/qfmarkupmanager.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1a4db77f5dca37d888041e4986abf777af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::setHiddenCollectionUuids</definition>
+        <argsstring>(const QStringList &amp;hiddenCollectionUuids)</argsstring>
+        <name>setHiddenCollectionUuids</name>
+        <qualifiedname>QfMarkupManager::setHiddenCollectionUuids</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>hiddenCollectionUuids</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the list of collection UUIDs that are hidden. Matching collection will not be part of the list of collections returned by the markup manager visibleCollections() function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="81" column="10" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="50" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1aac4f41ea92e938c181d8b692db0816da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> * &gt;</type>
+        <definition>QList&lt; QfMarkupCollection * &gt; QfMarkupManager::visibleCollections</definition>
+        <argsstring>() const</argsstring>
+        <name>visibleCollections</name>
+        <qualifiedname>QfMarkupManager::visibleCollections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of visible collections present in the markup manager. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="86" column="11" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="66" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1a6e54db9d9f7f55f114275f9f8e626e4c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfMarkupManager::hasItems</definition>
+        <argsstring>() const</argsstring>
+        <name>hasItems</name>
+        <qualifiedname>QfMarkupManager::hasItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if any of the collections present in the markup manager contains one or more items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="92" column="10" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMarkupManager_1a478cc27b7ee7cce6c605c16892d3a7ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfMarkupManager::reset</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;prefix=QString())</argsstring>
+        <name>reset</name>
+        <qualifiedname>QfMarkupManager::reset</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the markup manager&apos;s list of collections by loading compatible GeoJSON files present in the provided <emphasis>path</emphasis>. If a <emphasis>prefix</emphasis> is provided, the markup manager will only load GeoJSON files beginning by the prefix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="99" column="22" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="84" bodyend="126"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfMarkupManager_1a3fe28310c7dea1f095a1d970ecfcc3dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::hiddenCollectionUuidsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hiddenCollectionUuidsChanged</name>
+        <qualifiedname>QfMarkupManager::hiddenCollectionUuidsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the list of hidden collection UUIDs has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="103" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupManager_1a7f0140f32e02c14b080951530ec2ff30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::collectionsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>collectionsChanged</name>
+        <qualifiedname>QfMarkupManager::collectionsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the list of collections has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="106" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupManager_1accad0a3755bd8bab18347afe1bc7129f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::visibleCollectionsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visibleCollectionsChanged</name>
+        <qualifiedname>QfMarkupManager::visibleCollectionsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the list of visible collections has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="109" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupManager_1aa1e48ea258b66fc8ff05577dc99e2de7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::hasItemsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasItemsChanged</name>
+        <qualifiedname>QfMarkupManager::hasItemsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the item count of a loaded collection has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="112" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupManager_1a0dac4c8590f8a83d646f1a1f074a715d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::collectionItemsChanged</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>collectionItemsChanged</name>
+        <qualifiedname>QfMarkupManager::collectionItemsChanged</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a collection&apos;s list of items has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="115" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupManager_1af1884e3b555c99c23ce1756acbf1e713" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::collectionsWillBeRemoved</definition>
+        <argsstring>(const QStringList &amp;uuids)</argsstring>
+        <name>collectionsWillBeRemoved</name>
+        <qualifiedname>QfMarkupManager::collectionsWillBeRemoved</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>uuids</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when collections are about to be removed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="118" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMarkupManager_1ae53dcd81f1b4a641161d437b66a9216e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::collectionsAdded</definition>
+        <argsstring>(const QStringList &amp;uuids)</argsstring>
+        <name>collectionsAdded</name>
+        <qualifiedname>QfMarkupManager::collectionsAdded</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>uuids</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when collections are about to be removed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="121" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfMarkupManager_1adb7db93d7b5e953188e48b7eb6bdfc8f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::processCollectionItemsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>processCollectionItemsChanged</name>
+        <qualifiedname>QfMarkupManager::processCollectionItemsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="124" column="10" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="156" bodyend="174"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfMarkupManager_1aa14c37ec20b45723bf882b87650e3986" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMarkupManager::insertCollection</definition>
+        <argsstring>(QfMarkupCollection *collection, const QString &amp;collectionPath=QString())</argsstring>
+        <name>insertCollection</name>
+        <qualifiedname>QfMarkupManager::insertCollection</qualifiedname>
+        <param>
+          <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> *</type>
+          <declname>collection</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>collectionPath</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmarkupmanager.h" line="127" column="10" bodyfile="src/core/qfmarkupmanager.cpp" bodystart="128" bodyend="154"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This class to manage markup collections. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfMarkupManager</label>
+        <link refid="classQfMarkupManager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfMarkupManager</label>
+        <link refid="classQfMarkupManager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfmarkupmanager.h" line="29" column="1" bodyfile="src/core/qfmarkupmanager.h" bodystart="30" bodyend="136"/>
+    <listofallmembers>
+      <member refid="classQfMarkupManager_1acc67dd6823b36009e7b02e13a48fe64f" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collection</name></member>
+      <member refid="classQfMarkupManager_1a0dac4c8590f8a83d646f1a1f074a715d" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collectionItemsChanged</name></member>
+      <member refid="classQfMarkupManager_1a6de98abb790cd6461b1f39814bfd47d8" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collectionNames</name></member>
+      <member refid="classQfMarkupManager_1a8b558a285e1b97f5ec493bfdb6f5b581" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collectionNames</name></member>
+      <member refid="classQfMarkupManager_1aefc0d13de952dce9e435fdac8883ed47" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collections</name></member>
+      <member refid="classQfMarkupManager_1a2c2b0eccded62f59f5c9db883c037fbc" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collections</name></member>
+      <member refid="classQfMarkupManager_1ae53dcd81f1b4a641161d437b66a9216e" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collectionsAdded</name></member>
+      <member refid="classQfMarkupManager_1a7f0140f32e02c14b080951530ec2ff30" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collectionsChanged</name></member>
+      <member refid="classQfMarkupManager_1af1884e3b555c99c23ce1756acbf1e713" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collectionsWillBeRemoved</name></member>
+      <member refid="classQfMarkupManager_1a934cffbb384675abe6aa2e7af7a8d758" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collectionUuid</name></member>
+      <member refid="classQfMarkupManager_1a73826bd13554bd30b6990dbe54e6993e" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>collectionUuids</name></member>
+      <member refid="classQfMarkupManager_1ae164792f3325a9f70f5b02051f710664" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>hasItems</name></member>
+      <member refid="classQfMarkupManager_1a6e54db9d9f7f55f114275f9f8e626e4c" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>hasItems</name></member>
+      <member refid="classQfMarkupManager_1aa1e48ea258b66fc8ff05577dc99e2de7" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>hasItemsChanged</name></member>
+      <member refid="classQfMarkupManager_1ae35b9a8dd4d6d41d15e666e22b05870c" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>hiddenCollectionUuids</name></member>
+      <member refid="classQfMarkupManager_1abca8f213f6b3d0adc221558d3aa04eb0" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>hiddenCollectionUuids</name></member>
+      <member refid="classQfMarkupManager_1a3fe28310c7dea1f095a1d970ecfcc3dc" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>hiddenCollectionUuidsChanged</name></member>
+      <member refid="classQfMarkupManager_1aa14c37ec20b45723bf882b87650e3986" prot="private" virt="non-virtual"><scope>QfMarkupManager</scope><name>insertCollection</name></member>
+      <member refid="classQfMarkupManager_1aceda008b1576d8c991410bbd61210501" prot="private" virt="non-virtual"><scope>QfMarkupManager</scope><name>mCollectionPaths</name></member>
+      <member refid="classQfMarkupManager_1a7ff8d42cbf4e56b8a7e431e3de71084e" prot="private" virt="non-virtual"><scope>QfMarkupManager</scope><name>mCollections</name></member>
+      <member refid="classQfMarkupManager_1ae117664bc4d2ef9a1c1194b0376e6e2b" prot="private" virt="non-virtual"><scope>QfMarkupManager</scope><name>mHiddenCollectionUuids</name></member>
+      <member refid="classQfMarkupManager_1ad389f7a3732ad6a47edd803235b41394" prot="private" virt="non-virtual"><scope>QfMarkupManager</scope><name>mPath</name></member>
+      <member refid="classQfMarkupManager_1a2f84dfd892d050999417ea101959a524" prot="private" virt="non-virtual"><scope>QfMarkupManager</scope><name>mPrefix</name></member>
+      <member refid="classQfMarkupManager_1adb7db93d7b5e953188e48b7eb6bdfc8f" prot="private" virt="non-virtual"><scope>QfMarkupManager</scope><name>processCollectionItemsChanged</name></member>
+      <member refid="classQfMarkupManager_1aba79db24e0289225ec8df9e7f721f86c" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>QfMarkupManager</name></member>
+      <member refid="classQfMarkupManager_1a478cc27b7ee7cce6c605c16892d3a7ae" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>reset</name></member>
+      <member refid="classQfMarkupManager_1a4db77f5dca37d888041e4986abf777af" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>setHiddenCollectionUuids</name></member>
+      <member refid="classQfMarkupManager_1a56e12de8a40ceafa5c659c71a78ddbfd" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>visibleCollections</name></member>
+      <member refid="classQfMarkupManager_1aac4f41ea92e938c181d8b692db0816da" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>visibleCollections</name></member>
+      <member refid="classQfMarkupManager_1accad0a3755bd8bab18347afe1bc7129f" prot="public" virt="non-virtual"><scope>QfMarkupManager</scope><name>visibleCollectionsChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

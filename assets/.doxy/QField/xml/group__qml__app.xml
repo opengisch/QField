@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__qml__app" kind="group">
+    <compoundname>qml_app</compoundname>
+    <title>QML app</title>
+    <innerclass refid="classQfAbout" prot="public">QfAbout</innerclass>
+    <innerclass refid="classQfAppSettings" prot="public">QfAppSettings</innerclass>
+    <innerclass refid="classQfBadLayerItem" prot="public">QfBadLayerItem</innerclass>
+    <innerclass refid="classQfChangelog" prot="public">QfChangelog</innerclass>
+    <innerclass refid="classQfCloudDangerZone" prot="public">QfCloudDangerZone</innerclass>
+    <innerclass refid="classQfCloudDeltaHistory" prot="public">QfCloudDeltaHistory</innerclass>
+    <innerclass refid="classQfCloudLogin" prot="public">QfCloudLogin</innerclass>
+    <innerclass refid="classQfCloudPackageLayersFeedback" prot="public">QfCloudPackageLayersFeedback</innerclass>
+    <innerclass refid="classQfCloudPendingChanges" prot="public">QfCloudPendingChanges</innerclass>
+    <innerclass refid="classQfCloudPopup" prot="public">QfCloudPopup</innerclass>
+    <innerclass refid="classQfCloudProjectDetails" prot="public">QfCloudProjectDetails</innerclass>
+    <innerclass refid="classQfCloudProjectFilter" prot="public">QfCloudProjectFilter</innerclass>
+    <innerclass refid="classQfCloudScreen" prot="public">QfCloudScreen</innerclass>
+    <innerclass refid="classQfCloudStatusBanner" prot="public">QfCloudStatusBanner</innerclass>
+    <innerclass refid="classQfCoordinateLocator" prot="public">QfCoordinateLocator</innerclass>
+    <innerclass refid="classQfDashBoard" prot="public">QfDashBoard</innerclass>
+    <innerclass refid="classQfFeatureListSelectionHighlight" prot="public">QfFeatureListSelectionHighlight</innerclass>
+    <innerclass refid="classQfGuide" prot="public">QfGuide</innerclass>
+    <innerclass refid="classQfLocalDataPickerScreen" prot="public">QfLocalDataPickerScreen</innerclass>
+    <innerclass refid="classQfMeasuringTool" prot="public">QfMeasuringTool</innerclass>
+    <innerclass refid="classQfNyuki" prot="public">QfNyuki</innerclass>
+    <innerclass refid="classQfPluginItem" prot="public">QfPluginItem</innerclass>
+    <innerclass refid="classQfPluginManagerSettings" prot="public">QfPluginManagerSettings</innerclass>
+    <innerclass refid="classQfPositioningSettings" prot="public">QfPositioningSettings</innerclass>
+    <innerclass refid="classQfScreenLocker" prot="public">QfScreenLocker</innerclass>
+    <innerclass refid="classQfSketcher" prot="public">QfSketcher</innerclass>
+    <innerclass refid="classQfTrackerSettings" prot="public">QfTrackerSettings</innerclass>
+    <innerclass refid="classQfWelcomeScreen" prot="public">QfWelcomeScreen</innerclass>
+    <innerclass refid="classQgisMobileapp" prot="public">QgisMobileapp</innerclass>
+    <briefdescription>
+<para>QField application QML items available through import org.qfield.app. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

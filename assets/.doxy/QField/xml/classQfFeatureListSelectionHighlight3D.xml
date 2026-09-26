@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFeatureListSelectionHighlight3D" kind="class" language="C++" prot="public">
+    <compoundname>QfFeatureListSelectionHighlight3D</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Node</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfFeatureListSelectionHighlight3D_1ab06947b6479a1a39e9a1c6eca0d58e2f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureListModelSelection" kindref="compound">QfFeatureListModelSelection</ref></type>
+        <definition>QfFeatureListModelSelection QfFeatureListSelectionHighlight3D::selectionModel</definition>
+        <argsstring></argsstring>
+        <name>selectionModel</name>
+        <qualifiedname>QfFeatureListSelectionHighlight3D::selectionModel</qualifiedname>
+        <read>dummyGetter_selectionModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="11" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListSelectionHighlight3D_1a9246da04b54e003c3821baedae6335d6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref></type>
+        <definition>Qf3DTerrainProvider QfFeatureListSelectionHighlight3D::terrainProvider</definition>
+        <argsstring></argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>QfFeatureListSelectionHighlight3D::terrainProvider</qualifiedname>
+        <read>dummyGetter_terrainProvider_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="13" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListSelectionHighlight3D_1a345620311419f700e189dba3f53c822a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfFeatureListSelectionHighlight3D::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfFeatureListSelectionHighlight3D::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="15" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListSelectionHighlight3D_1a7d2f8466ddb090306c87576d40efa3fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfFeatureListSelectionHighlight3D::focusedColor</definition>
+        <argsstring></argsstring>
+        <name>focusedColor</name>
+        <qualifiedname>QfFeatureListSelectionHighlight3D::focusedColor</qualifiedname>
+        <read>dummyGetter_focusedColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="17" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListSelectionHighlight3D_1adb53b973c1436994685235652e95c8f8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfFeatureListSelectionHighlight3D::selectedColor</definition>
+        <argsstring></argsstring>
+        <name>selectedColor</name>
+        <qualifiedname>QfFeatureListSelectionHighlight3D::selectedColor</qualifiedname>
+        <read>dummyGetter_selectedColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="19" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListSelectionHighlight3D_1a03c70305e66be6ede2088e4d2d5b1d4b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfFeatureListSelectionHighlight3D::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>QfFeatureListSelectionHighlight3D::lineWidth</qualifiedname>
+        <read>dummyGetter_lineWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="21" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListSelectionHighlight3D_1a9badd136c69809d21f990889e1107390" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfFeatureListSelectionHighlight3D::heightOffset</definition>
+        <argsstring></argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>QfFeatureListSelectionHighlight3D::heightOffset</qualifiedname>
+        <read>dummyGetter_heightOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="23" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureListSelectionHighlight3D_1a1125712ed2f08d45acdd2e4a4ccee759" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfFeatureListSelectionHighlight3D::altitudeClamping</definition>
+        <argsstring></argsstring>
+        <name>altitudeClamping</name>
+        <qualifiedname>QfFeatureListSelectionHighlight3D::altitudeClamping</qualifiedname>
+        <read>dummyGetter_altitudeClamping_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="25" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureListSelectionHighlight3D</label>
+        <link refid="classQfFeatureListSelectionHighlight3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Node</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureListSelectionHighlight3D</label>
+        <link refid="classQfFeatureListSelectionHighlight3D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" line="8" column="1" bodyfile="src/3d/qml/QfFeatureListSelectionHighlight3D.qml" bodystart="8" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classQfFeatureListSelectionHighlight3D_1a1125712ed2f08d45acdd2e4a4ccee759" prot="public" virt="non-virtual"><scope>QfFeatureListSelectionHighlight3D</scope><name>altitudeClamping</name></member>
+      <member refid="classQfFeatureListSelectionHighlight3D_1a345620311419f700e189dba3f53c822a" prot="public" virt="non-virtual"><scope>QfFeatureListSelectionHighlight3D</scope><name>color</name></member>
+      <member refid="classQfFeatureListSelectionHighlight3D_1a7d2f8466ddb090306c87576d40efa3fa" prot="public" virt="non-virtual"><scope>QfFeatureListSelectionHighlight3D</scope><name>focusedColor</name></member>
+      <member refid="classQfFeatureListSelectionHighlight3D_1a9badd136c69809d21f990889e1107390" prot="public" virt="non-virtual"><scope>QfFeatureListSelectionHighlight3D</scope><name>heightOffset</name></member>
+      <member refid="classQfFeatureListSelectionHighlight3D_1a03c70305e66be6ede2088e4d2d5b1d4b" prot="public" virt="non-virtual"><scope>QfFeatureListSelectionHighlight3D</scope><name>lineWidth</name></member>
+      <member refid="classQfFeatureListSelectionHighlight3D_1adb53b973c1436994685235652e95c8f8" prot="public" virt="non-virtual"><scope>QfFeatureListSelectionHighlight3D</scope><name>selectedColor</name></member>
+      <member refid="classQfFeatureListSelectionHighlight3D_1ab06947b6479a1a39e9a1c6eca0d58e2f" prot="public" virt="non-virtual"><scope>QfFeatureListSelectionHighlight3D</scope><name>selectionModel</name></member>
+      <member refid="classQfFeatureListSelectionHighlight3D_1a9246da04b54e003c3821baedae6335d6" prot="public" virt="non-virtual"><scope>QfFeatureListSelectionHighlight3D</scope><name>terrainProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

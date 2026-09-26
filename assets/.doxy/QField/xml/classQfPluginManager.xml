@@ -1,0 +1,784 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPluginManager" kind="class" language="C++" prot="public">
+    <compoundname>QfPluginManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPluginManager_1ae7dedb00fa4b89f46438cab684b8adab" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfPluginModel" kindref="compound">QfPluginModel</ref> *</type>
+        <definition>QfPluginModel * QfPluginManager::pluginModel</definition>
+        <argsstring></argsstring>
+        <name>pluginModel</name>
+        <qualifiedname>QfPluginManager::pluginModel</qualifiedname>
+        <read>pluginModel</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="84" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginManager_1ae72bfe8c27096d6334378cce80ed1b67" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfPluginInformation" kindref="compound">QfPluginInformation</ref> &gt;</type>
+        <definition>QList&lt;QfPluginInformation&gt; QfPluginManager::availableAppPlugins</definition>
+        <argsstring></argsstring>
+        <name>availableAppPlugins</name>
+        <qualifiedname>QfPluginManager::availableAppPlugins</qualifiedname>
+        <read>availableAppPlugins</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="85" column="5" bodyfile="src/app/qfpluginmanager.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPluginManager_1a7c95586ffdb18f074fb638ba3b98d3e6" prot="private" static="no" mutable="no">
+        <type>QQmlEngine *</type>
+        <definition>QQmlEngine* QfPluginManager::mEngine</definition>
+        <argsstring></argsstring>
+        <name>mEngine</name>
+        <qualifiedname>QfPluginManager::mEngine</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="218" column="16" bodyfile="src/app/qfpluginmanager.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManager_1a3a1bdee59b400612c2be48c6d9a7e40e" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QPointer&lt; QObject &gt; &gt;</type>
+        <definition>QMap&lt;QString, QPointer&lt;QObject&gt; &gt; QfPluginManager::mLoadedPlugins</definition>
+        <argsstring></argsstring>
+        <name>mLoadedPlugins</name>
+        <qualifiedname>QfPluginManager::mLoadedPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="219" column="10" bodyfile="src/app/qfpluginmanager.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManager_1ab7cedf9e4671f0d44c71315603e50d4f" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QTranslator * &gt;</type>
+        <definition>QMap&lt;QString, QTranslator *&gt; QfPluginManager::mLoadedPluginTranslators</definition>
+        <argsstring></argsstring>
+        <name>mLoadedPluginTranslators</name>
+        <qualifiedname>QfPluginManager::mLoadedPluginTranslators</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="220" column="10" bodyfile="src/app/qfpluginmanager.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManager_1a91d695281999c71ff048ac4f9ed554d7" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfPluginManager::mPermissionRequestPluginPath</definition>
+        <argsstring></argsstring>
+        <name>mPermissionRequestPluginPath</name>
+        <qualifiedname>QfPluginManager::mPermissionRequestPluginPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="222" column="13" bodyfile="src/app/qfpluginmanager.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManager_1a3e1c441359f945d55247cb9890cd78d4" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfPluginModel" kindref="compound">QfPluginModel</ref> *</type>
+        <definition>QfPluginModel* QfPluginManager::mPluginModel</definition>
+        <argsstring></argsstring>
+        <name>mPluginModel</name>
+        <qualifiedname>QfPluginManager::mPluginModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="224" column="19" bodyfile="src/app/qfpluginmanager.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfPluginManager_1a1afc5a063ac7e595ad1d9abe5d94a28d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfPluginManager::QfPluginManager</definition>
+        <argsstring>(QQmlEngine *engine)</argsstring>
+        <name>QfPluginManager</name>
+        <qualifiedname>QfPluginManager::QfPluginManager</qualifiedname>
+        <param>
+          <type>QQmlEngine *</type>
+          <declname>engine</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a PluginManager with the given <emphasis>engine</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="91" column="14" bodyfile="src/app/qfpluginmanager.cpp" bodystart="32" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a41b6c39360224917585b6ad725ecd4fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfPluginInformation" kindref="compound">QfPluginInformation</ref> &gt;</type>
+        <definition>QList&lt; QfPluginInformation &gt; QfPluginManager::availableAppPlugins</definition>
+        <argsstring>() const</argsstring>
+        <name>availableAppPlugins</name>
+        <qualifiedname>QfPluginManager::availableAppPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of available app plugins installed locally. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="96" column="11" bodyfile="src/app/qfpluginmanager.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a9a3baa84325602da8ad9904de0359d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::loadPlugin</definition>
+        <argsstring>(const QString &amp;pluginPath, const QString &amp;pluginName, bool skipPermissionCheck=false, bool isProjectPlugin=false)</argsstring>
+        <name>loadPlugin</name>
+        <qualifiedname>QfPluginManager::loadPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pluginPath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pluginName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>skipPermissionCheck</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isProjectPlugin</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads a plugin from <emphasis>pluginPath</emphasis> and registers it under <emphasis>pluginName</emphasis>. Optionally skips permission checks and marks it as a project plugin. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="102" column="10" bodyfile="src/app/qfpluginmanager.cpp" bodystart="51" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1adf53a82a29b2ed08c7d70bf0547032be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::unloadPlugin</definition>
+        <argsstring>(const QString &amp;pluginPath)</argsstring>
+        <name>unloadPlugin</name>
+        <qualifiedname>QfPluginManager::unloadPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pluginPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unloads the plugin loaded from <emphasis>pluginPath</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="107" column="10" bodyfile="src/app/qfpluginmanager.cpp" bodystart="126" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1afc5b79480e2881323badb0a7c4162858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::unloadPlugins</definition>
+        <argsstring>()</argsstring>
+        <name>unloadPlugins</name>
+        <qualifiedname>QfPluginManager::unloadPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unloads all currently loaded plugins. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="112" column="10" bodyfile="src/app/qfpluginmanager.cpp" bodystart="159" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a306541abe997c8064de8b2651877240f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::grantRequestedPluginPermission</definition>
+        <argsstring>(bool permanent=false)</argsstring>
+        <name>grantRequestedPluginPermission</name>
+        <qualifiedname>QfPluginManager::grantRequestedPluginPermission</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>permanent</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Grants permission to the last plugin that requested it. If <emphasis>permanent</emphasis> is true, saves this choice. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="118" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="182" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a708d1d95298cbf3e4383db3e22d98313" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::denyRequestedPluginPermission</definition>
+        <argsstring>(bool permanent=false)</argsstring>
+        <name>denyRequestedPluginPermission</name>
+        <qualifiedname>QfPluginManager::denyRequestedPluginPermission</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>permanent</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Denies permission to the last plugin that requested it. If <emphasis>permanent</emphasis> is true, saves this choice. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="124" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="208" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a152c584e2e09d4aaf2bfba6a0ff3d775" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::clearPluginPermissions</definition>
+        <argsstring>()</argsstring>
+        <name>clearPluginPermissions</name>
+        <qualifiedname>QfPluginManager::clearPluginPermissions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears all saved plugin permissions except those explicitly enabled by the user. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="129" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="229" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a99615b6665c96fe07992304147341570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::enableAppPlugin</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>enableAppPlugin</name>
+        <qualifiedname>QfPluginManager::enableAppPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enables the application plugin identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="134" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="275" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1abf35e9af1e9df50177d167938c15a9e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::disableAppPlugin</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>disableAppPlugin</name>
+        <qualifiedname>QfPluginManager::disableAppPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Disables the application plugin identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="139" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="303" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1ab49eb44bdc9675736d413b9fe816584b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::configureAppPlugin</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>configureAppPlugin</name>
+        <qualifiedname>QfPluginManager::configureAppPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Opens the configuration interface for the plugin identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="144" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="324" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a3991e2556a61fabe8dfa3b0d2f36197b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfPluginManager::isAppPluginEnabled</definition>
+        <argsstring>(const QString &amp;uuid) const</argsstring>
+        <name>isAppPluginEnabled</name>
+        <qualifiedname>QfPluginManager::isAppPluginEnabled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the application plugin with <emphasis>uuid</emphasis> is currently enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="149" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="329" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a337f0d48716ae944a89e01aac714b1e0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfPluginManager::isAppPluginConfigurable</definition>
+        <argsstring>(const QString &amp;uuid) const</argsstring>
+        <name>isAppPluginConfigurable</name>
+        <qualifiedname>QfPluginManager::isAppPluginConfigurable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the application plugin with <emphasis>uuid</emphasis> is configurable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="154" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="334" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1ad7e53563c708d301940117a3b2d9a496" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfPluginManager::isProjectPluginEnabled</definition>
+        <argsstring>(const QString &amp;path) const</argsstring>
+        <name>isProjectPluginEnabled</name>
+        <qualifiedname>QfPluginManager::isProjectPluginEnabled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if a plugin is currently enabled for a given project <emphasis>path</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="159" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="346" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1ab4d7cf9e6fd15435255f3bcd0e1f008c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::denyProjectPluginPermission</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>denyProjectPluginPermission</name>
+        <qualifiedname>QfPluginManager::denyProjectPluginPermission</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Denies permission for a given project <emphasis>path</emphasis> to load a project plugin. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="164" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="356" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a263b9cb2ded8840acec8c87a42f0bbd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::restoreAppPlugins</definition>
+        <argsstring>()</argsstring>
+        <name>restoreAppPlugins</name>
+        <qualifiedname>QfPluginManager::restoreAppPlugins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restores and loads previously enabled application plugins. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="169" column="10" bodyfile="src/app/qfpluginmanager.cpp" bodystart="244" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a2866c52bdf98d4c004e695e65a6188d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::installFromUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>installFromUrl</name>
+        <qualifiedname>QfPluginManager::installFromUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Installs a plugin from the given <emphasis>url</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="174" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="384" bodyend="518"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a21c71c84b0010dbc510fad9172e44a37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::installFromRepository</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>installFromRepository</name>
+        <qualifiedname>QfPluginManager::installFromRepository</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Installs a plugin from the given repository <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="179" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="372" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a2deaedc5617b6c34802c903a201962d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfPluginManager::uninstall</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>uninstall</name>
+        <qualifiedname>QfPluginManager::uninstall</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uninstalls the application plugin identified by <emphasis>uuid</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="184" column="22" bodyfile="src/app/qfpluginmanager.cpp" bodystart="520" bodyend="531"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginManager_1a8b3ba3157de414bd7b91509ec9af26b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfPluginModel" kindref="compound">QfPluginModel</ref> *</type>
+        <definition>QfPluginModel * QfPluginManager::pluginModel</definition>
+        <argsstring>() const</argsstring>
+        <name>pluginModel</name>
+        <qualifiedname>QfPluginManager::pluginModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the plugin model used by this manager. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="195" column="19" bodyfile="src/app/qfpluginmanager.cpp" bodystart="577" bodyend="580"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfPluginManager_1ae01985c3e76735f0292f3ddb69b036a1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPluginManager::findProjectPlugin</definition>
+        <argsstring>(const QString &amp;projectPath)</argsstring>
+        <name>findProjectPlugin</name>
+        <qualifiedname>QfPluginManager::findProjectPlugin</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds and returns the plugin path corresponding to a project at <emphasis>projectPath</emphasis>. Returns an empty string if none is found. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="190" column="20" bodyfile="src/app/qfpluginmanager.cpp" bodystart="533" bodyend="551"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfPluginManager_1a2fa2e696d41b93ae10ec1a29cb63d583" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::pluginPermissionRequested</definition>
+        <argsstring>(const QString &amp;pluginName, bool isProjectPlugin)</argsstring>
+        <name>pluginPermissionRequested</name>
+        <qualifiedname>QfPluginManager::pluginPermissionRequested</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>pluginName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isProjectPlugin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="199" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginManager_1a77f4d49d46fb7ae090a40efc1300eb92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::appPluginEnabled</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>appPluginEnabled</name>
+        <qualifiedname>QfPluginManager::appPluginEnabled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="201" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginManager_1a3cb2d94bd52b5d1a08aef2fbb268f336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::appPluginDisabled</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>appPluginDisabled</name>
+        <qualifiedname>QfPluginManager::appPluginDisabled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="202" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginManager_1aecbc4c8c6a0d61a041b154176aac4436" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::projectPluginEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>projectPluginEnabled</name>
+        <qualifiedname>QfPluginManager::projectPluginEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="204" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginManager_1a4dacc3b6590525f6482f788e185d61b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::installTriggered</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>installTriggered</name>
+        <qualifiedname>QfPluginManager::installTriggered</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="206" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginManager_1aaa9f74088600764b6b4bf08eb1c85ff7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::installProgress</definition>
+        <argsstring>(double progress)</argsstring>
+        <name>installProgress</name>
+        <qualifiedname>QfPluginManager::installProgress</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>progress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="207" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginManager_1a031e361aa9101ff1ea5ec6a472785721" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::installEnded</definition>
+        <argsstring>(const QString &amp;uuid=QString(), const QString &amp;error=QString())</argsstring>
+        <name>installEnded</name>
+        <qualifiedname>QfPluginManager::installEnded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="208" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginManager_1ae36bfe36b76a179642d27b11f9f81aa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::availableAppPluginsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>availableAppPluginsChanged</name>
+        <qualifiedname>QfPluginManager::availableAppPluginsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="210" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginManager_1ac09d37530e336c8b5485e368b067603c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::pluginModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>pluginModelChanged</name>
+        <qualifiedname>QfPluginManager::pluginModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="211" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfPluginManager_1adb2928cc514b1a346bc099332207ae51" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::handleWarnings</definition>
+        <argsstring>(const QList&lt; QQmlError &gt; &amp;warnings)</argsstring>
+        <name>handleWarnings</name>
+        <qualifiedname>QfPluginManager::handleWarnings</qualifiedname>
+        <param>
+          <type>const QList&lt; QQmlError &gt; &amp;</type>
+          <declname>warnings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="214" column="10" bodyfile="src/app/qfpluginmanager.cpp" bodystart="168" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPluginManager_1aba5e2d57023a8324c84badbd8699554a" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginManager::callPluginMethod</definition>
+        <argsstring>(const QString &amp;uuid, const QString &amp;methodName) const</argsstring>
+        <name>callPluginMethod</name>
+        <qualifiedname>QfPluginManager::callPluginMethod</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>methodName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmanager.h" line="215" column="10" bodyfile="src/app/qfpluginmanager.cpp" bodystart="553" bodyend="575"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfPluginManager</label>
+        <link refid="classQfPluginManager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfPluginManager</label>
+        <link refid="classQfPluginManager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qfpluginmanager.h" line="80" column="1" bodyfile="src/app/qfpluginmanager.h" bodystart="81" bodyend="225"/>
+    <listofallmembers>
+      <member refid="classQfPluginManager_1a3cb2d94bd52b5d1a08aef2fbb268f336" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>appPluginDisabled</name></member>
+      <member refid="classQfPluginManager_1a77f4d49d46fb7ae090a40efc1300eb92" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>appPluginEnabled</name></member>
+      <member refid="classQfPluginManager_1ae72bfe8c27096d6334378cce80ed1b67" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>availableAppPlugins</name></member>
+      <member refid="classQfPluginManager_1a41b6c39360224917585b6ad725ecd4fe" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>availableAppPlugins</name></member>
+      <member refid="classQfPluginManager_1ae36bfe36b76a179642d27b11f9f81aa5" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>availableAppPluginsChanged</name></member>
+      <member refid="classQfPluginManager_1aba5e2d57023a8324c84badbd8699554a" prot="private" virt="non-virtual"><scope>QfPluginManager</scope><name>callPluginMethod</name></member>
+      <member refid="classQfPluginManager_1a152c584e2e09d4aaf2bfba6a0ff3d775" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>clearPluginPermissions</name></member>
+      <member refid="classQfPluginManager_1ab49eb44bdc9675736d413b9fe816584b" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>configureAppPlugin</name></member>
+      <member refid="classQfPluginManager_1ab4d7cf9e6fd15435255f3bcd0e1f008c" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>denyProjectPluginPermission</name></member>
+      <member refid="classQfPluginManager_1a708d1d95298cbf3e4383db3e22d98313" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>denyRequestedPluginPermission</name></member>
+      <member refid="classQfPluginManager_1abf35e9af1e9df50177d167938c15a9e7" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>disableAppPlugin</name></member>
+      <member refid="classQfPluginManager_1a99615b6665c96fe07992304147341570" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>enableAppPlugin</name></member>
+      <member refid="classQfPluginManager_1ae01985c3e76735f0292f3ddb69b036a1" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>findProjectPlugin</name></member>
+      <member refid="classQfPluginManager_1a306541abe997c8064de8b2651877240f" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>grantRequestedPluginPermission</name></member>
+      <member refid="classQfPluginManager_1adb2928cc514b1a346bc099332207ae51" prot="private" virt="non-virtual"><scope>QfPluginManager</scope><name>handleWarnings</name></member>
+      <member refid="classQfPluginManager_1a031e361aa9101ff1ea5ec6a472785721" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>installEnded</name></member>
+      <member refid="classQfPluginManager_1a21c71c84b0010dbc510fad9172e44a37" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>installFromRepository</name></member>
+      <member refid="classQfPluginManager_1a2866c52bdf98d4c004e695e65a6188d2" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>installFromUrl</name></member>
+      <member refid="classQfPluginManager_1aaa9f74088600764b6b4bf08eb1c85ff7" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>installProgress</name></member>
+      <member refid="classQfPluginManager_1a4dacc3b6590525f6482f788e185d61b3" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>installTriggered</name></member>
+      <member refid="classQfPluginManager_1a337f0d48716ae944a89e01aac714b1e0" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>isAppPluginConfigurable</name></member>
+      <member refid="classQfPluginManager_1a3991e2556a61fabe8dfa3b0d2f36197b" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>isAppPluginEnabled</name></member>
+      <member refid="classQfPluginManager_1ad7e53563c708d301940117a3b2d9a496" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>isProjectPluginEnabled</name></member>
+      <member refid="classQfPluginManager_1a9a3baa84325602da8ad9904de0359d47" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>loadPlugin</name></member>
+      <member refid="classQfPluginManager_1a7c95586ffdb18f074fb638ba3b98d3e6" prot="private" virt="non-virtual"><scope>QfPluginManager</scope><name>mEngine</name></member>
+      <member refid="classQfPluginManager_1a3a1bdee59b400612c2be48c6d9a7e40e" prot="private" virt="non-virtual"><scope>QfPluginManager</scope><name>mLoadedPlugins</name></member>
+      <member refid="classQfPluginManager_1ab7cedf9e4671f0d44c71315603e50d4f" prot="private" virt="non-virtual"><scope>QfPluginManager</scope><name>mLoadedPluginTranslators</name></member>
+      <member refid="classQfPluginManager_1a91d695281999c71ff048ac4f9ed554d7" prot="private" virt="non-virtual"><scope>QfPluginManager</scope><name>mPermissionRequestPluginPath</name></member>
+      <member refid="classQfPluginManager_1a3e1c441359f945d55247cb9890cd78d4" prot="private" virt="non-virtual"><scope>QfPluginManager</scope><name>mPluginModel</name></member>
+      <member refid="classQfPluginManager_1ae7dedb00fa4b89f46438cab684b8adab" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>pluginModel</name></member>
+      <member refid="classQfPluginManager_1a8b3ba3157de414bd7b91509ec9af26b5" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>pluginModel</name></member>
+      <member refid="classQfPluginManager_1ac09d37530e336c8b5485e368b067603c" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>pluginModelChanged</name></member>
+      <member refid="classQfPluginManager_1a2fa2e696d41b93ae10ec1a29cb63d583" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>pluginPermissionRequested</name></member>
+      <member refid="classQfPluginManager_1aecbc4c8c6a0d61a041b154176aac4436" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>projectPluginEnabled</name></member>
+      <member refid="classQfPluginManager_1a1afc5a063ac7e595ad1d9abe5d94a28d" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>QfPluginManager</name></member>
+      <member refid="classQfPluginManager_1a263b9cb2ded8840acec8c87a42f0bbd3" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>restoreAppPlugins</name></member>
+      <member refid="classQfPluginManager_1a2deaedc5617b6c34802c903a201962d8" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>uninstall</name></member>
+      <member refid="classQfPluginManager_1adf53a82a29b2ed08c7d70bf0547032be" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>unloadPlugin</name></member>
+      <member refid="classQfPluginManager_1afc5b79480e2881323badb0a7c4162858" prot="public" virt="non-virtual"><scope>QfPluginManager</scope><name>unloadPlugins</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

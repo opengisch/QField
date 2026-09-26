@@ -1,0 +1,832 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudProjectsFilterModel" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudProjectsFilterModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudProjectsFilterModel_1aff7d42cca4c424433ee0ca90594cd478" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudProjectsModel" kindref="compound">QfCloudProjectsModel</ref> *</type>
+        <definition>QfCloudProjectsModel * QfCloudProjectsFilterModel::projectsModel</definition>
+        <argsstring></argsstring>
+        <name>projectsModel</name>
+        <qualifiedname>QfCloudProjectsFilterModel::projectsModel</qualifiedname>
+        <read>projectsModel</read>
+        <write>setProjectsModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="281" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsFilterModel_1aac946cbe8fa5aa42b1a765b3eab1fa62" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsFilterModel::textFilter</definition>
+        <argsstring></argsstring>
+        <name>textFilter</name>
+        <qualifiedname>QfCloudProjectsFilterModel::textFilter</qualifiedname>
+        <read>textFilter</read>
+        <write>setTextFilter</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="282" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsFilterModel_1a8f0ac7be33792220d217bab3d757c121" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::showLocalOnly</definition>
+        <argsstring></argsstring>
+        <name>showLocalOnly</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showLocalOnly</qualifiedname>
+        <read>showLocalOnly</read>
+        <write>setShowLocalOnly</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="283" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsFilterModel_1a1083b9d67dbeca063d8d5b7e0583a815" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::showInValidProjects</definition>
+        <argsstring></argsstring>
+        <name>showInValidProjects</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showInValidProjects</qualifiedname>
+        <read>showInValidProjects</read>
+        <write>setShowInValidProjects</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="284" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsFilterModel_1a504130ef30157dada5fcec35a42e7d01" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::showFeaturedOnTop</definition>
+        <argsstring></argsstring>
+        <name>showFeaturedOnTop</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showFeaturedOnTop</qualifiedname>
+        <read>showFeaturedOnTop</read>
+        <write>setShowFeaturedOnTop</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="285" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsFilterModel_1a993df58311a0baed6c9e8ede898d9d0f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::isSearching</definition>
+        <argsstring></argsstring>
+        <name>isSearching</name>
+        <qualifiedname>QfCloudProjectsFilterModel::isSearching</qualifiedname>
+        <read>isSearching</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="286" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectsFilterModel_1af3227eedd2eb1e49ed1b7236ffa9da7c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::showTemplates</definition>
+        <argsstring></argsstring>
+        <name>showTemplates</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showTemplates</qualifiedname>
+        <read>showTemplates</read>
+        <write>setShowTemplates</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="287" column="5" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1a440b78aef13fd1051b8f993ef7557fbc" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCloudProjectsModel" kindref="compound">QfCloudProjectsModel</ref> *</type>
+        <definition>QfCloudProjectsModel* QfCloudProjectsFilterModel::mSourceModel</definition>
+        <argsstring></argsstring>
+        <name>mSourceModel</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mSourceModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="386" column="26" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1a33cb7f7a9d78db2781ef6b676f2d15d5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::mShowLocalOnly</definition>
+        <argsstring></argsstring>
+        <name>mShowLocalOnly</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mShowLocalOnly</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="387" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1a4b60cbb22ffab76a9d99792fa684865d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::mShowInValidProjects</definition>
+        <argsstring></argsstring>
+        <name>mShowInValidProjects</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mShowInValidProjects</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="388" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1aea8d6ec4f4832942f96ea8076f3ce8c7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::mShowFeaturedOnTop</definition>
+        <argsstring></argsstring>
+        <name>mShowFeaturedOnTop</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mShowFeaturedOnTop</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="389" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1aef4afa42b77a9c275c9da7d6409db499" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsFilterModel::mTextFilter</definition>
+        <argsstring></argsstring>
+        <name>mTextFilter</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mTextFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="390" column="13" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1a603d503cdde7ae67ae7ca73b305e975c" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList QfCloudProjectsFilterModel::mKeywordFilter</definition>
+        <argsstring></argsstring>
+        <name>mKeywordFilter</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mKeywordFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="391" column="17" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1a6f47889da1e989b67c1ab7829d7ef054" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsFilterModel::mOwnerFilter</definition>
+        <argsstring></argsstring>
+        <name>mOwnerFilter</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mOwnerFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="392" column="13" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1ad698b5f661e0c168ea43ddd7b15791b3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::mIncludePublic</definition>
+        <argsstring></argsstring>
+        <name>mIncludePublic</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mIncludePublic</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="393" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1a7a9cf5dcfc9dedafb352b98281d556d3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::mIsSearching</definition>
+        <argsstring></argsstring>
+        <name>mIsSearching</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mIsSearching</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="394" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1ae4fffe15dd0d20e38c4ff518538aa863" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::mShowTemplates</definition>
+        <argsstring></argsstring>
+        <name>mShowTemplates</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mShowTemplates</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="395" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectsFilterModel_1ac992866cc6872edcc48fa5fe5753de6e" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfCloudProjectsFilterModel::mProjectsAppendingTimer</definition>
+        <argsstring></argsstring>
+        <name>mProjectsAppendingTimer</name>
+        <qualifiedname>QfCloudProjectsFilterModel::mProjectsAppendingTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="397" column="12" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="397" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1aa9b5ce0b94cad8f43474ad2e36eedf99" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudProjectsFilterModel::QfCloudProjectsFilterModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfCloudProjectsFilterModel</name>
+        <qualifiedname>QfCloudProjectsFilterModel::QfCloudProjectsFilterModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="290" column="14" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1259" bodyend="1269"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1ac70ca29837aaf59ee51b20584b133a8e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfCloudProjectsModel" kindref="compound">QfCloudProjectsModel</ref> *</type>
+        <definition>QfCloudProjectsModel * QfCloudProjectsFilterModel::projectsModel</definition>
+        <argsstring>() const</argsstring>
+        <name>projectsModel</name>
+        <qualifiedname>QfCloudProjectsFilterModel::projectsModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the source cloud projects model from which the filtered list is derived. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="295" column="26" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1294" bodyend="1297"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a7b9a47003f18c77c726308e49cf460f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::setProjectsModel</definition>
+        <argsstring>(QfCloudProjectsModel *projectsModel)</argsstring>
+        <name>setProjectsModel</name>
+        <qualifiedname>QfCloudProjectsFilterModel::setProjectsModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfCloudProjectsModel" kindref="compound">QfCloudProjectsModel</ref> *</type>
+          <declname>projectsModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the source cloud projects model from which the filtered list is derived. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>projectsModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source cloud project model </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="301" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1271" bodyend="1292"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a25d5afeb9284fde72b6409b061afe7e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::showLocalOnly</definition>
+        <argsstring>() const</argsstring>
+        <name>showLocalOnly</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showLocalOnly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the filtered cloud projects list will only contain those available locally. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="306" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1313" bodyend="1316"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a1d2115d1626752c8942147c88c668cb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::setShowLocalOnly</definition>
+        <argsstring>(bool showLocalOnly)</argsstring>
+        <name>setShowLocalOnly</name>
+        <qualifiedname>QfCloudProjectsFilterModel::setShowLocalOnly</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>showLocalOnly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the filtered cloud projects list will only contain those available locally. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="311" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1299" bodyend="1311"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1afbb0a4f356b3db5ce9f99327e1e2a6eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::setTextFilter</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>setTextFilter</name>
+        <qualifiedname>QfCloudProjectsFilterModel::setTextFilter</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a <emphasis>text</emphasis> string filter projects by matching it against the project&apos;s name or description as well well as owner&apos;s name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="317" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1438" bodyend="1498"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a95a62a2c17863ade1b91b26a351ea397" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCloudProjectsFilterModel::textFilter</definition>
+        <argsstring>() const</argsstring>
+        <name>textFilter</name>
+        <qualifiedname>QfCloudProjectsFilterModel::textFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current text string used to filter projects. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="322" column="13" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1500" bodyend="1503"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1ad0985a25f277678ad1a0f52e88c6ad3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::setShowInValidProjects</definition>
+        <argsstring>(bool showInValidProjects)</argsstring>
+        <name>setShowInValidProjects</name>
+        <qualifiedname>QfCloudProjectsFilterModel::setShowInValidProjects</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>showInValidProjects</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether to include projects that are considered invalid (i.e., failing status) in the filtered list of cloud projects.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>showInValidProjects</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, invalid (failing) projects will be shown; otherwise, they will be filtered out. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="331" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1505" bodyend="1517"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1ae59791b701066d987a7dd6aee52f2a2a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::showInValidProjects</definition>
+        <argsstring>() const</argsstring>
+        <name>showInValidProjects</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showInValidProjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if invalid (failing) projects are currently included in the filtered list of cloud projects. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="337" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1538" bodyend="1541"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a0f13826d3bc5fc0c249a397405fed9c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::showTemplates</definition>
+        <argsstring>() const</argsstring>
+        <name>showTemplates</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showTemplates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when the filtered list shows template projects only, hiding all non-template projects. When FALSE, template projects are excluded from the list. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="343" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1533" bodyend="1536"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a7dc12e9c138685042786e73cd0f56013" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::setShowTemplates</definition>
+        <argsstring>(bool showTemplates)</argsstring>
+        <name>setShowTemplates</name>
+        <qualifiedname>QfCloudProjectsFilterModel::setShowTemplates</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>showTemplates</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the filtered list shows template projects only. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>showTemplates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>when TRUE, only template projects are shown; when FALSE, they are hidden </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="349" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1519" bodyend="1531"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1afe07f4a4d71f5f277f42853506764ea1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::setShowFeaturedOnTop</definition>
+        <argsstring>(bool showFeaturedOnTop)</argsstring>
+        <name>setShowFeaturedOnTop</name>
+        <qualifiedname>QfCloudProjectsFilterModel::setShowFeaturedOnTop</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>showFeaturedOnTop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether featured projects will be shown on top of the list. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="354" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1543" bodyend="1554"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1af14b90d202887e87481a86fabb965ddc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::showFeaturedOnTop</definition>
+        <argsstring>() const</argsstring>
+        <name>showFeaturedOnTop</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showFeaturedOnTop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if featured projects will be shown on top of the list. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="359" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1556" bodyend="1559"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a2956a2f435ae5157fc6ca33fc17c6b71" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::isSearching</definition>
+        <argsstring>() const</argsstring>
+        <name>isSearching</name>
+        <qualifiedname>QfCloudProjectsFilterModel::isSearching</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE while an asynchronous projects appending was triggered by a text filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="364" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1561" bodyend="1564"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudProjectsFilterModel_1a61b8b1332482b97a492bb459c8cb7f7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::projectsModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectsModelChanged</name>
+        <qualifiedname>QfCloudProjectsFilterModel::projectsModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="368" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsFilterModel_1ac9577f93c24f4371beb8362665757761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::filterChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filterChanged</name>
+        <qualifiedname>QfCloudProjectsFilterModel::filterChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="369" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsFilterModel_1ada56653d47adc1c2dd813f93f1d6b750" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::showLocalOnlyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>showLocalOnlyChanged</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showLocalOnlyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="370" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsFilterModel_1ae4ee5bbff9d2ec59878698253483ac75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::textFilterChanged</definition>
+        <argsstring>()</argsstring>
+        <name>textFilterChanged</name>
+        <qualifiedname>QfCloudProjectsFilterModel::textFilterChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="371" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsFilterModel_1a870ef683940ea9436e0d4513b5cda3f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::showInValidProjectsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>showInValidProjectsChanged</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showInValidProjectsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="372" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsFilterModel_1a05cee1bdfe490d53cd9de61737381022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::showFeaturedOnTopChanged</definition>
+        <argsstring>()</argsstring>
+        <name>showFeaturedOnTopChanged</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showFeaturedOnTopChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="373" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsFilterModel_1a0f19d94ce11f47d39d71861d94e3cd53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::isSearchingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isSearchingChanged</name>
+        <qualifiedname>QfCloudProjectsFilterModel::isSearchingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="374" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectsFilterModel_1a70518d1cb7ab5581be27d3e32db236c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::showTemplatesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>showTemplatesChanged</name>
+        <qualifiedname>QfCloudProjectsFilterModel::showTemplatesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="375" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfCloudProjectsFilterModel_1a89e0f63a277c563e8f5ecd7908253986" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::triggerProjectsAppending</definition>
+        <argsstring>()</argsstring>
+        <name>triggerProjectsAppending</name>
+        <qualifiedname>QfCloudProjectsFilterModel::triggerProjectsAppending</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="378" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1430" bodyend="1436"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfCloudProjectsFilterModel_1a96deb0de216d3e99472cc5b1888b9e61" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectsFilterModel::projectsAppended</definition>
+        <argsstring>(const QString &amp;owner, const QString &amp;search, const bool hasError=false, const QString &amp;errorString=QString())</argsstring>
+        <name>projectsAppended</name>
+        <qualifiedname>QfCloudProjectsFilterModel::projectsAppended</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>hasError</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="379" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1416" bodyend="1428"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a58882e1c85b844b9f87ada2c0f9e6f87" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::lessThan</definition>
+        <argsstring>(const QModelIndex &amp;sourceLeft, const QModelIndex &amp;sourceRight) const override</argsstring>
+        <name>lessThan</name>
+        <qualifiedname>QfCloudProjectsFilterModel::lessThan</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceRight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="382" column="10" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1318" bodyend="1347"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectsFilterModel_1a1400103392447f151849eeb08dafd9b4" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfCloudProjectsFilterModel::filterAcceptsRow</definition>
+        <argsstring>(int source_row, const QModelIndex &amp;source_parent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>QfCloudProjectsFilterModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>source_row</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>source_parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="383" column="18" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.cpp" bodystart="1349" bodyend="1414"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfCloudProjectsFilterModel</label>
+        <link refid="classQfCloudProjectsFilterModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfCloudProjectsFilterModel</label>
+        <link refid="classQfCloudProjectsFilterModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfcloudprojectsmodel.h" line="277" column="1" bodyfile="src/core/qfieldcloud/qfcloudprojectsmodel.h" bodystart="278" bodyend="398"/>
+    <listofallmembers>
+      <member refid="classQfCloudProjectsFilterModel_1a1400103392447f151849eeb08dafd9b4" prot="protected" virt="virtual"><scope>QfCloudProjectsFilterModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ac9577f93c24f4371beb8362665757761" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>filterChanged</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a993df58311a0baed6c9e8ede898d9d0f" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>isSearching</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a2956a2f435ae5157fc6ca33fc17c6b71" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>isSearching</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a0f19d94ce11f47d39d71861d94e3cd53" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>isSearchingChanged</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a58882e1c85b844b9f87ada2c0f9e6f87" prot="protected" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>lessThan</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ad698b5f661e0c168ea43ddd7b15791b3" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mIncludePublic</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a7a9cf5dcfc9dedafb352b98281d556d3" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mIsSearching</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a603d503cdde7ae67ae7ca73b305e975c" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mKeywordFilter</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a6f47889da1e989b67c1ab7829d7ef054" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mOwnerFilter</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ac992866cc6872edcc48fa5fe5753de6e" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mProjectsAppendingTimer</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1aea8d6ec4f4832942f96ea8076f3ce8c7" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mShowFeaturedOnTop</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a4b60cbb22ffab76a9d99792fa684865d" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mShowInValidProjects</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a33cb7f7a9d78db2781ef6b676f2d15d5" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mShowLocalOnly</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ae4fffe15dd0d20e38c4ff518538aa863" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mShowTemplates</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a440b78aef13fd1051b8f993ef7557fbc" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mSourceModel</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1aef4afa42b77a9c275c9da7d6409db499" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>mTextFilter</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a96deb0de216d3e99472cc5b1888b9e61" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>projectsAppended</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1aff7d42cca4c424433ee0ca90594cd478" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>projectsModel</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ac70ca29837aaf59ee51b20584b133a8e" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>projectsModel</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a61b8b1332482b97a492bb459c8cb7f7d" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>projectsModelChanged</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1aa9b5ce0b94cad8f43474ad2e36eedf99" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>QfCloudProjectsFilterModel</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a7b9a47003f18c77c726308e49cf460f0" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>setProjectsModel</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1afe07f4a4d71f5f277f42853506764ea1" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>setShowFeaturedOnTop</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ad0985a25f277678ad1a0f52e88c6ad3a" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>setShowInValidProjects</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a1d2115d1626752c8942147c88c668cb6" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>setShowLocalOnly</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a7dc12e9c138685042786e73cd0f56013" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>setShowTemplates</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1afbb0a4f356b3db5ce9f99327e1e2a6eb" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>setTextFilter</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a504130ef30157dada5fcec35a42e7d01" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showFeaturedOnTop</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1af14b90d202887e87481a86fabb965ddc" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showFeaturedOnTop</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a05cee1bdfe490d53cd9de61737381022" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showFeaturedOnTopChanged</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a1083b9d67dbeca063d8d5b7e0583a815" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showInValidProjects</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ae59791b701066d987a7dd6aee52f2a2a" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showInValidProjects</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a870ef683940ea9436e0d4513b5cda3f4" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showInValidProjectsChanged</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a8f0ac7be33792220d217bab3d757c121" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showLocalOnly</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a25d5afeb9284fde72b6409b061afe7e7" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showLocalOnly</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ada56653d47adc1c2dd813f93f1d6b750" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showLocalOnlyChanged</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1af3227eedd2eb1e49ed1b7236ffa9da7c" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showTemplates</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a0f13826d3bc5fc0c249a397405fed9c8" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showTemplates</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a70518d1cb7ab5581be27d3e32db236c0" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>showTemplatesChanged</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1aac946cbe8fa5aa42b1a765b3eab1fa62" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>textFilter</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a95a62a2c17863ade1b91b26a351ea397" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>textFilter</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1ae4ee5bbff9d2ec59878698253483ac75" prot="public" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>textFilterChanged</name></member>
+      <member refid="classQfCloudProjectsFilterModel_1a89e0f63a277c563e8f5ecd7908253986" prot="private" virt="non-virtual"><scope>QfCloudProjectsFilterModel</scope><name>triggerProjectsAppending</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

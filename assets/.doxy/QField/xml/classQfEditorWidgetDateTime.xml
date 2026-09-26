@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEditorWidgetDateTime" kind="class" language="C++" prot="public">
+    <compoundname>QfEditorWidgetDateTime</compoundname>
+    <basecompoundref refid="classQfEditorWidgetBase" prot="public" virt="non-virtual">QfEditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEditorWidgetDateTime_1a2194b4404994957f1b7e68ce46139ae4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetDateTime::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfEditorWidgetDateTime::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="20" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetDateTime_1aa641fdb02a19eb99a97ee031916d13e5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetDateTime::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfEditorWidgetDateTime::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="21" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetDateTime_1a696b1191f79a3cfd7ca8a792200d0d2e" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfEditorWidgetDateTime::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>QfEditorWidgetDateTime::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="38" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetDateTime_1a87afa7f3112958453974ccf01699acc1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfEditorWidgetDateTime::clearButton</definition>
+        <argsstring></argsstring>
+        <name>clearButton</name>
+        <qualifiedname>QfEditorWidgetDateTime::clearButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="39" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetDateTime_1ae3e136b788311140b60c790541b99610" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfEditorWidgetDateTime::todayButton</definition>
+        <argsstring></argsstring>
+        <name>todayButton</name>
+        <qualifiedname>QfEditorWidgetDateTime::todayButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="40" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetDateTime_1ac1ab0ced98859975c059623a07736127" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfEditorWidgetDateTime::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfEditorWidgetDateTime::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="41" column="13" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetDateTime_1a8b32a987dc4135856a4211690eacff5a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCalendarPanel" kindref="compound">QfCalendarPanel</ref></type>
+        <definition>QfCalendarPanel QfEditorWidgetDateTime::calendarPanel</definition>
+        <argsstring></argsstring>
+        <name>calendarPanel</name>
+        <qualifiedname>QfEditorWidgetDateTime::calendarPanel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="42" column="17" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfEditorWidgetDateTime_1a38d8afaf76972206a10675583eb7827f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetDateTime::isDateTimeType</definition>
+        <argsstring></argsstring>
+        <name>isDateTimeType</name>
+        <qualifiedname>QfEditorWidgetDateTime::isDateTimeType</qualifiedname>
+        <read>dummyGetter_isDateTimeType_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="24" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetDateTime_1a22aacb3135f0bfc901ce9881134c4587" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetDateTime::fieldIsDateTime</definition>
+        <argsstring></argsstring>
+        <name>fieldIsDateTime</name>
+        <qualifiedname>QfEditorWidgetDateTime::fieldIsDateTime</qualifiedname>
+        <read>dummyGetter_fieldIsDateTime_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="26" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetDateTime_1ad7e22d282714fea38799109304928662" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetDateTime::fieldIsDate</definition>
+        <argsstring></argsstring>
+        <name>fieldIsDate</name>
+        <qualifiedname>QfEditorWidgetDateTime::fieldIsDate</qualifiedname>
+        <read>dummyGetter_fieldIsDate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="28" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetDateTime_1a9e5a4d554f7fa1771246618c258d8e53" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetDateTime::fieldIsTime</definition>
+        <argsstring></argsstring>
+        <name>fieldIsTime</name>
+        <qualifiedname>QfEditorWidgetDateTime::fieldIsTime</qualifiedname>
+        <read>dummyGetter_fieldIsTime_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="30" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetDateTime_1aa27e7c52aebc8b62f07c9882f3cb4d47" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetDateTime::fieldIsString</definition>
+        <argsstring></argsstring>
+        <name>fieldIsString</name>
+        <qualifiedname>QfEditorWidgetDateTime::fieldIsString</qualifiedname>
+        <read>dummyGetter_fieldIsString_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="32" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetDateTime_1a21bd3a92ecc2013789429432524ac4a0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetDateTime::currentValue</definition>
+        <argsstring></argsstring>
+        <name>currentValue</name>
+        <qualifiedname>QfEditorWidgetDateTime::currentValue</qualifiedname>
+        <read>dummyGetter_currentValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="34" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfEditorWidgetDateTime_1a0189b01a9831289709c76ab80550a63b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEditorWidgetDateTime::formatDateTime</definition>
+        <argsstring>(value)</argsstring>
+        <name>formatDateTime</name>
+        <qualifiedname>QfEditorWidgetDateTime::formatDateTime</qualifiedname>
+        <param>
+          <type>value</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="36" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEditorWidgetDateTime_1a97ad28aed87acad810b8fa88f8e463d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEditorWidgetDateTime::convertDateToFieldFormattedString</definition>
+        <argsstring>(date)</argsstring>
+        <name>convertDateToFieldFormattedString</name>
+        <qualifiedname>QfEditorWidgetDateTime::convertDateToFieldFormattedString</qualifiedname>
+        <param>
+          <type>date</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEditorWidgetDateTime_1a8bd683684b5f2a8a0833c3f5e931dc62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEditorWidgetDateTime::convertValueToDate</definition>
+        <argsstring>(value)</argsstring>
+        <name>convertValueToDate</name>
+        <qualifiedname>QfEditorWidgetDateTime::convertValueToDate</qualifiedname>
+        <param>
+          <type>value</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="47" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetDateTime</label>
+        <link refid="classQfEditorWidgetDateTime"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetDateTime</label>
+        <link refid="classQfEditorWidgetDateTime"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" line="19" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetDateTime.qml" bodystart="19" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classQfEditorWidgetDateTime_1a8b32a987dc4135856a4211690eacff5a" prot="private" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>calendarPanel</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a87afa7f3112958453974ccf01699acc1" prot="private" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>clearButton</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a97ad28aed87acad810b8fa88f8e463d3" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>convertDateToFieldFormattedString</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a8bd683684b5f2a8a0833c3f5e931dc62" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>convertValueToDate</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a21bd3a92ecc2013789429432524ac4a0" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>currentValue</name></member>
+      <member refid="classQfEditorWidgetDateTime_1aa641fdb02a19eb99a97ee031916d13e5" prot="private" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>enabled</name></member>
+      <member refid="classQfEditorWidgetDateTime_1ad7e22d282714fea38799109304928662" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>fieldIsDate</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a22aacb3135f0bfc901ce9881134c4587" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>fieldIsDateTime</name></member>
+      <member refid="classQfEditorWidgetDateTime_1aa27e7c52aebc8b62f07c9882f3cb4d47" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>fieldIsString</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a9e5a4d554f7fa1771246618c258d8e53" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>fieldIsTime</name></member>
+      <member refid="classQfEditorWidgetDateTime_1ac1ab0ced98859975c059623a07736127" prot="private" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>fontMetrics</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a0189b01a9831289709c76ab80550a63b" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>formatDateTime</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>hasMenu</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a2194b4404994957f1b7e68ce46139ae4" prot="private" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>height</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a38d8afaf76972206a10675583eb7827f" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>isDateTimeType</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>isNull</name></member>
+      <member refid="classQfEditorWidgetDateTime_1a696b1191f79a3cfd7ca8a792200d0d2e" prot="private" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>label</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>menu</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>requestBarcode</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEditorWidgetDateTime_1ae3e136b788311140b60c790541b99610" prot="private" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>todayButton</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>QfEditorWidgetDateTime</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

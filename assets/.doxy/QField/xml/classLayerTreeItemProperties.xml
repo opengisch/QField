@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLayerTreeItemProperties" kind="class" language="C++" prot="public">
+    <compoundname>LayerTreeItemProperties</compoundname>
+    <basecompoundref refid="classQfLayerTreeItemProperties" prot="public" virt="non-virtual">QfLayerTreeItemProperties</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfLayerTreeItemProperties</label>
+        <link refid="classQfLayerTreeItemProperties"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfLayerTreeItemProperties</label>
+        <link refid="classQfLayerTreeItemProperties"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/LayerTreeItemProperties.qml" line="2" column="1" bodyfile="src/app/qml_compat/LayerTreeItemProperties.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfLayerTreeItemProperties_1a4994b2a94f65731e5a794fe5492965a4" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>index</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ab1cc59b2ac661fb508ea352da95b98c6" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isShowFeaturesListButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a40cedb4241df11e12cbd1671c3613740" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isShowVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a4d388faecbece769800cfd9369113829" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isTrackingButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a3a8c6650f77296ff0f9f167788d2180d" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>layerTree</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a43837280f791a4888a6fbb6ead613b4a" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>opacitySliderVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ac2cbd5563a9cc7069e392608b30b2d2c" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>reloadDataButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a1cf00301b2dea1d6f43b2c1e5f61bb1a" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>showFeaturesListButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a4b042d181af9f92c517dc416f86ba26a" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>showVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a67d2da6627cef071c10158e60125b1c0" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>trackingButtonText</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a747fa6da5948b841aa78b5958c6e8605" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>trackingButtonVisible</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ae1e3eee14fd29adb28b9cf83f740ef4c" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>updateCredits</name></member>
+      <member refid="classQfLayerTreeItemProperties_1ac8aa1e3bb431110fb5d2f9ec59cbcbae" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>updateTitle</name></member>
+      <member refid="classQfLayerTreeItemProperties_1a31e855607d4fb1e65b425ce88b734b13" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>zoomToButtonVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

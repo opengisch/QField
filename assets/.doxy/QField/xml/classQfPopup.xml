@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPopup" kind="class" language="C++" prot="public">
+    <compoundname>QfPopup</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Popup</basecompoundref>
+    <derivedcompoundref refid="classQfAudioClipRecorder" prot="public" virt="non-virtual">QfAudioClipRecorder</derivedcompoundref>
+    <derivedcompoundref refid="classQfBookmarkProperties" prot="public" virt="non-virtual">QfBookmarkProperties</derivedcompoundref>
+    <derivedcompoundref refid="classQfBrowserPanel" prot="public" virt="non-virtual">QfBrowserPanel</derivedcompoundref>
+    <derivedcompoundref refid="classQfChangelog" prot="public" virt="non-virtual">QfChangelog</derivedcompoundref>
+    <derivedcompoundref refid="classQfCloudDeltaHistory" prot="public" virt="non-virtual">QfCloudDeltaHistory</derivedcompoundref>
+    <derivedcompoundref refid="classQfCodeReader" prot="public" virt="non-virtual">QfCodeReader</derivedcompoundref>
+    <derivedcompoundref refid="classQfEmbeddedFeatureForm" prot="public" virt="non-virtual">QfEmbeddedFeatureForm</derivedcompoundref>
+    <derivedcompoundref refid="classQfInformationPopup" prot="public" virt="non-virtual">QfInformationPopup</derivedcompoundref>
+    <derivedcompoundref refid="classQfLayerTreeItemProperties" prot="public" virt="non-virtual">QfLayerTreeItemProperties</derivedcompoundref>
+    <derivedcompoundref refid="classQfLocatorSettings" prot="public" virt="non-virtual">QfLocatorSettings</derivedcompoundref>
+    <derivedcompoundref refid="classQfPluginManagerSettings" prot="public" virt="non-virtual">QfPluginManagerSettings</derivedcompoundref>
+    <derivedcompoundref refid="classQfPositioningDeviceSettings" prot="public" virt="non-virtual">QfPositioningDeviceSettings</derivedcompoundref>
+    <derivedcompoundref refid="classQfPositioningNtripSettings" prot="public" virt="non-virtual">QfPositioningNtripSettings</derivedcompoundref>
+    <derivedcompoundref refid="classQfTemporalProperties" prot="public" virt="non-virtual">QfTemporalProperties</derivedcompoundref>
+    <derivedcompoundref refid="classQfTrackerFeatureForm" prot="public" virt="non-virtual">QfTrackerFeatureForm</derivedcompoundref>
+    <derivedcompoundref refid="classQfTrackerSettings" prot="public" virt="non-virtual">QfTrackerSettings</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPopup_1a14acd044adc675f39f2cc7e1a19bd994" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPopup::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfPopup::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPopup.qml" line="11" column="5" bodyfile="src/gui/qml/QfPopup.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPopup_1ac4e939673bfa2a6d6b48808b7168cb26" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPopup::modal</definition>
+        <argsstring></argsstring>
+        <name>modal</name>
+        <qualifiedname>QfPopup::modal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPopup.qml" line="12" column="5" bodyfile="src/gui/qml/QfPopup.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPopup_1a226d2b1dddf83cf55963253b83c2ff1f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPopup::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfPopup::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfPopup.qml" line="13" column="5" bodyfile="src/gui/qml/QfPopup.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>BookmarkProperties</label>
+        <link refid="classBookmarkProperties"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>BrowserPanel</label>
+        <link refid="classBrowserPanel"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>CodeReader</label>
+        <link refid="classCodeReader"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>EmbeddedFeatureForm</label>
+        <link refid="classEmbeddedFeatureForm"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>InformationPopup</label>
+        <link refid="classInformationPopup"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>LocatorSettings</label>
+        <link refid="classLocatorSettings"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="23">
+        <label>PositioningDeviceSettings</label>
+        <link refid="classPositioningDeviceSettings"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>PositioningNtripSettings</label>
+        <link refid="classPositioningNtripSettings"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QFieldAudioRecorder</label>
+        <link refid="classQFieldAudioRecorder"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfAudioClipRecorder</label>
+        <link refid="classQfAudioClipRecorder"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QfBookmarkProperties</label>
+        <link refid="classQfBookmarkProperties"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>QfBrowserPanel</label>
+        <link refid="classQfBrowserPanel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>QfChangelog</label>
+        <link refid="classQfChangelog"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>QfCloudDeltaHistory</label>
+        <link refid="classQfCloudDeltaHistory"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>QfCodeReader</label>
+        <link refid="classQfCodeReader"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>QfEmbeddedFeatureForm</label>
+        <link refid="classQfEmbeddedFeatureForm"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>QfInformationPopup</label>
+        <link refid="classQfInformationPopup"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>QfLayerTreeItemProperties</label>
+        <link refid="classQfLayerTreeItemProperties"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>QfLocatorSettings</label>
+        <link refid="classQfLocatorSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>QfPluginManagerSettings</label>
+        <link refid="classQfPluginManagerSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>QfPositioningDeviceSettings</label>
+        <link refid="classQfPositioningDeviceSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>QfPositioningNtripSettings</label>
+        <link refid="classQfPositioningNtripSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>QfTemporalProperties</label>
+        <link refid="classQfTemporalProperties"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>QfTrackerFeatureForm</label>
+        <link refid="classQfTrackerFeatureForm"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>QfTrackerSettings</label>
+        <link refid="classQfTrackerSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>TemporalProperties</label>
+        <link refid="classTemporalProperties"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>TrackerFeatureForm</label>
+        <link refid="classTrackerFeatureForm"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>TrackerSettings</label>
+        <link refid="classTrackerSettings"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfPopup.qml" line="10" column="1" bodyfile="src/gui/qml/QfPopup.qml" bodystart="10" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classQfPopup_1a226d2b1dddf83cf55963253b83c2ff1f" prot="private" virt="non-virtual"><scope>QfPopup</scope><name>background</name></member>
+      <member refid="classQfPopup_1ac4e939673bfa2a6d6b48808b7168cb26" prot="private" virt="non-virtual"><scope>QfPopup</scope><name>modal</name></member>
+      <member refid="classQfPopup_1a14acd044adc675f39f2cc7e1a19bd994" prot="private" virt="non-virtual"><scope>QfPopup</scope><name>padding</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

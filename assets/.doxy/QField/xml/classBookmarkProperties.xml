@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBookmarkProperties" kind="class" language="C++" prot="public">
+    <compoundname>BookmarkProperties</compoundname>
+    <basecompoundref refid="classQfBookmarkProperties" prot="public" virt="non-virtual">QfBookmarkProperties</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BookmarkProperties</label>
+        <link refid="classBookmarkProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfBookmarkProperties</label>
+        <link refid="classQfBookmarkProperties"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BookmarkProperties</label>
+        <link refid="classBookmarkProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfBookmarkProperties</label>
+        <link refid="classQfBookmarkProperties"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/BookmarkProperties.qml" line="2" column="1" bodyfile="src/app/qml_compat/BookmarkProperties.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfBookmarkProperties_1a0074b66e7cc2e46d1fc2a1bb68afff7b" prot="public" virt="non-virtual"><scope>BookmarkProperties</scope><name>bookmarkDeleted</name></member>
+      <member refid="classQfBookmarkProperties_1a31fe7fe5822165e91095432f7d0abd3e" prot="public" virt="non-virtual"><scope>BookmarkProperties</scope><name>bookmarkGroup</name></member>
+      <member refid="classQfBookmarkProperties_1aa5af5c77e8d7373fced7d01f3a222b9f" prot="public" virt="non-virtual"><scope>BookmarkProperties</scope><name>bookmarkId</name></member>
+      <member refid="classQfBookmarkProperties_1ae24edd4862a6f032e8daff294880b675" prot="public" virt="non-virtual"><scope>BookmarkProperties</scope><name>bookmarkName</name></member>
+      <member refid="classQfBookmarkProperties_1a6b782ef1a5804980f43796d913d387dc" prot="public" virt="non-virtual"><scope>BookmarkProperties</scope><name>updateBookmark</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

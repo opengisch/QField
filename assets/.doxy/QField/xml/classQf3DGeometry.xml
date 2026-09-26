@@ -1,0 +1,1033 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQf3DGeometry" kind="class" language="C++" prot="public">
+    <compoundname>Qf3DGeometry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuick3DGeometry</basecompoundref>
+    <includes refid="qf3dgeometry_8h" local="no">qf3dgeometry.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>AltitudeClamping</name>
+        <qualifiedname>Qf3DGeometry::AltitudeClamping</qualifiedname>
+        <enumvalue id="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2afd038fc7f319e48f3115d92bf5bdbef9" prot="public">
+          <name>Ignore</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2a342a541e174e1c98f2859d09f259541f" prot="public">
+          <name>ClampToGround</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2ab51ca26c6c89cfc9bec338f7a0d3e0c8" prot="public">
+          <name>Absolute</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>How the geometry&apos;s Z values interact with the terrain elevation when computing the vertical position of every emitted vertex. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="56" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="57" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQf3DGeometry_1a70ec9edb22cd97e665cfa752d11bab7c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry Qf3DGeometry::qgsGeometry</definition>
+        <argsstring></argsstring>
+        <name>qgsGeometry</name>
+        <qualifiedname>Qf3DGeometry::qgsGeometry</qualifiedname>
+        <read>qgsGeometry</read>
+        <write>setQgsGeometry</write>
+        <briefdescription>
+<para>The geometry to highlight. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="65" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DGeometry_1a8ff8ca3f30e8807adc3bdac1679b1ec2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Qf3DGeometry::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>Qf3DGeometry::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+<para>Coordinate reference system the geometry is expressed in. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="67" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DGeometry_1addb7a4efe2f3a786efe36083a1243686" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider * Qf3DGeometry::terrainProvider</definition>
+        <argsstring></argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>Qf3DGeometry::terrainProvider</qualifiedname>
+        <read>terrainProvider</read>
+        <write>setTerrainProvider</write>
+        <briefdescription>
+<para>The terrain provider used for geo-to-3D coordinate conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="69" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DGeometry_1a3c022475dd9931cd1e9b5dd2029ecd54" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Qf3DGeometry::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>Qf3DGeometry::lineWidth</qualifiedname>
+        <read>lineWidth</read>
+        <write>setLineWidth</write>
+        <briefdescription>
+<para>Outline tube thickness in scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="71" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DGeometry_1a0f4ef3d4de7c90accffeae6804a523dc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor Qf3DGeometry::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Qf3DGeometry::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+<para>Per-vertex color applied to the highlight mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="73" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DGeometry_1a77d1bce3696194d9756ab6e2279f21d7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Qf3DGeometry::heightOffset</definition>
+        <argsstring></argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>Qf3DGeometry::heightOffset</qualifiedname>
+        <read>heightOffset</read>
+        <write>setHeightOffset</write>
+        <briefdescription>
+<para>Extra vertical offset added on top of the elevation chosen by altitudeClamping. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="75" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DGeometry_1aa4dbf00bc0c884a90bbb1a71eb908b32" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Qf3DGeometry::fillPolygons</definition>
+        <argsstring></argsstring>
+        <name>fillPolygons</name>
+        <qualifiedname>Qf3DGeometry::fillPolygons</qualifiedname>
+        <read>fillPolygons</read>
+        <write>setFillPolygons</write>
+        <briefdescription>
+<para>Whether polygons get a semi-transparent fill in addition to the outline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="77" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DGeometry_1a09b50f32953a401e2afa242b127a2ff2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2" kindref="member">AltitudeClamping</ref></type>
+        <definition>AltitudeClamping Qf3DGeometry::altitudeClamping</definition>
+        <argsstring></argsstring>
+        <name>altitudeClamping</name>
+        <qualifiedname>Qf3DGeometry::altitudeClamping</qualifiedname>
+        <read>altitudeClamping</read>
+        <write>setAltitudeClamping</write>
+        <briefdescription>
+<para>How the geometry&apos;s Z values are combined with the terrain elevation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="79" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DGeometry_1a2bbe9598d22311cf3535ac3f144ef5de" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Qf3DGeometry::extrusion</definition>
+        <argsstring></argsstring>
+        <name>extrusion</name>
+        <qualifiedname>Qf3DGeometry::extrusion</qualifiedname>
+        <read>extrusion</read>
+        <write>setExtrusion</write>
+        <briefdescription>
+<para>Extrusion in scene units; when &gt; 0, polygons are rendered as volumetric solids with walls and a roof cap. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="81" column="5" bodyfile="src/3d/qf3dgeometry.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQf3DGeometry_1a935874758ca6077f297d9114d6650104" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry Qf3DGeometry::mGeometry</definition>
+        <argsstring></argsstring>
+        <name>mGeometry</name>
+        <qualifiedname>Qf3DGeometry::mGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="145" column="17" bodyfile="src/3d/qf3dgeometry.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1a2c63b761212d7c4ac43cf2e78e033006" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Qf3DGeometry::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>Qf3DGeometry::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="146" column="34" bodyfile="src/3d/qf3dgeometry.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1a1b69ea45f002ec4ab1d5f48d5c78f095" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateTransform</type>
+        <definition>QgsCoordinateTransform Qf3DGeometry::mTransform</definition>
+        <argsstring></argsstring>
+        <name>mTransform</name>
+        <qualifiedname>Qf3DGeometry::mTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="147" column="28" bodyfile="src/3d/qf3dgeometry.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1a7746a3b6c5b1348378555ff304bef5a1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider* Qf3DGeometry::mTerrainProvider</definition>
+        <argsstring></argsstring>
+        <name>mTerrainProvider</name>
+        <qualifiedname>Qf3DGeometry::mTerrainProvider</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="148" column="25" bodyfile="src/3d/qf3dgeometry.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1a45a92576b6e238de571860e9f1a4d5e9" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Qf3DGeometry::mLineWidth</definition>
+        <argsstring></argsstring>
+        <name>mLineWidth</name>
+        <qualifiedname>Qf3DGeometry::mLineWidth</qualifiedname>
+        <initializer>= 3.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="150" column="11" bodyfile="src/3d/qf3dgeometry.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1ac2eeb4e4bf42c7ae4226093a59d12a45" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Qf3DGeometry::mHeightOffset</definition>
+        <argsstring></argsstring>
+        <name>mHeightOffset</name>
+        <qualifiedname>Qf3DGeometry::mHeightOffset</qualifiedname>
+        <initializer>= 15.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="151" column="11" bodyfile="src/3d/qf3dgeometry.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1afb0bb380374c7822dadc5dbdbf1155dc" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Qf3DGeometry::mExtrusion</definition>
+        <argsstring></argsstring>
+        <name>mExtrusion</name>
+        <qualifiedname>Qf3DGeometry::mExtrusion</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="152" column="11" bodyfile="src/3d/qf3dgeometry.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1a5c6a3be0cdfac7cad6ffece88778bfb9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Qf3DGeometry::mFillPolygons</definition>
+        <argsstring></argsstring>
+        <name>mFillPolygons</name>
+        <qualifiedname>Qf3DGeometry::mFillPolygons</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="153" column="10" bodyfile="src/3d/qf3dgeometry.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1a85c0a9e18b606570a6bc715c9ab757a4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Qf3DGeometry::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>Qf3DGeometry::mDirty</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="154" column="10" bodyfile="src/3d/qf3dgeometry.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1a3d3c961e12628de7e20395e6cea91ef0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2" kindref="member">AltitudeClamping</ref></type>
+        <definition>AltitudeClamping Qf3DGeometry::mAltitudeClamping</definition>
+        <argsstring></argsstring>
+        <name>mAltitudeClamping</name>
+        <qualifiedname>Qf3DGeometry::mAltitudeClamping</qualifiedname>
+        <initializer>= AltitudeClamping::Ignore</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="155" column="22" bodyfile="src/3d/qf3dgeometry.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DGeometry_1ae6856ecdcbcf8b1eeb67941388084218" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor Qf3DGeometry::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>Qf3DGeometry::mColor</qualifiedname>
+        <initializer>= QColor( 255, 255, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="156" column="12" bodyfile="src/3d/qf3dgeometry.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQf3DGeometry_1a03c6d5cab643957e72b2061cbd6fabff" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Qf3DGeometry::Qf3DGeometry</definition>
+        <argsstring>(QQuick3DObject *parent=nullptr)</argsstring>
+        <name>Qf3DGeometry</name>
+        <qualifiedname>Qf3DGeometry::Qf3DGeometry</qualifiedname>
+        <param>
+          <type>QQuick3DObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="84" column="14" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a2592e3e280069bd2bed927f79a378dc1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry Qf3DGeometry::qgsGeometry</definition>
+        <argsstring>() const</argsstring>
+        <name>qgsGeometry</name>
+        <qualifiedname>Qf3DGeometry::qgsGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="86" column="17" bodyfile="src/3d/qf3dgeometry.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1acceffa0fd4337110ee6d21bdf94fbbf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setQgsGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>setQgsGeometry</name>
+        <qualifiedname>Qf3DGeometry::setQgsGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="87" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="33" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a790be08b326f06ffa1a1ada8c15720f6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Qf3DGeometry::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>Qf3DGeometry::crs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="89" column="34" bodyfile="src/3d/qf3dgeometry.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a696b6502c12743d7fcb13982017f796e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>Qf3DGeometry::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="90" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="46" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a94f259aa192178eab284d4251f0c61bc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+        <definition>Qf3DTerrainProvider * Qf3DGeometry::terrainProvider</definition>
+        <argsstring>() const</argsstring>
+        <name>terrainProvider</name>
+        <qualifiedname>Qf3DGeometry::terrainProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="92" column="25" bodyfile="src/3d/qf3dgeometry.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1aa9213ef7fa70cd185037c4214a73db9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setTerrainProvider</definition>
+        <argsstring>(Qf3DTerrainProvider *provider)</argsstring>
+        <name>setTerrainProvider</name>
+        <qualifiedname>Qf3DGeometry::setTerrainProvider</qualifiedname>
+        <param>
+          <type><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="93" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="66" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1ae7e1ff6a6731d899d4d12facdc2c99ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Qf3DGeometry::lineWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>Qf3DGeometry::lineWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="95" column="11" bodyfile="src/3d/qf3dgeometry.h" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a0469c341ddf12d44b05205dc64362aa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setLineWidth</definition>
+        <argsstring>(float width)</argsstring>
+        <name>setLineWidth</name>
+        <qualifiedname>Qf3DGeometry::setLineWidth</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="96" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="98" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a8f749b4f0342ec7984dd7bfce41141d2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor Qf3DGeometry::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>Qf3DGeometry::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="98" column="12" bodyfile="src/3d/qf3dgeometry.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a3f3243bd61bb35ee1c77eb411ed9f425" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>Qf3DGeometry::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="99" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="112" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a3b5c75964c9c7880eb263bc19e84ba59" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Qf3DGeometry::heightOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>Qf3DGeometry::heightOffset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="101" column="11" bodyfile="src/3d/qf3dgeometry.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1ab372ac24241d4454b49c543232b9bffd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setHeightOffset</definition>
+        <argsstring>(float offset)</argsstring>
+        <name>setHeightOffset</name>
+        <qualifiedname>Qf3DGeometry::setHeightOffset</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="102" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="125" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a778fcd2bfcef48abf8a847227cf3a6c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Qf3DGeometry::fillPolygons</definition>
+        <argsstring>() const</argsstring>
+        <name>fillPolygons</name>
+        <qualifiedname>Qf3DGeometry::fillPolygons</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="104" column="10" bodyfile="src/3d/qf3dgeometry.h" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a4550baba546b8aa163379c5ee2a432ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setFillPolygons</definition>
+        <argsstring>(bool fill)</argsstring>
+        <name>setFillPolygons</name>
+        <qualifiedname>Qf3DGeometry::setFillPolygons</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>fill</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="105" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="138" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a91eab068e046ec7cab23c4b2edd25d91" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2" kindref="member">AltitudeClamping</ref></type>
+        <definition>AltitudeClamping Qf3DGeometry::altitudeClamping</definition>
+        <argsstring>() const</argsstring>
+        <name>altitudeClamping</name>
+        <qualifiedname>Qf3DGeometry::altitudeClamping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="107" column="22" bodyfile="src/3d/qf3dgeometry.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a55620f472866ade7891dd2a144ee3c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setAltitudeClamping</definition>
+        <argsstring>(AltitudeClamping clamping)</argsstring>
+        <name>setAltitudeClamping</name>
+        <qualifiedname>Qf3DGeometry::setAltitudeClamping</qualifiedname>
+        <param>
+          <type><ref refid="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2" kindref="member">AltitudeClamping</ref></type>
+          <declname>clamping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="108" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="151" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a5cb3e30f2bd4d3912bf92953f05e6437" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Qf3DGeometry::extrusion</definition>
+        <argsstring>() const</argsstring>
+        <name>extrusion</name>
+        <qualifiedname>Qf3DGeometry::extrusion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="110" column="11" bodyfile="src/3d/qf3dgeometry.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a77c2673fa12aaf2042f54e9d5e2309d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::setExtrusion</definition>
+        <argsstring>(float extrusion)</argsstring>
+        <name>setExtrusion</name>
+        <qualifiedname>Qf3DGeometry::setExtrusion</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>extrusion</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="111" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="164" bodyend="176"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQf3DGeometry_1a38bbe48de15fb12b5afd9e912cafc581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::qgsGeometryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>qgsGeometryChanged</name>
+        <qualifiedname>Qf3DGeometry::qgsGeometryChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="114" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DGeometry_1ae0e70068e356c612a9f9efa009c38e23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>Qf3DGeometry::crsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="115" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DGeometry_1a7345b6684ebda3738ace9546b7c77d0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::terrainProviderChanged</definition>
+        <argsstring>()</argsstring>
+        <name>terrainProviderChanged</name>
+        <qualifiedname>Qf3DGeometry::terrainProviderChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="116" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DGeometry_1a6e6898b7429bb9ff599a7dbc099e2c15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::lineWidthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineWidthChanged</name>
+        <qualifiedname>Qf3DGeometry::lineWidthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="117" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DGeometry_1a9a8eb3d3b674b6b8426b6a0ab5a48279" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>Qf3DGeometry::colorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="118" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DGeometry_1a502a28e9d1c2be33c447474b11d6d8ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::heightOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>heightOffsetChanged</name>
+        <qualifiedname>Qf3DGeometry::heightOffsetChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="119" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DGeometry_1ad62b7c5c3b99f2795ad9c427d1396b2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::fillPolygonsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>fillPolygonsChanged</name>
+        <qualifiedname>Qf3DGeometry::fillPolygonsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="120" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DGeometry_1a3c579d81f1f35c01b772f1dbad2766ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::altitudeClampingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>altitudeClampingChanged</name>
+        <qualifiedname>Qf3DGeometry::altitudeClampingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="121" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DGeometry_1ad053ec9c0b630e9ea2cd0ad596ef0aa1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::extrusionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>extrusionChanged</name>
+        <qualifiedname>Qf3DGeometry::extrusionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="122" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQf3DGeometry_1a6c8007a730b9ed594dd9b35ad64470f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::markDirtyAndUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>markDirtyAndUpdate</name>
+        <qualifiedname>Qf3DGeometry::markDirtyAndUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="125" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="178" bodyend="182"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQf3DGeometry_1ac80cc7b1f874ea40501bc7eb82832704" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::updateGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>updateGeometry</name>
+        <qualifiedname>Qf3DGeometry::updateGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="128" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="310" bodyend="496"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1aefc17ec62334cb51f390ffe31f81ba16" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector3D</type>
+        <definition>QVector3D Qf3DGeometry::vertexTo3D</definition>
+        <argsstring>(double geoX, double geoY, double geoZ) const</argsstring>
+        <name>vertexTo3D</name>
+        <qualifiedname>Qf3DGeometry::vertexTo3D</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>geoX</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>geoY</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>geoZ</declname>
+        </param>
+        <briefdescription>
+<para>Returns the terrain-relative scene-Y for <emphasis>geoX/<emphasis>geoY</emphasis> honoring</emphasis> <emphasis>altitudeClamping</emphasis> and the per-vertex <emphasis>geometryZ</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="131" column="15" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="184" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a450a05645ca08a9fd1dcaa88a2c4a059" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QVector&lt; QVector3D &gt; &gt;</type>
+        <definition>QVector&lt; QVector&lt; QVector3D &gt; &gt; Qf3DGeometry::buildPaths</definition>
+        <argsstring>(const QgsAbstractGeometry *geom) const</argsstring>
+        <name>buildPaths</name>
+        <qualifiedname>Qf3DGeometry::buildPaths</qualifiedname>
+        <param>
+          <type>const QgsAbstractGeometry *</type>
+          <declname>geom</declname>
+        </param>
+        <briefdescription>
+<para>Walks an abstract geometry and returns its rings/lines as 3D paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="134" column="13" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="228" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1ac319b864336522d66e98e30a43cfb904" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QVector3D &gt;</type>
+        <definition>QVector&lt; QVector3D &gt; Qf3DGeometry::lineToPath</definition>
+        <argsstring>(const QgsLineString *lineString) const</argsstring>
+        <name>lineToPath</name>
+        <qualifiedname>Qf3DGeometry::lineToPath</qualifiedname>
+        <param>
+          <type>const QgsLineString *</type>
+          <declname>lineString</declname>
+        </param>
+        <briefdescription>
+<para>Converts the vertices of <emphasis>lineString</emphasis> into a 3D scene-space path, dropping un-projectable points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="137" column="13" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="211" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a5097e88b3b62f0659321c9413e9fc6dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::resetGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>resetGeometry</name>
+        <qualifiedname>Qf3DGeometry::resetGeometry</qualifiedname>
+        <briefdescription>
+<para>Resets the geometry buffers to an empty triangle mesh and triggers an update. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="140" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="286" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DGeometry_1a23cca3745c31f2a3dd117e79233a8ba8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DGeometry::finalize</definition>
+        <argsstring>(const QByteArray &amp;vertexData, const QByteArray &amp;indexData, const QVector3D &amp;minBound, const QVector3D &amp;maxBound)</argsstring>
+        <name>finalize</name>
+        <qualifiedname>Qf3DGeometry::finalize</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>vertexData</declname>
+        </param>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>indexData</declname>
+        </param>
+        <param>
+          <type>const QVector3D &amp;</type>
+          <declname>minBound</declname>
+        </param>
+        <param>
+          <type>const QVector3D &amp;</type>
+          <declname>maxBound</declname>
+        </param>
+        <briefdescription>
+<para>Uploads <emphasis>vertexData</emphasis> and <emphasis>indexData</emphasis> and configures the vertex attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dgeometry.h" line="143" column="10" bodyfile="src/3d/qf3dgeometry.cpp" bodystart="294" bodyend="308"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Generates 3D geometry for an identified or selected feature on top of the terrain mesh.</para>
+<para>Points become spheres, lines become extruded tubes with sphere joints, and polygons get both an outline and a semi-transparent triangulated fill. The geometry is reprojected from the source CRS to the map CRS before being draped on the terrain surface.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQf3DGeometry" kindref="compound">Qf3DGeometry</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Qf3DGeometry</label>
+        <link refid="classQf3DGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Qf3DGeometry</label>
+        <link refid="classQf3DGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qf3dgeometry.h" line="47" column="1" bodyfile="src/3d/qf3dgeometry.h" bodystart="48" bodyend="157"/>
+    <listofallmembers>
+      <member refid="classQf3DGeometry_1ac0efe046483f3cbe40f4e76de0a9e9f2" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>AltitudeClamping</name></member>
+      <member refid="classQf3DGeometry_1a09b50f32953a401e2afa242b127a2ff2" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>altitudeClamping</name></member>
+      <member refid="classQf3DGeometry_1a91eab068e046ec7cab23c4b2edd25d91" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>altitudeClamping</name></member>
+      <member refid="classQf3DGeometry_1a3c579d81f1f35c01b772f1dbad2766ad" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>altitudeClampingChanged</name></member>
+      <member refid="classQf3DGeometry_1a450a05645ca08a9fd1dcaa88a2c4a059" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>buildPaths</name></member>
+      <member refid="classQf3DGeometry_1a0f4ef3d4de7c90accffeae6804a523dc" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>color</name></member>
+      <member refid="classQf3DGeometry_1a8f749b4f0342ec7984dd7bfce41141d2" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>color</name></member>
+      <member refid="classQf3DGeometry_1a9a8eb3d3b674b6b8426b6a0ab5a48279" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>colorChanged</name></member>
+      <member refid="classQf3DGeometry_1a8ff8ca3f30e8807adc3bdac1679b1ec2" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>crs</name></member>
+      <member refid="classQf3DGeometry_1a790be08b326f06ffa1a1ada8c15720f6" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>crs</name></member>
+      <member refid="classQf3DGeometry_1ae0e70068e356c612a9f9efa009c38e23" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>crsChanged</name></member>
+      <member refid="classQf3DGeometry_1a2bbe9598d22311cf3535ac3f144ef5de" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>extrusion</name></member>
+      <member refid="classQf3DGeometry_1a5cb3e30f2bd4d3912bf92953f05e6437" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>extrusion</name></member>
+      <member refid="classQf3DGeometry_1ad053ec9c0b630e9ea2cd0ad596ef0aa1" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>extrusionChanged</name></member>
+      <member refid="classQf3DGeometry_1aa4dbf00bc0c884a90bbb1a71eb908b32" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>fillPolygons</name></member>
+      <member refid="classQf3DGeometry_1a778fcd2bfcef48abf8a847227cf3a6c8" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>fillPolygons</name></member>
+      <member refid="classQf3DGeometry_1ad62b7c5c3b99f2795ad9c427d1396b2c" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>fillPolygonsChanged</name></member>
+      <member refid="classQf3DGeometry_1a23cca3745c31f2a3dd117e79233a8ba8" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>finalize</name></member>
+      <member refid="classQf3DGeometry_1a77d1bce3696194d9756ab6e2279f21d7" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>heightOffset</name></member>
+      <member refid="classQf3DGeometry_1a3b5c75964c9c7880eb263bc19e84ba59" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>heightOffset</name></member>
+      <member refid="classQf3DGeometry_1a502a28e9d1c2be33c447474b11d6d8ff" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>heightOffsetChanged</name></member>
+      <member refid="classQf3DGeometry_1ac319b864336522d66e98e30a43cfb904" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>lineToPath</name></member>
+      <member refid="classQf3DGeometry_1a3c022475dd9931cd1e9b5dd2029ecd54" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>lineWidth</name></member>
+      <member refid="classQf3DGeometry_1ae7e1ff6a6731d899d4d12facdc2c99ba" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>lineWidth</name></member>
+      <member refid="classQf3DGeometry_1a6e6898b7429bb9ff599a7dbc099e2c15" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>lineWidthChanged</name></member>
+      <member refid="classQf3DGeometry_1a3d3c961e12628de7e20395e6cea91ef0" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mAltitudeClamping</name></member>
+      <member refid="classQf3DGeometry_1a6c8007a730b9ed594dd9b35ad64470f4" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>markDirtyAndUpdate</name></member>
+      <member refid="classQf3DGeometry_1ae6856ecdcbcf8b1eeb67941388084218" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mColor</name></member>
+      <member refid="classQf3DGeometry_1a2c63b761212d7c4ac43cf2e78e033006" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mCrs</name></member>
+      <member refid="classQf3DGeometry_1a85c0a9e18b606570a6bc715c9ab757a4" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mDirty</name></member>
+      <member refid="classQf3DGeometry_1afb0bb380374c7822dadc5dbdbf1155dc" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mExtrusion</name></member>
+      <member refid="classQf3DGeometry_1a5c6a3be0cdfac7cad6ffece88778bfb9" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mFillPolygons</name></member>
+      <member refid="classQf3DGeometry_1a935874758ca6077f297d9114d6650104" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mGeometry</name></member>
+      <member refid="classQf3DGeometry_1ac2eeb4e4bf42c7ae4226093a59d12a45" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mHeightOffset</name></member>
+      <member refid="classQf3DGeometry_1a45a92576b6e238de571860e9f1a4d5e9" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mLineWidth</name></member>
+      <member refid="classQf3DGeometry_1a7746a3b6c5b1348378555ff304bef5a1" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mTerrainProvider</name></member>
+      <member refid="classQf3DGeometry_1a1b69ea45f002ec4ab1d5f48d5c78f095" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>mTransform</name></member>
+      <member refid="classQf3DGeometry_1a03c6d5cab643957e72b2061cbd6fabff" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>Qf3DGeometry</name></member>
+      <member refid="classQf3DGeometry_1a70ec9edb22cd97e665cfa752d11bab7c" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>qgsGeometry</name></member>
+      <member refid="classQf3DGeometry_1a2592e3e280069bd2bed927f79a378dc1" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>qgsGeometry</name></member>
+      <member refid="classQf3DGeometry_1a38bbe48de15fb12b5afd9e912cafc581" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>qgsGeometryChanged</name></member>
+      <member refid="classQf3DGeometry_1a5097e88b3b62f0659321c9413e9fc6dc" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>resetGeometry</name></member>
+      <member refid="classQf3DGeometry_1a55620f472866ade7891dd2a144ee3c2a" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setAltitudeClamping</name></member>
+      <member refid="classQf3DGeometry_1a3f3243bd61bb35ee1c77eb411ed9f425" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setColor</name></member>
+      <member refid="classQf3DGeometry_1a696b6502c12743d7fcb13982017f796e" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setCrs</name></member>
+      <member refid="classQf3DGeometry_1a77c2673fa12aaf2042f54e9d5e2309d4" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setExtrusion</name></member>
+      <member refid="classQf3DGeometry_1a4550baba546b8aa163379c5ee2a432ba" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setFillPolygons</name></member>
+      <member refid="classQf3DGeometry_1ab372ac24241d4454b49c543232b9bffd" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setHeightOffset</name></member>
+      <member refid="classQf3DGeometry_1a0469c341ddf12d44b05205dc64362aa4" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setLineWidth</name></member>
+      <member refid="classQf3DGeometry_1acceffa0fd4337110ee6d21bdf94fbbf2" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setQgsGeometry</name></member>
+      <member refid="classQf3DGeometry_1aa9213ef7fa70cd185037c4214a73db9f" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>setTerrainProvider</name></member>
+      <member refid="classQf3DGeometry_1addb7a4efe2f3a786efe36083a1243686" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>terrainProvider</name></member>
+      <member refid="classQf3DGeometry_1a94f259aa192178eab284d4251f0c61bc" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>terrainProvider</name></member>
+      <member refid="classQf3DGeometry_1a7345b6684ebda3738ace9546b7c77d0e" prot="public" virt="non-virtual"><scope>Qf3DGeometry</scope><name>terrainProviderChanged</name></member>
+      <member refid="classQf3DGeometry_1ac80cc7b1f874ea40501bc7eb82832704" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>updateGeometry</name></member>
+      <member refid="classQf3DGeometry_1aefc17ec62334cb51f390ffe31f81ba16" prot="private" virt="non-virtual"><scope>Qf3DGeometry</scope><name>vertexTo3D</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
