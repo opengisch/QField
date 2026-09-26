@@ -177,18 +177,18 @@ class QfCloudConnection : public QObject
 
     Q_INVOKABLE void getServerInformation();
 
-    //! Fetches a new captcha challenge for the signup form, emits signupCaptchaReceived once ready.
+    //! Fetches a new captcha challenge for the signup form, emits signupCaptchaFinished once ready.
     Q_INVOKABLE void getSignupCaptcha();
 
     /**
      * Creates an account through the server signup form, then logs in with it.
-     * Emits registered on success, or registrationFailed with the validation messages keyed by field name.
+     * Emits registrationFinished, with the validation messages keyed by field name when the server turned the account down.
      */
     Q_INVOKABLE void registerAccount( const QString &email, const QString &username, const QString &password, bool hasAcceptedTermsOfService, bool hasNewsletterSubscription, const QString &referralCode, const QString &captchaKey, const QString &captchaAnswer );
 
     /**
      * Asks the server to email a password reset link to \a email.
-     * Emits passwordResetRequested once the server took the request, or passwordResetFailed.
+     * Emits passwordRequestFinished once the server answered.
      */
     Q_INVOKABLE void requestPasswordReset( const QString &email );
     QList<QfAuthenticationProvider> availableProviders() const;
@@ -291,12 +291,9 @@ class QfCloudConnection : public QObject
     void userOrganizationsReceived( const QStringList &organizations );
     void subscriptionInformationReceived( const QfCloudSubscriptionInformation &subscriptionInformation );
 
-    void signupCaptchaReceived( const QString &key, const QString &imageUrl );
-    void signupCaptchaFailed( const QString &reason );
-    void registered();
-    void registrationFailed( const QVariantMap &errors );
-    void passwordResetRequested();
-    void passwordResetFailed( const QString &reason );
+    void signupCaptchaFinished( const QString &key, const QString &imageUrl, const QString &error = QString() );
+    void registrationFinished( const QVariantMap &errors = QVariantMap() );
+    void passwordRequestFinished( const QString &error = QString() );
 
   private:
     void setStatus( ConnectionStatus status );

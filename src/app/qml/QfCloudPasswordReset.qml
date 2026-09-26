@@ -221,15 +221,14 @@ Item {
   Connections {
     target: cloudConnection
 
-    function onPasswordResetRequested() {
+    function onPasswordRequestFinished(error) {
       qfieldCloudPasswordReset.isSendingResetLink = false;
+      if (error !== "") {
+        qfieldCloudPasswordReset.resetError = error;
+        return;
+      }
       qfieldCloudPasswordReset.resendCountdown = 45;
       stepView.currentIndex = 1;
-    }
-
-    function onPasswordResetFailed(reason) {
-      qfieldCloudPasswordReset.isSendingResetLink = false;
-      qfieldCloudPasswordReset.resetError = reason;
     }
   }
 
