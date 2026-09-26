@@ -140,6 +140,15 @@ void QfCloudProject::setUserRoleOrigin( const QString &userRoleOrigin )
   emit userRoleOriginChanged();
 }
 
+void QfCloudProject::setTeams( const QStringList &teams )
+{
+  if ( mTeams == teams )
+    return;
+
+  mTeams = teams;
+  emit teamsChanged();
+}
+
 void QfCloudProject::setCanRepackage( bool canRepackage )
 {
   if ( mCanRepackage == canRepackage )
@@ -2207,6 +2216,7 @@ void QfCloudProject::refreshData( ProjectRefreshReason reason )
     setDescription( projectData.value( "description" ).toString() );
     setUserRole( projectData.value( "user_role" ).toString() );
     setUserRoleOrigin( mUserRoleOrigin = projectData.value( "user_role_origin" ).toString() );
+    setTeams( projectData.value( "teams" ).toVariant().toStringList() );
     setCreatedAt( QDateTime::fromString( projectData.value( "created_at" ).toString(), Qt::ISODate ) );
     setUpdatedAt( QDateTime::fromString( projectData.value( "updated_at" ).toString(), Qt::ISODate ) );
     setRemoteSizeBytes( projectData.value( "file_storage_bytes" ).toInteger() );
@@ -2281,6 +2291,7 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
   project->mDescription = details.value( "description" ).toString();
   project->mUserRole = details.value( "user_role" ).toString();
   project->mUserRoleOrigin = details.value( "user_role_origin" ).toString();
+  project->mTeams = details.value( "teams" ).toStringList();
   project->mCheckout = RemoteCheckout;
   project->mStatus = details.value( "status" ).toString() == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
   project->mCreatedAt = QDateTime::fromString( details.value( "created_at" ).toString(), Qt::ISODate );
@@ -2340,6 +2351,7 @@ QfCloudProject *QfCloudProject::fromLocalSettings( const QString &id, QfCloudCon
   const QString status = QfCloudUtils::projectSetting( id, QStringLiteral( "status" ) ).toString();
   const QString userRole = QfCloudUtils::projectSetting( id, QStringLiteral( "userRole" ) ).toString();
   const QString userRoleOrigin = QfCloudUtils::projectSetting( id, QStringLiteral( "userRoleOrigin" ) ).toString();
+  const QStringList teams = QfCloudUtils::projectSetting( id, QStringLiteral( "teams" ) ).toStringList();
   const QDateTime createdAt = QDateTime::fromString( QfCloudUtils::projectSetting( id, QStringLiteral( "createdAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QDateTime updatedAt = QDateTime::fromString( QfCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const qint64 remoteSizeBytes = QfCloudUtils::projectSetting( id, QStringLiteral( "remoteSizeBytes" ) ).toLongLong();
@@ -2370,6 +2382,7 @@ QfCloudProject *QfCloudProject::fromLocalSettings( const QString &id, QfCloudCon
   project->mDescription = description;
   project->mUserRole = userRole;
   project->mUserRoleOrigin = userRoleOrigin;
+  project->mTeams = teams;
   project->mCheckout = LocalCheckout;
   project->mStatus = status == "failed" ? ProjectStatus::Failing : ProjectStatus::Idle;
   project->mCreatedAt = createdAt;
@@ -2604,6 +2617,7 @@ void QfCloudProject::saveSettings()
   QfCloudUtils::setProjectSetting( mId, QStringLiteral( "description" ), mDescription );
   QfCloudUtils::setProjectSetting( mId, QStringLiteral( "userRole" ), mUserRole );
   QfCloudUtils::setProjectSetting( mId, QStringLiteral( "userRoleOrigin" ), mUserRoleOrigin );
+  QfCloudUtils::setProjectSetting( mId, QStringLiteral( "teams" ), mTeams );
   QfCloudUtils::setProjectSetting( mId, QStringLiteral( "createdAt" ), mCreatedAt.toString( Qt::DateFormat::ISODate ) );
   QfCloudUtils::setProjectSetting( mId, QStringLiteral( "updatedAt" ), mUpdatedAt.toString( Qt::DateFormat::ISODate ) );
   QfCloudUtils::setProjectSetting( mId, QStringLiteral( "remoteSizeBytes" ), mRemoteSizeBytes );

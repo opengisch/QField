@@ -43,6 +43,7 @@ class QfCloudProject : public QObject
 
     Q_PROPERTY( QString userRole READ userRole NOTIFY userRoleChanged )
     Q_PROPERTY( QString userRoleOrigin READ userRoleOrigin NOTIFY userRoleOriginChanged )
+    Q_PROPERTY( QStringList teams READ teams NOTIFY teamsChanged )
 
     Q_PROPERTY( QDateTime createdAt READ createdAt NOTIFY createdAtChanged )
     Q_PROPERTY( QDateTime updatedAt READ updatedAt NOTIFY updatedAtChanged )
@@ -259,6 +260,9 @@ class QfCloudProject : public QObject
     QString userRoleOrigin() const { return mUserRoleOrigin; }
     void setUserRoleOrigin( const QString &userRoleOrigin );
 
+    QStringList teams() const { return mTeams; }
+    void setTeams( const QStringList &teams );
+
     ProjectErrorStatus errorStatus() const { return mErrorStatus; }
     void setErrorStatus( ProjectErrorStatus errorStatus );
 
@@ -412,6 +416,7 @@ class QfCloudProject : public QObject
     void descriptionChanged();
     void userRoleChanged();
     void userRoleOriginChanged();
+    void teamsChanged();
 
     void errorStatusChanged();
     void checkoutChanged();
@@ -543,6 +548,7 @@ class QfCloudProject : public QObject
     QString mDescription;
     QString mUserRole;
     QString mUserRoleOrigin;
+    QStringList mTeams;
 
     ProjectErrorStatus mErrorStatus = ProjectErrorStatus::NoErrorStatus;
     ProjectCheckouts mCheckout = ProjectCheckout::LocalCheckout;

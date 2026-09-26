@@ -42,7 +42,7 @@ TEST_CASE( "ExpressionEvaluator" )
   QfGnssPositionInformation positionInformation = QfPositioningUtils::createGnssPositionInformation( 1.234, 1.234, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, QDateTime(), QStringLiteral( "test" ) );
   evaluator.appExpressionContextScopesGenerator()->setPositionInformation( positionInformation );
 
-  QfCloudUserInformation cloudUserInformation( QStringLiteral( "nyuki" ), QStringLiteral( "nyuki@opengis.ch" ) );
+  QfCloudUserInformation cloudUserInformation( QStringLiteral( "nyuki" ), QStringLiteral( "nyuki@opengis.ch" ), QString(), QString(), QString(), QStringList() << QStringLiteral( "surveyors" ) << QStringLiteral( "managers" ) );
   evaluator.appExpressionContextScopesGenerator()->setCloudUserInformation( cloudUserInformation );
 
   SECTION( "Expression mode" )
@@ -62,6 +62,12 @@ TEST_CASE( "ExpressionEvaluator" )
 
     evaluator.setExpressionText( QStringLiteral( "@cloud_username || ' - ' || @cloud_useremail" ) );
     REQUIRE( evaluator.evaluate() == QStringLiteral( "nyuki - nyuki@opengis.ch" ) );
+
+    evaluator.setExpressionText( QStringLiteral( "array_to_string( @cloud_teams )" ) );
+    REQUIRE( evaluator.evaluate() == QStringLiteral( "surveyors,managers" ) );
+
+    evaluator.setExpressionText( QStringLiteral( "array_contains( @cloud_teams, 'managers' )" ) );
+    REQUIRE( evaluator.evaluate() == QStringLiteral( "true" ) );
   }
 
   SECTION( "Expression template mode" )

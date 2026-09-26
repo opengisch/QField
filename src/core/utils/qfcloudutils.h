@@ -16,6 +16,9 @@
 #ifndef QFCLOUDUTILS_H
 #define QFCLOUDUTILS_H
 
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QStringList>
 #include <qfcloudprojectsmodel.h>
 #include <qgsmaplayer.h>
 #include <qgsproject.h>
@@ -38,16 +41,18 @@ struct QfCloudUserInformation
     Q_PROPERTY( QString firstName MEMBER firstName )
     Q_PROPERTY( QString lastName MEMBER lastName )
     Q_PROPERTY( QString fullName MEMBER fullName )
+    Q_PROPERTY( QStringList teams MEMBER teams )
 
   public:
     QfCloudUserInformation() = default;
 
-    QfCloudUserInformation( const QString &username, const QString &email, const QString &firstName = QString(), const QString &lastName = QString(), const QString &fullName = QString() )
+    QfCloudUserInformation( const QString &username, const QString &email, const QString &firstName = QString(), const QString &lastName = QString(), const QString &fullName = QString(), const QStringList &teams = QStringList() )
       : username( username )
       , email( email )
       , firstName( firstName )
       , lastName( lastName )
       , fullName( fullName )
+      , teams( teams )
     {}
 
     explicit QfCloudUserInformation( const QJsonObject &cloudUserInformation )
@@ -56,11 +61,17 @@ struct QfCloudUserInformation
       , firstName( cloudUserInformation.value( QStringLiteral( "first_name" ) ).toString() )
       , lastName( cloudUserInformation.value( QStringLiteral( "last_name" ) ).toString() )
       , fullName( cloudUserInformation.value( QStringLiteral( "full_name" ) ).toString() )
-    {}
+    {
+      const QJsonArray teamsArray = cloudUserInformation.value( QStringLiteral( "teams" ) ).toArray();
+      for ( const QJsonValue &team : teamsArray )
+      {
+        teams << team.toString();
+      }
+    }
 
     bool operator==( const QfCloudUserInformation &other ) const
     {
-      return username == other.username && email == other.email && firstName == other.firstName && lastName == other.lastName && fullName == other.fullName;
+      return username == other.username && email == other.email && firstName == other.firstName && lastName == other.lastName && fullName == other.fullName && teams == other.teams;
     }
 
     QJsonObject toJson() const
@@ -72,13 +83,14 @@ struct QfCloudUserInformation
       cloudUserInformation.insert( "first_name", firstName );
       cloudUserInformation.insert( "last_name", lastName );
       cloudUserInformation.insert( "full_name", fullName );
+      cloudUserInformation.insert( "teams", QJsonArray::fromStringList( teams ) );
 
       return cloudUserInformation;
     }
 
     bool isEmpty() const
     {
-      // Allow for empty first, last, and full name
+      // Allow for empty first, last, full name, and teams
       return username.isEmpty() && email.isEmpty();
     }
 
@@ -87,6 +99,7 @@ struct QfCloudUserInformation
     QString firstName;
     QString lastName;
     QString fullName;
+    QStringList teams;
 };
 
 
