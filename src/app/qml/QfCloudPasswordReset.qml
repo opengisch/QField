@@ -14,7 +14,6 @@ Item {
   property string email: ""
   property int resendCountdown: 0
   property bool isSendingResetLink: false
-  // Message sent back by the server, e.g. an email it does not know
   property string resetError: ""
 
   readonly property bool isEmailValid: /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailField.text)
