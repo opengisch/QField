@@ -8,6 +8,7 @@ import org.qfield._3d
 Node {
   id: root
 
+  property bool eyeDomeLightingMode: false
   property alias mapTerrainGeometry: mapTerrainGeometry
   property alias mapTexture: mapTexture
   property Qf3DMapTextureData mapTextureData
@@ -54,6 +55,9 @@ Node {
         property real gridDensity: 40.0
         property real materialScale: 1 / mapTerrainGeometry.offsetScale
         property vector2d materialCenter: Qt.vector2d(0.5 + mapTerrainGeometry.offsetVector.x / 2000, 0.5 + mapTerrainGeometry.offsetVector.z / 2000)
+
+        property real edlRadius: eyeDomeLightingMode ? 2.5 * screen.devicePixelRatio : 0
+        property real edlStrength: 25000
 
         fragmentShader: "qrc:/3d/terrain_material.frag"
       }

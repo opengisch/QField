@@ -24,7 +24,7 @@ Item {
 
   property bool isLoading: mapTerrainProvider.isLoading || mapTextureData.isRendering
   property bool isFirstLoad: true
-  property bool eyeDomeLightingMode: false
+  property alias eyeDomeLightingMode: terrainMesh.eyeDomeLightingMode
   property alias extentMode: cameraController.extentMode
 
   property bool gnssActive: false
@@ -93,25 +93,6 @@ Item {
       antialiasingMode: SceneEnvironment.MSAA
       antialiasingQuality: SceneEnvironment.High
       depthPrePassEnabled: mapArea.eyeDomeLightingMode
-
-      effects: [
-        Effect {
-          id: eyeDomeLightingEffect
-
-          property real edlRadius: mapArea.eyeDomeLightingMode ? 2.5 * screen.devicePixelRatio : 0
-          property real edlStrength: 25000
-
-          passes: Pass {
-            shaders: Shader {
-              stage: Shader.Fragment
-              shader: "qrc:/3d/eye_dome_lighting.frag"
-            }
-            output: Buffer {
-              format: Buffer.RGBA8
-            }
-          }
-        }
-      ]
     }
 
     PerspectiveCamera {
