@@ -1179,11 +1179,10 @@ void QfCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
     QgsApplication::authManager()->updateNetworkRequest( request, mProviderConfigId );
     request.setRawHeader( "X-QFC-IDP-ID", providerId.toLatin1() );
 
-    const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
-    auto match = std::find_if( cookies.begin(), cookies.end(), []( const QNetworkCookie &cookie ) { return cookie.name() == QLatin1String( "csrftoken" ); } );
-    if ( match != cookies.end() )
+    const QByteArray token = csrfToken();
+    if ( !token.isEmpty() )
     {
-      request.setRawHeader( "X-CSRFToken", match->value() );
+      request.setRawHeader( "X-CSRFToken", token );
       request.setRawHeader( "Referer", mUrl.toLatin1() );
     }
   }
