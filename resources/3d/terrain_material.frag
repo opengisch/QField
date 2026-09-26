@@ -37,6 +37,36 @@ void MAIN() {
         }
     }
 
+    if (edlRadius > 0.0) {
+        // Get the size of the depth texture to calculate texel size
+        vec2 texSize = vec2(textureSize(DEPTH_TEXTURE, 0));
+        vec2 texelSize = 1.0 / texSize;
+
+        // Calculate the screen-space UV coordinates for the current fragment
+        vec2 screenUV = FRAGCOORD.xy * texelSize;
+
+        float depthC = texture(DEPTH_TEXTURE, screenUV).r;
+
+        // Define the 4 neighbor offsets (up, down, left, right)
+        vec2 offsets[4];
+        offsets[0] = vec2(edlRadius * texelSize.x, 0.0);
+        offsets[1] = vec2(-edlRadius * texelSize.x, 0.0);
+        offsets[2] = vec2(0.0, edlRadius * texelSize.y);
+        offsets[3] = vec2(0.0, -edlRadius * texelSize.y);
+
+        float depthSum = 0.0;
+
+        for (int i = 0; i < 4; i++) {
+            float depthN = texture(DEPTH_TEXTURE, screenUV + offsets[i]).r;
+            float difference = max(0.0, depthC - depthN);
+            depthSum += difference;
+        }
+
+        // Calculate the darkening factor and apply it to the BASE_COLOR
+        float shadingFactor = exp(-depthSum * edlStrength);
+        BASE_COLOR = vec4(BASE_COLOR.rgb * shadingFactor, BASE_COLOR.a);
+    }
+
     ROUGHNESS = 0.9;
     SPECULAR_AMOUNT = 0.0;
     METALNESS = 0.0;
