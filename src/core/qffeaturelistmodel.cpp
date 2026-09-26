@@ -25,6 +25,8 @@
 #include <qgsstringutils.h>
 #include <qgsvaluerelationfieldformatter.h>
 
+#define UNACCENTED_MAX_FEATURE_COUNT 15000
+
 
 QfFeatureListModel::QfFeatureListModel( QObject *parent )
   : QAbstractItemModel( parent )
@@ -356,11 +358,11 @@ void QfFeatureListModel::gatherFeatureList()
 
   const QString fieldDisplayString = displayValueIndex >= 0
                                        ? QgsExpression::quotedColumnRef( mDisplayValueField )
-                                       : QStringLiteral( "%1" ).arg( mCurrentLayer->displayExpression() );
+                                       : mCurrentLayer->displayExpression();
 
   // Since the use of unaccent() function means the filter expression cannot be compiled on the provider
-  // side, we need to bail out of unaccented searchs when the layer contains a large number of features
-  const bool unaccentedSearch = mCurrentLayer->featureCount() < 15000;
+  // side, we need to bail out of unaccented searches when the layer contains a large number of features
+  const bool unaccentedSearch = mCurrentLayer->featureCount() < UNACCENTED_MAX_FEATURE_COUNT;
   QString searchTermExpression;
   if ( !mSearchTerm.isEmpty() )
   {
