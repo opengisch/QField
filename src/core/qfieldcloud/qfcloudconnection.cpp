@@ -413,7 +413,7 @@ void QfCloudConnection::getSignupCaptcha()
   ensureCsrfToken( QStringLiteral( "/accounts/signup/" ), [this]( const QString &error ) {
     if ( !error.isEmpty() )
     {
-      emit signupCaptchaFailed( error );
+      emit signupCaptchaFinished( QString(), QString(), error );
       return;
     }
 
@@ -493,7 +493,7 @@ void QfCloudConnection::requestSignupCaptcha()
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      emit signupCaptchaFailed( errorString( rawReply ) );
+      emit signupCaptchaFinished( QString(), QString(), errorString( rawReply ) );
       return;
     }
 
@@ -503,11 +503,11 @@ void QfCloudConnection::requestSignupCaptcha()
 
     if ( key.isEmpty() || imageUrl.isEmpty() )
     {
-      emit signupCaptchaFailed( tr( "Captcha temporary unavailable, please retry later" ) );
+      emit signupCaptchaFinished( QString(), QString(), tr( "Captcha temporary unavailable, please retry later" ) );
       return;
     }
 
-    emit signupCaptchaReceived( key, mUrl + imageUrl );
+    emit signupCaptchaFinished( key, mUrl + imageUrl );
   } );
 }
 
@@ -548,7 +548,7 @@ void QfCloudConnection::registerAccount( const QString &email, const QString &us
     {
       QVariantMap errors;
       errors.insert( QString(), errorString( rawReply ) );
-      emit registrationFailed( errors );
+      emit registrationFinished( errors );
       return;
     }
 
@@ -571,13 +571,13 @@ void QfCloudConnection::registerAccount( const QString &email, const QString &us
           return;
         }
 
-        emit registered();
+        emit registrationFinished();
         registrationContext->deleteLater();
       } );
       connect( this, &QfCloudConnection::loginFailed, registrationContext, [this, registrationContext]( const QString &reason ) {
         QVariantMap errors;
         errors.insert( QString(), tr( "%1\nIf this email already has an account, check your inbox for a message from QFieldCloud." ).arg( reason ) );
-        emit registrationFailed( errors );
+        emit registrationFinished( errors );
         registrationContext->deleteLater();
       } );
 
@@ -592,7 +592,7 @@ void QfCloudConnection::registerAccount( const QString &email, const QString &us
     {
       errors.insert( QString(), tr( "The server did not accept the registration" ) );
     }
-    emit registrationFailed( errors );
+    emit registrationFinished( errors );
   } );
 }
 
@@ -601,7 +601,7 @@ void QfCloudConnection::requestPasswordReset( const QString &email )
   ensureCsrfToken( QStringLiteral( "/accounts/password/reset/" ), [this, email]( const QString &error ) {
     if ( !error.isEmpty() )
     {
-      emit passwordResetFailed( error );
+      emit passwordRequestFinished( error );
       return;
     }
 
@@ -618,19 +618,19 @@ void QfCloudConnection::requestPasswordReset( const QString &email )
 
       if ( rawReply->error() != QNetworkReply::NoError )
       {
-        emit passwordResetFailed( errorString( rawReply ) );
+        emit passwordRequestFinished( errorString( rawReply ) );
         return;
       }
 
       const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
       if ( httpCode >= 300 && httpCode < 400 )
       {
-        emit passwordResetRequested();
+        emit passwordRequestFinished();
         return;
       }
 
       const QVariantMap errors = QfCloudUtils::signupFormErrors( QString::fromUtf8( rawReply->readAll() ) );
-      emit passwordResetFailed( errors.isEmpty() ? tr( "The server did not accept the request" ) : errors.first().toString() );
+      emit passwordRequestFinished( errors.isEmpty() ? tr( "The server did not accept the request" ) : errors.first().toString() );
     } );
   } );
 }

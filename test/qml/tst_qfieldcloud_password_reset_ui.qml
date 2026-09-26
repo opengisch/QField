@@ -73,7 +73,7 @@ TestCase {
     tryCompare(qfieldCloudPasswordReset, "isSendingResetLink", false, 10000);
     verify(qfieldCloudPasswordReset.resetError !== "");
     compare(stepView.currentIndex, 0);
-    cloudConnection.passwordResetRequested();
+    cloudConnection.passwordRequestFinished("");
     compare(stepView.currentIndex, 1);
     compare(qfieldCloudPasswordReset.resendCountdown, 45);
   }
@@ -85,7 +85,7 @@ TestCase {
    */
   function test_02_resendIsHeldBackByCountdown() {
     emailField.text = "mohsen@opengis.ch";
-    cloudConnection.passwordResetRequested();
+    cloudConnection.passwordRequestFinished("");
     compare(resendResetLinkButton.enabled, false);
     qfieldCloudPasswordReset.resendCountdown = 2;
     tryCompare(qfieldCloudPasswordReset, "resendCountdown", 0, 5000);
@@ -99,7 +99,7 @@ TestCase {
    */
   function test_03_goBackFromInboxStep() {
     emailField.text = "mohsen@opengis.ch";
-    cloudConnection.passwordResetRequested();
+    cloudConnection.passwordRequestFinished("");
     qfieldCloudPasswordReset.goBack();
     compare(stepView.currentIndex, 0);
     compare(emailField.text, "mohsen@opengis.ch");
@@ -116,7 +116,7 @@ TestCase {
   function test_04_rejectedRequestShowsTheServerMessage() {
     emailField.text = "mohsen@opengis.ch";
     qfieldCloudPasswordReset.isSendingResetLink = true;
-    cloudConnection.passwordResetFailed("The e-mail address is not assigned to any user account");
+    cloudConnection.passwordRequestFinished("The e-mail address is not assigned to any user account");
     compare(qfieldCloudPasswordReset.isSendingResetLink, false);
     compare(qfieldCloudPasswordReset.resetError, "The e-mail address is not assigned to any user account");
     compare(stepView.currentIndex, 0);
