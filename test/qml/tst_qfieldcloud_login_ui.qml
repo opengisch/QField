@@ -116,7 +116,6 @@ TestCase {
     compare(cloudConnection.status, QfCloudConnection.Disconnected);
     verify(usernameField.visible);
     verify(passwordField.visible);
-    // The create account button requires a signup URL from server info, verify after fetch
     cloudConnection.url = data.url;
     cloudConnection.getServerInformation();
     tryCompare(cloudConnection, "isFetchingAvailableProviders", false, 10000);
