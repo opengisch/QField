@@ -103,6 +103,7 @@ Item {
           enabled: qfieldCloudPasswordReset.isEmailValid && !qfieldCloudPasswordReset.isSendingResetLink
           bgcolor: QfTheme.cloudColor
           color: QfTheme.light
+          progressColor: QfTheme.cloudColor
           showProgress: qfieldCloudPasswordReset.isSendingResetLink
 
           onClicked: {
@@ -182,6 +183,7 @@ Item {
           enabled: qfieldCloudPasswordReset.resendCountdown === 0 && !qfieldCloudPasswordReset.isSendingResetLink
           bgcolor: QfTheme.cloudColor
           color: QfTheme.light
+          progressColor: QfTheme.cloudColor
           showProgress: qfieldCloudPasswordReset.isSendingResetLink
 
           onClicked: {
