@@ -157,7 +157,7 @@ TestCase {
     stepView.currentIndex = 2;
     qfieldCloudRegister.isRegistering = true;
     captchaAnswerField.text = "gkfc";
-    cloudConnection.registrationFailed({
+    cloudConnection.registrationFinished({
       "password2": "You must type the same password each time."
     });
     compare(qfieldCloudRegister.isRegistering, false);
@@ -165,7 +165,7 @@ TestCase {
     compare(qfieldCloudRegister.registrationError, "You must type the same password each time.");
     compare(captchaAnswerField.text, "");
     stepView.currentIndex = 2;
-    cloudConnection.registrationFailed({
+    cloudConnection.registrationFinished({
       "username": "A user with that username already exists.",
       "captcha": "Invalid CAPTCHA"
     });
@@ -173,7 +173,7 @@ TestCase {
     verify(qfieldCloudRegister.registrationError.indexOf("A user with that username already exists.") >= 0);
     verify(qfieldCloudRegister.registrationError.indexOf("Invalid CAPTCHA") >= 0);
     stepView.currentIndex = 2;
-    cloudConnection.registrationFailed({
+    cloudConnection.registrationFinished({
       "captcha": "Invalid CAPTCHA"
     });
     compare(stepView.currentIndex, 2);

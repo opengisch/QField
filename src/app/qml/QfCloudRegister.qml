@@ -526,22 +526,21 @@ Item {
   Connections {
     target: cloudConnection
 
-    function onSignupCaptchaReceived(key, imageUrl) {
+    function onSignupCaptchaFinished(key, imageUrl, error) {
+      if (error !== "") {
+        qfieldCloudRegister.registrationError = error;
+        return;
+      }
       qfieldCloudRegister.captchaKey = key;
       qfieldCloudRegister.captchaImageUrl = imageUrl;
     }
 
-    function onSignupCaptchaFailed(reason) {
-      qfieldCloudRegister.registrationError = reason;
-    }
-
-    function onRegistered() {
+    function onRegistrationFinished(errors) {
       qfieldCloudRegister.isRegistering = false;
-      stepView.currentIndex = 3;
-    }
-
-    function onRegistrationFailed(errors) {
-      qfieldCloudRegister.isRegistering = false;
+      if (Object.keys(errors).length === 0) {
+        stepView.currentIndex = 3;
+        return;
+      }
       qfieldCloudRegister.registrationError = Object.keys(errors).map(field => errors[field]).join("\n");
       if (errors.email !== undefined || errors.username !== undefined) {
         stepView.currentIndex = 0;
