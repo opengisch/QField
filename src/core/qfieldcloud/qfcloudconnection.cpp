@@ -555,11 +555,14 @@ void QfCloudConnection::registerAccount( const QString &email, const QString &us
     const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
     if ( httpCode >= 300 && httpCode < 400 )
     {
-      // The form leaves us in a signed in web session, on which the API enforces CSRF instead of taking our credentials
+      // With a web session around, the API enforces CSRF instead of taking our credentials
       const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
       for ( const QNetworkCookie &cookie : cookies )
       {
-        QgsNetworkAccessManager::instance()->cookieJar()->deleteCookie( cookie );
+        if ( cookie.name() == QLatin1String( "sessionid" ) )
+        {
+          QgsNetworkAccessManager::instance()->cookieJar()->deleteCookie( cookie );
+        }
       }
 
       // The form answers the same way whether the account was created or the email was already taken,
