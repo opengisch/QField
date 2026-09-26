@@ -191,6 +191,13 @@ class QfCloudConnection : public QObject
      * Emits passwordRequestFinished once the server answered.
      */
     Q_INVOKABLE void requestPasswordReset( const QString &email );
+
+    /**
+     * Returns the validation messages of a signup form page rendered by QFieldCloud, keyed by field name.
+     * Both captcha inputs are reported under "captcha", several messages for one field are joined by a new line.
+     */
+    static QVariantMap signupFormErrors( const QString &html );
+
     QList<QfAuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 

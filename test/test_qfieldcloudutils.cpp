@@ -128,11 +128,11 @@ TEST_CASE( "QFieldCloudUtils::checkCloudifyFeasibility" )
 }
 
 
-TEST_CASE( "QFieldCloudUtils::signupFormErrors" )
+TEST_CASE( "QfCloudConnection::signupFormErrors" )
 {
   SECTION( "Errors are keyed by field name" )
   {
-    // Trimmed from a signup form rendered by app.qfield.cloud, the captcha nests a plain group
+    // Trimmed from a real signup form, where the captcha nests a plain group
     const QString html = QStringLiteral( "<div class=\"form-group is-invalid required\"><label for=\"id_username\">Username</label>"
                                          "<input type=\"text\" name=\"username\" class=\"form-control is-invalid\" required id=\"id_username\">"
                                          "<div class=\"invalid-feedback\">Must begin with a letter.</div></div>"
@@ -143,7 +143,7 @@ TEST_CASE( "QFieldCloudUtils::signupFormErrors" )
                                          "<input type=\"text\" name=\"captcha_1\" class=\"form-control is-invalid\"></div>"
                                          "<div class=\"invalid-feedback\">Invalid CAPTCHA</div></div>" );
 
-    const QVariantMap errors = QfCloudUtils::signupFormErrors( html );
+    const QVariantMap errors = QfCloudConnection::signupFormErrors( html );
     REQUIRE( errors.size() == 2 );
     REQUIRE( errors.value( QStringLiteral( "username" ) ).toString() == QStringLiteral( "Must begin with a letter." ) );
     REQUIRE( errors.value( QStringLiteral( "captcha" ) ).toString() == QStringLiteral( "Invalid CAPTCHA" ) );
@@ -154,12 +154,12 @@ TEST_CASE( "QFieldCloudUtils::signupFormErrors" )
     const QString html = QStringLiteral( "<div class=\"form-group is-invalid required\"><input type=\"password\" name=\"password1\" class=\"form-control is-invalid\">"
                                          "<div class=\"invalid-feedback\">This password is too common.</div>"
                                          "<div class=\"invalid-feedback\">The password can&#x27;t be entirely numeric.</div></div>" );
-    const QVariantMap errors = QfCloudUtils::signupFormErrors( html );
+    const QVariantMap errors = QfCloudConnection::signupFormErrors( html );
     REQUIRE( errors.value( QStringLiteral( "password1" ) ).toString() == QStringLiteral( "This password is too common.\nThe password can't be entirely numeric." ) );
   }
 
   SECTION( "A page without invalid fields has no errors" )
   {
-    REQUIRE( QfCloudUtils::signupFormErrors( QStringLiteral( "<form><div class=\"form-group\"><input name=\"email\"></div></form>" ) ).isEmpty() );
+    REQUIRE( QfCloudConnection::signupFormErrors( QStringLiteral( "<form><div class=\"form-group\"><input name=\"email\"></div></form>" ) ).isEmpty() );
   }
 }

@@ -23,10 +23,8 @@
 #include <QDirIterator>
 #include <QFile>
 #include <QLockFile>
-#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QString>
-#include <QTextDocumentFragment>
 #include <QTimeZone>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
@@ -456,54 +454,6 @@ QString QfCloudUtils::subscriptionManagementUrl( const QString &serverUrl, const
 QString QfCloudUtils::deviceTimeZoneId()
 {
   return QString::fromUtf8( QTimeZone::systemTimeZoneId() );
-}
-
-QVariantMap QfCloudUtils::signupFormErrors( const QString &html )
-{
-  // Each invalid field is wrapped in its own group, which may nest plain groups (e.g. the captcha)
-  const QRegularExpression invalidGroupExpression( QStringLiteral( "<div class=\"form-group is-invalid[^\"]*\">" ) );
-  const QRegularExpression fieldNameExpression( QStringLiteral( "name=\"([a-z0-9_]+)\"" ) );
-  const QRegularExpression messageExpression( QStringLiteral( "<div class=\"invalid-feedback\">(.*?)</div>" ), QRegularExpression::DotMatchesEverythingOption );
-
-  QList<qsizetype> groupStarts;
-  QRegularExpressionMatchIterator groupIterator = invalidGroupExpression.globalMatch( html );
-  while ( groupIterator.hasNext() )
-  {
-    groupStarts << groupIterator.next().capturedStart();
-  }
-
-  QVariantMap errors;
-  for ( qsizetype index = 0; index < groupStarts.size(); index++ )
-  {
-    const qsizetype groupEnd = index + 1 < groupStarts.size() ? groupStarts.at( index + 1 ) : html.size();
-    const QString group = html.mid( groupStarts.at( index ), groupEnd - groupStarts.at( index ) );
-
-    const QRegularExpressionMatch fieldNameMatch = fieldNameExpression.match( group );
-    if ( !fieldNameMatch.hasMatch() )
-    {
-      continue;
-    }
-
-    QString fieldName = fieldNameMatch.captured( 1 );
-    if ( fieldName.startsWith( QStringLiteral( "captcha_" ) ) )
-    {
-      fieldName = QStringLiteral( "captcha" );
-    }
-
-    QStringList messages;
-    QRegularExpressionMatchIterator messageIterator = messageExpression.globalMatch( group );
-    while ( messageIterator.hasNext() )
-    {
-      messages << QTextDocumentFragment::fromHtml( messageIterator.next().captured( 1 ) ).toPlainText().trimmed();
-    }
-
-    if ( !messages.isEmpty() )
-    {
-      errors.insert( fieldName, messages.join( QStringLiteral( "\n" ) ) );
-    }
-  }
-
-  return errors;
 }
 
 QList<QfCloudDelta> QfCloudUtils::parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid )
