@@ -229,6 +229,7 @@ Item {
       visible: qfieldCloudLogin.hasCredentialsAuthentication || cloudConnection.status != QfCloudConnection.Disconnected
       bgcolor: QfTheme.cloudColor
       color: QfTheme.light
+      progressColor: QfTheme.cloudColor
       showProgress: cloudConnection.status == QfCloudConnection.Connecting
 
       onClicked: loginFormSumbitHandler()

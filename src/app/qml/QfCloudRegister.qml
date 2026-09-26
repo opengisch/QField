@@ -502,6 +502,7 @@ Item {
         }
         bgcolor: QfTheme.cloudColor
         color: QfTheme.light
+        progressColor: QfTheme.cloudColor
         showProgress: qfieldCloudRegister.isRegistering
 
         onClicked: {
