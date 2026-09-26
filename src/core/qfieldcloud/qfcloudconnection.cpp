@@ -430,7 +430,7 @@ void QfCloudConnection::ensureCsrfToken( const QString &formPath, const std::fun
     return;
   }
 
-  // Loading the form is what makes the server hand out the CSRF cookie its submission needs
+  // Loading the form is what makes the server hand out the CSRF cookie
   QNetworkRequest request;
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy );
   QfNetworkReply *reply = get( request, formPath );
@@ -470,7 +470,7 @@ QfNetworkReply *QfCloudConnection::postForm( const QString &path, const QByteArr
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded" );
   request.setRawHeader( "X-CSRFToken", csrfToken() );
   request.setRawHeader( "Referer", request.url().toEncoded() );
-  // The redirect itself tells an accepted submission apart from a form rendered again with errors
+  // A redirect means accepted, a re-rendered form means rejected
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy );
   setClientHeaders( request );
 
@@ -614,8 +614,7 @@ void QfCloudConnection::registerAccount( const QString &email, const QString &us
         }
       }
 
-      // The form answers the same way whether the account was created or the email was already taken,
-      // so the login that follows is what tells the two apart
+      // A taken email gets the same answer as a new account, only the login tells them apart
       QObject *registrationContext = new QObject( this );
       connect( this, &QfCloudConnection::statusChanged, registrationContext, [this, registrationContext]() {
         if ( mStatus != ConnectionStatus::LoggedIn )
