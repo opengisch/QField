@@ -14,6 +14,9 @@ Item {
   property bool hasCredentialsAuthentication: true
   property bool isServerUrlEditingActive: false
   property bool isVisible: false
+  property bool isRegistrationVisible: false
+  property real availableHeight: 0
+  property bool isPasswordResetVisible: false
   property QfCloudStatus cloudServiceStatus: null
 
   width: parent.width
@@ -29,6 +32,7 @@ Item {
     x: 10
     width: parent.width - 20
     spacing: 10
+    visible: !qfieldCloudLogin.isRegistrationVisible && !qfieldCloudLogin.isPasswordResetVisible
 
     Image {
       id: logo
@@ -54,6 +58,7 @@ Item {
 
     Text {
       id: loginFeedbackLabel
+      objectName: "loginFeedbackLabel"
       Layout.fillWidth: true
       Layout.bottomMargin: 10
       visible: false
@@ -86,6 +91,7 @@ Item {
 
     Text {
       id: serverUrlLabel
+      objectName: "serverUrlLabel"
       Layout.fillWidth: true
       visible: cloudConnection.status === QfCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
       text: qsTr("%1Server URL\n(Leave empty to use the default server)").arg(cloudConnection.serverInformation.whitelabel.siteTitle !== '' ? cloudConnection.serverInformation.whitelabel.siteTitle + ' ' : '')
@@ -97,6 +103,7 @@ Item {
 
     QfComboBox {
       id: serverUrlComboBox
+      objectName: "serverUrlComboBox"
       Layout.fillWidth: true
       Layout.bottomMargin: 10
       visible: cloudConnection.status === QfCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
@@ -165,6 +172,7 @@ Item {
 
     TextField {
       id: usernameField
+      objectName: "usernameField"
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       Layout.fillWidth: true
       visible: cloudConnection.status === QfCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
@@ -177,43 +185,34 @@ Item {
       Keys.onReturnPressed: loginFormSumbitHandler()
     }
 
-    TextField {
+    QfTextField {
       id: passwordField
+      objectName: "passwordField"
       echoMode: TextInput.Password
-      passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
       inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       Layout.fillWidth: true
-      Layout.bottomMargin: 10
-      rightPadding: 50
       visible: cloudConnection.status === QfCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
       enabled: visible
-      font: QfTheme.defaultFont
       horizontalAlignment: Text.AlignLeft
       placeholderText: qsTr("Password")
 
       Keys.onReturnPressed: loginFormSumbitHandler()
+    }
 
-      QfToolButton {
-        id: showPasswordButton
+    Text {
+      id: forgotPasswordLabel
+      objectName: "forgotPasswordLabel"
+      Layout.alignment: Qt.AlignRight
+      Layout.bottomMargin: 10
+      visible: passwordField.visible
+      text: qsTr("Forgot your password?")
+      font: QfTheme.tipFont
+      color: QfTheme.cloudColor
 
-        property var linkedField: passwordField
-        property int originalEchoMode: TextInput.Normal
+      MouseArea {
+        anchors.fill: parent
 
-        visible: (!!linkedField.echoMode && linkedField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
-        iconSource: linkedField.echoMode === TextInput.Normal ? QfTheme.getThemeVectorIcon('ic_hide_green_48dp') : QfTheme.getThemeVectorIcon('ic_show_green_48dp')
-        iconColor: QfTheme.mainColor
-        anchors.right: linkedField.right
-        anchors.verticalCenter: linkedField.verticalCenter
-        opacity: linkedField.text.length > 0 ? 1 : 0.25
-
-        onClicked: {
-          if (linkedField.echoMode !== TextInput.Normal) {
-            originalEchoMode = linkedField.echoMode;
-            linkedField.echoMode = TextInput.Normal;
-          } else {
-            linkedField.echoMode = originalEchoMode;
-          }
-        }
+        onClicked: qfieldCloudLogin.isPasswordResetVisible = true
       }
     }
 
@@ -222,10 +221,16 @@ Item {
     }
 
     QfButton {
+      id: signInButton
+      objectName: "signInButton"
       Layout.fillWidth: true
       text: cloudConnection.status == QfCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QfCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
       enabled: cloudConnection.status != QfCloudConnection.Connecting
       visible: qfieldCloudLogin.hasCredentialsAuthentication || cloudConnection.status != QfCloudConnection.Disconnected
+      bgcolor: QfTheme.cloudColor
+      color: QfTheme.light
+      progressColor: QfTheme.cloudColor
+      showProgress: cloudConnection.status == QfCloudConnection.Connecting
 
       onClicked: loginFormSumbitHandler()
     }
@@ -241,6 +246,7 @@ Item {
 
     Repeater {
       id: availableProvidersRepeater
+      objectName: "availableProvidersRepeater"
       model: []
 
       QfButton {
@@ -284,36 +290,27 @@ Item {
       }
     }
 
-    Text {
-      id: cloudRegisterLabel
+    QfButton {
+      id: createAccountButton
+      objectName: "createAccountButton"
       Layout.fillWidth: true
-      Layout.topMargin: 16
-      text: cloudConnection.serverInformation.signupUrl !== '' ? qsTr('New user?') + ' <a href="' + cloudConnection.serverInformation.signupUrl + '">' + qsTr('Register an account') + '</a>.' : ''
-      horizontalAlignment: Text.AlignHCenter
-      font: QfTheme.defaultFont
-      color: QfTheme.mainTextColor
-      textFormat: Text.RichText
-      wrapMode: Text.WordWrap
+      text: qsTr("Create an account")
       visible: Qt.platform.os !== "ios" && cloudConnection.status === QfCloudConnection.Disconnected && cloudConnection.serverInformation.signupUrl !== ''
+      bgcolor: "transparent"
+      color: QfTheme.cloudColor
+      borderColor: QfTheme.cloudColor
 
-      onLinkActivated: link => {
-        if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
-          browserPopup.url = link;
-          browserPopup.fullscreen = true;
-          browserPopup.open();
-        } else {
-          Qt.openUrlExternally(link);
-        }
-      }
+      onClicked: qfieldCloudLogin.isRegistrationVisible = true
     }
 
     Text {
       id: cloudIntroLabel
       Layout.fillWidth: true
+      Layout.topMargin: 10
       text: qsTr('The easiest way to transfer you project from QGIS to your devices!') + (Qt.platform.os !== "ios" ? ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.' : '')
       horizontalAlignment: Text.AlignHCenter
-      font: QfTheme.defaultFont
-      color: QfTheme.mainTextColor
+      font: QfTheme.tipFont
+      color: QfTheme.secondaryTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
       visible: cloudConnection.status === QfCloudConnection.Disconnected
@@ -327,6 +324,35 @@ Item {
       // spacer item
       Layout.fillWidth: true
       Layout.fillHeight: true
+    }
+  }
+
+  Loader {
+    id: registrationLoader
+    width: qfieldCloudLogin.width
+    height: item ? Math.max(item.implicitHeight, qfieldCloudLogin.availableHeight) : 0
+    active: qfieldCloudLogin.isRegistrationVisible
+
+    sourceComponent: Component {
+      QfCloudRegister {
+        onCancelled: qfieldCloudLogin.isRegistrationVisible = false
+        onFinished: qfieldCloudLogin.isRegistrationVisible = false
+      }
+    }
+  }
+
+  Loader {
+    id: passwordResetLoader
+    width: qfieldCloudLogin.width
+    height: item ? item.implicitHeight : 0
+    active: qfieldCloudLogin.isPasswordResetVisible
+
+    sourceComponent: Component {
+      QfCloudPasswordReset {
+        email: usernameField.text.indexOf('@') > -1 ? usernameField.text : ''
+
+        onCancelled: qfieldCloudLogin.isPasswordResetVisible = false
+      }
     }
   }
 
@@ -364,6 +390,14 @@ Item {
         serverUrlComboBox.model = serverUrlComboBox.model.concat(cloudConnection.url);
       }
       serverUrlComboBox.currentIndex = serverUrlComboBox.find(cloudConnection.url);
+    }
+  }
+
+  function goBack() {
+    if (isRegistrationVisible) {
+      registrationLoader.item.goBack();
+    } else if (isPasswordResetVisible) {
+      passwordResetLoader.item.goBack();
     }
   }
 

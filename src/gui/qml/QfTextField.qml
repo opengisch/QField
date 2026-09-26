@@ -30,6 +30,7 @@ TextField {
 
   QfToolButton {
     id: showPasswordButton
+    objectName: "showPasswordButton"
     property int originalEchoMode: TextInput.Normal
     z: 1
     visible: (!!textField.echoMode && textField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal

@@ -26,6 +26,8 @@
 #include <QSet>
 #include <QVariantMap>
 
+#include <functional>
+
 class QNetworkRequest;
 
 
@@ -174,6 +176,28 @@ class QfCloudConnection : public QObject
     Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
     Q_INVOKABLE void getServerInformation();
+
+    //! Fetches a new captcha challenge for the signup form, emits signupCaptchaFinished once ready.
+    Q_INVOKABLE void getSignupCaptcha();
+
+    /**
+     * Creates an account through the server signup form, then logs in with it.
+     * Emits registrationFinished, with the validation messages keyed by field name when the server turned the account down.
+     */
+    Q_INVOKABLE void registerAccount( const QString &email, const QString &username, const QString &password, bool hasAcceptedTermsOfService, bool hasNewsletterSubscription, const QString &referralCode, const QString &captchaKey, const QString &captchaAnswer );
+
+    /**
+     * Asks the server to email a password reset link to \a email.
+     * Emits passwordRequestFinished once the server answered.
+     */
+    Q_INVOKABLE void requestPasswordReset( const QString &email );
+
+    /**
+     * Returns the validation messages of a signup form page rendered by QFieldCloud, keyed by field name.
+     * Both captcha inputs are reported under "captcha", several messages for one field are joined by a new line.
+     */
+    static QVariantMap signupFormErrors( const QString &html );
+
     QList<QfAuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 
@@ -274,6 +298,10 @@ class QfCloudConnection : public QObject
     void userOrganizationsReceived( const QStringList &organizations );
     void subscriptionInformationReceived( const QfCloudSubscriptionInformation &subscriptionInformation );
 
+    void signupCaptchaFinished( const QString &key, const QString &imageUrl, const QString &error = QString() );
+    void registrationFinished( const QVariantMap &errors = QVariantMap() );
+    void passwordRequestFinished( const QString &error = QString() );
+
   private:
     void setStatus( ConnectionStatus status );
     void setState( ConnectionState state );
@@ -281,6 +309,21 @@ class QfCloudConnection : public QObject
     void invalidateToken();
     void processPendingAttachments();
     void fetchLegacyAuthenticationProviders();
+
+    //! Asks the server for a captcha challenge, assuming the CSRF cookie is already in the jar.
+    void requestSignupCaptcha();
+
+    //! Fetches the form at \a formPath when no CSRF cookie is around yet, then runs \a continuation with an empty error on success.
+    void ensureCsrfToken( const QString &formPath, const std::function<void( const QString &error )> &continuation );
+
+    //! Returns \a fields encoded as an HTML form submission body.
+    static QByteArray encodeFormBody( const QList<QPair<QString, QString>> &fields );
+
+    //! Submits \a body to the form at \a path the way a browser would, without following the redirect it answers with.
+    QfNetworkReply *postForm( const QString &path, const QByteArray &body );
+
+    //! Returns the CSRF token the server handed out for this connection, empty when there is none.
+    QByteArray csrfToken() const;
 
     void saveCookies();
     void restoreCookies();
