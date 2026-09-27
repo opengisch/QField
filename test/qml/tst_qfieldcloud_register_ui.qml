@@ -35,7 +35,7 @@ TestCase {
     }
   }
 
-  property var stepView: findChild(qfieldCloudRegister, "stepView")
+  property var stepView: findChild(qfieldCloudRegister, "cloudRegisterStepView")
   property var emailField: findChild(qfieldCloudRegister, "emailField")
   property var usernameField: findChild(qfieldCloudRegister, "usernameField")
   property var passwordField: findChild(qfieldCloudRegister, "passwordField")

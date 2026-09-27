@@ -42,7 +42,7 @@ Item {
 
     SwipeView {
       id: stepView
-      objectName: "stepView"
+      objectName: "cloudPasswordResetStepView"
       Layout.fillWidth: true
       Layout.topMargin: 10
       implicitHeight: currentItem ? currentItem.implicitHeight : 0
@@ -70,7 +70,7 @@ Item {
 
         Text {
           Layout.fillWidth: true
-          text: qsTr("Enter the email you registered with and we will send you a link to pick a new password.")
+          text: qsTr("Enter your account email and we will send you a link to pick a new password.")
           font: QfTheme.tipFont
           color: QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
@@ -85,7 +85,10 @@ Item {
           placeholderText: qsTr("Email")
           text: qfieldCloudPasswordReset.email
 
-          onTextChanged: text = text.replace(/\s+/g, '')
+          validator: RegularExpressionValidator {
+            regularExpression: /[A-Za-z0-9.!#$%&'*+\/=?^_`{|}~@-]*/
+          }
+
           Keys.onReturnPressed: {
             if (sendResetLinkButton.enabled) {
               sendResetLinkButton.clicked();

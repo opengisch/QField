@@ -35,7 +35,7 @@ TestCase {
     }
   }
 
-  property var stepView: findChild(qfieldCloudPasswordReset, "stepView")
+  property var stepView: findChild(qfieldCloudPasswordReset, "cloudPasswordResetStepView")
   property var emailField: findChild(qfieldCloudPasswordReset, "emailField")
   property var sendResetLinkButton: findChild(qfieldCloudPasswordReset, "sendResetLinkButton")
   property var resendResetLinkButton: findChild(qfieldCloudPasswordReset, "resendResetLinkButton")
