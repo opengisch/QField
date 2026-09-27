@@ -50,7 +50,7 @@ Item {
 
     SwipeView {
       id: stepView
-      objectName: "stepView"
+      objectName: "cloudRegisterStepView"
       Layout.fillWidth: true
       implicitHeight: currentItem ? currentItem.implicitHeight : 0
       clip: true
@@ -83,7 +83,10 @@ Item {
           inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
           placeholderText: qsTr("Email")
 
-          onTextChanged: text = text.replace(/\s+/g, '')
+          validator: RegularExpressionValidator {
+            regularExpression: /[A-Za-z0-9.!#$%&'*+\/=?^_`{|}~@-]*/
+          }
+
           Keys.onReturnPressed: usernameField.forceActiveFocus()
         }
 
@@ -104,7 +107,10 @@ Item {
           placeholderText: qsTr("Username")
           maximumLength: 150
 
-          onTextChanged: text = text.replace(/\s+/g, '')
+          validator: RegularExpressionValidator {
+            regularExpression: /[-a-zA-Z0-9_]*/
+          }
+
           Keys.onReturnPressed: {
             if (continueButton.enabled) {
               continueButton.clicked();
@@ -122,7 +128,7 @@ Item {
 
         Text {
           Layout.fillWidth: true
-          text: qsTr("Have at least 3 characters")
+          text: qsTr("Must have at least 3 characters")
           font: QfTheme.tipFont
           color: qfieldCloudRegister.hasUsernameMinimumLength ? QfTheme.goodColor : QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
@@ -130,7 +136,7 @@ Item {
 
         Text {
           Layout.fillWidth: true
-          text: qsTr("Start with a letter")
+          text: qsTr("Must start with a letter")
           font: QfTheme.tipFont
           color: qfieldCloudRegister.isUsernameStartingWithLetter ? QfTheme.goodColor : QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
@@ -138,7 +144,7 @@ Item {
 
         Text {
           Layout.fillWidth: true
-          text: qsTr("Contain only a-z letters, digits, underscores or hyphens")
+          text: qsTr("Must contain only a-z letters, digits, underscores or hyphens")
           font: QfTheme.tipFont
           color: qfieldCloudRegister.hasUsernameAllowedCharacters ? QfTheme.goodColor : QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
@@ -186,7 +192,7 @@ Item {
         Text {
           Layout.fillWidth: true
           visible: repeatPasswordField.text.length > 0 && !qfieldCloudRegister.isPasswordRepeated
-          text: qsTr("The two passwords do not match yet.")
+          text: qsTr("The two passwords do not match")
           font: QfTheme.tipFont
           color: QfTheme.errorColor
           wrapMode: Text.WordWrap
@@ -420,7 +426,7 @@ Item {
         QfButton {
           Layout.fillWidth: true
           Layout.topMargin: 10
-          text: qsTr("Open my cloud projects")
+          text: qsTr("Go to cloud projects")
           bgcolor: QfTheme.cloudColor
           color: QfTheme.light
 
