@@ -397,7 +397,7 @@ ListView {
     }
   }
 
-  QfLayerTreeItemProperties {
+  QfLegendItemProperties {
     id: itemProperties
     layerTree: legend.model
   }
