@@ -444,7 +444,7 @@ void QfCloudConnection::ensureCsrfToken( const QString &formPath, const std::fun
     reply->deleteLater();
     rawReply->deleteLater();
 
-    continuation( rawReply->error() != QNetworkReply::NoError ? errorString( rawReply ) : QString() );
+    continuation( rawReply->error() != QNetworkReply::NoError ? formErrorString( rawReply ) : QString() );
   } );
 }
 
@@ -462,6 +462,16 @@ QByteArray QfCloudConnection::encodeFormBody( const QList<QPair<QString, QString
   }
 
   return body;
+}
+
+QString QfCloudConnection::formErrorString( QNetworkReply *reply )
+{
+  if ( reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt() == 429 )
+  {
+    return tr( "Too many attempts, please wait a minute before trying again." );
+  }
+
+  return errorString( reply );
 }
 
 QfNetworkReply *QfCloudConnection::postForm( const QString &path, const QByteArray &body )
@@ -494,7 +504,7 @@ void QfCloudConnection::requestSignupCaptcha()
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      emit signupCaptchaFinished( QString(), QString(), errorString( rawReply ) );
+      emit signupCaptchaFinished( QString(), QString(), formErrorString( rawReply ) );
       return;
     }
 
@@ -596,7 +606,7 @@ void QfCloudConnection::registerAccount( const QString &email, const QString &us
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       QVariantMap errors;
-      errors.insert( QString(), errorString( rawReply ) );
+      errors.insert( QString(), formErrorString( rawReply ) );
       emit registrationFinished( errors );
       return;
     }
@@ -669,7 +679,7 @@ void QfCloudConnection::requestPasswordReset( const QString &email )
 
       if ( rawReply->error() != QNetworkReply::NoError )
       {
-        emit passwordRequestFinished( errorString( rawReply ) );
+        emit passwordRequestFinished( formErrorString( rawReply ) );
         return;
       }
 
