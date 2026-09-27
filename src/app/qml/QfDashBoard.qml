@@ -501,7 +501,7 @@ Drawer {
           }
           visible: stateMachine.state === "digitize"
 
-          text: qsTr('Create new collection')
+          text: qsTr('Create New Collection')
           bgcolor: QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGraySemiOpaque
           color: QfTheme.mainTextColor
           icon.source: QfTheme.getThemeVectorIcon('ic_add_white_24dp')
