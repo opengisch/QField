@@ -197,9 +197,11 @@ const QString QfPositioningDeviceModel::deviceId( const Device &device ) const
     case EgenioussDevice:
       return QStringLiteral( "%1:%2:%3" ).arg( QfEgenioussReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
 
-#if defined( Q_OS_IOS )
     case ExternalAccessoryDevice:
+#if defined( Q_OS_IOS )
       return QStringLiteral( "%1:" ).arg( QfExternalAccessoryReceiver::identifier );
+#else
+      return QString();
 #endif
   }
 
