@@ -111,6 +111,30 @@ void QfMarkupCollection::removeItem( const QString &uuid, bool resetVectorLayer 
   }
 }
 
+QgsRectangle QfMarkupCollection::extent() const
+{
+  QgsRectangle rect;
+
+  for ( const QfMarkupItem item : mItems )
+  {
+    if ( item.geometry().isEmpty() )
+    {
+      continue;
+    }
+
+    if ( rect.isEmpty() )
+    {
+      rect = item.geometry().boundingBox();
+    }
+    else
+    {
+      rect.combineExtentWith( item.geometry().boundingBox() );
+    }
+  }
+
+  return rect;
+}
+
 bool QfMarkupCollection::readGeoJson( const QString &path )
 {
   QFileInfo fi( path );

@@ -87,6 +87,28 @@ QfPopup {
         }
 
         QfButton {
+          id: zoomToButton
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          text: qsTr('Zoom to collection')
+          icon.source: QfTheme.getThemeVectorIcon('zoom_out_map_24dp')
+
+          onClicked: {
+            if (markupCollection) {
+              if (markupCollection.items.length === 0) {
+                displayToast(qsTr("The collection has no features"));
+              } else {
+                let extent = markupCollection.extent();
+                extent = QfGeometryUtils.reprojectRectangle(extent, QfCoordinateReferenceSystemUtils.wgs84Crs(), mapCanvas.mapSettings.destinationCrs);
+                mapCanvas.mapSettings.extent = extent;
+              }
+              close();
+              dashBoard.visible = false;
+            }
+          }
+        }
+
+        QfButton {
           id: showFeaturesList
 
           Layout.fillWidth: true
@@ -100,6 +122,9 @@ QfPopup {
                 displayToast(qsTr("The collection has no features"));
               } else {
                 featureListForm.model.setFeatures(markupCollection);
+                let extent = markupCollection.extent();
+                extent = QfGeometryUtils.reprojectRectangle(extent, QfCoordinateReferenceSystemUtils.wgs84Crs(), mapCanvas.mapSettings.destinationCrs);
+                mapCanvas.mapSettings.extent = extent;
               }
               close();
               dashBoard.visible = false;
