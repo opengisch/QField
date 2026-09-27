@@ -1,0 +1,74 @@
+From 50da0c20e5e0e9ff66839888d169864ed7e538b3 Mon Sep 17 00:00:00 2001
+From: Oliver Wolff <oliver.wolff@qt.io>
+Date: Tue, 19 May 2026 13:17:38 +0200
+Subject: [PATCH] Fix cpp/winrt detection and module builds for Visual Studio
+ 2026
+
+With later versions Visual Studio 2026 warns on include of winrt/base
+due to experimental coroutine support. The non experimental version can
+be enforced by using the /await:strict compiler flag. This flag also
+disables some language extensions but this should not concern us.
+
+While in theory the resulting binaries are binary incompatible
+with versions compiled without the flag, this should not be an
+issue for Qt itself, since we do not expose coroutines in our
+public API. We do not even use them in the private implementation.
+
+Fixes: QTBUG-146845
+Pick-to: 6.12 6.11
+Change-Id: Icb661b71eb0f46268392d85074fc1fcebd45ac87
+Reviewed-by: Ivan Solovev <ivan.solovev@qt.io>
+Reviewed-by: Alexandru Croitor <alexandru.croitor@qt.io>
+---
+ cmake/QtInternalTargets.cmake    | 5 +++++
+ mkspecs/common/msvc-version.conf | 1 +
+ src/corelib/configure.cmake      | 6 ++++++
+ 3 files changed, 12 insertions(+)
+
+diff --git a/cmake/QtInternalTargets.cmake b/cmake/QtInternalTargets.cmake
+index 5e179d3f59c3..43a56364f675 100644
+--- a/cmake/QtInternalTargets.cmake
++++ b/cmake/QtInternalTargets.cmake
+@@ -328,6 +328,11 @@ if (MSVC AND NOT CLANG)
+             #-Zc:preprocessor # breaks build due to bug in default Windows SDK 10.0.19041
+         )
+     endif()
++    if (MSVC_VERSION GREATER_EQUAL 1950) # MSVC 2026 / VS 18.0
++        target_compile_options(PlatformCommonInternal INTERFACE
++            "${is_not_clang_cl_start}-await:strict${is_not_clang_cl_end}"
++        )
++    endif()
+ 
+     target_compile_options(PlatformCommonInternal INTERFACE
+         -Zc:wchar_t
+diff --git a/mkspecs/common/msvc-version.conf b/mkspecs/common/msvc-version.conf
+index 8270f02e890e..4ce8ac50ba58 100644
+--- a/mkspecs/common/msvc-version.conf
++++ b/mkspecs/common/msvc-version.conf
+@@ -151,6 +151,7 @@ greaterThan(QMAKE_MSC_VER, 1949) {
+     # Visual Studio 2026 (18.0) / Visual C++ 19.50 and up
+     MSVC_VER            = 18.0
+     MSVC_TOOLSET_VER    = 145
++    QMAKE_CXXFLAGS     += /await:strict
+ }
+ 
+ !isEmpty(COMPAT_MKSPEC):!$$COMPAT_MKSPEC: CONFIG += $$COMPAT_MKSPEC
+diff --git a/src/corelib/configure.cmake b/src/corelib/configure.cmake
+index ddbf5a64c234..afbcc69ed09e 100644
+--- a/src/corelib/configure.cmake
++++ b/src/corelib/configure.cmake
+@@ -662,8 +662,14 @@ int main(void)
+ )
+ 
+ # cpp_winrt
++set(_cpp_winrt_compile_options "")
++if(MSVC AND MSVC_VERSION GREATER_EQUAL 1950)
++    list(APPEND _cpp_winrt_compile_options /await:strict)
++endif()
+ qt_config_compile_test(cpp_winrt
+     LABEL "cpp/winrt"
++    COMPILE_OPTIONS
++        ${_cpp_winrt_compile_options}
+     LIBRARIES
+         runtimeobject
+     CODE
