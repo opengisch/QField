@@ -1,0 +1,112 @@
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.qgis
+import org.qfield.core
+import org.qfield.gui
+
+/**
+ * \ingroup qml_gui
+ */
+QfPopup {
+  id: popup
+
+  property QfMarkupCollection markupCollection
+
+  parent: mainWindow.contentItem
+  width: Math.min(childrenRect.width, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  x: (mainWindow.width - width) / 2
+  y: (mainWindow.height - height) / 2
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+  focus: visible
+
+  Page {
+    id: popupContent
+    width: parent.width
+    height: parent.height
+    padding: 0
+    header: RowLayout {
+      id: headerLayout
+      spacing: 2
+      Label {
+        id: titleLabel
+        Layout.fillWidth: true
+        topPadding: 10
+        bottomPadding: 10
+        text: markupCollection ? markupCollection.name : ''
+        font: QfTheme.strongFont
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.WrapAnywhere
+      }
+    }
+
+    ScrollView {
+      anchors.fill: parent
+      padding: 5
+      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+      ScrollBar.vertical: QfScrollBar {}
+      contentWidth: popupLayout.childrenRect.width
+      contentHeight: popupLayout.childrenRect.height
+      clip: true
+
+      ColumnLayout {
+        id: popupLayout
+        width: popupContent.width - 10
+        spacing: 4
+
+        CheckBox {
+          id: itemVisibleCheckBox
+
+          property bool isVisible: markupCollection ? markupManager.hiddenCollectionUuids.indexOf(markupCollection.uuid) === -1 : false
+
+          Layout.fillWidth: true
+          topPadding: 5
+          bottomPadding: 5
+          text: qsTr('Show on map')
+          font: QfTheme.defaultFont
+          indicator.height: 16
+          indicator.width: 16
+          indicator.implicitHeight: 24
+          indicator.implicitWidth: 24
+          checked: isVisible
+
+          onClicked: {
+            if (markupCollection) {
+              let hiddenCollectionUuids = markupManager.hiddenCollectionUuids;
+              const idx = hiddenCollectionUuids.indexOf(markupCollection.uuid);
+              if (idx === -1) {
+                hiddenCollectionUuids.push(markupCollection.uuid);
+              } else {
+                hiddenCollectionUuids.splice(idx, 1);
+              }
+              markupManager.hiddenCollectionUuids = hiddenCollectionUuids;
+              projectInfo.saveVisibleMarkupCollections();
+            }
+          }
+        }
+
+        QfButton {
+          id: showFeaturesList
+
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          text: qsTr('Show features list')
+          icon.source: QfTheme.getThemeVectorIcon('ic_list_black_24dp')
+
+          onClicked: {
+            if (markupCollection) {
+              if (markupCollection.items.length === 0) {
+                displayToast(qsTr("The collection has no features"));
+              } else {
+                featureListForm.model.setFeatures(markupCollection);
+              }
+              close();
+              dashBoard.visible = false;
+            }
+          }
+        }
+      }
+    }
+  }
+}

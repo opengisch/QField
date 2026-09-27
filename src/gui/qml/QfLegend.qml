@@ -24,11 +24,6 @@ ListView {
   clip: true
   spacing: 0
 
-  function openProperties(index) {
-    itemProperties.index = legend.model.index(index, 0);
-    itemProperties.open();
-  }
-
   delegate: Rectangle {
     id: rectangle
     property int itemPadding: 30 * TreeLevel
@@ -400,5 +395,10 @@ ListView {
   QfLegendItemProperties {
     id: itemProperties
     layerTree: legend.model
+  }
+
+  function openProperties(index) {
+    itemProperties.index = legend.model.index(index, 0);
+    itemProperties.open();
   }
 }

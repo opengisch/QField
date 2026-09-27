@@ -47,6 +47,13 @@ ListView {
           markupLegend.activeCollection = collection;
         }
       }
+      onDoubleClicked: {
+        openProperties(collection);
+      }
+
+      onPressAndHold: {
+        openProperties(collection);
+      }
     }
 
     Ripple {
@@ -136,5 +143,14 @@ ListView {
         }
       }
     }
+  }
+
+  QfMarkupLegendItemProperties {
+    id: itemProperties
+  }
+
+  function openProperties(collection) {
+    itemProperties.markupCollection = collection;
+    itemProperties.open();
   }
 }

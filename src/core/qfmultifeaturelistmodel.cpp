@@ -41,6 +41,18 @@ void QfMultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeatu
   mSourceModel->setFeatures( requests );
 }
 
+void QfMultiFeatureListModel::setFeatures( QfMarkupCollection *markupCollection )
+{
+  if ( !markupCollection )
+  {
+    return;
+  }
+
+  QgsFeatureRequest request;
+  QMap<QgsVectorLayer *, QgsFeatureRequest> requests( { { markupCollection->asVectorLayer(), request } } );
+  mSourceModel->setFeatures( requests );
+}
+
 void QfMultiFeatureListModel::setFeatures( QgsVectorLayer *vl, const QString &filter, const QgsRectangle &extent )
 {
   QgsFeatureRequest request;
