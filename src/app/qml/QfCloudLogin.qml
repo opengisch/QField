@@ -300,7 +300,19 @@ Item {
       color: QfTheme.cloudColor
       borderColor: QfTheme.cloudColor
 
-      onClicked: qfieldCloudLogin.isRegistrationVisible = true
+      onClicked: {
+        if (QfCloudUtils.isHostedServer(cloudConnection.url)) {
+          qfieldCloudLogin.isRegistrationVisible = true;
+          return;
+        }
+        if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
+          browserPopup.url = cloudConnection.serverInformation.signupUrl;
+          browserPopup.fullscreen = true;
+          browserPopup.open();
+        } else {
+          Qt.openUrlExternally(cloudConnection.serverInformation.signupUrl);
+        }
+      }
     }
 
     Text {

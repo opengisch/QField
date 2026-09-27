@@ -128,6 +128,25 @@ TEST_CASE( "QFieldCloudUtils::checkCloudifyFeasibility" )
 }
 
 
+TEST_CASE( "QFieldCloudUtils::isHostedServer" )
+{
+  SECTION( "Servers on the qfield.cloud domain" )
+  {
+    REQUIRE( QfCloudUtils::isHostedServer( QStringLiteral( "https://app.qfield.cloud" ) ) );
+    REQUIRE( QfCloudUtils::isHostedServer( QStringLiteral( "https://app.qfield.cloud/" ) ) );
+    REQUIRE( QfCloudUtils::isHostedServer( QStringLiteral( "https://QFIELD.CLOUD" ) ) );
+  }
+
+  SECTION( "Servers running elsewhere" )
+  {
+    REQUIRE_FALSE( QfCloudUtils::isHostedServer( QStringLiteral( "https://cloud.example.com" ) ) );
+    REQUIRE_FALSE( QfCloudUtils::isHostedServer( QStringLiteral( "https://qfield.cloud.example.com" ) ) );
+    REQUIRE_FALSE( QfCloudUtils::isHostedServer( QStringLiteral( "https://notqfield.cloud" ) ) );
+    REQUIRE_FALSE( QfCloudUtils::isHostedServer( QString() ) );
+  }
+}
+
+
 TEST_CASE( "QfCloudConnection::signupFormErrors" )
 {
   SECTION( "Errors are keyed by field name" )
