@@ -325,6 +325,9 @@ class QfCloudConnection : public QObject
     //! Returns the CSRF token the server handed out for this connection, empty when there is none.
     QByteArray csrfToken() const;
 
+    //! Returns the message to show for \a reply, spelling out a rate limit instead of the page the server answers with.
+    static QString formErrorString( QNetworkReply *reply );
+
     void saveCookies();
     void restoreCookies();
 
