@@ -742,6 +742,11 @@ Drawer {
       }
     }
 
+    onAboutToShow: {
+      newMarkupCollectionName.text = "";
+      newMarkupCollectionName.forceActiveFocus();
+    }
+
     onAccepted: {
       const collectionUuid = markupManager.createCollection(newMarkupCollectionName.text);
       if (collectionUuid !== "") {

@@ -122,7 +122,7 @@ QgsRectangle QfMarkupCollection::extent() const
       continue;
     }
 
-    if ( rect.isEmpty() )
+    if ( rect.isNull() )
     {
       rect = item.geometry().boundingBox();
     }

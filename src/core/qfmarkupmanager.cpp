@@ -92,7 +92,7 @@ void QfMarkupManager::shareCollection( QfMarkupCollection *collection )
   QString collectionPath = mCollectionPaths.value( collection->uuid() );
   if ( collectionPath.isEmpty() )
   {
-    collectionPath = QStringLiteral( "%1/markup-%2.geojson" ).arg( QStandardPaths::writableLocation( QStandardPaths::TempLocation ), QString(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+    collectionPath = QStringLiteral( "%1/markup-%2.geojson" ).arg( QStandardPaths::writableLocation( QStandardPaths::TempLocation ), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
     collection->writeGeoJson( collectionPath );
   }
 
