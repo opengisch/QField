@@ -153,3 +153,57 @@ TEST_CASE( "QfCloudProject fromLocalSettings project type migration" )
     delete project;
   }
 }
+
+TEST_CASE( "QfCloudProject user teams" )
+{
+  SECTION( "Teams are parsed from details when present" )
+  {
+    QVariantHash details = makeDetails( QStringLiteral( "teams-present" ), QStringLiteral( "regular" ) );
+    details.insert( QStringLiteral( "teams" ), QStringList() << QStringLiteral( "test_team_a" ) << QStringLiteral( "test_team_b" ) );
+
+    QfCloudProject *project = QfCloudProject::fromDetails( details, nullptr );
+    REQUIRE( project->userTeams() == ( QStringList() << QStringLiteral( "test_team_a" ) << QStringLiteral( "test_team_b" ) ) );
+    delete project;
+  }
+
+  SECTION( "Missing teams key leaves user teams empty" )
+  {
+    // The /projects/ list endpoint does not attach teams; a missing key must not
+    // populate anything (and, on refresh, must not wipe established teams).
+    QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "teams-absent" ), QStringLiteral( "regular" ) ), nullptr );
+    REQUIRE( project->userTeams().isEmpty() );
+    delete project;
+  }
+
+  SECTION( "setUserTeams updates the value" )
+  {
+    QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "teams-set" ), QStringLiteral( "regular" ) ), nullptr );
+    REQUIRE( project->userTeams().isEmpty() );
+    project->setUserTeams( QStringList() << QStringLiteral( "managers" ) );
+    REQUIRE( project->userTeams() == ( QStringList() << QStringLiteral( "managers" ) ) );
+    delete project;
+  }
+
+  SECTION( "Teams round-trip through local settings" )
+  {
+    const QString id = QStringLiteral( "teams-local-roundtrip" );
+    QfCloudUtils::setProjectSetting( id, QStringLiteral( "name" ), QStringLiteral( "test-project" ) );
+    QfCloudUtils::setProjectSetting( id, QStringLiteral( "userTeams" ), QStringList() << QStringLiteral( "surveyors" ) << QStringLiteral( "managers" ) );
+
+    QfCloudProject *project = QfCloudProject::fromLocalSettings( id, nullptr );
+    REQUIRE( project != nullptr );
+    REQUIRE( project->userTeams() == ( QStringList() << QStringLiteral( "surveyors" ) << QStringLiteral( "managers" ) ) );
+    delete project;
+  }
+
+  SECTION( "Missing local teams setting leaves user teams empty" )
+  {
+    const QString id = QStringLiteral( "teams-local-none" );
+    QfCloudUtils::setProjectSetting( id, QStringLiteral( "name" ), QStringLiteral( "test-project" ) );
+
+    QfCloudProject *project = QfCloudProject::fromLocalSettings( id, nullptr );
+    REQUIRE( project != nullptr );
+    REQUIRE( project->userTeams().isEmpty() );
+    delete project;
+  }
+}

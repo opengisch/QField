@@ -400,7 +400,6 @@ void QfProjectInfo::setCloudUserInformation( const QfCloudUserInformation &cloud
   // Inject variables into the global scope until we have a better solution upstream
   QgsExpressionContextUtils::setGlobalVariable( "cloud_username", cloudUserInformation.username );
   QgsExpressionContextUtils::setGlobalVariable( "cloud_useremail", cloudUserInformation.email );
-  QgsExpressionContextUtils::setGlobalVariable( "cloud_teams", cloudUserInformation.teams );
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/%1/cloudUserInfo" ).arg( mFilePath ) );
   mSettings.setValue( QStringLiteral( "json" ), cloudUserInformation.toJson() );
@@ -780,10 +779,8 @@ void QfProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *proje
 
   // Inject variables into the global scope until we have a better solution upstream
   QJsonObject cloudUserInformationObject = QSettings().value( QStringLiteral( "/qgis/projectInfo/%1/cloudUserInfo/json" ).arg( projectFilePath ), QStringLiteral( "{}" ) ).toJsonValue().toObject();
-  const QfCloudUserInformation cloudUserInformation( cloudUserInformationObject );
-  QgsExpressionContextUtils::setGlobalVariable( "cloud_username", cloudUserInformation.username );
-  QgsExpressionContextUtils::setGlobalVariable( "cloud_useremail", cloudUserInformation.email );
-  QgsExpressionContextUtils::setGlobalVariable( "cloud_teams", cloudUserInformation.teams );
+  QgsExpressionContextUtils::setGlobalVariable( "cloud_username", cloudUserInformationObject.value( "username" ).toString() );
+  QgsExpressionContextUtils::setGlobalVariable( "cloud_useremail", cloudUserInformationObject.value( "email" ).toString() );
 }
 
 QVariantMap QfProjectInfo::getTitleDecorationConfiguration()

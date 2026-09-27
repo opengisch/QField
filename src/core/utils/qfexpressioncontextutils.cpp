@@ -101,7 +101,6 @@ QgsExpressionContextScope *QfExpressionContextUtils::cloudUserScope( const QfClo
 
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "cloud_username" ), cloudUserInformation.username, true, true ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "cloud_useremail" ), cloudUserInformation.email, true, true ) );
-  scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "cloud_teams" ), cloudUserInformation.teams, true, true ) );
   return scope;
 }
 

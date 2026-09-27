@@ -131,13 +131,11 @@ void QfCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId 
   mCurrentProjectId = currentProjectId;
   mCurrentProject = findProject( mCurrentProjectId );
 
+  updateCloudUserTeamsVariable();
+
   if ( mCurrentProject )
   {
-    QgsExpressionContextUtils::setGlobalVariable( QStringLiteral( "cloud_teams" ), mCurrentProject->teams() );
-  }
-  else
-  {
-    QgsExpressionContextUtils::removeGlobalVariable( QStringLiteral( "cloud_teams" ) );
+    mCurrentProject->refreshData( QfCloudProject::ProjectRefreshReason::Opened );
   }
 
   if ( mLayerObserver )
@@ -152,6 +150,18 @@ void QfCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId 
 QfCloudProject *QfCloudProjectsModel::currentProject() const
 {
   return mCurrentProject.data();
+}
+
+void QfCloudProjectsModel::updateCloudUserTeamsVariable()
+{
+  if ( mCurrentProject )
+  {
+    QgsExpressionContextUtils::setGlobalVariable( QStringLiteral( "cloud_teams" ), mCurrentProject->userTeams() );
+  }
+  else
+  {
+    QgsExpressionContextUtils::removeGlobalVariable( QStringLiteral( "cloud_teams" ) );
+  }
 }
 
 QSet<QString> QfCloudProjectsModel::busyProjectIds() const
@@ -764,6 +774,14 @@ void QfCloudProjectsModel::setupProjectConnections( QfCloudProject *project )
     const QfCloudProject *p = static_cast<QfCloudProject *>( sender() );
     const QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx );
+  } );
+
+  connect( project, &QfCloudProject::userTeamsChanged, this, [this] {
+    const QfCloudProject *p = static_cast<QfCloudProject *>( sender() );
+    if ( mCurrentProject && p == mCurrentProject )
+    {
+      updateCloudUserTeamsVariable();
+    }
   } );
 
   connect( project, &QfCloudProject::jobFinished, this, [this]( QfCloudProject::JobType type, const QString &error ) {
