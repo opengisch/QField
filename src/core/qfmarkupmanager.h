@@ -92,6 +92,11 @@ class QfMarkupManager : public QObject
     bool hasItems() const;
 
     /**
+     * Shares the markup \a collection via available platform capabilities.
+     */
+    Q_INVOKABLE void shareCollection( QfMarkupCollection *collection );
+
+    /**
      * Resets the markup manager's list of collections by loading compatible GeoJSON
      * files present in the provided \a path. If a \a prefix is provided, the markup manager
      * will only load GeoJSON files beginning by the prefix.

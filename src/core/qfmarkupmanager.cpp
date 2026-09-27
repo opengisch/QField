@@ -14,12 +14,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qffileutils.h"
 #include "qfmarkupmanager.h"
+#include "qfplatformutilities.h"
 
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QStandardPaths>
 
 
 QfMarkupManager::QfMarkupManager( QObject *parent )
@@ -79,6 +80,23 @@ QList<QfMarkupCollection *> QfMarkupManager::visibleCollections() const
 bool QfMarkupManager::hasItems() const
 {
   return std::any_of( mCollections.begin(), mCollections.end(), []( const QfMarkupCollection *collection ) { return collection->count() > 0; } );
+}
+
+void QfMarkupManager::shareCollection( QfMarkupCollection *collection )
+{
+  if ( !collection )
+  {
+    return;
+  }
+
+  QString collectionPath = mCollectionPaths.value( collection->uuid() );
+  if ( collectionPath.isEmpty() )
+  {
+    collectionPath = QStringLiteral( "%1/markup-%2.geojson" ).arg( QStandardPaths::writableLocation( QStandardPaths::TempLocation ), QString(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+    collection->writeGeoJson( collectionPath );
+  }
+
+  QfPlatformUtilities::instance()->sendDatasetTo( collectionPath );
 }
 
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
