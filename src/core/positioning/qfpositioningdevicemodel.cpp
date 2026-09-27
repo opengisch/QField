@@ -25,6 +25,9 @@
 #ifdef WITH_BLUETOOTH
 #include "qfbluetoothlowenergyreceiver.h"
 #endif
+#if defined( Q_OS_IOS )
+#include "qfexternalaccessoryreceiver.h"
+#endif
 
 #include <QSettings>
 
@@ -193,6 +196,11 @@ const QString QfPositioningDeviceModel::deviceId( const Device &device ) const
 
     case EgenioussDevice:
       return QStringLiteral( "%1:%2:%3" ).arg( QfEgenioussReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
+
+#if defined( Q_OS_IOS )
+    case ExternalAccessoryDevice:
+      return QStringLiteral( "%1:" ).arg( QfExternalAccessoryReceiver::identifier );
+#endif
   }
 
   return QString();

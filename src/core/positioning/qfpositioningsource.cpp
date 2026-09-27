@@ -30,6 +30,9 @@
 #include "qfpositioningutils.h"
 #include "qftcpreceiver.h"
 #include "qfudpreceiver.h"
+#if defined( Q_OS_IOS )
+#include "qfexternalaccessoryreceiver.h"
+#endif
 
 #include <QDateTime>
 #include <QStandardPaths>
@@ -320,6 +323,12 @@ void QfPositioningSource::setupDevice()
       const qsizetype prefixLength = QfSerialPortReceiver::identifier.length() + 1;
       const QString address = mDeviceId.mid( prefixLength );
       mReceiver = std::make_unique<QfSerialPortReceiver>( address, this );
+    }
+#endif
+#if defined( Q_OS_IOS )
+    else if ( mDeviceId.startsWith( QfExternalAccessoryReceiver::identifier + ":" ) )
+    {
+      mReceiver = std::make_unique<QfExternalAccessoryReceiver>( this );
     }
 #endif
 #ifdef WITH_BLUETOOTH
