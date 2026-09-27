@@ -48,13 +48,57 @@ QfDeltaFileWrapper *QfLayerObserver::deltaFileWrapper() const
 
 void QfLayerObserver::setDeltaFileWrapper( QfDeltaFileWrapper *wrapper )
 {
-  if ( mDeltaFileWrapper == wrapper )
+  if ( mDeltaFileWrapper == wrapper && wrapper )
   {
     return;
   }
 
   mDeltaFileWrapper = wrapper;
+
+  if ( mDeltaFileWrapper )
+  {
+    mUnrecordedLayerIds.clear();
+  }
+
   emit deltaFileWrapperChanged();
+}
+
+
+void QfLayerObserver::onAfterCommitChanges()
+{
+  if ( !mDeltaFileWrapper || !mDeltaFileWrapper->isDirty() )
+  {
+    return;
+  }
+
+  if ( !mDeltaFileWrapper->toFile() )
+  {
+    QgsMessageLog::logMessage( tr( "Failed to write the QFieldCloud delta file: %1" ).arg( mDeltaFileWrapper->errorString() ), QStringLiteral( "QFieldCloud" ), Qgis::Critical );
+  }
+}
+
+
+bool QfLayerObserver::canRecordDeltas( const QString &localLayerId )
+{
+  if ( mDeltaFileWrapper )
+  {
+    return true;
+  }
+
+  if ( !mUnrecordedLayerIds.contains( localLayerId ) )
+  {
+    mUnrecordedLayerIds.insert( localLayerId );
+
+    const QgsMapLayer *layer = mProject->mapLayer( localLayerId );
+    const QString layerName = layer ? layer->name() : localLayerId;
+
+    QgsMessageLog::logMessage( tr( "Changes committed on layer \"%1\" were not recorded for QFieldCloud: this project has no delta file attached. They are saved on this device only." ).arg( layerName ), QStringLiteral( "QFieldCloud" ), Qgis::Critical );
+
+    QMetaObject::invokeMethod(
+      this, [this, layerName]() { emit changesNotRecorded( layerName ); }, Qt::QueuedConnection );
+  }
+
+  return false;
 }
 
 
@@ -125,7 +169,7 @@ void QfLayerObserver::onBeforeCommitChanges()
 
 void QfLayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures )
 {
-  if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
+  if ( !canRecordDeltas( localLayerId ) || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
     return;
   }
@@ -144,7 +188,7 @@ void QfLayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, con
 
 void QfLayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, const QgsFeatureIds &deletedFeatureIds )
 {
-  if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
+  if ( !canRecordDeltas( localLayerId ) || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
     return;
   }
@@ -170,7 +214,7 @@ void QfLayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, c
 
 void QfLayerObserver::onCommittedAttributeValuesChanges( const QString &localLayerId, const QgsChangedAttributesMap &changedAttributesValues )
 {
-  if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
+  if ( !canRecordDeltas( localLayerId ) || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
     return;
   }
@@ -211,7 +255,7 @@ void QfLayerObserver::onCommittedAttributeValuesChanges( const QString &localLay
 
 void QfLayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, const QgsGeometryMap &changedGeometries )
 {
-  if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
+  if ( !canRecordDeltas( localLayerId ) || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
     return;
   }
@@ -263,7 +307,7 @@ void QfLayerObserver::onEditingStopped()
   mPatchedFids.take( layerId );
   mChangedFeatures.take( layerId );
 
-  if ( !mDeltaFileWrapper->toFile() )
+  if ( mDeltaFileWrapper->isDirty() && !mDeltaFileWrapper->toFile() )
   {
     // TODO somehow indicate the user that writing failed
     QgsMessageLog::logMessage( QStringLiteral( "Failed writing JSON file" ) );
@@ -321,7 +365,7 @@ void QfLayerObserver::addLayerListeners()
         disconnect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &QfLayerObserver::onCommittedFeaturesRemoved );
         disconnect( vl, &QgsVectorLayer::committedAttributeValuesChanges, this, &QfLayerObserver::onCommittedAttributeValuesChanges );
         disconnect( vl, &QgsVectorLayer::committedGeometriesChanges, this, &QfLayerObserver::onCommittedGeometriesChanges );
-        // TODO use the future "afterCommitChanges" signal
+        disconnect( vl, &QgsVectorLayer::afterCommitChanges, this, &QfLayerObserver::onAfterCommitChanges );
         disconnect( vl, &QgsVectorLayer::editingStopped, this, &QfLayerObserver::onEditingStopped );
 
         // for `cloud` projects, we keep track of any change that has occurred
@@ -330,7 +374,7 @@ void QfLayerObserver::addLayerListeners()
         connect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &QfLayerObserver::onCommittedFeaturesRemoved );
         connect( vl, &QgsVectorLayer::committedAttributeValuesChanges, this, &QfLayerObserver::onCommittedAttributeValuesChanges );
         connect( vl, &QgsVectorLayer::committedGeometriesChanges, this, &QfLayerObserver::onCommittedGeometriesChanges );
-        // TODO use the future "afterCommitChanges" signal
+        connect( vl, &QgsVectorLayer::afterCommitChanges, this, &QfLayerObserver::onAfterCommitChanges );
         connect( vl, &QgsVectorLayer::editingStopped, this, &QfLayerObserver::onEditingStopped );
 
         mObservedLayerIds.insert( vl->id() );

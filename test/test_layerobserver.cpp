@@ -164,6 +164,22 @@ TEST_CASE( "LayerObserver" )
   }
 
 
+  SECTION( "WritesAfterCommitWhileStillEditing" )
+  {
+    QgsFeature f1( mLayer->fields() );
+    f1.setAttribute( QStringLiteral( "fid" ), 1004 );
+    f1.setAttribute( QStringLiteral( "str" ), "new_string" );
+    f1.setGeometry( QgsGeometry( new QgsPoint( 25.9657, 43.8356 ) ) );
+
+    REQUIRE( mLayer->startEditing() );
+    REQUIRE( mLayer->addFeature( f1 ) );
+    REQUIRE( mLayer->commitChanges( false ) );
+    REQUIRE( mLayer->isEditable() );
+    REQUIRE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ) == QStringList( { "create" } ) );
+    REQUIRE( mLayer->commitChanges() );
+  }
+
+
   SECTION( "ObservesAdded" )
   {
     QgsFeature f1( mLayer->fields() );

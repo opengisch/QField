@@ -386,6 +386,7 @@ class QfCloudProject : public QObject
 
     void ensureProjectCreated();
     void cancelPush();
+    void writePendingDeltas();
 
     void refreshDeltaList();
     void refreshModification();
