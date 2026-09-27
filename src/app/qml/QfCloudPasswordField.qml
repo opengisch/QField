@@ -57,7 +57,7 @@ ColumnLayout {
 
   Text {
     Layout.fillWidth: true
-    text: qsTr("At least 8 characters")
+    text: qsTr("Requires at least 8 characters")
     font: QfTheme.tipFont
     color: cloudPasswordField.hasMinimumLength ? QfTheme.goodColor : QfTheme.secondaryTextColor
     wrapMode: Text.WordWrap
@@ -65,7 +65,7 @@ ColumnLayout {
 
   Text {
     Layout.fillWidth: true
-    text: qsTr("Not similar to your username")
+    text: qsTr("Must not be similar to your username")
     font: QfTheme.tipFont
     color: cloudPasswordField.isDistinctFromUsername ? QfTheme.goodColor : QfTheme.secondaryTextColor
     wrapMode: Text.WordWrap
@@ -73,7 +73,7 @@ ColumnLayout {
 
   Text {
     Layout.fillWidth: true
-    text: qsTr("Not entirely numeric")
+    text: qsTr("Must not be entirely numeric")
     font: QfTheme.tipFont
     color: cloudPasswordField.isNotEntirelyNumeric ? QfTheme.goodColor : QfTheme.secondaryTextColor
     wrapMode: Text.WordWrap
