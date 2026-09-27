@@ -99,6 +99,25 @@ void QfMarkupManager::shareCollection( QfMarkupCollection *collection )
   QfPlatformUtilities::instance()->sendDatasetTo( collectionPath );
 }
 
+QString QfMarkupManager::createCollection( const QString &title )
+{
+  if ( mPath.isEmpty() )
+  {
+    return QString();
+  }
+
+  QString collectionTitle = title.trimmed();
+  QfMarkupCollection *blankCollection = new QfMarkupCollection( collectionTitle.isEmpty() ? tr( "Untitled collection" ) : collectionTitle );
+  insertCollection( blankCollection );
+
+  emit collectionsAdded( QStringList() << blankCollection->uuid() );
+
+  emit collectionsChanged();
+  emit visibleCollectionsChanged();
+
+  return blankCollection->uuid();
+}
+
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
 {
   emit collectionsWillBeRemoved( mCollections.keys() );
