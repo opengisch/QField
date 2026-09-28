@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "qf3dmaptexturedata.h"
+#include "qfmarkupcollection.h"
 #include "qgsquick/qgsquickmapsettings.h"
 
 #include <QPainter>
@@ -87,6 +88,33 @@ void Qf3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
   }
 
   emit mapSettingsChanged();
+}
+
+QfMarkupManager *Qf3DMapTextureData::markupManager() const
+{
+  return mMarkupManager;
+}
+
+void Qf3DMapTextureData::setMarkupManager( QfMarkupManager *markupManager )
+{
+  if ( mMarkupManager == markupManager )
+  {
+    return;
+  }
+
+  if ( mMarkupManager )
+  {
+    disconnect( mMarkupManager, &QfMarkupManager::visibleCollectionsChanged, this, &Qf3DMapTextureData::render );
+  }
+
+  mMarkupManager = markupManager;
+
+  if ( mMarkupManager )
+  {
+    connect( mMarkupManager, &QfMarkupManager::visibleCollectionsChanged, this, &Qf3DMapTextureData::render );
+  }
+
+  emit markupManagerChanged();
 }
 
 QgsRectangle Qf3DMapTextureData::extent() const
@@ -219,6 +247,8 @@ void Qf3DMapTextureData::render()
   expressionContext << QgsExpressionContextUtils::globalScope()
                     << QgsExpressionContextUtils::mapSettingsScope( renderSettings );
 
+  QList<QgsMapLayer *> allLayers = renderSettings.layers();
+
   QgsProject *project = mMapSettings->project();
   if ( project )
   {
@@ -227,11 +257,22 @@ void Qf3DMapTextureData::render()
     renderSettings.setLabelingEngineSettings( project->labelingEngineSettings() );
 
     // render main annotation layer above all other layers
-    QList<QgsMapLayer *> allLayers = renderSettings.layers();
     allLayers.insert( 0, project->mainAnnotationLayer() );
-    renderSettings.setLayers( allLayers );
   }
 
+  if ( mMarkupManager )
+  {
+    // render markup collections above all other layers
+    for ( QfMarkupCollection *collection : mMarkupManager->visibleCollections() )
+    {
+      if ( collection->count() > 0 )
+      {
+        allLayers.insert( 0, collection->asAnnotationLayer() );
+      }
+    }
+  }
+
+  renderSettings.setLayers( allLayers );
   renderSettings.setExpressionContext( expressionContext );
 
   mRenderJob.reset( new QgsMapRendererParallelJob( renderSettings ) );
