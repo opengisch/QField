@@ -15,7 +15,7 @@ QfPopup {
 
   parent: mainWindow.contentItem
   width: Math.min(childrenRect.width, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 40, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -32,8 +32,7 @@ QfPopup {
       Label {
         id: titleLabel
         Layout.fillWidth: true
-        topPadding: 10
-        bottomPadding: 10
+        Layout.margins: 10
         text: markupCollection ? markupCollection.name : ''
         font: QfTheme.strongFont
         horizontalAlignment: Text.AlignHCenter
