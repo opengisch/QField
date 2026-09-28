@@ -131,7 +131,6 @@ Rectangle {
 
         delegate: ItemDelegate {
           width: digitizingLayerComboBox.width
-          height: 36
           icon.source: {
             switch (LayerType) {
             case QfDigitizingLayerModel.MapLayer:
@@ -163,7 +162,6 @@ Rectangle {
 
         contentItem: MenuItem {
           width: digitizingLayerComboBox.width
-          height: 36
 
           icon.source: {
             const digitizingLayerDetails = digitizingLayerModel.get(digitizingLayerComboBox.currentIndex);
