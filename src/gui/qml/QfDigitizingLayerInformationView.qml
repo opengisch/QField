@@ -69,10 +69,12 @@ Rectangle {
         popup: Popup {
           id: digitizingLayerPopup
           width: digitizingLayerComboBox.width
-          implicitHeight: contentItem.implicitHeight + 2
+          height: Math.min(contentItem.implicitHeight + verticalPadding * 2, mainWindow.height - topMargin - bottomMargin)
           topMargin: mainWindow.sceneTopMargin
           bottomMargin: mainWindow.sceneTopMargin
-          padding: 1
+          transformOrigin: Item.Top
+          horizontalPadding: 0
+          verticalPadding: 8
           font: QfTheme.tipFont
 
           onAboutToShow: {
@@ -156,7 +158,8 @@ Rectangle {
           icon.height: 16
           icon.color: QfTheme.mainTextColor
           text: Name
-          font: QfTheme.tipFont
+          font.pointSize: QfTheme.tipFont.pointSize
+          font.bold: LayerType === QfDigitizingLayerModel.MapLayer ? LayerPointer == activeDigitizingLayer : LayerPointer == activeDigitizingCollection
           highlighted: digitizingLayerComboBox.highlightedIndex === index
         }
 
