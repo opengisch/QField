@@ -111,6 +111,30 @@ void QfMarkupCollection::removeItem( const QString &uuid, bool resetVectorLayer 
   }
 }
 
+QgsRectangle QfMarkupCollection::extent() const
+{
+  QgsRectangle rect;
+
+  for ( const QfMarkupItem &item : std::as_const( mItems ) )
+  {
+    if ( item.geometry().isEmpty() )
+    {
+      continue;
+    }
+
+    if ( rect.isNull() )
+    {
+      rect = item.geometry().boundingBox();
+    }
+    else
+    {
+      rect.combineExtentWith( item.geometry().boundingBox() );
+    }
+  }
+
+  return rect;
+}
+
 bool QfMarkupCollection::readGeoJson( const QString &path )
 {
   QFileInfo fi( path );
@@ -390,7 +414,7 @@ QgsAnnotationLayer *QfMarkupCollection::asAnnotationLayer()
   mAnnotationLayer.reset( new QgsAnnotationLayer( mName, options ) );
   mAnnotationLayer->setCrs( QgsCoordinateReferenceSystem( "EPSG:4326" ) );
 
-  for ( const QfMarkupItem &item : mItems )
+  for ( const QfMarkupItem &item : std::as_const( mItems ) )
   {
     QgsSymbolLayerList symbolLayers;
     const QColor semiOpaqueColor = QColor( item.color().red(), item.color().green(), item.color().blue(), 100 );
@@ -474,7 +498,7 @@ QgsVectorLayer *QfMarkupCollection::asVectorLayer()
   mVectorLayer->setEditorWidgetSetup( 2, editorWidgetSetup );
   mVectorLayer->setFieldAlias( 2, tr( "Description" ) );
 
-  for ( const QfMarkupItem &item : mItems )
+  for ( const QfMarkupItem &item : std::as_const( mItems ) )
   {
     QgsFeature feature( mVectorLayer->fields() );
     feature.setAttribute( QStringLiteral( "label" ), item.label() );

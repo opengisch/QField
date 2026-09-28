@@ -80,6 +80,11 @@ class QfMultiFeatureListModel : public QSortFilterProxyModel
     Q_INVOKABLE void setFeatures( QgsVectorLayer *vl, const QString &filter, const QgsRectangle &extent = QgsRectangle() );
 
     /**
+     * Resets the model to contain the content of \a markupCollection.
+     */
+    Q_INVOKABLE void setFeatures( QfMarkupCollection *markupCollection );
+
+    /**
      * Appends features from a list of \a results.
      */
     void appendFeatures( const QList<QfIdentifyTool::IdentifyResult> &results );

@@ -54,12 +54,12 @@ class QfMarkupManager : public QObject
     /**
      * Returns the list UUID matching the \a collection.
      */
-    QString collectionUuid( QfMarkupCollection *collection ) const;
+    Q_INVOKABLE QString collectionUuid( QfMarkupCollection *collection ) const;
 
     /**
      * Returns the collection present in the markup manager matching the \a uuid.
      */
-    QfMarkupCollection *collection( const QString &uuid ) const;
+    Q_INVOKABLE QfMarkupCollection *collection( const QString &uuid ) const;
 
     /**
      * Returns the list of collections present in the markup manager.
@@ -90,6 +90,19 @@ class QfMarkupManager : public QObject
      * one or more items.
      */
     bool hasItems() const;
+
+    /**
+     * Creates a new markup collection.
+     * \returns The newly created markup collection UUID.
+     * \note The markup collection will be written into the current path when the first
+     * item is added into it.
+     */
+    Q_INVOKABLE QString createCollection( const QString &title );
+
+    /**
+     * Shares the markup \a collection via available platform capabilities.
+     */
+    Q_INVOKABLE void shareCollection( QfMarkupCollection *collection );
 
     /**
      * Resets the markup manager's list of collections by loading compatible GeoJSON
