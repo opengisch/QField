@@ -108,6 +108,7 @@ ListView {
         }
 
         Item {
+          id: collectionIcon
           anchors.verticalCenter: parent.verticalCenter
           height: 24
           width: 24
@@ -126,7 +127,7 @@ ListView {
 
         Text {
           id: markupCollectionName
-          width: rectangle.width - collectionVisibility.width - line.leftPadding - 5
+          width: rectangle.width - collectionVisibility.width - collectionIcon.width - line.leftPadding - 10
           padding: 3
           leftPadding: 0
           text: collectionName

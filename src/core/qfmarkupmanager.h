@@ -100,9 +100,9 @@ class QfMarkupManager : public QObject
     Q_INVOKABLE QString createCollection( const QString &title );
 
     /**
-     * Shares the markup \a collection via available platform capabilities.
+     * Exports the markup \a collection via available platform capabilities.
      */
-    Q_INVOKABLE void shareCollection( QfMarkupCollection *collection );
+    Q_INVOKABLE void exportCollection( QfMarkupCollection *collection );
 
     /**
      * Resets the markup manager's list of collections by loading compatible GeoJSON

@@ -82,7 +82,7 @@ bool QfMarkupManager::hasItems() const
   return std::any_of( mCollections.begin(), mCollections.end(), []( const QfMarkupCollection *collection ) { return collection->count() > 0; } );
 }
 
-void QfMarkupManager::shareCollection( QfMarkupCollection *collection )
+void QfMarkupManager::exportCollection( QfMarkupCollection *collection )
 {
   if ( !collection )
   {

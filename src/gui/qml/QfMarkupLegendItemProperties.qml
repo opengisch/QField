@@ -15,7 +15,7 @@ QfPopup {
 
   parent: mainWindow.contentItem
   width: Math.min(childrenRect.width, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 20, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 40, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -32,8 +32,7 @@ QfPopup {
       Label {
         id: titleLabel
         Layout.fillWidth: true
-        topPadding: 10
-        bottomPadding: 10
+        Layout.margins: 10
         text: markupCollection ? markupCollection.name : ''
         font: QfTheme.strongFont
         horizontalAlignment: Text.AlignHCenter
@@ -133,12 +132,12 @@ QfPopup {
         }
 
         QfButton {
-          id: shareFeaturesList
+          id: exportFeaturesList
 
           Layout.fillWidth: true
           Layout.topMargin: 5
-          text: qsTr('Share collection')
-          icon.source: QfTheme.getThemeVectorIcon('ic_share_black_24dp')
+          text: qsTr('Export collection')
+          icon.source: QfTheme.getThemeVectorIcon('ic_export_black_24dp')
 
           onClicked: {
             if (markupCollection) {
@@ -146,7 +145,7 @@ QfPopup {
                 displayToast(qsTr("The collection has no features"));
                 return;
               }
-              markupManager.shareCollection(markupCollection);
+              markupManager.exportCollection(markupCollection);
             }
           }
         }
