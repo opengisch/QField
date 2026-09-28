@@ -785,6 +785,7 @@ ApplicationWindow {
         item.objectName = 'mapCanvas3D';
         item.pluginContainer = mapCanvas3DPluginContainer;
         item.mapSettings = mapCanvas.mapSettings;
+        item.markups = markupManager;
         item.trackingModel = trackingModel;
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
         item.selectionColor = Qt.binding(() => QfTheme.mainColor);

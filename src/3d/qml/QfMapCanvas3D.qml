@@ -19,6 +19,8 @@ Item {
   visible: !isFirstLoad || !isLoading
 
   property alias mapSettings: mapTerrainProvider.mapSettings
+  property alias markups: mapTextureData.markups
+
   property alias terrainExtent: mapTerrainProvider.extent
   property alias terrainGeometry: terrainMesh.mapTerrainGeometry
 
