@@ -313,6 +313,8 @@ target_include_directories(
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   target_compile_options(qfield_core PRIVATE "-fobjc-arc")
+  find_library(MEDIAPLAYER_FRAMEWORK MediaPlayer REQUIRED)
+  target_link_libraries(qfield_core PRIVATE ${MEDIAPLAYER_FRAMEWORK})
 endif()
 
 # The public headers are installed flat into ${QFIELD_INCLUDE_SUBDIR}, so a

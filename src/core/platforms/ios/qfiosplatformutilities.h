@@ -1,11 +1,11 @@
 /***************************************************************************
-    qfiosplatformutilities.h  -  utilities for qfield
+  qfiosplatformutilities.h  -  utilities for qfield
 
-      -------------------
-    begin                : November 2020
-    copyright            : (C) 2020 by Denis Rouzaud
-    email                : denis@opengis.ch
- ***************************************************************************/
+  -------------------
+  begin                : November 2020
+  copyright            : (C) 2020 by Denis Rouzaud
+  email                : denis@opengis.ch
+***************************************************************************/
 
 /***************************************************************************
  *                                                                         *
@@ -22,6 +22,8 @@
 #include "qfplatformutilities.h"
 
 class QfResourceSource;
+
+Q_FORWARD_DECLARE_OBJC_CLASS( QFieldVolumeButtonObserver );
 
 class QfIosPlatformUtilities : public QfPlatformUtilities
 {
@@ -68,6 +70,11 @@ class QfIosPlatformUtilities : public QfPlatformUtilities
     void requestCameraPermission( std::function<void( Qt::PermissionStatus )> func ) override;
     virtual Qt::PermissionStatus checkMicrophonePermission() const override;
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func ) override;
+
+    void setHandleVolumeKeys( const bool handle ) override;
+
+  private:
+    QFieldVolumeButtonObserver *mVolumeButtonObserver = nullptr;
 };
 
 #endif
