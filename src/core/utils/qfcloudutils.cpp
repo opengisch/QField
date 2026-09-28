@@ -26,7 +26,6 @@
 #include <QStandardPaths>
 #include <QString>
 #include <QTimeZone>
-#include <QUrl>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
 
@@ -455,12 +454,6 @@ QString QfCloudUtils::subscriptionManagementUrl( const QString &serverUrl, const
 QString QfCloudUtils::deviceTimeZoneId()
 {
   return QString::fromUtf8( QTimeZone::systemTimeZoneId() );
-}
-
-bool QfCloudUtils::isHostedServer( const QString &serverUrl )
-{
-  const QString host = QUrl( serverUrl ).host();
-  return host.compare( QLatin1String( "qfield.cloud" ), Qt::CaseInsensitive ) == 0 || host.endsWith( QLatin1String( ".qfield.cloud" ), Qt::CaseInsensitive );
 }
 
 QList<QfCloudDelta> QfCloudUtils::parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid )

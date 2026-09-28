@@ -420,7 +420,7 @@ Item {
           accentColor: QfTheme.cloudColor
           iconSource: QfTheme.getThemeVectorIcon('ic_info_white_24dp')
           title: qsTr("Verify your email")
-          description: qsTr("Open the link we sent to %1 to confirm your address.").arg(emailField.text)
+          description: qsTr("Please open the confirmation link once you receive an email from us at %1.").arg(emailField.text)
         }
 
         QfButton {
