@@ -133,12 +133,12 @@ QfPopup {
         }
 
         QfButton {
-          id: shareFeaturesList
+          id: exportFeaturesList
 
           Layout.fillWidth: true
           Layout.topMargin: 5
-          text: qsTr('Share collection')
-          icon.source: QfTheme.getThemeVectorIcon('ic_share_black_24dp')
+          text: qsTr('Export collection')
+          icon.source: QfTheme.getThemeVectorIcon('ic_export_black_24dp')
 
           onClicked: {
             if (markupCollection) {
@@ -146,7 +146,7 @@ QfPopup {
                 displayToast(qsTr("The collection has no features"));
                 return;
               }
-              markupManager.shareCollection(markupCollection);
+              markupManager.exportCollection(markupCollection);
             }
           }
         }
