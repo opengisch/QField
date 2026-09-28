@@ -370,9 +370,6 @@ class QfCloudUtils : public QObject
     //! Returns the IANA identifier of the device time zone.
     Q_INVOKABLE static QString deviceTimeZoneId();
 
-    //! Returns whether \a serverUrl is one of the QFieldCloud servers we host, as opposed to one running on someone else's machine.
-    Q_INVOKABLE static bool isHostedServer( const QString &serverUrl );
-
 
     static QList<QfCloudDelta> parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid );
 
