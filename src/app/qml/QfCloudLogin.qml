@@ -301,7 +301,7 @@ Item {
       borderColor: QfTheme.cloudColor
 
       onClicked: {
-        if (QfCloudUtils.isHostedServer(cloudConnection.url)) {
+        if (cloudConnection.url.includes("qfield.cloud")) {
           qfieldCloudLogin.isRegistrationVisible = true;
           return;
         }
