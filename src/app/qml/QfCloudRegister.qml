@@ -18,11 +18,12 @@ Item {
   property string captchaImageUrl: ""
   property int minimumUsernameLength: 3
   property int maximumUsernameLength: 150
+  property var usernameExpression: /^[-a-zA-Z0-9_]+$/
 
   readonly property bool isEmailValid: /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailField.text)
   readonly property bool hasUsernameMinimumLength: usernameField.text.length >= qfieldCloudRegister.minimumUsernameLength
   readonly property bool isUsernameStartingWithLetter: /^[a-zA-Z]/.test(usernameField.text)
-  readonly property bool hasUsernameAllowedCharacters: /^[-a-zA-Z0-9_]+$/.test(usernameField.text)
+  readonly property bool hasUsernameAllowedCharacters: qfieldCloudRegister.usernameExpression.test(usernameField.text)
   readonly property bool isUsernameValid: hasUsernameMinimumLength && isUsernameStartingWithLetter && hasUsernameAllowedCharacters
   readonly property bool isPasswordRepeated: repeatPasswordField.text.length > 0 && repeatPasswordField.text === passwordField.password
 
@@ -110,7 +111,7 @@ Item {
           maximumLength: qfieldCloudRegister.maximumUsernameLength
 
           validator: RegularExpressionValidator {
-            regularExpression: /[-a-zA-Z0-9_]*/
+            regularExpression: qfieldCloudRegister.usernameExpression
           }
 
           Keys.onReturnPressed: {
