@@ -16,9 +16,11 @@ Item {
   property string registrationError: ""
   property string captchaKey: ""
   property string captchaImageUrl: ""
+  property int minimumUsernameLength: 3
+  property int maximumUsernameLength: 150
 
   readonly property bool isEmailValid: /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailField.text)
-  readonly property bool hasUsernameMinimumLength: usernameField.text.length >= 3
+  readonly property bool hasUsernameMinimumLength: usernameField.text.length >= qfieldCloudRegister.minimumUsernameLength
   readonly property bool isUsernameStartingWithLetter: /^[a-zA-Z]/.test(usernameField.text)
   readonly property bool hasUsernameAllowedCharacters: /^[-a-zA-Z0-9_]+$/.test(usernameField.text)
   readonly property bool isUsernameValid: hasUsernameMinimumLength && isUsernameStartingWithLetter && hasUsernameAllowedCharacters
@@ -105,7 +107,7 @@ Item {
           Layout.topMargin: 10
           inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
           placeholderText: qsTr("Username")
-          maximumLength: 150
+          maximumLength: qfieldCloudRegister.maximumUsernameLength
 
           validator: RegularExpressionValidator {
             regularExpression: /[-a-zA-Z0-9_]*/
@@ -128,7 +130,7 @@ Item {
 
         Text {
           Layout.fillWidth: true
-          text: qsTr("Must have at least 3 characters")
+          text: qsTr("Must have at least %n characters", "", qfieldCloudRegister.minimumUsernameLength)
           font: QfTheme.tipFont
           color: qfieldCloudRegister.hasUsernameMinimumLength ? QfTheme.goodColor : QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap

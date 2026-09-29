@@ -13,8 +13,9 @@ ColumnLayout {
   property alias password: passwordField.text
   property alias placeholderText: passwordField.placeholderText
   property string username: ""
+  property int minimumLength: 8
 
-  readonly property bool hasMinimumLength: passwordField.text.length >= 8
+  readonly property bool hasMinimumLength: passwordField.text.length >= cloudPasswordField.minimumLength
   readonly property bool isDistinctFromUsername: passwordField.text.length > 0 && (username.length < 3 || passwordField.text.toLowerCase().indexOf(username.toLowerCase()) === -1)
   readonly property bool isNotEntirelyNumeric: passwordField.text.length > 0 && !/^\d+$/.test(passwordField.text)
   readonly property int satisfiedRequirementCount: (hasMinimumLength ? 1 : 0) + (isDistinctFromUsername ? 1 : 0) + (isNotEntirelyNumeric ? 1 : 0)
@@ -57,7 +58,7 @@ ColumnLayout {
 
   Text {
     Layout.fillWidth: true
-    text: qsTr("Requires at least 8 characters")
+    text: qsTr("Requires at least %n characters", "", cloudPasswordField.minimumLength)
     font: QfTheme.tipFont
     color: cloudPasswordField.hasMinimumLength ? QfTheme.goodColor : QfTheme.secondaryTextColor
     wrapMode: Text.WordWrap
