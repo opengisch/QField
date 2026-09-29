@@ -243,8 +243,8 @@ class QfCloudProjectsModel : public QAbstractListModel
   private:
     void setupProjectConnections( QfCloudProject *project );
 
-    //! Injects (or clears) the current project's cloud user team affiliation into the global expression scope.
-    void updateCloudUserTeamsVariable();
+    //! Injects (or clears) the current cloud project's details into the global expression scope.
+    void updateCurrentCloudProjectVariables();
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
 

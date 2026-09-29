@@ -750,10 +750,8 @@ void QfCloudProject::packageAndDownload()
     }
   };
 
-  // Always refresh project data before downloading. The /projects/ list endpoint no
-  // longer carries the full project details (e.g. the user's team affiliation), so we
-  // can no longer rely on a time-based cache of that list, we must fetch the detailed
-  // project data on every download to have the up-to-date details
+  // Fetch full project data before downloading to get additional details
+  // such as the user's teams affiliation.
   {
     QgsLogger::debug( QStringLiteral( "Project %1: refreshing data..." ).arg( mId ) );
 
@@ -2214,6 +2212,9 @@ void QfCloudProject::refreshData( ProjectRefreshReason reason )
     setDescription( projectData.value( "description" ).toString() );
     setUserRole( projectData.value( "user_role" ).toString() );
     setUserRoleOrigin( mUserRoleOrigin = projectData.value( "user_role_origin" ).toString() );
+    // Only update the user teams when the payload carries them: the /projects/ list
+    // endpoint does not include teams, and assuming their presence would wipe out the
+    // established teams on every refresh from that endpoint.
     if ( projectData.contains( "teams" ) )
     {
       setUserTeams( projectData.value( "teams" ).toVariant().toStringList() );
@@ -2292,6 +2293,9 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
   project->mDescription = details.value( "description" ).toString();
   project->mUserRole = details.value( "user_role" ).toString();
   project->mUserRoleOrigin = details.value( "user_role_origin" ).toString();
+  // Only set the user teams when the details carry them: the /projects/ list endpoint
+  // does not attach teams, so assuming their presence would wipe out the established
+  // teams every time we connect to QFieldCloud.
   if ( details.contains( "teams" ) )
   {
     project->mUserTeams = details.value( "teams" ).toStringList();

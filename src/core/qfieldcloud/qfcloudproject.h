@@ -221,7 +221,7 @@ class QfCloudProject : public QObject
     {
       Package,
       DeltaPushed,
-      Opened
+      ProjectOpened
     };
 
     Q_ENUM( ProjectRefreshReason )
