@@ -111,7 +111,15 @@ class QfBluetoothLowEnergyReceiver : public QfNmeaGnssReceiver
     static constexpr qsizetype CORRECTION_CATCH_UP_THRESHOLD_BYTES = 4096;
     static constexpr int NORMAL_CORRECTION_CHUNKS_PER_TICK = 3;
     static constexpr int CATCH_UP_CORRECTION_CHUNKS_PER_TICK = 6;
+
     static constexpr qsizetype DEFAULT_BLE_TX_PAYLOAD_SIZE = 20;
+#if defined( Q_OS_IOS )
+    static constexpr qsizetype MAX_BLE_TX_PAYLOAD_SIZE = 182;
+#else
+    // Values taken from Qt's Bluetooth Low Energy implementation
+    // https://github.com/qt/qtconnectivity/blob/a5278e91e0a94d36b25bba1cc13b0edbc3579bd3/src/android/bluetooth/src/org/qtproject/qt/android/bluetooth/QtBluetoothLE.java#L53-L54
+    static constexpr qsizetype MAX_BLE_TX_PAYLOAD_SIZE = 512;
+#endif
 };
 
 #endif //QFBLUETOOTHLOWENERGYRECEIVER_H
