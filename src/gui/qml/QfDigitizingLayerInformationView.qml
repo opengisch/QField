@@ -15,6 +15,7 @@ Rectangle {
 
   property bool allowActiveDigitizingLayerChange: true
   property VectorLayer activeDigitizingLayer
+  property VectorLayer overwriteDigitizingLayer
   property QfMarkupCollection activeDigitizingCollection
 
   width: parent.width
@@ -240,6 +241,20 @@ Rectangle {
         digitizingLayerComboBox.skipCurrentIndexChange = true;
         digitizingLayerComboBox.currentIndex = idx;
       }
+    }
+  }
+
+  onOverwriteDigitizingLayerChanged: {
+    if (overwriteDigitizingLayer) {
+      const idx = digitizingLayerModel.findLayer(overwriteDigitizingLayer);
+      if (digitizingLayerComboBox.currentIndex !== idx) {
+        digitizingLayerComboBox.skipCurrentIndexChange = true;
+        digitizingLayerComboBox.currentIndex = idx;
+      }
+    } else if (activeDigitizingLayer) {
+      activeDigitizingLayerChanged();
+    } else if (activeDigitizingCollection) {
+      activeDigitizingCollectionChanged();
     }
   }
 }

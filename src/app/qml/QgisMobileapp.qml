@@ -2020,9 +2020,10 @@ ApplicationWindow {
     cogoOperationSettings.mapSettings: mapCanvas.mapSettings
 
     digitizingLayerInformationView.visible: stateMachine.state === "digitize"
-    digitizingLayerInformationView.allowActiveDigitizingLayerChange: dashBoard.allowActiveLayerChange
+    digitizingLayerInformationView.allowActiveDigitizingLayerChange: dashBoard.allowActiveLayerChange && !digitizingToolbar.geometryRequested
     digitizingLayerInformationView.activeDigitizingLayer: dashBoard.activeLayer
     digitizingLayerInformationView.activeDigitizingCollection: dashBoard.activeCollection
+    digitizingLayerInformationView.overwriteDigitizingLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : null
     digitizingLayerInformationView.onActiveDigitizingLayerChanged: {
       if (digitizingLayerInformationView.activeDigitizingLayer && dashBoard.activeLayer !== digitizingLayerInformationView.activeDigitizingLayer) {
         dashBoard.activeLayer = digitizingLayerInformationView.activeDigitizingLayer;
