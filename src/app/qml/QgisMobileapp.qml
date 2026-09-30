@@ -4290,6 +4290,8 @@ ApplicationWindow {
 
         property int fid: featureId
         property var featureLayer: currentLayer
+        property bool isMarkupCollection: currentLayer ? currentLayer.customProperty('QField/is_markup_collection') === true : false
+
         height: visible ? implicitHeight : 0
 
         topMargin: sceneTopMargin
@@ -4333,7 +4335,9 @@ ApplicationWindow {
           font: QfTheme.defaultFont
           icon.source: QfTheme.getThemeVectorIcon("ic_cut_black_24dp")
           leftPadding: QfTheme.menuItemLeftPadding
-          height: 48
+          enabled: !isMarkupCollection
+          visible: enabled
+          height: enabled ? 48 : 0
 
           onTriggered: {
             clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true, true);
@@ -4345,7 +4349,9 @@ ApplicationWindow {
           font: QfTheme.defaultFont
           icon.source: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
           leftPadding: QfTheme.menuItemLeftPadding
-          height: 48
+          enabled: !isMarkupCollection
+          visible: enabled
+          height: enabled ? 48 : 0
 
           onTriggered: {
             clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true);
@@ -4355,10 +4361,11 @@ ApplicationWindow {
         MenuItem {
           text: qsTr('Duplicate Feature')
           font: QfTheme.defaultFont
-          enabled: projectInfo.insertRights
+          enabled: projectInfo.insertRights && !isMarkupCollection
           icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
           leftPadding: QfTheme.menuItemLeftPadding
-          height: 48
+          visible: enabled
+          height: enabled ? 48 : 0
 
           onTriggered: {
             featureListForm.model.setFeatures(menu.featureLayer, '@id = ' + menu.fid);
