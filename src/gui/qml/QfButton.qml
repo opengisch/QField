@@ -21,6 +21,7 @@ Button {
   property bool dropdown: false
   property real progressValue: 0.0
   property bool showProgress: false
+  property color progressColor: QfTheme.mainColor
 
   signal dropdownClicked
 
@@ -68,7 +69,7 @@ Button {
         y: progressPath.strokeWidth / 2
         ShapePath {
           id: progressPath
-          strokeColor: QfTheme.mainColor
+          strokeColor: button.progressColor
           strokeWidth: 2
           strokeStyle: ShapePath.DashLine
           fillColor: "transparent"

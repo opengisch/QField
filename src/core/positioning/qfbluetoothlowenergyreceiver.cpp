@@ -158,7 +158,7 @@ void QfBluetoothLowEnergyReceiver::updateBleTxPayloadSize( int mtu )
   // expose the negotiated MTU only after the connection has been established.
   if ( mtu > 3 )
   {
-    mBleTxPayloadSize = std::max<qsizetype>( DEFAULT_BLE_TX_PAYLOAD_SIZE, mtu - 3 );
+    mBleTxPayloadSize = std::min<qsizetype>( MAX_BLE_TX_PAYLOAD_SIZE, std::max<qsizetype>( DEFAULT_BLE_TX_PAYLOAD_SIZE, mtu - 3 ) );
   }
 }
 

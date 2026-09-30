@@ -326,7 +326,7 @@ QfRelationEditorBase {
       width: QfTheme.toolButtonSize
       height: QfTheme.toolButtonSize
       enabled: isEnabled
-      visible: isEnabled
+      visible: isEnabled && isActionEnabled('AddChildFeature')
 
       round: false
       iconSource: {

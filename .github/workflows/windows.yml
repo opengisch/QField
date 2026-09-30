@@ -26,10 +26,12 @@ jobs:
             triplet: x64-windows-static
             arch: amd64
             platform_arch: x64
+            vs_version: 2022
           - os: windows-11-arm
             triplet: arm64-windows-static
             arch: arm64
             platform_arch: arm64
+            vs_version: 18
     name: build (windows)
     runs-on: ${{ matrix.os }}
 
@@ -109,8 +111,8 @@ jobs:
           cmake -S "${SOURCE_DIR}" \
                 -G Ninja \
                 -B "${CMAKE_BUILD_DIR}" \
-                -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/${{ matrix.platform_arch }}/bin/clang-cl.exe" \
-                -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/${{ matrix.platform_arch }}/bin/clang-cl.exe" \
+                -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/${{ matrix.vs_version }}/Enterprise/VC/Tools/Llvm/${{ matrix.platform_arch }}/bin/clang-cl.exe" \
+                -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/${{ matrix.vs_version }}/Enterprise/VC/Tools/Llvm/${{ matrix.platform_arch }}/bin/clang-cl.exe" \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D VCPKG_HOST_TRIPLET="${{ matrix.triplet }}" \
@@ -241,7 +243,7 @@ jobs:
           overwrite: true
 
       - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1.322.0
+        uses: ruby/setup-ruby@v1.325.0
         with:
           ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically

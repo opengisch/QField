@@ -80,6 +80,11 @@ class QfMarkupCollection : public QObject
     Q_INVOKABLE void removeItem( const QString &uuid, bool resetVectorLayer = true );
 
     /**
+     * Returns the combined extent of all item geometries within the collection.
+     */
+    Q_INVOKABLE QgsRectangle extent() const;
+
+    /**
      * Restore a collection from the content of a GeoJSON at the provided \a path.
      */
     bool readGeoJson( const QString &path );

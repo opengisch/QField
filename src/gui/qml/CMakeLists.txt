@@ -41,14 +41,15 @@ set(QFIELD_GUI_QML_FILES
     QfInformationDrawer.qml
     QfInformationPopup.qml
     QfLayerLoginDialog.qml
-    QfLayerTreeItemProperties.qml
     QfLegend.qml
+    QfLegendItemProperties.qml
     QfLocationMarker.qml
     QfLocatorItem.qml
     QfLocatorSettings.qml
     QfMarkupCollectionRenderer.qml
     QfMarkupItemRenderer.qml
     QfMarkupLegend.qml
+    QfMarkupLegendItemProperties.qml
     QfMarkupToolbar.qml
     QfMenu.qml
     QfMessageLog.qml

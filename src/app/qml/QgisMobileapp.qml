@@ -785,6 +785,7 @@ ApplicationWindow {
         item.objectName = 'mapCanvas3D';
         item.pluginContainer = mapCanvas3DPluginContainer;
         item.mapSettings = mapCanvas.mapSettings;
+        item.markups = markupManager;
         item.trackingModel = trackingModel;
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
         item.selectionColor = Qt.binding(() => QfTheme.mainColor);
@@ -2019,9 +2020,10 @@ ApplicationWindow {
     cogoOperationSettings.mapSettings: mapCanvas.mapSettings
 
     digitizingLayerInformationView.visible: stateMachine.state === "digitize"
-    digitizingLayerInformationView.allowActiveDigitizingLayerChange: dashBoard.allowActiveLayerChange
+    digitizingLayerInformationView.allowActiveDigitizingLayerChange: dashBoard.allowActiveLayerChange && !digitizingToolbar.geometryRequested
     digitizingLayerInformationView.activeDigitizingLayer: dashBoard.activeLayer
     digitizingLayerInformationView.activeDigitizingCollection: dashBoard.activeCollection
+    digitizingLayerInformationView.overwriteDigitizingLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : null
     digitizingLayerInformationView.onActiveDigitizingLayerChanged: {
       if (digitizingLayerInformationView.activeDigitizingLayer && dashBoard.activeLayer !== digitizingLayerInformationView.activeDigitizingLayer) {
         dashBoard.activeLayer = digitizingLayerInformationView.activeDigitizingLayer;

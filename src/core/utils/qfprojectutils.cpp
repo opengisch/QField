@@ -388,6 +388,7 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
         notesFormConfig.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
         QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
         QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation_%1" ).arg( notesLayer->id() ), root );
+        relationElement->setLabel( tr( "Attachments" ) );
         root->addChildElement( relationElement );
         const QStringList orderedFields = {
           QStringLiteral( "color" ),

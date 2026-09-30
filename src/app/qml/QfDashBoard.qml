@@ -475,6 +475,10 @@ Drawer {
       topPadding: label.height + 5
       bottomPadding: 5
 
+      background: Rectangle {
+        color: "transparent"
+      }
+
       label: Label {
         x: mapThemeContainer.leftPadding
         height: 25
@@ -485,10 +489,30 @@ Drawer {
         font: QfTheme.strongTipFont
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
-      }
+        clip: true
 
-      background: Rectangle {
-        color: "transparent"
+        QfButton {
+          id: createMarkupCollectionButton
+
+          anchors {
+            verticalCenter: parent.verticalCenter
+            right: parent.right
+            rightMargin: 10
+          }
+          visible: stateMachine.state === "digitize"
+
+          text: qsTr('Create Collection')
+          bgcolor: QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGraySemiOpaque
+          color: QfTheme.mainTextColor
+          icon.source: QfTheme.getThemeVectorIcon('ic_add_white_24dp')
+          icon.width: 14
+          icon.height: 14
+          font.pointSize: QfTheme.tinyFont.pointSize - 2
+
+          onClicked: {
+            createMarkupCollectionDialog.open();
+          }
+        }
       }
 
       QfMarkupLegend {
@@ -693,5 +717,41 @@ Drawer {
 
   QfInformationPopup {
     id: informationPopup
+  }
+
+  QfDialog {
+    id: createMarkupCollectionDialog
+
+    parent: mainWindow.contentItem
+    title: qsTr("Markup Collection Creation")
+    width: mainWindow.width - 40
+
+    ColumnLayout {
+      width: createMarkupCollectionDialog.availableWidth
+      spacing: 10
+
+      Label {
+        Layout.fillWidth: true
+        wrapMode: Text.WordWrap
+        text: qsTr("Enter your new collection name")
+      }
+
+      QfTextField {
+        id: newMarkupCollectionName
+        Layout.fillWidth: true
+      }
+    }
+
+    onAboutToShow: {
+      newMarkupCollectionName.text = "";
+      newMarkupCollectionName.forceActiveFocus();
+    }
+
+    onAccepted: {
+      const collectionUuid = markupManager.createCollection(newMarkupCollectionName.text);
+      if (collectionUuid !== "") {
+        markupLegend.activeCollection = markupManager.collection(collectionUuid);
+      }
+    }
   }
 }

@@ -14,12 +14,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qffileutils.h"
 #include "qfmarkupmanager.h"
+#include "qfplatformutilities.h"
 
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QStandardPaths>
 
 
 QfMarkupManager::QfMarkupManager( QObject *parent )
@@ -79,6 +80,42 @@ QList<QfMarkupCollection *> QfMarkupManager::visibleCollections() const
 bool QfMarkupManager::hasItems() const
 {
   return std::any_of( mCollections.begin(), mCollections.end(), []( const QfMarkupCollection *collection ) { return collection->count() > 0; } );
+}
+
+void QfMarkupManager::exportCollection( QfMarkupCollection *collection )
+{
+  if ( !collection )
+  {
+    return;
+  }
+
+  QString collectionPath = mCollectionPaths.value( collection->uuid() );
+  if ( collectionPath.isEmpty() )
+  {
+    collectionPath = QStringLiteral( "%1/markup-%2.geojson" ).arg( QStandardPaths::writableLocation( QStandardPaths::TempLocation ), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+    collection->writeGeoJson( collectionPath );
+  }
+
+  QfPlatformUtilities::instance()->sendDatasetTo( collectionPath );
+}
+
+QString QfMarkupManager::createCollection( const QString &title )
+{
+  if ( mPath.isEmpty() )
+  {
+    return QString();
+  }
+
+  QString collectionTitle = title.trimmed();
+  QfMarkupCollection *blankCollection = new QfMarkupCollection( collectionTitle.isEmpty() ? tr( "Untitled collection" ) : collectionTitle );
+  insertCollection( blankCollection );
+
+  emit collectionsAdded( QStringList() << blankCollection->uuid() );
+
+  emit collectionsChanged();
+  emit visibleCollectionsChanged();
+
+  return blankCollection->uuid();
 }
 
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
