@@ -178,6 +178,13 @@ class QfLayerUtils : public QObject
     Q_INVOKABLE static QString fieldType( const QgsField &field );
 
     /**
+     * Returns the layer CRS.
+     * \note This function is capable of handling GeometryCollection layers, it will eventually be
+     * retired when handling is fixed upstream.
+     */
+    Q_INVOKABLE static QgsCoordinateReferenceSystem layerCrs( QgsVectorLayer *layer );
+
+    /**
      * Returns TRUE if the vector \a layer geometry has an M value.
      */
     Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );

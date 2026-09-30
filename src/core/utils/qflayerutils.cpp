@@ -359,6 +359,21 @@ QString QfLayerUtils::fieldType( const QgsField &field )
   return QVariant( QMetaType( field.type() ) ).typeName();
 }
 
+QgsCoordinateReferenceSystem QfLayerUtils::layerCrs( QgsVectorLayer *layer )
+{
+  if ( !layer )
+  {
+    return QgsCoordinateReferenceSystem();
+  }
+
+  if ( layer->dataProvider() && QgsWkbTypes::flatType( layer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+  {
+    return layer->dataProvider()->crs();
+  }
+
+  return layer->crs();
+}
+
 bool QfLayerUtils::addFeature( QgsVectorLayer *layer, QgsFeature feature )
 {
   if ( !layer )

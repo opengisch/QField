@@ -3546,7 +3546,7 @@ ApplicationWindow {
           moveFeaturesRequested = true;
           if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
             featureListForm.extentController.zoomToSelected();
-            let centroid = QfGeometryUtils.reprojectPoint(QfGeometryUtils.boundingBox(featureListForm.selection.model.selectedFeatures[0].geometry).center, featureListForm.selection.model.selectedLayer.crs, mapCanvas.mapSettings.destinationCrs);
+            let centroid = QfGeometryUtils.reprojectPoint(QfGeometryUtils.boundingBox(featureListForm.selection.model.selectedFeatures[0].geometry).center, QfLayerUtils.layerCrs(featureListForm.selection.model.selectedLayer), mapCanvas.mapSettings.destinationCrs);
             centroid = QfGeometryUtils.point(centroid.x, centroid.y);
             startPoint = centroid;
           } else {
