@@ -661,7 +661,7 @@ QfPaneDrawer {
     CoordinateTransformer {
       id: moveFeaturesTransformer
       sourceCrs: mapCanvas.mapSettings.destinationCrs
-      destinationCrs: featureFormList.selection.model.selectedLayer ? featureFormList.selection.model.selectedLayer.crs : mapCanvas.mapSettings.destinationCrs
+      destinationCrs: featureFormList.selection.model.selectedLayer ? QfLayerUtils.layerCrs(featureFormList.selection.model.selectedLayer) : mapCanvas.mapSettings.destinationCrs
     }
 
     Connections {
