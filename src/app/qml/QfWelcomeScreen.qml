@@ -259,10 +259,12 @@ Page {
             Layout.fillWidth: true
             Layout.preferredHeight: 44
             Layout.preferredWidth: 0
-            text: qsTr('I agree')
+            text: qsTr('I prefer not')
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
 
             onClicked: {
-              qfieldSettings.enableInfoCollection = true;
+              qfieldSettings.enableInfoCollection = false;
               collectionView.collapse();
             }
           }
@@ -271,12 +273,10 @@ Page {
             Layout.fillWidth: true
             Layout.preferredHeight: 44
             Layout.preferredWidth: 0
-            text: qsTr('I prefer not')
-            bgcolor: "transparent"
-            color: QfTheme.mainColor
+            text: qsTr('I agree')
 
             onClicked: {
-              qfieldSettings.enableInfoCollection = false;
+              qfieldSettings.enableInfoCollection = true;
               collectionView.collapse();
             }
           }
