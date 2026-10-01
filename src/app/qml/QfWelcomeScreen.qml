@@ -40,7 +40,7 @@ Page {
     gradient: Gradient {
       GradientStop {
         position: 0.0
-        color: QfTheme.darkTheme ? "#99000000" : "#99A5A5A5"
+        color: QfTheme.darkTheme ? "#99000000" : QfTheme.mainBackgroundColor
       }
       GradientStop {
         position: 0.33
