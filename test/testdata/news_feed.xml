@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>QField Blog</title>
+    <link>https://qfield.org/blog/</link>
+    <description>Recent content in QField Blog</description>
+    <item>
+      <title>QField 4.3 “Danube”: Summer of stability</title>
+      <link>https://qfield.org/blog/2026/09/08/qfield-4.3-danube-summer-of-stability/</link>
+      <pubDate>Tue, 08 Sep 2026 00:02:00 +0000</pubDate>
+      <guid>https://qfield.org/blog/2026/09/08/qfield-4.3-danube-summer-of-stability/</guid>
+      <media:content url="https://qfield.org/blog/2026/09/08/qfield-4.3-danube-summer-of-stability/splash43.webp" medium="image"/>
+      <description>The next version of QField is here.</description>
+      <content:encoded><![CDATA[<p>The next version of QField is here, with full content.</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Faster Project Creation in QFieldCloud</title>
+      <link>https://qfield.org/blog/2026/08/10/faster-project-creation/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://qfield.org/blog/2026/08/10/faster-project-creation/</guid>
+      <media:content url="https://qfield.org/blog/2026/08/10/faster-project-creation/infograph.png" medium="image"/>
+      <description>Project creation has been overhauled.</description>
+    </item>
+    <item>
+      <title>QField Search and Routing Plugins Updates</title>
+      <link>https://qfield.org/blog/2026/02/12/qfield-search-and-routing-plugins-updates/</link>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://qfield.org/blog/2026/02/12/qfield-search-and-routing-plugins-updates/</guid>
+      <media:content url="https://qfield.org/blog/2026/02/12/qfield-search-and-routing-plugins-updates/top.webp" medium="image"/>
+      <description>&lt;p&gt;Our ninjas improved the &lt;a href="https://github.com/opengisch/qfield-osrm/"&gt;OSRM Routing&lt;/a&gt;
+plugin.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://qfield.org/top.webp" alt=""&gt;&lt;/figure&gt;
+&lt;p&gt;Open QField&amp;rsquo;s settings panel.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Item without publication date</title>
+      <link>https://qfield.org/blog/undated/</link>
+      <description>Should be ignored.</description>
+    </item>
+  </channel>
+</rss>

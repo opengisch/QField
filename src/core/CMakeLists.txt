@@ -97,6 +97,7 @@ set(QFIELD_CORE_SRCS
     qfnavigation.cpp
     qfnavigationmodel.cpp
     qfnearfieldreader.cpp
+    qfnewsparser.cpp
     qfpeliasgeocoder.cpp
     qfresourcesource.cpp
     qftranslatormanager.cpp
@@ -220,6 +221,7 @@ set(QFIELD_CORE_HDRS
     qfnavigation.h
     qfnavigationmodel.h
     qfnearfieldreader.h
+    qfnewsparser.h
     qfpeliasgeocoder.h
     qfresourcesource.h
     qftranslatormanager.h

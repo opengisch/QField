@@ -72,6 +72,7 @@
 #include "qfnavigation.h"
 #include "qfnavigationmodel.h"
 #include "qfnearfieldreader.h"
+#include "qfnewsparser.h"
 #include "qfprojectinfo.h"
 #include "qfprojectsource.h"
 #include "qfresourcesource.h"
@@ -192,6 +193,7 @@ namespace QfCore
     qmlRegisterType<QfNavigation>( "org.qfield.core", 1, 0, "QfNavigation" );
     qmlRegisterType<QfNavigationModel>( "org.qfield.core", 1, 0, "QfNavigationModel" );
     qmlRegisterType<QfNearFieldReader>( "org.qfield.core", 1, 0, "QfNearFieldReader" );
+    qmlRegisterType<QfNewsParser>( "org.qfield.core", 1, 0, "QfNewsParser" );
     qmlRegisterType<QfNtripSourceTableFetcher>( "org.qfield.core", 1, 0, "QfNtripSourceTableFetcher" );
     qmlRegisterType<QfPositioning>( "org.qfield.core", 1, 0, "QfPositioning" );
     qmlRegisterType<QfPositioningDeviceModel>( "org.qfield.core", 1, 0, "QfPositioningDeviceModel" );
