@@ -38,10 +38,10 @@ SwipeView {
   }
 
   background: Rectangle {
-    color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.1)
-    border.color: QfTheme.mainColorSemiOpaque
+    color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.06)
+    border.color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.3)
     border.width: 1
-    radius: 8
+    radius: 12
   }
 
   component Panel: Item {
