@@ -12,6 +12,7 @@ ColumnLayout {
   property url iconSource
   property color iconColor
   property string label
+  readonly property alias buttonWidth: actionButton.width
   signal clicked
 
   spacing: 4

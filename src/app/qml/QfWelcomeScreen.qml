@@ -75,6 +75,10 @@ Page {
 
     ColumnLayout {
       id: welcomeLayout
+
+      readonly property real actionsWidth: Math.min(410, width - 12)
+      readonly property real cardWidth: actionsWidth - welcomeActionsContainer.itemWidth + welcomeActionCloud.buttonWidth
+
       spacing: 4
 
       width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin
@@ -148,7 +152,7 @@ Page {
         Layout.topMargin: 10
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(410, welcomeLayout.width - 30)
+        Layout.preferredWidth: welcomeLayout.cardWidth
         startIndex: 1
 
         QfWelcomeCard.Panel {
@@ -239,7 +243,7 @@ Page {
         Layout.topMargin: 10
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(410, welcomeLayout.width - 20)
+        Layout.preferredWidth: welcomeLayout.cardWidth
         startIndex: 1
 
         QfWelcomeCard.Panel {
@@ -300,8 +304,7 @@ Page {
         Layout.rightMargin: 6
         Layout.topMargin: 8
         Layout.bottomMargin: 8
-        Layout.fillWidth: true
-        Layout.maximumWidth: 410
+        Layout.preferredWidth: welcomeLayout.actionsWidth
         Layout.preferredHeight: welcomeActions.height
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         color: "transparent"
@@ -319,7 +322,7 @@ Page {
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             clip: true
 
-            readonly property real itemWidth: count > 3 ? welcomeActions.width / 3.3 : welcomeActions.width / 3
+            readonly property real itemWidth: count > 3 ? welcomeLayout.actionsWidth / 3.3 : welcomeLayout.actionsWidth / 3
 
             contentItem: ListView {
               id: welcomeActionsListView
