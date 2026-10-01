@@ -43,6 +43,7 @@ class QfCloudProject : public QObject
 
     Q_PROPERTY( QString userRole READ userRole NOTIFY userRoleChanged )
     Q_PROPERTY( QString userRoleOrigin READ userRoleOrigin NOTIFY userRoleOriginChanged )
+    Q_PROPERTY( QStringList userTeams READ userTeams NOTIFY userTeamsChanged )
 
     Q_PROPERTY( QDateTime createdAt READ createdAt NOTIFY createdAtChanged )
     Q_PROPERTY( QDateTime updatedAt READ updatedAt NOTIFY updatedAtChanged )
@@ -219,7 +220,8 @@ class QfCloudProject : public QObject
     enum class ProjectRefreshReason
     {
       Package,
-      DeltaPushed
+      DeltaPushed,
+      ProjectOpened
     };
 
     Q_ENUM( ProjectRefreshReason )
@@ -258,6 +260,9 @@ class QfCloudProject : public QObject
 
     QString userRoleOrigin() const { return mUserRoleOrigin; }
     void setUserRoleOrigin( const QString &userRoleOrigin );
+
+    QStringList userTeams() const { return mUserTeams; }
+    void setUserTeams( const QStringList &userTeams );
 
     ProjectErrorStatus errorStatus() const { return mErrorStatus; }
     void setErrorStatus( ProjectErrorStatus errorStatus );
@@ -382,6 +387,9 @@ class QfCloudProject : public QObject
     Q_INVOKABLE void packageAndDownload();
     void cancelDownload();
 
+    //! Refreshes the project's detailed data from the server (e.g. user role, teams) for the given \a reason.
+    void refreshData( ProjectRefreshReason reason );
+
     Q_INVOKABLE void push( bool shouldDownloadUpdates );
 
     void ensureProjectCreated();
@@ -412,6 +420,7 @@ class QfCloudProject : public QObject
     void descriptionChanged();
     void userRoleChanged();
     void userRoleOriginChanged();
+    void userTeamsChanged();
 
     void errorStatusChanged();
     void checkoutChanged();
@@ -501,8 +510,6 @@ class QfCloudProject : public QObject
     void getDeltaStatus();
     void getCreateProjectJobStatus();
 
-    void refreshData( ProjectRefreshReason reason );
-
     void setupDeltaFileWrapper();
 
     void saveSettings();
@@ -543,6 +550,7 @@ class QfCloudProject : public QObject
     QString mDescription;
     QString mUserRole;
     QString mUserRoleOrigin;
+    QStringList mUserTeams;
 
     ProjectErrorStatus mErrorStatus = ProjectErrorStatus::NoErrorStatus;
     ProjectCheckouts mCheckout = ProjectCheckout::LocalCheckout;

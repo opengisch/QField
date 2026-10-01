@@ -30,6 +30,7 @@
 #include <QTemporaryFile>
 #include <qgis.h>
 #include <qgsapplication.h>
+#include <qgsexpressioncontextutils.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
@@ -130,6 +131,17 @@ void QfCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId 
   mCurrentProjectId = currentProjectId;
   mCurrentProject = findProject( mCurrentProjectId );
 
+  updateCurrentCloudProjectVariables();
+
+  if ( mCurrentProject )
+  {
+    // Refresh the opened project's details. The /projects/ list endpoint no longer
+    // carries the full details (e.g. the user's team affiliation), so opening a project
+    // must fetch its detailed data to be up to date. When the refresh completes with
+    // updated teams, the userTeamsChanged connection re-injects the cloud_teams variable.
+    mCurrentProject->refreshData( QfCloudProject::ProjectRefreshReason::ProjectOpened );
+  }
+
   if ( mLayerObserver )
   {
     mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
@@ -142,6 +154,22 @@ void QfCloudProjectsModel::setCurrentProjectId( const QString &currentProjectId 
 QfCloudProject *QfCloudProjectsModel::currentProject() const
 {
   return mCurrentProject.data();
+}
+
+void QfCloudProjectsModel::updateCurrentCloudProjectVariables()
+{
+  // Inject the current cloud project's details into the global expression scope
+  // (until we have a better solution upstream) so they can drive symbology,
+  // visibility, labeling, etc. These reflect the currently opened cloud project,
+  // and are cleared when there is none.
+  if ( mCurrentProject )
+  {
+    QgsExpressionContextUtils::setGlobalVariable( QStringLiteral( "cloud_teams" ), mCurrentProject->userTeams() );
+  }
+  else
+  {
+    QgsExpressionContextUtils::removeGlobalVariable( QStringLiteral( "cloud_teams" ) );
+  }
 }
 
 QSet<QString> QfCloudProjectsModel::busyProjectIds() const
@@ -754,6 +782,17 @@ void QfCloudProjectsModel::setupProjectConnections( QfCloudProject *project )
     const QfCloudProject *p = static_cast<QfCloudProject *>( sender() );
     const QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx );
+  } );
+
+  connect( project, &QfCloudProject::userTeamsChanged, this, [this] {
+    // When the currently opened project's team affiliation is updated (e.g. after a
+    // details refresh that carries the latest teams), refresh the injected global
+    // variable so expressions pick up the change.
+    const QfCloudProject *p = static_cast<QfCloudProject *>( sender() );
+    if ( mCurrentProject && p == mCurrentProject )
+    {
+      updateCurrentCloudProjectVariables();
+    }
   } );
 
   connect( project, &QfCloudProject::jobFinished, this, [this]( QfCloudProject::JobType type, const QString &error ) {

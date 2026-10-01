@@ -243,6 +243,9 @@ class QfCloudProjectsModel : public QAbstractListModel
   private:
     void setupProjectConnections( QfCloudProject *project );
 
+    //! Injects (or clears) the current cloud project's details into the global expression scope.
+    void updateCurrentCloudProjectVariables();
+
     QModelIndex findProjectIndex( const QString &projectId ) const;
 
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );

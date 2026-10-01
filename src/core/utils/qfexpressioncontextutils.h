@@ -25,7 +25,7 @@
 
 #include <qgsexpressioncontext.h>
 
-#define PROTECTED_GLOBAL_VARIABLE_NAMES QStringList( { QStringLiteral( "cloud_username" ), QStringLiteral( "cloud_useremail" ) } )
+#define PROTECTED_GLOBAL_VARIABLE_NAMES QStringList( { QStringLiteral( "cloud_username" ), QStringLiteral( "cloud_useremail" ), QStringLiteral( "cloud_teams" ) } )
 
 
 /**
