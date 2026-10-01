@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml_gui
@@ -45,9 +46,10 @@ SwipeView {
 
   component Panel: Item {
     id: panel
+    property alias title: titleText.text
     property alias message: messageText.text
+    property bool closable: false
     default property alias actions: actionRow.children
-    property int messageAlignment: Text.AlignHCenter
 
     implicitWidth: parent ? parent.width : 0
     implicitHeight: panelLayout.implicitHeight
@@ -61,20 +63,43 @@ SwipeView {
 
       RowLayout {
         Layout.fillWidth: true
-        Layout.leftMargin: 12
-        Layout.rightMargin: 12
-        Layout.topMargin: 10
-        Layout.bottomMargin: actionRow.children.length > 0 ? 6 : 10
-        spacing: 10
+        Layout.leftMargin: 16
+        Layout.rightMargin: panel.closable ? 4 : 16
+        Layout.topMargin: panel.closable ? 4 : 14
+        Layout.bottomMargin: actionRow.children.length > 0 ? 0 : 14
+        spacing: 4
 
-        Text {
-          id: messageText
+        ColumnLayout {
           Layout.fillWidth: true
-          Layout.alignment: Qt.AlignVCenter
-          font: QfTheme.defaultFont
-          color: QfTheme.mainTextColor
-          horizontalAlignment: panel.messageAlignment
-          wrapMode: Text.WordWrap
+          Layout.alignment: Qt.AlignTop
+          Layout.topMargin: panel.closable ? 10 : 0
+          spacing: 2
+
+          Text {
+            id: titleText
+            Layout.fillWidth: true
+            visible: text !== ""
+            font: QfTheme.strongFont
+            color: QfTheme.mainTextColor
+            wrapMode: Text.WordWrap
+          }
+
+          Text {
+            id: messageText
+            Layout.fillWidth: true
+            font: titleText.visible ? QfTheme.tipFont : QfTheme.defaultFont
+            color: titleText.visible ? QfTheme.secondaryTextColor : QfTheme.mainTextColor
+            wrapMode: Text.WordWrap
+          }
+        }
+
+        QfToolButton {
+          Layout.alignment: Qt.AlignTop
+          visible: panel.closable
+          iconSource: QfTheme.getThemeVectorIcon("ic_close_white_24dp")
+          iconColor: QfTheme.secondaryTextColor
+
+          onClicked: panel.SwipeView.view.collapse()
         }
       }
 
@@ -82,10 +107,11 @@ SwipeView {
         id: actionRow
 
         Layout.fillWidth: true
-        Layout.leftMargin: 12
-        Layout.rightMargin: 12
-        Layout.bottomMargin: children.length > 0 ? 8 : 0
-        spacing: 10
+        Layout.leftMargin: 16
+        Layout.rightMargin: 16
+        Layout.topMargin: children.length > 0 ? 12 : 0
+        Layout.bottomMargin: children.length > 0 ? 14 : 0
+        spacing: 8
       }
     }
   }
