@@ -145,14 +145,16 @@ Page {
         visible: false
 
         Layout.margins: 6
-        Layout.topMargin: 10
-        Layout.bottomMargin: 10
+        Layout.topMargin: 0
+        Layout.bottomMargin: 24
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(410, welcomeLayout.width - 30)
-        startIndex: 1
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
+        currentIndex: 1
 
         QfWelcomeCard.Panel {
           id: ohno
+          closable: true
           message: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
 
           QfButton {
@@ -170,31 +172,32 @@ Page {
 
         QfWelcomeCard.Panel {
           id: intro
-          message: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
-          Item {
-            Layout.fillWidth: true
-          }
+          closable: true
+          title: qsTr("How's %1 working for you?").arg(Qfield.name)
+          message: qsTr("One tap is all it takes.")
 
-          QfToolButton {
-            iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
-            iconColor: QfTheme.buttonColor
-            bgcolor: QfTheme.mainColor
-            round: true
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 44
+            Layout.preferredWidth: 0
+            text: qsTr("Could be better")
+            icon.source: QfTheme.getThemeVectorIcon('ic_thumb_down_white_24dp')
+            display: AbstractButton.IconOnly
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
 
             onClicked: {
               feedbackView.currentIndex = 0;
             }
           }
 
-          Item {
+          QfButton {
             Layout.fillWidth: true
-          }
-
-          QfToolButton {
-            iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
-            iconColor: QfTheme.buttonColor
-            bgcolor: QfTheme.mainColor
-            round: true
+            Layout.preferredHeight: 44
+            Layout.preferredWidth: 0
+            text: qsTr("Loving it")
+            icon.source: QfTheme.getThemeVectorIcon('ic_thumb_up_white_24dp')
+            display: AbstractButton.IconOnly
 
             onClicked: {
               if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
@@ -204,14 +207,11 @@ Page {
               }
             }
           }
-
-          Item {
-            Layout.fillWidth: true
-          }
         }
 
         QfWelcomeCard.Panel {
           id: ohyeah
+          closable: true
           message: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
 
           QfButton {
@@ -238,12 +238,13 @@ Page {
         id: collectionView
         visible: false
 
-        Layout.margins: 0
-        Layout.topMargin: 10
-        Layout.bottomMargin: 10
+        Layout.margins: 6
+        Layout.topMargin: 0
+        Layout.bottomMargin: 24
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(410, welcomeLayout.width - 20)
-        startIndex: 1
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
+        currentIndex: 1
 
         QfWelcomeCard.Panel {
           id: collectionOhno
@@ -258,10 +259,12 @@ Page {
             Layout.fillWidth: true
             Layout.preferredHeight: 44
             Layout.preferredWidth: 0
-            text: qsTr('I agree')
+            text: qsTr('I prefer not')
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
 
             onClicked: {
-              qfieldSettings.enableInfoCollection = true;
+              qfieldSettings.enableInfoCollection = false;
               collectionView.collapse();
             }
           }
@@ -270,12 +273,10 @@ Page {
             Layout.fillWidth: true
             Layout.preferredHeight: 44
             Layout.preferredWidth: 0
-            text: qsTr('I prefer not')
-            bgcolor: "transparent"
-            color: QfTheme.mainColor
+            text: qsTr('I agree')
 
             onClicked: {
-              qfieldSettings.enableInfoCollection = false;
+              qfieldSettings.enableInfoCollection = true;
               collectionView.collapse();
             }
           }
