@@ -121,6 +121,20 @@ ApplicationWindow {
     }
   }
 
+  Binding {
+    target: mainWindow
+    property: "width"
+    value: mainWindowSettings.width
+    when: Qt.platform.os !== "ios" && Qt.platform.os !== "android"
+  }
+
+  Binding {
+    target: mainWindow
+    property: "height"
+    value: mainWindowSettings.height
+    when: Qt.platform.os !== "ios" && Qt.platform.os !== "android"
+  }
+
   palette {
     link: QfTheme.mainColor
     linkVisited: QfTheme.mainColor
