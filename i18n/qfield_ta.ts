@@ -4683,7 +4683,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>இணைக்கும் முகில்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -4736,6 +4736,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message numerus="yes">
         <source>%n deletion(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Uploading %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>இணைக்கிறது...</translation>
     </message>
 </context>
 <context>
@@ -5378,6 +5390,18 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create Collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markup Collection Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your new collection name</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6247,6 +6271,150 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfLayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>திருத்தத் தொடங்க முடியாது, அடுக்கு இல்லை</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>திருத்தத் தொடங்க முடியவில்லை</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>&quot;%1&quot; லேயரில் %2 அம்சத்தை நீக்க முடியாது. காரணம்: 
+% 3</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>&quot;% 1&quot; அடுக்கில் நீக்கம் செய்ய முடியாது. காரணம்: 
+% 3</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>அம்சம்% 1ஐ நீக்க முடியாது</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>அடுக்கு% 1ல் உள்ள அடுக்கு மாற்றங்களை திரும்பப் பெற முடியாது</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>தவறான அம்சத்தை நகலெடுக்க முடியாது</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>&quot;% 1&quot; லேயரில் புதிய அம்சத்தைச் சேர்க்க முடியாது. காரணம்: 
+% 2</translation>
+    </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation>இந்த லேயரில் கண்காணிப்பு செயலில் உள்ளது.</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>நிறுத்து</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>அடுக்கு% 1 இல் கண்காணிப்பு நிறுத்தப்பட்டது</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>இந்த அடுக்கு தவறானது. இது பிணையம் சிக்கல், காணாமல் போன கோப்பு அல்லது திட்டப்பணியின் தவறான உள்ளமைவு காரணமாக இருக்கலாம்.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>இந்த அடுக்கு &quot;படிக்க மட்டும்&quot; என கட்டமைக்கப்பட்டுள்ளது, இது அம்சங்களைச் சேர்ப்பது, நீக்குவது மற்றும் திருத்துவது ஆகியவற்றை முடக்குகிறது.</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation>இந்த லேயரின் அனுமதிகள் உள்ளமைவு நற்பொருத்தம் சேர்ப்பதை முடக்குகிறது.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegendItemProperties</name>
+    <message>
+        <source>Expand group</source>
         <translation>குழுவை விரிவாக்குங்கள்</translation>
     </message>
     <message>
@@ -6336,83 +6504,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show visible features list</source>
         <translation>காணக்கூடிய அம்சங்களின் பட்டியலைக் காட்டு</translation>
-    </message>
-</context>
-<context>
-    <name>QfLayerUtils</name>
-    <message>
-        <source>Cannot start editing, no layer</source>
-        <translation>திருத்தத் தொடங்க முடியாது, அடுக்கு இல்லை</translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>திருத்தத் தொடங்க முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>&quot;%1&quot; லேயரில் %2 அம்சத்தை நீக்க முடியாது. காரணம்: 
-% 3</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>&quot;% 1&quot; அடுக்கில் நீக்கம் செய்ய முடியாது. காரணம்: 
-% 3</translation>
-    </message>
-    <message>
-        <source>Cannot delete feature %1</source>
-        <translation>அம்சம்% 1ஐ நீக்க முடியாது</translation>
-    </message>
-    <message>
-        <source>Cannot rollback layer changes in layer %1</source>
-        <translation>அடுக்கு% 1ல் உள்ள அடுக்கு மாற்றங்களை திரும்பப் பெற முடியாது</translation>
-    </message>
-    <message>
-        <source>Cannot copy invalid feature</source>
-        <translation>தவறான அம்சத்தை நகலெடுக்க முடியாது</translation>
-    </message>
-    <message>
-        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation>&quot;% 1&quot; லேயரில் புதிய அம்சத்தைச் சேர்க்க முடியாது. காரணம்: 
-% 2</translation>
-    </message>
-    <message>
-        <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>QfLegend</name>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation>இந்த லேயரில் கண்காணிப்பு செயலில் உள்ளது.</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>நிறுத்து</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>அடுக்கு% 1 இல் கண்காணிப்பு நிறுத்தப்பட்டது</translation>
-    </message>
-    <message>
-        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>இந்த அடுக்கு தவறானது. இது பிணையம் சிக்கல், காணாமல் போன கோப்பு அல்லது திட்டப்பணியின் தவறான உள்ளமைவு காரணமாக இருக்கலாம்.</translation>
-    </message>
-    <message>
-        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>இந்த அடுக்கு &quot;படிக்க மட்டும்&quot; என கட்டமைக்கப்பட்டுள்ளது, இது அம்சங்களைச் சேர்ப்பது, நீக்குவது மற்றும் திருத்துவது ஆகியவற்றை முடக்குகிறது.</translation>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>இந்த லேயரின் அனுமதிகள் உள்ளமைவு நற்பொருத்தம் சேர்ப்பதை முடக்குகிறது.</translation>
     </message>
 </context>
 <context>
@@ -6771,6 +6862,52 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfMarkupCollection</name>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markup item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>நிறம்</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>விவரம்</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupLegendItemProperties</name>
+    <message>
+        <source>Show on map</source>
+        <translation>வரைபடத்தில் காட்டு</translation>
+    </message>
+    <message>
+        <source>Zoom to collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The collection has no features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>அம்சங்களின் பட்டியலைக் காட்டு</translation>
+    </message>
+    <message>
+        <source>Export collection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
@@ -6778,6 +6915,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Default collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Untitled collection</source>
         <translation type="unfinished"/>
     </message>
 </context>

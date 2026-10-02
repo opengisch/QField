@@ -4692,7 +4692,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Підключення хмари</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -4745,6 +4745,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message numerus="yes">
         <source>%n deletion(s)</source>
         <translation><numerusform>%n видалення(-нь)</numerusform><numerusform>%n видалення(-нь)</numerusform><numerusform>%n видалення(-нь)</numerusform><numerusform>%n видалення(-нь)</numerusform></translation>
+    </message>
+    <message>
+        <source>Uploading %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>З&apos;єднання...</translation>
     </message>
 </context>
 <context>
@@ -5387,6 +5399,18 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create Collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markup Collection Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your new collection name</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6264,6 +6288,151 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfLayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>Не вдається почати редагування, немає шару</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Не вдалось розпочати редагування</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Неможливо виконати видалення об’єкта %2 у шарі &quot;%1&quot;. Причина:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Неможливо виконати видалення в шарі &quot;%1&quot;. Причина:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>Неможливо видалити об&apos;єкт %1</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Неможливо відкати зміни шару в шарі %1</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>Неможливо скопіювати невірний об&apos;єкт</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Неможливо додати нову функцію в шар &quot;%1&quot;. Причина:
+%2</translation>
+    </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation>Неможливо додати функцію в шар &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Не вдається додати нову функцію в шарі &quot;%1&quot;. Причина:
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation>Відстеження активне на цьому шарі.</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Припинити</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>Відстеження на шарі %1 зупинено</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Цей шар недійсний. Це може бути пов’язано з проблемою мережі, відсутнім файлом або неправильною конфігурацією проекту.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Цей шар налаштовано як «Тільки для читання», що вимикає додавання, видалення та редагування функцій.</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation>Налаштування дозволів цього шару виключають додавання об&apos;єкта.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegendItemProperties</name>
+    <message>
+        <source>Expand group</source>
         <translation>Розгорнути групу</translation>
     </message>
     <message>
@@ -6353,84 +6522,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show visible features list</source>
         <translation>Показати список видимих об&apos;єктів</translation>
-    </message>
-</context>
-<context>
-    <name>QfLayerUtils</name>
-    <message>
-        <source>Cannot start editing, no layer</source>
-        <translation>Не вдається почати редагування, немає шару</translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>Не вдалось розпочати редагування</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>Неможливо виконати видалення об’єкта %2 у шарі &quot;%1&quot;. Причина:
-%3</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>Неможливо виконати видалення в шарі &quot;%1&quot;. Причина:
-%3</translation>
-    </message>
-    <message>
-        <source>Cannot delete feature %1</source>
-        <translation>Неможливо видалити об&apos;єкт %1</translation>
-    </message>
-    <message>
-        <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Неможливо відкати зміни шару в шарі %1</translation>
-    </message>
-    <message>
-        <source>Cannot copy invalid feature</source>
-        <translation>Неможливо скопіювати невірний об&apos;єкт</translation>
-    </message>
-    <message>
-        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation>Неможливо додати нову функцію в шар &quot;%1&quot;. Причина:
-%2</translation>
-    </message>
-    <message>
-        <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation>Неможливо додати функцію в шар &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation>Не вдається додати нову функцію в шарі &quot;%1&quot;. Причина:
-%2</translation>
-    </message>
-</context>
-<context>
-    <name>QfLegend</name>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation>Відстеження активне на цьому шарі.</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Припинити</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>Відстеження на шарі %1 зупинено</translation>
-    </message>
-    <message>
-        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Цей шар недійсний. Це може бути пов’язано з проблемою мережі, відсутнім файлом або неправильною конфігурацією проекту.</translation>
-    </message>
-    <message>
-        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Цей шар налаштовано як «Тільки для читання», що вимикає додавання, видалення та редагування функцій.</translation>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>Налаштування дозволів цього шару виключають додавання об&apos;єкта.</translation>
     </message>
 </context>
 <context>
@@ -6789,6 +6880,52 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfMarkupCollection</name>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markup item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Колір</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Опис</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupLegendItemProperties</name>
+    <message>
+        <source>Show on map</source>
+        <translation>Показати на карті</translation>
+    </message>
+    <message>
+        <source>Zoom to collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The collection has no features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>Показати список об&apos;єктів</translation>
+    </message>
+    <message>
+        <source>Export collection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
@@ -6796,6 +6933,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Default collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Untitled collection</source>
         <translation type="unfinished"/>
     </message>
 </context>

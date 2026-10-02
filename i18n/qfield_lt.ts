@@ -4692,7 +4692,7 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Jungiama debesija</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -4745,6 +4745,18 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     <message numerus="yes">
         <source>%n deletion(s)</source>
         <translation><numerusform>%n ištrynimas</numerusform><numerusform>%n ištrynimai</numerusform><numerusform>%n ištrynimų</numerusform><numerusform>%n ištrynimo</numerusform></translation>
+    </message>
+    <message>
+        <source>Uploading %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploading</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Jungiamasi...</translation>
     </message>
 </context>
 <context>
@@ -5387,6 +5399,18 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     </message>
     <message>
         <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create Collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markup Collection Creation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your new collection name</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6264,6 +6288,151 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <name>QfLayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>Negalima pradėti redaguoti: nėra sluoksnio</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Negalima pradėti redaguoti</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Negalima patvirtinti geoobjekto %2 ištrynimo iš sluoksnio „%1“. Priežastis:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Negalima patvirtinti ištrynimo sluoksnyje „%1“. Priežastis:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>Negalima ištrinti geoobjekto %1</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Negalima atšaukti sluoksnio %1 pakeitimų</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>Negalima kopijuoti netinkamo geoobjekto</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Negalima pridėti naujo geoobjekto prie sluoksnio „%1“. Priežastis:
+%2</translation>
+    </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation>Nepavyksta pridėti geoobjekto į sluoksnį &quot;%1&quot; </translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Nepavyksta išsaugoti naujo geoobjekto sluoksnyje &quot;%1&quot;. Priežastis:
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation>Šiame sluoksnyje sekimas aktyvus.</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Sustabdyti</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>Sekimas sluoksnyje %1 sustabdytas</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Šis sluoksnis netinkamas. Taip galėjo nutikti dėl tinklo problemos, trūkstamo failo arba netinkamos projekto konfigūracijos.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Šis sluoksnis sukonfigūruotas kaip „tik skaitomas“, todėl jame negalima pridėti, ištrinti ir redaguoti geoobjektų.</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation>Šio sluoksnio leidimų konfigūracija neleidžia pridėti geoobjektų.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegendItemProperties</name>
+    <message>
+        <source>Expand group</source>
         <translation>Išskleisti grupę</translation>
     </message>
     <message>
@@ -6353,84 +6522,6 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <message>
         <source>Show visible features list</source>
         <translation>Rodyti matomų geoobjektų sąrašą</translation>
-    </message>
-</context>
-<context>
-    <name>QfLayerUtils</name>
-    <message>
-        <source>Cannot start editing, no layer</source>
-        <translation>Negalima pradėti redaguoti: nėra sluoksnio</translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>Negalima pradėti redaguoti</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>Negalima patvirtinti geoobjekto %2 ištrynimo iš sluoksnio „%1“. Priežastis:
-%3</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>Negalima patvirtinti ištrynimo sluoksnyje „%1“. Priežastis:
-%3</translation>
-    </message>
-    <message>
-        <source>Cannot delete feature %1</source>
-        <translation>Negalima ištrinti geoobjekto %1</translation>
-    </message>
-    <message>
-        <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Negalima atšaukti sluoksnio %1 pakeitimų</translation>
-    </message>
-    <message>
-        <source>Cannot copy invalid feature</source>
-        <translation>Negalima kopijuoti netinkamo geoobjekto</translation>
-    </message>
-    <message>
-        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation>Negalima pridėti naujo geoobjekto prie sluoksnio „%1“. Priežastis:
-%2</translation>
-    </message>
-    <message>
-        <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation>Nepavyksta pridėti geoobjekto į sluoksnį &quot;%1&quot; </translation>
-    </message>
-    <message>
-        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation>Nepavyksta išsaugoti naujo geoobjekto sluoksnyje &quot;%1&quot;. Priežastis:
-%2</translation>
-    </message>
-</context>
-<context>
-    <name>QfLegend</name>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation>Šiame sluoksnyje sekimas aktyvus.</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Sustabdyti</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>Sekimas sluoksnyje %1 sustabdytas</translation>
-    </message>
-    <message>
-        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Šis sluoksnis netinkamas. Taip galėjo nutikti dėl tinklo problemos, trūkstamo failo arba netinkamos projekto konfigūracijos.</translation>
-    </message>
-    <message>
-        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Šis sluoksnis sukonfigūruotas kaip „tik skaitomas“, todėl jame negalima pridėti, ištrinti ir redaguoti geoobjektų.</translation>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>Šio sluoksnio leidimų konfigūracija neleidžia pridėti geoobjektų.</translation>
     </message>
 </context>
 <context>
@@ -6789,6 +6880,52 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
 </context>
 <context>
+    <name>QfMarkupCollection</name>
+    <message>
+        <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Markup item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Spalva</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Aprašas</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupLegendItemProperties</name>
+    <message>
+        <source>Show on map</source>
+        <translation>Rodyti žemėlapyje</translation>
+    </message>
+    <message>
+        <source>Zoom to collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The collection has no features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>Rodyti geoobjektų sąrašą</translation>
+    </message>
+    <message>
+        <source>Export collection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
@@ -6796,6 +6933,10 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     </message>
     <message>
         <source>Default collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Untitled collection</source>
         <translation type="unfinished"/>
     </message>
 </context>

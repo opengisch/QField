@@ -4686,7 +4686,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>连接云</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -4739,6 +4739,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message numerus="yes">
         <source>%n deletion(s)</source>
         <translation><numerusform>%n个删除</numerusform></translation>
+    </message>
+    <message>
+        <source>Uploading %1%</source>
+        <translation>正在上传 %1%</translation>
+    </message>
+    <message>
+        <source>Uploading</source>
+        <translation>正在上传</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>正在连接…</translation>
     </message>
 </context>
 <context>
@@ -5381,7 +5393,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Markups</source>
-        <translation>置标</translation>
+        <translation>标记</translation>
+    </message>
+    <message>
+        <source>Create Collection</source>
+        <translation>创建集合</translation>
+    </message>
+    <message>
+        <source>Markup Collection Creation</source>
+        <translation>标记集合创建</translation>
+    </message>
+    <message>
+        <source>Enter your new collection name</source>
+        <translation>输入您的新集合名称</translation>
     </message>
 </context>
 <context>
@@ -5415,7 +5439,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Markups</source>
-        <translation>置标</translation>
+        <translation>标记</translation>
     </message>
 </context>
 <context>
@@ -6252,6 +6276,151 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfLayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>无法编辑，没有图层</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>无法启动编辑</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>无法从图层 &quot;%1&quot; 删除要素 %2 ，原因：
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>无法在图层&quot;%1&quot;中提交删除。原因：
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>无法删除要素 %1</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>无法取消图层%1中的图层更改</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>无法复制无效的要素</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>无法在图层 &quot;%1&quot; 中添加新要素。原因：
+%2</translation>
+    </message>
+    <message>
+        <source>Cannot add feature in layer &quot;%1&quot;</source>
+        <translation>无法在图层 &quot;%1&quot; 中添加要素</translation>
+    </message>
+    <message>
+        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>无法在图层 &quot;%1&quot; 中提交新要素。原因：
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation>此图层的跟踪处于活动状态。</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>图层%1的跟踪已停止</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>此图层无效。这可能是由于网络问题、文件丢失或工程配置错误造成的。</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>该图层已设置为“只读”，禁用添加、删除和编辑要素。</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation>该图层的权限配置禁用要素添加。</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegendItemProperties</name>
+    <message>
+        <source>Expand group</source>
         <translation>展开组</translation>
     </message>
     <message>
@@ -6341,84 +6510,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Show visible features list</source>
         <translation>显示可见要素列表</translation>
-    </message>
-</context>
-<context>
-    <name>QfLayerUtils</name>
-    <message>
-        <source>Cannot start editing, no layer</source>
-        <translation>无法编辑，没有图层</translation>
-    </message>
-    <message>
-        <source>Cannot start editing</source>
-        <translation>无法启动编辑</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>无法从图层 &quot;%1&quot; 删除要素 %2 ，原因：
-%3</translation>
-    </message>
-    <message>
-        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
-%3</source>
-        <translation>无法在图层&quot;%1&quot;中提交删除。原因：
-%3</translation>
-    </message>
-    <message>
-        <source>Cannot delete feature %1</source>
-        <translation>无法删除要素 %1</translation>
-    </message>
-    <message>
-        <source>Cannot rollback layer changes in layer %1</source>
-        <translation>无法取消图层%1中的图层更改</translation>
-    </message>
-    <message>
-        <source>Cannot copy invalid feature</source>
-        <translation>无法复制无效的要素</translation>
-    </message>
-    <message>
-        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation>无法在图层 &quot;%1&quot; 中添加新要素。原因：
-%2</translation>
-    </message>
-    <message>
-        <source>Cannot add feature in layer &quot;%1&quot;</source>
-        <translation>无法在图层 &quot;%1&quot; 中添加要素</translation>
-    </message>
-    <message>
-        <source>Cannot commit new feature in layer &quot;%1&quot;. Reason:
-%2</source>
-        <translation>无法在图层 &quot;%1&quot; 中提交新要素。原因：
-%2</translation>
-    </message>
-</context>
-<context>
-    <name>QfLegend</name>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation>此图层的跟踪处于活动状态。</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>停止</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>图层%1的跟踪已停止</translation>
-    </message>
-    <message>
-        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>此图层无效。这可能是由于网络问题、文件丢失或工程配置错误造成的。</translation>
-    </message>
-    <message>
-        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>该图层已设置为“只读”，禁用添加、删除和编辑要素。</translation>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>该图层的权限配置禁用要素添加。</translation>
     </message>
 </context>
 <context>
@@ -6777,6 +6868,52 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QfMarkupCollection</name>
+    <message>
+        <source>Markups</source>
+        <translation>标记</translation>
+    </message>
+    <message>
+        <source>Markup item</source>
+        <translation>标记项</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>颜色</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>标注</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>描述</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupLegendItemProperties</name>
+    <message>
+        <source>Show on map</source>
+        <translation>在地图显示</translation>
+    </message>
+    <message>
+        <source>Zoom to collection</source>
+        <translation>缩放至集合</translation>
+    </message>
+    <message>
+        <source>The collection has no features</source>
+        <translation>该集合没有任何要素</translation>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>显示要素列表</translation>
+    </message>
+    <message>
+        <source>Export collection</source>
+        <translation>导出集合</translation>
+    </message>
+</context>
+<context>
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
@@ -6785,6 +6922,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Default collection</source>
         <translation>默认集合</translation>
+    </message>
+    <message>
+        <source>Untitled collection</source>
+        <translation>未命名集合</translation>
     </message>
 </context>
 <context>

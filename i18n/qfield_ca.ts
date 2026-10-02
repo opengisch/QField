@@ -4690,7 +4690,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Connectant el núvol</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -4743,6 +4743,18 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <message numerus="yes">
         <source>%n deletion(s)</source>
         <translation><numerusform>%n supressió(ns)</numerusform><numerusform>%n supressió(ns)</numerusform></translation>
+    </message>
+    <message>
+        <source>Uploading %1%</source>
+        <translation>S&apos;està pujant %1%</translation>
+    </message>
+    <message>
+        <source>Uploading</source>
+        <translation>Pujada</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Connectant...</translation>
     </message>
 </context>
 <context>
@@ -5385,7 +5397,19 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Marcatges</translation>
+    </message>
+    <message>
+        <source>Create Collection</source>
+        <translation>Crea una col·lecció</translation>
+    </message>
+    <message>
+        <source>Markup Collection Creation</source>
+        <translation>Creació de col·leccions de marcatges</translation>
+    </message>
+    <message>
+        <source>Enter your new collection name</source>
+        <translation>Introduïu el nom de la vostra nova col·lecció</translation>
     </message>
 </context>
 <context>
@@ -5415,11 +5439,11 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <name>QfDigitizingLayerInformationView</name>
     <message>
         <source>Map Layers</source>
-        <translation type="unfinished"/>
+        <translation>Capes del mapa</translation>
     </message>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Marcatges</translation>
     </message>
 </context>
 <context>
@@ -6259,95 +6283,67 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <name>QfLayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
-        <translation>Expandeix el grup</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Expand legend item</source>
-        <translation>Expandir element de llegenda</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Atura el seguiment</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>Configuració del seguiment</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
-        <translation>Recàrrega de la capa %1 activada</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Aquesta capa no és vàlida. Això podria ser degut a un problema de xarxa, a un fitxer que falta o a una configuració incorrecta del projecte.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show on map</source>
-        <translation>Mostra al mapa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show labels</source>
-        <translation>Mostra les etiquetes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Opacitat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation>Zoom a grup</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation>Zoom a la capa pare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Zoom to layer</source>
-        <translation>Zoom a la capa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Mostra la llista d&apos;objectes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>La capa no té objectes</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>El seguiment a la capa %1 s&apos;ha aturat</translation>
-    </message>
-    <message>
-        <source>Read-only layer</source>
-        <translation>Capa només de lectura</translation>
-    </message>
-    <message>
-        <source>feature addition</source>
-        <translation>addició d&apos;objecte</translation>
-    </message>
-    <message>
-        <source>attribute editing</source>
-        <translation>edició d&apos;atribut</translation>
-    </message>
-    <message>
-        <source>geometry editing</source>
-        <translation>edició de geometria</translation>
-    </message>
-    <message>
-        <source>feature deletion</source>
-        <translation>supressió d&apos;objecte</translation>
-    </message>
-    <message>
-        <source>Disabled layer permissions: %1</source>
-        <translation>Permisos de capa desactivats: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation>Mostra el menú d&apos;objectes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Mostra la llista d&apos;objectes visibles</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6426,6 +6422,101 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
         <translation>La configuració de permisos d&apos;aquesta capa inhabilita l&apos;addició d&apos;objectes.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegendItemProperties</name>
+    <message>
+        <source>Expand group</source>
+        <translation>Expandeix el grup</translation>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation>Expandir element de llegenda</translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation>Atura el seguiment</translation>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation>Configuració del seguiment</translation>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation>Recàrrega de la capa %1 activada</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Aquesta capa no és vàlida. Això podria ser degut a un problema de xarxa, a un fitxer que falta o a una configuració incorrecta del projecte.</translation>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation>Mostra al mapa</translation>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation>Mostra les etiquetes</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacitat</translation>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation>Zoom al grup</translation>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation>Zoom a la capa pare</translation>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation>Zoom a la capa</translation>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>Mostra la llista d&apos;objectes</translation>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation>La capa no té objectes</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>El seguiment a la capa %1 s&apos;ha aturat</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Capa només de lectura</translation>
+    </message>
+    <message>
+        <source>feature addition</source>
+        <translation>addició d&apos;objecte</translation>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation>edició d&apos;atribut</translation>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation>edició de geometria</translation>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation>supressió d&apos;objecte</translation>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation>Permisos de capa desactivats: %1</translation>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation>Mostra el menú d&apos;objectes</translation>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>Mostra la llista d&apos;objectes visibles</translation>
     </message>
 </context>
 <context>
@@ -6784,14 +6875,64 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     </message>
 </context>
 <context>
+    <name>QfMarkupCollection</name>
+    <message>
+        <source>Markups</source>
+        <translation>Marcatges</translation>
+    </message>
+    <message>
+        <source>Markup item</source>
+        <translation>Element de marcatge</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etiqueta</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Descripció</translation>
+    </message>
+</context>
+<context>
+    <name>QfMarkupLegendItemProperties</name>
+    <message>
+        <source>Show on map</source>
+        <translation>Mostra al mapa</translation>
+    </message>
+    <message>
+        <source>Zoom to collection</source>
+        <translation>Zoom a la col·lecció</translation>
+    </message>
+    <message>
+        <source>The collection has no features</source>
+        <translation>La col·lecció no té objectes</translation>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>Mostra la llista d&apos;objectes</translation>
+    </message>
+    <message>
+        <source>Export collection</source>
+        <translation>Exporta la col·lecció</translation>
+    </message>
+</context>
+<context>
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
-        <translation type="unfinished"/>
+        <translation>Col·lecció sense nom</translation>
     </message>
     <message>
         <source>Default collection</source>
-        <translation type="unfinished"/>
+        <translation>Col·lecció per defecte</translation>
+    </message>
+    <message>
+        <source>Untitled collection</source>
+        <translation>Col·lecció sense títol</translation>
     </message>
 </context>
 <context>
