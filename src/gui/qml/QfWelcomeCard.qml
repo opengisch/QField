@@ -40,7 +40,6 @@ SwipeView {
     property bool closable: false
     default property alias actions: actionRow.children
 
-    implicitWidth: parent ? parent.width : 0
     implicitHeight: panelLayout.implicitHeight
 
     ColumnLayout {
@@ -50,45 +49,30 @@ SwipeView {
       anchors.verticalCenter: parent.verticalCenter
       spacing: 0
 
-      RowLayout {
+      ColumnLayout {
+        id: textColumn
         Layout.fillWidth: true
         Layout.leftMargin: 16
-        Layout.rightMargin: panel.closable ? 4 : 16
-        Layout.topMargin: panel.closable ? 4 : 14
-        Layout.bottomMargin: actionRow.children.length > 0 ? 0 : 14
-        spacing: 4
+        Layout.rightMargin: panel.closable ? closeButton.width + 8 : 16
+        Layout.topMargin: 11
+        Layout.bottomMargin: actionRow.children.length > 0 ? 0 : 16
+        spacing: 2
 
-        ColumnLayout {
+        Text {
+          id: titleText
           Layout.fillWidth: true
-          Layout.alignment: Qt.AlignTop
-          Layout.topMargin: panel.closable ? 10 : 0
-          spacing: 2
-
-          Text {
-            id: titleText
-            Layout.fillWidth: true
-            visible: text !== ""
-            font: QfTheme.strongFont
-            color: QfTheme.mainTextColor
-            wrapMode: Text.WordWrap
-          }
-
-          Text {
-            id: messageText
-            Layout.fillWidth: true
-            font: titleText.visible ? QfTheme.tipFont : QfTheme.defaultFont
-            color: titleText.visible ? QfTheme.secondaryTextColor : QfTheme.mainTextColor
-            wrapMode: Text.WordWrap
-          }
+          visible: text !== ""
+          font: QfTheme.strongFont
+          color: QfTheme.mainTextColor
+          wrapMode: Text.WordWrap
         }
 
-        QfToolButton {
-          Layout.alignment: Qt.AlignTop
-          visible: panel.closable
-          iconSource: QfTheme.getThemeVectorIcon("ic_close_white_24dp")
-          iconColor: QfTheme.secondaryTextColor
-
-          onClicked: panel.SwipeView.view.collapse()
+        Text {
+          id: messageText
+          Layout.fillWidth: true
+          font: titleText.visible ? QfTheme.tipFont : QfTheme.defaultFont
+          color: QfTheme.mainTextColor
+          wrapMode: Text.WordWrap
         }
       }
 
@@ -99,9 +83,23 @@ SwipeView {
         Layout.leftMargin: 16
         Layout.rightMargin: 16
         Layout.topMargin: children.length > 0 ? 12 : 0
-        Layout.bottomMargin: children.length > 0 ? 14 : 0
+        Layout.bottomMargin: children.length > 0 ? 16 : 0
         spacing: 8
       }
+    }
+
+    QfToolButton {
+      id: closeButton
+      anchors.top: parent.top
+      anchors.right: parent.right
+      anchors.rightMargin: 4
+      width: 44
+      height: 44
+      visible: panel.closable
+      iconSource: QfTheme.getThemeVectorIcon("ic_close_white_24dp")
+      iconColor: QfTheme.mainColor
+
+      onClicked: panel.SwipeView.view.collapse()
     }
   }
 }

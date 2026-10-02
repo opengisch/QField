@@ -40,7 +40,7 @@ Page {
     gradient: Gradient {
       GradientStop {
         position: 0.0
-        color: QfTheme.darkTheme ? "#99000000" : QfTheme.mainBackgroundColor
+        color: QfTheme.darkTheme ? "#99000000" : "#99A5A5A5"
       }
       GradientStop {
         position: 0.33
@@ -75,10 +75,6 @@ Page {
 
     ColumnLayout {
       id: welcomeLayout
-
-      readonly property real actionsWidth: Math.min(410, width - 12)
-      readonly property real cardWidth: actionsWidth - welcomeActionsContainer.itemWidth + welcomeActionCloud.buttonWidth
-
       spacing: 4
 
       width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin
@@ -149,10 +145,11 @@ Page {
         visible: false
 
         Layout.margins: 6
-        Layout.topMargin: 10
-        Layout.bottomMargin: 10
+        Layout.topMargin: 0
+        Layout.bottomMargin: 24
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: welcomeLayout.cardWidth
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
         currentIndex: 1
 
         QfWelcomeCard.Panel {
@@ -183,8 +180,9 @@ Page {
             Layout.fillWidth: true
             Layout.preferredHeight: 44
             Layout.preferredWidth: 0
-            text: qsTr("Frustrating")
-            icon.source: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+            text: qsTr("Could be better")
+            icon.source: QfTheme.getThemeVectorIcon('ic_thumb_down_white_24dp')
+            display: AbstractButton.IconOnly
             bgcolor: "transparent"
             color: QfTheme.mainColor
 
@@ -198,7 +196,8 @@ Page {
             Layout.preferredHeight: 44
             Layout.preferredWidth: 0
             text: qsTr("Loving it")
-            icon.source: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
+            icon.source: QfTheme.getThemeVectorIcon('ic_thumb_up_white_24dp')
+            display: AbstractButton.IconOnly
 
             onClicked: {
               if (Qt.platform.os === "android" || Qt.platform.os === "ios" || Qt.platform.os === "windows") {
@@ -239,11 +238,12 @@ Page {
         id: collectionView
         visible: false
 
-        Layout.margins: 0
-        Layout.topMargin: 10
-        Layout.bottomMargin: 10
+        Layout.margins: 6
+        Layout.topMargin: 0
+        Layout.bottomMargin: 24
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: welcomeLayout.cardWidth
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
         currentIndex: 1
 
         QfWelcomeCard.Panel {
@@ -304,7 +304,8 @@ Page {
         Layout.rightMargin: 6
         Layout.topMargin: 8
         Layout.bottomMargin: 8
-        Layout.preferredWidth: welcomeLayout.actionsWidth
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
         Layout.preferredHeight: welcomeActions.height
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         color: "transparent"
@@ -322,7 +323,7 @@ Page {
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             clip: true
 
-            readonly property real itemWidth: count > 3 ? welcomeLayout.actionsWidth / 3.3 : welcomeLayout.actionsWidth / 3
+            readonly property real itemWidth: count > 3 ? welcomeActions.width / 3.3 : welcomeActions.width / 3
 
             contentItem: ListView {
               id: welcomeActionsListView
