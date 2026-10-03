@@ -63,6 +63,7 @@
 #include "qflocatormodelsuperbridge.h"
 #include "qfmarkupmanager.h"
 #include "qfmessagelogmodel.h"
+#include "qfnewsparser.h"
 #include "qfntripsourcetablefetcher.h"
 #include "qfplatformutilities.h"
 #include "qfpluginmodel.h"
@@ -406,6 +407,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
 
   qRegisterMetaType<QfNtripMountPoint>( "QfNtripMountPoint" );
+  qRegisterMetaType<QfNewsItem>( "QfNewsItem" );
 
 
   qRegisterMetaType<QfGnssPositionDetails>( "QfGnssPositionDetails" );
