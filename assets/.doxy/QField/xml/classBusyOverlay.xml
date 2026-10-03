@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBusyOverlay" kind="class" language="C++" prot="public">
+    <compoundname>BusyOverlay</compoundname>
+    <basecompoundref refid="classQfBusyOverlay" prot="public" virt="non-virtual">QfBusyOverlay</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BusyOverlay</label>
+        <link refid="classBusyOverlay"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfBusyOverlay</label>
+        <link refid="classQfBusyOverlay"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BusyOverlay</label>
+        <link refid="classBusyOverlay"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfBusyOverlay</label>
+        <link refid="classQfBusyOverlay"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/BusyOverlay.qml" line="2" column="1" bodyfile="src/app/qml_compat/BusyOverlay.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfBusyOverlay_1ab72abe504e0d8799264cd8571c03dcbe" prot="public" virt="non-virtual"><scope>BusyOverlay</scope><name>actionClicked</name></member>
+      <member refid="classQfBusyOverlay_1a5b9edc6a2976b8ec79adc4b9a5e7a1ca" prot="public" virt="non-virtual"><scope>BusyOverlay</scope><name>actionText</name></member>
+      <member refid="classQfBusyOverlay_1af1e6060c90a47a5f4d4d5fa0303adbbe" prot="public" virt="non-virtual"><scope>BusyOverlay</scope><name>progress</name></member>
+      <member refid="classQfBusyOverlay_1ae3345787539b58ab2c30e02d825f6b62" prot="public" virt="non-virtual"><scope>BusyOverlay</scope><name>showProgress</name></member>
+      <member refid="classQfBusyOverlay_1ab13af3f350ccec859ee505cde06efc6b" prot="public" virt="non-virtual"><scope>BusyOverlay</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

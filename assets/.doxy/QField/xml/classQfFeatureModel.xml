@@ -1,0 +1,2370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFeatureModel" kind="class" language="C++" prot="public">
+    <compoundname>QfFeatureModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="structQfFeatureModel_1_1RememberValues" prot="public">QfFeatureModel::RememberValues</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfFeatureModel_1a1304248ce9fff98f24586370c1b4dc02" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ModelModes</name>
+        <qualifiedname>QfFeatureModel::ModelModes</qualifiedname>
+        <enumvalue id="classQfFeatureModel_1a1304248ce9fff98f24586370c1b4dc02a7fbd0e4475542239b97ec2394cf26a67" prot="public">
+          <name>SingleFeatureModel</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureModel_1a1304248ce9fff98f24586370c1b4dc02a9f10fedae78cf810b32b226b86d30a75" prot="public">
+          <name>MultiFeatureModel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="62" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FeatureRoles</name>
+        <qualifiedname>QfFeatureModel::FeatureRoles</qualifiedname>
+        <enumvalue id="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848af11cd0a607e1de2a2984ca6e0b3f2e71" prot="public">
+          <name>AttributeName</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848a3fd26c04aa3f95ec7d735b155d5ded0f" prot="public">
+          <name>AttributeValue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848addb1709cfe87505d8482ad1464f8ea36" prot="public">
+          <name>Field</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848aa24aff59e078e6360248e0f230347fe6" prot="public">
+          <name>RememberAttribute</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848a8e3d802a3226150adc1ce9ad63dae97e" prot="public">
+          <name>LinkedAttribute</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848af3a506f77c4d27a545a247d173e31286" prot="public">
+          <name>AttributeAllowEdit</name>
+          <briefdescription>
+<para>value of this attribute is given by the parent feature and does not to be available for editing in the form </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="69" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="70" bodyend="77"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfFeatureModel_1a09f37f80ae0c0e63d216a7eac69cca76" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QfFeatureModel::ModelModes</type>
+        <definition>QfFeatureModel::ModelModes QfFeatureModel::modelMode</definition>
+        <argsstring></argsstring>
+        <name>modelMode</name>
+        <qualifiedname>QfFeatureModel::modelMode</qualifiedname>
+        <read>modelMode</read>
+        <write>setModelMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="36" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a8606a5e405e279803002a2421ac784b7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureModel::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>QfFeatureModel::feature</qualifiedname>
+        <read>feature</read>
+        <write>setFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="37" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a61891bdc6599a660eaa0e9b7401ffc8d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt;QgsFeature&gt; QfFeatureModel::features</definition>
+        <argsstring></argsstring>
+        <name>features</name>
+        <qualifiedname>QfFeatureModel::features</qualifiedname>
+        <read>features</read>
+        <write>setFeatures</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="38" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a6ca9c5b428a4f250ff40b6daa253bd80" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureModel::linkedParentFeature</definition>
+        <argsstring></argsstring>
+        <name>linkedParentFeature</name>
+        <qualifiedname>QfFeatureModel::linkedParentFeature</qualifiedname>
+        <read>linkedParentFeature</read>
+        <write>setLinkedParentFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="39" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a0495891d06e02f697338c4590adc1f78" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfFeatureModel::linkedRelation</definition>
+        <argsstring></argsstring>
+        <name>linkedRelation</name>
+        <qualifiedname>QfFeatureModel::linkedRelation</qualifiedname>
+        <read>linkedRelation</read>
+        <write>setLinkedRelation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="40" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a635e41f11e1a3f455fca58e1643225fe" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureModel::linkedRelationOrderingField</definition>
+        <argsstring></argsstring>
+        <name>linkedRelationOrderingField</name>
+        <qualifiedname>QfFeatureModel::linkedRelationOrderingField</qualifiedname>
+        <read>linkedRelationOrderingField</read>
+        <write>setLinkedRelationOrderingField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="41" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1adca953c01dfc09943e22ebe78e8f2265" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel * QfFeatureModel::vertexModel</definition>
+        <argsstring></argsstring>
+        <name>vertexModel</name>
+        <qualifiedname>QfFeatureModel::vertexModel</qualifiedname>
+        <read>vertexModel</read>
+        <write>setVertexModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="42" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a247094d99887de66c0b9676d435dc60a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> *</type>
+        <definition>QfGeometry * QfFeatureModel::geometry</definition>
+        <argsstring></argsstring>
+        <name>geometry</name>
+        <qualifiedname>QfFeatureModel::geometry</qualifiedname>
+        <read>geometry</read>
+        <write>setGeometry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="43" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a02ae1043fc546981c1ba7844a7d21104" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::featureAdditionLocked</definition>
+        <argsstring></argsstring>
+        <name>featureAdditionLocked</name>
+        <qualifiedname>QfFeatureModel::featureAdditionLocked</qualifiedname>
+        <read>featureAdditionLocked</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="44" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1ab27d4f1ca89e2718954ffc0fb8c471f6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::attributeEditingLocked</definition>
+        <argsstring></argsstring>
+        <name>attributeEditingLocked</name>
+        <qualifiedname>QfFeatureModel::attributeEditingLocked</qualifiedname>
+        <read>attributeEditingLocked</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="45" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a2aa67cedc665f268748286b53ce7e968" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::geometryEditingLocked</definition>
+        <argsstring></argsstring>
+        <name>geometryEditingLocked</name>
+        <qualifiedname>QfFeatureModel::geometryEditingLocked</qualifiedname>
+        <read>geometryEditingLocked</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="46" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a7169f444699a4ba917d655c177af4b95" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::featureDeletionLocked</definition>
+        <argsstring></argsstring>
+        <name>featureDeletionLocked</name>
+        <qualifiedname>QfFeatureModel::featureDeletionLocked</qualifiedname>
+        <read>featureDeletionLocked</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="47" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1abd3998debf9fbce36b6030a19e367f24" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfFeatureModel::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>QfFeatureModel::currentLayer</qualifiedname>
+        <read>layer</read>
+        <write>setCurrentLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="48" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a1cc7b7333b42ee4c216f75bc6543e8d5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+        <definition>QfAppExpressionContextScopesGenerator * QfFeatureModel::appExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>QfFeatureModel::appExpressionContextScopesGenerator</qualifiedname>
+        <read>appExpressionContextScopesGenerator</read>
+        <write>setAppExpressionContextScopesGenerator</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="49" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a977039c331d11aa63b8a130218c8a436" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref></type>
+        <definition>QfSnappingResult QfFeatureModel::topSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>QfFeatureModel::topSnappingResult</qualifiedname>
+        <read>topSnappingResult</read>
+        <write>setTopSnappingResult</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="50" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1abc72ebb7d748c629e20f4ee844f59b58" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfFeatureModel::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfFeatureModel::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="51" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureModel_1a405b4b8accf62e641069032d9b283041" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::batchMode</definition>
+        <argsstring></argsstring>
+        <name>batchMode</name>
+        <qualifiedname>QfFeatureModel::batchMode</qualifiedname>
+        <read>batchMode</read>
+        <write>setBatchMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="52" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFeatureModel_1ab1c62e43f838eec32d1ff88657b58531" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mFeatureAdditionLocked</definition>
+        <argsstring></argsstring>
+        <name>mFeatureAdditionLocked</name>
+        <qualifiedname>QfFeatureModel::mFeatureAdditionLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="342" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a4acc9deb62951185cd5bf8aa93b725ae" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mAttributeEditingLocked</definition>
+        <argsstring></argsstring>
+        <name>mAttributeEditingLocked</name>
+        <qualifiedname>QfFeatureModel::mAttributeEditingLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="343" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a4d3c7e90ff5550d5b79935b2ecd1d072" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mGeometryEditingLocked</definition>
+        <argsstring></argsstring>
+        <name>mGeometryEditingLocked</name>
+        <qualifiedname>QfFeatureModel::mGeometryEditingLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="344" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1aabd509d0464e13c084767f5151029384" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mFeatureDeletionLocked</definition>
+        <argsstring></argsstring>
+        <name>mFeatureDeletionLocked</name>
+        <qualifiedname>QfFeatureModel::mFeatureDeletionLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="345" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a72430127db1ee6b65b734ef1909c305c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mFeatureAdditionLockedByDefault</definition>
+        <argsstring></argsstring>
+        <name>mFeatureAdditionLockedByDefault</name>
+        <qualifiedname>QfFeatureModel::mFeatureAdditionLockedByDefault</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="347" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a5fc42160760763e0b36edcf488b316c6" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureModel::mFeatureAdditionLockedExpression</definition>
+        <argsstring></argsstring>
+        <name>mFeatureAdditionLockedExpression</name>
+        <qualifiedname>QfFeatureModel::mFeatureAdditionLockedExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="348" column="13" bodyfile="src/core/qffeaturemodel.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1af328acc7090bec020712087ac77efe85" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mAttributeEditingLockedByDefault</definition>
+        <argsstring></argsstring>
+        <name>mAttributeEditingLockedByDefault</name>
+        <qualifiedname>QfFeatureModel::mAttributeEditingLockedByDefault</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="349" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a9961095b32e65d7b59ce14102162602a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureModel::mAttributeEditingLockedExpression</definition>
+        <argsstring></argsstring>
+        <name>mAttributeEditingLockedExpression</name>
+        <qualifiedname>QfFeatureModel::mAttributeEditingLockedExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="350" column="13" bodyfile="src/core/qffeaturemodel.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1ad2ac6b6a717b19c7fbbbddc101cef45b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mGeometryEditingLockedByDefault</definition>
+        <argsstring></argsstring>
+        <name>mGeometryEditingLockedByDefault</name>
+        <qualifiedname>QfFeatureModel::mGeometryEditingLockedByDefault</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="351" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1ab2d00048ae45a093d48c7b10ba84436e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureModel::mGeometryEditingLockedExpression</definition>
+        <argsstring></argsstring>
+        <name>mGeometryEditingLockedExpression</name>
+        <qualifiedname>QfFeatureModel::mGeometryEditingLockedExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="352" column="13" bodyfile="src/core/qffeaturemodel.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1ac1a3de0b5864a8c06fcbd8a72cf6d883" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mFeatureDeletionLockedByDefault</definition>
+        <argsstring></argsstring>
+        <name>mFeatureDeletionLockedByDefault</name>
+        <qualifiedname>QfFeatureModel::mFeatureDeletionLockedByDefault</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="353" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a276cab4da9f33424a9cc37d4e053245c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureModel::mFeatureDeletionLockedExpression</definition>
+        <argsstring></argsstring>
+        <name>mFeatureDeletionLockedExpression</name>
+        <qualifiedname>QfFeatureModel::mFeatureDeletionLockedExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="354" column="13" bodyfile="src/core/qffeaturemodel.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1af15a8d7750ef85a92da4e7fc7c094e2c" prot="private" static="no" mutable="no">
+        <type>ModelModes</type>
+        <definition>ModelModes QfFeatureModel::mModelMode</definition>
+        <argsstring></argsstring>
+        <name>mModelMode</name>
+        <qualifiedname>QfFeatureModel::mModelMode</qualifiedname>
+        <initializer>= SingleFeatureModel</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="356" column="16" bodyfile="src/core/qffeaturemodel.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1ab91e1699d7427587d48aa08a334bb034" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfFeatureModel::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>QfFeatureModel::mLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="357" column="14" bodyfile="src/core/qffeaturemodel.h" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a75b11eea44caab7b32e6f09318e86d8c" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureModel::mSavedFeature</definition>
+        <argsstring></argsstring>
+        <name>mSavedFeature</name>
+        <qualifiedname>QfFeatureModel::mSavedFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="358" column="16" bodyfile="src/core/qffeaturemodel.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1aadb7415fa8d829dc69cde3fa85d36f80" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureModel::mFeature</definition>
+        <argsstring></argsstring>
+        <name>mFeature</name>
+        <qualifiedname>QfFeatureModel::mFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="359" column="16" bodyfile="src/core/qffeaturemodel.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a467668a17f46f7b125d27c3ba0c04201" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt;QgsFeature&gt; QfFeatureModel::mFeatures</definition>
+        <argsstring></argsstring>
+        <name>mFeatures</name>
+        <qualifiedname>QfFeatureModel::mFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="360" column="11" bodyfile="src/core/qffeaturemodel.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a6f6732f082603eae3d483202698ac40f" prot="private" static="no" mutable="no">
+        <type>QList&lt; bool &gt;</type>
+        <definition>QList&lt;bool&gt; QfFeatureModel::mAttributesAllowEdit</definition>
+        <argsstring></argsstring>
+        <name>mAttributesAllowEdit</name>
+        <qualifiedname>QfFeatureModel::mAttributesAllowEdit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="361" column="11" bodyfile="src/core/qffeaturemodel.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a53a742dd8aa94c3d5048f277c8099ec1" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureModel::mLinkedParentFeature</definition>
+        <argsstring></argsstring>
+        <name>mLinkedParentFeature</name>
+        <qualifiedname>QfFeatureModel::mLinkedParentFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="362" column="16" bodyfile="src/core/qffeaturemodel.h" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a6ceeba48a4f13b4015cba7903c2adc9d" prot="private" static="no" mutable="no">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfFeatureModel::mLinkedRelation</definition>
+        <argsstring></argsstring>
+        <name>mLinkedRelation</name>
+        <qualifiedname>QfFeatureModel::mLinkedRelation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="363" column="17" bodyfile="src/core/qffeaturemodel.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1aeb5684ef396e6d206c50628e2715c89c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureModel::mLinkedRelationOrderingField</definition>
+        <argsstring></argsstring>
+        <name>mLinkedRelationOrderingField</name>
+        <qualifiedname>QfFeatureModel::mLinkedRelationOrderingField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="364" column="13" bodyfile="src/core/qffeaturemodel.h" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a6c65670c4b022a0547863f9b4b566cfb" prot="private" static="no" mutable="no">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt;int&gt; QfFeatureModel::mLinkedAttributeIndexes</definition>
+        <argsstring></argsstring>
+        <name>mLinkedAttributeIndexes</name>
+        <qualifiedname>QfFeatureModel::mLinkedAttributeIndexes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="365" column="11" bodyfile="src/core/qffeaturemodel.h" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a354b6a4110a23146f83e94d5a2e48048" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel* QfFeatureModel::mVertexModel</definition>
+        <argsstring></argsstring>
+        <name>mVertexModel</name>
+        <qualifiedname>QfFeatureModel::mVertexModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="366" column="19" bodyfile="src/core/qffeaturemodel.h" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1aced22b35f34b8d355a5ae76c3e54e709" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> *</type>
+        <definition>QfGeometry* QfFeatureModel::mGeometry</definition>
+        <argsstring></argsstring>
+        <name>mGeometry</name>
+        <qualifiedname>QfFeatureModel::mGeometry</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="367" column="16" bodyfile="src/core/qffeaturemodel.h" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a10c695470bfff8bf6f1b232979187924" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> &gt;</type>
+        <definition>QPointer&lt;QfAppExpressionContextScopesGenerator&gt; QfFeatureModel::mAppExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>mAppExpressionContextScopesGenerator</name>
+        <qualifiedname>QfFeatureModel::mAppExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="368" column="14" bodyfile="src/core/qffeaturemodel.h" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1ab8fa140d7571fe6de713c566d1d25ba9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref></type>
+        <definition>QfSnappingResult QfFeatureModel::mTopSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>mTopSnappingResult</name>
+        <qualifiedname>QfFeatureModel::mTopSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="369" column="22" bodyfile="src/core/qffeaturemodel.h" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1af1f1bd0f9d8e7d759a31e05acfcd2678" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfFeatureModel::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfFeatureModel::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="370" column="16" bodyfile="src/core/qffeaturemodel.h" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1ab97b2c30f7cb80553b29ce3d6e9c67d2" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureModel::mTempName</definition>
+        <argsstring></argsstring>
+        <name>mTempName</name>
+        <qualifiedname>QfFeatureModel::mTempName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="371" column="13" bodyfile="src/core/qffeaturemodel.h" bodystart="371" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a70839189e8d0438a47056a1abd33b0bb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mBatchMode</definition>
+        <argsstring></argsstring>
+        <name>mBatchMode</name>
+        <qualifiedname>QfFeatureModel::mBatchMode</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="373" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureModel_1a4cf8bd553a0b53b555ab289e1df5413e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::mBatchModeWasEditing</definition>
+        <argsstring></argsstring>
+        <name>mBatchModeWasEditing</name>
+        <qualifiedname>QfFeatureModel::mBatchModeWasEditing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="374" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFeatureModel_1a663e5554365bac716dd619480a85a9b5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureModel::QfFeatureModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfFeatureModel</name>
+        <qualifiedname>QfFeatureModel::QfFeatureModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="80" column="14" bodyfile="src/core/qffeaturemodel.cpp" bodystart="41" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a123153ee225422bddf9127d161848edc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setModelMode</definition>
+        <argsstring>(const ModelModes mode)</argsstring>
+        <name>setModelMode</name>
+        <qualifiedname>QfFeatureModel::setModelMode</qualifiedname>
+        <param>
+          <type>const ModelModes</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="82" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="47" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a9e9833b487eb64719996f097514e8d56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ModelModes</type>
+        <definition>QfFeatureModel::ModelModes QfFeatureModel::modelMode</definition>
+        <argsstring>() const</argsstring>
+        <name>modelMode</name>
+        <qualifiedname>QfFeatureModel::modelMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="83" column="16" bodyfile="src/core/qffeaturemodel.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1ad5a75d08d25a09296c002ff2912730bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setFeature</name>
+        <qualifiedname>QfFeatureModel::setFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="85" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="63" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1abf1038f2c66eb0d1f76223eada3432c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureModel::feature</definition>
+        <argsstring>() const</argsstring>
+        <name>feature</name>
+        <qualifiedname>QfFeatureModel::feature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="87" column="16" bodyfile="src/core/qffeaturemodel.cpp" bodystart="286" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a851d9509e5b8f8b2e38b8a41e40614e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setFeatures</definition>
+        <argsstring>(const QList&lt; QgsFeature &gt; &amp;features)</argsstring>
+        <name>setFeatures</name>
+        <qualifiedname>QfFeatureModel::setFeatures</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsFeature &gt; &amp;</type>
+          <declname>features</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="89" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="81" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1abb6e61dfb637c4e7da6209414aaa2c55" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt; QgsFeature &gt; QfFeatureModel::features</definition>
+        <argsstring>() const</argsstring>
+        <name>features</name>
+        <qualifiedname>QfFeatureModel::features</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the features list for passing it around in QML </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="94" column="11" bodyfile="src/core/qffeaturemodel.cpp" bodystart="291" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a50dfe4bec333f368a7e8908643038336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setLinkedParentFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setLinkedParentFeature</name>
+        <qualifiedname>QfFeatureModel::setLinkedParentFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A linked feature is a parent feature of a relation passing it&apos;s pk(s) to the created child features fk(s) The fk fields are evaluated over the linked relation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>linkedParentFeature </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="102" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="334" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1ad96de03de23b2d80cb9d3b9373251a6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureModel::linkedParentFeature</definition>
+        <argsstring>() const</argsstring>
+        <name>linkedParentFeature</name>
+        <qualifiedname>QfFeatureModel::linkedParentFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A linked feature is a parent feature of a relation passing it&apos;s pk(s) to the created child features fk(s) <simplesect kind="return"><para>the parent feature linked to this feature </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfFeatureModel_1a50dfe4bec333f368a7e8908643038336" kindref="member">setLinkedParentFeature</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="109" column="16" bodyfile="src/core/qffeaturemodel.cpp" bodystart="346" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1abbddf52ffd500ed4900e4a3ec844ff83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setLinkedRelation</definition>
+        <argsstring>(const QgsRelation &amp;relation)</argsstring>
+        <name>setLinkedRelation</name>
+        <qualifiedname>QfFeatureModel::setLinkedRelation</qualifiedname>
+        <param>
+          <type>const QgsRelation &amp;</type>
+          <declname>relation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The relation connecting this feature to the parent, over which this feature has been loaded (e.g. over relation editor widget) The relation is userd to evaluate the parents pk(s) and the childs fk(s) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>relation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>linkedRelation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="117" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="351" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aa8d5d4ead4b142127bf30467dd5a1445" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfFeatureModel::linkedRelation</definition>
+        <argsstring>() const</argsstring>
+        <name>linkedRelation</name>
+        <qualifiedname>QfFeatureModel::linkedRelation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The relation connecting this feature to the parent, over which this feature has been loaded (e.g. over relation editor widget) <simplesect kind="return"><para>the relation connecting the parent </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfFeatureModel_1abbddf52ffd500ed4900e4a3ec844ff83" kindref="member">setLinkedRelation</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="124" column="17" bodyfile="src/core/qffeaturemodel.cpp" bodystart="359" bodyend="362"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a477d6dc87492808307ab771e77044a2a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfFeatureModel::linkedRelationOrderingField</definition>
+        <argsstring>() const</argsstring>
+        <name>linkedRelationOrderingField</name>
+        <qualifiedname>QfFeatureModel::linkedRelationOrderingField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the field name used for ordering in ordered relations. Empty string if not available. <simplesect kind="see"><para><ref refid="classQfFeatureModel_1abf12a442039a2b88faf6a0f5852bdff4" kindref="member">setLinkedRelationOrderingField</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="130" column="13" bodyfile="src/core/qffeaturemodel.cpp" bodystart="364" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1abf12a442039a2b88faf6a0f5852bdff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setLinkedRelationOrderingField</definition>
+        <argsstring>(const QString &amp;orderingField)</argsstring>
+        <name>setLinkedRelationOrderingField</name>
+        <qualifiedname>QfFeatureModel::setLinkedRelationOrderingField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>orderingField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the field name used for ordering in ordered relations. Empty string if not available. <simplesect kind="see"><para>linkedRelationOrderingField </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="136" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="369" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a8d5f5a0f9b4d2b0e80e0ad436b7b580c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setCurrentLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setCurrentLayer</name>
+        <qualifiedname>QfFeatureModel::setCurrentLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="138" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="129" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a7466c656d0ca31eef7fc09d8ae9bad58" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfFeatureModel::layer</definition>
+        <argsstring>() const</argsstring>
+        <name>layer</name>
+        <qualifiedname>QfFeatureModel::layer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="139" column="20" bodyfile="src/core/qffeaturemodel.cpp" bodystart="239" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a011586e743be8073061a59ef5a617b60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> *</type>
+        <definition>QfGeometry * QfFeatureModel::geometry</definition>
+        <argsstring>()</argsstring>
+        <name>geometry</name>
+        <qualifiedname>QfFeatureModel::geometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the geometry object that will drive the feature geometry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="144" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aa41acf249710724d757b899a4d38a0af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setGeometry</definition>
+        <argsstring>(QfGeometry *geometry)</argsstring>
+        <name>setGeometry</name>
+        <qualifiedname>QfFeatureModel::setGeometry</qualifiedname>
+        <param>
+          <type><ref refid="classQfGeometry" kindref="compound">QfGeometry</ref> *</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the geometry object that will drive the feature geometry. <simplesect kind="note"><para>This is not the QgsGeometry of the feature. To change that, use the changeGeometry function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="151" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="263" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1af5de59e8700cd1d3cca09dccd4a42fcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel * QfFeatureModel::vertexModel</definition>
+        <argsstring>()</argsstring>
+        <name>vertexModel</name>
+        <qualifiedname>QfFeatureModel::vertexModel</qualifiedname>
+        <briefdescription>
+<para>Returns the vertex model is used to highlight vertices on the map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="154" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a256a73d0b52c3758599b4b0ed8142568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setVertexModel</definition>
+        <argsstring>(QfVertexModel *model)</argsstring>
+        <name>setVertexModel</name>
+        <qualifiedname>QfFeatureModel::setVertexModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Sets the vertex <emphasis>model</emphasis> is used to highlight vertices on the map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="156" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="277" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1acebc08aff677387b9a7f004283a4d9fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::featureAdditionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>featureAdditionLocked</name>
+        <qualifiedname>QfFeatureModel::featureAdditionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="158" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="158" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a42d9e36842224a414aba1dab92acc43a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::attributeEditingLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>attributeEditingLocked</name>
+        <qualifiedname>QfFeatureModel::attributeEditingLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="159" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="159" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1af33b16915407b04e5c6c1c8c0673baa2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::geometryEditingLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>geometryEditingLocked</name>
+        <qualifiedname>QfFeatureModel::geometryEditingLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="160" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="160" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aa8a77cf4a29cd91f6cc4585037a19220" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::featureDeletionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>featureDeletionLocked</name>
+        <qualifiedname>QfFeatureModel::featureDeletionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="161" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="161" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aa9a510e3346bff97491fa623077a5614" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfFeatureModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfFeatureModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="163" column="11" bodyfile="src/core/qffeaturemodel.cpp" bodystart="379" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1acddd2a6c4c70f1d739aed76eac1648a5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfFeatureModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfFeatureModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="164" column="9" bodyfile="src/core/qffeaturemodel.cpp" bodystart="393" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aa73f9bb3fa833f4a5b7fe4c7d6d13cb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfFeatureModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfFeatureModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="165" column="14" bodyfile="src/core/qffeaturemodel.cpp" bodystart="401" bodyend="432"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aa019a4f15631e00e74af470b3ba57997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfFeatureModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="166" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="434" bodyend="505"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a2dc47fd6aa77655db5c710a5e34e66a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFeatureModel::changeGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>changeGeometry</name>
+        <qualifiedname>QfFeatureModel::changeGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>geometry</emphasis> of the feature. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="171" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="629" bodyend="646"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a14805a2e24fb975e36d332b0ca632c8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFeatureModel::save</definition>
+        <argsstring>(bool flushBuffer=true)</argsstring>
+        <name>save</name>
+        <qualifiedname>QfFeatureModel::save</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>flushBuffer</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Will commit the edit buffer of this layer. May change in the future to only commit the changes buffered in this model.</para>
+<para>By setting <emphasis>flushBuffer</emphasis> to FALSE, the edits made to the feature will remain in the edit buffer provided the vector layer was already in editing mode.</para>
+<para><simplesect kind="return"><para>TRUE if a feature was successfully saved </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="182" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="648" bodyend="809"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1ad7d7c6e8fff8c605ee61de438da04978" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureModel::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>QfFeatureModel::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Will reset the feature to the original values and dismiss any buffered edits. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="187" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="811" bodyend="817"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a9432d6c0e8d0e9060c787650c91e87d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureModel::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>QfFeatureModel::refresh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Will refresh the feature values and geometry from the data source. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="192" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="819" bodyend="829"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1ad560f20fc3cab6ec932e28bd41b3a50c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFeatureModel::create</definition>
+        <argsstring>(bool flushBuffer=true)</argsstring>
+        <name>create</name>
+        <qualifiedname>QfFeatureModel::create</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>flushBuffer</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Will create this feature as a new feature on the data source.</para>
+<para>By setting <emphasis>flushBuffer</emphasis> to FALSE, the created feature will remain in the edit buffer provided the vector layer was already in editing mode. The flushBuffer parameter will be ignored for layers containing relationships.</para>
+<para><simplesect kind="return"><para>TRUE if a feature was successfully created </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="204" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1183" bodyend="1315"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a8894132ae0a1cf0ab0c5b95634300699" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFeatureModel::deleteFeature</definition>
+        <argsstring>()</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>QfFeatureModel::deleteFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes the current feature from the data source. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="209" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1317" bodyend="1320"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a4941811f0fe7faa3c48282caf1f63e16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFeatureModel::suppressFeatureForm</definition>
+        <argsstring>() const</argsstring>
+        <name>suppressFeatureForm</name>
+        <qualifiedname>QfFeatureModel::suppressFeatureForm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the feature form should be suppressed when adding new features. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="214" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="831" bodyend="837"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a51bc0fae15fa616e0958978aebda0be4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureModel::resetAttributes</definition>
+        <argsstring>(bool partialReset=false)</argsstring>
+        <name>resetAttributes</name>
+        <qualifiedname>QfFeatureModel::resetAttributes</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>partialReset</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the attribute values of the current feature <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>partialReset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>when set to TRUE, only attributes with default or remembered values will be reset </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="220" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="870" bodyend="920"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1acb67f2c9652903b0c8f1638ef082e813" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureModel::resetFeature</definition>
+        <argsstring>()</argsstring>
+        <name>resetFeature</name>
+        <qualifiedname>QfFeatureModel::resetFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="222" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="839" bodyend="853"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a8907c19c7b17f0dc871a0916bbc50d16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureModel::resetFeatureId</definition>
+        <argsstring>()</argsstring>
+        <name>resetFeatureId</name>
+        <qualifiedname>QfFeatureModel::resetFeatureId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="224" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="855" bodyend="868"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a326c0b1fb52e110db6d3fed6f9f37d37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFeatureModel::updateAttributesFromFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>updateAttributesFromFeature</name>
+        <qualifiedname>QfFeatureModel::updateAttributesFromFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update attributes to match that of a given feature <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>feature from which attributes will be taken </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TRUE if one or more attribute was updated </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="231" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="922" bodyend="983"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a613a39cf6026b9d4a8d687133d2cc303" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; bool &gt;</type>
+        <definition>QVector&lt; bool &gt; QfFeatureModel::rememberedAttributes</definition>
+        <argsstring>() const</argsstring>
+        <name>rememberedAttributes</name>
+        <qualifiedname>QfFeatureModel::rememberedAttributes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="233" column="13" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1526" bodyend="1529"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a5012d3e92159d0fb210e0a952559bd22" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+        <definition>QfAppExpressionContextScopesGenerator * QfFeatureModel::appExpressionContextScopesGenerator</definition>
+        <argsstring>() const</argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>QfFeatureModel::appExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the application expression context scopes generator object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="238" column="43" bodyfile="src/core/qffeaturemodel.cpp" bodystart="244" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a81d6092df89a9003e0522bda16a767eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setAppExpressionContextScopesGenerator</definition>
+        <argsstring>(QfAppExpressionContextScopesGenerator *generator)</argsstring>
+        <name>setAppExpressionContextScopesGenerator</name>
+        <qualifiedname>QfFeatureModel::setAppExpressionContextScopesGenerator</qualifiedname>
+        <param>
+          <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+          <declname>generator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the application expression context scopes <emphasis>generator</emphasis> object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="243" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="249" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a4b23c9696f9bdcf312b058869d8c8411" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref></type>
+        <definition>QfSnappingResult QfFeatureModel::topSnappingResult</definition>
+        <argsstring>() const</argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>QfFeatureModel::topSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the top snapping result of the coordinate locator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="248" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1358" bodyend="1361"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a26d0f80f0629c24179224edfaf8d8116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setTopSnappingResult</definition>
+        <argsstring>(const QfSnappingResult &amp;topSnappingResult)</argsstring>
+        <name>setTopSnappingResult</name>
+        <qualifiedname>QfFeatureModel::setTopSnappingResult</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref> &amp;</type>
+          <declname>topSnappingResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the top snapping result of the coordinate locator <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>topSnappingResult</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the top snapping result object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="254" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1363" bodyend="1366"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a51aa9733e9c43c8109c3e51643e554d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureModel::applyGeometry</definition>
+        <argsstring>(bool fromVertexModel=false, bool skipTopologicalEditing=false)</argsstring>
+        <name>applyGeometry</name>
+        <qualifiedname>QfFeatureModel::applyGeometry</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>fromVertexModel</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>skipTopologicalEditing</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply the geometry object or vertex model object&apos;s geometry to the feature geometry. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fromVertexModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to use the vertex model </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>skipTopologicalEditing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE to skip project-level topological editing rule </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="261" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="985" bodyend="1150"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a3944d00696752435715c850117a0a3d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureModel::applyGeometryToVertexModel</definition>
+        <argsstring>()</argsstring>
+        <name>applyGeometryToVertexModel</name>
+        <qualifiedname>QfFeatureModel::applyGeometryToVertexModel</qualifiedname>
+        <briefdescription>
+<para>Apply the feature geometry to a vertex model if present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="264" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1368" bodyend="1374"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1af9c1fda9ff8ed46871ade31914a43a66" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureModel::updateRubberband</definition>
+        <argsstring>() const</argsstring>
+        <name>updateRubberband</name>
+        <qualifiedname>QfFeatureModel::updateRubberband</qualifiedname>
+        <briefdescription>
+<para>Update the linked geometry rubber band to match the feature&apos;s geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="267" column="22" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1531" bodyend="1534"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1afdc3fe2ed9490994ed6a4a1298a30dd9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::positionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>QfFeatureModel::positionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the position is locked to the GNSS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="272" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aec4db0a4f157ca3a3caadcca5843df47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setPositionLocked</definition>
+        <argsstring>(bool positionLocked)</argsstring>
+        <name>setPositionLocked</name>
+        <qualifiedname>QfFeatureModel::setPositionLocked</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>positionLocked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the position is locked to the GNSS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="277" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1acbf99e10a3d84fffa2a3f90d3d53cc04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfFeatureModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfFeatureModel::project</qualifiedname>
+        <briefdescription>
+<para>Returns the current project from which the digitizing logs will be sought. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="280" column="16" bodyfile="src/core/qffeaturemodel.h" bodystart="280" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1ab46076c569969d6677e024b5684499b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfFeatureModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>project</emphasis> used to find the digitizing logs layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="283" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1536" bodyend="1544"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1ad612d7faab9ec4958310b15cf7789dfd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext QfFeatureModel::createExpressionContext</definition>
+        <argsstring>() const</argsstring>
+        <name>createExpressionContext</name>
+        <qualifiedname>QfFeatureModel::createExpressionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="285" column="26" bodyfile="src/core/qffeaturemodel.cpp" bodystart="599" bodyend="627"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a4e7b9c9edf48e3e780f62eebbf21fe90" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::batchMode</definition>
+        <argsstring>() const</argsstring>
+        <name>batchMode</name>
+        <qualifiedname>QfFeatureModel::batchMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the feature model is in batch mode. When enabled, the vector layer will remain in editing mode until batch mode is disabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="291" column="10" bodyfile="src/core/qffeaturemodel.h" bodystart="291" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1ac6142f425655a66b2a59099346a75699" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setBatchMode</definition>
+        <argsstring>(bool batchMode)</argsstring>
+        <name>setBatchMode</name>
+        <qualifiedname>QfFeatureModel::setBatchMode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>batchMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Toggles the feature model batch mode. When enabled, the vector layer will remain in editing mode until batch mode is disabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="297" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1157" bodyend="1181"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQfFeatureModel_1ad0474b6f01b9a323a8389f836b63c987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::removeLayer</definition>
+        <argsstring>(QObject *layer)</argsstring>
+        <name>removeLayer</name>
+        <qualifiedname>QfFeatureModel::removeLayer</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="300" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1152" bodyend="1155"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfFeatureModel_1a984a155342de48944219c9864107af18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::modelModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modelModeChanged</name>
+        <qualifiedname>QfFeatureModel::modelModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="303" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1a15377286c06eca154aac5886c00e7716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::featureUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>featureUpdated</name>
+        <qualifiedname>QfFeatureModel::featureUpdated</qualifiedname>
+        <briefdescription>
+<para>Emitted when the model&apos;s feature has been saved (i.e. updated) but not changed as a result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="306" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1a4b837525a191acdd00f427844e196b9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>QfFeatureModel::featureChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the model&apos;s single feature has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="308" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1ac75ac7f82fd3acaa73754925584ac662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::featuresChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featuresChanged</name>
+        <qualifiedname>QfFeatureModel::featuresChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the model&apos;s multi features list has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="310" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1a0459542709fd149076c66e37a50db8dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::linkedParentFeatureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>linkedParentFeatureChanged</name>
+        <qualifiedname>QfFeatureModel::linkedParentFeatureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="312" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1abfa0a792a3fbaaf2e1ce8b4e5905d480" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::linkedRelationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>linkedRelationChanged</name>
+        <qualifiedname>QfFeatureModel::linkedRelationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="313" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1ada26fb11fd29acc44f6b75a95020b4e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::linkedRelationOrderingFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>linkedRelationOrderingFieldChanged</name>
+        <qualifiedname>QfFeatureModel::linkedRelationOrderingFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="314" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1ad9fac67ddc840eeb017e42d012b0568b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::vertexModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexModelChanged</name>
+        <qualifiedname>QfFeatureModel::vertexModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="315" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1a24fe833789aa42285ec76cbe8f91b5c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::geometryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryChanged</name>
+        <qualifiedname>QfFeatureModel::geometryChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="316" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1aeb9b3c28aa56280a9408daf2b8d48a88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::featureAdditionLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureAdditionLockedChanged</name>
+        <qualifiedname>QfFeatureModel::featureAdditionLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="317" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1acdc5d89120c456d75cd6696faac7b9ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::attributeEditingLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>attributeEditingLockedChanged</name>
+        <qualifiedname>QfFeatureModel::attributeEditingLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="318" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1a8c79f2d7a362da822100834558543bfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::geometryEditingLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryEditingLockedChanged</name>
+        <qualifiedname>QfFeatureModel::geometryEditingLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="319" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1aa75ef1087e3d96a5b7b273fd7592801e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::featureDeletionLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureDeletionLockedChanged</name>
+        <qualifiedname>QfFeatureModel::featureDeletionLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="320" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1a0555bb26cdc51893bf7f8e0e1cbc6d14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::currentLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentLayerChanged</name>
+        <qualifiedname>QfFeatureModel::currentLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="321" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1a5e7d133501907579b0127028def6c221" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::appExpressionContextScopesGeneratorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>appExpressionContextScopesGeneratorChanged</name>
+        <qualifiedname>QfFeatureModel::appExpressionContextScopesGeneratorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="322" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1af6bb5e1a6e7b456d608fabe6b83104da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::topSnappingResultChanged</definition>
+        <argsstring>()</argsstring>
+        <name>topSnappingResultChanged</name>
+        <qualifiedname>QfFeatureModel::topSnappingResultChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="323" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1ab6a7636174ab781de03e44c5cc49a0f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfFeatureModel::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="324" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1aaf12e9474f60a8fc1bcb878320a26134" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::batchModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>batchModeChanged</name>
+        <qualifiedname>QfFeatureModel::batchModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="325" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureModel_1a017f2859b2822392a1cbc940c240208c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::warning</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>warning</name>
+        <qualifiedname>QfFeatureModel::warning</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="327" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfFeatureModel_1a8a88777d3df0cd3e45f32b7d7f4f8989" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeatureIds</type>
+        <definition>QgsFeatureIds QfFeatureModel::applyVertexModelTopography</definition>
+        <argsstring>()</argsstring>
+        <name>applyVertexModelTopography</name>
+        <qualifiedname>QfFeatureModel::applyVertexModelTopography</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="330" column="19" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1414" bodyend="1524"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a921a1f85c32b0dae41b77da81c7dfe4c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::applyGeometryTopography</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>applyGeometryTopography</name>
+        <qualifiedname>QfFeatureModel::applyGeometryTopography</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="331" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1376" bodyend="1412"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a0168953b3e06c532bce908aa8ba41932" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::commit</definition>
+        <argsstring>(bool stopEditing=true)</argsstring>
+        <name>commit</name>
+        <qualifiedname>QfFeatureModel::commit</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>stopEditing</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="333" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1322" bodyend="1334"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aa8bbcace3d1f8694558b7b96666f0202" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::startEditing</definition>
+        <argsstring>()</argsstring>
+        <name>startEditing</name>
+        <qualifiedname>QfFeatureModel::startEditing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="334" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1341" bodyend="1356"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a763adb278d20a8e6f9c870a49402c23c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureModel::isEditing</definition>
+        <argsstring>() const</argsstring>
+        <name>isEditing</name>
+        <qualifiedname>QfFeatureModel::isEditing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="335" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="1336" bodyend="1339"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1abfbc7a59ccc855561a9cab282c65b292" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::setLinkedFeatureValues</definition>
+        <argsstring>()</argsstring>
+        <name>setLinkedFeatureValues</name>
+        <qualifiedname>QfFeatureModel::setLinkedFeatureValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="337" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="296" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1a23649944ca3bdfebba1df4fccf669f1d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::updateDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>updateDefaultValues</name>
+        <qualifiedname>QfFeatureModel::updateDefaultValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="338" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="572" bodyend="597"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureModel_1aed1f10023cefb29abe0b949633d9dd11" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureModel::updatePermissions</definition>
+        <argsstring>()</argsstring>
+        <name>updatePermissions</name>
+        <qualifiedname>QfFeatureModel::updatePermissions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="339" column="10" bodyfile="src/core/qffeaturemodel.cpp" bodystart="507" bodyend="570"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureModel</label>
+        <link refid="classQfFeatureModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureModel</label>
+        <link refid="classQfFeatureModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qffeaturemodel.h" line="33" column="1" bodyfile="src/core/qffeaturemodel.h" bodystart="34" bodyend="375"/>
+    <listofallmembers>
+      <member refid="classQfFeatureModel_1a1cc7b7333b42ee4c216f75bc6543e8d5" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureModel_1a5012d3e92159d0fb210e0a952559bd22" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureModel_1a5e7d133501907579b0127028def6c221" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>appExpressionContextScopesGeneratorChanged</name></member>
+      <member refid="classQfFeatureModel_1a51aa9733e9c43c8109c3e51643e554d7" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>applyGeometry</name></member>
+      <member refid="classQfFeatureModel_1a921a1f85c32b0dae41b77da81c7dfe4c" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>applyGeometryTopography</name></member>
+      <member refid="classQfFeatureModel_1a3944d00696752435715c850117a0a3d6" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>applyGeometryToVertexModel</name></member>
+      <member refid="classQfFeatureModel_1a8a88777d3df0cd3e45f32b7d7f4f8989" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>applyVertexModelTopography</name></member>
+      <member refid="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848af3a506f77c4d27a545a247d173e31286" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>AttributeAllowEdit</name></member>
+      <member refid="classQfFeatureModel_1ab27d4f1ca89e2718954ffc0fb8c471f6" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>attributeEditingLocked</name></member>
+      <member refid="classQfFeatureModel_1a42d9e36842224a414aba1dab92acc43a" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>attributeEditingLocked</name></member>
+      <member refid="classQfFeatureModel_1acdc5d89120c456d75cd6696faac7b9ee" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>attributeEditingLockedChanged</name></member>
+      <member refid="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848af11cd0a607e1de2a2984ca6e0b3f2e71" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>AttributeName</name></member>
+      <member refid="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848a3fd26c04aa3f95ec7d735b155d5ded0f" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>AttributeValue</name></member>
+      <member refid="classQfFeatureModel_1a405b4b8accf62e641069032d9b283041" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>batchMode</name></member>
+      <member refid="classQfFeatureModel_1a4e7b9c9edf48e3e780f62eebbf21fe90" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>batchMode</name></member>
+      <member refid="classQfFeatureModel_1aaf12e9474f60a8fc1bcb878320a26134" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>batchModeChanged</name></member>
+      <member refid="classQfFeatureModel_1a2dc47fd6aa77655db5c710a5e34e66a5" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>changeGeometry</name></member>
+      <member refid="classQfFeatureModel_1a0168953b3e06c532bce908aa8ba41932" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>commit</name></member>
+      <member refid="classQfFeatureModel_1ad560f20fc3cab6ec932e28bd41b3a50c" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>create</name></member>
+      <member refid="classQfFeatureModel_1ad612d7faab9ec4958310b15cf7789dfd" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>createExpressionContext</name></member>
+      <member refid="classQfFeatureModel_1abd3998debf9fbce36b6030a19e367f24" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>currentLayer</name></member>
+      <member refid="classQfFeatureModel_1a0555bb26cdc51893bf7f8e0e1cbc6d14" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>currentLayerChanged</name></member>
+      <member refid="classQfFeatureModel_1aa73f9bb3fa833f4a5b7fe4c7d6d13cb3" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>data</name></member>
+      <member refid="classQfFeatureModel_1a8894132ae0a1cf0ab0c5b95634300699" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>deleteFeature</name></member>
+      <member refid="classQfFeatureModel_1a8606a5e405e279803002a2421ac784b7" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>feature</name></member>
+      <member refid="classQfFeatureModel_1abf1038f2c66eb0d1f76223eada3432c9" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>feature</name></member>
+      <member refid="classQfFeatureModel_1a02ae1043fc546981c1ba7844a7d21104" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featureAdditionLocked</name></member>
+      <member refid="classQfFeatureModel_1acebc08aff677387b9a7f004283a4d9fb" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featureAdditionLocked</name></member>
+      <member refid="classQfFeatureModel_1aeb9b3c28aa56280a9408daf2b8d48a88" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featureAdditionLockedChanged</name></member>
+      <member refid="classQfFeatureModel_1a4b837525a191acdd00f427844e196b9d" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featureChanged</name></member>
+      <member refid="classQfFeatureModel_1a7169f444699a4ba917d655c177af4b95" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featureDeletionLocked</name></member>
+      <member refid="classQfFeatureModel_1aa8a77cf4a29cd91f6cc4585037a19220" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featureDeletionLocked</name></member>
+      <member refid="classQfFeatureModel_1aa75ef1087e3d96a5b7b273fd7592801e" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featureDeletionLockedChanged</name></member>
+      <member refid="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>FeatureRoles</name></member>
+      <member refid="classQfFeatureModel_1a61891bdc6599a660eaa0e9b7401ffc8d" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>features</name></member>
+      <member refid="classQfFeatureModel_1abb6e61dfb637c4e7da6209414aaa2c55" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>features</name></member>
+      <member refid="classQfFeatureModel_1ac75ac7f82fd3acaa73754925584ac662" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featuresChanged</name></member>
+      <member refid="classQfFeatureModel_1a15377286c06eca154aac5886c00e7716" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>featureUpdated</name></member>
+      <member refid="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848addb1709cfe87505d8482ad1464f8ea36" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>Field</name></member>
+      <member refid="classQfFeatureModel_1a247094d99887de66c0b9676d435dc60a" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>geometry</name></member>
+      <member refid="classQfFeatureModel_1a011586e743be8073061a59ef5a617b60" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>geometry</name></member>
+      <member refid="classQfFeatureModel_1a24fe833789aa42285ec76cbe8f91b5c6" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>geometryChanged</name></member>
+      <member refid="classQfFeatureModel_1a2aa67cedc665f268748286b53ce7e968" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>geometryEditingLocked</name></member>
+      <member refid="classQfFeatureModel_1af33b16915407b04e5c6c1c8c0673baa2" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>geometryEditingLocked</name></member>
+      <member refid="classQfFeatureModel_1a8c79f2d7a362da822100834558543bfc" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>geometryEditingLockedChanged</name></member>
+      <member refid="classQfFeatureModel_1a763adb278d20a8e6f9c870a49402c23c" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>isEditing</name></member>
+      <member refid="classQfFeatureModel_1a7466c656d0ca31eef7fc09d8ae9bad58" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>layer</name></member>
+      <member refid="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848a8e3d802a3226150adc1ce9ad63dae97e" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>LinkedAttribute</name></member>
+      <member refid="classQfFeatureModel_1a6ca9c5b428a4f250ff40b6daa253bd80" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedParentFeature</name></member>
+      <member refid="classQfFeatureModel_1ad96de03de23b2d80cb9d3b9373251a6b" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedParentFeature</name></member>
+      <member refid="classQfFeatureModel_1a0459542709fd149076c66e37a50db8dc" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedParentFeatureChanged</name></member>
+      <member refid="classQfFeatureModel_1a0495891d06e02f697338c4590adc1f78" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedRelation</name></member>
+      <member refid="classQfFeatureModel_1aa8d5d4ead4b142127bf30467dd5a1445" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedRelation</name></member>
+      <member refid="classQfFeatureModel_1abfa0a792a3fbaaf2e1ce8b4e5905d480" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedRelationChanged</name></member>
+      <member refid="classQfFeatureModel_1a635e41f11e1a3f455fca58e1643225fe" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedRelationOrderingField</name></member>
+      <member refid="classQfFeatureModel_1a477d6dc87492808307ab771e77044a2a" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedRelationOrderingField</name></member>
+      <member refid="classQfFeatureModel_1ada26fb11fd29acc44f6b75a95020b4e6" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>linkedRelationOrderingFieldChanged</name></member>
+      <member refid="classQfFeatureModel_1a10c695470bfff8bf6f1b232979187924" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mAppExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureModel_1a4acc9deb62951185cd5bf8aa93b725ae" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mAttributeEditingLocked</name></member>
+      <member refid="classQfFeatureModel_1af328acc7090bec020712087ac77efe85" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mAttributeEditingLockedByDefault</name></member>
+      <member refid="classQfFeatureModel_1a9961095b32e65d7b59ce14102162602a" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mAttributeEditingLockedExpression</name></member>
+      <member refid="classQfFeatureModel_1a6f6732f082603eae3d483202698ac40f" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mAttributesAllowEdit</name></member>
+      <member refid="classQfFeatureModel_1a70839189e8d0438a47056a1abd33b0bb" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mBatchMode</name></member>
+      <member refid="classQfFeatureModel_1a4cf8bd553a0b53b555ab289e1df5413e" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mBatchModeWasEditing</name></member>
+      <member refid="classQfFeatureModel_1aadb7415fa8d829dc69cde3fa85d36f80" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mFeature</name></member>
+      <member refid="classQfFeatureModel_1ab1c62e43f838eec32d1ff88657b58531" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mFeatureAdditionLocked</name></member>
+      <member refid="classQfFeatureModel_1a72430127db1ee6b65b734ef1909c305c" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mFeatureAdditionLockedByDefault</name></member>
+      <member refid="classQfFeatureModel_1a5fc42160760763e0b36edcf488b316c6" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mFeatureAdditionLockedExpression</name></member>
+      <member refid="classQfFeatureModel_1aabd509d0464e13c084767f5151029384" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mFeatureDeletionLocked</name></member>
+      <member refid="classQfFeatureModel_1ac1a3de0b5864a8c06fcbd8a72cf6d883" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mFeatureDeletionLockedByDefault</name></member>
+      <member refid="classQfFeatureModel_1a276cab4da9f33424a9cc37d4e053245c" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mFeatureDeletionLockedExpression</name></member>
+      <member refid="classQfFeatureModel_1a467668a17f46f7b125d27c3ba0c04201" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mFeatures</name></member>
+      <member refid="classQfFeatureModel_1aced22b35f34b8d355a5ae76c3e54e709" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mGeometry</name></member>
+      <member refid="classQfFeatureModel_1a4d3c7e90ff5550d5b79935b2ecd1d072" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mGeometryEditingLocked</name></member>
+      <member refid="classQfFeatureModel_1ad2ac6b6a717b19c7fbbbddc101cef45b" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mGeometryEditingLockedByDefault</name></member>
+      <member refid="classQfFeatureModel_1ab2d00048ae45a093d48c7b10ba84436e" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mGeometryEditingLockedExpression</name></member>
+      <member refid="classQfFeatureModel_1ab91e1699d7427587d48aa08a334bb034" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mLayer</name></member>
+      <member refid="classQfFeatureModel_1a6c65670c4b022a0547863f9b4b566cfb" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mLinkedAttributeIndexes</name></member>
+      <member refid="classQfFeatureModel_1a53a742dd8aa94c3d5048f277c8099ec1" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mLinkedParentFeature</name></member>
+      <member refid="classQfFeatureModel_1a6ceeba48a4f13b4015cba7903c2adc9d" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mLinkedRelation</name></member>
+      <member refid="classQfFeatureModel_1aeb5684ef396e6d206c50628e2715c89c" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mLinkedRelationOrderingField</name></member>
+      <member refid="classQfFeatureModel_1af15a8d7750ef85a92da4e7fc7c094e2c" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mModelMode</name></member>
+      <member refid="classQfFeatureModel_1a09f37f80ae0c0e63d216a7eac69cca76" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>modelMode</name></member>
+      <member refid="classQfFeatureModel_1a9e9833b487eb64719996f097514e8d56" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>modelMode</name></member>
+      <member refid="classQfFeatureModel_1a984a155342de48944219c9864107af18" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>modelModeChanged</name></member>
+      <member refid="classQfFeatureModel_1a1304248ce9fff98f24586370c1b4dc02" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>ModelModes</name></member>
+      <member refid="classQfFeatureModel_1af1f1bd0f9d8e7d759a31e05acfcd2678" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mProject</name></member>
+      <member refid="classQfFeatureModel_1a75b11eea44caab7b32e6f09318e86d8c" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mSavedFeature</name></member>
+      <member refid="classQfFeatureModel_1ab97b2c30f7cb80553b29ce3d6e9c67d2" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mTempName</name></member>
+      <member refid="classQfFeatureModel_1ab8fa140d7571fe6de713c566d1d25ba9" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mTopSnappingResult</name></member>
+      <member refid="classQfFeatureModel_1a1304248ce9fff98f24586370c1b4dc02a9f10fedae78cf810b32b226b86d30a75" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>MultiFeatureModel</name></member>
+      <member refid="classQfFeatureModel_1a354b6a4110a23146f83e94d5a2e48048" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>mVertexModel</name></member>
+      <member refid="classQfFeatureModel_1afdc3fe2ed9490994ed6a4a1298a30dd9" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>positionLocked</name></member>
+      <member refid="classQfFeatureModel_1abc72ebb7d748c629e20f4ee844f59b58" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>project</name></member>
+      <member refid="classQfFeatureModel_1acbf99e10a3d84fffa2a3f90d3d53cc04" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>project</name></member>
+      <member refid="classQfFeatureModel_1ab6a7636174ab781de03e44c5cc49a0f3" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>projectChanged</name></member>
+      <member refid="classQfFeatureModel_1a663e5554365bac716dd619480a85a9b5" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>QfFeatureModel</name></member>
+      <member refid="classQfFeatureModel_1a9432d6c0e8d0e9060c787650c91e87d1" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>refresh</name></member>
+      <member refid="classQfFeatureModel_1a2947837711dfb34a431a529b8c23a848aa24aff59e078e6360248e0f230347fe6" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>RememberAttribute</name></member>
+      <member refid="classQfFeatureModel_1a613a39cf6026b9d4a8d687133d2cc303" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>rememberedAttributes</name></member>
+      <member refid="classQfFeatureModel_1ad0474b6f01b9a323a8389f836b63c987" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>removeLayer</name></member>
+      <member refid="classQfFeatureModel_1ad7d7c6e8fff8c605ee61de438da04978" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>reset</name></member>
+      <member refid="classQfFeatureModel_1a51bc0fae15fa616e0958978aebda0be4" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>resetAttributes</name></member>
+      <member refid="classQfFeatureModel_1acb67f2c9652903b0c8f1638ef082e813" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>resetFeature</name></member>
+      <member refid="classQfFeatureModel_1a8907c19c7b17f0dc871a0916bbc50d16" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>resetFeatureId</name></member>
+      <member refid="classQfFeatureModel_1aa9a510e3346bff97491fa623077a5614" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>roleNames</name></member>
+      <member refid="classQfFeatureModel_1acddd2a6c4c70f1d739aed76eac1648a5" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>rowCount</name></member>
+      <member refid="classQfFeatureModel_1a14805a2e24fb975e36d332b0ca632c8c" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>save</name></member>
+      <member refid="classQfFeatureModel_1a81d6092df89a9003e0522bda16a767eb" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setAppExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureModel_1ac6142f425655a66b2a59099346a75699" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setBatchMode</name></member>
+      <member refid="classQfFeatureModel_1a8d5f5a0f9b4d2b0e80e0ad436b7b580c" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setCurrentLayer</name></member>
+      <member refid="classQfFeatureModel_1aa019a4f15631e00e74af470b3ba57997" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setData</name></member>
+      <member refid="classQfFeatureModel_1ad5a75d08d25a09296c002ff2912730bd" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setFeature</name></member>
+      <member refid="classQfFeatureModel_1a851d9509e5b8f8b2e38b8a41e40614e8" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setFeatures</name></member>
+      <member refid="classQfFeatureModel_1aa41acf249710724d757b899a4d38a0af" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setGeometry</name></member>
+      <member refid="classQfFeatureModel_1abfbc7a59ccc855561a9cab282c65b292" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>setLinkedFeatureValues</name></member>
+      <member refid="classQfFeatureModel_1a50dfe4bec333f368a7e8908643038336" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setLinkedParentFeature</name></member>
+      <member refid="classQfFeatureModel_1abbddf52ffd500ed4900e4a3ec844ff83" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setLinkedRelation</name></member>
+      <member refid="classQfFeatureModel_1abf12a442039a2b88faf6a0f5852bdff4" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setLinkedRelationOrderingField</name></member>
+      <member refid="classQfFeatureModel_1a123153ee225422bddf9127d161848edc" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setModelMode</name></member>
+      <member refid="classQfFeatureModel_1aec4db0a4f157ca3a3caadcca5843df47" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setPositionLocked</name></member>
+      <member refid="classQfFeatureModel_1ab46076c569969d6677e024b5684499b2" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setProject</name></member>
+      <member refid="classQfFeatureModel_1a26d0f80f0629c24179224edfaf8d8116" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setTopSnappingResult</name></member>
+      <member refid="classQfFeatureModel_1a256a73d0b52c3758599b4b0ed8142568" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>setVertexModel</name></member>
+      <member refid="classQfFeatureModel_1a1304248ce9fff98f24586370c1b4dc02a7fbd0e4475542239b97ec2394cf26a67" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>SingleFeatureModel</name></member>
+      <member refid="classQfFeatureModel_1aa8bbcace3d1f8694558b7b96666f0202" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>startEditing</name></member>
+      <member refid="classQfFeatureModel_1a4941811f0fe7faa3c48282caf1f63e16" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>suppressFeatureForm</name></member>
+      <member refid="classQfFeatureModel_1a977039c331d11aa63b8a130218c8a436" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>topSnappingResult</name></member>
+      <member refid="classQfFeatureModel_1a4b23c9696f9bdcf312b058869d8c8411" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>topSnappingResult</name></member>
+      <member refid="classQfFeatureModel_1af6bb5e1a6e7b456d608fabe6b83104da" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>topSnappingResultChanged</name></member>
+      <member refid="classQfFeatureModel_1a326c0b1fb52e110db6d3fed6f9f37d37" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>updateAttributesFromFeature</name></member>
+      <member refid="classQfFeatureModel_1a23649944ca3bdfebba1df4fccf669f1d" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>updateDefaultValues</name></member>
+      <member refid="classQfFeatureModel_1aed1f10023cefb29abe0b949633d9dd11" prot="private" virt="non-virtual"><scope>QfFeatureModel</scope><name>updatePermissions</name></member>
+      <member refid="classQfFeatureModel_1af9c1fda9ff8ed46871ade31914a43a66" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>updateRubberband</name></member>
+      <member refid="classQfFeatureModel_1adca953c01dfc09943e22ebe78e8f2265" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>vertexModel</name></member>
+      <member refid="classQfFeatureModel_1af5de59e8700cd1d3cca09dccd4a42fcc" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>vertexModel</name></member>
+      <member refid="classQfFeatureModel_1ad9fac67ddc840eeb017e42d012b0568b" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>vertexModelChanged</name></member>
+      <member refid="classQfFeatureModel_1a017f2859b2822392a1cbc940c240208c" prot="public" virt="non-virtual"><scope>QfFeatureModel</scope><name>warning</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

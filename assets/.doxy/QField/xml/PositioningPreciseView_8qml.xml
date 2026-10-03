@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="PositioningPreciseView_8qml" kind="file" language="C++">
+    <compoundname>PositioningPreciseView.qml</compoundname>
+    <innerclass refid="classPositioningPreciseView" prot="public">PositioningPreciseView</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.qfield.gui</highlight></codeline>
+<codeline lineno="2" refid="classPositioningPreciseView" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">QfPositioningPreciseView<sp/>{}</highlight></codeline>
+    </programlisting>
+    <location file="src/app/qml_compat/PositioningPreciseView.qml"/>
+  </compounddef>
+</doxygen>

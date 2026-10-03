@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLayerLoginDialog" kind="class" language="C++" prot="public">
+    <compoundname>QfLayerLoginDialog</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <derivedcompoundref refid="classLayerLoginDialog" prot="public" virt="non-virtual">LayerLoginDialog</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLayerLoginDialog_1a758aa75859be0a1081d86720f353f0da" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfLayerLoginDialog::credentialTitle</definition>
+        <argsstring></argsstring>
+        <name>credentialTitle</name>
+        <qualifiedname>QfLayerLoginDialog::credentialTitle</qualifiedname>
+        <read>dummyGetter_credentialTitle_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="16" column="1" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLayerLoginDialog_1a24b5cec905584c474a93291dbbf00f30" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfLayerLoginDialog::inCancelation</definition>
+        <argsstring></argsstring>
+        <name>inCancelation</name>
+        <qualifiedname>QfLayerLoginDialog::inCancelation</qualifiedname>
+        <read>dummyGetter_inCancelation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="18" column="1" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1ad3a9c029baed0d50dc1b741f6873c39f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerLoginDialog::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfLayerLoginDialog::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="20" column="5" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1a4d5ac5afdc426085bcc2d72a03dcc4fd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerLoginDialog::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>QfLayerLoginDialog::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="21" column="5" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1a4ad3754ebc44a57c7329c45a8c9049a9" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable QfLayerLoginDialog::flickable</definition>
+        <argsstring></argsstring>
+        <name>flickable</name>
+        <qualifiedname>QfLayerLoginDialog::flickable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="22" column="11" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1acaafabf4b50f42fb8cce51ba9a7b29c1" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfLayerLoginDialog::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>QfLayerLoginDialog::content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="23" column="14" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1a83ab9520523eaf02158b54e850ca1d02" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfLayerLoginDialog::usernameField</definition>
+        <argsstring></argsstring>
+        <name>usernameField</name>
+        <qualifiedname>QfLayerLoginDialog::usernameField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="24" column="11" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1a89e454713b6aa49ccf5610dc8d8cf63d" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfLayerLoginDialog::passwordField</definition>
+        <argsstring></argsstring>
+        <name>passwordField</name>
+        <qualifiedname>QfLayerLoginDialog::passwordField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="25" column="11" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1abadc97886b8f9806450813f123e13757" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfLayerLoginDialog::showPasswordButton</definition>
+        <argsstring></argsstring>
+        <name>showPasswordButton</name>
+        <qualifiedname>QfLayerLoginDialog::showPasswordButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="26" column="14" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1aa9bc6619a98fc71b66d9634085622a61" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfLayerLoginDialog::submit</definition>
+        <argsstring></argsstring>
+        <name>submit</name>
+        <qualifiedname>QfLayerLoginDialog::submit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="27" column="10" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerLoginDialog_1a9f87f974f6e13b90d83f2369ea4907d9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLayerLoginDialog::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QfLayerLoginDialog::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="28" column="5" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfLayerLoginDialog_1a93e977477753a6860880ad0ea96e1e67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerLoginDialog::enter</definition>
+        <argsstring>(string usr, string pw)</argsstring>
+        <name>enter</name>
+        <qualifiedname>QfLayerLoginDialog::enter</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>usr</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="12" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLayerLoginDialog_1a2ed18c5bc98d653ce24f1ea6339944b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerLoginDialog::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>QfLayerLoginDialog::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLayerLoginDialog.qml" line="14" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>LayerLoginDialog</label>
+        <link refid="classLayerLoginDialog"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QfLayerLoginDialog</label>
+        <link refid="classQfLayerLoginDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QfLayerLoginDialog</label>
+        <link refid="classQfLayerLoginDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfLayerLoginDialog.qml" line="9" column="1" bodyfile="src/gui/qml/QfLayerLoginDialog.qml" bodystart="9" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classQfLayerLoginDialog_1a2ed18c5bc98d653ce24f1ea6339944b0" prot="public" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>cancel</name></member>
+      <member refid="classQfLayerLoginDialog_1acaafabf4b50f42fb8cce51ba9a7b29c1" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>content</name></member>
+      <member refid="classQfLayerLoginDialog_1a758aa75859be0a1081d86720f353f0da" prot="public" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>credentialTitle</name></member>
+      <member refid="classQfLayerLoginDialog_1a93e977477753a6860880ad0ea96e1e67" prot="public" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>enter</name></member>
+      <member refid="classQfLayerLoginDialog_1a4ad3754ebc44a57c7329c45a8c9049a9" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>flickable</name></member>
+      <member refid="classQfLayerLoginDialog_1a4d5ac5afdc426085bcc2d72a03dcc4fd" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>header</name></member>
+      <member refid="classQfLayerLoginDialog_1a24b5cec905584c474a93291dbbf00f30" prot="public" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>inCancelation</name></member>
+      <member refid="classQfLayerLoginDialog_1a9f87f974f6e13b90d83f2369ea4907d9" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>onVisibleChanged</name></member>
+      <member refid="classQfLayerLoginDialog_1ad3a9c029baed0d50dc1b741f6873c39f" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>padding</name></member>
+      <member refid="classQfLayerLoginDialog_1a89e454713b6aa49ccf5610dc8d8cf63d" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>passwordField</name></member>
+      <member refid="classQfLayerLoginDialog_1abadc97886b8f9806450813f123e13757" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>showPasswordButton</name></member>
+      <member refid="classQfLayerLoginDialog_1aa9bc6619a98fc71b66d9634085622a61" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>submit</name></member>
+      <member refid="classQfLayerLoginDialog_1a83ab9520523eaf02158b54e850ca1d02" prot="private" virt="non-virtual"><scope>QfLayerLoginDialog</scope><name>usernameField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,518 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPluginManagerSettings" kind="class" language="C++" prot="public">
+    <compoundname>QfPluginManagerSettings</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPluginManagerSettings_1ae3d232f1cb79e8fe481791deea39d6f0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPluginManagerSettings::availablePluginsFetched</definition>
+        <argsstring></argsstring>
+        <name>availablePluginsFetched</name>
+        <qualifiedname>QfPluginManagerSettings::availablePluginsFetched</qualifiedname>
+        <read>dummyGetter_availablePluginsFetched_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="14" column="1" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1add4cc53c70ed0a9ddc78931b9dbf5dce" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginManagerSettings::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfPluginManagerSettings::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="16" column="5" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1abafaeab55f9527515f4a514209840524" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginManagerSettings::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfPluginManagerSettings::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="17" column="5" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a251f6c61f80e0e9e09c9cbcc17e5ea6c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginManagerSettings::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfPluginManagerSettings::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="18" column="5" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1af029f7b8323276a5b235a3566bccff0f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginManagerSettings::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfPluginManagerSettings::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="19" column="5" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1acc387a8b36be042a8837365e5fab7141" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginManagerSettings::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfPluginManagerSettings::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="20" column="5" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1aada88a79bcfe2861e3f738c7d5d65a19" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginManagerSettings::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfPluginManagerSettings::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="21" column="5" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a52a42d47855de386f3ae1836f3c1fba5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginManagerSettings::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfPluginManagerSettings::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="22" column="5" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a18980d91ce30dbf7c80f8d1538cf544b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginManagerSettings::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfPluginManagerSettings::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="23" column="5" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a8b037acbfe774e5b48cd930f1a02ef79" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfPluginManagerSettings::page</definition>
+        <argsstring></argsstring>
+        <name>page</name>
+        <qualifiedname>QfPluginManagerSettings::page</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="24" column="6" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a300ea45a5735eaa3fa0cfc2dd5431039" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfPluginManagerSettings::pluginsLayout</definition>
+        <argsstring></argsstring>
+        <name>pluginsLayout</name>
+        <qualifiedname>QfPluginManagerSettings::pluginsLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="25" column="14" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1ae0cbef26a1906237f8220a4920b2f5a6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTabBar" kindref="compound">QfTabBar</ref></type>
+        <definition>QfTabBar QfPluginManagerSettings::filterBar</definition>
+        <argsstring></argsstring>
+        <name>filterBar</name>
+        <qualifiedname>QfPluginManagerSettings::filterBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="26" column="10" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a6d7a1f7adb68c661569c27896f4b5604" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSearchBar" kindref="compound">QfSearchBar</ref></type>
+        <definition>QfSearchBar QfPluginManagerSettings::searchBar</definition>
+        <argsstring></argsstring>
+        <name>searchBar</name>
+        <qualifiedname>QfPluginManagerSettings::searchBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="27" column="13" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1afadf0e6ce820c60b07c8f5fb65ab0427" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfPluginManagerSettings::pluginsList</definition>
+        <argsstring></argsstring>
+        <name>pluginsList</name>
+        <qualifiedname>QfPluginManagerSettings::pluginsList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="28" column="10" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a502edd11b9bfa9eaf7a8914899b1ffc7" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfPluginManagerSettings::installFromUrlButton</definition>
+        <argsstring></argsstring>
+        <name>installFromUrlButton</name>
+        <qualifiedname>QfPluginManagerSettings::installFromUrlButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="29" column="10" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a7264c524c1717ad611b8785187164caa" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator QfPluginManagerSettings::busyIndicator</definition>
+        <argsstring></argsstring>
+        <name>busyIndicator</name>
+        <qualifiedname>QfPluginManagerSettings::busyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="30" column="15" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1ab854de91b1d8c52fc80a578ce3981a9e" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfPluginManagerSettings::projectPluginEnabledContainer</definition>
+        <argsstring></argsstring>
+        <name>projectPluginEnabledContainer</name>
+        <qualifiedname>QfPluginManagerSettings::projectPluginEnabledContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="31" column="11" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a40c7612a01e0c654b1d22e5ef34f90ea" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfPluginManagerSettings::pluginsManagementMenu</definition>
+        <argsstring></argsstring>
+        <name>pluginsManagementMenu</name>
+        <qualifiedname>QfPluginManagerSettings::pluginsManagementMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="32" column="8" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a0a4736070cae099b10ae5f71c2e8d633" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfPluginManagerSettings::authorDetails</definition>
+        <argsstring></argsstring>
+        <name>authorDetails</name>
+        <qualifiedname>QfPluginManagerSettings::authorDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="33" column="10" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1ad92e75e12ac6e4bb0d7fce7f6e9b79fe" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QfPluginManagerSettings::authorWarningLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>authorWarningLabelMetrics</name>
+        <qualifiedname>QfPluginManagerSettings::authorWarningLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="34" column="13" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1ab1dde49236ad1bec0302366512de42dd" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfPluginManagerSettings::authorHomepageLabel</definition>
+        <argsstring></argsstring>
+        <name>authorHomepageLabel</name>
+        <qualifiedname>QfPluginManagerSettings::authorHomepageLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="35" column="7" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a5212eab5681dce473c247c9bb397c9d2" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfPluginManagerSettings::authorWarningLabel</definition>
+        <argsstring></argsstring>
+        <name>authorWarningLabel</name>
+        <qualifiedname>QfPluginManagerSettings::authorWarningLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="36" column="7" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a4be486692f00ccf6c6325dc09fe8790a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfPluginManagerSettings::installFromUrlDialog</definition>
+        <argsstring></argsstring>
+        <name>installFromUrlDialog</name>
+        <qualifiedname>QfPluginManagerSettings::installFromUrlDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="37" column="10" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1ad5af61e3ee822607a043b8cf73e21d75" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QfPluginManagerSettings::installFromUrlLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>installFromUrlLabelMetrics</name>
+        <qualifiedname>QfPluginManagerSettings::installFromUrlLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="38" column="13" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a2c1ef26ec98f00de6e5955dd934156bb" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfPluginManagerSettings::installFromUrlLabel</definition>
+        <argsstring></argsstring>
+        <name>installFromUrlLabel</name>
+        <qualifiedname>QfPluginManagerSettings::installFromUrlLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="39" column="7" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a633b18527569da7540a9678014e0c8ed" prot="private" static="no" mutable="no">
+        <type>TextArea</type>
+        <definition>TextArea QfPluginManagerSettings::installFromUrlInput</definition>
+        <argsstring></argsstring>
+        <name>installFromUrlInput</name>
+        <qualifiedname>QfPluginManagerSettings::installFromUrlInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="40" column="10" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a51a220fbb8c535faf1e0d6c2f7546b69" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPluginManagerSettings::scanCodeBtn</definition>
+        <argsstring></argsstring>
+        <name>scanCodeBtn</name>
+        <qualifiedname>QfPluginManagerSettings::scanCodeBtn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="41" column="14" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a82b5a774f13eb604923704557f4a425e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfPluginManagerSettings::uninstallConfirmation</definition>
+        <argsstring></argsstring>
+        <name>uninstallConfirmation</name>
+        <qualifiedname>QfPluginManagerSettings::uninstallConfirmation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="42" column="10" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a1ce3ded24fac467b6989e3247b34a956" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QfPluginManagerSettings::uninstallLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>uninstallLabelMetrics</name>
+        <qualifiedname>QfPluginManagerSettings::uninstallLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="43" column="13" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a059153f0149b1e7c9abc2b0f148bac28" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfPluginManagerSettings::uninstallLabel</definition>
+        <argsstring></argsstring>
+        <name>uninstallLabel</name>
+        <qualifiedname>QfPluginManagerSettings::uninstallLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="44" column="7" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginManagerSettings_1a29d2b64520811032091b0f693d42db46" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections QfPluginManagerSettings::codeReaderConnection</definition>
+        <argsstring></argsstring>
+        <name>codeReaderConnection</name>
+        <qualifiedname>QfPluginManagerSettings::codeReaderConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginManagerSettings.qml" line="45" column="13" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfPluginManagerSettings</label>
+        <link refid="classQfPluginManagerSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfPluginManagerSettings</label>
+        <link refid="classQfPluginManagerSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfPluginManagerSettings.qml" line="11" column="1" bodyfile="src/app/qml/QfPluginManagerSettings.qml" bodystart="11" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classQfPluginManagerSettings_1a0a4736070cae099b10ae5f71c2e8d633" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>authorDetails</name></member>
+      <member refid="classQfPluginManagerSettings_1ab1dde49236ad1bec0302366512de42dd" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>authorHomepageLabel</name></member>
+      <member refid="classQfPluginManagerSettings_1a5212eab5681dce473c247c9bb397c9d2" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>authorWarningLabel</name></member>
+      <member refid="classQfPluginManagerSettings_1ad92e75e12ac6e4bb0d7fce7f6e9b79fe" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>authorWarningLabelMetrics</name></member>
+      <member refid="classQfPluginManagerSettings_1ae3d232f1cb79e8fe481791deea39d6f0" prot="public" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>availablePluginsFetched</name></member>
+      <member refid="classQfPluginManagerSettings_1a7264c524c1717ad611b8785187164caa" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>busyIndicator</name></member>
+      <member refid="classQfPluginManagerSettings_1acc387a8b36be042a8837365e5fab7141" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>closePolicy</name></member>
+      <member refid="classQfPluginManagerSettings_1a29d2b64520811032091b0f693d42db46" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>codeReaderConnection</name></member>
+      <member refid="classQfPluginManagerSettings_1ae0cbef26a1906237f8220a4920b2f5a6" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>filterBar</name></member>
+      <member refid="classQfPluginManagerSettings_1a52a42d47855de386f3ae1836f3c1fba5" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>focus</name></member>
+      <member refid="classQfPluginManagerSettings_1abafaeab55f9527515f4a514209840524" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>height</name></member>
+      <member refid="classQfPluginManagerSettings_1a502edd11b9bfa9eaf7a8914899b1ffc7" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>installFromUrlButton</name></member>
+      <member refid="classQfPluginManagerSettings_1a4be486692f00ccf6c6325dc09fe8790a" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>installFromUrlDialog</name></member>
+      <member refid="classQfPluginManagerSettings_1a633b18527569da7540a9678014e0c8ed" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>installFromUrlInput</name></member>
+      <member refid="classQfPluginManagerSettings_1a2c1ef26ec98f00de6e5955dd934156bb" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>installFromUrlLabel</name></member>
+      <member refid="classQfPluginManagerSettings_1ad5af61e3ee822607a043b8cf73e21d75" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>installFromUrlLabelMetrics</name></member>
+      <member refid="classQfPluginManagerSettings_1a18980d91ce30dbf7c80f8d1538cf544b" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>onAboutToShow</name></member>
+      <member refid="classQfPluginManagerSettings_1a8b037acbfe774e5b48cd930f1a02ef79" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>page</name></member>
+      <member refid="classQfPluginManagerSettings_1aada88a79bcfe2861e3f738c7d5d65a19" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>parent</name></member>
+      <member refid="classQfPluginManagerSettings_1a300ea45a5735eaa3fa0cfc2dd5431039" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>pluginsLayout</name></member>
+      <member refid="classQfPluginManagerSettings_1afadf0e6ce820c60b07c8f5fb65ab0427" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>pluginsList</name></member>
+      <member refid="classQfPluginManagerSettings_1a40c7612a01e0c654b1d22e5ef34f90ea" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>pluginsManagementMenu</name></member>
+      <member refid="classQfPluginManagerSettings_1ab854de91b1d8c52fc80a578ce3981a9e" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>projectPluginEnabledContainer</name></member>
+      <member refid="classQfPluginManagerSettings_1a51a220fbb8c535faf1e0d6c2f7546b69" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>scanCodeBtn</name></member>
+      <member refid="classQfPluginManagerSettings_1a6d7a1f7adb68c661569c27896f4b5604" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>searchBar</name></member>
+      <member refid="classQfPluginManagerSettings_1a82b5a774f13eb604923704557f4a425e" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>uninstallConfirmation</name></member>
+      <member refid="classQfPluginManagerSettings_1a059153f0149b1e7c9abc2b0f148bac28" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>uninstallLabel</name></member>
+      <member refid="classQfPluginManagerSettings_1a1ce3ded24fac467b6989e3247b34a956" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>uninstallLabelMetrics</name></member>
+      <member refid="classQfPluginManagerSettings_1add4cc53c70ed0a9ddc78931b9dbf5dce" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>width</name></member>
+      <member refid="classQfPluginManagerSettings_1a251f6c61f80e0e9e09c9cbcc17e5ea6c" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>x</name></member>
+      <member refid="classQfPluginManagerSettings_1af029f7b8323276a5b235a3566bccff0f" prot="private" virt="non-virtual"><scope>QfPluginManagerSettings</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

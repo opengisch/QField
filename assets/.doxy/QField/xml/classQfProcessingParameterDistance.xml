@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProcessingParameterDistance" kind="class" language="C++" prot="public">
+    <compoundname>QfProcessingParameterDistance</compoundname>
+    <basecompoundref refid="classQfProcessingParameterWidgetBase" prot="public" virt="non-virtual">QfProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfProcessingParameterDistance_1a12155faf4c5138437fc0d4d27ac020f3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfProcessingParameterDistance::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <qualifiedname>QfProcessingParameterDistance::step</qualifiedname>
+        <read>dummyGetter_step_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="9" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingParameterDistance_1a5566ef84f5a64bec1f6e7a6a4219daa6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfProcessingParameterDistance::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <qualifiedname>QfProcessingParameterDistance::min</qualifiedname>
+        <read>dummyGetter_min_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="11" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingParameterDistance_1a6e2d105a2f9fa4ffec6175035892ab0f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfProcessingParameterDistance::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <qualifiedname>QfProcessingParameterDistance::max</qualifiedname>
+        <read>dummyGetter_max_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="13" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingParameterDistance_1a903da9b23b37b386afe049c652d2f620" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfProcessingParameterDistance::distanceUnit</definition>
+        <argsstring></argsstring>
+        <name>distanceUnit</name>
+        <qualifiedname>QfProcessingParameterDistance::distanceUnit</qualifiedname>
+        <read>dummyGetter_distanceUnit_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="15" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingParameterDistance_1aafce24ad8d3b553cdcd6d366c0403639" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfProcessingParameterDistance::distanceConvertible</definition>
+        <argsstring></argsstring>
+        <name>distanceConvertible</name>
+        <qualifiedname>QfProcessingParameterDistance::distanceConvertible</qualifiedname>
+        <read>dummyGetter_distanceConvertible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="17" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingParameterDistance_1a672553bad52868e0eaf2eeda3ddda5c2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfProcessingParameterDistance::currentValue</definition>
+        <argsstring></argsstring>
+        <name>currentValue</name>
+        <qualifiedname>QfProcessingParameterDistance::currentValue</qualifiedname>
+        <read>dummyGetter_currentValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="22" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1a511e30ab9658bead1ab5940a0b69fe00" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProcessingParameterDistance::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfProcessingParameterDistance::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="19" column="5" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1a00ebc89fc7493dbae2e42a60366d4dff" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfProcessingParameterDistance::textField</definition>
+        <argsstring></argsstring>
+        <name>textField</name>
+        <qualifiedname>QfProcessingParameterDistance::textField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="24" column="13" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1a8671510b04256e7cf097d59ed17d3794" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfProcessingParameterDistance::unitTypeLabel</definition>
+        <argsstring></argsstring>
+        <name>unitTypeLabel</name>
+        <qualifiedname>QfProcessingParameterDistance::unitTypeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="25" column="7" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1a2791dd7366b24060c7b2905225df183a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QfProcessingParameterDistance::unitTypesComboBox</definition>
+        <argsstring></argsstring>
+        <name>unitTypesComboBox</name>
+        <qualifiedname>QfProcessingParameterDistance::unitTypesComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="26" column="12" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1aa6273b3d0d0d6a548ae0c06a9f2c827d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfProcessingParameterDistance::decreaseButton</definition>
+        <argsstring></argsstring>
+        <name>decreaseButton</name>
+        <qualifiedname>QfProcessingParameterDistance::decreaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="27" column="14" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1a7b6a636a15a39c2a5ce2376800f4b857" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfProcessingParameterDistance::increaseButton</definition>
+        <argsstring></argsstring>
+        <name>increaseButton</name>
+        <qualifiedname>QfProcessingParameterDistance::increaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="28" column="14" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1a395eadbbad0251dbfb2a7503bc093211" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfProcessingParameterDistance::changeValueTimer</definition>
+        <argsstring></argsstring>
+        <name>changeValueTimer</name>
+        <qualifiedname>QfProcessingParameterDistance::changeValueTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="29" column="7" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1a9219e367f2b9dbfda93a1ecc5143fc07" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfProcessingParameterDistance::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfProcessingParameterDistance::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="34" column="13" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingParameterDistance_1a841bab48c1f3d8cd7ce4687f03e46022" prot="private" static="no" mutable="no">
+        <type>DoubleValidator</type>
+        <definition>DoubleValidator QfProcessingParameterDistance::doubleValidator</definition>
+        <argsstring></argsstring>
+        <name>doubleValidator</name>
+        <qualifiedname>QfProcessingParameterDistance::doubleValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="35" column="17" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfProcessingParameterDistance_1a08eeb46877dacbfc1da01919721cefc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingParameterDistance::adjustValue</definition>
+        <argsstring>(direction)</argsstring>
+        <name>adjustValue</name>
+        <qualifiedname>QfProcessingParameterDistance::adjustValue</qualifiedname>
+        <param>
+          <type>direction</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingParameterDistance_1a7983245fe3e0b6e0fc1ef375468c075c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingParameterDistance::prepareValueChangeRequest</definition>
+        <argsstring>(newValue)</argsstring>
+        <name>prepareValueChangeRequest</name>
+        <qualifiedname>QfProcessingParameterDistance::prepareValueChangeRequest</qualifiedname>
+        <param>
+          <type>newValue</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="38" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfProcessingParameterDistance</label>
+        <link refid="classQfProcessingParameterDistance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingParameterWidgetBase</label>
+        <link refid="classQfProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfProcessingParameterDistance</label>
+        <link refid="classQfProcessingParameterDistance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingParameterWidgetBase</label>
+        <link refid="classQfProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" line="6" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterDistance.qml" bodystart="6" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classQfProcessingParameterDistance_1a08eeb46877dacbfc1da01919721cefc5" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>adjustValue</name></member>
+      <member refid="classQfProcessingParameterDistance_1a395eadbbad0251dbfb2a7503bc093211" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>changeValueTimer</name></member>
+      <member refid="classQfProcessingParameterDistance_1a672553bad52868e0eaf2eeda3ddda5c2" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>currentValue</name></member>
+      <member refid="classQfProcessingParameterDistance_1aa6273b3d0d0d6a548ae0c06a9f2c827d" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>decreaseButton</name></member>
+      <member refid="classQfProcessingParameterDistance_1aafce24ad8d3b553cdcd6d366c0403639" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>distanceConvertible</name></member>
+      <member refid="classQfProcessingParameterDistance_1a903da9b23b37b386afe049c652d2f620" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>distanceUnit</name></member>
+      <member refid="classQfProcessingParameterDistance_1a841bab48c1f3d8cd7ce4687f03e46022" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>doubleValidator</name></member>
+      <member refid="classQfProcessingParameterDistance_1a9219e367f2b9dbfda93a1ecc5143fc07" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>fontMetrics</name></member>
+      <member refid="classQfProcessingParameterDistance_1a511e30ab9658bead1ab5940a0b69fe00" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>height</name></member>
+      <member refid="classQfProcessingParameterDistance_1a7b6a636a15a39c2a5ce2376800f4b857" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>increaseButton</name></member>
+      <member refid="classQfProcessingParameterDistance_1a6e2d105a2f9fa4ffec6175035892ab0f" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>max</name></member>
+      <member refid="classQfProcessingParameterDistance_1a5566ef84f5a64bec1f6e7a6a4219daa6" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>min</name></member>
+      <member refid="classQfProcessingParameterDistance_1a7983245fe3e0b6e0fc1ef375468c075c" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>prepareValueChangeRequest</name></member>
+      <member refid="classQfProcessingParameterDistance_1a12155faf4c5138437fc0d4d27ac020f3" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>step</name></member>
+      <member refid="classQfProcessingParameterDistance_1a00ebc89fc7493dbae2e42a60366d4dff" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>textField</name></member>
+      <member refid="classQfProcessingParameterDistance_1a8671510b04256e7cf097d59ed17d3794" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>unitTypeLabel</name></member>
+      <member refid="classQfProcessingParameterDistance_1a2791dd7366b24060c7b2905225df183a" prot="private" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>unitTypesComboBox</name></member>
+      <member refid="classQfProcessingParameterWidgetBase_1af72f29e097a532553a57fa4752397fe3" prot="public" virt="non-virtual"><scope>QfProcessingParameterDistance</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

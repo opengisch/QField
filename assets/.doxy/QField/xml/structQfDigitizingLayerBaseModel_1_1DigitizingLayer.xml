@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfDigitizingLayerBaseModel_1_1DigitizingLayer" kind="struct" language="C++" prot="private">
+    <compoundname>QfDigitizingLayerBaseModel::DigitizingLayer</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfDigitizingLayerBaseModel_1_1DigitizingLayer_1a94952c23be37ce30778efdba88b7b8ee" prot="public" static="no" mutable="no">
+        <type>QfDigitizingLayerModel::LayerType</type>
+        <definition>QfDigitizingLayerModel::LayerType QfDigitizingLayerBaseModel::DigitizingLayer::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::DigitizingLayer::type</qualifiedname>
+        <initializer>= QfDigitizingLayerModel::MapLayer</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="182" column="43" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDigitizingLayerBaseModel_1_1DigitizingLayer_1a325a3e4c0377271056c8a5f0fc6e9d44" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDigitizingLayerBaseModel::DigitizingLayer::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::DigitizingLayer::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="183" column="17" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDigitizingLayerBaseModel_1_1DigitizingLayer_1adce041671bdd0ada8348fb520e93fd73" prot="public" static="no" mutable="no">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer* QfDigitizingLayerBaseModel::DigitizingLayer::mapLayer</definition>
+        <argsstring></argsstring>
+        <name>mapLayer</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::DigitizingLayer::mapLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="184" column="21" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDigitizingLayerBaseModel_1_1DigitizingLayer_1a6af6dec09a2b4224c19579d6e8cb6719" prot="public" static="no" mutable="no">
+        <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> *</type>
+        <definition>QfMarkupCollection* QfDigitizingLayerBaseModel::DigitizingLayer::markupCollection</definition>
+        <argsstring></argsstring>
+        <name>markupCollection</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::DigitizingLayer::markupCollection</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="185" column="28" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfDigitizingLayerBaseModel::DigitizingLayer</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>markupCollection</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfMarkupCollection</label>
+        <link refid="classQfMarkupCollection"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfdigitizinglayermodel.h" line="180" column="5" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="181" bodyend="186"/>
+    <listofallmembers>
+      <member refid="structQfDigitizingLayerBaseModel_1_1DigitizingLayer_1adce041671bdd0ada8348fb520e93fd73" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel::DigitizingLayer</scope><name>mapLayer</name></member>
+      <member refid="structQfDigitizingLayerBaseModel_1_1DigitizingLayer_1a6af6dec09a2b4224c19579d6e8cb6719" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel::DigitizingLayer</scope><name>markupCollection</name></member>
+      <member refid="structQfDigitizingLayerBaseModel_1_1DigitizingLayer_1a325a3e4c0377271056c8a5f0fc6e9d44" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel::DigitizingLayer</scope><name>name</name></member>
+      <member refid="structQfDigitizingLayerBaseModel_1_1DigitizingLayer_1a94952c23be37ce30778efdba88b7b8ee" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel::DigitizingLayer</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

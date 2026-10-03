@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNavigationBar" kind="class" language="C++" prot="public">
+    <compoundname>NavigationBar</compoundname>
+    <basecompoundref refid="classQfNavigationBar" prot="public" virt="non-virtual">QfNavigationBar</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NavigationBar</label>
+        <link refid="classNavigationBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNavigationBar</label>
+        <link refid="classQfNavigationBar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NavigationBar</label>
+        <link refid="classNavigationBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNavigationBar</label>
+        <link refid="classQfNavigationBar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/NavigationBar.qml" line="2" column="1" bodyfile="src/app/qml_compat/NavigationBar.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfNavigationBar_1ab99a96a20b748b1736fe94450cb761f7" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>allowDelete</name></member>
+      <member refid="classQfNavigationBar_1a9bc78dcfcd658b3b7515003b87622b99" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>backClicked</name></member>
+      <member refid="classQfNavigationBar_1ab4d7885df6fd614ab31160703f0c0452" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>cancel</name></member>
+      <member refid="classQfNavigationBar_1af19a6bb20ab8c62810508ee5a2311a7f" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>deleteClicked</name></member>
+      <member refid="classQfNavigationBar_1ac07282252380a1ad6396d000a8f221a8" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>destinationClicked</name></member>
+      <member refid="classQfNavigationBar_1ac201d3db17f20c3b02de32df9ccf7568" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>duplicateClicked</name></member>
+      <member refid="classQfNavigationBar_1a999b91f0783f581ef5c27785fea73199" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>editAttributesButtonClicked</name></member>
+      <member refid="classQfNavigationBar_1a68a5ab0c929cdce8ceb8f6e53e84ba78" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>editGeometryButtonClicked</name></member>
+      <member refid="classQfNavigationBar_1af313c8d4eab1f4246bedce97192a4ab3" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>extentController</name></member>
+      <member refid="classQfNavigationBar_1a0e39877872e9209dfb6f9c72a324dc1f" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>isVertical</name></member>
+      <member refid="classQfNavigationBar_1ae14b3bebf664a77134906bd327e1d67a" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>leftMargin</name></member>
+      <member refid="classQfNavigationBar_1a03af310a50ac87312c3b11e374c4c6b5" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>model</name></member>
+      <member refid="classQfNavigationBar_1a76d2b5a51262a9a8279bf9ee62e5cfee" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>moveClicked</name></member>
+      <member refid="classQfNavigationBar_1abba0f06ee97b7b5138e3d5f9c50904e3" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>multiDeleteClicked</name></member>
+      <member refid="classQfNavigationBar_1a506d911ffbfe1ea088c4ad73904c7d2d" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>multiDuplicateClicked</name></member>
+      <member refid="classQfNavigationBar_1a6ef575e09ec0c5ad802abfa271f15c93" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>multiEditClicked</name></member>
+      <member refid="classQfNavigationBar_1ae86300529df2267f60bbfcd96a73e9b8" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>multiMergeClicked</name></member>
+      <member refid="classQfNavigationBar_1af85ac5f8fd16a41571acbd248cf91970" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>multiMoveClicked</name></member>
+      <member refid="classQfNavigationBar_1adb9f7b1ba89526784ef8442d1b0e9375" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>multiProcessingClicked</name></member>
+      <member refid="classQfNavigationBar_1a01156ae789f9e241213d38cc4eb238d3" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>multiSelection</name></member>
+      <member refid="classQfNavigationBar_1a29186eb99b88ad1082053466535ee710" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>processingFeatureClicked</name></member>
+      <member refid="classQfNavigationBar_1a1770caa7f25b853f21f64f54473e9cbe" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>processingRunClicked</name></member>
+      <member refid="classQfNavigationBar_1a4a4df788cdea2a50b688bd199225e43a" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>rightMargin</name></member>
+      <member refid="classQfNavigationBar_1abe3f27ddda590dd025eeb8fcaa0f6f01" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>rotateClicked</name></member>
+      <member refid="classQfNavigationBar_1a28785892e05046465499e3624f19ef4f" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>save</name></member>
+      <member refid="classQfNavigationBar_1a4f7edd706184e56fa2deb9012655e20a" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>selection</name></member>
+      <member refid="classQfNavigationBar_1ac24367a7c8d2598c29bed3768f71aa12" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>statusIndicatorClicked</name></member>
+      <member refid="classQfNavigationBar_1a75900982107bcdd03e9ad57e4dae798c" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>statusIndicatorDragAcquired</name></member>
+      <member refid="classQfNavigationBar_1a241f766b0eff540933c560851ec74433" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>statusIndicatorDragged</name></member>
+      <member refid="classQfNavigationBar_1a29e774b2695231bc7ad5e54e4e5ac684" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>statusIndicatorDragReleased</name></member>
+      <member refid="classQfNavigationBar_1a2d029e533023ba0c06e898e9f92d8602" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>title</name></member>
+      <member refid="classQfNavigationBar_1aabb9b8bd55b2ca3927f58fa6e9b3934f" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>toggleMultiSelection</name></member>
+      <member refid="classQfNavigationBar_1a99065f4afd3963ea7b4a57929e3534be" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>topMargin</name></member>
+      <member refid="classQfNavigationBar_1a2e6baf4f613dd9b7cfc0c5a54b1c2915" prot="public" virt="non-virtual"><scope>NavigationBar</scope><name>transferClicked</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

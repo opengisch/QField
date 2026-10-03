@@ -1,0 +1,1473 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfReferencingFeatureListModelBase" kind="class" language="C++" prot="public">
+    <compoundname>QfReferencingFeatureListModelBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractItemModel</basecompoundref>
+    <derivedcompoundref refid="classQfOrderedRelationModel" prot="public" virt="non-virtual">QfOrderedRelationModel</derivedcompoundref>
+    <innerclass refid="structQfReferencingFeatureListModelBase_1_1Entry" prot="private">QfReferencingFeatureListModelBase::Entry</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ReferencedFeatureListRoles</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::ReferencedFeatureListRoles</qualifiedname>
+        <enumvalue id="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6a107b54e17a4cb741723b82c0c5ef101f" prot="public">
+          <name>DisplayString</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ac59c194844b5c0eebae864e7b16761a5" prot="public">
+          <name>ReferencingFeature</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6a21934b6d67c8dc2705921bbd0d2135fa" prot="public">
+          <name>NmReferencedFeature</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ac1b4c49ccddfa37d131f373001572775" prot="public">
+          <name>NmDisplayString</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ad5d2507d863f147ffe72b78155dd1d56" prot="public">
+          <name>AttachmentPath</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="57" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="58" bodyend="64"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a9839e05797e2f7c8277fdc25393e1a94" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfReferencingFeatureListModelBase::isLoading</definition>
+        <argsstring></argsstring>
+        <name>isLoading</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::isLoading</qualifiedname>
+        <read>isLoading</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="41" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a672ea2300c6b7548b5b4d9fbcf9c64d0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfReferencingFeatureListModelBase::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::feature</qualifiedname>
+        <read>feature</read>
+        <write>setFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="42" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a3733d84283b341c66c03781cf10a0321" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfReferencingFeatureListModelBase::relation</definition>
+        <argsstring></argsstring>
+        <name>relation</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::relation</qualifiedname>
+        <read>relation</read>
+        <write>setRelation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="43" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a69077c9a6d6397bedae6c31447473d40" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::currentRelationId</definition>
+        <argsstring></argsstring>
+        <name>currentRelationId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::currentRelationId</qualifiedname>
+        <read>currentRelationId</read>
+        <write>setCurrentRelationId</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="44" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1ab699dcbdd796191e3c06b1c639ebe44f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::currentNmRelationId</definition>
+        <argsstring></argsstring>
+        <name>currentNmRelationId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::currentNmRelationId</qualifiedname>
+        <read>currentNmRelationId</read>
+        <write>setCurrentNmRelationId</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="45" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a514e501b9f74b679a027720527ebf78a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfReferencingFeatureListModelBase::nmRelation</definition>
+        <argsstring></argsstring>
+        <name>nmRelation</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::nmRelation</qualifiedname>
+        <read>nmRelation</read>
+        <write>setNmRelation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="46" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a40e40c62d6649ba182d15d72d9a3a510" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfReferencingFeatureListModelBase::parentPrimariesAvailable</definition>
+        <argsstring></argsstring>
+        <name>parentPrimariesAvailable</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::parentPrimariesAvailable</qualifiedname>
+        <read>parentPrimariesAvailable</read>
+        <write>setParentPrimariesAvailable</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="47" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a0b2cf31f26243c5d4b049b43e7a6a695" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::attachmentFieldName</definition>
+        <argsstring></argsstring>
+        <name>attachmentFieldName</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentFieldName</qualifiedname>
+        <read>attachmentFieldName</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="48" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a812ecba888d63fa100d75d28b424c94f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfReferencingFeatureListModelBase::attachmentDocumentViewer</definition>
+        <argsstring></argsstring>
+        <name>attachmentDocumentViewer</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentDocumentViewer</qualifiedname>
+        <read>attachmentDocumentViewer</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="49" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1aa504b84d6425e6a6a5443dee601322d5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::attachmentStorageType</definition>
+        <argsstring></argsstring>
+        <name>attachmentStorageType</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentStorageType</qualifiedname>
+        <read>attachmentStorageType</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="50" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a10c68ac59bb3ba644973f46639ace3bc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::attachmentStorageAuthConfigId</definition>
+        <argsstring></argsstring>
+        <name>attachmentStorageAuthConfigId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentStorageAuthConfigId</qualifiedname>
+        <read>attachmentStorageAuthConfigId</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="51" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfReferencingFeatureListModelBase_1a6d6c657daa3950b9859ae17fd2a574c0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::attachmentStorageUrl</definition>
+        <argsstring></argsstring>
+        <name>attachmentStorageUrl</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentStorageUrl</qualifiedname>
+        <read>attachmentStorageUrl</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="52" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1a40b234a7750c874be3bb774d81466bec" prot="private" static="no" mutable="no">
+        <type>QList&lt; Entry &gt;</type>
+        <definition>QList&lt;Entry&gt; QfReferencingFeatureListModelBase::mEntries</definition>
+        <argsstring></argsstring>
+        <name>mEntries</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mEntries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="239" column="11" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1a44a1db2fae65b536e429ab4119f3d455" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfReferencingFeatureListModelBase::mFeature</definition>
+        <argsstring></argsstring>
+        <name>mFeature</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="240" column="16" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1a06415070bcc662f04fa5956ac3c9f522" prot="private" static="no" mutable="no">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfReferencingFeatureListModelBase::mRelation</definition>
+        <argsstring></argsstring>
+        <name>mRelation</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mRelation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="241" column="17" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1adfe7f1734e36513d0a0074e652b44dc4" prot="private" static="no" mutable="no">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfReferencingFeatureListModelBase::mNmRelation</definition>
+        <argsstring></argsstring>
+        <name>mNmRelation</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mNmRelation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="242" column="17" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1acd57c37c098a40a28d322bdf0236e6cb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfReferencingFeatureListModelBase::mParentPrimariesAvailable</definition>
+        <argsstring></argsstring>
+        <name>mParentPrimariesAvailable</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mParentPrimariesAvailable</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="243" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1a3cd8c2b116f12c35f4de4a3c5ef353d0" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::mAttachmentFieldName</definition>
+        <argsstring></argsstring>
+        <name>mAttachmentFieldName</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mAttachmentFieldName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="245" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1ab416dccc0622e3bfb624a521bfd5b53e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfReferencingFeatureListModelBase::mAttachmentFieldIndex</definition>
+        <argsstring></argsstring>
+        <name>mAttachmentFieldIndex</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mAttachmentFieldIndex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="246" column="9" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1af6a6f5ebed151d7ef31ad747c378e07d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfReferencingFeatureListModelBase::mAttachmentDocumentViewer</definition>
+        <argsstring></argsstring>
+        <name>mAttachmentDocumentViewer</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mAttachmentDocumentViewer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="247" column="9" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1a06243a8cde7770e133e01c2e4c200efc" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::mAttachmentStorageType</definition>
+        <argsstring></argsstring>
+        <name>mAttachmentStorageType</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mAttachmentStorageType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="248" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1a8df37e4caf597a6b51d8c51437485aea" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::mAttachmentStorageAuthConfigId</definition>
+        <argsstring></argsstring>
+        <name>mAttachmentStorageAuthConfigId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mAttachmentStorageAuthConfigId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="249" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1a5b83796a0be0d4d644a56da2efd4b00e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::mAttachmentStorageUrl</definition>
+        <argsstring></argsstring>
+        <name>mAttachmentStorageUrl</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mAttachmentStorageUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="250" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1a92109cc746155ec5ac3fbe8121743105" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureGatherer" kindref="compound">QfFeatureGatherer</ref> *</type>
+        <definition>QfFeatureGatherer* QfReferencingFeatureListModelBase::mGatherer</definition>
+        <argsstring></argsstring>
+        <name>mGatherer</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mGatherer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="252" column="23" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfReferencingFeatureListModelBase_1ace8d9373c9a831fba10d8d7a83081382" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::mLastGathererFeaturesFilter</definition>
+        <argsstring></argsstring>
+        <name>mLastGathererFeaturesFilter</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::mLastGathererFeaturesFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="253" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classQfReferencingFeatureListModelBase_1ad5a2cc75a74dd15b487209f98d1dfa8a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class QfFeatureGatherer</definition>
+        <argsstring></argsstring>
+        <name>QfFeatureGatherer</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::QfFeatureGatherer</qualifiedname>
+        <param>
+          <type><ref refid="classQfFeatureGatherer" kindref="compound">QfFeatureGatherer</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="262" column="18" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classQfReferencingFeatureListModelBase_1a619a1798b68564ebd4343fef3422a328" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class QfOrderedRelationModel</definition>
+        <argsstring></argsstring>
+        <name>QfOrderedRelationModel</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::QfOrderedRelationModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfOrderedRelationModel" kindref="compound">QfOrderedRelationModel</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="263" column="18" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classQfReferencingFeatureListModelBase_1aef229969fcba7a0d4054e96c1c091885" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class TestReferencingFeatureListModel</definition>
+        <argsstring></argsstring>
+        <name>TestReferencingFeatureListModel</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::TestReferencingFeatureListModel</qualifiedname>
+        <param>
+          <type>TestReferencingFeatureListModel</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="264" column="18" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a03617df3fcb24065f633aa03fdbc2521" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfReferencingFeatureListModelBase::QfReferencingFeatureListModelBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfReferencingFeatureListModelBase</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::QfReferencingFeatureListModelBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="55" column="14" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a1b8517629fe05e011f351feb3dc8d2ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfReferencingFeatureListModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="66" column="11" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="29" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a14727b61609273e7dcc83c8a711eed34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfReferencingFeatureListModelBase::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="67" column="17" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="42" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a1b83f90b030369ea3e7857df23af5b02" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfReferencingFeatureListModelBase::parent</definition>
+        <argsstring>(const QModelIndex &amp;index) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="68" column="17" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="50" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1adc120611b2475e8e4570e9b5658bb2d2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfReferencingFeatureListModelBase::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="69" column="9" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="57" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a59f706952351f1bc4299056b464e6751" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfReferencingFeatureListModelBase::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="70" column="9" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="63" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a015b957f30bc3f43a788a1482be81db1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfReferencingFeatureListModelBase::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="71" column="14" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="69" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a1152fb5f7f597cb3733a5d26f3c9f281" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::currentRelationId</definition>
+        <argsstring>() const</argsstring>
+        <name>currentRelationId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::currentRelationId</qualifiedname>
+        <briefdescription>
+<para>Returns the id of the relation connecting the parent feature with the children in this model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="74" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="167" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1adfff3ff9153a76a698ec9af029d9bcc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::setCurrentRelationId</definition>
+        <argsstring>(const QString &amp;relationId)</argsstring>
+        <name>setCurrentRelationId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::setCurrentRelationId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>relationId</declname>
+        </param>
+        <briefdescription>
+<para>Sets the relation connecting the parent feature with the children in this model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="77" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="172" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a0745f1d3fec5cbfd0423ef43c0c518e9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::currentNmRelationId</definition>
+        <argsstring>() const</argsstring>
+        <name>currentNmRelationId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::currentNmRelationId</qualifiedname>
+        <briefdescription>
+<para>On many-to-many relations returns the second relation id connecting the children in the association table to their other parent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="80" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a61f13659fcfce63b8170e1d3fc015a61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::setCurrentNmRelationId</definition>
+        <argsstring>(const QString &amp;nmRelationId)</argsstring>
+        <name>setCurrentNmRelationId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::setCurrentNmRelationId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>nmRelationId</declname>
+        </param>
+        <briefdescription>
+<para>On many-to-many relations sets the second relation connecting the children in the association table to their other parent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="83" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="203" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a185ef3eb577feeffa72efe2f7dcf7cb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::setFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setFeature</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::setFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parent feature for which this model contains the children <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>feature </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="90" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="98" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a095c8ce3064d28c565e4b841d874791e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfReferencingFeatureListModelBase::feature</definition>
+        <argsstring>() const</argsstring>
+        <name>feature</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::feature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parent feature for which this model contains the children <simplesect kind="return"><para>the parent feature </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfReferencingFeatureListModelBase_1a185ef3eb577feeffa72efe2f7dcf7cb7" kindref="member">setFeature</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="97" column="16" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a839318afb739fd30aeb5bc4c149bf3b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::setRelation</definition>
+        <argsstring>(const QgsRelation &amp;relation)</argsstring>
+        <name>setRelation</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::setRelation</qualifiedname>
+        <param>
+          <type>const QgsRelation &amp;</type>
+          <declname>relation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The relation connecting the parent feature with the children in this model <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>relation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>relation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="104" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="125" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a8f2fee16a770d78d476248f67ebbf1fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfReferencingFeatureListModelBase::relation</definition>
+        <argsstring>() const</argsstring>
+        <name>relation</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::relation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The relation connecting the parent feature with the children in this model <simplesect kind="return"><para>relation </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfReferencingFeatureListModelBase_1a839318afb739fd30aeb5bc4c149bf3b6" kindref="member">setRelation</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="111" column="17" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="162" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a9056a3c21280861b0b3eaf89be2abb0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::setNmRelation</definition>
+        <argsstring>(const QgsRelation &amp;relation)</argsstring>
+        <name>setNmRelation</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::setNmRelation</qualifiedname>
+        <param>
+          <type>const QgsRelation &amp;</type>
+          <declname>relation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>relation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The associated relation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>nmRelation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="118" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="182" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a506341637231ea3565daa183289bc1af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsRelation</type>
+        <definition>QgsRelation QfReferencingFeatureListModelBase::nmRelation</definition>
+        <argsstring>() const</argsstring>
+        <name>nmRelation</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::nmRelation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>On many-to-many relations this is the second relation connecting the children in the associationtable to their other parent <simplesect kind="return"><para>associated relation </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfReferencingFeatureListModelBase_1a9056a3c21280861b0b3eaf89be2abb0d" kindref="member">setNmRelation</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="125" column="17" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a012bbc373019dba765ff695860f4bff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::setParentPrimariesAvailable</definition>
+        <argsstring>(const bool parentPrimariesAvailable)</argsstring>
+        <name>setParentPrimariesAvailable</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::setParentPrimariesAvailable</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>parentPrimariesAvailable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The status if the pk of the parent feature (this feature) are valid (not null) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parentPrimariesAvailable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The status if the parent pks are available </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>parentPrimariesAvailable </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="132" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="213" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a7c8bb4208d0f42a12ffa163435c0b99a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfReferencingFeatureListModelBase::parentPrimariesAvailable</definition>
+        <argsstring>() const</argsstring>
+        <name>parentPrimariesAvailable</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::parentPrimariesAvailable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The status if the pk of the parent feature (this feature) are valid (not null) It&apos;s needed to check on opening a form to add a new child <simplesect kind="return"><para>parentPrimariesAvailable The status if the parent pks are available </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfReferencingFeatureListModelBase_1a012bbc373019dba765ff695860f4bff4" kindref="member">setParentPrimariesAvailable</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="140" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="218" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1ac506a15f5afbcc35bac088cd4c34bb50" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::attachmentFieldName</definition>
+        <argsstring>() const</argsstring>
+        <name>attachmentFieldName</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentFieldName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the field name of the first ExternalResource field found on the referencing layer, or an empty string if no such field exists. The value is cached when the relation is set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="146" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="395" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a8ccb32d40b4afea19169eb4a3119893e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfReferencingFeatureListModelBase::attachmentDocumentViewer</definition>
+        <argsstring>() const</argsstring>
+        <name>attachmentDocumentViewer</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentDocumentViewer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the document viewer type of the first ExternalResource field found on the referencing layer. The value corresponds to the &quot;DocumentViewer&quot; configuration entry of the editor widget setup (0 = file, 1 = image, 3 = audio, 4 = video). Returns 0 if no ExternalResource field exists.</para>
+<para><simplesect kind="see"><para>QgsExternalResourceWidget::DocumentViewerContent in <ulink url="https://github.com/qgis/QGIS/blob/6ca6cf1bab8e017355f7631115cf48bc3c6a4601/src/gui/qgsexternalresourcewidget.h#L72-L79">https://github.com/qgis/QGIS/blob/6ca6cf1bab8e017355f7631115cf48bc3c6a4601/src/gui/qgsexternalresourcewidget.h#L72-L79</ulink> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="157" column="9" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="400" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a2034a2e3c0b11d87fcd6d6350d942c69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::attachmentStorageType</definition>
+        <argsstring>() const</argsstring>
+        <name>attachmentStorageType</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentStorageType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the external storage type configured on the attachment field (e.g. &quot;WebDAV&quot;), or an empty string if none is set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="163" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="405" bodyend="408"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a165f1ab8874674139112b9206bc0c741" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::attachmentStorageAuthConfigId</definition>
+        <argsstring>() const</argsstring>
+        <name>attachmentStorageAuthConfigId</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentStorageAuthConfigId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the authentication configuration ID for the external storage configured on the attachment field, or an empty string if none is set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="169" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="410" bodyend="413"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a84ac578207c9fed90cbd7b6d926600cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::attachmentStorageUrl</definition>
+        <argsstring>() const</argsstring>
+        <name>attachmentStorageUrl</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentStorageUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the external storage URL configured on the attachment field (e.g. &quot;https://server.com/remote.php/dav/files/user/&quot;), or an empty string if none is set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="176" column="13" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="415" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a591145acbba84b53211482705db12455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfReferencingFeatureListModelBase::reload</definition>
+        <argsstring>()</argsstring>
+        <name>reload</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::reload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reloads the model by starting the reload functionality in the gatherer (seperate thread) Sets the property parentPrimariesAvailable </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="182" column="22" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="304" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a7da7704988ca1e5aa3cbb86a07322abb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfReferencingFeatureListModelBase::deleteFeature</definition>
+        <argsstring>(QgsFeatureId referencingFeatureId)</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::deleteFeature</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>referencingFeatureId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes a feature regarding the referencing layer and the feature id of the selected child <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>referencingFeatureId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id of the selected child </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="188" column="22" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="350" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a1e359e3789c669b4cd394cfe14677c4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfReferencingFeatureListModelBase::getFeatureIdRow</definition>
+        <argsstring>(QgsFeatureId featureId)</argsstring>
+        <name>getFeatureIdRow</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::getFeatureIdRow</qualifiedname>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>featureId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the row number for a given feature id <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>featureId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="194" column="21" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="375" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a0eb240ddc5a2c400625eb7706810123d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfReferencingFeatureListModelBase::isLoading</definition>
+        <argsstring>() const</argsstring>
+        <name>isLoading</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::isLoading</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicator if the model is currently performing any feature iteration in the background. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="199" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="390" bodyend="393"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1a4496ab8a765e21a6112eaa26578b0505" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::attributeFormModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>attributeFormModelChanged</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attributeFormModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="202" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1a5bf7ec918e420b88285077aac00603cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::featureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="203" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1a87217fcf6e25c9046e7d2971fa668035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::relationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>relationChanged</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::relationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="204" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1abe810da26f6517261af88238b6111f55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::nmRelationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>nmRelationChanged</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::nmRelationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="205" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1a517e35674d6de61786fd06508cad5ca0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::attachmentDetailsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>attachmentDetailsChanged</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::attachmentDetailsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="206" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1aa0d76affa8691ae1844a8fa414e04119" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::parentPrimariesAvailableChanged</definition>
+        <argsstring>()</argsstring>
+        <name>parentPrimariesAvailableChanged</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::parentPrimariesAvailableChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="207" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1af844e393d8409b52a1f1abb5fadf8e0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::isLoadingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isLoadingChanged</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::isLoadingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="208" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1a375d1e9adb19beb4a35256a71c86645f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::beforeModelUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>beforeModelUpdated</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::beforeModelUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="209" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfReferencingFeatureListModelBase_1a7f989858bd1f241382238a15e4a5f5f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::modelUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>modelUpdated</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::modelUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="210" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfReferencingFeatureListModelBase_1a639580b8ef70deeafcd744ff4865a9e3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::updateModel</definition>
+        <argsstring>()</argsstring>
+        <name>updateModel</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::updateModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="213" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="223" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfReferencingFeatureListModelBase_1a6163c7301f82a9d72d1a99ae24f4aa3c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::gathererThreadFinished</definition>
+        <argsstring>()</argsstring>
+        <name>gathererThreadFinished</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::gathererThreadFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="214" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="237" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfReferencingFeatureListModelBase_1a83561b16754b84d47ad4825aa95567b9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges</definition>
+        <argsstring>(const QString &amp;layerId, const QgsChangedAttributesMap &amp;changedAttributesValues)</argsstring>
+        <name>layerCommittedAttributeValuesChanges</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <param>
+          <type>const QgsChangedAttributesMap &amp;</type>
+          <declname>changedAttributesValues</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="216" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="250" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfReferencingFeatureListModelBase_1ad115963c51b30654fa12cadb4e46ab1d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::layerCommittedGeometriesChanges</definition>
+        <argsstring>(const QString &amp;layerId, const QgsGeometryMap &amp;changedGeometries)</argsstring>
+        <name>layerCommittedGeometriesChanges</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::layerCommittedGeometriesChanges</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <param>
+          <type>const QgsGeometryMap &amp;</type>
+          <declname>changedGeometries</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="217" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="269" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfReferencingFeatureListModelBase_1a5508e27ca05906b435b806f18e0cf0e9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::layerCommittedFeaturesAdded</definition>
+        <argsstring>(const QString &amp;layerId, const QgsFeatureList &amp;addedFeatures)</argsstring>
+        <name>layerCommittedFeaturesAdded</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::layerCommittedFeaturesAdded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureList &amp;</type>
+          <declname>addedFeatures</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="218" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="288" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfReferencingFeatureListModelBase_1ab793e900b7922c1742516125ea1c9180" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::layerCommittedFeaturesRemoved</definition>
+        <argsstring>(const QString &amp;layerId, const QgsFeatureIds &amp;deletedFeatureIds)</argsstring>
+        <name>layerCommittedFeaturesRemoved</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::layerCommittedFeaturesRemoved</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureIds &amp;</type>
+          <declname>deletedFeatureIds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="219" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="296" bodyend="302"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a049c8d9f736503f575bb59b4a4c3859e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfReferencingFeatureListModelBase::updateAttachmentFieldInfo</definition>
+        <argsstring>()</argsstring>
+        <name>updateAttachmentFieldInfo</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::updateAttachmentFieldInfo</qualifiedname>
+        <briefdescription>
+<para>Refreshes the cached attachment field info from the current relation&apos;s referencing layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="256" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="420" bodyend="453"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a629b8d02e5cee71642f147850437626f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfReferencingFeatureListModelBase::checkParentPrimaries</definition>
+        <argsstring>()</argsstring>
+        <name>checkParentPrimaries</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::checkParentPrimaries</qualifiedname>
+        <briefdescription>
+<para>Checks if the parent pk(s) is not null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="259" column="10" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="455" bodyend="487"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfReferencingFeatureListModelBase_1a03d1750a3fb1eb26fa42f3a6569f84c9" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfReferencingFeatureListModelBase::beforeDeleteFeature</definition>
+        <argsstring>(QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId)</argsstring>
+        <name>beforeDeleteFeature</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::beforeDeleteFeature</qualifiedname>
+        <reimplementedby refid="classQfOrderedRelationModel_1a3b6555eb6468bc33a37bdad825a66b4b">beforeDeleteFeature</reimplementedby>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>referencingLayer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>referencingFeatureId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="260" column="18" bodyfile="src/gui/qfreferencingfeaturelistmodel.cpp" bodystart="489" bodyend="494"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="3">
+        <label>QfOrderedRelationModel</label>
+        <link refid="classQfOrderedRelationModel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfReferencingFeatureListModelBase</label>
+        <link refid="classQfReferencingFeatureListModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfReferencingFeatureListModelBase</label>
+        <link refid="classQfReferencingFeatureListModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfreferencingfeaturelistmodel.h" line="37" column="1" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="38" bodyend="265"/>
+    <listofallmembers>
+      <member refid="classQfReferencingFeatureListModelBase_1a517e35674d6de61786fd06508cad5ca0" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentDetailsChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a812ecba888d63fa100d75d28b424c94f" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentDocumentViewer</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a8ccb32d40b4afea19169eb4a3119893e" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentDocumentViewer</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a0b2cf31f26243c5d4b049b43e7a6a695" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentFieldName</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ac506a15f5afbcc35bac088cd4c34bb50" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentFieldName</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ad5d2507d863f147ffe72b78155dd1d56" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>AttachmentPath</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a10c68ac59bb3ba644973f46639ace3bc" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentStorageAuthConfigId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a165f1ab8874674139112b9206bc0c741" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentStorageAuthConfigId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1aa504b84d6425e6a6a5443dee601322d5" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentStorageType</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2034a2e3c0b11d87fcd6d6350d942c69" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentStorageType</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a6d6c657daa3950b9859ae17fd2a574c0" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentStorageUrl</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a84ac578207c9fed90cbd7b6d926600cc" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attachmentStorageUrl</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a4496ab8a765e21a6112eaa26578b0505" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>attributeFormModelChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a03d1750a3fb1eb26fa42f3a6569f84c9" prot="private" virt="virtual"><scope>QfReferencingFeatureListModelBase</scope><name>beforeDeleteFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a375d1e9adb19beb4a35256a71c86645f" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>beforeModelUpdated</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a629b8d02e5cee71642f147850437626f" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>checkParentPrimaries</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a59f706952351f1bc4299056b464e6751" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>columnCount</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ab699dcbdd796191e3c06b1c639ebe44f" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>currentNmRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a0745f1d3fec5cbfd0423ef43c0c518e9" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>currentNmRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a69077c9a6d6397bedae6c31447473d40" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>currentRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a1152fb5f7f597cb3733a5d26f3c9f281" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>currentRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a015b957f30bc3f43a788a1482be81db1" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>data</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a7da7704988ca1e5aa3cbb86a07322abb" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>deleteFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6a107b54e17a4cb741723b82c0c5ef101f" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>DisplayString</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a672ea2300c6b7548b5b4d9fbcf9c64d0" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>feature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a095c8ce3064d28c565e4b841d874791e" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>feature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a5bf7ec918e420b88285077aac00603cc" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>featureChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a6163c7301f82a9d72d1a99ae24f4aa3c" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>gathererThreadFinished</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a1e359e3789c669b4cd394cfe14677c4d" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>getFeatureIdRow</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a14727b61609273e7dcc83c8a711eed34" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>index</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a9839e05797e2f7c8277fdc25393e1a94" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>isLoading</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a0eb240ddc5a2c400625eb7706810123d" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>isLoading</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1af844e393d8409b52a1f1abb5fadf8e0f" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>isLoadingChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a83561b16754b84d47ad4825aa95567b9" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>layerCommittedAttributeValuesChanges</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a5508e27ca05906b435b806f18e0cf0e9" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>layerCommittedFeaturesAdded</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ab793e900b7922c1742516125ea1c9180" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>layerCommittedFeaturesRemoved</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ad115963c51b30654fa12cadb4e46ab1d" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>layerCommittedGeometriesChanges</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1af6a6f5ebed151d7ef31ad747c378e07d" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mAttachmentDocumentViewer</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ab416dccc0622e3bfb624a521bfd5b53e" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mAttachmentFieldIndex</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a3cd8c2b116f12c35f4de4a3c5ef353d0" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mAttachmentFieldName</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a8df37e4caf597a6b51d8c51437485aea" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mAttachmentStorageAuthConfigId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a06243a8cde7770e133e01c2e4c200efc" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mAttachmentStorageType</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a5b83796a0be0d4d644a56da2efd4b00e" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mAttachmentStorageUrl</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a40b234a7750c874be3bb774d81466bec" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mEntries</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a44a1db2fae65b536e429ab4119f3d455" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a92109cc746155ec5ac3fbe8121743105" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mGatherer</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ace8d9373c9a831fba10d8d7a83081382" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mLastGathererFeaturesFilter</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1adfe7f1734e36513d0a0074e652b44dc4" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mNmRelation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a7f989858bd1f241382238a15e4a5f5f4" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>modelUpdated</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1acd57c37c098a40a28d322bdf0236e6cb" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mParentPrimariesAvailable</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a06415070bcc662f04fa5956ac3c9f522" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>mRelation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ac1b4c49ccddfa37d131f373001572775" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>NmDisplayString</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6a21934b6d67c8dc2705921bbd0d2135fa" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>NmReferencedFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a514e501b9f74b679a027720527ebf78a" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>nmRelation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a506341637231ea3565daa183289bc1af" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>nmRelation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1abe810da26f6517261af88238b6111f55" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>nmRelationChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a1b83f90b030369ea3e7857df23af5b02" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>parent</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a40e40c62d6649ba182d15d72d9a3a510" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>parentPrimariesAvailable</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a7c8bb4208d0f42a12ffa163435c0b99a" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>parentPrimariesAvailable</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1aa0d76affa8691ae1844a8fa414e04119" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>parentPrimariesAvailableChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ad5a2cc75a74dd15b487209f98d1dfa8a" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>QfFeatureGatherer</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a619a1798b68564ebd4343fef3422a328" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>QfOrderedRelationModel</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a03617df3fcb24065f633aa03fdbc2521" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>QfReferencingFeatureListModelBase</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>ReferencedFeatureListRoles</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ac59c194844b5c0eebae864e7b16761a5" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>ReferencingFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a3733d84283b341c66c03781cf10a0321" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>relation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a8f2fee16a770d78d476248f67ebbf1fe" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>relation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a87217fcf6e25c9046e7d2971fa668035" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>relationChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a591145acbba84b53211482705db12455" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>reload</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a1b8517629fe05e011f351feb3dc8d2ea" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>roleNames</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1adc120611b2475e8e4570e9b5658bb2d2" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>rowCount</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a61f13659fcfce63b8170e1d3fc015a61" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>setCurrentNmRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1adfff3ff9153a76a698ec9af029d9bcc0" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>setCurrentRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a185ef3eb577feeffa72efe2f7dcf7cb7" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>setFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a9056a3c21280861b0b3eaf89be2abb0d" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>setNmRelation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a012bbc373019dba765ff695860f4bff4" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>setParentPrimariesAvailable</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a839318afb739fd30aeb5bc4c149bf3b6" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>setRelation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1aef229969fcba7a0d4054e96c1c091885" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>TestReferencingFeatureListModel</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a049c8d9f736503f575bb59b4a4c3859e" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>updateAttachmentFieldInfo</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a639580b8ef70deeafcd744ff4865a9e3" prot="private" virt="non-virtual"><scope>QfReferencingFeatureListModelBase</scope><name>updateModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

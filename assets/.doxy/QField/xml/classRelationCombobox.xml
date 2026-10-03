@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRelationCombobox" kind="class" language="C++" prot="public">
+    <compoundname>RelationCombobox</compoundname>
+    <basecompoundref refid="classQfRelationCombobox" prot="public" virt="non-virtual">QfRelationCombobox</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfRelationCombobox</label>
+        <link refid="classQfRelationCombobox"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>RelationCombobox</label>
+        <link refid="classRelationCombobox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfRelationCombobox</label>
+        <link refid="classQfRelationCombobox"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>RelationCombobox</label>
+        <link refid="classRelationCombobox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/RelationCombobox.qml" line="2" column="1" bodyfile="src/app/qml_compat/RelationCombobox.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfRelationCombobox_1ae210c2f554a57de415728b5436b340a6" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>allowAddFeature</name></member>
+      <member refid="classQfRelationCombobox_1a496497ef462bcef28e21f6ee2d353a32" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>count</name></member>
+      <member refid="classQfRelationCombobox_1af0b691ff59506d528cc957bba888d99b" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>currentKeyValue</name></member>
+      <member refid="classQfRelationCombobox_1a22c063cff901fe80fbb815d321c35343" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>displayedTextColor</name></member>
+      <member refid="classQfRelationCombobox_1ae87630173da3c8ca6dc697ed03d0eeca" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>embeddedFeatureForm</name></member>
+      <member refid="classQfRelationCombobox_1a25f6049a129d71d6318604bf421599fe" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>ensureEmbeddedFormLoaded</name></member>
+      <member refid="classQfRelationCombobox_1aa1df2ab151a5f7a7597b0fdba119381a" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>featureListModel</name></member>
+      <member refid="classQfRelationCombobox_1ac0fdcf476c5bc1851ea7c433071ea320" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>layerResolver</name></member>
+      <member refid="classQfRelationCombobox_1a18e364568d9faed1d726671cd24c0124" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>relation</name></member>
+      <member refid="classQfRelationCombobox_1a83c884116ffa793265fb36dbb455737f" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>requestedGeometryReceived</name></member>
+      <member refid="classQfRelationCombobox_1af7e8437869592e20ef6ad63a3458f15d" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfRelationCombobox_1ab569eb9f968789e2fa2f974e2a6b54cf" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>searchPopup</name></member>
+      <member refid="classQfRelationCombobox_1a54ec1986a0f51626f308625b6817cc2d" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>showAddFeaturePopup</name></member>
+      <member refid="classQfRelationCombobox_1a3c0790ea538c34008dffa15caecff132" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>useCompleter</name></member>
+      <member refid="classQfRelationCombobox_1a1201cacde3c4875e72eac3a422b29ab6" prot="public" virt="non-virtual"><scope>RelationCombobox</scope><name>useSearch</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

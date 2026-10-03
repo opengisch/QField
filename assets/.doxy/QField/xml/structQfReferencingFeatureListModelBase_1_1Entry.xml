@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfReferencingFeatureListModelBase_1_1Entry" kind="struct" language="C++" prot="private">
+    <compoundname>QfReferencingFeatureListModelBase::Entry</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfReferencingFeatureListModelBase_1_1Entry_1a22ca2498bf87fb27407c2bc5a84775a2" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::Entry::displayString</definition>
+        <argsstring></argsstring>
+        <name>displayString</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::Entry::displayString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="233" column="17" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfReferencingFeatureListModelBase_1_1Entry_1ae836561b5115eb18c0ae76565b6ea6d6" prot="public" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfReferencingFeatureListModelBase::Entry::referencingFeature</definition>
+        <argsstring></argsstring>
+        <name>referencingFeature</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::Entry::referencingFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="234" column="20" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfReferencingFeatureListModelBase_1_1Entry_1ae0c68c26281de89a2afcc66a34372fd6" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfReferencingFeatureListModelBase::Entry::nmDisplayString</definition>
+        <argsstring></argsstring>
+        <name>nmDisplayString</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::Entry::nmDisplayString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="235" column="17" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfReferencingFeatureListModelBase_1_1Entry_1a66eec72330791312145c3fccf2e0f5fc" prot="public" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfReferencingFeatureListModelBase::Entry::nmReferencedFeature</definition>
+        <argsstring></argsstring>
+        <name>nmReferencedFeature</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::Entry::nmReferencedFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="236" column="20" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfReferencingFeatureListModelBase_1_1Entry_1a45ec94c036d66c14aadb8291382f598b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfReferencingFeatureListModelBase::Entry::Entry</definition>
+        <argsstring>(const QString &amp;displayString, const QgsFeature &amp;referencingFeature, const QString &amp;nmDisplayString=QString(), const QgsFeature &amp;nmReferencedFeature=QgsFeature())</argsstring>
+        <name>Entry</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::Entry::Entry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>displayString</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>referencingFeature</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>nmDisplayString</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>nmReferencedFeature</declname>
+          <defval>QgsFeature()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="224" column="9" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="224" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfReferencingFeatureListModelBase_1_1Entry_1a8f5144d6c7eccb8319f57250167917e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfReferencingFeatureListModelBase::Entry::Entry</definition>
+        <argsstring>()=default</argsstring>
+        <name>Entry</name>
+        <qualifiedname>QfReferencingFeatureListModelBase::Entry::Entry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfreferencingfeaturelistmodel.h" line="231" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui/qfreferencingfeaturelistmodel.h" line="222" column="5" bodyfile="src/gui/qfreferencingfeaturelistmodel.h" bodystart="223" bodyend="237"/>
+    <listofallmembers>
+      <member refid="structQfReferencingFeatureListModelBase_1_1Entry_1a22ca2498bf87fb27407c2bc5a84775a2" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase::Entry</scope><name>displayString</name></member>
+      <member refid="structQfReferencingFeatureListModelBase_1_1Entry_1a45ec94c036d66c14aadb8291382f598b" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase::Entry</scope><name>Entry</name></member>
+      <member refid="structQfReferencingFeatureListModelBase_1_1Entry_1a8f5144d6c7eccb8319f57250167917e5" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase::Entry</scope><name>Entry</name></member>
+      <member refid="structQfReferencingFeatureListModelBase_1_1Entry_1ae0c68c26281de89a2afcc66a34372fd6" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase::Entry</scope><name>nmDisplayString</name></member>
+      <member refid="structQfReferencingFeatureListModelBase_1_1Entry_1a66eec72330791312145c3fccf2e0f5fc" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase::Entry</scope><name>nmReferencedFeature</name></member>
+      <member refid="structQfReferencingFeatureListModelBase_1_1Entry_1ae836561b5115eb18c0ae76565b6ea6d6" prot="public" virt="non-virtual"><scope>QfReferencingFeatureListModelBase::Entry</scope><name>referencingFeature</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

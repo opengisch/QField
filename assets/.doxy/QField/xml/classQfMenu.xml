@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMenu" kind="class" language="C++" prot="public">
+    <compoundname>QfMenu</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Menu</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMenu_1ae2b19e77f47bae30f7103ea47fb22042" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfMenu::paddingMultiplier</definition>
+        <argsstring></argsstring>
+        <name>paddingMultiplier</name>
+        <qualifiedname>QfMenu::paddingMultiplier</qualifiedname>
+        <read>dummyGetter_paddingMultiplier_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMenu.qml" line="9" column="1" bodyfile="src/gui/qml/QfMenu.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMenu_1aa84e8de2d6d4b6f5274c5d28f41fb627" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMenu::skipFirstRow</definition>
+        <argsstring></argsstring>
+        <name>skipFirstRow</name>
+        <qualifiedname>QfMenu::skipFirstRow</qualifiedname>
+        <read>dummyGetter_skipFirstRow_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMenu.qml" line="11" column="1" bodyfile="src/gui/qml/QfMenu.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMenu_1a18d373f535ac5625795415d56506f065" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfMenu::minimumRowWidth</definition>
+        <argsstring></argsstring>
+        <name>minimumRowWidth</name>
+        <qualifiedname>QfMenu::minimumRowWidth</qualifiedname>
+        <read>dummyGetter_minimumRowWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMenu.qml" line="13" column="1" bodyfile="src/gui/qml/QfMenu.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMenu_1ab84a91eee72f16fbdbab35dbb491439a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMenu::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfMenu::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMenu.qml" line="15" column="5" bodyfile="src/gui/qml/QfMenu.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Menu</label>
+      </node>
+      <node id="1">
+        <label>QfMenu</label>
+        <link refid="classQfMenu"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Menu</label>
+      </node>
+      <node id="1">
+        <label>QfMenu</label>
+        <link refid="classQfMenu"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfMenu.qml" line="6" column="1" bodyfile="src/gui/qml/QfMenu.qml" bodystart="6" bodyend="16"/>
+    <listofallmembers>
+      <member refid="classQfMenu_1a18d373f535ac5625795415d56506f065" prot="public" virt="non-virtual"><scope>QfMenu</scope><name>minimumRowWidth</name></member>
+      <member refid="classQfMenu_1ae2b19e77f47bae30f7103ea47fb22042" prot="public" virt="non-virtual"><scope>QfMenu</scope><name>paddingMultiplier</name></member>
+      <member refid="classQfMenu_1aa84e8de2d6d4b6f5274c5d28f41fb627" prot="public" virt="non-virtual"><scope>QfMenu</scope><name>skipFirstRow</name></member>
+      <member refid="classQfMenu_1ab84a91eee72f16fbdbab35dbb491439a" prot="private" virt="non-virtual"><scope>QfMenu</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

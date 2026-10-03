@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureListSelectionHighlight" kind="class" language="C++" prot="public">
+    <compoundname>FeatureListSelectionHighlight</compoundname>
+    <basecompoundref refid="classQfFeatureListSelectionHighlight" prot="public" virt="non-virtual">QfFeatureListSelectionHighlight</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureListSelectionHighlight</label>
+        <link refid="classFeatureListSelectionHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfFeatureListSelectionHighlight</label>
+        <link refid="classQfFeatureListSelectionHighlight"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Repeater</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureListSelectionHighlight</label>
+        <link refid="classFeatureListSelectionHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfFeatureListSelectionHighlight</label>
+        <link refid="classQfFeatureListSelectionHighlight"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Repeater</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/FeatureListSelectionHighlight.qml" line="2" column="1" bodyfile="src/app/qml_compat/FeatureListSelectionHighlight.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfFeatureListSelectionHighlight_1ae4c7c1b98773e3c99653957607c20f79" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>color</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1a3c51d42d2d9cb89bcc5cbb4949ec744c" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>focusedColor</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1a419444c1beb6b6c1f9e8f555767c1e01" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>mapSettings</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1afe9206f8768ebe687bff76a55fd50dc3" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>originX</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1a1c8d118f3e527e93be3e73519f1cd0ec" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>originY</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1af320587a06a2fa242416eced7d4e272b" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>rotationDegrees</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1ac46e270fde1a0bc157492195fd024c5c" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>selectedColor</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1a5eaa992f5299232b23a6baf0efbfa801" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>selectionModel</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1a50ada5c5436a3b0cf511ea5d0063d70c" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>showSelectedOnly</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1a5d1544de83bdabc488945e6768ebf441" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>translateX</name></member>
+      <member refid="classQfFeatureListSelectionHighlight_1aac4a053074f734d92c8a03831ff97579" prot="public" virt="non-virtual"><scope>FeatureListSelectionHighlight</scope><name>translateY</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

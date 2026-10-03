@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCoordinateLocator" kind="class" language="C++" prot="public">
+    <compoundname>CoordinateLocator</compoundname>
+    <basecompoundref refid="classQfCoordinateLocator" prot="public" virt="non-virtual">QfCoordinateLocator</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CoordinateLocator</label>
+        <link refid="classCoordinateLocator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCoordinateLocator</label>
+        <link refid="classQfCoordinateLocator"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CoordinateLocator</label>
+        <link refid="classCoordinateLocator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCoordinateLocator</label>
+        <link refid="classQfCoordinateLocator"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/CoordinateLocator.qml" line="2" column="1" bodyfile="src/app/qml_compat/CoordinateLocator.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfCoordinateLocator_1af229b75696e77402b6cca38fa54968fa" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>averagedPosition</name></member>
+      <member refid="classQfCoordinateLocator_1a3bf53c4d0dec99b240ddf29c1e1135a3" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>averagedPositionCount</name></member>
+      <member refid="classQfCoordinateLocator_1a6d8e8888fe166878b8185c27525d1002" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>crossHalfLength</name></member>
+      <member refid="classQfCoordinateLocator_1a037834b18db049de40d7f90912a8869c" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>currentCoordinate</name></member>
+      <member refid="classQfCoordinateLocator_1a03142e1e650978abacf5f26e3a4e645a" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>currentLayer</name></member>
+      <member refid="classQfCoordinateLocator_1adaa7aee4069224c52b6916bd0d0c3a19" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>cursorFillColor</name></member>
+      <member refid="classQfCoordinateLocator_1ae30a3eef440df9d9c54666c2dd11ff5a" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>cursorOutlineColor</name></member>
+      <member refid="classQfCoordinateLocator_1a46a805e6e43740235a8b0e7c17712e9a" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>cursorSizeScale</name></member>
+      <member refid="classQfCoordinateLocator_1adccde86cb0bc00de5b10f5d16c54bf7e" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>displayPosition</name></member>
+      <member refid="classQfCoordinateLocator_1a8ace06f872e110b7fd448975bc2c4c46" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>highlightColor</name></member>
+      <member refid="classQfCoordinateLocator_1ab1c441eb26dd18363cf253662b41e5a0" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>mainColor</name></member>
+      <member refid="classQfCoordinateLocator_1ad689c17ec328327d763c64f11fa75627" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>mapSettings</name></member>
+      <member refid="classQfCoordinateLocator_1a5a49c00a73ff964a8de3dc68f12ac60f" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>overrideLocation</name></member>
+      <member refid="classQfCoordinateLocator_1afbe4b3452107666a12f694a5c04f68b2" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>positionInformation</name></member>
+      <member refid="classQfCoordinateLocator_1a50828db2db7fbf0cb944ff6a1e540546" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>positionLocked</name></member>
+      <member refid="classQfCoordinateLocator_1aa5d456f5dd667e66bd2f5b4dcc29fff0" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>rubberbandModel</name></member>
+      <member refid="classQfCoordinateLocator_1addb96b0e9ecd331946d115bd927f183c" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappedCoordinate</name></member>
+      <member refid="classQfCoordinateLocator_1a4b34b2a4390e352913bd60985c93f6c0" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappedPoint</name></member>
+      <member refid="classQfCoordinateLocator_1afa08e974f16e4fb5c189ca12c69f80ab" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappingAngleDegrees</name></member>
+      <member refid="classQfCoordinateLocator_1a0f447010b89a6d6872b8356cbdfa03ea" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappingIsRelative</name></member>
+      <member refid="classQfCoordinateLocator_1aea45cf2e43c21a97b9e3d0c25f0023ab" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snappingTolerance</name></member>
+      <member refid="classQfCoordinateLocator_1abf196214ab40ca887518e8ca2995f937" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>snapToCommonAngles</name></member>
+      <member refid="classQfCoordinateLocator_1aef9ccc208b00ab4261668514f4d2da55" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>sourceLocation</name></member>
+      <member refid="classQfCoordinateLocator_1a776f4150e2b86f0922478e50c20bfc70" prot="public" virt="non-virtual"><scope>CoordinateLocator</scope><name>topSnappingResult</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

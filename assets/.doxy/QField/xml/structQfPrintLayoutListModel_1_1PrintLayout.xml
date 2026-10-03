@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfPrintLayoutListModel_1_1PrintLayout" kind="struct" language="C++" prot="private">
+    <compoundname>QfPrintLayoutListModel::PrintLayout</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfPrintLayoutListModel_1_1PrintLayout_1ab056b0611b9435f1354283d4765adfd1" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfPrintLayoutListModel::PrintLayout::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfPrintLayoutListModel::PrintLayout::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="55" column="17" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfPrintLayoutListModel_1_1PrintLayout_1a93132a3d27b7afbdcbfde3e4d35a52bc" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfPrintLayoutListModel::PrintLayout::PrintLayout</definition>
+        <argsstring>(const QString &amp;title)</argsstring>
+        <name>PrintLayout</name>
+        <qualifiedname>QfPrintLayoutListModel::PrintLayout::PrintLayout</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>title</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfprintlayoutlistmodel.h" line="51" column="18" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="51" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct of printLayout attributes (at the moment only for the title (name) used) </para>
+    </detaileddescription>
+    <location file="src/gui/qfprintlayoutlistmodel.h" line="49" column="5" bodyfile="src/gui/qfprintlayoutlistmodel.h" bodystart="50" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structQfPrintLayoutListModel_1_1PrintLayout_1a93132a3d27b7afbdcbfde3e4d35a52bc" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel::PrintLayout</scope><name>PrintLayout</name></member>
+      <member refid="structQfPrintLayoutListModel_1_1PrintLayout_1ab056b0611b9435f1354283d4765adfd1" prot="public" virt="non-virtual"><scope>QfPrintLayoutListModel::PrintLayout</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

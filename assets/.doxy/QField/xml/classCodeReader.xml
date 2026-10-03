@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCodeReader" kind="class" language="C++" prot="public">
+    <compoundname>CodeReader</compoundname>
+    <basecompoundref refid="classQfCodeReader" prot="public" virt="non-virtual">QfCodeReader</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CodeReader</label>
+        <link refid="classCodeReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfCodeReader</label>
+        <link refid="classQfCodeReader"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CodeReader</label>
+        <link refid="classCodeReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfCodeReader</label>
+        <link refid="classQfCodeReader"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/CodeReader.qml" line="2" column="1" bodyfile="src/app/qml_compat/CodeReader.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfCodeReader_1a0a532143cd77736a96da4ec34419fa68" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>accepted</name></member>
+      <member refid="classQfCodeReader_1ade6e2a159c9c63183d406f89112c161d" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>barcodeRequestedItem</name></member>
+      <member refid="classQfCodeReader_1aba0470bbd648fbbf82e22d2703bf2c76" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>decoded</name></member>
+      <member refid="classQfCodeReader_1a1663fa095c3dcf7ebd4c05b9080407aa" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>decodedString</name></member>
+      <member refid="classQfCodeReader_1a31f053417893d3dc0402202082ab7063" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>decodeImageResource</name></member>
+      <member refid="classQfCodeReader_1a778af7e20f8217a4917a8b233dbc055c" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>imageResourceSource</name></member>
+      <member refid="classQfCodeReader_1a343cc6c27782fe08443bc6c936012211" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>openedOnce</name></member>
+      <member refid="classQfCodeReader_1a211476abe6bb63938120848c45a7980c" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>pickImage</name></member>
+      <member refid="classQfCodeReader_1a5b774c4d2e93538b22cbdaa84d2a8cf6" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>popupWidth</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
