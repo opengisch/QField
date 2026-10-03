@@ -39,7 +39,9 @@ Page {
     topMargin: mainWindow.sceneTopMargin
 
     onFinished: {
-      if (connectionSettings.visible) {
+      if (qfieldCloudLogin.isRegistrationVisible || qfieldCloudLogin.isPasswordResetVisible) {
+        qfieldCloudLogin.goBack();
+      } else if (connectionSettings.visible) {
         if (cloudConnection.status === QfCloudConnection.LoggedIn || table.count > 0) {
           connectionSettings.visible = false;
           projectsSwipeView.visible = true;
@@ -170,19 +172,27 @@ Page {
       visible: !connectionInformation.visible
 
       ScrollView {
+        id: loginScrollView
         Layout.fillWidth: true
         Layout.fillHeight: true
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical: QfScrollBar {}
         contentWidth: qfieldCloudLogin.width
-        contentHeight: qfieldCloudLogin.height
+        contentHeight: qfieldCloudLogin.childrenRect.height
         clip: true
 
         QfCloudLogin {
           id: qfieldCloudLogin
           isVisible: connectionSettings.visible
           width: connectionSettings.width
+          availableHeight: loginScrollView.availableHeight
           cloudServiceStatus: qfieldCloudScreen.cloudServiceStatus
+
+          onIsRegistrationVisibleChanged: {
+            if (!isRegistrationVisible && cloudConnection.status === QfCloudConnection.LoggedIn) {
+              prepareCloudScreen();
+            }
+          }
         }
       }
 
@@ -1060,7 +1070,9 @@ Page {
 
     function onStatusChanged() {
       if (cloudConnection.status === QfCloudConnection.LoggedIn) {
-        prepareCloudScreen();
+        if (!qfieldCloudLogin.isRegistrationVisible) {
+          prepareCloudScreen();
+        }
       } else if (cloudConnection.status === QfCloudConnection.Disconnected) {
         if (table.count === 0) {
           projectsSwipeView.visible = false;

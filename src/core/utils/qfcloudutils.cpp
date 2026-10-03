@@ -25,6 +25,7 @@
 #include <QLockFile>
 #include <QStandardPaths>
 #include <QString>
+#include <QTimeZone>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
 
@@ -448,6 +449,11 @@ QString QfCloudUtils::subscriptionManagementUrl( const QString &serverUrl, const
   }
 
   return QString();
+}
+
+QString QfCloudUtils::deviceTimeZoneId()
+{
+  return QString::fromUtf8( QTimeZone::systemTimeZoneId() );
 }
 
 QList<QfCloudDelta> QfCloudUtils::parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid )
