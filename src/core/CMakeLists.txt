@@ -277,10 +277,12 @@ if(ANDROID)
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_HDRS
       ${QFIELD_CORE_HDRS} platforms/ios/qfiosplatformutilities.h
-      platforms/ios/qfiosresourcesource.h platforms/ios/qfiosprojectsource.h)
+      platforms/ios/qfiosresourcesource.h platforms/ios/qfiosprojectsource.h
+      positioning/qfexternalaccessoryreceiver.h)
   set(QFIELD_CORE_SRCS
       ${QFIELD_CORE_SRCS} platforms/ios/qfiosplatformutilities.mm
-      platforms/ios/qfiosresourcesource.mm platforms/ios/qfiosprojectsource.mm)
+      platforms/ios/qfiosresourcesource.mm platforms/ios/qfiosprojectsource.mm
+      positioning/qfexternalaccessoryreceiver.mm)
 endif()
 
 find_package(SQLite3 REQUIRED)
@@ -313,6 +315,7 @@ target_include_directories(
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   target_compile_options(qfield_core PRIVATE "-fobjc-arc")
+  target_link_libraries(qfield_core PUBLIC "-framework ExternalAccessory")
   find_library(MEDIAPLAYER_FRAMEWORK MediaPlayer REQUIRED)
   target_link_libraries(qfield_core PRIVATE ${MEDIAPLAYER_FRAMEWORK})
 endif()
