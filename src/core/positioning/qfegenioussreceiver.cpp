@@ -21,6 +21,7 @@
 #include <QJsonValue>
 #include <QNetworkReply>
 #include <QTimeZone>
+#include <QtMath>
 #include <qgsnetworkaccessmanager.h>
 
 #include <cmath>
@@ -96,10 +97,10 @@ QfGnssPositionDetails QfEgenioussReceiver::details() const
   const QDateTime timestamp = QDateTime::fromMSecsSinceEpoch( timeMs, QTimeZone( QTimeZone::Initialization::UTC ) );
   detailsList.append( tr( "Last fix" ), timestamp.toLocalTime().toString( QStringLiteral( "hh:mm:ss.zzz" ) ) );
 
-  const double heading = mPayload.value( "kappa" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
-  if ( !std::isnan( heading ) )
+  const double yaw = mPayload.value( "yaw" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  if ( !std::isnan( yaw ) )
   {
-    detailsList.append( tr( "Heading" ), QStringLiteral( "%1°" ).arg( heading, 0, 'f', 1 ) );
+    detailsList.append( tr( "Heading" ), QStringLiteral( "%1°" ).arg( std::fmod( qRadiansToDegrees( yaw ) + 360.0, 360.0 ), 0, 'f', 1 ) );
   }
 
   const double roll = mPayload.value( "omega" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
@@ -156,10 +157,11 @@ void QfEgenioussReceiver::onReadyRead()
   const double latitude = mPayload.value( "lat" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lat" ).toDouble();
   const double longitude = mPayload.value( "lon" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lon" ).toDouble();
   const double elevation = mPayload.value( "alt" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "alt" ).toDouble();
-  // omega=roll, phi=pitch, kappa=yaw/heading — Egeniouss naming convention
+  // omega=roll, phi=pitch — Egeniouss naming convention
   const double roll = mPayload.value( "omega" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
   const double pitch = mPayload.value( "phi" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
-  const double heading = mPayload.value( "kappa" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double yaw = mPayload.value( "yaw" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double heading = std::isnan( yaw ) ? std::numeric_limits<double>::quiet_NaN() : std::fmod( qRadiansToDegrees( yaw ) + 360.0, 360.0 );
   // 1-sigma position accuracy in metres
   const double sigLat = mPayload.value( "sig_lat" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
   const double sigLon = mPayload.value( "sig_lon" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
