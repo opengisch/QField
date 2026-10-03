@@ -6605,15 +6605,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить папку через WebDAV</translation>
     </message>
     <message>
         <source>Upload file to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить файл через WebDAV</translation>
     </message>
     <message>
         <source>Download folder from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Скачать папку через WebDAV</translation>
     </message>
     <message>
         <source>Delete folder</source>
@@ -6649,7 +6649,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Импортировать папку WebDAV</translation>
     </message>
     <message>
         <source>Storage management help</source>
@@ -6669,15 +6669,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить проект в WebDAV</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Скачать проект через WebDAV</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить файл(ы) в WebDAV</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
@@ -6725,27 +6725,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Импорт папки WebDAV</translation>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка папки WebDAV</translation>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка папки через WebDAV</translation>
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation type="unfinished"/>
+        <translation>Ошибка WebDAV: </translation>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка через WebDAV</translation>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation type="unfinished"/>
+        <translation>Скачать через WebDAV</translation>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
@@ -6774,7 +6774,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation type="unfinished"/>
+        <translation>URL-адрес сервера WebDAV</translation>
     </message>
     <message>
         <source>User and password</source>
@@ -6814,7 +6814,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Вы собираетесь удалить сохраненный WebDAV-элемент. Продолжить?</translation>
     </message>
 </context>
 <context>
@@ -8540,15 +8540,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV занят.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>Это не проект, импортированный через WebDAV.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>В настройках WebDAV отсутствуют обязательные поля.</translation>
     </message>
     <message>
         <source>No stored password available.</source>
