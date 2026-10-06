@@ -142,10 +142,10 @@ class Qf3DTerrainProvider : public QObject
     Q_INVOKABLE double heightAt( double x, double y ) const;
 
     /**
-     * Returns the normalized height value [0.0-1.0] at the specified map coordinates.
+     * Returns the terrain mesh height at the given map coordinates.
      * \param x X coordinate in map CRS
      * \param y Y coordinate in map CRS
-     * \returns Normalized height between 0 and 1, or 0 if outside extent
+     * \returns 0 until the terrain is loaded, and the nearest edge height for points outside it
      */
     Q_INVOKABLE double normalizedHeightAt( double x, double y ) const;
 
