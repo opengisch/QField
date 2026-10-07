@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Shapes
 import org.qfield.core
 import org.qfield.app
 import org.qfield.gui
@@ -55,7 +56,7 @@ Popup {
       showCancelButton: false
       showApplyButton: false
 
-      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QfCloudConnection.Connecting || (cloudProjectsModel.currentProject.status === QfCloudProject.Pushing && popup.isSynchronizing) || cloudProjectsModel.currentProject.status === QfCloudProject.Downloading) ? 'on' : 'off'
+      busyIndicatorState: cloudProjectsModel.currentProject && cloudConnection.status === QfCloudConnection.Connecting ? 'on' : 'off'
 
       topMargin: mainWindow.sceneTopMargin
 
@@ -262,18 +263,109 @@ Popup {
             Layout.bottomMargin: 20
           }
 
-          Rectangle {
+          Item {
             id: cloudAnimation
+
+            readonly property real progress: {
+              const project = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject : cloudProjectCreationConnection.target;
+              if (!project) {
+                return 0.0;
+              }
+              switch (project.status) {
+              case QfCloudProject.Downloading:
+                return project.downloadProgress;
+              case QfCloudProject.Pushing:
+                return project.deltaFilePushStatus === QfCloudProject.DeltaFileLocalStatus ? project.pushDeltaProgress : 0.0;
+              default:
+                return 0.0;
+              }
+            }
+
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.margins: 10
             width: 128
             height: 128
-            color: 'transparent'
             visible: statusText.visible
+
+            Shape {
+              id: cloudOutline
+
+              readonly property string cloudPath: "M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"
+
+              anchors.centerIn: parent
+              width: 24
+              height: 24
+              scale: parent.width / width
+              preferredRendererType: Shape.CurveRenderer
+
+              ShapePath {
+                strokeColor: Qt.hsla(cloudOutlinePath.strokeColor.hslHue, cloudOutlinePath.strokeColor.hslSaturation, cloudOutlinePath.strokeColor.hslLightness, 0.2)
+                strokeWidth: cloudOutlinePath.strokeWidth
+                fillColor: "transparent"
+
+                PathSvg {
+                  path: cloudOutline.cloudPath
+                }
+              }
+
+              ShapePath {
+                id: cloudOutlinePath
+
+                property real progress: cloudAnimation.progress
+                property real offset: 0
+                property real colorPhase: 0
+                readonly property color fromColor: QfTheme.mainColor
+                readonly property color toColor: QfTheme.cloudColor
+
+                // blend in HSL, RGB goes muddy halfway between green and blue
+                strokeColor: Qt.hsla(fromColor.hslHue + (toColor.hslHue - fromColor.hslHue) * colorPhase, fromColor.hslSaturation + (toColor.hslSaturation - fromColor.hslSaturation) * colorPhase, fromColor.hslLightness + (toColor.hslLightness - fromColor.hslLightness) * colorPhase, 1)
+                strokeWidth: 4 / cloudOutline.scale
+                fillColor: "transparent"
+                capStyle: ShapePath.RoundCap
+                trim.end: cloudAnimation.progress > 0 ? progress : 0.25
+                trim.offset: cloudAnimation.progress > 0 ? 0 : offset
+
+                Behavior on progress {
+                  NumberAnimation {
+                    duration: 500
+                    easing.type: Easing.OutQuart
+                  }
+                }
+
+                NumberAnimation on offset {
+                  running: cloudAnimation.visible && cloudAnimation.progress === 0
+                  from: 0
+                  to: 1
+                  duration: 2000
+                  loops: Animation.Infinite
+                }
+
+                SequentialAnimation on colorPhase {
+                  running: cloudAnimation.visible
+                  loops: Animation.Infinite
+
+                  NumberAnimation {
+                    to: 1
+                    duration: 3000
+                    easing.type: Easing.InOutSine
+                  }
+                  NumberAnimation {
+                    to: 0
+                    duration: 3000
+                    easing.type: Easing.InOutSine
+                  }
+                }
+
+                PathSvg {
+                  path: cloudOutline.cloudPath
+                }
+              }
+            }
 
             Image {
               id: statusIcon
               anchors.fill: parent
+              anchors.margins: 20
               fillMode: Image.PreserveAspectFit
               smooth: true
               source: {
@@ -312,38 +404,8 @@ Popup {
                 return '';
               }
 
-              width: parent.width
-              height: parent.height
               sourceSize.width: width * screen.devicePixelRatio
               sourceSize.height: height * screen.devicePixelRatio
-              opacity: 1
-
-              SequentialAnimation {
-                OpacityAnimator {
-                  from: 1
-                  to: 0.2
-                  duration: 2000
-                  target: statusIcon
-                }
-                OpacityAnimator {
-                  from: 0.2
-                  to: 1
-                  duration: 2000
-                  target: statusIcon
-                }
-                running: cloudAnimation.visible
-                loops: Animation.Infinite
-              }
-            }
-
-            ProgressBar {
-              anchors.bottom: parent.bottom
-              anchors.horizontalCenter: parent.horizontalCenter
-              width: parent.width
-              height: 6
-              indeterminate: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.packagingStatus !== QfCloudProject.PackagingFinishedStatus && cloudProjectsModel.currentProject.downloadProgress === 0.0)
-              value: cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.downloadProgress ? cloudProjectsModel.currentProject.downloadProgress : 0
-              visible: cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.ProjectStatus.Downloading
             }
           }
 
