@@ -1,10 +1,10 @@
 /***************************************************************************
- qftcpreceiver.cpp - QfTcpReceiver
+ qffilereceiver.cpp - QfFileReceiver
 
  ---------------------
- begin                : September 2022
- copyright            : (C) 2022 by Matthias Kuhn
- email                : matthias@opengis.ch
+ begin                : August 2025
+ copyright            : (C) 2025 by Mathieu Pellerin
+ email                : mathieu@opengis.ch
  ***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
