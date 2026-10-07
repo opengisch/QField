@@ -20,6 +20,7 @@
 #include "catch2.h"
 #include "qfnavigation.h"
 #include "qfnavigationmodel.h"
+#include "testutils.h"
 
 #include <QCoreApplication>
 #include <QSettings>
@@ -34,34 +35,6 @@
 #include <qgsvectorlayer.h>
 
 #include <cmath>
-
-
-class ScopedIniSettings
-{
-  public:
-    explicit ScopedIniSettings( const QString &root )
-      : mPreviousDefaultFormat( QSettings::defaultFormat() )
-      , mPreviousOrganizationName( QCoreApplication::organizationName() )
-      , mPreviousApplicationName( QCoreApplication::applicationName() )
-    {
-      QSettings::setDefaultFormat( QSettings::IniFormat );
-      QSettings::setPath( QSettings::IniFormat, QSettings::UserScope, root );
-      QCoreApplication::setOrganizationName( QStringLiteral( "QFieldUnitTests" ) );
-      QCoreApplication::setApplicationName( QStringLiteral( "NavigationModelTests" ) );
-    }
-
-    ~ScopedIniSettings()
-    {
-      QCoreApplication::setOrganizationName( mPreviousOrganizationName );
-      QCoreApplication::setApplicationName( mPreviousApplicationName );
-      QSettings::setDefaultFormat( mPreviousDefaultFormat );
-    }
-
-  private:
-    QSettings::Format mPreviousDefaultFormat;
-    QString mPreviousOrganizationName;
-    QString mPreviousApplicationName;
-};
 
 
 static const QLatin1String navigationPointsKey( "/QField/navigation/points" );
@@ -100,7 +73,7 @@ TEST_CASE( "NavigationModel: setDestination" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   QfNavigationModel model;
 
@@ -163,7 +136,7 @@ TEST_CASE( "NavigationModel: data roles" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   QfNavigationModel model;
   model.setDestination( QgsPoint( 7.0, 46.0 ) );
@@ -210,7 +183,7 @@ TEST_CASE( "NavigationModel: setCrs" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   const QgsCoordinateReferenceSystem wgs84( QStringLiteral( "EPSG:4326" ) );
   const QgsCoordinateReferenceSystem webMercator( QStringLiteral( "EPSG:3857" ) );
@@ -267,7 +240,7 @@ TEST_CASE( "NavigationModel: clear" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   QfNavigationModel model;
   model.setDestination( QgsPoint( 7.0, 46.0 ) );
@@ -300,7 +273,7 @@ TEST_CASE( "NavigationModel: persistence" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   SECTION( "setDestination writes the point and crs to settings" )
   {
@@ -355,7 +328,7 @@ TEST_CASE( "Navigation: destination point" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   QgsQuickMapSettings mapSettings;
   mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
@@ -400,7 +373,7 @@ TEST_CASE( "Navigation: distance and bearing" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   QgsQuickMapSettings mapSettings;
   mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
@@ -476,7 +449,7 @@ TEST_CASE( "Navigation: feature as destination" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   QgsQuickMapSettings mapSettings;
   mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
@@ -599,7 +572,7 @@ TEST_CASE( "Navigation: proximity alarm" )
 {
   QTemporaryDir settingsDirectory;
   REQUIRE( settingsDirectory.isValid() );
-  const ScopedIniSettings scopedSettings( settingsDirectory.path() );
+  const ScopedIniSettings scopedSettings( settingsDirectory.path(), QStringLiteral( "NavigationModelTests" ) );
 
   QfNavigation navigation;
 

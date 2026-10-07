@@ -32,6 +32,7 @@
 #include "qfmultifeaturelistmodel.h"
 #include "qfnavigation.h"
 #include "qgsquickmapsettings.h"
+#include "testutils.h"
 
 #include <QCoreApplication>
 #include <QSettings>
@@ -110,32 +111,6 @@ class DummyGeocoder : public QgsGeocoderInterface
     Flags flags() const override { return Flags(); }
 };
 
-class ScopedIniSettings
-{
-  public:
-    explicit ScopedIniSettings( const QString &root )
-      : mPreviousDefaultFormat( QSettings::defaultFormat() )
-      , mPreviousOrg( QCoreApplication::organizationName() )
-      , mPreviousApp( QCoreApplication::applicationName() )
-    {
-      QSettings::setDefaultFormat( QSettings::IniFormat );
-      QSettings::setPath( QSettings::IniFormat, QSettings::UserScope, root );
-      QCoreApplication::setOrganizationName( QStringLiteral( "QFieldUnitTests" ) );
-      QCoreApplication::setApplicationName( QStringLiteral( "LocatorTests" ) );
-    }
-
-    ~ScopedIniSettings()
-    {
-      QCoreApplication::setOrganizationName( mPreviousOrg );
-      QCoreApplication::setApplicationName( mPreviousApp );
-      QSettings::setDefaultFormat( mPreviousDefaultFormat );
-    }
-
-  private:
-    QSettings::Format mPreviousDefaultFormat;
-    QString mPreviousOrg;
-    QString mPreviousApp;
-};
 
 /*
  * QfExpressionCalculatorLocatorFilter
@@ -942,7 +917,7 @@ TEST_CASE( "LocatorFiltersModel" )
   {
     QTemporaryDir settingsDir;
     REQUIRE( settingsDir.isValid() );
-    const ScopedIniSettings scopedSettings( settingsDir.path() );
+    const ScopedIniSettings scopedSettings( settingsDir.path(), QStringLiteral( "LocatorTests" ) );
 
     QfLocatorModelSuperBridge bridge;
     QfLocatorFiltersModel boundModel;

@@ -17,7 +17,6 @@
       <title>Faster Project Creation in QFieldCloud</title>
       <link>https://qfield.org/blog/2026/08/10/faster-project-creation/</link>
       <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>https://qfield.org/blog/2026/08/10/faster-project-creation/</guid>
       <media:content url="https://qfield.org/blog/2026/08/10/faster-project-creation/infograph.png" medium="image"/>
       <description>Project creation has been overhauled.</description>
     </item>
@@ -25,7 +24,7 @@
       <title>QField Search and Routing Plugins Updates</title>
       <link>https://qfield.org/blog/2026/02/12/qfield-search-and-routing-plugins-updates/</link>
       <pubDate>Thu, 12 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://qfield.org/blog/2026/02/12/qfield-search-and-routing-plugins-updates/</guid>
+      <guid isPermaLink="false">plugins-updates-2026</guid>
       <media:content url="https://qfield.org/blog/2026/02/12/qfield-search-and-routing-plugins-updates/top.webp" medium="image"/>
       <description>&lt;p&gt;Our ninjas improved the &lt;a href="https://github.com/opengisch/qfield-osrm/"&gt;OSRM Routing&lt;/a&gt;
 plugin.&lt;/p&gt;

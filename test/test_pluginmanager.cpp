@@ -17,6 +17,7 @@
 
 #include "catch2.h"
 #include "qfpluginmanager.h"
+#include "testutils.h"
 
 #include <QCoreApplication>
 #include <QDir>
@@ -73,42 +74,6 @@ namespace
     return QStringLiteral( "/qfield/plugins/%1" ).arg( pluginPathToKey( pluginPath ) );
   }
 
-  /**
-   * RAII class to isolate QSettings to a temporary directory.
-   * Prevents tests from polluting real user settings and ensures clean state.
-   */
-  class ScopedIniSettings
-  {
-    public:
-      explicit ScopedIniSettings( const QString &root )
-        : mPreviousDefaultFormat( QSettings::defaultFormat() )
-        , mPreviousOrg( QCoreApplication::organizationName() )
-        , mPreviousApp( QCoreApplication::applicationName() )
-      {
-        // Probe current path to restore it later
-        QSettings probe( QSettings::IniFormat, QSettings::UserScope, QStringLiteral( "ProbeOrg" ), QStringLiteral( "ProbeApp" ) );
-        mPreviousIniUserPath = QFileInfo( probe.fileName() ).absolutePath();
-
-        QSettings::setDefaultFormat( QSettings::IniFormat );
-        QSettings::setPath( QSettings::IniFormat, QSettings::UserScope, root );
-        QCoreApplication::setOrganizationName( QStringLiteral( "QFieldUnitTests" ) );
-        QCoreApplication::setApplicationName( QStringLiteral( "PluginManagerTests" ) );
-      }
-
-      ~ScopedIniSettings()
-      {
-        QCoreApplication::setOrganizationName( mPreviousOrg );
-        QCoreApplication::setApplicationName( mPreviousApp );
-        QSettings::setPath( QSettings::IniFormat, QSettings::UserScope, mPreviousIniUserPath );
-        QSettings::setDefaultFormat( mPreviousDefaultFormat );
-      }
-
-    private:
-      QSettings::Format mPreviousDefaultFormat;
-      QString mPreviousIniUserPath;
-      QString mPreviousOrg;
-      QString mPreviousApp;
-  };
 
   /**
    * Creates a minimal valid QML plugin for testing.
@@ -208,7 +173,7 @@ TEST_CASE( "PluginManager construction" )
 
   QTemporaryDir tempDir;
   REQUIRE( tempDir.isValid() );
-  const ScopedIniSettings scopedSettings( tempDir.path() );
+  const ScopedIniSettings scopedSettings( tempDir.path(), QStringLiteral( "PluginManagerTests" ) );
 
   QQmlEngine engine;
   QfPluginManager manager( &engine );
@@ -224,7 +189,7 @@ TEST_CASE( "PluginManager loadPlugin permission request" )
 
   QTemporaryDir tempDir;
   REQUIRE( tempDir.isValid() );
-  const ScopedIniSettings scopedSettings( tempDir.path() );
+  const ScopedIniSettings scopedSettings( tempDir.path(), QStringLiteral( "PluginManagerTests" ) );
 
   QQmlEngine engine;
   QfPluginManager manager( &engine );
@@ -299,7 +264,7 @@ TEST_CASE( "QfPluginManager enabled/disabled signals" )
 
   QTemporaryDir tempDir;
   REQUIRE( tempDir.isValid() );
-  const ScopedIniSettings scopedSettings( tempDir.path() );
+  const ScopedIniSettings scopedSettings( tempDir.path(), QStringLiteral( "PluginManagerTests" ) );
 
   QQmlEngine engine;
   QfPluginManager manager( &engine );
@@ -361,7 +326,7 @@ TEST_CASE( "QfPluginManager grant/deny permission" )
 
   QTemporaryDir tempDir;
   REQUIRE( tempDir.isValid() );
-  const ScopedIniSettings scopedSettings( tempDir.path() );
+  const ScopedIniSettings scopedSettings( tempDir.path(), QStringLiteral( "PluginManagerTests" ) );
 
   QQmlEngine engine;
   QfPluginManager manager( &engine );
@@ -443,7 +408,7 @@ TEST_CASE( "QfPluginManager clearPluginPermissions" )
 
   QTemporaryDir tempDir;
   REQUIRE( tempDir.isValid() );
-  const ScopedIniSettings scopedSettings( tempDir.path() );
+  const ScopedIniSettings scopedSettings( tempDir.path(), QStringLiteral( "PluginManagerTests" ) );
 
   QQmlEngine engine;
   QfPluginManager manager( &engine );
@@ -477,7 +442,7 @@ TEST_CASE( "QfPluginManager installFromUrl validation" )
 
   QTemporaryDir tempDir;
   REQUIRE( tempDir.isValid() );
-  const ScopedIniSettings scopedSettings( tempDir.path() );
+  const ScopedIniSettings scopedSettings( tempDir.path(), QStringLiteral( "PluginManagerTests" ) );
 
   QQmlEngine engine;
   QfPluginManager manager( &engine );
@@ -549,7 +514,7 @@ TEST_CASE( "QfPluginManager edge cases" )
 
   QTemporaryDir tempDir;
   REQUIRE( tempDir.isValid() );
-  const ScopedIniSettings scopedSettings( tempDir.path() );
+  const ScopedIniSettings scopedSettings( tempDir.path(), QStringLiteral( "PluginManagerTests" ) );
 
   QQmlEngine engine;
   QfPluginManager manager( &engine );

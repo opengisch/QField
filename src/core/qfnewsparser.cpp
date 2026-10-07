@@ -16,31 +16,20 @@
  ***************************************************************************/
 
 #include "qfnewsparser.h"
+#include "qfstringutils.h"
 
+#include <QCryptographicHash>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QSettings>
-#include <QTextDocumentFragment>
+#include <QStandardPaths>
 #include <QXmlStreamReader>
 #include <qgsnetworkaccessmanager.h>
 
 #include <algorithm>
-
-namespace
-{
-  const QLatin1String sMediaNamespace( "http://search.yahoo.com/mrss/" );
-
-  const QLatin1String sEnabledKey( "/QField/News/Enabled" );
-  const QLatin1String sEnabledSinceKey( "/QField/News/EnabledSince" );
-  const QLatin1String sDismissedUrlsKey( "/QField/News/DismissedUrls" );
-
-  QString htmlToPlainText( const QString &html )
-  {
-    QString text = QTextDocumentFragment::fromHtml( html ).toPlainText();
-    text.remove( QChar::ObjectReplacementCharacter );
-    return text.simplified();
-  }
-} // namespace
 
 
 QfNewsParser::QfNewsParser( QObject *parent )
@@ -51,60 +40,86 @@ QfNewsParser::QfNewsParser( QObject *parent )
 void QfNewsParser::setFeedUrl( const QUrl &url )
 {
   if ( mFeedUrl == url )
+  {
     return;
+  }
 
   mFeedUrl = url;
   emit feedUrlChanged();
+
+  clearItems();
+
+  if ( enabled() && !mFeedUrl.isEmpty() )
+  {
+    QFile cacheFile( cacheFilePath() );
+    if ( cacheFile.exists() && cacheFile.open( QIODevice::ReadOnly ) )
+    {
+      const QList<QfNewsItem> feedItems = parseFeed( cacheFile.readAll() );
+      if ( !feedItems.isEmpty() )
+      {
+        updateItems( feedItems );
+      }
+    }
+  }
 }
 
 bool QfNewsParser::enabled() const
 {
-  return QSettings().value( sEnabledKey, false ).toBool();
+  return QSettings().value( ENABLED_SETTINGS_KEY, false ).toBool();
 }
 
 void QfNewsParser::setEnabled( bool enabled )
 {
   if ( this->enabled() == enabled )
+  {
     return;
+  }
 
   QSettings settings;
-  settings.setValue( sEnabledKey, enabled );
-  settings.remove( sDismissedUrlsKey );
+  settings.setValue( ENABLED_SETTINGS_KEY, enabled );
+  settings.remove( DISMISSED_UUIDS_SETTINGS_KEY );
   if ( enabled )
   {
-    settings.setValue( sEnabledSinceKey, QDateTime::currentDateTimeUtc() );
+    settings.setValue( ENABLED_SINCE_SETTINGS_KEY, QDateTime::currentDateTimeUtc() );
   }
   else
   {
-    settings.remove( sEnabledSinceKey );
+    settings.remove( ENABLED_SINCE_SETTINGS_KEY );
   }
 
   emit enabledChanged();
 
-  if ( !mItems.isEmpty() )
-  {
-    mItems.clear();
-    emit itemsChanged();
-  }
+  clearItems();
 }
 
 void QfNewsParser::fetch()
 {
-  if ( !enabled() || mIsFetching )
+  if ( !enabled() || mFeedUrl.isEmpty() || mIsFetching )
+  {
     return;
+  }
 
   mIsFetching = true;
   emit isFetchingChanged();
 
-  QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( QNetworkRequest( mFeedUrl ) );
-  connect( reply, &QNetworkReply::finished, this, [this, reply]() {
+  const QUrl url = mFeedUrl;
+  QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( QNetworkRequest( url ) );
+  connect( reply, &QNetworkReply::finished, this, [this, reply, url]() {
     reply->deleteLater();
 
-    if ( reply->error() == QNetworkReply::NoError && enabled() )
+    if ( reply->error() == QNetworkReply::NoError && enabled() && mFeedUrl == url )
     {
-      const QList<QfNewsItem> feedItems = parseFeed( reply->readAll() );
+      const QByteArray data = reply->readAll();
+      const QList<QfNewsItem> feedItems = parseFeed( data );
       if ( !feedItems.isEmpty() )
       {
+        QDir().mkpath( QFileInfo( cacheFilePath() ).absolutePath() );
+        QFile cacheFile( cacheFilePath() );
+        if ( cacheFile.open( QIODevice::WriteOnly ) )
+        {
+          cacheFile.write( data );
+        }
+
         updateItems( feedItems );
       }
     }
@@ -114,17 +129,17 @@ void QfNewsParser::fetch()
   } );
 }
 
-void QfNewsParser::dismiss( const QUrl &url )
+void QfNewsParser::dismiss( const QString &uuid )
 {
   QSettings settings;
-  QStringList dismissedUrls = settings.value( sDismissedUrlsKey ).toStringList();
-  if ( !dismissedUrls.contains( url.toString() ) )
+  QStringList dismissedUuids = settings.value( DISMISSED_UUIDS_SETTINGS_KEY ).toStringList();
+  if ( !dismissedUuids.contains( uuid ) )
   {
-    dismissedUrls << url.toString();
-    settings.setValue( sDismissedUrlsKey, dismissedUrls );
+    dismissedUuids << uuid;
+    settings.setValue( DISMISSED_UUIDS_SETTINGS_KEY, dismissedUuids );
   }
 
-  const qsizetype removedCount = mItems.removeIf( [&url]( const QfNewsItem &item ) { return item.url == url; } );
+  const qsizetype removedCount = mItems.removeIf( [&uuid]( const QfNewsItem &item ) { return item.uuid == uuid; } );
   if ( removedCount > 0 )
   {
     emit itemsChanged();
@@ -149,26 +164,45 @@ QList<QfNewsItem> QfNewsParser::parseFeed( const QByteArray &data )
         insideItem = true;
         item = QfNewsItem();
       }
-      else if ( insideItem && xml.namespaceUri().isEmpty() )
+      else if ( insideItem )
       {
-        if ( xml.name() == QLatin1String( "title" ) )
+        if ( xml.name() == QLatin1String( "guid" ) )
+        {
+          item.uuid = xml.readElementText().trimmed();
+        }
+        else if ( xml.name() == QLatin1String( "title" ) )
+        {
           item.title = xml.readElementText().trimmed();
+        }
         else if ( xml.name() == QLatin1String( "link" ) )
+        {
           item.url = QUrl( xml.readElementText().trimmed() );
+        }
         else if ( xml.name() == QLatin1String( "pubDate" ) )
+        {
           item.publicationDate = QDateTime::fromString( xml.readElementText().trimmed(), Qt::RFC2822Date );
+        }
         else if ( xml.name() == QLatin1String( "description" ) )
-          item.description = htmlToPlainText( xml.readElementText() );
-      }
-      else if ( insideItem && xml.namespaceUri() == sMediaNamespace && xml.name() == QLatin1String( "content" ) )
-      {
-        item.imageUrl = QUrl( xml.attributes().value( QLatin1String( "url" ) ).toString() );
+        {
+          item.description = QfStringUtils::htmlToPlainText( xml.readElementText() );
+        }
+        else if ( xml.name() == QLatin1String( "content" ) && xml.attributes().hasAttribute( QLatin1String( "url" ) ) )
+        {
+          item.imageUrl = QUrl( xml.attributes().value( QLatin1String( "url" ) ).toString() );
+        }
       }
     }
     else if ( xml.isEndElement() && xml.name() == QLatin1String( "item" ) )
     {
       insideItem = false;
-      if ( !item.title.isEmpty() && item.url.isValid() && item.publicationDate.isValid() )
+
+      // The guid element is optional in RSS feeds, fall back to the item URL
+      if ( item.uuid.isEmpty() )
+      {
+        item.uuid = item.url.toString();
+      }
+
+      if ( !item.uuid.isEmpty() && !item.title.isEmpty() && item.publicationDate.isValid() )
       {
         items << item;
       }
@@ -176,35 +210,53 @@ QList<QfNewsItem> QfNewsParser::parseFeed( const QByteArray &data )
   }
 
   if ( xml.hasError() )
+  {
     return QList<QfNewsItem>();
+  }
 
   return items;
+}
+
+QString QfNewsParser::cacheFilePath() const
+{
+  const QString urlHash = QCryptographicHash::hash( mFeedUrl.toString().toUtf8(), QCryptographicHash::Sha256 ).toHex();
+  return QStringLiteral( "%1/news/%2.xml" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppConfigLocation ), urlHash );
+}
+
+void QfNewsParser::clearItems()
+{
+  if ( !mItems.isEmpty() )
+  {
+    mItems.clear();
+    emit itemsChanged();
+  }
 }
 
 void QfNewsParser::updateItems( const QList<QfNewsItem> &feedItems )
 {
   QSettings settings;
-  const QDateTime enabledSince = settings.value( sEnabledSinceKey ).toDateTime();
-  const QStringList dismissedUrls = settings.value( sDismissedUrlsKey ).toStringList();
+  const QDateTime enabledSince = settings.value( ENABLED_SINCE_SETTINGS_KEY ).toDateTime();
+  const QDateTime publishedAfter = std::max( enabledSince, QDateTime::currentDateTimeUtc().addDays( -MAXIMUM_AGE_DAYS ) );
+  const QStringList dismissedUuids = settings.value( DISMISSED_UUIDS_SETTINGS_KEY ).toStringList();
 
   QList<QfNewsItem> items;
-  QStringList feedDismissedUrls;
+  QStringList feedDismissedUuids;
   for ( const QfNewsItem &item : feedItems )
   {
-    if ( dismissedUrls.contains( item.url.toString() ) )
+    if ( dismissedUuids.contains( item.uuid ) )
     {
-      feedDismissedUrls << item.url.toString();
+      feedDismissedUuids << item.uuid;
     }
-    else if ( item.publicationDate > enabledSince )
+    else if ( item.publicationDate > publishedAfter )
     {
       items << item;
     }
   }
 
   // Forget dismissed items that are no longer part of the feed
-  if ( feedDismissedUrls.size() != dismissedUrls.size() )
+  if ( feedDismissedUuids.size() != dismissedUuids.size() )
   {
-    settings.setValue( sDismissedUrlsKey, feedDismissedUrls );
+    settings.setValue( DISMISSED_UUIDS_SETTINGS_KEY, feedDismissedUuids );
   }
 
   std::sort( items.begin(), items.end(), []( const QfNewsItem &a, const QfNewsItem &b ) { return a.publicationDate > b.publicationDate; } );
