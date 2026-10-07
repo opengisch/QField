@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml_gui
@@ -13,17 +14,6 @@ SwipeView {
   interactive: false
   property bool collapsed: false
   Layout.preferredHeight: collapsed ? 0 : (currentItem ? currentItem.implicitHeight : implicitHeight)
-
-  // The index the card should rest on. SwipeView jumps to the last page as
-  // pages are appended incrementally, so we re-assert this once they settle.
-  property int startIndex: 0
-  onCountChanged: Qt.callLater(root.applyStartIndex)
-  Component.onCompleted: Qt.callLater(root.applyStartIndex)
-  function applyStartIndex() {
-    if (count > 0) {
-      currentIndex = Math.min(startIndex, count - 1);
-    }
-  }
 
   Behavior on implicitHeight {
     NumberAnimation {
@@ -37,19 +27,19 @@ SwipeView {
   }
 
   background: Rectangle {
-    color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.1)
-    border.color: QfTheme.mainColorSemiOpaque
+    color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.06)
+    border.color: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.3)
     border.width: 1
-    radius: 8
+    radius: 12
   }
 
   component Panel: Item {
     id: panel
+    property alias title: titleText.text
     property alias message: messageText.text
+    property bool closable: false
     default property alias actions: actionRow.children
-    property int messageAlignment: Text.AlignHCenter
 
-    implicitWidth: parent ? parent.width : 0
     implicitHeight: panelLayout.implicitHeight
 
     ColumnLayout {
@@ -59,21 +49,29 @@ SwipeView {
       anchors.verticalCenter: parent.verticalCenter
       spacing: 0
 
-      RowLayout {
+      ColumnLayout {
+        id: textColumn
         Layout.fillWidth: true
-        Layout.leftMargin: 12
-        Layout.rightMargin: 12
-        Layout.topMargin: 10
-        Layout.bottomMargin: actionRow.children.length > 0 ? 6 : 10
-        spacing: 10
+        Layout.leftMargin: 16
+        Layout.rightMargin: panel.closable ? closeButton.width + 8 : 16
+        Layout.topMargin: 11
+        Layout.bottomMargin: actionRow.children.length > 0 ? 0 : 16
+        spacing: 2
+
+        Text {
+          id: titleText
+          Layout.fillWidth: true
+          visible: text !== ""
+          font: QfTheme.strongFont
+          color: QfTheme.mainTextColor
+          wrapMode: Text.WordWrap
+        }
 
         Text {
           id: messageText
           Layout.fillWidth: true
-          Layout.alignment: Qt.AlignVCenter
-          font: QfTheme.defaultFont
+          font: titleText.visible ? QfTheme.tipFont : QfTheme.defaultFont
           color: QfTheme.mainTextColor
-          horizontalAlignment: panel.messageAlignment
           wrapMode: Text.WordWrap
         }
       }
@@ -82,11 +80,26 @@ SwipeView {
         id: actionRow
 
         Layout.fillWidth: true
-        Layout.leftMargin: 12
-        Layout.rightMargin: 12
-        Layout.bottomMargin: children.length > 0 ? 8 : 0
-        spacing: 10
+        Layout.leftMargin: 16
+        Layout.rightMargin: 16
+        Layout.topMargin: children.length > 0 ? 12 : 0
+        Layout.bottomMargin: children.length > 0 ? 16 : 0
+        spacing: 8
       }
+    }
+
+    QfToolButton {
+      id: closeButton
+      anchors.top: parent.top
+      anchors.right: parent.right
+      anchors.rightMargin: 4
+      width: 44
+      height: 44
+      visible: panel.closable
+      iconSource: QfTheme.getThemeVectorIcon("ic_close_white_24dp")
+      iconColor: QfTheme.mainColor
+
+      onClicked: panel.SwipeView.view.collapse()
     }
   }
 }
