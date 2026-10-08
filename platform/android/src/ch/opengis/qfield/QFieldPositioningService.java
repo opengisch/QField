@@ -65,6 +65,9 @@ public class QFieldPositioningService extends QtService {
     public static void stopQFieldPositioningService(Context context) {
         Log.v("QFieldPositioningService", "Stopping QFieldPositioningService");
         Intent intent = new Intent(context, QFieldPositioningService.class);
+        if (getInstance() != null) {
+            getInstance().stopForeground(true);
+        }
         context.stopService(intent);
     }
 
@@ -75,15 +78,6 @@ public class QFieldPositioningService extends QtService {
         } else {
             Log.v("QFieldPositioningService",
                   "Showing message failed, no instance available.");
-        }
-    }
-
-    public static void triggerCloseNotification() {
-        if (getInstance() != null) {
-            getInstance().closeNotification();
-        } else {
-            Log.v("QFieldPositioningService",
-                  "Closing message failed, no instance available.");
         }
     }
 
@@ -103,7 +97,6 @@ public class QFieldPositioningService extends QtService {
     @Override
     public void onDestroy() {
         Log.v("QFieldPositioningService", "onDestroy triggered");
-        notificationManager.cancel(NOTIFICATION_ID);
         super.onDestroy();
         instance = null;
     }
@@ -204,9 +197,5 @@ public class QFieldPositioningService extends QtService {
 
         Notification notification = builder.build();
         notificationManager.notify(NOTIFICATION_ID, notification);
-    }
-
-    public void closeNotification() {
-        notificationManager.cancel(NOTIFICATION_ID);
     }
 }
