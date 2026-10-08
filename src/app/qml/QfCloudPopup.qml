@@ -13,7 +13,7 @@ Popup {
   padding: 0
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
-  closePolicy: Popup.CloseOnPressOutside
+  closePolicy: isBusy ? Popup.NoAutoClose : Popup.CloseOnPressOutside
 
   property QfCloudStatus cloudServiceStatus: null
   property string pendingAction: ""
@@ -22,6 +22,7 @@ Popup {
   property string lastSubscriptionUser: ""
   property bool isSynchronizing: false
   readonly property bool isUploading: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Pushing && !isSynchronizing)
+  readonly property bool isBusy: !!(cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QfCloudProject.Pushing || cloudProjectsModel.currentProject.status === QfCloudProject.Downloading))
 
   property date currentDateTime: new Date()
 
@@ -51,7 +52,7 @@ Popup {
         }
       }
 
-      showBackButton: true
+      showBackButton: !popup.isBusy
       showCancelButton: false
       showApplyButton: false
 
@@ -1061,6 +1062,9 @@ Popup {
   }
 
   function goBack() {
+    if (isBusy) {
+      return;
+    }
     if (swipeView.currentIndex !== 1) {
       swipeView.currentIndex = 1;
     } else if (connectionSettings.visible) {
