@@ -13,7 +13,7 @@ Popup {
   padding: 0
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
-  closePolicy: Popup.CloseOnPressOutside
+  closePolicy: isSynchronizing ? Popup.NoAutoClose : Popup.CloseOnPressOutside
 
   property QfCloudStatus cloudServiceStatus: null
   property string pendingAction: ""
@@ -51,7 +51,7 @@ Popup {
         }
       }
 
-      showBackButton: true
+      showBackButton: !popup.isSynchronizing
       showCancelButton: false
       showApplyButton: false
 
@@ -1061,6 +1061,9 @@ Popup {
   }
 
   function goBack() {
+    if (isSynchronizing) {
+      return;
+    }
     if (swipeView.currentIndex !== 1) {
       swipeView.currentIndex = 1;
     } else if (connectionSettings.visible) {
