@@ -21,7 +21,6 @@
 #include <QJsonValue>
 #include <QNetworkReply>
 #include <QTimeZone>
-#include <QtMath>
 #include <qgsnetworkaccessmanager.h>
 
 #include <cmath>
@@ -100,7 +99,7 @@ QfGnssPositionDetails QfEgenioussReceiver::details() const
   const double yaw = mPayload.value( "yaw" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
   if ( !std::isnan( yaw ) )
   {
-    detailsList.append( tr( "Heading" ), QStringLiteral( "%1°" ).arg( std::fmod( qRadiansToDegrees( yaw ) + 360.0, 360.0 ), 0, 'f', 1 ) );
+    detailsList.append( tr( "Heading" ), QStringLiteral( "%1°" ).arg( std::fmod( ( yaw * 180.0 / M_PI ) + 360.0, 360.0 ), 0, 'f', 1 ) );
   }
 
   const double roll = mPayload.value( "omega" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
