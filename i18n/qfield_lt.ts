@@ -8600,10 +8600,6 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
         <translation>Susisiekti</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Sveiki! Kaip jums kol kas patinka %1?</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Puiku! Spustelėkite toliau esantį mygtuką ir palikite atsiliepimą.</translation>
     </message>
@@ -8708,6 +8704,22 @@ projektą</translation>
     <message>
         <source>Close</source>
         <translation>Užverti</translation>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loving it</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

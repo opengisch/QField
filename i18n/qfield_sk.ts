@@ -8596,10 +8596,6 @@ Dôvod:
         <translation>Oslovenie</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation type="unfinished"/>
     </message>
@@ -8700,6 +8696,22 @@ project</source>
     </message>
     <message>
         <source>Close</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loving it</source>
         <translation type="unfinished"/>
     </message>
 </context>

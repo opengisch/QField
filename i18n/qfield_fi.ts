@@ -8594,10 +8594,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Ota yhteyttä</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Moi! Kuinka olet pitänyt kokemuksestasi sovelluksen %1 parissa tähän asti?</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Hienoa! Meistä olisi mukavaa jos klikkaisit alla olevaa nappia ja jättäisit arvostelun.</translation>
     </message>
@@ -8699,6 +8695,22 @@ project</source>
     <message>
         <source>Close</source>
         <translation>Sulje</translation>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loving it</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

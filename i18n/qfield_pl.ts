@@ -8600,10 +8600,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Sięgnij</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Cześć, jak ci się jak dotąd podoba korzystanie z %1?</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>To świetnie! Chcielibyśmy, abyś kliknął(ęła) przycisk poniżej i zostawił(a) recenzję.</translation>
     </message>
@@ -8708,6 +8704,22 @@ projekt</translation>
     <message>
         <source>Close</source>
         <translation>Zamknij</translation>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation>Jak ci się sprawdza %1?</translation>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation>Wystarczy jedno dotknięcie.</translation>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation>Mogłoby być lepiej</translation>
+    </message>
+    <message>
+        <source>Loving it</source>
+        <translation>Bardzo mi się to podoba</translation>
     </message>
 </context>
 <context>

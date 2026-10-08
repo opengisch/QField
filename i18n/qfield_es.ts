@@ -8592,10 +8592,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>LLegar</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Hola, ¿qué tal tu experiencia con %1 hasta ahora?</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>¡Eso es genial! Nos encantaría que pulsara el botón de abajo y dejara un comentario.</translation>
     </message>
@@ -8700,6 +8696,22 @@ proyecto</translation>
     <message>
         <source>Close</source>
         <translation>Cerrar</translation>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loving it</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

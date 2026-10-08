@@ -8595,10 +8595,6 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <translation>Contacta</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Ei, què us sembla l&apos;experiència amb %1 fins ara?</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Fantàstic! Ens encantaria que fessiu clic al botó de sota i deixessiu una ressenya.</translation>
     </message>
@@ -8703,6 +8699,22 @@ projecte</translation>
     <message>
         <source>Close</source>
         <translation>Tanca</translation>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loving it</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

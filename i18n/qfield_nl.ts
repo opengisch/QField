@@ -8590,10 +8590,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Uitreiken</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Dat is geweldig! We zouden het leuk vinden als je op de onderstaande knop klikt en een review in de store achterlaat.</translation>
     </message>
@@ -8697,6 +8693,22 @@ project</translation>
     </message>
     <message>
         <source>Close</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loving it</source>
         <translation type="unfinished"/>
     </message>
 </context>

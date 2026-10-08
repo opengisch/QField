@@ -8588,10 +8588,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>伸出您的手</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>嘿，到目前为止，您对%1的体验如何？</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>太棒了！希望您点击下面的按钮并留下评论。</translation>
     </message>
@@ -8696,6 +8692,22 @@ project</source>
     <message>
         <source>Close</source>
         <translation>关闭</translation>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation>对您来说%1操作如何？</translation>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation>只需一次点击即可。</translation>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation>一般般</translation>
+    </message>
+    <message>
+        <source>Loving it</source>
+        <translation>超爱</translation>
     </message>
 </context>
 <context>

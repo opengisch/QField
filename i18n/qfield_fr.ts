@@ -8591,10 +8591,6 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Nous contacter</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>Salut, comment tu trouves ton expérience avec %1 jusqu&apos;à présent ?</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Super ! Nous serions ravis que vous cliquiez sur le bouton ci-dessous et que vous laissiez un commentaire</translation>
     </message>
@@ -8699,6 +8695,22 @@ projet</translation>
     <message>
         <source>Close</source>
         <translation>Fermer QField</translation>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loving it</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

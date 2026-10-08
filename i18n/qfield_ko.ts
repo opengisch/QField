@@ -8587,10 +8587,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Reach out</translation>
     </message>
     <message>
-        <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation>%1을(를) 사용해 보니 어떠셨습니까?</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>감사합니다! 아래 버튼을 눌러 리뷰를 남겨 주시면 큰 힘이 됩니다.</translation>
     </message>
@@ -8695,6 +8691,22 @@ project</source>
     <message>
         <source>Close</source>
         <translation>닫기</translation>
+    </message>
+    <message>
+        <source>How&apos;s %1 working for you?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One tap is all it takes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could be better</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loving it</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
