@@ -897,6 +897,10 @@ ApplicationWindow {
       anchors.fill: parent
 
       onClicked: (point, type) => {
+        if (locatorItem.state === "on") {
+          locatorItem.state = "off";
+          return;
+        }
         // Check if any registered handlers want to handle this click
         if (pointHandler.clicked(point, type)) {
           return;
@@ -905,10 +909,6 @@ ApplicationWindow {
           return;
         }
         if (!digitizingToolbar.geometryRequested && featureListForm.state == "FeatureFormEdit") {
-          return;
-        }
-        if (locatorItem.state === "on") {
-          locatorItem.state = "off";
           return;
         }
 
@@ -958,6 +958,10 @@ ApplicationWindow {
       }
 
       onConfirmedClicked: point => {
+        if (locatorItem.state === "on") {
+          locatorItem.state = "off";
+          return;
+        }
         // Check if any registered handlers want to handle this tap
         if (pointHandler.clicked(point, "touch")) {
           return;
