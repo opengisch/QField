@@ -80,6 +80,7 @@ void QfPositioningSource::setActive( bool active )
     mCompassTimer.stop();
     mCompass.setActive( false );
     mOrientation = std::numeric_limits<double>::quiet_NaN();
+    mReceiverOrientation = std::numeric_limits<double>::quiet_NaN();
     emit orientationChanged();
   }
 
@@ -368,6 +369,11 @@ void QfPositioningSource::lastGnssPositionInformationChanged( const QfGnssPositi
   if ( mPositionInformation == lastGnssPositionInformation )
     return;
 
+  // Prefer the orientation reported by the receiver (e.g. IMU heading) over the device compass
+  const double previousOrientation = orientation();
+  mReceiverOrientation = lastGnssPositionInformation.imuCorrection() && lastGnssPositionInformation.imuHeading() >= 0.0 ? lastGnssPositionInformation.imuHeading() : std::numeric_limits<double>::quiet_NaN();
+  const bool orientationHasChanged = !( previousOrientation == orientation() || ( std::isnan( previousOrientation ) && std::isnan( orientation() ) ) );
+
   const QfGnssPositionInformation positionInformation( lastGnssPositionInformation.latitude(),
                                                        lastGnssPositionInformation.longitude(),
                                                        lastGnssPositionInformation.elevation(),
@@ -396,11 +402,15 @@ void QfPositioningSource::lastGnssPositionInformationChanged( const QfGnssPositi
                                                        lastGnssPositionInformation.imuPitch(),
                                                        lastGnssPositionInformation.imuHeading(),
                                                        lastGnssPositionInformation.imuSteering(),
-                                                       mOrientation );
+                                                       orientation() );
   mPositionInformation = positionInformation;
 
   if ( !mBackgroundMode )
   {
+    if ( orientationHasChanged )
+    {
+      emit orientationChanged();
+    }
     emit positionInformationChanged();
   }
   else
@@ -429,7 +439,7 @@ void QfPositioningSource::processCompassReading()
     if ( mOrientation != orientation )
     {
       mOrientation = orientation;
-      if ( !mBackgroundMode )
+      if ( !mBackgroundMode && std::isnan( mReceiverOrientation ) )
       {
         emit orientationChanged();
       }
