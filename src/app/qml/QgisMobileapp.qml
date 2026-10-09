@@ -962,6 +962,10 @@ ApplicationWindow {
         if (pointHandler.clicked(point, "touch")) {
           return;
         }
+        if (locatorItem.state === "on") {
+          locatorItem.state = "off";
+          return;
+        }
         // Check if geometry editor is taking over
         const positionLocked = positionSource.active && coordinateLocator.positionLocked;
         if (geometryEditorsToolbar.stateVisible) {
