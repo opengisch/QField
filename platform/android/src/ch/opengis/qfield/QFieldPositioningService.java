@@ -97,6 +97,7 @@ public class QFieldPositioningService extends QtService {
     @Override
     public void onDestroy() {
         Log.v("QFieldPositioningService", "onDestroy triggered");
+        notificationManager.cancel(NOTIFICATION_ID);
         super.onDestroy();
         instance = null;
     }
