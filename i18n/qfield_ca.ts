@@ -8702,19 +8702,19 @@ projecte</translation>
     </message>
     <message>
         <source>How&apos;s %1 working for you?</source>
-        <translation type="unfinished"/>
+        <translation>Com us funciona %1?</translation>
     </message>
     <message>
         <source>One tap is all it takes.</source>
-        <translation type="unfinished"/>
+        <translation>Només cal un toc.</translation>
     </message>
     <message>
         <source>Could be better</source>
-        <translation type="unfinished"/>
+        <translation>Podria ser millor</translation>
     </message>
     <message>
         <source>Loving it</source>
-        <translation type="unfinished"/>
+        <translation>M&apos;encanta</translation>
     </message>
 </context>
 <context>

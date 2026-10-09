@@ -2802,7 +2802,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation type="vanished">Käytössä oleva vertikaalinen ruudukon siirto:</translation>
+        <translation type="vanished">Käytössä oleva vertikaalisen ruudukon siirto:</translation>
     </message>
     <message>
         <source>None</source>
@@ -2810,7 +2810,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation type="vanished">Käytetään vertikaalista ruudukon siirtoa korkeusarvojen tarkkuuden parantamiseksi.</translation>
+        <translation type="vanished">Käytetään vertikaalisen ruudukon siirtoa korkeusarvojen tarkkuuden parantamiseksi.</translation>
     </message>
     <message>
         <source>QField Settings</source>
@@ -3749,7 +3749,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Käytössä oleva vertikaalinen ruudukon siirto:</translation>
+        <translation>Käytössä oleva vertikaalisen ruudukon siirto:</translation>
     </message>
     <message>
         <source>None</source>
@@ -3761,7 +3761,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Käytetään vertikaalista ruudukon siirtoa korkeusarvojen tarkkuuden parantamiseksi.</translation>
+        <translation>Käytetään vertikaalisen ruudukon siirtoa korkeusarvojen tarkkuuden parantamiseksi.</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
