@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLegend" kind="class" language="C++" prot="public">
+    <compoundname>Legend</compoundname>
+    <basecompoundref refid="classQfLegend" prot="public" virt="non-virtual">QfLegend</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Legend</label>
+        <link refid="classLegend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ListView</label>
+      </node>
+      <node id="2">
+        <label>QfLegend</label>
+        <link refid="classQfLegend"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Legend</label>
+        <link refid="classLegend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ListView</label>
+      </node>
+      <node id="2">
+        <label>QfLegend</label>
+        <link refid="classQfLegend"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/Legend.qml" line="2" column="1" bodyfile="src/app/qml_compat/Legend.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfLegend_1a34043b45a5721f56563c1d925a6ef519" prot="public" virt="non-virtual"><scope>Legend</scope><name>activeLayer</name></member>
+      <member refid="classQfLegend_1af8d07b652ea7a0f96ce5387abff2dce7" prot="public" virt="non-virtual"><scope>Legend</scope><name>allowActiveLayerChange</name></member>
+      <member refid="classQfLegend_1a840b76328d4c001316f317c22b4feb04" prot="public" virt="non-virtual"><scope>Legend</scope><name>informationPopup</name></member>
+      <member refid="classQfLegend_1ac7cec2dd4f61c548b00d6e8ac7f86514" prot="public" virt="non-virtual"><scope>Legend</scope><name>isVisible</name></member>
+      <member refid="classQfLegend_1a65e4b986ba962d4aa8b5e26caa3073e1" prot="public" virt="non-virtual"><scope>Legend</scope><name>openProperties</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

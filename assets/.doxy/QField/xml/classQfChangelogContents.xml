@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfChangelogContents" kind="class" language="C++" prot="public">
+    <compoundname>QfChangelogContents</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfchangelogcontents_8h" local="no">qfchangelogcontents.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Status</name>
+        <qualifiedname>QfChangelogContents::Status</qualifiedname>
+        <enumvalue id="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33a24a455a5dac43c3a6b245c5f4203ddaa" prot="public">
+          <name>IdleStatus</name>
+          <briefdescription>
+<para>Changelog has not been requested. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33af6258cd94cb32ce5344f48fffb5109c7" prot="public">
+          <name>LoadingStatus</name>
+          <briefdescription>
+<para>Changelog has been requested, but still not received. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33a19b90a6fdebb9bfb4932280a04d620a1" prot="public">
+          <name>SuccessStatus</name>
+          <briefdescription>
+<para>Changelog has been successfully generated. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33a927f207d38f7ff99b115945427307905" prot="public">
+          <name>ErrorStatus</name>
+          <briefdescription>
+<para>Changelog has been requested, but failed to be generated. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Changelog contents status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="40" column="5" bodyfile="src/app/qfchangelogcontents.h" bodystart="41" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfChangelogContents_1a77e508871a8ddb022318d736c96ca802" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfChangelogContents::markdown</definition>
+        <argsstring></argsstring>
+        <name>markdown</name>
+        <qualifiedname>QfChangelogContents::markdown</qualifiedname>
+        <read>markdown</read>
+        <briefdescription>
+<para>Holds the current changelog contents formatted as markdown. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="30" column="5" bodyfile="src/app/qfchangelogcontents.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfChangelogContents_1a850c0567612b509d96bc2b2b3c3367ac" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33" kindref="member">Status</ref></type>
+        <definition>QfChangelogContents::Status QfChangelogContents::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QfChangelogContents::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+<para>Holds the current changelog contents status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="33" column="5" bodyfile="src/app/qfchangelogcontents.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfChangelogContents_1a14ea783ce6fe052c9d9a2ebfb4c286a0" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfChangelogContents::mMarkdown</definition>
+        <argsstring></argsstring>
+        <name>mMarkdown</name>
+        <qualifiedname>QfChangelogContents::mMarkdown</qualifiedname>
+        <briefdescription>
+<para>Holds the current changelog contents formatted as markdown. Null string if no changelog. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="80" column="13" bodyfile="src/app/qfchangelogcontents.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelogContents_1a975da475f3bede311ebe9abfa6df040e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33" kindref="member">Status</ref></type>
+        <definition>Status QfChangelogContents::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>QfChangelogContents::mStatus</qualifiedname>
+        <initializer>= <ref refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33a24a455a5dac43c3a6b245c5f4203ddaa" kindref="member">Status::IdleStatus</ref></initializer>
+        <briefdescription>
+<para>Holds the current status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="83" column="12" bodyfile="src/app/qfchangelogcontents.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfChangelogContents_1ac51a3523677fd7c8ca9a20e512ccf272" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfChangelogContents::QfChangelogContents</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfChangelogContents</name>
+        <qualifiedname>QfChangelogContents::QfChangelogContents</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="37" column="14" bodyfile="src/app/qfchangelogcontents.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfChangelogContents_1ad4a88da9dfced0ddd01f2b63b41ace08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfChangelogContents::request</definition>
+        <argsstring>()</argsstring>
+        <name>request</name>
+        <qualifiedname>QfChangelogContents::request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initiates a HTTP request to obtain the changelog contents. <simplesect kind="see"><para><ref refid="classQfChangelogContents_1a7291320869a6e6971d31fd55620ac359" kindref="member">markdownChanged()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfChangelogContents_1a81453e0a72eb665141b6046caaa61137" kindref="member">statusChanged()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="59" column="22" bodyfile="src/app/qfchangelogcontents.cpp" bodystart="34" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfChangelogContents_1aca2bcc7549adde04609d1dad7c0c23a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfChangelogContents::markdown</definition>
+        <argsstring>()</argsstring>
+        <name>markdown</name>
+        <qualifiedname>QfChangelogContents::markdown</qualifiedname>
+        <briefdescription>
+<para>Returns the current changelog contents formatted as markdown. Null string if no changelog. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="62" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfChangelogContents_1ae6282813b6a7a8059b1c8b777cdaf937" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33" kindref="member">Status</ref></type>
+        <definition>Status QfChangelogContents::status</definition>
+        <argsstring>()</argsstring>
+        <name>status</name>
+        <qualifiedname>QfChangelogContents::status</qualifiedname>
+        <briefdescription>
+<para>Returns the current changelog contents status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="65" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfChangelogContents_1a7291320869a6e6971d31fd55620ac359" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfChangelogContents::markdownChanged</definition>
+        <argsstring>()</argsstring>
+        <name>markdownChanged</name>
+        <qualifiedname>QfChangelogContents::markdownChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the markdown contents has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="70" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfChangelogContents_1a81453e0a72eb665141b6046caaa61137" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfChangelogContents::statusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusChanged</name>
+        <qualifiedname>QfChangelogContents::statusChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the status has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="73" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfChangelogContents_1af93e22130191bfc13c19dbe406b5fcaf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt; int &gt; QfChangelogContents::parseVersion</definition>
+        <argsstring>(const QString &amp;version)</argsstring>
+        <name>parseVersion</name>
+        <qualifiedname>QfChangelogContents::parseVersion</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>version</declname>
+        </param>
+        <briefdescription>
+<para>Parses a given <emphasis>version</emphasis> string into a list of three numbers, e.g. &apos;v1.5.6-dev&apos; to [1, 5, 6]. Returns an empty list if cannot be parsed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfchangelogcontents.h" line="77" column="11" bodyfile="src/app/qfchangelogcontents.cpp" bodystart="151" bodyend="164"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Obtain the QField changelog contents from the GitHub releases API. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfChangelogContents</label>
+        <link refid="classQfChangelogContents"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfChangelogContents</label>
+        <link refid="classQfChangelogContents"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qfchangelogcontents.h" line="25" column="1" bodyfile="src/app/qfchangelogcontents.h" bodystart="26" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33a927f207d38f7ff99b115945427307905" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>ErrorStatus</name></member>
+      <member refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33a24a455a5dac43c3a6b245c5f4203ddaa" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>IdleStatus</name></member>
+      <member refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33af6258cd94cb32ce5344f48fffb5109c7" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>LoadingStatus</name></member>
+      <member refid="classQfChangelogContents_1a77e508871a8ddb022318d736c96ca802" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>markdown</name></member>
+      <member refid="classQfChangelogContents_1aca2bcc7549adde04609d1dad7c0c23a9" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>markdown</name></member>
+      <member refid="classQfChangelogContents_1a7291320869a6e6971d31fd55620ac359" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>markdownChanged</name></member>
+      <member refid="classQfChangelogContents_1a14ea783ce6fe052c9d9a2ebfb4c286a0" prot="private" virt="non-virtual"><scope>QfChangelogContents</scope><name>mMarkdown</name></member>
+      <member refid="classQfChangelogContents_1a975da475f3bede311ebe9abfa6df040e" prot="private" virt="non-virtual"><scope>QfChangelogContents</scope><name>mStatus</name></member>
+      <member refid="classQfChangelogContents_1af93e22130191bfc13c19dbe406b5fcaf" prot="private" virt="non-virtual"><scope>QfChangelogContents</scope><name>parseVersion</name></member>
+      <member refid="classQfChangelogContents_1ac51a3523677fd7c8ca9a20e512ccf272" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>QfChangelogContents</name></member>
+      <member refid="classQfChangelogContents_1ad4a88da9dfced0ddd01f2b63b41ace08" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>request</name></member>
+      <member refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>Status</name></member>
+      <member refid="classQfChangelogContents_1a850c0567612b509d96bc2b2b3c3367ac" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>status</name></member>
+      <member refid="classQfChangelogContents_1ae6282813b6a7a8059b1c8b777cdaf937" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>status</name></member>
+      <member refid="classQfChangelogContents_1a81453e0a72eb665141b6046caaa61137" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>statusChanged</name></member>
+      <member refid="classQfChangelogContents_1a7d125db26a7d495108da0569c501ba33a19b90a6fdebb9bfb4932280a04d620a1" prot="public" virt="non-virtual"><scope>QfChangelogContents</scope><name>SuccessStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

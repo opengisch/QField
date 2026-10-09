@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMapCanvasPointHandler" kind="class" language="C++" prot="public">
+    <compoundname>QfMapCanvasPointHandler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classMapCanvasPointHandler" prot="public" virt="non-virtual">MapCanvasPointHandler</derivedcompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfMapCanvasPointHandler_1ab4fcc3c324a67d4dd5df1d80697563f9" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Priority</name>
+        <qualifiedname>QfMapCanvasPointHandler::Priority</qualifiedname>
+        <enumvalue id="classQfMapCanvasPointHandler_1ab4fcc3c324a67d4dd5df1d80697563f9a28d0edd045e05cf5af64e35ae0c4c6ef" prot="public">
+          <name>Low</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMapCanvasPointHandler_1ab4fcc3c324a67d4dd5df1d80697563f9a960b44c579bc2f6818d2daaf9e4c16f0" prot="public">
+          <name>Normal</name>
+          <initializer>= 50</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMapCanvasPointHandler_1ab4fcc3c324a67d4dd5df1d80697563f9a655d20c1ca69519ca647684edbb2db35" prot="public">
+          <name>High</name>
+          <initializer>= 100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="9" column="1" bodyfile="src/core/qml/QfMapCanvasPointHandler.qml" bodystart="9" bodyend="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMapCanvasPointHandler_1a91988941b9bf007e0db3561f05038ff1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Item</type>
+        <definition>Item QfMapCanvasPointHandler::coordinateSpace</definition>
+        <argsstring></argsstring>
+        <name>coordinateSpace</name>
+        <qualifiedname>QfMapCanvasPointHandler::coordinateSpace</qualifiedname>
+        <read>dummyGetter_coordinateSpace_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="15" column="1" bodyfile="src/core/qml/QfMapCanvasPointHandler.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapCanvasPointHandler_1ab4e41fe1c1a7e014ec62cb6ffde725c9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfMapCanvasPointHandler::handlers</definition>
+        <argsstring></argsstring>
+        <name>handlers</name>
+        <qualifiedname>QfMapCanvasPointHandler::handlers</qualifiedname>
+        <read>dummyGetter_handlers_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="19" column="1" bodyfile="src/core/qml/QfMapCanvasPointHandler.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfMapCanvasPointHandler_1aabb229f1d178404bc195b2398beb4f69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvasPointHandler::pointInItem</definition>
+        <argsstring>(point, item)</argsstring>
+        <name>pointInItem</name>
+        <qualifiedname>QfMapCanvasPointHandler::pointInItem</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>item</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="17" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvasPointHandler_1a366efb5657a9c5777a6ba05e5123a0a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvasPointHandler::registerHandler</definition>
+        <argsstring>(name, handler, priority=QfMapCanvasPointHandler.Priority.Normal)</argsstring>
+        <name>registerHandler</name>
+        <qualifiedname>QfMapCanvasPointHandler::registerHandler</qualifiedname>
+        <param>
+          <type>name</type>
+        </param>
+        <param>
+          <type>handler</type>
+        </param>
+        <param>
+          <type>priority</type>
+          <defval>QfMapCanvasPointHandler.Priority.Normal</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="21" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvasPointHandler_1abb648f613f3fa81b4be8774f3d9b29c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvasPointHandler::deregisterHandler</definition>
+        <argsstring>(name)</argsstring>
+        <name>deregisterHandler</name>
+        <qualifiedname>QfMapCanvasPointHandler::deregisterHandler</qualifiedname>
+        <param>
+          <type>name</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvasPointHandler_1af27fc0a46ad63c72e57721d26d8a4a37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvasPointHandler::clicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>clicked</name>
+        <qualifiedname>QfMapCanvasPointHandler::clicked</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="25" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvasPointHandler_1afa2aa6dec9fba2879e79950db4674f32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvasPointHandler::doubleClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>doubleClicked</name>
+        <qualifiedname>QfMapCanvasPointHandler::doubleClicked</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="27" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvasPointHandler_1acfb6e0d7442ec91186ccc1e4fe1f3619" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvasPointHandler::pressAndHold</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>pressAndHold</name>
+        <qualifiedname>QfMapCanvasPointHandler::pressAndHold</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="29" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapCanvasPointHandler_1adf5b500c13a47a9a1377cc67daef2fd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapCanvasPointHandler::processInteraction</definition>
+        <argsstring>(point, type, interactionType)</argsstring>
+        <name>processInteraction</name>
+        <qualifiedname>QfMapCanvasPointHandler::processInteraction</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <param>
+          <type>interactionType</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="31" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>MapCanvasPointHandler</label>
+        <link refid="classMapCanvasPointHandler"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfMapCanvasPointHandler</label>
+        <link refid="classQfMapCanvasPointHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfMapCanvasPointHandler</label>
+        <link refid="classQfMapCanvasPointHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qml/QfMapCanvasPointHandler.qml" line="6" column="1" bodyfile="src/core/qml/QfMapCanvasPointHandler.qml" bodystart="6" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classQfMapCanvasPointHandler_1af27fc0a46ad63c72e57721d26d8a4a37" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>clicked</name></member>
+      <member refid="classQfMapCanvasPointHandler_1a91988941b9bf007e0db3561f05038ff1" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>coordinateSpace</name></member>
+      <member refid="classQfMapCanvasPointHandler_1abb648f613f3fa81b4be8774f3d9b29c0" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>deregisterHandler</name></member>
+      <member refid="classQfMapCanvasPointHandler_1afa2aa6dec9fba2879e79950db4674f32" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>doubleClicked</name></member>
+      <member refid="classQfMapCanvasPointHandler_1ab4e41fe1c1a7e014ec62cb6ffde725c9" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>handlers</name></member>
+      <member refid="classQfMapCanvasPointHandler_1aabb229f1d178404bc195b2398beb4f69" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>pointInItem</name></member>
+      <member refid="classQfMapCanvasPointHandler_1acfb6e0d7442ec91186ccc1e4fe1f3619" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>pressAndHold</name></member>
+      <member refid="classQfMapCanvasPointHandler_1ab4fcc3c324a67d4dd5df1d80697563f9" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>Priority</name></member>
+      <member refid="classQfMapCanvasPointHandler_1adf5b500c13a47a9a1377cc67daef2fd5" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>processInteraction</name></member>
+      <member refid="classQfMapCanvasPointHandler_1a366efb5657a9c5777a6ba05e5123a0a4" prot="public" virt="non-virtual"><scope>QfMapCanvasPointHandler</scope><name>registerHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

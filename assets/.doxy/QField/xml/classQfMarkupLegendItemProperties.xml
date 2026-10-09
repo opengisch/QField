@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMarkupLegendItemProperties" kind="class" language="C++" prot="public">
+    <compoundname>QfMarkupLegendItemProperties</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMarkupLegendItemProperties_1a1380a8c817ac121ec1b3623224276f73" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref></type>
+        <definition>QfMarkupCollection QfMarkupLegendItemProperties::markupCollection</definition>
+        <argsstring></argsstring>
+        <name>markupCollection</name>
+        <qualifiedname>QfMarkupLegendItemProperties::markupCollection</qualifiedname>
+        <read>dummyGetter_markupCollection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="13" column="1" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1af38fa6031131331469b60404da5ed7e1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegendItemProperties::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfMarkupLegendItemProperties::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="15" column="5" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1a878bf1b05984e7d3bb445e8cbfadaba0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegendItemProperties::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfMarkupLegendItemProperties::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="16" column="5" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1af934a21b84b6477a1d7c50c3239b936a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegendItemProperties::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfMarkupLegendItemProperties::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="17" column="5" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1a05b117911ae9948ecd49c3177e3918b8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegendItemProperties::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfMarkupLegendItemProperties::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="18" column="5" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1a7733499456b6668d60dd43309a33dcce" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegendItemProperties::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfMarkupLegendItemProperties::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="19" column="5" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1ab96d118e078cf6d0dcf7423bb8e6fcb7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegendItemProperties::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfMarkupLegendItemProperties::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="20" column="5" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1a1cd00d4a836ce829868d65bcff61a76e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupLegendItemProperties::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfMarkupLegendItemProperties::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="21" column="5" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1a9f336b85a41cc3abfbee31c387f47240" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfMarkupLegendItemProperties::popupContent</definition>
+        <argsstring></argsstring>
+        <name>popupContent</name>
+        <qualifiedname>QfMarkupLegendItemProperties::popupContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="22" column="6" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1a0ae51576ab2cee0d9443c27e22531541" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfMarkupLegendItemProperties::popupLayout</definition>
+        <argsstring></argsstring>
+        <name>popupLayout</name>
+        <qualifiedname>QfMarkupLegendItemProperties::popupLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="23" column="14" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1ad0b66ec1772e918f27b7d81376eff603" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfMarkupLegendItemProperties::itemVisibleCheckBox</definition>
+        <argsstring></argsstring>
+        <name>itemVisibleCheckBox</name>
+        <qualifiedname>QfMarkupLegendItemProperties::itemVisibleCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="24" column="10" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1a938d17e0329e8d2eed817b912e62ab19" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfMarkupLegendItemProperties::zoomToButton</definition>
+        <argsstring></argsstring>
+        <name>zoomToButton</name>
+        <qualifiedname>QfMarkupLegendItemProperties::zoomToButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="25" column="10" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1afebe193fe661848b19ea603bf70636d6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfMarkupLegendItemProperties::showFeaturesList</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesList</name>
+        <qualifiedname>QfMarkupLegendItemProperties::showFeaturesList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="26" column="10" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupLegendItemProperties_1a8a9e8ff3566838c5f72d8b1c2aa3fd07" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfMarkupLegendItemProperties::exportFeaturesList</definition>
+        <argsstring></argsstring>
+        <name>exportFeaturesList</name>
+        <qualifiedname>QfMarkupLegendItemProperties::exportFeaturesList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="27" column="10" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfMarkupLegendItemProperties</label>
+        <link refid="classQfMarkupLegendItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfMarkupLegendItemProperties</label>
+        <link refid="classQfMarkupLegendItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfMarkupLegendItemProperties.qml" line="10" column="1" bodyfile="src/gui/qml/QfMarkupLegendItemProperties.qml" bodystart="10" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classQfMarkupLegendItemProperties_1ab96d118e078cf6d0dcf7423bb8e6fcb7" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>closePolicy</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a8a9e8ff3566838c5f72d8b1c2aa3fd07" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>exportFeaturesList</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a1cd00d4a836ce829868d65bcff61a76e" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>focus</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1af934a21b84b6477a1d7c50c3239b936a" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>height</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1ad0b66ec1772e918f27b7d81376eff603" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>itemVisibleCheckBox</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a1380a8c817ac121ec1b3623224276f73" prot="public" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>markupCollection</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1af38fa6031131331469b60404da5ed7e1" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>parent</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a9f336b85a41cc3abfbee31c387f47240" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>popupContent</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a0ae51576ab2cee0d9443c27e22531541" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>popupLayout</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1afebe193fe661848b19ea603bf70636d6" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>showFeaturesList</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a878bf1b05984e7d3bb445e8cbfadaba0" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>width</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a05b117911ae9948ecd49c3177e3918b8" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>x</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a7733499456b6668d60dd43309a33dcce" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>y</name></member>
+      <member refid="classQfMarkupLegendItemProperties_1a938d17e0329e8d2eed817b912e62ab19" prot="private" virt="non-virtual"><scope>QfMarkupLegendItemProperties</scope><name>zoomToButton</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBookmarkHighlight" kind="class" language="C++" prot="public">
+    <compoundname>QfBookmarkHighlight</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Repeater</basecompoundref>
+    <derivedcompoundref refid="classBookmarkHighlight" prot="public" virt="non-virtual">BookmarkHighlight</derivedcompoundref>
+    <derivedcompoundref refid="classBookmarkRenderer" prot="public" virt="non-virtual">BookmarkRenderer</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfBookmarkHighlight_1a09ea4272b4b2f6a229f5579062cf0216" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfBookmarkHighlight::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfBookmarkHighlight::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkHighlight.qml" line="10" column="1" bodyfile="src/gui/qml/QfBookmarkHighlight.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBookmarkHighlight_1ae43f80adf8fd12da0f0f4037ece76326" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkHighlight::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfBookmarkHighlight::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkHighlight.qml" line="12" column="5" bodyfile="src/gui/qml/QfBookmarkHighlight.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkHighlight_1a1fb84f052b95e3af4f4c684d85f25670" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkHighlight::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>QfBookmarkHighlight::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkHighlight.qml" line="13" column="5" bodyfile="src/gui/qml/QfBookmarkHighlight.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BookmarkHighlight</label>
+        <link refid="classBookmarkHighlight"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BookmarkRenderer</label>
+        <link refid="classBookmarkRenderer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfBookmarkHighlight</label>
+        <link refid="classQfBookmarkHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfBookmarkHighlight</label>
+        <link refid="classQfBookmarkHighlight"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfBookmarkHighlight.qml" line="7" column="1" bodyfile="src/gui/qml/QfBookmarkHighlight.qml" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classQfBookmarkHighlight_1a1fb84f052b95e3af4f4c684d85f25670" prot="private" virt="non-virtual"><scope>QfBookmarkHighlight</scope><name>delegate</name></member>
+      <member refid="classQfBookmarkHighlight_1a09ea4272b4b2f6a229f5579062cf0216" prot="public" virt="non-virtual"><scope>QfBookmarkHighlight</scope><name>mapSettings</name></member>
+      <member refid="classQfBookmarkHighlight_1ae43f80adf8fd12da0f0f4037ece76326" prot="private" virt="non-virtual"><scope>QfBookmarkHighlight</scope><name>model</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

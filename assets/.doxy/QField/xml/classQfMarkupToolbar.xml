@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMarkupToolbar" kind="class" language="C++" prot="public">
+    <compoundname>QfMarkupToolbar</compoundname>
+    <basecompoundref refid="classQfVisibilityFadingRow" prot="public" virt="non-virtual">QfVisibilityFadingRow</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMarkupToolbar_1a842ea69bb49ccb8ef8d9a66961b524ca" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref></type>
+        <definition>QfMarkupCollection QfMarkupToolbar::markupCollection</definition>
+        <argsstring></argsstring>
+        <name>markupCollection</name>
+        <qualifiedname>QfMarkupToolbar::markupCollection</qualifiedname>
+        <read>dummyGetter_markupCollection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="14" column="1" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupToolbar_1afc9bf08b2b5866ef2e1e9bd5bbcf73f9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref></type>
+        <definition>QfRubberbandModel QfMarkupToolbar::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfMarkupToolbar::rubberbandModel</qualifiedname>
+        <read>dummyGetter_rubberbandModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="16" column="1" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupToolbar_1a2d120312459b963fec51cbe1e7a56753" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>MapSettings</type>
+        <definition>MapSettings QfMarkupToolbar::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfMarkupToolbar::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="18" column="1" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupToolbar_1a129fea7c0b81bc3f839891887e721f9f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfMarkupToolbar::pickedColor</definition>
+        <argsstring></argsstring>
+        <name>pickedColor</name>
+        <qualifiedname>QfMarkupToolbar::pickedColor</qualifiedname>
+        <read>dummyGetter_pickedColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="20" column="1" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupToolbar_1aad5239c1ec65578e55078b3d8b3876ca" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMarkupToolbar::isPickedColorLocked</definition>
+        <argsstring></argsstring>
+        <name>isPickedColorLocked</name>
+        <qualifiedname>QfMarkupToolbar::isPickedColorLocked</qualifiedname>
+        <read>dummyGetter_isPickedColorLocked_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="22" column="1" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupToolbar_1aab79ba6b1ab8b746fea9116a94849a72" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMarkupToolbar::isMarking</definition>
+        <argsstring></argsstring>
+        <name>isMarking</name>
+        <qualifiedname>QfMarkupToolbar::isMarking</qualifiedname>
+        <read>dummyGetter_isMarking_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="25" column="1" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMarkupToolbar_1ab9b22ca34622e760b8ee0e0b313939d4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupToolbar::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfMarkupToolbar::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="27" column="5" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupToolbar_1a5cbe8e0fe7c0ea044dd06a7c52cd3147" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMarkupToolbar::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QfMarkupToolbar::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="28" column="5" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupToolbar_1a056736da77ee126c11751dc67484f2cc" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfMarkupToolbar::markupColorItem</definition>
+        <argsstring></argsstring>
+        <name>markupColorItem</name>
+        <qualifiedname>QfMarkupToolbar::markupColorItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="29" column="6" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupToolbar_1ab9a2f61096c5bb3fde31d4fe4e2f38de" prot="private" static="no" mutable="no">
+        <type>Container</type>
+        <definition>Container QfMarkupToolbar::markupColorContainer</definition>
+        <argsstring></argsstring>
+        <name>markupColorContainer</name>
+        <qualifiedname>QfMarkupToolbar::markupColorContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="30" column="11" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMarkupToolbar_1a6f582111c4e11b95234da5182a2d1cdb" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QfMarkupToolbar::markupColorRepeater</definition>
+        <argsstring></argsstring>
+        <name>markupColorRepeater</name>
+        <qualifiedname>QfMarkupToolbar::markupColorRepeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupToolbar.qml" line="31" column="10" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfMarkupToolbar</label>
+        <link refid="classQfMarkupToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfMarkupToolbar</label>
+        <link refid="classQfMarkupToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfMarkupToolbar.qml" line="11" column="1" bodyfile="src/gui/qml/QfMarkupToolbar.qml" bodystart="11" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classQfMarkupToolbar_1aab79ba6b1ab8b746fea9116a94849a72" prot="public" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>isMarking</name></member>
+      <member refid="classQfMarkupToolbar_1aad5239c1ec65578e55078b3d8b3876ca" prot="public" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>isPickedColorLocked</name></member>
+      <member refid="classQfMarkupToolbar_1a2d120312459b963fec51cbe1e7a56753" prot="public" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>mapSettings</name></member>
+      <member refid="classQfMarkupToolbar_1a842ea69bb49ccb8ef8d9a66961b524ca" prot="public" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>markupCollection</name></member>
+      <member refid="classQfMarkupToolbar_1ab9a2f61096c5bb3fde31d4fe4e2f38de" prot="private" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>markupColorContainer</name></member>
+      <member refid="classQfMarkupToolbar_1a056736da77ee126c11751dc67484f2cc" prot="private" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>markupColorItem</name></member>
+      <member refid="classQfMarkupToolbar_1a6f582111c4e11b95234da5182a2d1cdb" prot="private" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>markupColorRepeater</name></member>
+      <member refid="classQfMarkupToolbar_1a5cbe8e0fe7c0ea044dd06a7c52cd3147" prot="private" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>onVisibleChanged</name></member>
+      <member refid="classQfMarkupToolbar_1a129fea7c0b81bc3f839891887e721f9f" prot="public" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>pickedColor</name></member>
+      <member refid="classQfMarkupToolbar_1afc9bf08b2b5866ef2e1e9bd5bbcf73f9" prot="public" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>rubberbandModel</name></member>
+      <member refid="classQfMarkupToolbar_1ab9b22ca34622e760b8ee0e0b313939d4" prot="private" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>spacing</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>QfMarkupToolbar</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

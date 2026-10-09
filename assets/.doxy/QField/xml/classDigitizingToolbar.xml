@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classDigitizingToolbar" kind="class" language="C++" prot="public">
+    <compoundname>DigitizingToolbar</compoundname>
+    <basecompoundref refid="classQfDigitizingToolbar" prot="public" virt="non-virtual">QfDigitizingToolbar</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DigitizingToolbar</label>
+        <link refid="classDigitizingToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfDigitizingToolbar</label>
+        <link refid="classQfDigitizingToolbar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DigitizingToolbar</label>
+        <link refid="classDigitizingToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfDigitizingToolbar</label>
+        <link refid="classQfDigitizingToolbar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/DigitizingToolbar.qml" line="2" column="1" bodyfile="src/app/qml_compat/DigitizingToolbar.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfDigitizingToolbar_1a74ab5df98a32b3e61bf8e05db4fbe3b3" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>addVertex</name></member>
+      <member refid="classQfDigitizingToolbar_1a1b664240dc165b2603a04c7d358b7e0c" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cancel</name></member>
+      <member refid="classQfDigitizingToolbar_1a77ac24ab98fa2645f2a535f87d72c409" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cancelDialog</name></member>
+      <member refid="classQfDigitizingToolbar_1a83ca878d90c9558283b91478008439f7" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>checkAccuracyRequirement</name></member>
+      <member refid="classQfDigitizingToolbar_1af4036795bfe99127199ef9332bfda997" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>checkGeometryValidity</name></member>
+      <member refid="classQfDigitizingToolbar_1a5c7e5aa5ceeb7f223db4769ad8120071" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cogoEnabled</name></member>
+      <member refid="classQfDigitizingToolbar_1ac5b520d63068886f22b2ed288e505534" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cogoExecutor</name></member>
+      <member refid="classQfDigitizingToolbar_1a4a564d1e8e5851ff6aad1e90212f23fc" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>cogoOperationSettings</name></member>
+      <member refid="classQfDigitizingToolbar_1a38ee689da90338345efb4c1893173b9b" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>confirm</name></member>
+      <member refid="classQfDigitizingToolbar_1a3f2c62683e6c9b343010a8fd3add8486" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>confirmed</name></member>
+      <member refid="classQfDigitizingToolbar_1a144de97c41c8b4ec1f00ca4bbaa2b43a" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>digitizingLogger</name></member>
+      <member refid="classQfDigitizingToolbar_1a2b40fe47deb8e925380936bf7d8ae9ea" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>geometryRequested</name></member>
+      <member refid="classQfDigitizingToolbar_1a9a35d30acc9472c76b7d23bc83fe6882" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>geometryRequestedItem</name></member>
+      <member refid="classQfDigitizingToolbar_1ae1dbb38f190a038cedd3a7741b49607f" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>geometryRequestedLayer</name></member>
+      <member refid="classQfDigitizingToolbar_1a98a9ae88e3f758f9b4c5b95e1a8f91ec" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>geometryValid</name></member>
+      <member refid="classQfDigitizingToolbar_1a2fe385cf174358b07284af657faa712c" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>isDigitizing</name></member>
+      <member refid="classQfDigitizingToolbar_1ab538234d4e1ed560466702e046e05394" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>mapSettings</name></member>
+      <member refid="classQfDigitizingToolbar_1a675eedd6ccd0e1e6155042d6e84a97e8" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>processVertexCountChanged</name></member>
+      <member refid="classQfDigitizingToolbar_1a7916a7b38ac4c19f7a1b596683be37bc" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>removeVertex</name></member>
+      <member refid="classQfDigitizingToolbar_1ad7ea8c313c06ed5fa8c6ffbc08db6003" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfDigitizingToolbar_1a345ec0c597a123bdb39808e1cf338fd9" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>requestPosition</name></member>
+      <member refid="classQfDigitizingToolbar_1a2e7e624489aceb24fded4e2943b8dd5f" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>rubberbandModel</name></member>
+      <member refid="classQfDigitizingToolbar_1a0c03e0d21ba42feedf063bb6d1e3a899" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>screenHovering</name></member>
+      <member refid="classQfDigitizingToolbar_1a29fff03f1298672db271f4797c4a99a9" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>showConfirmButton</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>stateVisible</name></member>
+      <member refid="classQfDigitizingToolbar_1accd97732223cb3f859ae12e0c30205a3" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>triggerAddVertex</name></member>
+      <member refid="classQfDigitizingToolbar_1a60b7e923026c571ccc0113d0c91488e9" prot="public" virt="non-virtual"><scope>DigitizingToolbar</scope><name>vertexCountChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

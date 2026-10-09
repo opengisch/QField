@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGeometryEditorsModel" kind="class" language="C++" prot="public">
+    <compoundname>QfGeometryEditorsModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QStandardItemModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionRoles</name>
+        <qualifiedname>QfGeometryEditorsModel::ActionRoles</qualifiedname>
+        <enumvalue id="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792ba7d1650fd89bc9695a5a84d32e30a348d" prot="public">
+          <name>NameRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792ba3049cf2c5f1820dc872e3347df1c4bcf" prot="public">
+          <name>IconPathRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792ba6b6292baf2b89a8e7053c798da438e5e" prot="public">
+          <name>ToolbarRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792ba0a36d6cd6196d12da117028dbf1bb580" prot="public">
+          <name>SupportedGeometriesRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="36" column="5" bodyfile="src/gui/qfgeometryeditorsmodel.h" bodystart="37" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GeometryType</name>
+        <qualifiedname>QfGeometryEditorsModel::GeometryType</qualifiedname>
+        <enumvalue id="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2daa8d4835c49051b52b867f3e229a18002" prot="public">
+          <name>Point</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2da3351fd2786eb764fa9cb9b53b7420aa3" prot="public">
+          <name>Line</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2da3ebce64c4a4849d54c89afff68d0352b" prot="public">
+          <name>Polygon</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2da6b701de83f703fb9587c3d8ee86b349f" prot="public">
+          <name>AllGeometries</name>
+          <initializer>= Point | Line | Polygon</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="45" column="5" bodyfile="src/gui/qfgeometryeditorsmodel.h" bodystart="46" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGeometryEditorsModel_1ad5de84cebd1bce0db0498747abde2b8e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel * QfGeometryEditorsModel::vertexModel</definition>
+        <argsstring></argsstring>
+        <name>vertexModel</name>
+        <qualifiedname>QfGeometryEditorsModel::vertexModel</qualifiedname>
+        <read>vertexModel</read>
+        <write>setVertexModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="33" column="5" bodyfile="src/gui/qfgeometryeditorsmodel.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGeometryEditorsModel_1ad4dd584796a7bb0b29c5b03d98b3e0f5" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel* QfGeometryEditorsModel::mVertexModel</definition>
+        <argsstring></argsstring>
+        <name>mVertexModel</name>
+        <qualifiedname>QfGeometryEditorsModel::mVertexModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="70" column="19" bodyfile="src/gui/qfgeometryeditorsmodel.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGeometryEditorsModel_1a63cb2844b2e03038acbb1449db1a93b1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfGeometryEditorsModel::QfGeometryEditorsModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfGeometryEditorsModel</name>
+        <qualifiedname>QfGeometryEditorsModel::QfGeometryEditorsModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="57" column="14" bodyfile="src/gui/qfgeometryeditorsmodel.cpp" bodystart="21" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsModel_1ad19dd1fbf000c352049627cc8603768d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfGeometryEditorsModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfGeometryEditorsModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="58" column="11" bodyfile="src/gui/qfgeometryeditorsmodel.cpp" bodystart="28" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsModel_1a2f289cdbc7a2af160764a7fdd4570dcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfGeometryEditorsModel::addEditor</definition>
+        <argsstring>(const QString &amp;name, const QString &amp;icon, const QString &amp;toolbar, SupportedGeometries supportedGeometries=AllGeometries)</argsstring>
+        <name>addEditor</name>
+        <qualifiedname>QfGeometryEditorsModel::addEditor</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>toolbar</declname>
+        </param>
+        <param>
+          <type>SupportedGeometries</type>
+          <declname>supportedGeometries</declname>
+          <defval>AllGeometries</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="59" column="22" bodyfile="src/gui/qfgeometryeditorsmodel.cpp" bodystart="38" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsModel_1af61dc13381ecb1a6956036512538115c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+        <definition>QfVertexModel * QfGeometryEditorsModel::vertexModel</definition>
+        <argsstring>() const</argsstring>
+        <name>vertexModel</name>
+        <qualifiedname>QfGeometryEditorsModel::vertexModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="63" column="19" bodyfile="src/gui/qfgeometryeditorsmodel.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorsModel_1a5c9ac1f56bc8463bfe46977bc64ed722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsModel::setVertexModel</definition>
+        <argsstring>(QfVertexModel *vertexModel)</argsstring>
+        <name>setVertexModel</name>
+        <qualifiedname>QfGeometryEditorsModel::setVertexModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> *</type>
+          <declname>vertexModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="64" column="10" bodyfile="src/gui/qfgeometryeditorsmodel.cpp" bodystart="66" bodyend="72"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfGeometryEditorsModel_1af8d109423fe219d0f87896779c472d9f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfGeometryEditorsModel::supportsGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry, const SupportedGeometries &amp;supportedGeometries)</argsstring>
+        <name>supportsGeometry</name>
+        <qualifiedname>QfGeometryEditorsModel::supportsGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <param>
+          <type>const SupportedGeometries &amp;</type>
+          <declname>supportedGeometries</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="61" column="29" bodyfile="src/gui/qfgeometryeditorsmodel.cpp" bodystart="48" bodyend="64"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfGeometryEditorsModel_1aa1ea2504d98f2935a4221ec4659c9aee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorsModel::vertexModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexModelChanged</name>
+        <qualifiedname>QfGeometryEditorsModel::vertexModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfgeometryeditorsmodel.h" line="67" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfGeometryEditorsModel</label>
+        <link refid="classQfGeometryEditorsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfGeometryEditorsModel</label>
+        <link refid="classQfGeometryEditorsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfgeometryeditorsmodel.h" line="29" column="1" bodyfile="src/gui/qfgeometryeditorsmodel.h" bodystart="30" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792b" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>ActionRoles</name></member>
+      <member refid="classQfGeometryEditorsModel_1a2f289cdbc7a2af160764a7fdd4570dcd" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>addEditor</name></member>
+      <member refid="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2da6b701de83f703fb9587c3d8ee86b349f" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>AllGeometries</name></member>
+      <member refid="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2d" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>GeometryType</name></member>
+      <member refid="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792ba3049cf2c5f1820dc872e3347df1c4bcf" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>IconPathRole</name></member>
+      <member refid="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2da3351fd2786eb764fa9cb9b53b7420aa3" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>Line</name></member>
+      <member refid="classQfGeometryEditorsModel_1ad4dd584796a7bb0b29c5b03d98b3e0f5" prot="private" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>mVertexModel</name></member>
+      <member refid="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792ba7d1650fd89bc9695a5a84d32e30a348d" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>NameRole</name></member>
+      <member refid="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2daa8d4835c49051b52b867f3e229a18002" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>Point</name></member>
+      <member refid="classQfGeometryEditorsModel_1a9fbc2bc437f37e2da42125e94bc75b2da3ebce64c4a4849d54c89afff68d0352b" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>Polygon</name></member>
+      <member refid="classQfGeometryEditorsModel_1a63cb2844b2e03038acbb1449db1a93b1" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>QfGeometryEditorsModel</name></member>
+      <member refid="classQfGeometryEditorsModel_1ad19dd1fbf000c352049627cc8603768d" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>roleNames</name></member>
+      <member refid="classQfGeometryEditorsModel_1a5c9ac1f56bc8463bfe46977bc64ed722" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>setVertexModel</name></member>
+      <member refid="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792ba0a36d6cd6196d12da117028dbf1bb580" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>SupportedGeometriesRole</name></member>
+      <member refid="classQfGeometryEditorsModel_1af8d109423fe219d0f87896779c472d9f" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>supportsGeometry</name></member>
+      <member refid="classQfGeometryEditorsModel_1ad0087542ef565dd261a1faeafef7792ba6b6292baf2b89a8e7053c798da438e5e" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>ToolbarRole</name></member>
+      <member refid="classQfGeometryEditorsModel_1ad5de84cebd1bce0db0498747abde2b8e" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>vertexModel</name></member>
+      <member refid="classQfGeometryEditorsModel_1af61dc13381ecb1a6956036512538115c" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>vertexModel</name></member>
+      <member refid="classQfGeometryEditorsModel_1aa1ea2504d98f2935a4221ec4659c9aee" prot="public" virt="non-virtual"><scope>QfGeometryEditorsModel</scope><name>vertexModelChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

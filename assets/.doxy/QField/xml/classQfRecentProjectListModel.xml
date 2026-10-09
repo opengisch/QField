@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfRecentProjectListModel" kind="class" language="C++" prot="public">
+    <compoundname>QfRecentProjectListModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="structQfRecentProjectListModel_1_1RecentProject" prot="public">QfRecentProjectListModel::RecentProject</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fd" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ProjectType</name>
+        <qualifiedname>QfRecentProjectListModel::ProjectType</qualifiedname>
+        <enumvalue id="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fdab08f453463c0da1ce68e2c8f4ab35be2" prot="public">
+          <name>LocalProject</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fda0c40b6f5583a3a465082fe14daac1381" prot="public">
+          <name>CloudProject</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fdaaa82416aa769d4b9e1d6c5de775e5d31" prot="public">
+          <name>LinkProject</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fda8f000c09defc0d96b8ecca18dea92688" prot="public">
+          <name>LocalDataset</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="29" column="5" bodyfile="src/gui/qfrecentprojectlistmodel.h" bodystart="30" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>QfRecentProjectListModel::Role</qualifiedname>
+        <enumvalue id="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbcab27317dabaac0fa40880e82e161187f8" prot="public">
+          <name>ProjectTypeRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbcaecc608c96c927bf459b9c8d03309bc88" prot="public">
+          <name>ProjectTitleRole</name>
+          <briefdescription>
+<para>the project type (e.g., local, cloud, etc.) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbca752187eaf580bfcec53b59f89a3afafb" prot="public">
+          <name>ProjectPathRole</name>
+          <briefdescription>
+<para>the project title </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbcab9d1df47c4c764f82d95a2ce4f0a6a31" prot="public">
+          <name>ProjectThumbnailRole</name>
+          <briefdescription>
+<para>the project path </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Roles to get the data of the model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="58" column="5" bodyfile="src/gui/qfrecentprojectlistmodel.h" bodystart="59" bodyend="64"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfRecentProjectListModel_1a2b7033b2ed316a9c71937056b7964d69" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structQfRecentProjectListModel_1_1RecentProject" kindref="compound">RecentProject</ref> &gt;</type>
+        <definition>QList&lt;RecentProject&gt; QfRecentProjectListModel::mRecentProjects</definition>
+        <argsstring></argsstring>
+        <name>mRecentProjects</name>
+        <qualifiedname>QfRecentProjectListModel::mRecentProjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="87" column="11" bodyfile="src/gui/qfrecentprojectlistmodel.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfRecentProjectListModel_1a1aa6cf4f91a75c3e57307c96990ad3e2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfRecentProjectListModel::QfRecentProjectListModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfRecentProjectListModel</name>
+        <qualifiedname>QfRecentProjectListModel::QfRecentProjectListModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="68" column="14" bodyfile="src/gui/qfrecentprojectlistmodel.cpp" bodystart="26" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRecentProjectListModel_1a21aefda9adb28d6d21d89022f143b128" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfRecentProjectListModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfRecentProjectListModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="70" column="11" bodyfile="src/gui/qfrecentprojectlistmodel.cpp" bodystart="32" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRecentProjectListModel_1aecf6a927c686826ea5fbc5d5d8b2c372" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfRecentProjectListModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfRecentProjectListModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="72" column="9" bodyfile="src/gui/qfrecentprojectlistmodel.cpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRecentProjectListModel_1ac441af3b1990f26306510c3031f5b6da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfRecentProjectListModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfRecentProjectListModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="73" column="14" bodyfile="src/gui/qfrecentprojectlistmodel.cpp" bodystart="111" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRecentProjectListModel_1a55ea119328cb8d1dd48ca70aea781ede" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfRecentProjectListModel::reloadModel</definition>
+        <argsstring>()</argsstring>
+        <name>reloadModel</name>
+        <qualifiedname>QfRecentProjectListModel::reloadModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="75" column="22" bodyfile="src/gui/qfrecentprojectlistmodel.cpp" bodystart="43" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfRecentProjectListModel_1a6bbcdbfd2f5585c113e19e433932a824" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfRecentProjectListModel::removeRecentProject</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>removeRecentProject</name>
+        <qualifiedname>QfRecentProjectListModel::removeRecentProject</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="77" column="29" bodyfile="src/gui/qfrecentprojectlistmodel.cpp" bodystart="131" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRecentProjectListModel_1a3e27285389f699f747ad6c3df30aa11e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structQfRecentProjectListModel_1_1RecentProject" kindref="compound">RecentProject</ref> &gt;</type>
+        <definition>QList&lt; QfRecentProjectListModel::RecentProject &gt; QfRecentProjectListModel::recentProjects</definition>
+        <argsstring>(bool skipNonAvailable=false)</argsstring>
+        <name>recentProjects</name>
+        <qualifiedname>QfRecentProjectListModel::recentProjects</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>skipNonAvailable</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="79" column="18" bodyfile="src/gui/qfrecentprojectlistmodel.cpp" bodystart="150" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRecentProjectListModel_1adb5485464a50787f2fcfa4c9c0439a2b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRecentProjectListModel::saveRecentProjects</definition>
+        <argsstring>(const QList&lt; RecentProject &gt; &amp;projects)</argsstring>
+        <name>saveRecentProjects</name>
+        <qualifiedname>QfRecentProjectListModel::saveRecentProjects</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="structQfRecentProjectListModel_1_1RecentProject" kindref="compound">RecentProject</ref> &gt; &amp;</type>
+          <declname>projects</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="81" column="17" bodyfile="src/gui/qfrecentprojectlistmodel.cpp" bodystart="223" bodyend="235"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfRecentProjectListModel_1a1fd99d9f7238f1832010bbcf3b74696f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfRecentProjectListModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfRecentProjectListModel::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfrecentprojectlistmodel.h" line="84" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfRecentProjectListModel</label>
+        <link refid="classQfRecentProjectListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfRecentProjectListModel</label>
+        <link refid="classQfRecentProjectListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfrecentprojectlistmodel.h" line="24" column="1" bodyfile="src/gui/qfrecentprojectlistmodel.h" bodystart="25" bodyend="88"/>
+    <listofallmembers>
+      <member refid="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fda0c40b6f5583a3a465082fe14daac1381" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>CloudProject</name></member>
+      <member refid="classQfRecentProjectListModel_1ac441af3b1990f26306510c3031f5b6da" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>data</name></member>
+      <member refid="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fdaaa82416aa769d4b9e1d6c5de775e5d31" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>LinkProject</name></member>
+      <member refid="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fda8f000c09defc0d96b8ecca18dea92688" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>LocalDataset</name></member>
+      <member refid="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fdab08f453463c0da1ce68e2c8f4ab35be2" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>LocalProject</name></member>
+      <member refid="classQfRecentProjectListModel_1a2b7033b2ed316a9c71937056b7964d69" prot="private" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>mRecentProjects</name></member>
+      <member refid="classQfRecentProjectListModel_1a1fd99d9f7238f1832010bbcf3b74696f" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>projectChanged</name></member>
+      <member refid="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbca752187eaf580bfcec53b59f89a3afafb" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>ProjectPathRole</name></member>
+      <member refid="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbcab9d1df47c4c764f82d95a2ce4f0a6a31" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>ProjectThumbnailRole</name></member>
+      <member refid="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbcaecc608c96c927bf459b9c8d03309bc88" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>ProjectTitleRole</name></member>
+      <member refid="classQfRecentProjectListModel_1a8aa438a6d930c2177223d244bb6342fd" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>ProjectType</name></member>
+      <member refid="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbcab27317dabaac0fa40880e82e161187f8" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>ProjectTypeRole</name></member>
+      <member refid="classQfRecentProjectListModel_1a1aa6cf4f91a75c3e57307c96990ad3e2" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>QfRecentProjectListModel</name></member>
+      <member refid="classQfRecentProjectListModel_1a3e27285389f699f747ad6c3df30aa11e" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>recentProjects</name></member>
+      <member refid="classQfRecentProjectListModel_1a55ea119328cb8d1dd48ca70aea781ede" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>reloadModel</name></member>
+      <member refid="classQfRecentProjectListModel_1a6bbcdbfd2f5585c113e19e433932a824" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>removeRecentProject</name></member>
+      <member refid="classQfRecentProjectListModel_1a08b60516e55f56405221b8486bf5ebbc" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>Role</name></member>
+      <member refid="classQfRecentProjectListModel_1a21aefda9adb28d6d21d89022f143b128" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>roleNames</name></member>
+      <member refid="classQfRecentProjectListModel_1aecf6a927c686826ea5fbc5d5d8b2c372" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>rowCount</name></member>
+      <member refid="classQfRecentProjectListModel_1adb5485464a50787f2fcfa4c9c0439a2b" prot="public" virt="non-virtual"><scope>QfRecentProjectListModel</scope><name>saveRecentProjects</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

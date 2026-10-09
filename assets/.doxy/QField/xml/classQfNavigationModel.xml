@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNavigationModel" kind="class" language="C++" prot="public">
+    <compoundname>QfNavigationModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfNavigationModel_1a88bf2e6b94c180de36d64ed82c6025c6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Types</name>
+        <qualifiedname>QfNavigationModel::Types</qualifiedname>
+        <enumvalue id="classQfNavigationModel_1a88bf2e6b94c180de36d64ed82c6025c6aca0f81f3f4f54652662611745b712429" prot="public">
+          <name>Destination</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfNavigationModel_1a88bf2e6b94c180de36d64ed82c6025c6a29a0d13ce4a5f7ebf7e38320fe5a816d" prot="public">
+          <name>Intermediate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="35" column="5" bodyfile="src/core/qfnavigationmodel.h" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfNavigationModel_1a910fa1991fee093ab0bd6bf4d72958b6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfNavigationModel::Roles</qualifiedname>
+        <enumvalue id="classQfNavigationModel_1a910fa1991fee093ab0bd6bf4d72958b6ac31f27f3c74418c4f4bc83542e965831" prot="public">
+          <name>Point</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfNavigationModel_1a910fa1991fee093ab0bd6bf4d72958b6a02966f94c26446f8443d87237ce2ef3d" prot="public">
+          <name>PointType</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="42" column="5" bodyfile="src/core/qfnavigationmodel.h" bodystart="43" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNavigationModel_1a0e26eb4d4ed9dc7f3b775d2198619e24" prot="private" static="no" mutable="no">
+        <type>QgsPointSequence</type>
+        <definition>QgsPointSequence QfNavigationModel::mPoints</definition>
+        <argsstring></argsstring>
+        <name>mPoints</name>
+        <qualifiedname>QfNavigationModel::mPoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="70" column="22" bodyfile="src/core/qfnavigationmodel.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNavigationModel_1a233179f01a9bd3fb4d4837c22855aaad" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfNavigationModel::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>QfNavigationModel::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="71" column="34" bodyfile="src/core/qfnavigationmodel.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfNavigationModel_1aec88e51af2bf0bbe5bf6f11de8295919" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNavigationModel::QfNavigationModel</definition>
+        <argsstring>()</argsstring>
+        <name>QfNavigationModel</name>
+        <qualifiedname>QfNavigationModel::QfNavigationModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="49" column="5" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1a4c362b17736722ee1ea1f1dd2b3eece0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfNavigationModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfNavigationModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="51" column="9" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1a7824e9acec774a46f2f331ed275b3c46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfNavigationModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfNavigationModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="52" column="14" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="33" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1a1db903fdeb4546dbe7a3c369a506496b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfNavigationModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfNavigationModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="53" column="11" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="132" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1a5d99f8c7f7c8c6a8cd09f51ac90317ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsPointSequence</type>
+        <definition>QgsPointSequence QfNavigationModel::points</definition>
+        <argsstring>() const</argsstring>
+        <name>points</name>
+        <qualifiedname>QfNavigationModel::points</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="55" column="22" bodyfile="src/core/qfnavigationmodel.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1a32e601d7274a8b3c57c86a95123830d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfNavigationModel::destination</definition>
+        <argsstring>() const</argsstring>
+        <name>destination</name>
+        <qualifiedname>QfNavigationModel::destination</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="57" column="14" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1af403de709ce0a9126f5de9bf6041c931" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationModel::setDestination</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setDestination</name>
+        <qualifiedname>QfNavigationModel::setDestination</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="58" column="10" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="61" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1a5d47570ff22b8cd3128c9c073b76df8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationModel::setCrs</definition>
+        <argsstring>(QgsCoordinateReferenceSystem crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>QfNavigationModel::setCrs</qualifiedname>
+        <param>
+          <type>QgsCoordinateReferenceSystem</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="60" column="10" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="84" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1afefa16ccd56f4e9c5fe7b59011bc2f03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationModel::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <qualifiedname>QfNavigationModel::save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="62" column="10" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="140" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1a581d0a9ca4204435215bd47eb0016f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationModel::restore</definition>
+        <argsstring>()</argsstring>
+        <name>restore</name>
+        <qualifiedname>QfNavigationModel::restore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="63" column="10" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="162" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNavigationModel_1ae52a9a9a035f1e5194fe37407eb8e0f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfNavigationModel::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="64" column="10" bodyfile="src/core/qfnavigationmodel.cpp" bodystart="184" bodyend="190"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfNavigationModel_1a59d58bd3219cdb128b2248740c6c5730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNavigationModel::destinationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationChanged</name>
+        <qualifiedname>QfNavigationModel::destinationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnavigationmodel.h" line="67" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfNavigationModel</label>
+        <link refid="classQfNavigationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfNavigationModel</label>
+        <link refid="classQfNavigationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfnavigationmodel.h" line="30" column="1" bodyfile="src/core/qfnavigationmodel.h" bodystart="31" bodyend="72"/>
+    <listofallmembers>
+      <member refid="classQfNavigationModel_1ae52a9a9a035f1e5194fe37407eb8e0f6" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>clear</name></member>
+      <member refid="classQfNavigationModel_1a7824e9acec774a46f2f331ed275b3c46" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>data</name></member>
+      <member refid="classQfNavigationModel_1a32e601d7274a8b3c57c86a95123830d5" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>destination</name></member>
+      <member refid="classQfNavigationModel_1a88bf2e6b94c180de36d64ed82c6025c6aca0f81f3f4f54652662611745b712429" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>Destination</name></member>
+      <member refid="classQfNavigationModel_1a59d58bd3219cdb128b2248740c6c5730" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>destinationChanged</name></member>
+      <member refid="classQfNavigationModel_1a88bf2e6b94c180de36d64ed82c6025c6a29a0d13ce4a5f7ebf7e38320fe5a816d" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>Intermediate</name></member>
+      <member refid="classQfNavigationModel_1a233179f01a9bd3fb4d4837c22855aaad" prot="private" virt="non-virtual"><scope>QfNavigationModel</scope><name>mCrs</name></member>
+      <member refid="classQfNavigationModel_1a0e26eb4d4ed9dc7f3b775d2198619e24" prot="private" virt="non-virtual"><scope>QfNavigationModel</scope><name>mPoints</name></member>
+      <member refid="classQfNavigationModel_1a910fa1991fee093ab0bd6bf4d72958b6ac31f27f3c74418c4f4bc83542e965831" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>Point</name></member>
+      <member refid="classQfNavigationModel_1a5d99f8c7f7c8c6a8cd09f51ac90317ca" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>points</name></member>
+      <member refid="classQfNavigationModel_1a910fa1991fee093ab0bd6bf4d72958b6a02966f94c26446f8443d87237ce2ef3d" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>PointType</name></member>
+      <member refid="classQfNavigationModel_1aec88e51af2bf0bbe5bf6f11de8295919" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>QfNavigationModel</name></member>
+      <member refid="classQfNavigationModel_1a581d0a9ca4204435215bd47eb0016f4e" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>restore</name></member>
+      <member refid="classQfNavigationModel_1a1db903fdeb4546dbe7a3c369a506496b" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>roleNames</name></member>
+      <member refid="classQfNavigationModel_1a910fa1991fee093ab0bd6bf4d72958b6" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>Roles</name></member>
+      <member refid="classQfNavigationModel_1a4c362b17736722ee1ea1f1dd2b3eece0" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>rowCount</name></member>
+      <member refid="classQfNavigationModel_1afefa16ccd56f4e9c5fe7b59011bc2f03" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>save</name></member>
+      <member refid="classQfNavigationModel_1a5d47570ff22b8cd3128c9c073b76df8b" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>setCrs</name></member>
+      <member refid="classQfNavigationModel_1af403de709ce0a9126f5de9bf6041c931" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>setDestination</name></member>
+      <member refid="classQfNavigationModel_1a88bf2e6b94c180de36d64ed82c6025c6" prot="public" virt="non-virtual"><scope>QfNavigationModel</scope><name>Types</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

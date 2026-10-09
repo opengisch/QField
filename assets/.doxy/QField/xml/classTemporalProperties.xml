@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTemporalProperties" kind="class" language="C++" prot="public">
+    <compoundname>TemporalProperties</compoundname>
+    <basecompoundref refid="classQfTemporalProperties" prot="public" virt="non-virtual">QfTemporalProperties</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfTemporalProperties</label>
+        <link refid="classQfTemporalProperties"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TemporalProperties</label>
+        <link refid="classTemporalProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfTemporalProperties</label>
+        <link refid="classQfTemporalProperties"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TemporalProperties</label>
+        <link refid="classTemporalProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/TemporalProperties.qml" line="2" column="1" bodyfile="src/app/qml_compat/TemporalProperties.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfTemporalProperties_1ae93c4258037928869a8d459287707141" prot="public" virt="non-virtual"><scope>TemporalProperties</scope><name>mapSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

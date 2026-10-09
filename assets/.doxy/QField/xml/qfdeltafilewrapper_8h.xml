@@ -1,0 +1,445 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfdeltafilewrapper_8h" kind="file" language="C++">
+    <compoundname>qfdeltafilewrapper.h</compoundname>
+    <includes local="no">QJsonArray</includes>
+    <includes local="no">QJsonDocument</includes>
+    <includes local="no">QJsonObject</includes>
+    <includes local="no">qgsfeature.h</includes>
+    <includes local="no">qgslogger.h</includes>
+    <includes local="no">qgsvectorlayer.h</includes>
+    <includedby refid="qfcore_8cpp" local="yes">src/core/qfcore.cpp</includedby>
+    <includedby refid="qfcloudproject_8cpp" local="yes">src/core/qfieldcloud/qfcloudproject.cpp</includedby>
+    <includedby refid="qfcloudproject_8h" local="yes">src/core/qfieldcloud/qfcloudproject.h</includedby>
+    <includedby refid="qfcloudprojectsmodel_8cpp" local="yes">src/core/qfieldcloud/qfcloudprojectsmodel.cpp</includedby>
+    <includedby refid="qfdeltachangesmodel_8cpp" local="yes">src/core/qfieldcloud/qfdeltachangesmodel.cpp</includedby>
+    <includedby refid="qfdeltafilewrapper_8cpp" local="yes">src/core/qfieldcloud/qfdeltafilewrapper.cpp</includedby>
+    <includedby refid="qflayerobserver_8h" local="yes">src/core/qfieldcloud/qflayerobserver.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qfieldcloud/qfdeltafilewrapper.h</label>
+        <link refid="qfdeltafilewrapper_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QJsonArray</label>
+      </node>
+      <node id="3">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="4">
+        <label>QJsonObject</label>
+      </node>
+      <node id="5">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="6">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="7">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>src/core/qfappexpressioncontextscopesgenerator.h</label>
+        <link refid="qfappexpressioncontextscopesgenerator_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/core/qfdigitizinglogger.h</label>
+        <link refid="qfdigitizinglogger_8h_source"/>
+      </node>
+      <node id="6">
+        <label>src/core/qffeaturelistmodel.h</label>
+        <link refid="qffeaturelistmodel_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/core/qffeaturemodel.h</label>
+        <link refid="qffeaturemodel_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/core/qfieldcloud/qfcloudconnection.h</label>
+        <link refid="qfcloudconnection_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/core/qfieldcloud/qfcloudproject.h</label>
+        <link refid="qfcloudproject_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/core/qfieldcloud/qfcloudprojectsmodel.h</label>
+        <link refid="qfcloudprojectsmodel_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qfieldcloud/qfdeltafilewrapper.h</label>
+        <link refid="qfdeltafilewrapper_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/core/qfieldcloud/qfdeltalistmodel.h</label>
+        <link refid="qfdeltalistmodel_8h_source"/>
+      </node>
+      <node id="19">
+        <label>src/core/qfieldcloud/qflayerobserver.h</label>
+        <link refid="qflayerobserver_8h_source"/>
+      </node>
+      <node id="16">
+        <label>src/core/qfprojectinfo.h</label>
+        <link refid="qfprojectinfo_8h_source"/>
+      </node>
+      <node id="4">
+        <label>src/core/utils/qfcloudutils.h</label>
+        <link refid="qfcloudutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>src/core/utils/qfexpressioncontextutils.h</label>
+        <link refid="qfexpressioncontextutils_8h_source"/>
+      </node>
+      <node id="18">
+        <label>src/core/utils/qffeatureutils.h</label>
+        <link refid="qffeatureutils_8h_source"/>
+      </node>
+      <node id="10">
+        <label>src/gui/qfattributeformmodel.h</label>
+        <link refid="qfattributeformmodel_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/gui/qfattributeformmodelbase.h</label>
+        <link refid="qfattributeformmodelbase_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/gui/qfexpressionevaluator.h</label>
+        <link refid="qfexpressionevaluator_8h_source"/>
+      </node>
+      <node id="7">
+        <label>src/gui/qffeaturechecklistmodel.h</label>
+        <link refid="qffeaturechecklistmodel_8h_source"/>
+      </node>
+      <node id="15">
+        <label>src/service/qfieldcloudservice.h</label>
+        <link refid="qfieldcloudservice_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classQfDeltaFileWrapper" prot="public">QfDeltaFileWrapper</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="qfdeltafilewrapper_8h_1a765656c9cf103ab8f5f99a572b15ee1a" prot="public" static="no" mutable="no">
+        <type>const QString</type>
+        <definition>const QString DeltaFormatVersion</definition>
+        <argsstring></argsstring>
+        <name>DeltaFormatVersion</name>
+        <initializer>= QStringLiteral( &quot;1.0&quot; )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltafilewrapper.h" line="28" column="15" bodyfile="src/core/qfieldcloud/qfdeltafilewrapper.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qfdeltafilewrapper.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Apr<sp/>2020</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Ivan<sp/>Ivanov</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>ivan@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFDELTAFILEWRAPPER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFDELTAFILEWRAPPER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonArray&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonDocument&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsfeature.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslogger.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsvectorlayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>DeltaFormatVersion<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;1.0&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classQfDeltaFileWrapper" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>READ<sp/>count<sp/>NOTIFY<sp/><ref refid="classQfDeltaFileWrapper_1a93192aa1aa301a5df0224f83954d226b" kindref="member">countChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addedCount<sp/>READ<sp/>addedCount<sp/>NOTIFY<sp/><ref refid="classQfDeltaFileWrapper_1a93192aa1aa301a5df0224f83954d226b" kindref="member">countChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>editedCount<sp/>READ<sp/>editedCount<sp/>NOTIFY<sp/><ref refid="classQfDeltaFileWrapper_1a93192aa1aa301a5df0224f83954d226b" kindref="member">countChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>deletedCount<sp/>READ<sp/>deletedCount<sp/>NOTIFY<sp/><ref refid="classQfDeltaFileWrapper_1a93192aa1aa301a5df0224f83954d226b" kindref="member">countChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isPushing<sp/>READ<sp/>isPushing<sp/>NOTIFY<sp/><ref refid="classQfDeltaFileWrapper_1a13c2a74d62925d1fed77fc45d7e35d6e" kindref="member">isPushingChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasError<sp/>READ<sp/>hasError<sp/>NOTIFY<sp/><ref refid="classQfDeltaFileWrapper_1a53cb52e1d7628a0063e4b32e790e45aa" kindref="member">errorChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQfDeltaFileWrapper_1af3fb7d9865c4e1d81f048d3e7572fa7f" kindref="member">ErrorType</ref><sp/>errorType<sp/>READ<sp/>errorType<sp/>NOTIFY<sp/><ref refid="classQfDeltaFileWrapper_1a53cb52e1d7628a0063e4b32e790e45aa" kindref="member">errorChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>errorString<sp/>READ<sp/>errorString<sp/>NOTIFY<sp/><ref refid="classQfDeltaFileWrapper_1a53cb52e1d7628a0063e4b32e790e45aa" kindref="member">errorChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51" refid="classQfDeltaFileWrapper_1af3fb7d9865c4e1d81f048d3e7572fa7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1af3fb7d9865c4e1d81f048d3e7572fa7f" kindref="member">ErrorType</ref></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NoError,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LockError,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NotCloudProjectError,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>IOError,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>JsonParseError,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>JsonFormatIdError,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>JsonFormatProjectIdError,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>JsonFormatVersionError,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>JsonFormatDeltasError,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>JsonFormatDeltaItemError,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>JsonIncompatibleVersionError</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/><ref refid="classQfDeltaFileWrapper_1af3fb7d9865c4e1d81f048d3e7572fa7f" kindref="member">ErrorType</ref><sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQfDeltaFileWrapper_1aa2692c9af90eca42b18cfc2089874ec5" kindref="member">projectId</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;<ref refid="classQfDeltaFileWrapper_1a788cab9f9bd01c4f12b76aa244d65526" kindref="member">fileName</ref><sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfDeltaFileWrapper_1acf2d99dc21c9d06b765c8dba26410de4" kindref="member">~QfDeltaFileWrapper</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QStringList<sp/><ref refid="classQfDeltaFileWrapper_1a4cb4e38ede2409f989cf118353355734" kindref="member">attachmentFieldNames</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;layerId<sp/>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classQfDeltaFileWrapper_1a6449957b3e39c5e63600f8d81af06ea3" kindref="member">crsByLayerId</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;layerId<sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classQfDeltaFileWrapper_1a4197211046143219cb196518af09ba6b" kindref="member">nameByLayerId</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;layerId<sp/>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/><ref refid="classQfDeltaFileWrapper_1ac15b1e358dc55ac7475b1175518a3f8e" kindref="member">getLocalPkAttribute</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsVectorLayer<sp/>*vl<sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QgsFeatureRequest<sp/><ref refid="classQfDeltaFileWrapper_1afa7ead97db93c29ed6f59de7c959453c" kindref="member">localPkRequest</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsVectorLayer<sp/>*vl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>&amp;localPks<sp/>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QPair&lt;int,<sp/>QString&gt;<sp/><ref refid="classQfDeltaFileWrapper_1a93160aa41705071e97d1380f64669e67" kindref="member">getSourcePkAttribute</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsVectorLayer<sp/>*vl<sp/>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classQfDeltaFileWrapper_1a53f307960658632468d0b5bee1bc4ddd" kindref="member">getSourceLayerId</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsVectorLayer<sp/>*vl<sp/>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1ac57c2d6a93912327f46914ddc438a1ea" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a78a2b2c7cf06f1fabb3891f7c2bcdf8f" kindref="member">resetId</ref>();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfDeltaFileWrapper_1a81cab26618cb0145bb49194a0870b762" kindref="member">id</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfDeltaFileWrapper_1a788cab9f9bd01c4f12b76aa244d65526" kindref="member">fileName</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfDeltaFileWrapper_1aa2692c9af90eca42b18cfc2089874ec5" kindref="member">projectId</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasError()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1aa1b507b44ddc31529042afdb245fe8d9" kindref="member">isDirty</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addedCount()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>editedCount()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>deletedCount()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>QJsonArray<sp/><ref refid="classQfDeltaFileWrapper_1a1b37a22343915e9eea11a9d665c6ef96" kindref="member">deltas</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfDeltaFileWrapper_1af3fb7d9865c4e1d81f048d3e7572fa7f" kindref="member">ErrorType</ref><sp/>errorType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>errorString()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/><ref refid="classQfDeltaFileWrapper_1a67f113a27a3975d4a631e1dd55f65b07" kindref="member">toJson</ref>(<sp/>QJsonDocument::JsonFormat<sp/>jsonFormat<sp/>=<sp/>QJsonDocument::Indented<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfDeltaFileWrapper_1aedd82b4548ffdd7bc65c72302e29000f" kindref="member">toString</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1ad872b750b2246a922ce1513327b70c85" kindref="member">toFile</ref>();</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QString<sp/><ref refid="classQfDeltaFileWrapper_1a2f17565ade931ca74908cacde93af853" kindref="member">toFileForPush</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;outFileName<sp/>=<sp/>QString()<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a8f5bc44b0e491d2f501483327fdbac7d" kindref="member">isCreatedFeature</ref>(<sp/>QgsVectorLayer<sp/>*vl,<sp/>QgsFeature<sp/>feature<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1ada1202e8b3121507ffbeea287bfd5fbc" kindref="member">append</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref><sp/>*deltaFileWrapper<sp/>);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>QString&gt;<sp/><ref refid="classQfDeltaFileWrapper_1afcb6ecff7862a7bd6c6587c8f519962c" kindref="member">attachmentFileNames</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1ab4c1f0af4aeb6c2f05a90eed693d5d53" kindref="member">addCreate</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;sourceLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localPkAttrName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;sourcePkAttrName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeature<sp/>&amp;newFeature<sp/>);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a61d7c3857cfe7ede11934a9ad412173e" kindref="member">addDelete</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;sourceLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localPkAttrName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;sourcePkAttrName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeature<sp/>&amp;oldFeature<sp/>);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a15c14d459cf0e136900083785fd223f7" kindref="member">addPatch</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;sourceLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localPkAttrName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;sourcePkAttrName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeature<sp/>&amp;oldFeature,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsFeature<sp/>&amp;newFeature,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>storeSnapshot<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>QStringList<sp/><ref refid="classQfDeltaFileWrapper_1af429bcaf4e0f08035a33fc9c9e966da0" kindref="member">deltaLayerIds</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1afd604eeb53f4b690a046b9e8172803f1" kindref="member">isDeltaBeingApplied</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a1988d8d2c653fdc5b59a17d8686b6556" kindref="member">apply</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project<sp/>);</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a1cd928fc366d4ae4bb2683115fa856a2" kindref="member">applyReversed</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project<sp/>);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight></codeline>
+<codeline lineno="367" refid="classQfDeltaFileWrapper_1a6b46f2dfabdb5eada84256ed85cd2ad0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a6b46f2dfabdb5eada84256ed85cd2ad0" kindref="member">isPushing</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mIsPushing;<sp/>}</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a5271054f1c06c0c20a00f0a3b1ffe471" kindref="member">setIsPushing</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isPushing<sp/>);</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1ae2be3e8c38df3d73ec14b64be45d63ad" kindref="member">getDeltaIndexByUuid</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;uuid<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"></highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="390" refid="classQfDeltaFileWrapper_1a93192aa1aa301a5df0224f83954d226b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a93192aa1aa301a5df0224f83954d226b" kindref="member">countChanged</ref>();</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="392"><highlight class="normal"></highlight></codeline>
+<codeline lineno="396" refid="classQfDeltaFileWrapper_1a13c2a74d62925d1fed77fc45d7e35d6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a13c2a74d62925d1fed77fc45d7e35d6e" kindref="member">isPushingChanged</ref>();</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"></highlight></codeline>
+<codeline lineno="401" refid="classQfDeltaFileWrapper_1a2b76ea5e73e41744d1a292ddc9b71323" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a2b76ea5e73e41744d1a292ddc9b71323" kindref="member">savedToFile</ref>();</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"></highlight></codeline>
+<codeline lineno="406" refid="classQfDeltaFileWrapper_1a53cb52e1d7628a0063e4b32e790e45aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1a53cb52e1d7628a0063e4b32e790e45aa" kindref="member">errorChanged</ref>();</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setError(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQfDeltaFileWrapper_1af3fb7d9865c4e1d81f048d3e7572fa7f" kindref="member">ErrorType</ref><sp/>&amp;type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;details<sp/>=<sp/>QString()<sp/>);</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"><sp/><sp/><sp/><sp/>QJsonValue<sp/>geometryToJsonValue(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsGeometry<sp/>&amp;geom<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"></highlight></codeline>
+<codeline lineno="425"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>applyInternal(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldApplyInReverse<sp/>);</highlight></codeline>
+<codeline lineno="426"><highlight class="normal"></highlight></codeline>
+<codeline lineno="427"><highlight class="normal"></highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>applyDeltasOnLayers(<sp/>QHash&lt;QString,<sp/>QgsVectorLayer<sp/>*&gt;<sp/>&amp;vectorLayers,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldApplyInReverse<sp/>);</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"></highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/>std::tuple&lt;QJsonObject,<sp/>QJsonObject&gt;<sp/>addAttachments(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProject<sp/>*project,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localLayerId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;newAttrs,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;oldAttrs<sp/>=<sp/>QJsonObject()<sp/>);</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"></highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/>QJsonValue<sp/>attributeToJsonValue(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;value<sp/>);</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"></highlight></codeline>
+<codeline lineno="445"><highlight class="normal"></highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>appendDelta(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;delta<sp/>);</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"></highlight></codeline>
+<codeline lineno="451"><highlight class="normal"></highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mergeDelta(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;delta<sp/>);</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"></highlight></codeline>
+<codeline lineno="457"><highlight class="normal"></highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mergeCreateDelta(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;delta<sp/>);</highlight></codeline>
+<codeline lineno="462"><highlight class="normal"></highlight></codeline>
+<codeline lineno="463"><highlight class="normal"></highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mergeDeleteDelta(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;delta<sp/>);</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"></highlight></codeline>
+<codeline lineno="469"><highlight class="normal"></highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mergePatchDelta(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;delta<sp/>);</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"></highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>deltaContainsActualChange(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJsonObject<sp/>&amp;delta<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="481"><highlight class="normal"></highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countByMethod(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;method<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"></highlight></codeline>
+<codeline lineno="490"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>QMap&lt;QString,<sp/>QString&gt;&gt;<sp/>mLocalPkToDeltaUuid;</highlight></codeline>
+<codeline lineno="491"><highlight class="normal"></highlight></codeline>
+<codeline lineno="495"><highlight class="normal"><sp/><sp/><sp/><sp/>QJsonArray<sp/>mDeltas;</highlight></codeline>
+<codeline lineno="496"><highlight class="normal"></highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QJsonObject&gt;<sp/>mPendingDeltas;</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"></highlight></codeline>
+<codeline lineno="505"><highlight class="normal"><sp/><sp/><sp/><sp/>QJsonObject<sp/>mJsonRoot;</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"></highlight></codeline>
+<codeline lineno="507"><highlight class="normal"></highlight></codeline>
+<codeline lineno="511"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mFileName;</highlight></codeline>
+<codeline lineno="512"><highlight class="normal"></highlight></codeline>
+<codeline lineno="513"><highlight class="normal"></highlight></codeline>
+<codeline lineno="517"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mCloudProjectId;</highlight></codeline>
+<codeline lineno="518"><highlight class="normal"></highlight></codeline>
+<codeline lineno="519"><highlight class="normal"></highlight></codeline>
+<codeline lineno="523"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfDeltaFileWrapper_1af3fb7d9865c4e1d81f048d3e7572fa7f" kindref="member">ErrorType</ref><sp/>mErrorType<sp/>=<sp/>ErrorType::NoError;</highlight></codeline>
+<codeline lineno="524"><highlight class="normal"></highlight></codeline>
+<codeline lineno="525"><highlight class="normal"></highlight></codeline>
+<codeline lineno="529"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mErrorDetails;</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"></highlight></codeline>
+<codeline lineno="531"><highlight class="normal"></highlight></codeline>
+<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsDirty<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="536"><highlight class="normal"></highlight></codeline>
+<codeline lineno="537"><highlight class="normal"></highlight></codeline>
+<codeline lineno="541"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsPushing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="542"><highlight class="normal"></highlight></codeline>
+<codeline lineno="543"><highlight class="normal"></highlight></codeline>
+<codeline lineno="547"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mIsDeltaFileBeingApplied<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="548"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="549"><highlight class="normal"></highlight></codeline>
+<codeline lineno="550"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFDELTAFILEWRAPPER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfieldcloud/qfdeltafilewrapper.h"/>
+  </compounddef>
+</doxygen>

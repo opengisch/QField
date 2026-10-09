@@ -1,0 +1,515 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudProjectDetails" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudProjectDetails</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ColumnLayout</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1ae4ef840aa4934d3fa9a44c807489f1da" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudProjectDetails::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfCloudProjectDetails::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="10" column="5" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a1e5b1f05daa9b1089141eddecf3bd69c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudProjectDetails::onCloudProjectChanged</definition>
+        <argsstring></argsstring>
+        <name>onCloudProjectChanged</name>
+        <qualifiedname>QfCloudProjectDetails::onCloudProjectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="24" column="5" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a9666b5b5f0b28d80e337c5a48158ef15" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudProjectDetails::projectDetailsLayout</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsLayout</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="29" column="14" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a3468fa5aa165e6e855adefaffd3356cb" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsName</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsName</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="30" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1ae152e9303746a1f3834e915705cdaf97" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudProjectDetails::projectDetailsThumbnailRect</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsThumbnailRect</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsThumbnailRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="31" column="11" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a36d00c6761c73a10e9cb62c2adc38098" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudProjectDetails::projectDetailsThumbnailMask</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsThumbnailMask</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsThumbnailMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="32" column="11" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a522a2ccb51a79b5e9d82463a13bab0f0" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfCloudProjectDetails::projectDetailsThumbnail</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsThumbnail</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsThumbnail</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="33" column="7" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1afe969cf86efdbcc961f52b759c3f7ecd" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudProjectDetails::projectDetailsBodyLayout</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsBodyLayout</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsBodyLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="34" column="14" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a3ec905ed176c96146714977c4fd7f9f6" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsDescription</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsDescription</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="35" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1aef1d9650c4569fa6a0f44984f3f9ede9" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsStorageSizeLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsStorageSizeLabel</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsStorageSizeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="36" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a84b75cbc49ec7f8a08b349fbffc3a9d6" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsStorageSize</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsStorageSize</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsStorageSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="37" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1ac5b8e49abd128e888c53160da6ae0bae" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsOwnerLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsOwnerLabel</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsOwnerLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="38" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1acc00abc2ab5f55713b377ea8b21f2b2c" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsOwner</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsOwner</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsOwner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="39" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1ad550b7e2f9fdcaabc29978706a617f0c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMeterBar" kindref="compound">QfMeterBar</ref></type>
+        <definition>QfMeterBar QfCloudProjectDetails::detailsStorageMeter</definition>
+        <argsstring></argsstring>
+        <name>detailsStorageMeter</name>
+        <qualifiedname>QfCloudProjectDetails::detailsStorageMeter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="40" column="12" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a9cf32c5a8188c940a335705eed897b3e" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsCreationDateLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsCreationDateLabel</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsCreationDateLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="41" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a5be24cc0b5f19b740cb1cb9cc39185f4" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsCreationDate</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsCreationDate</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsCreationDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="42" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a64a1056766a8217edc4e40f689c4c056" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsUpdateDateLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsUpdateDateLabel</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsUpdateDateLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="43" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1aeb14b16c45c030ef0cbd29dee38a7a74" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsUpdateDate</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsUpdateDate</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsUpdateDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="44" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a17fc3eb56d77d86c9d69ceac2c7c7ebe" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfCloudProjectDetails::projectDetailsCode</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsCode</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="45" column="7" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a536d6d6e1b3877fc024e0f3b9da8d95c" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfCloudProjectDetails::projectDetailsCodeLabel</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsCodeLabel</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsCodeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="46" column="6" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1ada3a6fa131619c6c79488ca18d59eaa7" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfCloudProjectDetails::syncButton</definition>
+        <argsstring></argsstring>
+        <name>syncButton</name>
+        <qualifiedname>QfCloudProjectDetails::syncButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="47" column="10" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a34911b3c238b705695499b2202bda272" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfCloudProjectDetails::pushButton</definition>
+        <argsstring></argsstring>
+        <name>pushButton</name>
+        <qualifiedname>QfCloudProjectDetails::pushButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="48" column="10" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1afa1f826fdec5293e3ff51d1ac6a91420" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfCloudProjectDetails::downloadProjectInDetailsLayout</definition>
+        <argsstring></argsstring>
+        <name>downloadProjectInDetailsLayout</name>
+        <qualifiedname>QfCloudProjectDetails::downloadProjectInDetailsLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="49" column="10" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1adba8ba4d68fe7a5ab86c50f51a88a325" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfCloudProjectDetails::openProjectBtn</definition>
+        <argsstring></argsstring>
+        <name>openProjectBtn</name>
+        <qualifiedname>QfCloudProjectDetails::openProjectBtn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="50" column="10" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectDetails_1a701774adfd9daf4906280a662b83f11c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfCloudProjectDetails::projectDetailsMenu</definition>
+        <argsstring></argsstring>
+        <name>projectDetailsMenu</name>
+        <qualifiedname>QfCloudProjectDetails::projectDetailsMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="51" column="8" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudProjectDetails_1ad622d3c12474073382c0ca0b44fe9697" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCloudProjectDetails::cloudProject</definition>
+        <argsstring></argsstring>
+        <name>cloudProject</name>
+        <qualifiedname>QfCloudProjectDetails::cloudProject</qualifiedname>
+        <read>dummyGetter_cloudProject_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="17" column="1" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectDetails_1ae7b52e92a7f6d93aba9b697a2fc67c39" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudProjectDetails::lastSubscriptionUser</definition>
+        <argsstring></argsstring>
+        <name>lastSubscriptionUser</name>
+        <qualifiedname>QfCloudProjectDetails::lastSubscriptionUser</qualifiedname>
+        <read>dummyGetter_lastSubscriptionUser_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="19" column="1" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectDetails_1af63d037503e7e00c7b0e7714b5daafd1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectDetails::isTemplate</definition>
+        <argsstring></argsstring>
+        <name>isTemplate</name>
+        <qualifiedname>QfCloudProjectDetails::isTemplate</qualifiedname>
+        <read>dummyGetter_isTemplate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="22" column="1" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudProjectDetails_1abee6c122a84b8539f6ccb03d8008d324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectDetails::synchronize</definition>
+        <argsstring>()</argsstring>
+        <name>synchronize</name>
+        <qualifiedname>QfCloudProjectDetails::synchronize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="13" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudProjectDetails_1a5e3bce8ebf29bcaafb0d515af6c7457f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectDetails::pushChanges</definition>
+        <argsstring>()</argsstring>
+        <name>pushChanges</name>
+        <qualifiedname>QfCloudProjectDetails::pushChanges</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="15" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudProjectDetails_1ae846c69f1d29cef864b141021c621872" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectDetails::updateStorageMeter</definition>
+        <argsstring>()</argsstring>
+        <name>updateStorageMeter</name>
+        <qualifiedname>QfCloudProjectDetails::updateStorageMeter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectDetails.qml" line="27" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>QfCloudProjectDetails</label>
+        <link refid="classQfCloudProjectDetails"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>QfCloudProjectDetails</label>
+        <link refid="classQfCloudProjectDetails"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudProjectDetails.qml" line="9" column="1" bodyfile="src/app/qml/QfCloudProjectDetails.qml" bodystart="9" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classQfCloudProjectDetails_1ad622d3c12474073382c0ca0b44fe9697" prot="public" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>cloudProject</name></member>
+      <member refid="classQfCloudProjectDetails_1ad550b7e2f9fdcaabc29978706a617f0c" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>detailsStorageMeter</name></member>
+      <member refid="classQfCloudProjectDetails_1afa1f826fdec5293e3ff51d1ac6a91420" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>downloadProjectInDetailsLayout</name></member>
+      <member refid="classQfCloudProjectDetails_1af63d037503e7e00c7b0e7714b5daafd1" prot="public" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>isTemplate</name></member>
+      <member refid="classQfCloudProjectDetails_1ae7b52e92a7f6d93aba9b697a2fc67c39" prot="public" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>lastSubscriptionUser</name></member>
+      <member refid="classQfCloudProjectDetails_1a1e5b1f05daa9b1089141eddecf3bd69c" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>onCloudProjectChanged</name></member>
+      <member refid="classQfCloudProjectDetails_1adba8ba4d68fe7a5ab86c50f51a88a325" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>openProjectBtn</name></member>
+      <member refid="classQfCloudProjectDetails_1afe969cf86efdbcc961f52b759c3f7ecd" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsBodyLayout</name></member>
+      <member refid="classQfCloudProjectDetails_1a17fc3eb56d77d86c9d69ceac2c7c7ebe" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsCode</name></member>
+      <member refid="classQfCloudProjectDetails_1a536d6d6e1b3877fc024e0f3b9da8d95c" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsCodeLabel</name></member>
+      <member refid="classQfCloudProjectDetails_1a5be24cc0b5f19b740cb1cb9cc39185f4" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsCreationDate</name></member>
+      <member refid="classQfCloudProjectDetails_1a9cf32c5a8188c940a335705eed897b3e" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsCreationDateLabel</name></member>
+      <member refid="classQfCloudProjectDetails_1a3ec905ed176c96146714977c4fd7f9f6" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsDescription</name></member>
+      <member refid="classQfCloudProjectDetails_1a9666b5b5f0b28d80e337c5a48158ef15" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsLayout</name></member>
+      <member refid="classQfCloudProjectDetails_1a701774adfd9daf4906280a662b83f11c" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsMenu</name></member>
+      <member refid="classQfCloudProjectDetails_1a3468fa5aa165e6e855adefaffd3356cb" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsName</name></member>
+      <member refid="classQfCloudProjectDetails_1acc00abc2ab5f55713b377ea8b21f2b2c" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsOwner</name></member>
+      <member refid="classQfCloudProjectDetails_1ac5b8e49abd128e888c53160da6ae0bae" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsOwnerLabel</name></member>
+      <member refid="classQfCloudProjectDetails_1a84b75cbc49ec7f8a08b349fbffc3a9d6" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsStorageSize</name></member>
+      <member refid="classQfCloudProjectDetails_1aef1d9650c4569fa6a0f44984f3f9ede9" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsStorageSizeLabel</name></member>
+      <member refid="classQfCloudProjectDetails_1a522a2ccb51a79b5e9d82463a13bab0f0" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsThumbnail</name></member>
+      <member refid="classQfCloudProjectDetails_1a36d00c6761c73a10e9cb62c2adc38098" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsThumbnailMask</name></member>
+      <member refid="classQfCloudProjectDetails_1ae152e9303746a1f3834e915705cdaf97" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsThumbnailRect</name></member>
+      <member refid="classQfCloudProjectDetails_1aeb14b16c45c030ef0cbd29dee38a7a74" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsUpdateDate</name></member>
+      <member refid="classQfCloudProjectDetails_1a64a1056766a8217edc4e40f689c4c056" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>projectDetailsUpdateDateLabel</name></member>
+      <member refid="classQfCloudProjectDetails_1a34911b3c238b705695499b2202bda272" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>pushButton</name></member>
+      <member refid="classQfCloudProjectDetails_1a5e3bce8ebf29bcaafb0d515af6c7457f" prot="public" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>pushChanges</name></member>
+      <member refid="classQfCloudProjectDetails_1ae4ef840aa4934d3fa9a44c807489f1da" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>spacing</name></member>
+      <member refid="classQfCloudProjectDetails_1ada3a6fa131619c6c79488ca18d59eaa7" prot="private" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>syncButton</name></member>
+      <member refid="classQfCloudProjectDetails_1abee6c122a84b8539f6ccb03d8008d324" prot="public" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>synchronize</name></member>
+      <member refid="classQfCloudProjectDetails_1ae846c69f1d29cef864b141021c621872" prot="public" virt="non-virtual"><scope>QfCloudProjectDetails</scope><name>updateStorageMeter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

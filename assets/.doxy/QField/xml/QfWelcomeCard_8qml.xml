@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfWelcomeCard_8qml" kind="file" language="C++">
+    <compoundname>QfWelcomeCard.qml</compoundname>
+    <innerclass refid="classQfWelcomeCard" prot="public">QfWelcomeCard</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>QtQuick.Layouts</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>org.qfield.core</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">import<sp/>org.qfield.gui</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">SwipeView<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>id:<sp/>root</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>clip:<sp/>true</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>interactive:<sp/>false</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>collapsed:<sp/>false</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>Layout.preferredHeight:<sp/>collapsed<sp/>?<sp/>0<sp/>:<sp/>(currentItem<sp/>?<sp/>currentItem.implicitHeight<sp/>:<sp/>implicitHeight)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>Behavior<sp/>on<sp/>implicitHeight<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>NumberAnimation<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>duration:<sp/>100</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>easing.type:<sp/>Easing.InQuad</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>function<sp/>collapse()<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>root.collapsed<sp/>=<sp/>true;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>background:<sp/>Rectangle<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>color:<sp/>Qt.rgba(<ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainColor.r,<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainColor.g,<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainColor.b,<sp/>0.06)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>border.color:<sp/>Qt.rgba(<ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainColor.r,<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainColor.g,<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainColor.b,<sp/>0.3)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>border.width:<sp/>1</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>radius:<sp/>12</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>component<sp/>Panel:<sp/>Item<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>panel</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">property</highlight><highlight class="normal"><sp/>alias<sp/>title:<sp/>titleText.text</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">property</highlight><highlight class="normal"><sp/>alias<sp/>message:<sp/>messageText.text</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">property</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>closable:<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">property</highlight><highlight class="normal"><sp/>alias<sp/>actions:<sp/>actionRow.children</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>implicitHeight:<sp/>panelLayout.implicitHeight</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>ColumnLayout<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>panelLayout</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.left:<sp/>parent.left</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.right:<sp/>parent.right</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.verticalCenter:<sp/>parent.verticalCenter</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>spacing:<sp/>0</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ColumnLayout<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>textColumn</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.fillWidth:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.leftMargin:<sp/>16</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.rightMargin:<sp/>panel.closable<sp/>?<sp/>closeButton.width<sp/>+<sp/>8<sp/>:<sp/>16</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.topMargin:<sp/>11</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.bottomMargin:<sp/>actionRow.children.length<sp/>&gt;<sp/>0<sp/>?<sp/>0<sp/>:<sp/>16</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>spacing:<sp/>2</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Text<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>titleText</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.fillWidth:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>visible:<sp/>text<sp/>!==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>font:<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.strongFont</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>color:<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainTextColor</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wrapMode:<sp/>Text.WordWrap</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Text<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>messageText</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.fillWidth:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>font:<sp/>titleText.visible<sp/>?<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.tipFont<sp/>:<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.defaultFont</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>color:<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainTextColor</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wrapMode:<sp/>Text.WordWrap</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>RowLayout<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>actionRow</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.fillWidth:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.leftMargin:<sp/>16</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.rightMargin:<sp/>16</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.topMargin:<sp/>children.length<sp/>&gt;<sp/>0<sp/>?<sp/>12<sp/>:<sp/>0</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Layout.bottomMargin:<sp/>children.length<sp/>&gt;<sp/>0<sp/>?<sp/>16<sp/>:<sp/>0</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>spacing:<sp/>8</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>closeButton</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.top:<sp/>parent.top</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.right:<sp/>parent.right</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.rightMargin:<sp/>4</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>width:<sp/>44</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>height:<sp/>44</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>visible:<sp/>panel.closable</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>iconSource:<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.<ref refid="classQfTheme_1af7fcfa8338a9b924e2331aa1d6354928" kindref="member">getThemeVectorIcon</ref>(</highlight><highlight class="stringliteral">&quot;ic_close_white_24dp&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>iconColor:<sp/><ref refid="classQfTheme" kindref="compound">QfTheme</ref>.mainColor</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>onClicked:<sp/>panel.SwipeView.view.collapse()</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/gui/qml/QfWelcomeCard.qml"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfVideoSinkCapture" kind="class" language="C++" prot="public">
+    <compoundname>QfVideoSinkCapture</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfvideosinkcapture_8h" local="no">qfvideosinkcapture.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfVideoSinkCapture_1ab1f1e9487ebfdd88cd1bed66d59e9ccf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVideoSink *</type>
+        <definition>QVideoSink * QfVideoSinkCapture::videoSink</definition>
+        <argsstring></argsstring>
+        <name>videoSink</name>
+        <qualifiedname>QfVideoSinkCapture::videoSink</qualifiedname>
+        <read>videoSink</read>
+        <write>setVideoSink</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvideosinkcapture.h" line="32" column="5" bodyfile="src/core/qfvideosinkcapture.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfVideoSinkCapture_1a60ee60bfbd71bf43f22d822dd7c639da" prot="private" static="no" mutable="no">
+        <type>QVideoSink *</type>
+        <definition>QVideoSink* QfVideoSinkCapture::mVideoSink</definition>
+        <argsstring></argsstring>
+        <name>mVideoSink</name>
+        <qualifiedname>QfVideoSinkCapture::mVideoSink</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvideosinkcapture.h" line="52" column="16" bodyfile="src/core/qfvideosinkcapture.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfVideoSinkCapture_1af20c5fd982f40cd322c71a4b6b91a02c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfVideoSinkCapture::QfVideoSinkCapture</definition>
+        <argsstring>()=default</argsstring>
+        <name>QfVideoSinkCapture</name>
+        <qualifiedname>QfVideoSinkCapture::QfVideoSinkCapture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvideosinkcapture.h" line="35" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVideoSinkCapture_1a62e592131daa5f85d21ff8335dd8e78c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVideoSink *</type>
+        <definition>QVideoSink * QfVideoSinkCapture::videoSink</definition>
+        <argsstring>() const</argsstring>
+        <name>videoSink</name>
+        <qualifiedname>QfVideoSinkCapture::videoSink</qualifiedname>
+        <briefdescription>
+<para>Returns the video sink from which still frames will be drawn from. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvideosinkcapture.h" line="38" column="16" bodyfile="src/core/qfvideosinkcapture.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVideoSinkCapture_1aef0079a7cf15ff81e0da676c60c3b148" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVideoSinkCapture::setVideoSink</definition>
+        <argsstring>(QVideoSink *videoSink)</argsstring>
+        <name>setVideoSink</name>
+        <qualifiedname>QfVideoSinkCapture::setVideoSink</qualifiedname>
+        <param>
+          <type>QVideoSink *</type>
+          <declname>videoSink</declname>
+        </param>
+        <briefdescription>
+<para>Sets the video sink from which still frames will be drawn from. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvideosinkcapture.h" line="41" column="10" bodyfile="src/core/qfvideosinkcapture.cpp" bodystart="25" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVideoSinkCapture_1a575b0776cf3f770862c1444bcf6cb602" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVideoSinkCapture::saveToFile</definition>
+        <argsstring>(const QString &amp;location)</argsstring>
+        <name>saveToFile</name>
+        <qualifiedname>QfVideoSinkCapture::saveToFile</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>location</declname>
+        </param>
+        <briefdescription>
+<para>Save the current frame from the video sink within a directory <emphasis>location</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvideosinkcapture.h" line="44" column="22" bodyfile="src/core/qfvideosinkcapture.cpp" bodystart="36" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfVideoSinkCapture_1aa3ccad4254851d53310f42e8a1b4d15f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVideoSinkCapture::videoSinkChanged</definition>
+        <argsstring>()</argsstring>
+        <name>videoSinkChanged</name>
+        <qualifiedname>QfVideoSinkCapture::videoSinkChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvideosinkcapture.h" line="47" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVideoSinkCapture_1ab42315f482ea5caf55161b919258924b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVideoSinkCapture::imageSaved</definition>
+        <argsstring>(const QString &amp;path=QString())</argsstring>
+        <name>imageSaved</name>
+        <qualifiedname>QfVideoSinkCapture::imageSaved</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvideosinkcapture.h" line="49" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This object allows capturing of still frames from a video sink. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfVideoSinkCapture</label>
+        <link refid="classQfVideoSinkCapture"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfVideoSinkCapture</label>
+        <link refid="classQfVideoSinkCapture"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfvideosinkcapture.h" line="28" column="1" bodyfile="src/core/qfvideosinkcapture.h" bodystart="29" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classQfVideoSinkCapture_1ab42315f482ea5caf55161b919258924b" prot="public" virt="non-virtual"><scope>QfVideoSinkCapture</scope><name>imageSaved</name></member>
+      <member refid="classQfVideoSinkCapture_1a60ee60bfbd71bf43f22d822dd7c639da" prot="private" virt="non-virtual"><scope>QfVideoSinkCapture</scope><name>mVideoSink</name></member>
+      <member refid="classQfVideoSinkCapture_1af20c5fd982f40cd322c71a4b6b91a02c" prot="public" virt="non-virtual"><scope>QfVideoSinkCapture</scope><name>QfVideoSinkCapture</name></member>
+      <member refid="classQfVideoSinkCapture_1a575b0776cf3f770862c1444bcf6cb602" prot="public" virt="non-virtual"><scope>QfVideoSinkCapture</scope><name>saveToFile</name></member>
+      <member refid="classQfVideoSinkCapture_1aef0079a7cf15ff81e0da676c60c3b148" prot="public" virt="non-virtual"><scope>QfVideoSinkCapture</scope><name>setVideoSink</name></member>
+      <member refid="classQfVideoSinkCapture_1ab1f1e9487ebfdd88cd1bed66d59e9ccf" prot="public" virt="non-virtual"><scope>QfVideoSinkCapture</scope><name>videoSink</name></member>
+      <member refid="classQfVideoSinkCapture_1a62e592131daa5f85d21ff8335dd8e78c" prot="public" virt="non-virtual"><scope>QfVideoSinkCapture</scope><name>videoSink</name></member>
+      <member refid="classQfVideoSinkCapture_1aa3ccad4254851d53310f42e8a1b4d15f" prot="public" virt="non-virtual"><scope>QfVideoSinkCapture</scope><name>videoSinkChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfFeatureExpressionValuesGatherer_1_1Entry" kind="struct" language="C++" prot="public">
+    <compoundname>QfFeatureExpressionValuesGatherer::Entry</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfFeatureExpressionValuesGatherer_1_1Entry_1adf1274157ea0f75d5b98e8e0d2a14a73" prot="public" static="no" mutable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList QfFeatureExpressionValuesGatherer::Entry::identifierFields</definition>
+        <argsstring></argsstring>
+        <name>identifierFields</name>
+        <qualifiedname>QfFeatureExpressionValuesGatherer::Entry::identifierFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="75" column="22" bodyfile="src/core/qffeatureexpressionvaluesgatherer.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureExpressionValuesGatherer_1_1Entry_1a6acfe6c87d4f308c8ddc00ab0afc4e6f" prot="public" static="no" mutable="no">
+        <type>QgsFeatureId</type>
+        <definition>QgsFeatureId QfFeatureExpressionValuesGatherer::Entry::featureId</definition>
+        <argsstring></argsstring>
+        <name>featureId</name>
+        <qualifiedname>QfFeatureExpressionValuesGatherer::Entry::featureId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="76" column="22" bodyfile="src/core/qffeatureexpressionvaluesgatherer.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureExpressionValuesGatherer_1_1Entry_1a8f9f33b372be964a26a100e10df3b236" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeatureExpressionValuesGatherer::Entry::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>QfFeatureExpressionValuesGatherer::Entry::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="77" column="17" bodyfile="src/core/qffeatureexpressionvaluesgatherer.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureExpressionValuesGatherer_1_1Entry_1a16e68b7e26dbb67e0f0ba6efc083337e" prot="public" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureExpressionValuesGatherer::Entry::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>QfFeatureExpressionValuesGatherer::Entry::feature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="78" column="20" bodyfile="src/core/qffeatureexpressionvaluesgatherer.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfFeatureExpressionValuesGatherer_1_1Entry_1ac94cc054b77429d1fcee8807e4783ec5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureExpressionValuesGatherer::Entry::Entry</definition>
+        <argsstring>()=default</argsstring>
+        <name>Entry</name>
+        <qualifiedname>QfFeatureExpressionValuesGatherer::Entry::Entry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="60" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfFeatureExpressionValuesGatherer_1_1Entry_1a10a69dd1ecb285999ba22ebcc6bacb9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureExpressionValuesGatherer::Entry::Entry</definition>
+        <argsstring>(const QVariantList &amp;_identifierFields, const QString &amp;_value, const QgsFeature &amp;_feature)</argsstring>
+        <name>Entry</name>
+        <qualifiedname>QfFeatureExpressionValuesGatherer::Entry::Entry</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <declname>_identifierFields</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>_value</declname>
+        </param>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>_feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="62" column="9" bodyfile="src/core/qffeatureexpressionvaluesgatherer.h" bodystart="62" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfFeatureExpressionValuesGatherer_1_1Entry_1acd987084548269d976da758e0a7db1fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureExpressionValuesGatherer::Entry::Entry</definition>
+        <argsstring>(const QgsFeatureId &amp;_featureId, const QString &amp;_value, const QgsVectorLayer *layer)</argsstring>
+        <name>Entry</name>
+        <qualifiedname>QfFeatureExpressionValuesGatherer::Entry::Entry</qualifiedname>
+        <param>
+          <type>const QgsFeatureId &amp;</type>
+          <declname>_featureId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>_value</declname>
+        </param>
+        <param>
+          <type>const QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="69" column="9" bodyfile="src/core/qffeatureexpressionvaluesgatherer.h" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfFeatureExpressionValuesGatherer_1_1Entry_1a19a89058a1a0aef4610c9e51a9f3a3c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureExpressionValuesGatherer::Entry::operator()</definition>
+        <argsstring>(const Entry &amp;lhs, const Entry &amp;rhs) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>QfFeatureExpressionValuesGatherer::Entry::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structQfFeatureExpressionValuesGatherer_1_1Entry" kindref="compound">Entry</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structQfFeatureExpressionValuesGatherer_1_1Entry" kindref="compound">Entry</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="80" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qffeatureexpressionvaluesgatherer.h" line="58" column="5" bodyfile="src/core/qffeatureexpressionvaluesgatherer.h" bodystart="59" bodyend="81"/>
+    <listofallmembers>
+      <member refid="structQfFeatureExpressionValuesGatherer_1_1Entry_1ac94cc054b77429d1fcee8807e4783ec5" prot="public" virt="non-virtual"><scope>QfFeatureExpressionValuesGatherer::Entry</scope><name>Entry</name></member>
+      <member refid="structQfFeatureExpressionValuesGatherer_1_1Entry_1a10a69dd1ecb285999ba22ebcc6bacb9f" prot="public" virt="non-virtual"><scope>QfFeatureExpressionValuesGatherer::Entry</scope><name>Entry</name></member>
+      <member refid="structQfFeatureExpressionValuesGatherer_1_1Entry_1acd987084548269d976da758e0a7db1fb" prot="public" virt="non-virtual"><scope>QfFeatureExpressionValuesGatherer::Entry</scope><name>Entry</name></member>
+      <member refid="structQfFeatureExpressionValuesGatherer_1_1Entry_1a16e68b7e26dbb67e0f0ba6efc083337e" prot="public" virt="non-virtual"><scope>QfFeatureExpressionValuesGatherer::Entry</scope><name>feature</name></member>
+      <member refid="structQfFeatureExpressionValuesGatherer_1_1Entry_1a6acfe6c87d4f308c8ddc00ab0afc4e6f" prot="public" virt="non-virtual"><scope>QfFeatureExpressionValuesGatherer::Entry</scope><name>featureId</name></member>
+      <member refid="structQfFeatureExpressionValuesGatherer_1_1Entry_1adf1274157ea0f75d5b98e8e0d2a14a73" prot="public" virt="non-virtual"><scope>QfFeatureExpressionValuesGatherer::Entry</scope><name>identifierFields</name></member>
+      <member refid="structQfFeatureExpressionValuesGatherer_1_1Entry_1a19a89058a1a0aef4610c9e51a9f3a3c3" prot="public" virt="non-virtual"><scope>QfFeatureExpressionValuesGatherer::Entry</scope><name>operator()</name></member>
+      <member refid="structQfFeatureExpressionValuesGatherer_1_1Entry_1a8f9f33b372be964a26a100e10df3b236" prot="public" virt="non-virtual"><scope>QfFeatureExpressionValuesGatherer::Entry</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

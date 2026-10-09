@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfHelpLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>QfHelpLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="qfhelplocatorfilter_8h" local="no">qfhelplocatorfilter.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfHelpLocatorFilter_1a822281997c78aaf31b09894b12b4fce3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionOrigin</name>
+        <qualifiedname>QfHelpLocatorFilter::ActionOrigin</qualifiedname>
+        <enumvalue id="classQfHelpLocatorFilter_1a822281997c78aaf31b09894b12b4fce3af48359d81e35dfc47f0d92bc0573f3c5" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Origin of the action which triggers the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="37" column="5" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="38" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfHelpLocatorFilter_1a4601caa95afa6f3b831050ca529b688d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+        <definition>QfLocatorModelSuperBridge* QfHelpLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>QfHelpLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="58" column="31" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfHelpLocatorFilter_1a20336b13f7dfe2a6f00396f116e64a6c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfHelpLocatorFilter::mSearchUrl</definition>
+        <argsstring></argsstring>
+        <name>mSearchUrl</name>
+        <qualifiedname>QfHelpLocatorFilter::mSearchUrl</qualifiedname>
+        <initializer>= QStringLiteral( &quot;https://docs.qfield.org/search/search_index.json&quot; )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="59" column="13" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a86bbb451d76edf660af0a51f100f666a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfHelpLocatorFilter::QfHelpLocatorFilter</definition>
+        <argsstring>(QfLocatorModelSuperBridge *locatorBridge, QObject *parent=nullptr)</argsstring>
+        <name>QfHelpLocatorFilter</name>
+        <qualifiedname>QfHelpLocatorFilter::QfHelpLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="42" column="14" bodyfile="src/core/locator/qfhelplocatorfilter.cpp" bodystart="27" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1ac1cbc5084775c9e2644123258940e8c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfHelpLocatorFilter" kindref="compound">QfHelpLocatorFilter</ref> *</type>
+        <definition>QfHelpLocatorFilter * QfHelpLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>QfHelpLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="43" column="25" bodyfile="src/core/locator/qfhelplocatorfilter.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1aa2a53cbeaf82305743e7ae3853b5064f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfHelpLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>QfHelpLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="44" column="13" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a175faa16f602b2b24dea36d982d1d3b3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfHelpLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>QfHelpLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="45" column="13" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a53c15c02473e4ccae1570f3fd91e24ae" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfHelpLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>QfHelpLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="46" column="13" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a81e12276c3b04a1015cfacffe2f83237" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority QfHelpLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>QfHelpLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="47" column="14" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a09d6f4619787b010b0a0cfb7de963eb5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfHelpLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>QfHelpLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="48" column="13" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a826235fb47bd8efe175f12d4e15c1383" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfHelpLocatorFilter::searchUrl</definition>
+        <argsstring>() const</argsstring>
+        <name>searchUrl</name>
+        <qualifiedname>QfHelpLocatorFilter::searchUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="50" column="13" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a57d52432d67ffa75e3dd0f75cb343f27" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfHelpLocatorFilter::setSearchUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>setSearchUrl</name>
+        <qualifiedname>QfHelpLocatorFilter::setSearchUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="51" column="10" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a4c3f814c9887d383f4e4f62ff6231d44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfHelpLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>QfHelpLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="53" column="10" bodyfile="src/core/locator/qfhelplocatorfilter.cpp" bodystart="40" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1ae3d935919b4da76c0c4b34da789e7942" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfHelpLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>QfHelpLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="54" column="10" bodyfile="src/core/locator/qfhelplocatorfilter.cpp" bodystart="150" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfHelpLocatorFilter_1a7bf988002fcb1e2a721b6cec44db0b72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfHelpLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>QfHelpLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfhelplocatorfilter.h" line="55" column="10" bodyfile="src/core/locator/qfhelplocatorfilter.cpp" bodystart="155" bodyend="159"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQfHelpLocatorFilter" kindref="compound">QfHelpLocatorFilter</ref> is a locator filter to search for and display QField documentation pages. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfHelpLocatorFilter</label>
+        <link refid="classQfHelpLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfHelpLocatorFilter</label>
+        <link refid="classQfHelpLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/qfhelplocatorfilter.h" line="31" column="1" bodyfile="src/core/locator/qfhelplocatorfilter.h" bodystart="32" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classQfHelpLocatorFilter_1a822281997c78aaf31b09894b12b4fce3" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>ActionOrigin</name></member>
+      <member refid="classQfHelpLocatorFilter_1ac1cbc5084775c9e2644123258940e8c6" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>clone</name></member>
+      <member refid="classQfHelpLocatorFilter_1a53c15c02473e4ccae1570f3fd91e24ae" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>description</name></member>
+      <member refid="classQfHelpLocatorFilter_1a175faa16f602b2b24dea36d982d1d3b3" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classQfHelpLocatorFilter_1a4c3f814c9887d383f4e4f62ff6231d44" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classQfHelpLocatorFilter_1a4601caa95afa6f3b831050ca529b688d" prot="private" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classQfHelpLocatorFilter_1a20336b13f7dfe2a6f00396f116e64a6c" prot="private" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>mSearchUrl</name></member>
+      <member refid="classQfHelpLocatorFilter_1aa2a53cbeaf82305743e7ae3853b5064f" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>name</name></member>
+      <member refid="classQfHelpLocatorFilter_1a822281997c78aaf31b09894b12b4fce3af48359d81e35dfc47f0d92bc0573f3c5" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>Normal</name></member>
+      <member refid="classQfHelpLocatorFilter_1a09d6f4619787b010b0a0cfb7de963eb5" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classQfHelpLocatorFilter_1a81e12276c3b04a1015cfacffe2f83237" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>priority</name></member>
+      <member refid="classQfHelpLocatorFilter_1a86bbb451d76edf660af0a51f100f666a" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>QfHelpLocatorFilter</name></member>
+      <member refid="classQfHelpLocatorFilter_1a826235fb47bd8efe175f12d4e15c1383" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>searchUrl</name></member>
+      <member refid="classQfHelpLocatorFilter_1a57d52432d67ffa75e3dd0f75cb343f27" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>setSearchUrl</name></member>
+      <member refid="classQfHelpLocatorFilter_1ae3d935919b4da76c0c4b34da789e7942" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classQfHelpLocatorFilter_1a7bf988002fcb1e2a721b6cec44db0b72" prot="public" virt="non-virtual"><scope>QfHelpLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

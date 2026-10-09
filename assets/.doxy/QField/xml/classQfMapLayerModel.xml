@@ -1,0 +1,653 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMapLayerModel" kind="class" language="C++" prot="public">
+    <compoundname>QfMapLayerModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <includes refid="qfmaplayermodel_8h" local="no">qfmaplayermodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>QfMapLayerModel::Role</qualifiedname>
+        <enumvalue id="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3a5da47525593c1c0c4af2267dbd303d35" prot="public">
+          <name>IdRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3a71fe65673ad9d37bc4bbd44dc5140d56" prot="public">
+          <name>NameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3a9eb5e4de0f8e7e8ec7b680efddcddd10" prot="public">
+          <name>LayerRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3ac4d954d8736dbb5c0155e960b6a47540" prot="public">
+          <name>LayerTypeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3a1ba87cbc1eb9f29b540a1b7e24cb31cf" prot="public">
+          <name>GeometryTypeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="101" column="5" bodyfile="src/core/qfmaplayermodel.h" bodystart="102" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMapLayerModel_1a717a1b5192f522cd5692cd93e330f7e3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMapLayerModel::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfMapLayerModel::enabled</qualifiedname>
+        <read>enabled</read>
+        <write>setEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The enabled state of the model. <simplesect kind="note"><para>When disabled, any changes to the project&apos;s map layers registry will be ignored </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="86" column="5" bodyfile="src/core/qfmaplayermodel.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapLayerModel_1a1b1f451ef292af35dadab73a823f0da0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfMapLayerModel::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfMapLayerModel::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+<para>The project from which map layers will be taken from. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="89" column="5" bodyfile="src/core/qfmaplayermodel.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapLayerModel_1adad0fbce7e2a82177c81a55066242a38" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+        <definition>QfTrackingModel * QfMapLayerModel::trackingModel</definition>
+        <argsstring></argsstring>
+        <name>trackingModel</name>
+        <qualifiedname>QfMapLayerModel::trackingModel</qualifiedname>
+        <read>trackingModel</read>
+        <write>setTrackingModel</write>
+        <briefdescription>
+<para>The tracking model against which map layers&apos; tracking availability will be checked against. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="92" column="5" bodyfile="src/core/qfmaplayermodel.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapLayerModel_1a70088edbf8562f963758880254cfe8b5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::LayerFilters</type>
+        <definition>Qgis::LayerFilters QfMapLayerModel::filters</definition>
+        <argsstring></argsstring>
+        <name>filters</name>
+        <qualifiedname>QfMapLayerModel::filters</qualifiedname>
+        <read>filters</read>
+        <write>setFilters</write>
+        <briefdescription>
+<para>The map layer filters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="95" column="5" bodyfile="src/core/qfmaplayermodel.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMapLayerModel_1a77585b97632f3fa20873845ffde91483" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMapLayerModel::requiresTrackingAvailability</definition>
+        <argsstring></argsstring>
+        <name>requiresTrackingAvailability</name>
+        <qualifiedname>QfMapLayerModel::requiresTrackingAvailability</qualifiedname>
+        <read>requiresTrackingAvailability</read>
+        <write>setRequiresTrackingAvailability</write>
+        <briefdescription>
+<para>The tracking availability requirement filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="98" column="5" bodyfile="src/core/qfmaplayermodel.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMapLayerModel_1aff27264a26cfbc084df77844393e1ce0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMapLayerBaseModel" kindref="compound">QfMapLayerBaseModel</ref> *</type>
+        <definition>QfMapLayerBaseModel* QfMapLayerModel::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>QfMapLayerModel::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="169" column="25" bodyfile="src/core/qfmaplayermodel.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapLayerModel_1a37fbed9aafe8b5ebb3ba1f9a0c93c94d" prot="private" static="no" mutable="no">
+        <type>Qgis::LayerFilters</type>
+        <definition>Qgis::LayerFilters QfMapLayerModel::mFilters</definition>
+        <argsstring></argsstring>
+        <name>mFilters</name>
+        <qualifiedname>QfMapLayerModel::mFilters</qualifiedname>
+        <initializer>= Qgis::LayerFilter::All</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="170" column="24" bodyfile="src/core/qfmaplayermodel.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMapLayerModel_1a6848510c72f0f4f856aec1276f8fd0c7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfMapLayerModel::mRequiresTrackingAvailability</definition>
+        <argsstring></argsstring>
+        <name>mRequiresTrackingAvailability</name>
+        <qualifiedname>QfMapLayerModel::mRequiresTrackingAvailability</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="171" column="10" bodyfile="src/core/qfmaplayermodel.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfMapLayerModel_1ab8dde32f9d5be8963e04585686826b94" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfMapLayerModel::QfMapLayerModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfMapLayerModel</name>
+        <qualifiedname>QfMapLayerModel::QfMapLayerModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>The constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="112" column="14" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="207" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a8393687eebf88b830d3cab3e18dcce93" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfMapLayerModel::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfMapLayerModel::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The enabled state of the model. <simplesect kind="note"><para>When disabled, any changes to the project&apos;s map layers registry will be ignored   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="115" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="222" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a0fe510c34bb53bad786e251f1258e399" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>QfMapLayerModel::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The enabled state of the model. <simplesect kind="note"><para>When disabled, any changes to the project&apos;s map layers registry will be ignored   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="117" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="227" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a2bd7b9dfbf23eb7d13d2c37e780b50f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfMapLayerModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfMapLayerModel::project</qualifiedname>
+        <briefdescription>
+<para>The project from which map layers will be taken from.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="120" column="16" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="232" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1ac7bc2e7df050ac06b6e7a20170fb169e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfMapLayerModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>The project from which map layers will be taken from.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="122" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="237" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a0e1c2ad7d6d0d0499737bcebe1c24040" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+        <definition>QfTrackingModel * QfMapLayerModel::trackingModel</definition>
+        <argsstring>() const</argsstring>
+        <name>trackingModel</name>
+        <qualifiedname>QfMapLayerModel::trackingModel</qualifiedname>
+        <briefdescription>
+<para>The tracking model against which map layers&apos; tracking availability will be checked against.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="125" column="21" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="242" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a8a8d8c393838d023dc0cbf92ed76e500" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::setTrackingModel</definition>
+        <argsstring>(QfTrackingModel *trackingModel)</argsstring>
+        <name>setTrackingModel</name>
+        <qualifiedname>QfMapLayerModel::setTrackingModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+          <declname>trackingModel</declname>
+        </param>
+        <briefdescription>
+<para>The tracking model against which map layers&apos; tracking availability will be checked against.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="127" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="247" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a9111adb29e050e894077b14f3415c924" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Qgis::LayerFilters</type>
+        <definition>Qgis::LayerFilters QfMapLayerModel::filters</definition>
+        <argsstring>() const</argsstring>
+        <name>filters</name>
+        <qualifiedname>QfMapLayerModel::filters</qualifiedname>
+        <briefdescription>
+<para>The map layer filters.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="130" column="24" bodyfile="src/core/qfmaplayermodel.h" bodystart="130" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a7db04d479f4edc07047f6e5ba6a72e9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::setFilters</definition>
+        <argsstring>(Qgis::LayerFilters filters)</argsstring>
+        <name>setFilters</name>
+        <qualifiedname>QfMapLayerModel::setFilters</qualifiedname>
+        <param>
+          <type>Qgis::LayerFilters</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+<para>The map layer filters.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="132" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="258" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1ac512a51fe29c4f71e11c6b9ead56a15d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfMapLayerModel::requiresTrackingAvailability</definition>
+        <argsstring>() const</argsstring>
+        <name>requiresTrackingAvailability</name>
+        <qualifiedname>QfMapLayerModel::requiresTrackingAvailability</qualifiedname>
+        <briefdescription>
+<para>The tracking availability requirement filter.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="135" column="10" bodyfile="src/core/qfmaplayermodel.h" bodystart="135" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1ad36b1134b361675363d17dfc53f61fe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::setRequiresTrackingAvailability</definition>
+        <argsstring>(bool requiresTrackingAvailability)</argsstring>
+        <name>setRequiresTrackingAvailability</name>
+        <qualifiedname>QfMapLayerModel::setRequiresTrackingAvailability</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>requiresTrackingAvailability</declname>
+        </param>
+        <briefdescription>
+<para>The tracking availability requirement filter.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="137" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="272" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a8a4e55f745d1330ac540d0b544c3e642" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfMapLayerModel::findLayer</definition>
+        <argsstring>(QgsMapLayer *layer) const</argsstring>
+        <name>findLayer</name>
+        <qualifiedname>QfMapLayerModel::findLayer</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the model row for given map <emphasis>layer</emphasis>. <simplesect kind="note"><para>If the map layer is not found, -1 will be returned </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="143" column="21" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="286" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a4a0cff6439d3bfd16ff4d80367ce1e07" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfMapLayerModel::findLayerName</definition>
+        <argsstring>(const QString &amp;name) const</argsstring>
+        <name>findLayerName</name>
+        <qualifiedname>QfMapLayerModel::findLayerName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the model row for given map layer <emphasis>name</emphasis>. <simplesect kind="note"><para>If the map layer name is not found, -1 will be returned </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="149" column="21" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="302" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a972ef32ad058e11927d468a47a755d01" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfMapLayerModel::get</definition>
+        <argsstring>(int row) const</argsstring>
+        <name>get</name>
+        <qualifiedname>QfMapLayerModel::get</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a model data map for a given <emphasis>row</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="154" column="29" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="318" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a7bfa04086919f1fcaf83b19f78b6bd43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfMapLayerModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>QfMapLayerModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="156" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="338" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMapLayerModel_1a6b937eb608b0fb64877b14630d95d5e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfMapLayerModel::lessThan</definition>
+        <argsstring>(const QModelIndex &amp;left, const QModelIndex &amp;right) const override</argsstring>
+        <name>lessThan</name>
+        <qualifiedname>QfMapLayerModel::lessThan</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="157" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="426" bodyend="431"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfMapLayerModel_1ab230df35dc6707f2348442ff7e9b535b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>QfMapLayerModel::enabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="160" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMapLayerModel_1a979ccc1a237e9ea8964c31cba70c0252" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfMapLayerModel::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="161" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMapLayerModel_1abf21d11b415bb2db6644d76d3a873c4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::trackingModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>trackingModelChanged</name>
+        <qualifiedname>QfMapLayerModel::trackingModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="162" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMapLayerModel_1afa35ddc7663fdc1d44326ffe5b0601fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::filtersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filtersChanged</name>
+        <qualifiedname>QfMapLayerModel::filtersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="163" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfMapLayerModel_1aaae314c7879b03aa4f8e88863cc81398" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMapLayerModel::requiresTrackingAvailabilityChanged</definition>
+        <argsstring>()</argsstring>
+        <name>requiresTrackingAvailabilityChanged</name>
+        <qualifiedname>QfMapLayerModel::requiresTrackingAvailabilityChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="164" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfMapLayerModel_1ac01e3827779b56f783d31f507f54e3fa" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfMapLayerModel::layerMatchesFilters</definition>
+        <argsstring>(QgsMapLayer *layer) const</argsstring>
+        <name>layerMatchesFilters</name>
+        <qualifiedname>QfMapLayerModel::layerMatchesFilters</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfmaplayermodel.h" line="167" column="10" bodyfile="src/core/qfmaplayermodel.cpp" bodystart="349" bodyend="424"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A project map layers model within filtering capabilities. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfMapLayerModel</label>
+        <link refid="classQfMapLayerModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfMapLayerModel</label>
+        <link refid="classQfMapLayerModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfmaplayermodel.h" line="78" column="1" bodyfile="src/core/qfmaplayermodel.h" bodystart="79" bodyend="172"/>
+    <listofallmembers>
+      <member refid="classQfMapLayerModel_1a717a1b5192f522cd5692cd93e330f7e3" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>enabled</name></member>
+      <member refid="classQfMapLayerModel_1a8393687eebf88b830d3cab3e18dcce93" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>enabled</name></member>
+      <member refid="classQfMapLayerModel_1ab230df35dc6707f2348442ff7e9b535b" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>enabledChanged</name></member>
+      <member refid="classQfMapLayerModel_1a7bfa04086919f1fcaf83b19f78b6bd43" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classQfMapLayerModel_1a70088edbf8562f963758880254cfe8b5" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>filters</name></member>
+      <member refid="classQfMapLayerModel_1a9111adb29e050e894077b14f3415c924" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>filters</name></member>
+      <member refid="classQfMapLayerModel_1afa35ddc7663fdc1d44326ffe5b0601fe" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>filtersChanged</name></member>
+      <member refid="classQfMapLayerModel_1a8a4e55f745d1330ac540d0b544c3e642" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>findLayer</name></member>
+      <member refid="classQfMapLayerModel_1a4a0cff6439d3bfd16ff4d80367ce1e07" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>findLayerName</name></member>
+      <member refid="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3a1ba87cbc1eb9f29b540a1b7e24cb31cf" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>GeometryTypeRole</name></member>
+      <member refid="classQfMapLayerModel_1a972ef32ad058e11927d468a47a755d01" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>get</name></member>
+      <member refid="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3a5da47525593c1c0c4af2267dbd303d35" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>IdRole</name></member>
+      <member refid="classQfMapLayerModel_1ac01e3827779b56f783d31f507f54e3fa" prot="private" virt="non-virtual"><scope>QfMapLayerModel</scope><name>layerMatchesFilters</name></member>
+      <member refid="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3a9eb5e4de0f8e7e8ec7b680efddcddd10" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>LayerRole</name></member>
+      <member refid="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3ac4d954d8736dbb5c0155e960b6a47540" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>LayerTypeRole</name></member>
+      <member refid="classQfMapLayerModel_1a6b937eb608b0fb64877b14630d95d5e8" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>lessThan</name></member>
+      <member refid="classQfMapLayerModel_1a37fbed9aafe8b5ebb3ba1f9a0c93c94d" prot="private" virt="non-virtual"><scope>QfMapLayerModel</scope><name>mFilters</name></member>
+      <member refid="classQfMapLayerModel_1aff27264a26cfbc084df77844393e1ce0" prot="private" virt="non-virtual"><scope>QfMapLayerModel</scope><name>mModel</name></member>
+      <member refid="classQfMapLayerModel_1a6848510c72f0f4f856aec1276f8fd0c7" prot="private" virt="non-virtual"><scope>QfMapLayerModel</scope><name>mRequiresTrackingAvailability</name></member>
+      <member refid="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3a71fe65673ad9d37bc4bbd44dc5140d56" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>NameRole</name></member>
+      <member refid="classQfMapLayerModel_1a1b1f451ef292af35dadab73a823f0da0" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>project</name></member>
+      <member refid="classQfMapLayerModel_1a2bd7b9dfbf23eb7d13d2c37e780b50f9" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>project</name></member>
+      <member refid="classQfMapLayerModel_1a979ccc1a237e9ea8964c31cba70c0252" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>projectChanged</name></member>
+      <member refid="classQfMapLayerModel_1ab8dde32f9d5be8963e04585686826b94" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>QfMapLayerModel</name></member>
+      <member refid="classQfMapLayerModel_1a77585b97632f3fa20873845ffde91483" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>requiresTrackingAvailability</name></member>
+      <member refid="classQfMapLayerModel_1ac512a51fe29c4f71e11c6b9ead56a15d" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>requiresTrackingAvailability</name></member>
+      <member refid="classQfMapLayerModel_1aaae314c7879b03aa4f8e88863cc81398" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>requiresTrackingAvailabilityChanged</name></member>
+      <member refid="classQfMapLayerModel_1acf0d488514b081eb42ea4f8569b545b3" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>Role</name></member>
+      <member refid="classQfMapLayerModel_1a0fe510c34bb53bad786e251f1258e399" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>setEnabled</name></member>
+      <member refid="classQfMapLayerModel_1a7db04d479f4edc07047f6e5ba6a72e9e" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>setFilters</name></member>
+      <member refid="classQfMapLayerModel_1ac7bc2e7df050ac06b6e7a20170fb169e" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>setProject</name></member>
+      <member refid="classQfMapLayerModel_1ad36b1134b361675363d17dfc53f61fe2" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>setRequiresTrackingAvailability</name></member>
+      <member refid="classQfMapLayerModel_1a8a8d8c393838d023dc0cbf92ed76e500" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>setTrackingModel</name></member>
+      <member refid="classQfMapLayerModel_1adad0fbce7e2a82177c81a55066242a38" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>trackingModel</name></member>
+      <member refid="classQfMapLayerModel_1a0e1c2ad7d6d0d0499737bcebe1c24040" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>trackingModel</name></member>
+      <member refid="classQfMapLayerModel_1abf21d11b415bb2db6644d76d3a873c4a" prot="public" virt="non-virtual"><scope>QfMapLayerModel</scope><name>trackingModelChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,522 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFeatureCheckListModelBase" kind="class" language="C++" prot="public">
+    <compoundname>QfFeatureCheckListModelBase</compoundname>
+    <basecompoundref refid="classQfFeatureListModel" prot="public" virt="non-virtual">QfFeatureListModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfFeatureCheckListModelBase_1a61fd8d6a4d541d09d9535e21958ea627" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FeatureListRoles</name>
+        <qualifiedname>QfFeatureCheckListModelBase::FeatureListRoles</qualifiedname>
+        <enumvalue id="classQfFeatureCheckListModelBase_1a61fd8d6a4d541d09d9535e21958ea627a8c55ba722bd5fbc13c6bb5f5c40c39ba" prot="public">
+          <name>CheckedRole</name>
+          <initializer>= Qt::UserRole + 100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="35" column="5" bodyfile="src/gui/qffeaturechecklistmodel.h" bodystart="36" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFeatureCheckListModelBase_1abae6c8bbd6e3981aa607535e80a52cbb" prot="private" static="no" mutable="no">
+        <type>QgsField</type>
+        <definition>QgsField QfFeatureCheckListModelBase::mAttributeField</definition>
+        <argsstring></argsstring>
+        <name>mAttributeField</name>
+        <qualifiedname>QfFeatureCheckListModelBase::mAttributeField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="91" column="14" bodyfile="src/gui/qffeaturechecklistmodel.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureCheckListModelBase_1aca39e46b5134a89bfd69ea74e059a244" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList QfFeatureCheckListModelBase::mCheckedEntries</definition>
+        <argsstring></argsstring>
+        <name>mCheckedEntries</name>
+        <qualifiedname>QfFeatureCheckListModelBase::mCheckedEntries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="92" column="17" bodyfile="src/gui/qffeaturechecklistmodel.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureCheckListModelBase_1a3b29798547fcb8aa466cf78bc988f720" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureCheckListModelBase::mAllowMulti</definition>
+        <argsstring></argsstring>
+        <name>mAllowMulti</name>
+        <qualifiedname>QfFeatureCheckListModelBase::mAllowMulti</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="93" column="10" bodyfile="src/gui/qffeaturechecklistmodel.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1adc26f97293248021590efc5c3ee4cd5a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureCheckListModelBase::QfFeatureCheckListModelBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfFeatureCheckListModelBase</name>
+        <qualifiedname>QfFeatureCheckListModelBase::QfFeatureCheckListModelBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="33" column="14" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1ad323819493d3ca589f17f99667168e78" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfFeatureCheckListModelBase::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfFeatureCheckListModelBase::data</qualifiedname>
+        <reimplements refid="classQfFeatureListModel_1abe0597f1959539944ef69a6178b86465">data</reimplements>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="40" column="22" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="26" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1a21771f58374cf41912fc52e907686406" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureCheckListModelBase::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfFeatureCheckListModelBase::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="41" column="18" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="48" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1a98cffd20c6997b8e07ed09b4065e099e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfFeatureCheckListModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfFeatureCheckListModelBase::roleNames</qualifiedname>
+        <reimplements refid="classQfFeatureListModel_1a869f6d13935a9f82344f4d81589a53fc">roleNames</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="43" column="11" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="71" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1a331192ee6312f2dee3caf0ec54f5bbc5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfFeatureCheckListModelBase::attributeValue</definition>
+        <argsstring>() const</argsstring>
+        <name>attributeValue</name>
+        <qualifiedname>QfFeatureCheckListModelBase::attributeValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the attribute value. A QVariantList or an hstore formatted string, depending on the field type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="48" column="14" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="80" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1aae37c2e3c78c8a4676227bd16f0403f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::setAttributeValue</definition>
+        <argsstring>(const QVariant &amp;attributeValue)</argsstring>
+        <name>setAttributeValue</name>
+        <qualifiedname>QfFeatureCheckListModelBase::setAttributeValue</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>attributeValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the attribute value. A QVariantList or an hstore formatted string, depending on the field type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="53" column="10" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="133" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1a8fdd87df9b9937a64b60b4db57b9541e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsField</type>
+        <definition>QgsField QfFeatureCheckListModelBase::attributeField</definition>
+        <argsstring>() const</argsstring>
+        <name>attributeField</name>
+        <qualifiedname>QfFeatureCheckListModelBase::attributeField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the current attribute field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="58" column="14" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1a9915ec36659cf085d2d3e7667bdebe05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::setAttributeField</definition>
+        <argsstring>(const QgsField &amp;field)</argsstring>
+        <name>setAttributeField</name>
+        <qualifiedname>QfFeatureCheckListModelBase::setAttributeField</qualifiedname>
+        <param>
+          <type>const QgsField &amp;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the current attribute field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="63" column="10" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="187" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1afe62e90234d9f3f32a94db74a2cc89fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureCheckListModelBase::allowMulti</definition>
+        <argsstring>() const</argsstring>
+        <name>allowMulti</name>
+        <qualifiedname>QfFeatureCheckListModelBase::allowMulti</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether multiple selected items are allowed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="68" column="10" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="195" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1acfc8254ddd4a246bc100cefa2f5323a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::setAllowMulti</definition>
+        <argsstring>(bool allowMulti)</argsstring>
+        <name>setAllowMulti</name>
+        <qualifiedname>QfFeatureCheckListModelBase::setAllowMulti</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>allowMulti</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether multiple selected items are allowed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="73" column="10" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="200" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1a9c44a5f2724904e16209f79272836808" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFeatureCheckListModelBase::toggleCheckAll</definition>
+        <argsstring>(bool toggleChecked=true)</argsstring>
+        <name>toggleCheckAll</name>
+        <qualifiedname>QfFeatureCheckListModelBase::toggleCheckAll</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>toggleChecked</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets all element to either checked or unchecked state, depending on <emphasis>toggleChecked</emphasis> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="78" column="22" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="210" bodyend="241"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfFeatureCheckListModelBase_1a7bc542bf78b9ac3fb7731cbe83f22481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::attributeValueChanged</definition>
+        <argsstring>()</argsstring>
+        <name>attributeValueChanged</name>
+        <qualifiedname>QfFeatureCheckListModelBase::attributeValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="81" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureCheckListModelBase_1a6ce5351a0c509ee2326b025affe179ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::attributeFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>attributeFieldChanged</name>
+        <qualifiedname>QfFeatureCheckListModelBase::attributeFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="82" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureCheckListModelBase_1a9cec12110a7562ce4ad4cd8eacd3875b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::allowMultiChanged</definition>
+        <argsstring>()</argsstring>
+        <name>allowMultiChanged</name>
+        <qualifiedname>QfFeatureCheckListModelBase::allowMultiChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="83" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureCheckListModelBase_1a03e1c47ba88fb19cc24c41624e906a9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::listUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>listUpdated</name>
+        <qualifiedname>QfFeatureCheckListModelBase::listUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="84" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1a10a8c122af787aac47723989090c6318" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::setChecked</definition>
+        <argsstring>(const QModelIndex &amp;idx)</argsstring>
+        <name>setChecked</name>
+        <qualifiedname>QfFeatureCheckListModelBase::setChecked</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="87" column="10" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="243" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1afe21ab9178741b372a1c4fbb7be2476e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureCheckListModelBase::setUnchecked</definition>
+        <argsstring>(const QModelIndex &amp;idx)</argsstring>
+        <name>setUnchecked</name>
+        <qualifiedname>QfFeatureCheckListModelBase::setUnchecked</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="88" column="10" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="270" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureCheckListModelBase_1ae5ec685e948d5beb7e93af9da31cf62c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QMetaType::Type</type>
+        <definition>QMetaType::Type QfFeatureCheckListModelBase::fkType</definition>
+        <argsstring>() const</argsstring>
+        <name>fkType</name>
+        <qualifiedname>QfFeatureCheckListModelBase::fkType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qffeaturechecklistmodel.h" line="89" column="21" bodyfile="src/gui/qffeaturechecklistmodel.cpp" bodystart="291" bodyend="303"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureCheckListModelBase</label>
+        <link refid="classQfFeatureCheckListModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfFeatureListModel</label>
+        <link refid="classQfFeatureListModel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureCheckListModelBase</label>
+        <link refid="classQfFeatureCheckListModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfFeatureListModel</label>
+        <link refid="classQfFeatureListModel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qffeaturechecklistmodel.h" line="28" column="1" bodyfile="src/gui/qffeaturechecklistmodel.h" bodystart="29" bodyend="94"/>
+    <listofallmembers>
+      <member refid="classQfFeatureListModel_1ae4f21b4e1851d51176fb3718b654ed42" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>addNull</name></member>
+      <member refid="classQfFeatureListModel_1a48042ea36831ba8fa3b18469e66fc4c7" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>addNull</name></member>
+      <member refid="classQfFeatureListModel_1a3d956f9353a4253f254fb1a4f50058cf" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>addNullChanged</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1afe62e90234d9f3f32a94db74a2cc89fe" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>allowMulti</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a9cec12110a7562ce4ad4cd8eacd3875b" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>allowMultiChanged</name></member>
+      <member refid="classQfFeatureListModel_1a0cacc73428fc334a3042d1ec3d0e7964" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureListModel_1ae921ea417b60a804f13163cbe38d0d45" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureListModel_1acb2e31a5e3afbbd2b86bda20bb95324d" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>appExpressionContextScopesGeneratorChanged</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a8fdd87df9b9937a64b60b4db57b9541e" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>attributeField</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a6ce5351a0c509ee2326b025affe179ea" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>attributeFieldChanged</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a331192ee6312f2dee3caf0ec54f5bbc5" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>attributeValue</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a7bc542bf78b9ac3fb7731cbe83f22481" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>attributeValueChanged</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a61fd8d6a4d541d09d9535e21958ea627a8c55ba722bd5fbc13c6bb5f5c40c39ba" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>CheckedRole</name></member>
+      <member refid="classQfFeatureListModel_1aeafdc5fe1490730078e42b947f9e45b7" prot="public" virt="virtual"><scope>QfFeatureCheckListModelBase</scope><name>columnCount</name></member>
+      <member refid="classQfFeatureListModel_1af768477301d218f891588b915276b4bc" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>currentFormFeature</name></member>
+      <member refid="classQfFeatureListModel_1afcb09a8a653fabd6c7558636c61db61e" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>currentFormFeature</name></member>
+      <member refid="classQfFeatureListModel_1a8167dcd78b72d65a71d045f1d3f27f3a" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>currentFormFeatureChanged</name></member>
+      <member refid="classQfFeatureListModel_1acd6f8858bc936bf7b54d71c6860e65df" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>currentLayer</name></member>
+      <member refid="classQfFeatureListModel_1a5382269de7e5527928915e5a1155b0d8" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>currentLayer</name></member>
+      <member refid="classQfFeatureListModel_1a6daffb43965c7ca506d3c00d6ce19e8b" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>currentLayerChanged</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1ad323819493d3ca589f17f99667168e78" prot="public" virt="virtual"><scope>QfFeatureCheckListModelBase</scope><name>data</name></member>
+      <member refid="classQfFeatureListModel_1a5095688d34d14a4304caa8b740a2d49e" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>dataFromRowIndex</name></member>
+      <member refid="classQfFeatureListModel_1af62147f4d5e347051f3f49234a5a891e" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>displayGroupName</name></member>
+      <member refid="classQfFeatureListModel_1a77ed4f8b9554d5e9a813aac6784fad75" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>displayGroupName</name></member>
+      <member refid="classQfFeatureListModel_1a0b2bc3f139f4a76b5656c544fcc58624" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>displayGroupNameChanged</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fba9fd194465fd82fdc0e20959cd9a05b9c" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>DisplayStringRole</name></member>
+      <member refid="classQfFeatureListModel_1aaeec71b4d4fed969193bf6ff383b57dc" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>displayValueField</name></member>
+      <member refid="classQfFeatureListModel_1aed8e2595945d039709db72ea6446626e" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>displayValueField</name></member>
+      <member refid="classQfFeatureListModel_1a2bc61b5328aab6851595956856b51581" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>displayValueFieldChanged</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fba1afbc1f1530544594bbb2038dbbd6deb" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>FeatureIdRole</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a61fd8d6a4d541d09d9535e21958ea627" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>FeatureListRoles</name></member>
+      <member refid="classQfFeatureListModel_1aa4c54ddb9ef1e186dcf7b3f0f19f873c" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>filterExpression</name></member>
+      <member refid="classQfFeatureListModel_1a5125a548f4a7fc689db9be90e3594868" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>filterExpression</name></member>
+      <member refid="classQfFeatureListModel_1afd30353175ffaa4ef95fdad2230076fc" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>filterExpressionChanged</name></member>
+      <member refid="classQfFeatureListModel_1a622e1dda441c344c790610451271050d" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>findDisplayValueMatches</name></member>
+      <member refid="classQfFeatureListModel_1a8f861cc8a7b8f2ba52851ef9f24ef5eb" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>findKey</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1ae5ec685e948d5beb7e93af9da31cf62c" prot="private" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>fkType</name></member>
+      <member refid="classQfFeatureListModel_1a256718f68a0008d37b1e2d41bddfcffd" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>getFeatureById</name></member>
+      <member refid="classQfFeatureListModel_1a66e792606f5b9036457c550accd9f58f" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>getFeatureFromKeyValue</name></member>
+      <member refid="classQfFeatureListModel_1aef2d8b95599eed281a428da2c9d90b07" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>groupField</name></member>
+      <member refid="classQfFeatureListModel_1ac7eae5600ff1423772ab19732a81e25b" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>groupField</name></member>
+      <member refid="classQfFeatureListModel_1a0d1d39e8ac2d27f210828daf19d6b3e9" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>groupFieldChanged</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fbaf9fc53ef24716fc3b4ed7cf5c516a221" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>GroupFieldRole</name></member>
+      <member refid="classQfFeatureListModel_1a988389dcd22ed47894d887d443b07346" prot="public" virt="virtual"><scope>QfFeatureCheckListModelBase</scope><name>index</name></member>
+      <member refid="classQfFeatureListModel_1a0ca0d5d1e06fc27ccd7b274831fd5978" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>keyField</name></member>
+      <member refid="classQfFeatureListModel_1ac3f15e85174251398d309ca39a46e37a" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>keyField</name></member>
+      <member refid="classQfFeatureListModel_1a5ef9ef9dd05171db76c2e63c380a7902" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>keyFieldChanged</name></member>
+      <member refid="classQfFeatureListModel_1a8cc9052ab1449178c78dd8060fbd44fbad62f6071da1491c8f27ec41cf09e2476" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>KeyFieldRole</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a03e1c47ba88fb19cc24c41624e906a9e" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>listUpdated</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a3b29798547fcb8aa466cf78bc988f720" prot="private" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>mAllowMulti</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1abae6c8bbd6e3981aa607535e80a52cbb" prot="private" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>mAttributeField</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1aca39e46b5134a89bfd69ea74e059a244" prot="private" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>mCheckedEntries</name></member>
+      <member refid="classQfFeatureListModel_1af2037b6f7185df26d84223b422403d0d" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByField</name></member>
+      <member refid="classQfFeatureListModel_1aeca7dadee8d1c79745937b673666c9a0" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByField</name></member>
+      <member refid="classQfFeatureListModel_1a31cf37c458d1c5e821749a70132dabcb" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByFieldChanged</name></member>
+      <member refid="classQfFeatureListModel_1a6b35f03f113df854d381b9ad8291efec" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByFieldName</name></member>
+      <member refid="classQfFeatureListModel_1a366638abd7e558562015dd0016963590" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByFieldName</name></member>
+      <member refid="classQfFeatureListModel_1ad10d7ac201b343d7a5e474a36c036c10" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByFieldNameChanged</name></member>
+      <member refid="classQfFeatureListModel_1abd1dfd6f6f9bbe0359aeaa6e8baf2ad3" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByValue</name></member>
+      <member refid="classQfFeatureListModel_1a71f7e14db014a27309b7945a670441dd" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByValue</name></member>
+      <member refid="classQfFeatureListModel_1a251ac86e5083b3c5f84593d69697a050" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>orderByValueChanged</name></member>
+      <member refid="classQfFeatureListModel_1a0d8031e383f074ca4df238dced1bec0d" prot="public" virt="virtual"><scope>QfFeatureCheckListModelBase</scope><name>parent</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1adc26f97293248021590efc5c3ee4cd5a" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>QfFeatureCheckListModelBase</name></member>
+      <member refid="classQfFeatureListModel_1af10c60d3eb16790446d4f29d058b0a25" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>QfFeatureListModel</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a98cffd20c6997b8e07ed09b4065e099e" prot="public" virt="virtual"><scope>QfFeatureCheckListModelBase</scope><name>roleNames</name></member>
+      <member refid="classQfFeatureListModel_1aee856ba8cc371a37236a97a1235c7ebd" prot="public" virt="virtual"><scope>QfFeatureCheckListModelBase</scope><name>rowCount</name></member>
+      <member refid="classQfFeatureListModel_1a9a05dbc9e0e14649dc49ac41c15b9ad3" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>searchTerm</name></member>
+      <member refid="classQfFeatureListModel_1a1fde1bd92ef9cac5529b81262c372965" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>searchTerm</name></member>
+      <member refid="classQfFeatureListModel_1a715f6200b781967bc03890412920a1b3" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>searchTermChanged</name></member>
+      <member refid="classQfFeatureListModel_1a81b1a3b8ec542fc77d626aba45c003f3" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setAddNull</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1acfc8254ddd4a246bc100cefa2f5323a0" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setAllowMulti</name></member>
+      <member refid="classQfFeatureListModel_1a52768af5e2c83a2806dcf3ffdcdfbeb1" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setAppExpressionContextScopesGenerator</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a9915ec36659cf085d2d3e7667bdebe05" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setAttributeField</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1aae37c2e3c78c8a4676227bd16f0403f7" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setAttributeValue</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a10a8c122af787aac47723989090c6318" prot="private" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setChecked</name></member>
+      <member refid="classQfFeatureListModel_1a7997053e74c1a9d2051d32a64049df36" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setCurrentFormFeature</name></member>
+      <member refid="classQfFeatureListModel_1a6255a0488b2dea2bd213ea1a089c8970" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setCurrentLayer</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a21771f58374cf41912fc52e907686406" prot="public" virt="virtual"><scope>QfFeatureCheckListModelBase</scope><name>setData</name></member>
+      <member refid="classQfFeatureListModel_1a337ed199ebf16a70a0a772142888b9f1" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setDisplayGroupName</name></member>
+      <member refid="classQfFeatureListModel_1a2f9e7c3ae1d0783bb375f57e3c453c8c" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setDisplayValueField</name></member>
+      <member refid="classQfFeatureListModel_1a7c6c3645cac5465dc0b68ec1e7e643a2" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setFilterExpression</name></member>
+      <member refid="classQfFeatureListModel_1a789aad2587174a17c19c67c8593ee43e" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setGroupField</name></member>
+      <member refid="classQfFeatureListModel_1afb12bb836d3d413319fda85a7f52555a" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setKeyField</name></member>
+      <member refid="classQfFeatureListModel_1a8bf8591d7c23b89a9f4d5bc3e8d73b8e" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setOrderByField</name></member>
+      <member refid="classQfFeatureListModel_1ad08e0cb749c3a96dd91eb60e45c6786c" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setOrderByFieldName</name></member>
+      <member refid="classQfFeatureListModel_1a7e1f650212f9fe51830e448e53af8a13" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setOrderByValue</name></member>
+      <member refid="classQfFeatureListModel_1a6b3ee7318b12d9905ea113287231d313" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setSearchTerm</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1afe21ab9178741b372a1c4fbb7be2476e" prot="private" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>setUnchecked</name></member>
+      <member refid="classQfFeatureCheckListModelBase_1a9c44a5f2724904e16209f79272836808" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>toggleCheckAll</name></member>
+      <member refid="classQfFeatureListModel_1a850e91b007649bd659965f2ff6fbc46d" prot="public" virt="non-virtual"><scope>QfFeatureCheckListModelBase</scope><name>~QfFeatureListModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfmaplayermodel_8h" kind="file" language="C++">
+    <compoundname>qfmaplayermodel.h</compoundname>
+    <includes refid="qftrackingmodel_8h" local="yes">qftrackingmodel.h</includes>
+    <includes local="no">QAbstractListModel</includes>
+    <includes local="no">QSortFilterProxyModel</includes>
+    <includes local="no">qgsproject.h</includes>
+    <includedby refid="qfcore_8cpp" local="yes">src/core/qfcore.cpp</includedby>
+    <includedby refid="qfmaplayermodel_8cpp" local="yes">src/core/qfmaplayermodel.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>qfgnsspositioninformation.h</label>
+        <link refid="qfgnsspositioninformation_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qfmaplayermodel.h</label>
+        <link refid="qfmaplayermodel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>qftracker.h</label>
+        <link refid="qftracker_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qftrackingmodel.h</label>
+        <link refid="qftrackingmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="17">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="10">
+        <label>QColor</label>
+      </node>
+      <node id="5">
+        <label>QDateTime</label>
+      </node>
+      <node id="6">
+        <label>QObject</label>
+      </node>
+      <node id="11">
+        <label>QPointer</label>
+      </node>
+      <node id="18">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="7">
+        <label>QString</label>
+      </node>
+      <node id="12">
+        <label>QTimer</label>
+      </node>
+      <node id="8">
+        <label>qgis.h</label>
+      </node>
+      <node id="13">
+        <label>qgsdistancearea.h</label>
+      </node>
+      <node id="14">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="19">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="9">
+        <label>qgssatelliteinformation.h</label>
+      </node>
+      <node id="15">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classQfMapLayerBaseModel" prot="public">QfMapLayerBaseModel</innerclass>
+    <innerclass refid="classQfMapLayerModel" prot="public">QfMapLayerModel</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>qfmaplayermodel.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>04.01.2026</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>at<sp/>opengis<sp/>dot<sp/>ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFMAPLAYERMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFMAPLAYERMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qftrackingmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QAbstractListModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSortFilterProxyModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsproject.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classQfMapLayerBaseModel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfMapLayerBaseModel" kindref="compound">QfMapLayerBaseModel</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QAbstractListModel</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerBaseModel" kindref="compound">QfMapLayerBaseModel</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rowCount(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;parent<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariant<sp/>data(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/>roleNames()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="classQfMapLayerBaseModel_1ae1f153a2918936afcfe21a04ffcfccd7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerBaseModel_1ae1f153a2918936afcfe21a04ffcfccd7" kindref="member">enabled</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mEnabled;<sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerBaseModel_1a357f737807a84d7e5ef2125b3d63d3aa" kindref="member">setEnabled</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerBaseModel_1ae1f153a2918936afcfe21a04ffcfccd7" kindref="member">enabled</ref><sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classQfMapLayerBaseModel_1a825dc1e8ed36f595186f0aa79c796105" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsProject<sp/>*<ref refid="classQfMapLayerBaseModel_1a825dc1e8ed36f595186f0aa79c796105" kindref="member">project</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mProject;<sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerBaseModel_1a7bba0a30ec8f3f42a44ab85c9a3a9cc0" kindref="member">setProject</ref>(<sp/>QgsProject<sp/>*<ref refid="classQfMapLayerBaseModel_1a825dc1e8ed36f595186f0aa79c796105" kindref="member">project</ref><sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="classQfMapLayerBaseModel_1a22ac033ab92bfbbcd5bb385d5bae7d9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref><sp/>*<ref refid="classQfMapLayerBaseModel_1a22ac033ab92bfbbcd5bb385d5bae7d9f" kindref="member">trackingModel</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mTrackingModel;<sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerBaseModel_1a095cb84a6d7a09762e3a6b402cca1ed9" kindref="member">setTrackingModel</ref>(<sp/><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref><sp/>*<ref refid="classQfMapLayerBaseModel_1a22ac033ab92bfbbcd5bb385d5bae7d9f" kindref="member">trackingModel</ref><sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>enabledChanged();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectChanged();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>trackingModelChanged();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>removeLayers(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>&amp;layerIds<sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addLayers(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>&amp;layers<sp/>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resetModel();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mEnabled<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QgsMapLayer<sp/>*&gt;<sp/>mLayers;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsProject<sp/>*mProject<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref><sp/>*mTrackingModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="classQfMapLayerModel" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfMapLayerModel" kindref="compound">QfMapLayerModel</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QSortFilterProxyModel</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="classQfMapLayerModel_1a717a1b5192f522cd5692cd93e330f7e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a717a1b5192f522cd5692cd93e330f7e3" kindref="member">enabled</ref><sp/>READ<sp/><ref refid="classQfMapLayerModel_1a717a1b5192f522cd5692cd93e330f7e3" kindref="member">enabled</ref><sp/>WRITE<sp/><ref refid="classQfMapLayerModel_1a0fe510c34bb53bad786e251f1258e399" kindref="member">setEnabled</ref><sp/>NOTIFY<sp/>enabledChanged<sp/>)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89" refid="classQfMapLayerModel_1a1b1f451ef292af35dadab73a823f0da0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsProject<sp/>*<ref refid="classQfMapLayerModel_1a1b1f451ef292af35dadab73a823f0da0" kindref="member">project</ref><sp/>READ<sp/><ref refid="classQfMapLayerModel_1a1b1f451ef292af35dadab73a823f0da0" kindref="member">project</ref><sp/>WRITE<sp/><ref refid="classQfMapLayerModel_1ac7bc2e7df050ac06b6e7a20170fb169e" kindref="member">setProject</ref><sp/>NOTIFY<sp/>projectChanged<sp/>)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classQfMapLayerModel_1adad0fbce7e2a82177c81a55066242a38" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref><sp/>*<ref refid="classQfMapLayerModel_1adad0fbce7e2a82177c81a55066242a38" kindref="member">trackingModel</ref><sp/>READ<sp/><ref refid="classQfMapLayerModel_1adad0fbce7e2a82177c81a55066242a38" kindref="member">trackingModel</ref><sp/>WRITE<sp/><ref refid="classQfMapLayerModel_1a8a8d8c393838d023dc0cbf92ed76e500" kindref="member">setTrackingModel</ref><sp/>NOTIFY<sp/>trackingModelChanged<sp/>)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classQfMapLayerModel_1a70088edbf8562f963758880254cfe8b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>Qgis::LayerFilters<sp/><ref refid="classQfMapLayerModel_1a70088edbf8562f963758880254cfe8b5" kindref="member">filters</ref><sp/>READ<sp/><ref refid="classQfMapLayerModel_1a70088edbf8562f963758880254cfe8b5" kindref="member">filters</ref><sp/>WRITE<sp/><ref refid="classQfMapLayerModel_1a7db04d479f4edc07047f6e5ba6a72e9e" kindref="member">setFilters</ref><sp/>NOTIFY<sp/>filtersChanged<sp/>)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="classQfMapLayerModel_1a77585b97632f3fa20873845ffde91483" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a77585b97632f3fa20873845ffde91483" kindref="member">requiresTrackingAvailability</ref><sp/>READ<sp/><ref refid="classQfMapLayerModel_1a77585b97632f3fa20873845ffde91483" kindref="member">requiresTrackingAvailability</ref><sp/>WRITE<sp/><ref refid="classQfMapLayerModel_1ad36b1134b361675363d17dfc53f61fe2" kindref="member">setRequiresTrackingAvailability</ref><sp/>NOTIFY<sp/>requiresTrackingAvailabilityChanged<sp/>)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>enum<sp/>Role</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>IdRole<sp/>=<sp/>Qt::UserRole<sp/>+<sp/>1,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NameRole,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LayerRole,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LayerTypeRole,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GeometryTypeRole,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/>Role<sp/>)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel" kindref="compound">QfMapLayerModel</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a717a1b5192f522cd5692cd93e330f7e3" kindref="member">enabled</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a0fe510c34bb53bad786e251f1258e399" kindref="member">setEnabled</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a717a1b5192f522cd5692cd93e330f7e3" kindref="member">enabled</ref><sp/>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsProject<sp/>*<ref refid="classQfMapLayerModel_1a1b1f451ef292af35dadab73a823f0da0" kindref="member">project</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1ac7bc2e7df050ac06b6e7a20170fb169e" kindref="member">setProject</ref>(<sp/>QgsProject<sp/>*<ref refid="classQfMapLayerModel_1a1b1f451ef292af35dadab73a823f0da0" kindref="member">project</ref><sp/>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref><sp/>*<ref refid="classQfMapLayerModel_1adad0fbce7e2a82177c81a55066242a38" kindref="member">trackingModel</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a8a8d8c393838d023dc0cbf92ed76e500" kindref="member">setTrackingModel</ref>(<sp/><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref><sp/>*<ref refid="classQfMapLayerModel_1adad0fbce7e2a82177c81a55066242a38" kindref="member">trackingModel</ref><sp/>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="classQfMapLayerModel_1a9111adb29e050e894077b14f3415c924" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Qgis::LayerFilters<sp/><ref refid="classQfMapLayerModel_1a9111adb29e050e894077b14f3415c924" kindref="member">filters</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mFilters;<sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a7db04d479f4edc07047f6e5ba6a72e9e" kindref="member">setFilters</ref>(<sp/>Qgis::LayerFilters<sp/><ref refid="classQfMapLayerModel_1a70088edbf8562f963758880254cfe8b5" kindref="member">filters</ref><sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="classQfMapLayerModel_1ac512a51fe29c4f71e11c6b9ead56a15d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1ac512a51fe29c4f71e11c6b9ead56a15d" kindref="member">requiresTrackingAvailability</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mRequiresTrackingAvailability;<sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1ad36b1134b361675363d17dfc53f61fe2" kindref="member">setRequiresTrackingAvailability</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a77585b97632f3fa20873845ffde91483" kindref="member">requiresTrackingAvailability</ref><sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a8a4e55f745d1330ac540d0b544c3e642" kindref="member">findLayer</ref>(<sp/>QgsMapLayer<sp/>*layer<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQfMapLayerModel_1a4a0cff6439d3bfd16ff4d80367ce1e07" kindref="member">findLayerName</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;name<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QVariantMap<sp/><ref refid="classQfMapLayerModel_1a972ef32ad058e11927d468a47a755d01" kindref="member">get</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>filterAcceptsRow(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sourceRow,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;sourceParent<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lessThan(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;left,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;right<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>enabledChanged();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectChanged();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>trackingModelChanged();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>filtersChanged();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>requiresTrackingAvailabilityChanged();</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>layerMatchesFilters(<sp/>QgsMapLayer<sp/>*layer<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfMapLayerBaseModel" kindref="compound">QfMapLayerBaseModel</ref><sp/>*mModel<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>Qgis::LayerFilters<sp/>mFilters<sp/>=<sp/>Qgis::LayerFilter::All;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mRequiresTrackingAvailability<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFMAPLAYERMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfmaplayermodel.h"/>
+  </compounddef>
+</doxygen>

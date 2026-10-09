@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCogoOperationSettings" kind="class" language="C++" prot="public">
+    <compoundname>CogoOperationSettings</compoundname>
+    <basecompoundref refid="classQfCogoOperationSettings" prot="public" virt="non-virtual">QfCogoOperationSettings</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CogoOperationSettings</label>
+        <link refid="classCogoOperationSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoOperationSettings</label>
+        <link refid="classQfCogoOperationSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfOverlayContainer</label>
+        <link refid="classQfOverlayContainer"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CogoOperationSettings</label>
+        <link refid="classCogoOperationSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoOperationSettings</label>
+        <link refid="classQfCogoOperationSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfOverlayContainer</label>
+        <link refid="classQfOverlayContainer"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/CogoOperationSettings.qml" line="2" column="1" bodyfile="src/app/qml_compat/CogoOperationSettings.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfCogoOperationSettings_1a507b87c697a4422ee041e04adcef2eb7" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>clear</name></member>
+      <member refid="classQfOverlayContainer_1abb3589d5bfff3719dc4f531802fd9e94" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>contents</name></member>
+      <member refid="classQfOverlayContainer_1a79006f5c655184c3e44847b19571507c" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>header</name></member>
+      <member refid="classQfOverlayContainer_1a8887636d587f985ecc7af8a04a62e45e" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>layout</name></member>
+      <member refid="classQfCogoOperationSettings_1ae5c7e9e6d9065a424f22adaf1ed3fd6d" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>mapSettings</name></member>
+      <member refid="classQfCogoOperationSettings_1a0dc6c8a10f9435e86274c1a52578bf65" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>name</name></member>
+      <member refid="classQfCogoOperationSettings_1adb20bab0eae3e9a6a6110e47b3c1cb6e" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>parameters</name></member>
+      <member refid="classQfCogoOperationSettings_1ab7d195c5bc4706618736d2ffb83c5f12" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>parameterValues</name></member>
+      <member refid="classQfCogoOperationSettings_1a3d45f6d09dceb030ac41cd9a3acdb7cc" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>positionInformation</name></member>
+      <member refid="classQfCogoOperationSettings_1a5f80fcbe2a0ddae85c65fe037b0e7c49" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>positionInformations</name></member>
+      <member refid="classQfCogoOperationSettings_1aa6993f5d4329eaeca544ae334148aec3" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>requestedPositionReceived</name></member>
+      <member refid="classQfCogoOperationSettings_1a8a304bb3d3e01a5e24c55aa26327dd4a" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfCogoOperationSettings_1af6a487e1bd300968dc8c5afbe49ca2d0" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>requestPosition</name></member>
+      <member refid="classQfOverlayContainer_1a42c537fc693f1aef9af626be323c663d" prot="public" virt="non-virtual"><scope>CogoOperationSettings</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

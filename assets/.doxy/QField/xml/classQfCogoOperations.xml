@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoOperations" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoOperations</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classCogoOperations" prot="public" virt="non-virtual">CogoOperations</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCogoOperations_1a6be27fe682d6ca236f39e2af108b2559" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref></type>
+        <definition>QfFeatureModel QfCogoOperations::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfCogoOperations::featureModel</qualifiedname>
+        <read>dummyGetter_featureModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="13" column="1" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoOperations_1a8e4765f7650c1786487a43743d9ffb68" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfCogoOperations::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfCogoOperations::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="16" column="1" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoOperations_1a7e757bc5bd93a01a9c01921da59bb520" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref></type>
+        <definition>QfRubberbandModel QfCogoOperations::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfCogoOperations::rubberbandModel</qualifiedname>
+        <read>dummyGetter_rubberbandModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="18" column="1" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoOperations_1a8c8650a9f2feff1228ce8db282bfc17e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCogoOperations::cogoOperationSettings</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationSettings</name>
+        <qualifiedname>QfCogoOperations::cogoOperationSettings</qualifiedname>
+        <read>dummyGetter_cogoOperationSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="20" column="1" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoOperations_1af76029ab7cc19cf7752736f2e721c67c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoOperations::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCogoOperations::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="30" column="5" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperations_1a60bda8f3ba09598f028534cc674cf434" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoOperations::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCogoOperations::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="31" column="5" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperations_1a0991d9e300da2a5506163ce8d66db6e1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoOperations::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfCogoOperations::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="32" column="5" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperations_1a5f6bf675ba1ce7e82887b84c4faaea16" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoOperations::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfCogoOperations::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="33" column="5" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperations_1a7bb5f5f73b872cedb8082923b52a8e08" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoOperations::onEnabledChanged</definition>
+        <argsstring></argsstring>
+        <name>onEnabledChanged</name>
+        <qualifiedname>QfCogoOperations::onEnabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="34" column="5" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperations_1ae41739c1a266285307c0a91abb1260cd" prot="private" static="no" mutable="no">
+        <type>Container</type>
+        <definition>Container QfCogoOperations::cogoOperationsContainer</definition>
+        <argsstring></argsstring>
+        <name>cogoOperationsContainer</name>
+        <qualifiedname>QfCogoOperations::cogoOperationsContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="35" column="11" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCogoOperations_1a91802c58020cda1e5a757fcc3e3e3793" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoOperations::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfCogoOperations::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="22" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCogoOperations_1a097784893560fa765c108968f3f6035a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoOperations::requestPosition</definition>
+        <argsstring>(var item, bool fromCoordinateLocator)</argsstring>
+        <name>requestPosition</name>
+        <qualifiedname>QfCogoOperations::requestPosition</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fromCoordinateLocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="24" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoOperations_1a0e9df7809e0f44bc20606c0d122342ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoOperations::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>QfCogoOperations::canvasClicked</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="26" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperations_1ac7efde90e7367e0253720cf4d2624fa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoOperations::canvasLongPressed</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasLongPressed</name>
+        <qualifiedname>QfCogoOperations::canvasLongPressed</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperations.qml" line="28" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>CogoOperations</label>
+        <link refid="classCogoOperations"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfCogoOperations</label>
+        <link refid="classQfCogoOperations"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCogoOperations</label>
+        <link refid="classQfCogoOperations"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfCogoOperations.qml" line="10" column="1" bodyfile="src/gui/qml/QfCogoOperations.qml" bodystart="10" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classQfCogoOperations_1a0e9df7809e0f44bc20606c0d122342ec" prot="public" virt="non-virtual"><scope>QfCogoOperations</scope><name>canvasClicked</name></member>
+      <member refid="classQfCogoOperations_1ac7efde90e7367e0253720cf4d2624fa0" prot="public" virt="non-virtual"><scope>QfCogoOperations</scope><name>canvasLongPressed</name></member>
+      <member refid="classQfCogoOperations_1ae41739c1a266285307c0a91abb1260cd" prot="private" virt="non-virtual"><scope>QfCogoOperations</scope><name>cogoOperationsContainer</name></member>
+      <member refid="classQfCogoOperations_1a8c8650a9f2feff1228ce8db282bfc17e" prot="public" virt="non-virtual"><scope>QfCogoOperations</scope><name>cogoOperationSettings</name></member>
+      <member refid="classQfCogoOperations_1a0991d9e300da2a5506163ce8d66db6e1" prot="private" virt="non-virtual"><scope>QfCogoOperations</scope><name>enabled</name></member>
+      <member refid="classQfCogoOperations_1a6be27fe682d6ca236f39e2af108b2559" prot="public" virt="non-virtual"><scope>QfCogoOperations</scope><name>featureModel</name></member>
+      <member refid="classQfCogoOperations_1a60bda8f3ba09598f028534cc674cf434" prot="private" virt="non-virtual"><scope>QfCogoOperations</scope><name>height</name></member>
+      <member refid="classQfCogoOperations_1a8e4765f7650c1786487a43743d9ffb68" prot="public" virt="non-virtual"><scope>QfCogoOperations</scope><name>mapSettings</name></member>
+      <member refid="classQfCogoOperations_1a7bb5f5f73b872cedb8082923b52a8e08" prot="private" virt="non-virtual"><scope>QfCogoOperations</scope><name>onEnabledChanged</name></member>
+      <member refid="classQfCogoOperations_1a91802c58020cda1e5a757fcc3e3e3793" prot="public" virt="non-virtual"><scope>QfCogoOperations</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfCogoOperations_1a097784893560fa765c108968f3f6035a" prot="public" virt="non-virtual"><scope>QfCogoOperations</scope><name>requestPosition</name></member>
+      <member refid="classQfCogoOperations_1a7e757bc5bd93a01a9c01921da59bb520" prot="public" virt="non-virtual"><scope>QfCogoOperations</scope><name>rubberbandModel</name></member>
+      <member refid="classQfCogoOperations_1a5f6bf675ba1ce7e82887b84c4faaea16" prot="private" virt="non-virtual"><scope>QfCogoOperations</scope><name>visible</name></member>
+      <member refid="classQfCogoOperations_1af76029ab7cc19cf7752736f2e721c67c" prot="private" virt="non-virtual"><scope>QfCogoOperations</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProjectThumbnail" kind="class" language="C++" prot="public">
+    <compoundname>QfProjectThumbnail</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfProjectThumbnail_1ad5c31f6f29e9791bff98a5b9a1d49666" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::previewImageSource</definition>
+        <argsstring></argsstring>
+        <name>previewImageSource</name>
+        <qualifiedname>QfProjectThumbnail::previewImageSource</qualifiedname>
+        <read>dummyGetter_previewImageSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="12" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1ae56e90bfe2e37d112455d1e2426e21ab" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::showType</definition>
+        <argsstring></argsstring>
+        <name>showType</name>
+        <qualifiedname>QfProjectThumbnail::showType</qualifiedname>
+        <read>dummyGetter_showType_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="14" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1af602cecfa71460f087e90f9e6b1e4750" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::projectTypeSource</definition>
+        <argsstring></argsstring>
+        <name>projectTypeSource</name>
+        <qualifiedname>QfProjectThumbnail::projectTypeSource</qualifiedname>
+        <read>dummyGetter_projectTypeSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="16" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1a0565bfbd79b9a19595e5e12584f12584" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::projectNote</definition>
+        <argsstring></argsstring>
+        <name>projectNote</name>
+        <qualifiedname>QfProjectThumbnail::projectNote</qualifiedname>
+        <read>dummyGetter_projectNote_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="18" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1a2d3d527310dd15290cbdd0b7a6c47ae8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::projectTitle</definition>
+        <argsstring></argsstring>
+        <name>projectTitle</name>
+        <qualifiedname>QfProjectThumbnail::projectTitle</qualifiedname>
+        <read>dummyGetter_projectTitle_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="20" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1a65c0aa91280756f0fec2817dffdb4360" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::bgColor</definition>
+        <argsstring></argsstring>
+        <name>bgColor</name>
+        <qualifiedname>QfProjectThumbnail::bgColor</qualifiedname>
+        <read>dummyGetter_bgColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="22" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1a13ba88c80344f22c946a2c869925be6d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::showCustomizeIcon</definition>
+        <argsstring></argsstring>
+        <name>showCustomizeIcon</name>
+        <qualifiedname>QfProjectThumbnail::showCustomizeIcon</qualifiedname>
+        <read>dummyGetter_showCustomizeIcon_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="24" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1ad909a7991ce06be96a1dba28f7bab78e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::selected</definition>
+        <argsstring></argsstring>
+        <name>selected</name>
+        <qualifiedname>QfProjectThumbnail::selected</qualifiedname>
+        <read>dummyGetter_selected_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="26" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1a85b29bcd712ed4c7a68652951c0460d4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProjectThumbnail::primaryBadge</definition>
+        <argsstring></argsstring>
+        <name>primaryBadge</name>
+        <qualifiedname>QfProjectThumbnail::primaryBadge</qualifiedname>
+        <read>dummyGetter_primaryBadge_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="28" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1ae47a080c30e1f665e2d8b8133eb5ac8e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfProjectThumbnail::isPressed</definition>
+        <argsstring></argsstring>
+        <name>isPressed</name>
+        <qualifiedname>QfProjectThumbnail::isPressed</qualifiedname>
+        <read>dummyGetter_isPressed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="30" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProjectThumbnail_1a40885fc3bb4054250ec66ae1fd0758fb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfProjectThumbnail::fillHeight</definition>
+        <argsstring></argsstring>
+        <name>fillHeight</name>
+        <qualifiedname>QfProjectThumbnail::fillHeight</qualifiedname>
+        <read>dummyGetter_fillHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="32" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProjectThumbnail_1a7d6bfe86d8723aa4391cdc58ae5042cc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProjectThumbnail::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfProjectThumbnail::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="34" column="5" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1a195bbf8c517d3db7d3e3eafa077303d2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProjectThumbnail::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfProjectThumbnail::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="35" column="5" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1a051322961cfb51244e2314c4d540a1a4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProjectThumbnail::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>QfProjectThumbnail::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="36" column="5" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1af7eb4f36267e3922f30f0ca582756305" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProjectThumbnail::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfProjectThumbnail::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="37" column="5" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1add4c3f40f5a2ec75dcaa4232a1fc526a" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfProjectThumbnail::lineMask</definition>
+        <argsstring></argsstring>
+        <name>lineMask</name>
+        <qualifiedname>QfProjectThumbnail::lineMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="38" column="11" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1ada8a1b236d13f47bb0aa06caee13d615" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfProjectThumbnail::thumbnailContentRectangle</definition>
+        <argsstring></argsstring>
+        <name>thumbnailContentRectangle</name>
+        <qualifiedname>QfProjectThumbnail::thumbnailContentRectangle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="39" column="11" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1ac558360ee09ae18e8b44af1c2f4efca8" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfProjectThumbnail::previewImage</definition>
+        <argsstring></argsstring>
+        <name>previewImage</name>
+        <qualifiedname>QfProjectThumbnail::previewImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="40" column="7" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1ad8a168ffcf1542490f0e8b9330bbe19d" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfProjectThumbnail::customizeIcon</definition>
+        <argsstring></argsstring>
+        <name>customizeIcon</name>
+        <qualifiedname>QfProjectThumbnail::customizeIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="41" column="8" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1a730a4f48541960ff692dda594930206c" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfProjectThumbnail::detailsContainer</definition>
+        <argsstring></argsstring>
+        <name>detailsContainer</name>
+        <qualifiedname>QfProjectThumbnail::detailsContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="42" column="11" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1a4544a4e2b9efba74b41ad2f2dd7c09c6" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row QfProjectThumbnail::details</definition>
+        <argsstring></argsstring>
+        <name>details</name>
+        <qualifiedname>QfProjectThumbnail::details</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="43" column="5" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1a15cf5891bf5f863e3217ea2c18c08b73" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfParameterizedImage" kindref="compound">QfParameterizedImage</ref></type>
+        <definition>QfParameterizedImage QfProjectThumbnail::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QfProjectThumbnail::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="44" column="22" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1ac8631c362fb880ebebc96d329f81a20b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfBadge" kindref="compound">QfBadge</ref></type>
+        <definition>QfBadge QfProjectThumbnail::primaryStatusBadge</definition>
+        <argsstring></argsstring>
+        <name>primaryStatusBadge</name>
+        <qualifiedname>QfProjectThumbnail::primaryStatusBadge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="45" column="9" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1a6dc3d3c65a5b06099550af8712773c4a" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfProjectThumbnail::inner</definition>
+        <argsstring></argsstring>
+        <name>inner</name>
+        <qualifiedname>QfProjectThumbnail::inner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="46" column="14" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1aa130008bc8b579a237b97aa4e13bd42d" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfProjectThumbnail::projectTitle</definition>
+        <argsstring></argsstring>
+        <name>projectTitle</name>
+        <qualifiedname>QfProjectThumbnail::projectTitle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="47" column="6" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1a3f4756423254e88b52588455e59cd1f8" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfProjectThumbnail::projectNote</definition>
+        <argsstring></argsstring>
+        <name>projectNote</name>
+        <qualifiedname>QfProjectThumbnail::projectNote</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="48" column="6" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectThumbnail_1ae76936ef35373a8c31f3d668ec870087" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfProjectThumbnail::selectedIndicator</definition>
+        <argsstring></argsstring>
+        <name>selectedIndicator</name>
+        <qualifiedname>QfProjectThumbnail::selectedIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectThumbnail.qml" line="49" column="8" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfProjectThumbnail</label>
+        <link refid="classQfProjectThumbnail"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfProjectThumbnail</label>
+        <link refid="classQfProjectThumbnail"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfProjectThumbnail.qml" line="9" column="1" bodyfile="src/gui/qml/QfProjectThumbnail.qml" bodystart="9" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classQfProjectThumbnail_1a65c0aa91280756f0fec2817dffdb4360" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>bgColor</name></member>
+      <member refid="classQfProjectThumbnail_1af7eb4f36267e3922f30f0ca582756305" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>color</name></member>
+      <member refid="classQfProjectThumbnail_1ad8a168ffcf1542490f0e8b9330bbe19d" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>customizeIcon</name></member>
+      <member refid="classQfProjectThumbnail_1a4544a4e2b9efba74b41ad2f2dd7c09c6" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>details</name></member>
+      <member refid="classQfProjectThumbnail_1a730a4f48541960ff692dda594930206c" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>detailsContainer</name></member>
+      <member refid="classQfProjectThumbnail_1a40885fc3bb4054250ec66ae1fd0758fb" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>fillHeight</name></member>
+      <member refid="classQfProjectThumbnail_1a195bbf8c517d3db7d3e3eafa077303d2" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>height</name></member>
+      <member refid="classQfProjectThumbnail_1a051322961cfb51244e2314c4d540a1a4" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>implicitHeight</name></member>
+      <member refid="classQfProjectThumbnail_1a6dc3d3c65a5b06099550af8712773c4a" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>inner</name></member>
+      <member refid="classQfProjectThumbnail_1ae47a080c30e1f665e2d8b8133eb5ac8e" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>isPressed</name></member>
+      <member refid="classQfProjectThumbnail_1add4c3f40f5a2ec75dcaa4232a1fc526a" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>lineMask</name></member>
+      <member refid="classQfProjectThumbnail_1ac558360ee09ae18e8b44af1c2f4efca8" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>previewImage</name></member>
+      <member refid="classQfProjectThumbnail_1ad5c31f6f29e9791bff98a5b9a1d49666" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>previewImageSource</name></member>
+      <member refid="classQfProjectThumbnail_1a85b29bcd712ed4c7a68652951c0460d4" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>primaryBadge</name></member>
+      <member refid="classQfProjectThumbnail_1ac8631c362fb880ebebc96d329f81a20b" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>primaryStatusBadge</name></member>
+      <member refid="classQfProjectThumbnail_1a0565bfbd79b9a19595e5e12584f12584" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>projectNote</name></member>
+      <member refid="classQfProjectThumbnail_1a3f4756423254e88b52588455e59cd1f8" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>projectNote</name></member>
+      <member refid="classQfProjectThumbnail_1a2d3d527310dd15290cbdd0b7a6c47ae8" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>projectTitle</name></member>
+      <member refid="classQfProjectThumbnail_1aa130008bc8b579a237b97aa4e13bd42d" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>projectTitle</name></member>
+      <member refid="classQfProjectThumbnail_1af602cecfa71460f087e90f9e6b1e4750" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>projectTypeSource</name></member>
+      <member refid="classQfProjectThumbnail_1ad909a7991ce06be96a1dba28f7bab78e" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>selected</name></member>
+      <member refid="classQfProjectThumbnail_1ae76936ef35373a8c31f3d668ec870087" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>selectedIndicator</name></member>
+      <member refid="classQfProjectThumbnail_1a13ba88c80344f22c946a2c869925be6d" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>showCustomizeIcon</name></member>
+      <member refid="classQfProjectThumbnail_1ae56e90bfe2e37d112455d1e2426e21ab" prot="public" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>showType</name></member>
+      <member refid="classQfProjectThumbnail_1ada8a1b236d13f47bb0aa06caee13d615" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>thumbnailContentRectangle</name></member>
+      <member refid="classQfProjectThumbnail_1a15cf5891bf5f863e3217ea2c18c08b73" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>type</name></member>
+      <member refid="classQfProjectThumbnail_1a7d6bfe86d8723aa4391cdc58ae5042cc" prot="private" virt="non-virtual"><scope>QfProjectThumbnail</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

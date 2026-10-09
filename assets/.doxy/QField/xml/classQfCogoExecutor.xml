@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoExecutor" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoExecutor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfcogoexecutor_8h" local="no">qfcogoexecutor.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCogoExecutor_1a37ba876cf703dd47934ae8ad905d8ba8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCogoExecutor::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfCogoExecutor::name</qualifiedname>
+        <read>name</read>
+        <write>setName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The name of the COGO operation to be executed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="40" column="5" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoExecutor_1acae5414edc46dadcfb41431602568914" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfCogoParameter" kindref="compound">QfCogoParameter</ref> &gt;</type>
+        <definition>QList&lt;QfCogoParameter&gt; QfCogoExecutor::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <qualifiedname>QfCogoExecutor::parameters</qualifiedname>
+        <read>parameters</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of parameters of the COGO operation to be executed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="45" column="5" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoExecutor_1aa5f7c37c526800f125e24178daaca9b4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfCogoExecutor::parameterValues</definition>
+        <argsstring></argsstring>
+        <name>parameterValues</name>
+        <qualifiedname>QfCogoExecutor::parameterValues</qualifiedname>
+        <read>parameterValues</read>
+        <write>setParameterValues</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map of parameter values to be used when executing the COGO operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="50" column="5" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoExecutor_1a068a4a9ddc618989ffb8ae04c5347cfd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfCogoVisualGuide" kindref="compound">QfCogoVisualGuide</ref> &gt;</type>
+        <definition>QList&lt;QfCogoVisualGuide&gt; QfCogoExecutor::visualGuides</definition>
+        <argsstring></argsstring>
+        <name>visualGuides</name>
+        <qualifiedname>QfCogoExecutor::visualGuides</qualifiedname>
+        <read>visualGuides</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The visual guides returned by the COGO operation paired with the parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="55" column="5" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoExecutor_1a27b90005130ee20b927172fd83c90026" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCogoExecutor::isReady</definition>
+        <argsstring></argsstring>
+        <name>isReady</name>
+        <qualifiedname>QfCogoExecutor::isReady</qualifiedname>
+        <read>isReady</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>COGO operation paired with the parameters&apos; readiness to be executed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="60" column="5" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoExecutor_1a3a8d02726c80fbd501158975a2629881" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfCogoExecutor::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfCogoExecutor::rubberbandModel</qualifiedname>
+        <read>rubberbandModel</read>
+        <write>setRubberbandModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The rubberband model to be used when executing the COGO operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="65" column="5" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCogoExecutor_1ab16d9f4df3f9b663beaefc402fcf1f41" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfCogoExecutor::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfCogoExecutor::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map settings used when generating visual guides. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="70" column="5" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoExecutor_1a52cad9f61a5583c444bc5cde5f1dd2c6" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCogoExecutor::mName</definition>
+        <argsstring></argsstring>
+        <name>mName</name>
+        <qualifiedname>QfCogoExecutor::mName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="130" column="13" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoExecutor_1a3c49abb318f31da09dde00aab933815b" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classQfCogoParameter" kindref="compound">QfCogoParameter</ref> &gt;</type>
+        <definition>QList&lt;QfCogoParameter&gt; QfCogoExecutor::mParameters</definition>
+        <argsstring></argsstring>
+        <name>mParameters</name>
+        <qualifiedname>QfCogoExecutor::mParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="131" column="11" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoExecutor_1a0437cc29b4ee3d7748abd35d1a2b4c0f" prot="private" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfCogoExecutor::mParameterValues</definition>
+        <argsstring></argsstring>
+        <name>mParameterValues</name>
+        <qualifiedname>QfCogoExecutor::mParameterValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="133" column="17" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoExecutor_1ac1b4298c13f0945e6d7de751fd6291bd" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classQfCogoVisualGuide" kindref="compound">QfCogoVisualGuide</ref> &gt;</type>
+        <definition>QList&lt;QfCogoVisualGuide&gt; QfCogoExecutor::mVisualGuides</definition>
+        <argsstring></argsstring>
+        <name>mVisualGuides</name>
+        <qualifiedname>QfCogoExecutor::mVisualGuides</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="134" column="11" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoExecutor_1a1e3eaef32cf843dd54185ae3f06255b1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCogoExecutor::mIsReady</definition>
+        <argsstring></argsstring>
+        <name>mIsReady</name>
+        <qualifiedname>QfCogoExecutor::mIsReady</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="135" column="10" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoExecutor_1a178a4f5ad0742a2d56c420e7053a8391" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfCogoExecutor::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfCogoExecutor::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="137" column="25" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoExecutor_1a3d7a621a24b4fbda6ac607621d0d4335" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel* QfCogoExecutor::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>QfCogoExecutor::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="138" column="23" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoExecutor_1a4fd8bf3dd5b0a0547455708aca470fa8" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCogoExecutor::QfCogoExecutor</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfCogoExecutor</name>
+        <qualifiedname>QfCogoExecutor::QfCogoExecutor</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="73" column="14" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1abd8939b906952c8bff8fbfa7428f1b0a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfCogoExecutor::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <qualifiedname>QfCogoExecutor::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The name of the COGO operation to be executed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="76" column="13" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a8d4baac736697b19519514aa69aecb46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::setName</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>setName</name>
+        <qualifiedname>QfCogoExecutor::setName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The name of the COGO operation to be executed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="78" column="10" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="29" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1af489761da8e0a152fc678e84cbdf5e24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfCogoParameter" kindref="compound">QfCogoParameter</ref> &gt;</type>
+        <definition>QList&lt; QfCogoParameter &gt; QfCogoExecutor::parameters</definition>
+        <argsstring>() const</argsstring>
+        <name>parameters</name>
+        <qualifiedname>QfCogoExecutor::parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of parameters of the COGO operation to be executed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="81" column="11" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1ac4248de084977fedc2dbe11e2d7a0a3f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfCogoExecutor::parameterValues</definition>
+        <argsstring>() const</argsstring>
+        <name>parameterValues</name>
+        <qualifiedname>QfCogoExecutor::parameterValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map of parameter values to be used when executing the COGO operation.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="84" column="17" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a2efe163cddc5f4d90e86b421fd6690c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::setParameterValues</definition>
+        <argsstring>(const QVariantMap &amp;parameterValues)</argsstring>
+        <name>setParameterValues</name>
+        <qualifiedname>QfCogoExecutor::setParameterValues</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameterValues</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map of parameter values to be used when executing the COGO operation.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="86" column="10" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="43" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a9f2897153e29a591c40f5ecfa6c59f99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfCogoVisualGuide" kindref="compound">QfCogoVisualGuide</ref> &gt;</type>
+        <definition>QList&lt; QfCogoVisualGuide &gt; QfCogoExecutor::visualGuides</definition>
+        <argsstring>() const</argsstring>
+        <name>visualGuides</name>
+        <qualifiedname>QfCogoExecutor::visualGuides</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The visual guides returned by the COGO operation paired with the parameters.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="89" column="11" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a3551d674e78c7361f8a2fe29fa556645" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCogoExecutor::isReady</definition>
+        <argsstring>() const</argsstring>
+        <name>isReady</name>
+        <qualifiedname>QfCogoExecutor::isReady</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>COGO operation paired with the parameters&apos; readiness to be executed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="92" column="10" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a992acfd22882dbcb0e4f2e7c36769004" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfCogoExecutor::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfCogoExecutor::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map settings used when generating visual guides.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="95" column="25" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1ac2dea0cb650632ad17003c12aeb475e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfCogoExecutor::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map settings used when generating visual guides.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="97" column="10" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="57" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a1b44a2bb796fb2373b75f3e523476c04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfCogoExecutor::rubberbandModel</definition>
+        <argsstring>() const</argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfCogoExecutor::rubberbandModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The rubberband model to be used when executing the COGO operation.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="100" column="23" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a1aaff646587e8a7efea0c3a9560917b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::setRubberbandModel</definition>
+        <argsstring>(QfRubberbandModel *rubberbandModel)</argsstring>
+        <name>setRubberbandModel</name>
+        <qualifiedname>QfCogoExecutor::setRubberbandModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+          <declname>rubberbandModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The rubberband model to be used when executing the COGO operation.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="102" column="10" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="83" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a943a72b5e8d07b75c95a6b7844480a01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfCogoExecutor::execute</definition>
+        <argsstring>()</argsstring>
+        <name>execute</name>
+        <qualifiedname>QfCogoExecutor::execute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes the COGO operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="107" column="22" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="172" bodyend="185"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCogoExecutor_1a86b824968cdf324fa43c37efa523f5f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::nameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>nameChanged</name>
+        <qualifiedname>QfCogoExecutor::nameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The name of the COGO operation to be executed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="111" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCogoExecutor_1ab4696098788660531b4f1fa70e38db25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::parametersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>parametersChanged</name>
+        <qualifiedname>QfCogoExecutor::parametersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of parameters of the COGO operation to be executed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="113" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCogoExecutor_1a12dec7fbfdf63841746f1e7ef42fe65f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::parameterValuesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>parameterValuesChanged</name>
+        <qualifiedname>QfCogoExecutor::parameterValuesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="115" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCogoExecutor_1a8ddcd7fe275676eb8949a67d93c6c30e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::visualGuidesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visualGuidesChanged</name>
+        <qualifiedname>QfCogoExecutor::visualGuidesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The visual guides returned by the COGO operation paired with the parameters.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="117" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCogoExecutor_1ad68b86eddf4ed426b95873e21b34a643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::isReadyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isReadyChanged</name>
+        <qualifiedname>QfCogoExecutor::isReadyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>COGO operation paired with the parameters&apos; readiness to be executed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="119" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCogoExecutor_1a6d66421f78afe4dfbd161be4533034a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfCogoExecutor::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The map settings used when generating visual guides.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="121" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCogoExecutor_1a2073baf8b7bf663754831cf4d1a094c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::rubberbandModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelChanged</name>
+        <qualifiedname>QfCogoExecutor::rubberbandModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The rubberband model to be used when executing the COGO operation.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="123" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfCogoExecutor_1a7ec4fa1c1475e7cf942e642201b56844" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::getParameters</definition>
+        <argsstring>()</argsstring>
+        <name>getParameters</name>
+        <qualifiedname>QfCogoExecutor::getParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="126" column="10" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="110" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1a022521b556f88094b3402a0847bc8060" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::generateVisualGuides</definition>
+        <argsstring>()</argsstring>
+        <name>generateVisualGuides</name>
+        <qualifiedname>QfCogoExecutor::generateVisualGuides</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="127" column="10" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="129" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoExecutor_1ab53eb8e81caa3e25e25da5c9355b06d0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoExecutor::checkReadiness</definition>
+        <argsstring>()</argsstring>
+        <name>checkReadiness</name>
+        <qualifiedname>QfCogoExecutor::checkReadiness</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogoexecutor.h" line="128" column="10" bodyfile="src/core/cogo/qfcogoexecutor.cpp" bodystart="153" bodyend="170"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A COGO operation exeuctor object allowing for property-driven access to COGO operations. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCogoExecutor</label>
+        <link refid="classQfCogoExecutor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCogoExecutor</label>
+        <link refid="classQfCogoExecutor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/cogo/qfcogoexecutor.h" line="33" column="1" bodyfile="src/core/cogo/qfcogoexecutor.h" bodystart="34" bodyend="139"/>
+    <listofallmembers>
+      <member refid="classQfCogoExecutor_1ab53eb8e81caa3e25e25da5c9355b06d0" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>checkReadiness</name></member>
+      <member refid="classQfCogoExecutor_1a943a72b5e8d07b75c95a6b7844480a01" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>execute</name></member>
+      <member refid="classQfCogoExecutor_1a022521b556f88094b3402a0847bc8060" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>generateVisualGuides</name></member>
+      <member refid="classQfCogoExecutor_1a7ec4fa1c1475e7cf942e642201b56844" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>getParameters</name></member>
+      <member refid="classQfCogoExecutor_1a27b90005130ee20b927172fd83c90026" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>isReady</name></member>
+      <member refid="classQfCogoExecutor_1a3551d674e78c7361f8a2fe29fa556645" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>isReady</name></member>
+      <member refid="classQfCogoExecutor_1ad68b86eddf4ed426b95873e21b34a643" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>isReadyChanged</name></member>
+      <member refid="classQfCogoExecutor_1ab16d9f4df3f9b663beaefc402fcf1f41" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mapSettings</name></member>
+      <member refid="classQfCogoExecutor_1a992acfd22882dbcb0e4f2e7c36769004" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mapSettings</name></member>
+      <member refid="classQfCogoExecutor_1a6d66421f78afe4dfbd161be4533034a4" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfCogoExecutor_1a1e3eaef32cf843dd54185ae3f06255b1" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mIsReady</name></member>
+      <member refid="classQfCogoExecutor_1a178a4f5ad0742a2d56c420e7053a8391" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mMapSettings</name></member>
+      <member refid="classQfCogoExecutor_1a52cad9f61a5583c444bc5cde5f1dd2c6" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mName</name></member>
+      <member refid="classQfCogoExecutor_1a3c49abb318f31da09dde00aab933815b" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mParameters</name></member>
+      <member refid="classQfCogoExecutor_1a0437cc29b4ee3d7748abd35d1a2b4c0f" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mParameterValues</name></member>
+      <member refid="classQfCogoExecutor_1a3d7a621a24b4fbda6ac607621d0d4335" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mRubberbandModel</name></member>
+      <member refid="classQfCogoExecutor_1ac1b4298c13f0945e6d7de751fd6291bd" prot="private" virt="non-virtual"><scope>QfCogoExecutor</scope><name>mVisualGuides</name></member>
+      <member refid="classQfCogoExecutor_1a37ba876cf703dd47934ae8ad905d8ba8" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>name</name></member>
+      <member refid="classQfCogoExecutor_1abd8939b906952c8bff8fbfa7428f1b0a" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>name</name></member>
+      <member refid="classQfCogoExecutor_1a86b824968cdf324fa43c37efa523f5f0" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>nameChanged</name></member>
+      <member refid="classQfCogoExecutor_1acae5414edc46dadcfb41431602568914" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>parameters</name></member>
+      <member refid="classQfCogoExecutor_1af489761da8e0a152fc678e84cbdf5e24" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>parameters</name></member>
+      <member refid="classQfCogoExecutor_1ab4696098788660531b4f1fa70e38db25" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>parametersChanged</name></member>
+      <member refid="classQfCogoExecutor_1aa5f7c37c526800f125e24178daaca9b4" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>parameterValues</name></member>
+      <member refid="classQfCogoExecutor_1ac4248de084977fedc2dbe11e2d7a0a3f" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>parameterValues</name></member>
+      <member refid="classQfCogoExecutor_1a12dec7fbfdf63841746f1e7ef42fe65f" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>parameterValuesChanged</name></member>
+      <member refid="classQfCogoExecutor_1a4fd8bf3dd5b0a0547455708aca470fa8" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>QfCogoExecutor</name></member>
+      <member refid="classQfCogoExecutor_1a3a8d02726c80fbd501158975a2629881" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>rubberbandModel</name></member>
+      <member refid="classQfCogoExecutor_1a1b44a2bb796fb2373b75f3e523476c04" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>rubberbandModel</name></member>
+      <member refid="classQfCogoExecutor_1a2073baf8b7bf663754831cf4d1a094c5" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>rubberbandModelChanged</name></member>
+      <member refid="classQfCogoExecutor_1ac2dea0cb650632ad17003c12aeb475e0" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>setMapSettings</name></member>
+      <member refid="classQfCogoExecutor_1a8d4baac736697b19519514aa69aecb46" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>setName</name></member>
+      <member refid="classQfCogoExecutor_1a2efe163cddc5f4d90e86b421fd6690c4" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>setParameterValues</name></member>
+      <member refid="classQfCogoExecutor_1a1aaff646587e8a7efea0c3a9560917b9" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>setRubberbandModel</name></member>
+      <member refid="classQfCogoExecutor_1a068a4a9ddc618989ffb8ae04c5347cfd" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>visualGuides</name></member>
+      <member refid="classQfCogoExecutor_1a9f2897153e29a591c40f5ecfa6c59f99" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>visualGuides</name></member>
+      <member refid="classQfCogoExecutor_1a8ddcd7fe275676eb8949a67d93c6c30e" prot="public" virt="non-virtual"><scope>QfCogoExecutor</scope><name>visualGuidesChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

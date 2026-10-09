@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_bee6354f604373d3fe8d8d947aaacc65" kind="dir">
+    <compoundname>src/core/cogo</compoundname>
+    <innerfile refid="qfcogoexecutor_8cpp">qfcogoexecutor.cpp</innerfile>
+    <innerfile refid="qfcogoexecutor_8h">qfcogoexecutor.h</innerfile>
+    <innerfile refid="qfcogooperation_8cpp">qfcogooperation.cpp</innerfile>
+    <innerfile refid="qfcogooperation_8h">qfcogooperation.h</innerfile>
+    <innerfile refid="qfcogooperationsmodel_8cpp">qfcogooperationsmodel.cpp</innerfile>
+    <innerfile refid="qfcogooperationsmodel_8h">qfcogooperationsmodel.h</innerfile>
+    <innerfile refid="qfcogoregistry_8cpp">qfcogoregistry.cpp</innerfile>
+    <innerfile refid="qfcogoregistry_8h">qfcogoregistry.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/cogo/"/>
+  </compounddef>
+</doxygen>

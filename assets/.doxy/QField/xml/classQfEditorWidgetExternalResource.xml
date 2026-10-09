@@ -1,0 +1,933 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEditorWidgetExternalResource" kind="class" language="C++" prot="public">
+    <compoundname>QfEditorWidgetExternalResource</compoundname>
+    <basecompoundref refid="classQfEditorWidgetBase" prot="public" virt="non-virtual">QfEditorWidgetBase</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfEditorWidgetExternalResource_1aa30ae6655ed89f701111400b502b882c" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>DocumentViewer</name>
+        <qualifiedname>QfEditorWidgetExternalResource::DocumentViewer</qualifiedname>
+        <enumvalue id="classQfEditorWidgetExternalResource_1aa30ae6655ed89f701111400b502b882ca5580291c9799ddf9960e32b951f5e86b" prot="public">
+          <name>DocumentFile</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfEditorWidgetExternalResource_1aa30ae6655ed89f701111400b502b882cab48792a70422c30e60c6d3b1d3b55632" prot="public">
+          <name>DocumentImage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfEditorWidgetExternalResource_1aa30ae6655ed89f701111400b502b882ca4db2032ea152834dedef01766f0c1ad6" prot="public">
+          <name>DocumentWeb</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfEditorWidgetExternalResource_1aa30ae6655ed89f701111400b502b882ca37d2809615d957089f8864d554b50f4c" prot="public">
+          <name>DocumentAudio</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfEditorWidgetExternalResource_1aa30ae6655ed89f701111400b502b882ca59d4d0fd5a9bad5823a4c347d2013ca9" prot="public">
+          <name>DocumentVideo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="19" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="19" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a5f057b70dfe84806161f4a014ff73041" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfEditorWidgetExternalResource::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <qualifiedname>QfEditorWidgetExternalResource::left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="10" column="12" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a358ab76bb1030b2ddfd7205223183abf" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfEditorWidgetExternalResource::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>QfEditorWidgetExternalResource::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="11" column="12" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1abb9e764bbbc8d817778d7ba7ea9d7828" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetExternalResource::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfEditorWidgetExternalResource::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="12" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a7712bf32e7955034a3eea06bbd30cd25" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExpressionEvaluator" kindref="compound">QfExpressionEvaluator</ref></type>
+        <definition>QfExpressionEvaluator QfEditorWidgetExternalResource::rootPathEvaluator</definition>
+        <argsstring></argsstring>
+        <name>rootPathEvaluator</name>
+        <qualifiedname>QfEditorWidgetExternalResource::rootPathEvaluator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="13" column="23" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a901dca298b76ae46da2b706a4bb6438b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetExternalResource::onCurrentValueChanged</definition>
+        <argsstring></argsstring>
+        <name>onCurrentValueChanged</name>
+        <qualifiedname>QfEditorWidgetExternalResource::onCurrentValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="41" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1ae20761ce0e1a94a3078f9a5ad1277077" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExternalStorage" kindref="compound">QfExternalStorage</ref></type>
+        <definition>QfExternalStorage QfEditorWidgetExternalResource::externalStorage</definition>
+        <argsstring></argsstring>
+        <name>externalStorage</name>
+        <qualifiedname>QfEditorWidgetExternalResource::externalStorage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="48" column="19" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1aa2c29d0f4f352aeb85791b4016eefbbe" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExpressionEvaluator" kindref="compound">QfExpressionEvaluator</ref></type>
+        <definition>QfExpressionEvaluator QfEditorWidgetExternalResource::expressionEvaluator</definition>
+        <argsstring></argsstring>
+        <name>expressionEvaluator</name>
+        <qualifiedname>QfEditorWidgetExternalResource::expressionEvaluator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="49" column="23" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a4d0b5653c5021c7840e43b0b40a842bf" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfAudioAnalyzer" kindref="compound">QfAudioAnalyzer</ref></type>
+        <definition>QfAudioAnalyzer QfEditorWidgetExternalResource::audioAnalyzer</definition>
+        <argsstring></argsstring>
+        <name>audioAnalyzer</name>
+        <qualifiedname>QfEditorWidgetExternalResource::audioAnalyzer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="50" column="17" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a5b622c0c47e2f3284d6d14e4e58be111" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfEditorWidgetExternalResource::linkField</definition>
+        <argsstring></argsstring>
+        <name>linkField</name>
+        <qualifiedname>QfEditorWidgetExternalResource::linkField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="55" column="7" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1af57d5500c09098e9b5e4414b22e083ca" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfEditorWidgetExternalResource::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfEditorWidgetExternalResource::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="56" column="13" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a3c8593101cb7f51cec3586c814799037" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfEditorWidgetExternalResource::mediaFrame</definition>
+        <argsstring></argsstring>
+        <name>mediaFrame</name>
+        <qualifiedname>QfEditorWidgetExternalResource::mediaFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="57" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a2639bc77b0b89d0a20a35b0d7260cfd9" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfEditorWidgetExternalResource::roundMask</definition>
+        <argsstring></argsstring>
+        <name>roundMask</name>
+        <qualifiedname>QfEditorWidgetExternalResource::roundMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="58" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a4dc489e8d8b0ad42817ea4c7d4cbbea0" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator QfEditorWidgetExternalResource::fetchingIndicator</definition>
+        <argsstring></argsstring>
+        <name>fetchingIndicator</name>
+        <qualifiedname>QfEditorWidgetExternalResource::fetchingIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="59" column="15" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1aa1abdba17f433cd9351ca16ec77e9411" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfEditorWidgetExternalResource::image</definition>
+        <argsstring></argsstring>
+        <name>image</name>
+        <qualifiedname>QfEditorWidgetExternalResource::image</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="60" column="7" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1aea7fd243bd4ef40f199411b24c2c59a2" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfEditorWidgetExternalResource::geoTagBadge</definition>
+        <argsstring></argsstring>
+        <name>geoTagBadge</name>
+        <qualifiedname>QfEditorWidgetExternalResource::geoTagBadge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="61" column="7" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a218bff3a4c59f741980e4e901ad784f4" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfEditorWidgetExternalResource::audioWaveformArea</definition>
+        <argsstring></argsstring>
+        <name>audioWaveformArea</name>
+        <qualifiedname>QfEditorWidgetExternalResource::audioWaveformArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="62" column="6" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a9814f543ddbc9d5e53c13563b312d45e" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row QfEditorWidgetExternalResource::audioWaveformBars</definition>
+        <argsstring></argsstring>
+        <name>audioWaveformBars</name>
+        <qualifiedname>QfEditorWidgetExternalResource::audioWaveformBars</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="63" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a0d81dd63ba7efe7839ebc1ed1bac15ba" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QfEditorWidgetExternalResource::audioWaveformRepeater</definition>
+        <argsstring></argsstring>
+        <name>audioWaveformRepeater</name>
+        <qualifiedname>QfEditorWidgetExternalResource::audioWaveformRepeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="64" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a48e8ca0a3fad1006920298682d8887cc" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfEditorWidgetExternalResource::player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <qualifiedname>QfEditorWidgetExternalResource::player</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="65" column="8" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a13440367993c7b9194d2027356ca8f14" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfEditorWidgetExternalResource::sketchButton</definition>
+        <argsstring></argsstring>
+        <name>sketchButton</name>
+        <qualifiedname>QfEditorWidgetExternalResource::sketchButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="66" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a35a556e572532c5c38f4d5f68afe83c0" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections QfEditorWidgetExternalResource::sketcherConnection</definition>
+        <argsstring></argsstring>
+        <name>sketcherConnection</name>
+        <qualifiedname>QfEditorWidgetExternalResource::sketcherConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="67" column="13" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a0846cdad55564fe0312be8370744860a" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfEditorWidgetExternalResource::playerControls</definition>
+        <argsstring></argsstring>
+        <name>playerControls</name>
+        <qualifiedname>QfEditorWidgetExternalResource::playerControls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="68" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1ac0c1c12596ee1700bf815536da54baae" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfEditorWidgetExternalResource::playButton</definition>
+        <argsstring></argsstring>
+        <name>playButton</name>
+        <qualifiedname>QfEditorWidgetExternalResource::playButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="69" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1ac27aa2bea8643a76b51175e74b506a6b" prot="private" static="no" mutable="no">
+        <type>Slider</type>
+        <definition>Slider QfEditorWidgetExternalResource::positionSlider</definition>
+        <argsstring></argsstring>
+        <name>positionSlider</name>
+        <qualifiedname>QfEditorWidgetExternalResource::positionSlider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="70" column="8" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1ad5e06dbd272a3a9ce2b4006ed8724b09" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfEditorWidgetExternalResource::durationLabel</definition>
+        <argsstring></argsstring>
+        <name>durationLabel</name>
+        <qualifiedname>QfEditorWidgetExternalResource::durationLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="71" column="7" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1aff72623a72862827ec2852d9b4f246db" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfEditorWidgetExternalResource::durationLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>durationLabelMetrics</name>
+        <qualifiedname>QfEditorWidgetExternalResource::durationLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="72" column="13" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1adb28fa0c205d5e591d60db78be2a40f4" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfEditorWidgetExternalResource::cameraButton</definition>
+        <argsstring></argsstring>
+        <name>cameraButton</name>
+        <qualifiedname>QfEditorWidgetExternalResource::cameraButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="73" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a96be73a28599aec03dc000c13e1251b2" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfEditorWidgetExternalResource::cameraVideoButton</definition>
+        <argsstring></argsstring>
+        <name>cameraVideoButton</name>
+        <qualifiedname>QfEditorWidgetExternalResource::cameraVideoButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="74" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a64705ed5bb76bb5c4f32cc862413537b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfEditorWidgetExternalResource::microphoneButton</definition>
+        <argsstring></argsstring>
+        <name>microphoneButton</name>
+        <qualifiedname>QfEditorWidgetExternalResource::microphoneButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="75" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a3fadf31ed3e6111d2616326aba17caed" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfEditorWidgetExternalResource::fileButton</definition>
+        <argsstring></argsstring>
+        <name>fileButton</name>
+        <qualifiedname>QfEditorWidgetExternalResource::fileButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="76" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a2185a8b5e5f6acc5669b7b882a6f739e" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfEditorWidgetExternalResource::audioRecorderLoader</definition>
+        <argsstring></argsstring>
+        <name>audioRecorderLoader</name>
+        <qualifiedname>QfEditorWidgetExternalResource::audioRecorderLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="77" column="8" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1af9e55f85e332890ac88c0efc7340a39e" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfEditorWidgetExternalResource::cameraLoader</definition>
+        <argsstring></argsstring>
+        <name>cameraLoader</name>
+        <qualifiedname>QfEditorWidgetExternalResource::cameraLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="78" column="8" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a85059e548edcd539546583d972dc404b" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfEditorWidgetExternalResource::audioRecorderComponent</definition>
+        <argsstring></argsstring>
+        <name>audioRecorderComponent</name>
+        <qualifiedname>QfEditorWidgetExternalResource::audioRecorderComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="79" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a6466ec724297de586778118536988e85" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfEditorWidgetExternalResource::cameraComponent</definition>
+        <argsstring></argsstring>
+        <name>cameraComponent</name>
+        <qualifiedname>QfEditorWidgetExternalResource::cameraComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="80" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a18b623869a83e03b3582fd3d7834c649" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCamera" kindref="compound">QfCamera</ref></type>
+        <definition>QfCamera QfEditorWidgetExternalResource::qfieldCamera</definition>
+        <argsstring></argsstring>
+        <name>qfieldCamera</name>
+        <qualifiedname>QfEditorWidgetExternalResource::qfieldCamera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="81" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a7ee66066ec8f25001490ccf37f600b67" prot="private" static="no" mutable="no">
+        <type>QtObject</type>
+        <definition>QtObject QfEditorWidgetExternalResource::dummyTarget</definition>
+        <argsstring></argsstring>
+        <name>dummyTarget</name>
+        <qualifiedname>QfEditorWidgetExternalResource::dummyTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="82" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a869c335ebd2b04f2b0d1e0636e596b1f" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections QfEditorWidgetExternalResource::cloudProjectConnection</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectConnection</name>
+        <qualifiedname>QfEditorWidgetExternalResource::cloudProjectConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="83" column="13" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a8915e4b36165a83e7b72074b2a062262" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetExternalResource::capturePhotoMenuItem</definition>
+        <argsstring></argsstring>
+        <name>capturePhotoMenuItem</name>
+        <qualifiedname>QfEditorWidgetExternalResource::capturePhotoMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="84" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a6d521f19fbdec7377c96f47bddd1e5f2" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetExternalResource::captureVideoMenuItem</definition>
+        <argsstring></argsstring>
+        <name>captureVideoMenuItem</name>
+        <qualifiedname>QfEditorWidgetExternalResource::captureVideoMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="85" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1ac06d8e4cbb9ec9cae4905d6eb10f7f08" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetExternalResource::captureAudioMenuItem</definition>
+        <argsstring></argsstring>
+        <name>captureAudioMenuItem</name>
+        <qualifiedname>QfEditorWidgetExternalResource::captureAudioMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="86" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1ac7773f124dfbcaa0954554bba2b6116f" prot="private" static="no" mutable="no">
+        <type>MenuSeparator</type>
+        <definition>MenuSeparator QfEditorWidgetExternalResource::separatorGalleryItem</definition>
+        <argsstring></argsstring>
+        <name>separatorGalleryItem</name>
+        <qualifiedname>QfEditorWidgetExternalResource::separatorGalleryItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="87" column="15" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a7e7b95fb18f4a4cee54a6f6e6811b21e" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetExternalResource::attachGalleryMenuItem</definition>
+        <argsstring></argsstring>
+        <name>attachGalleryMenuItem</name>
+        <qualifiedname>QfEditorWidgetExternalResource::attachGalleryMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="88" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a32f1a309e112a71fdcb4e63951d3a700" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetExternalResource::attachFileMenuItem</definition>
+        <argsstring></argsstring>
+        <name>attachFileMenuItem</name>
+        <qualifiedname>QfEditorWidgetExternalResource::attachFileMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="89" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1ae9b8e84bf8281a18a22503245b27490b" prot="private" static="no" mutable="no">
+        <type>MenuSeparator</type>
+        <definition>MenuSeparator QfEditorWidgetExternalResource::separatorDrawingItem</definition>
+        <argsstring></argsstring>
+        <name>separatorDrawingItem</name>
+        <qualifiedname>QfEditorWidgetExternalResource::separatorDrawingItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="90" column="15" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetExternalResource_1a51879f85a9a6fe5d8d961d9b9381cead" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetExternalResource::attachDrawingMenuItem</definition>
+        <argsstring></argsstring>
+        <name>attachDrawingMenuItem</name>
+        <qualifiedname>QfEditorWidgetExternalResource::attachDrawingMenuItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="91" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="91" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfEditorWidgetExternalResource_1afb08fe15e25b06cd170c2f109a52b314" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfEditorWidgetExternalResource::prefixToRelativePath</definition>
+        <argsstring></argsstring>
+        <name>prefixToRelativePath</name>
+        <qualifiedname>QfEditorWidgetExternalResource::prefixToRelativePath</qualifiedname>
+        <read>dummyGetter_prefixToRelativePath_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="16" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetExternalResource_1a716229b80a3fdab2b63faec5142e0703" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfEditorWidgetExternalResource::documentViewer</definition>
+        <argsstring></argsstring>
+        <name>documentViewer</name>
+        <qualifiedname>QfEditorWidgetExternalResource::documentViewer</qualifiedname>
+        <read>dummyGetter_documentViewer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="31" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetExternalResource_1a146b5af4cb26ce699dc5a3c2aa670cf6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetExternalResource::isImage</definition>
+        <argsstring></argsstring>
+        <name>isImage</name>
+        <qualifiedname>QfEditorWidgetExternalResource::isImage</qualifiedname>
+        <read>dummyGetter_isImage_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="33" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetExternalResource_1a8dfe1953f0d2a68745e894ff303d7277" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetExternalResource::isAudio</definition>
+        <argsstring></argsstring>
+        <name>isAudio</name>
+        <qualifiedname>QfEditorWidgetExternalResource::isAudio</qualifiedname>
+        <read>dummyGetter_isAudio_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="35" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetExternalResource_1a41d2280a93fd958f75f41e4cff34f8ee" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetExternalResource::isVideo</definition>
+        <argsstring></argsstring>
+        <name>isVideo</name>
+        <qualifiedname>QfEditorWidgetExternalResource::isVideo</qualifiedname>
+        <read>dummyGetter_isVideo_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="37" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetExternalResource_1af53f8bd63db674bd2ab49b946aae6e6c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetExternalResource::currentValue</definition>
+        <argsstring></argsstring>
+        <name>currentValue</name>
+        <qualifiedname>QfEditorWidgetExternalResource::currentValue</qualifiedname>
+        <read>dummyGetter_currentValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="39" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetExternalResource_1a92c4ecf7e1fb6ff15ed21d71bc53334a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfEditorWidgetExternalResource::audioSourcePath</definition>
+        <argsstring></argsstring>
+        <name>audioSourcePath</name>
+        <qualifiedname>QfEditorWidgetExternalResource::audioSourcePath</qualifiedname>
+        <read>dummyGetter_audioSourcePath_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="44" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfEditorWidgetExternalResource_1a9adade50a1d34ca7a0be59c040d73182" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEditorWidgetExternalResource::prepareValue</definition>
+        <argsstring>(fullValue)</argsstring>
+        <name>prepareValue</name>
+        <qualifiedname>QfEditorWidgetExternalResource::prepareValue</qualifiedname>
+        <param>
+          <type>fullValue</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="46" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEditorWidgetExternalResource_1a6565501427b38fddd095fa1d45e1624c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEditorWidgetExternalResource::getResourceFilePath</definition>
+        <argsstring>()</argsstring>
+        <name>getResourceFilePath</name>
+        <qualifiedname>QfEditorWidgetExternalResource::getResourceFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="53" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetExternalResource</label>
+        <link refid="classQfEditorWidgetExternalResource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetExternalResource</label>
+        <link refid="classQfEditorWidgetExternalResource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" line="9" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetExternalResource.qml" bodystart="9" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classQfEditorWidgetExternalResource_1a51879f85a9a6fe5d8d961d9b9381cead" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>attachDrawingMenuItem</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a32f1a309e112a71fdcb4e63951d3a700" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>attachFileMenuItem</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a7e7b95fb18f4a4cee54a6f6e6811b21e" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>attachGalleryMenuItem</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a4d0b5653c5021c7840e43b0b40a842bf" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>audioAnalyzer</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a85059e548edcd539546583d972dc404b" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>audioRecorderComponent</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a2185a8b5e5f6acc5669b7b882a6f739e" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>audioRecorderLoader</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a92c4ecf7e1fb6ff15ed21d71bc53334a" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>audioSourcePath</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a218bff3a4c59f741980e4e901ad784f4" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>audioWaveformArea</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a9814f543ddbc9d5e53c13563b312d45e" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>audioWaveformBars</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a0d81dd63ba7efe7839ebc1ed1bac15ba" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>audioWaveformRepeater</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1adb28fa0c205d5e591d60db78be2a40f4" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>cameraButton</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a6466ec724297de586778118536988e85" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>cameraComponent</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1af9e55f85e332890ac88c0efc7340a39e" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>cameraLoader</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a96be73a28599aec03dc000c13e1251b2" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>cameraVideoButton</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1ac06d8e4cbb9ec9cae4905d6eb10f7f08" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>captureAudioMenuItem</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a8915e4b36165a83e7b72074b2a062262" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>capturePhotoMenuItem</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a6d521f19fbdec7377c96f47bddd1e5f2" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>captureVideoMenuItem</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a869c335ebd2b04f2b0d1e0636e596b1f" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>cloudProjectConnection</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1af53f8bd63db674bd2ab49b946aae6e6c" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>currentValue</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1aa30ae6655ed89f701111400b502b882c" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>DocumentViewer</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a716229b80a3fdab2b63faec5142e0703" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>documentViewer</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a7ee66066ec8f25001490ccf37f600b67" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>dummyTarget</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1ad5e06dbd272a3a9ce2b4006ed8724b09" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>durationLabel</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1aff72623a72862827ec2852d9b4f246db" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>durationLabelMetrics</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1aa2c29d0f4f352aeb85791b4016eefbbe" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>expressionEvaluator</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1ae20761ce0e1a94a3078f9a5ad1277077" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>externalStorage</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a4dc489e8d8b0ad42817ea4c7d4cbbea0" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>fetchingIndicator</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a3fadf31ed3e6111d2616326aba17caed" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>fileButton</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1af57d5500c09098e9b5e4414b22e083ca" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>fontMetrics</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1aea7fd243bd4ef40f199411b24c2c59a2" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>geoTagBadge</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a6565501427b38fddd095fa1d45e1624c" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>getResourceFilePath</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>hasMenu</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1abb9e764bbbc8d817778d7ba7ea9d7828" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>height</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1aa1abdba17f433cd9351ca16ec77e9411" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>image</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a8dfe1953f0d2a68745e894ff303d7277" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>isAudio</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a146b5af4cb26ce699dc5a3c2aa670cf6" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>isImage</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>isNull</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a41d2280a93fd958f75f41e4cff34f8ee" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>isVideo</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a5f057b70dfe84806161f4a014ff73041" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>left</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a5b622c0c47e2f3284d6d14e4e58be111" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>linkField</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a3c8593101cb7f51cec3586c814799037" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>mediaFrame</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>menu</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a64705ed5bb76bb5c4f32cc862413537b" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>microphoneButton</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a901dca298b76ae46da2b706a4bb6438b" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>onCurrentValueChanged</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1ac0c1c12596ee1700bf815536da54baae" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>playButton</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a48e8ca0a3fad1006920298682d8887cc" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>player</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a0846cdad55564fe0312be8370744860a" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>playerControls</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1ac27aa2bea8643a76b51175e74b506a6b" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>positionSlider</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1afb08fe15e25b06cd170c2f109a52b314" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>prefixToRelativePath</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a9adade50a1d34ca7a0be59c040d73182" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>prepareValue</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a18b623869a83e03b3582fd3d7834c649" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>qfieldCamera</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>requestBarcode</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a358ab76bb1030b2ddfd7205223183abf" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>right</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a7712bf32e7955034a3eea06bbd30cd25" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>rootPathEvaluator</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a2639bc77b0b89d0a20a35b0d7260cfd9" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>roundMask</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1ae9b8e84bf8281a18a22503245b27490b" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>separatorDrawingItem</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1ac7773f124dfbcaa0954554bba2b6116f" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>separatorGalleryItem</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a13440367993c7b9194d2027356ca8f14" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>sketchButton</name></member>
+      <member refid="classQfEditorWidgetExternalResource_1a35a556e572532c5c38f4d5f68afe83c0" prot="private" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>sketcherConnection</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>QfEditorWidgetExternalResource</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

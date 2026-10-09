@@ -1,0 +1,922 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAttributeFormModel" kind="class" language="C++" prot="public">
+    <compoundname>QfAttributeFormModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FeatureRoles</name>
+        <qualifiedname>QfAttributeFormModel::FeatureRoles</qualifiedname>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205af6f7afc3c77f921b6a8756930e827842" prot="public">
+          <name>ElementType</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ae5347c7012149b7e473807585a8dc9e2" prot="public">
+          <name>Name</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a9bf589b2d41cec6e56357771374a7114" prot="public">
+          <name>AttributeValue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205abcc8f50a7c493b2093d11907318bd7fd" prot="public">
+          <name>AttributeEditable</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a3856dcc6be4a155d3450674b84e9a865" prot="public">
+          <name>EditorWidget</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ad37d60f7854c37b0a5130b77d7bc2a13" prot="public">
+          <name>EditorWidgetConfig</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a80b8d54808c758d83c782e4b73bcd08e" prot="public">
+          <name>RelationEditorWidget</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a0060aba7c09b9ff2e19b3acbb2132dd2" prot="public">
+          <name>RelationEditorWidgetConfig</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a3db1d1b85e9aa58ed1fa6e447570fc31" prot="public">
+          <name>CanRememberValue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a77a5724a27ed7e3754ac3cfa478fd537" prot="public">
+          <name>RememberValue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205adfa913055f8e7cf6ef22d140b974d84a" prot="public">
+          <name>Field</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a5715091baea6195d8ab67715c12ceb22" prot="public">
+          <name>RelationId</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a7696293ad88d82e6a7c012b7f5985967" prot="public">
+          <name>NmRelationId</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ade49dd1123bd3b1f6f779a63d4e439f7" prot="public">
+          <name>FieldIndex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a0ed37cd4c0082cc777bee5d1f052c1d9" prot="public">
+          <name>AttributeEditorElement</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a27d6110a0eb82d9ab8d3cd116bc7c43e" prot="public">
+          <name>CurrentlyVisible</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a63fda85e6eef52a2d3a3b3804b5ce6b4" prot="public">
+          <name>ConstraintHardValid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a1e522e450770fb69aa8b9b8aac342f74" prot="public">
+          <name>ConstraintSoftValid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205aaf48519aef0585a96f7bb35653268ef6" prot="public">
+          <name>ConstraintDescription</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205abbac5343fd7dfcc60910d340b4539d9a" prot="public">
+          <name>AttributeAllowEdit</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a7a66b819c29c5923dd5ae80dbd59b50e" prot="public">
+          <name>EditorWidgetCode</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a9ca8186cecee05e485bdc397215ff254" prot="public">
+          <name>TabIndex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205afdd0b04e4f40d83abe8863aedb305bb9" prot="public">
+          <name>GroupColor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a5d053a9a9a0b8839b10cb6d96aa030a5" prot="public">
+          <name>GroupName</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a8fbf1708e95dbc7400e330ae3ad4da03" prot="public">
+          <name>GroupIndex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a5fcf5201d8f51345458d680c0b6aaf17" prot="public">
+          <name>ColumnCount</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ad59e7eb78703f8338552126433dd2437" prot="public">
+          <name>LabelOverrideColor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a288b1ef04c799f3ea6f9d0ec4333aba8" prot="public">
+          <name>LabelColor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ae9fa230ac7cc1efd073083470261f927" prot="public">
+          <name>LabelOverrideFont</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a1d5aa0aee6aad578d58622ef51999c9f" prot="public">
+          <name>LabelFont</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="41" column="5" bodyfile="src/gui/qfattributeformmodel.h" bodystart="42" bodyend="73"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfAttributeFormModel_1a50d7dbc58d4cc8206c773882b993882b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+        <definition>QfFeatureModel * QfAttributeFormModel::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfAttributeFormModel::featureModel</qualifiedname>
+        <read>featureModel</read>
+        <write>setFeatureModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="32" column="5" bodyfile="src/gui/qfattributeformmodel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAttributeFormModel_1a7675fd32dc5f532e933efae0ab174e45" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::isWizard</definition>
+        <argsstring></argsstring>
+        <name>isWizard</name>
+        <qualifiedname>QfAttributeFormModel::isWizard</qualifiedname>
+        <read>isWizard</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="33" column="5" bodyfile="src/gui/qfattributeformmodel.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAttributeFormModel_1ae06c4d882dcba86b00335d79e5d9f2e4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::hasTabs</definition>
+        <argsstring></argsstring>
+        <name>hasTabs</name>
+        <qualifiedname>QfAttributeFormModel::hasTabs</qualifiedname>
+        <read>hasTabs</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="34" column="5" bodyfile="src/gui/qfattributeformmodel.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAttributeFormModel_1afe56a30a3bdacbc2097159f2ec9b76e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::hasRemembrance</definition>
+        <argsstring></argsstring>
+        <name>hasRemembrance</name>
+        <qualifiedname>QfAttributeFormModel::hasRemembrance</qualifiedname>
+        <read>hasRemembrance</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="35" column="5" bodyfile="src/gui/qfattributeformmodel.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAttributeFormModel_1a8c227842722ffb64d5e42dddfd6b32ac" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::hasConstraints</definition>
+        <argsstring></argsstring>
+        <name>hasConstraints</name>
+        <qualifiedname>QfAttributeFormModel::hasConstraints</qualifiedname>
+        <read>hasConstraints</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="36" column="5" bodyfile="src/gui/qfattributeformmodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAttributeFormModel_1ad6a0603ce42b809d1e593852a604f036" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::constraintsHardValid</definition>
+        <argsstring></argsstring>
+        <name>constraintsHardValid</name>
+        <qualifiedname>QfAttributeFormModel::constraintsHardValid</qualifiedname>
+        <read>constraintsHardValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="37" column="5" bodyfile="src/gui/qfattributeformmodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAttributeFormModel_1accd3138f24bfc8303601ebad23ad3105" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::constraintsSoftValid</definition>
+        <argsstring></argsstring>
+        <name>constraintsSoftValid</name>
+        <qualifiedname>QfAttributeFormModel::constraintsSoftValid</qualifiedname>
+        <read>constraintsSoftValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="38" column="5" bodyfile="src/gui/qfattributeformmodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAttributeFormModel_1ac5ad10a6fa8cf68f77a68c9c866da641" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfAttributeFormModelBase" kindref="compound">QfAttributeFormModelBase</ref> *</type>
+        <definition>QfAttributeFormModelBase* QfAttributeFormModel::mSourceModel</definition>
+        <argsstring></argsstring>
+        <name>mSourceModel</name>
+        <qualifiedname>QfAttributeFormModel::mSourceModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="153" column="30" bodyfile="src/gui/qfattributeformmodel.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAttributeFormModel_1a3cbc542cc51e032f4f38078065bc1107" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAttributeFormModel::QfAttributeFormModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfAttributeFormModel</name>
+        <qualifiedname>QfAttributeFormModel::QfAttributeFormModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="77" column="14" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="20" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a5e9bd4db650ac4c50d203207e5262ccf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::isWizard</definition>
+        <argsstring>() const</argsstring>
+        <name>isWizard</name>
+        <qualifiedname>QfAttributeFormModel::isWizard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="79" column="10" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1ac18b749b3e64b432efa304a899498af4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::hasTabs</definition>
+        <argsstring>() const</argsstring>
+        <name>hasTabs</name>
+        <qualifiedname>QfAttributeFormModel::hasTabs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="80" column="10" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a24d00ba82b460be33dc38a0352071b55" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::hasRemembrance</definition>
+        <argsstring>() const</argsstring>
+        <name>hasRemembrance</name>
+        <qualifiedname>QfAttributeFormModel::hasRemembrance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="81" column="10" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a543bea530cd6cdf7aa8142b1c481fb91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::hasConstraints</definition>
+        <argsstring>() const</argsstring>
+        <name>hasConstraints</name>
+        <qualifiedname>QfAttributeFormModel::hasConstraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="82" column="10" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a15d87b6758aa911c51391a0cadaee3e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+        <definition>QfFeatureModel * QfAttributeFormModel::featureModel</definition>
+        <argsstring>() const</argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfAttributeFormModel::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="84" column="20" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a7b67cebc02f7809152baa9fa64b062cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModel::setFeatureModel</definition>
+        <argsstring>(QfFeatureModel *featureModel)</argsstring>
+        <name>setFeatureModel</name>
+        <qualifiedname>QfAttributeFormModel::setFeatureModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+          <declname>featureModel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="85" column="10" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1abf8930464c01dee41421ce60eec5234b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::constraintsHardValid</definition>
+        <argsstring>() const</argsstring>
+        <name>constraintsHardValid</name>
+        <qualifiedname>QfAttributeFormModel::constraintsHardValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="87" column="10" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1acf1d440caf06d675d6bf8fef48c10d8a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::constraintsSoftValid</definition>
+        <argsstring>() const</argsstring>
+        <name>constraintsSoftValid</name>
+        <qualifiedname>QfAttributeFormModel::constraintsSoftValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="88" column="10" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1ac44dd0b4faa4a319d319ddc707fcb4f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAttributeFormModel::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <qualifiedname>QfAttributeFormModel::save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Save the current (already existing) feature </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="93" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1aea5a678c5a360a8fe215efdb77a42e9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAttributeFormModel::create</definition>
+        <argsstring>()</argsstring>
+        <name>create</name>
+        <qualifiedname>QfAttributeFormModel::create</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the current (not existing yet) feature </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="98" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a7f8e08dcf12e676bc8f08d480fe43323" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAttributeFormModel::deleteFeature</definition>
+        <argsstring>()</argsstring>
+        <name>deleteFeature</name>
+        <qualifiedname>QfAttributeFormModel::deleteFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete the current feature </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="103" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a5f3b77c3dc9a7f9ef53a4f163afda90b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant QfAttributeFormModel::attribute</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>attribute</name>
+        <qualifiedname>QfAttributeFormModel::attribute</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the value for an attribute <emphasis>name</emphasis> of the current feature. <simplesect kind="return"><para>value of the attribute </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="109" column="26" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1acb71d9635a1c0de1ddce6f67e8c746db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAttributeFormModel::changeAttribute</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>changeAttribute</name>
+        <qualifiedname>QfAttributeFormModel::changeAttribute</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the <emphasis>value</emphasis> for an attribute <emphasis>name</emphasis> of the current feature <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the attribute </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="115" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a0f73bdc694fa733e56ce1d1dd03bf8bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfAttributeFormModel::changeGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>changeGeometry</name>
+        <qualifiedname>QfAttributeFormModel::changeGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>geometry</emphasis> of the current feature </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="120" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1ac45511acdd081b6e3ee322121cbf7ee2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAttributeFormModel::applyFeatureModel</definition>
+        <argsstring>()</argsstring>
+        <name>applyFeatureModel</name>
+        <qualifiedname>QfAttributeFormModel::applyFeatureModel</qualifiedname>
+        <briefdescription>
+<para>Applies feature model data such as attribute values, constraints, visibility to the attribute form model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="123" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a9654750df9c6077109c4ba3955e325f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAttributeFormModel::applyParentDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>applyParentDefaultValues</name>
+        <qualifiedname>QfAttributeFormModel::applyParentDefaultValues</qualifiedname>
+        <briefdescription>
+<para>Applies default values linked to a parent feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="126" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a3c5635806541f710d3ee73b367158704" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAttributeFormModel::applyRelationshipDefaultValues</definition>
+        <argsstring>()</argsstring>
+        <name>applyRelationshipDefaultValues</name>
+        <qualifiedname>QfAttributeFormModel::applyRelationshipDefaultValues</qualifiedname>
+        <briefdescription>
+<para>Applies default values linked to relationships. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="129" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a526e90d4ece66bb0dd971f227fe94a4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAttributeFormModel::activateAllRememberValues</definition>
+        <argsstring>()</argsstring>
+        <name>activateAllRememberValues</name>
+        <qualifiedname>QfAttributeFormModel::activateAllRememberValues</qualifiedname>
+        <briefdescription>
+<para>Activate all available value that can be remembered and reused. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="132" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a62cd600bf1bf47295c3f91887df17f0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfAttributeFormModel::deactivateAllRememberValues</definition>
+        <argsstring>()</argsstring>
+        <name>deactivateAllRememberValues</name>
+        <qualifiedname>QfAttributeFormModel::deactivateAllRememberValues</qualifiedname>
+        <briefdescription>
+<para>Deactivate all available value that can be remembered and reused. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="135" column="22" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAttributeFormModel_1a33d2e3a51b9a2b1b2aedd00d4b27a047" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext QfAttributeFormModel::createExpressionContext</definition>
+        <argsstring>() const</argsstring>
+        <name>createExpressionContext</name>
+        <qualifiedname>QfAttributeFormModel::createExpressionContext</qualifiedname>
+        <briefdescription>
+<para>Creates an expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="138" column="26" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="130" bodyend="133"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfAttributeFormModel_1a5ae044b496990becac655183cbd2e696" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModel::featureModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureModelChanged</name>
+        <qualifiedname>QfAttributeFormModel::featureModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="141" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModel_1a19df31191f85e1216a5176663be9f780" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModel::isWizardChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isWizardChanged</name>
+        <qualifiedname>QfAttributeFormModel::isWizardChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="142" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModel_1a3bf675ebab5afc7fa55eeaf393c8e463" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModel::hasTabsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasTabsChanged</name>
+        <qualifiedname>QfAttributeFormModel::hasTabsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="143" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModel_1a2d90a8ef2f262000329e376c56bfceaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModel::hasRemembranceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasRemembranceChanged</name>
+        <qualifiedname>QfAttributeFormModel::hasRemembranceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="144" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModel_1a6d1b9efb5c88f40b8a40893103892045" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModel::hasConstraintsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasConstraintsChanged</name>
+        <qualifiedname>QfAttributeFormModel::hasConstraintsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="145" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModel_1ac270ca3d44385c215429539e055247eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModel::constraintsHardValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>constraintsHardValidChanged</name>
+        <qualifiedname>QfAttributeFormModel::constraintsHardValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="146" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAttributeFormModel_1ad5dbbf8d25944e22ec5456063dc8f302" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAttributeFormModel::constraintsSoftValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>constraintsSoftValidChanged</name>
+        <qualifiedname>QfAttributeFormModel::constraintsSoftValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="147" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQfAttributeFormModel_1a81609e5e254a6e8360ee62cb7e0e9ba8" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfAttributeFormModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>QfAttributeFormModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfattributeformmodel.h" line="150" column="18" bodyfile="src/gui/qfattributeformmodel.cpp" bodystart="135" bodyend="138"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfAttributeFormModel</label>
+        <link refid="classQfAttributeFormModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfAttributeFormModel</label>
+        <link refid="classQfAttributeFormModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfattributeformmodel.h" line="28" column="1" bodyfile="src/gui/qfattributeformmodel.h" bodystart="29" bodyend="154"/>
+    <listofallmembers>
+      <member refid="classQfAttributeFormModel_1a526e90d4ece66bb0dd971f227fe94a4a" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>activateAllRememberValues</name></member>
+      <member refid="classQfAttributeFormModel_1ac45511acdd081b6e3ee322121cbf7ee2" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>applyFeatureModel</name></member>
+      <member refid="classQfAttributeFormModel_1a9654750df9c6077109c4ba3955e325f9" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>applyParentDefaultValues</name></member>
+      <member refid="classQfAttributeFormModel_1a3c5635806541f710d3ee73b367158704" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>applyRelationshipDefaultValues</name></member>
+      <member refid="classQfAttributeFormModel_1a5f3b77c3dc9a7f9ef53a4f163afda90b" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>attribute</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205abbac5343fd7dfcc60910d340b4539d9a" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>AttributeAllowEdit</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205abcc8f50a7c493b2093d11907318bd7fd" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>AttributeEditable</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a0ed37cd4c0082cc777bee5d1f052c1d9" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>AttributeEditorElement</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a9bf589b2d41cec6e56357771374a7114" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>AttributeValue</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a3db1d1b85e9aa58ed1fa6e447570fc31" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>CanRememberValue</name></member>
+      <member refid="classQfAttributeFormModel_1acb71d9635a1c0de1ddce6f67e8c746db" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>changeAttribute</name></member>
+      <member refid="classQfAttributeFormModel_1a0f73bdc694fa733e56ce1d1dd03bf8bb" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>changeGeometry</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a5fcf5201d8f51345458d680c0b6aaf17" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>ColumnCount</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205aaf48519aef0585a96f7bb35653268ef6" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>ConstraintDescription</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a63fda85e6eef52a2d3a3b3804b5ce6b4" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>ConstraintHardValid</name></member>
+      <member refid="classQfAttributeFormModel_1ad6a0603ce42b809d1e593852a604f036" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>constraintsHardValid</name></member>
+      <member refid="classQfAttributeFormModel_1abf8930464c01dee41421ce60eec5234b" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>constraintsHardValid</name></member>
+      <member refid="classQfAttributeFormModel_1ac270ca3d44385c215429539e055247eb" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>constraintsHardValidChanged</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a1e522e450770fb69aa8b9b8aac342f74" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>ConstraintSoftValid</name></member>
+      <member refid="classQfAttributeFormModel_1accd3138f24bfc8303601ebad23ad3105" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>constraintsSoftValid</name></member>
+      <member refid="classQfAttributeFormModel_1acf1d440caf06d675d6bf8fef48c10d8a" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>constraintsSoftValid</name></member>
+      <member refid="classQfAttributeFormModel_1ad5dbbf8d25944e22ec5456063dc8f302" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>constraintsSoftValidChanged</name></member>
+      <member refid="classQfAttributeFormModel_1aea5a678c5a360a8fe215efdb77a42e9d" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>create</name></member>
+      <member refid="classQfAttributeFormModel_1a33d2e3a51b9a2b1b2aedd00d4b27a047" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>createExpressionContext</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a27d6110a0eb82d9ab8d3cd116bc7c43e" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>CurrentlyVisible</name></member>
+      <member refid="classQfAttributeFormModel_1a62cd600bf1bf47295c3f91887df17f0d" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>deactivateAllRememberValues</name></member>
+      <member refid="classQfAttributeFormModel_1a7f8e08dcf12e676bc8f08d480fe43323" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>deleteFeature</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a3856dcc6be4a155d3450674b84e9a865" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>EditorWidget</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a7a66b819c29c5923dd5ae80dbd59b50e" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>EditorWidgetCode</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ad37d60f7854c37b0a5130b77d7bc2a13" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>EditorWidgetConfig</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205af6f7afc3c77f921b6a8756930e827842" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>ElementType</name></member>
+      <member refid="classQfAttributeFormModel_1a50d7dbc58d4cc8206c773882b993882b" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>featureModel</name></member>
+      <member refid="classQfAttributeFormModel_1a15d87b6758aa911c51391a0cadaee3e8" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>featureModel</name></member>
+      <member refid="classQfAttributeFormModel_1a5ae044b496990becac655183cbd2e696" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>featureModelChanged</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>FeatureRoles</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205adfa913055f8e7cf6ef22d140b974d84a" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>Field</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ade49dd1123bd3b1f6f779a63d4e439f7" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>FieldIndex</name></member>
+      <member refid="classQfAttributeFormModel_1a81609e5e254a6e8360ee62cb7e0e9ba8" prot="protected" virt="virtual"><scope>QfAttributeFormModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205afdd0b04e4f40d83abe8863aedb305bb9" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>GroupColor</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a8fbf1708e95dbc7400e330ae3ad4da03" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>GroupIndex</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a5d053a9a9a0b8839b10cb6d96aa030a5" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>GroupName</name></member>
+      <member refid="classQfAttributeFormModel_1a8c227842722ffb64d5e42dddfd6b32ac" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasConstraints</name></member>
+      <member refid="classQfAttributeFormModel_1a543bea530cd6cdf7aa8142b1c481fb91" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasConstraints</name></member>
+      <member refid="classQfAttributeFormModel_1a6d1b9efb5c88f40b8a40893103892045" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasConstraintsChanged</name></member>
+      <member refid="classQfAttributeFormModel_1afe56a30a3bdacbc2097159f2ec9b76e7" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasRemembrance</name></member>
+      <member refid="classQfAttributeFormModel_1a24d00ba82b460be33dc38a0352071b55" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasRemembrance</name></member>
+      <member refid="classQfAttributeFormModel_1a2d90a8ef2f262000329e376c56bfceaa" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasRemembranceChanged</name></member>
+      <member refid="classQfAttributeFormModel_1ae06c4d882dcba86b00335d79e5d9f2e4" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasTabs</name></member>
+      <member refid="classQfAttributeFormModel_1ac18b749b3e64b432efa304a899498af4" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasTabs</name></member>
+      <member refid="classQfAttributeFormModel_1a3bf675ebab5afc7fa55eeaf393c8e463" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>hasTabsChanged</name></member>
+      <member refid="classQfAttributeFormModel_1a7675fd32dc5f532e933efae0ab174e45" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>isWizard</name></member>
+      <member refid="classQfAttributeFormModel_1a5e9bd4db650ac4c50d203207e5262ccf" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>isWizard</name></member>
+      <member refid="classQfAttributeFormModel_1a19df31191f85e1216a5176663be9f780" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>isWizardChanged</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a288b1ef04c799f3ea6f9d0ec4333aba8" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>LabelColor</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a1d5aa0aee6aad578d58622ef51999c9f" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>LabelFont</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ad59e7eb78703f8338552126433dd2437" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>LabelOverrideColor</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ae9fa230ac7cc1efd073083470261f927" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>LabelOverrideFont</name></member>
+      <member refid="classQfAttributeFormModel_1ac5ad10a6fa8cf68f77a68c9c866da641" prot="private" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>mSourceModel</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205ae5347c7012149b7e473807585a8dc9e2" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>Name</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a7696293ad88d82e6a7c012b7f5985967" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>NmRelationId</name></member>
+      <member refid="classQfAttributeFormModel_1a3cbc542cc51e032f4f38078065bc1107" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>QfAttributeFormModel</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a80b8d54808c758d83c782e4b73bcd08e" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>RelationEditorWidget</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a0060aba7c09b9ff2e19b3acbb2132dd2" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>RelationEditorWidgetConfig</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a5715091baea6195d8ab67715c12ceb22" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>RelationId</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a77a5724a27ed7e3754ac3cfa478fd537" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>RememberValue</name></member>
+      <member refid="classQfAttributeFormModel_1ac44dd0b4faa4a319d319ddc707fcb4f0" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>save</name></member>
+      <member refid="classQfAttributeFormModel_1a7b67cebc02f7809152baa9fa64b062cb" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>setFeatureModel</name></member>
+      <member refid="classQfAttributeFormModel_1a3bdf3ef9d380086d12dd2a648029d205a9ca8186cecee05e485bdc397215ff254" prot="public" virt="non-virtual"><scope>QfAttributeFormModel</scope><name>TabIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

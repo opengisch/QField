@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPluginItem" kind="class" language="C++" prot="public">
+    <compoundname>QfPluginItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPluginItem_1a26351f2e253771d7fd7ecab10dde6c35" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginItem::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfPluginItem::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="10" column="5" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginItem_1a4ef91ac1b03b349ce1c0d6748a577a16" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfPluginItem::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfPluginItem::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="11" column="5" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginItem_1abfcf9713e35fcded8377341e2f6b91c3" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout QfPluginItem::pluginItemContent</definition>
+        <argsstring></argsstring>
+        <name>pluginItemContent</name>
+        <qualifiedname>QfPluginItem::pluginItemContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="38" column="12" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginItem_1aef14dfca3f61cbef437dd07350d96bdb" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfPluginItem::pluginImage</definition>
+        <argsstring></argsstring>
+        <name>pluginImage</name>
+        <qualifiedname>QfPluginItem::pluginImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="39" column="7" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginItem_1ad50b1bfdfbbd209987d4289c780ef8b9" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfPluginItem::pluginName</definition>
+        <argsstring></argsstring>
+        <name>pluginName</name>
+        <qualifiedname>QfPluginItem::pluginName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="40" column="7" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginItem_1a797d3dd56d247d78abc1fede38c3e140" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPluginItem::configureEnabledPlugin</definition>
+        <argsstring></argsstring>
+        <name>configureEnabledPlugin</name>
+        <qualifiedname>QfPluginItem::configureEnabledPlugin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="41" column="14" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginItem_1a02e35803aaff7c09865222d4514f93f5" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPluginItem::updatePlugin</definition>
+        <argsstring></argsstring>
+        <name>updatePlugin</name>
+        <qualifiedname>QfPluginItem::updatePlugin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="42" column="14" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginItem_1a218f8e2ab09f719d5b4389a0ef526565" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfPluginItem::downloadPlugin</definition>
+        <argsstring></argsstring>
+        <name>downloadPlugin</name>
+        <qualifiedname>QfPluginItem::downloadPlugin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="43" column="14" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginItem_1aea0c9021ee979a2c1e4d87c8b7113904" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator QfPluginItem::busyIndicator</definition>
+        <argsstring></argsstring>
+        <name>busyIndicator</name>
+        <qualifiedname>QfPluginItem::busyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="44" column="15" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPluginItem_1ad242925f236db77f11bf937c8eb15407" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPluginItem::icon</definition>
+        <argsstring></argsstring>
+        <name>icon</name>
+        <qualifiedname>QfPluginItem::icon</qualifiedname>
+        <read>dummyGetter_icon_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="14" column="1" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginItem_1abbb0b4f2a0da62e0f8af6bb981902a10" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfPluginItem::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfPluginItem::name</qualifiedname>
+        <read>dummyGetter_name_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="16" column="1" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginItem_1a4ee8c9941a298cc262ecc1f517bc9999" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPluginItem::itemEnabled</definition>
+        <argsstring></argsstring>
+        <name>itemEnabled</name>
+        <qualifiedname>QfPluginItem::itemEnabled</qualifiedname>
+        <read>dummyGetter_itemEnabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="18" column="1" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginItem_1a8449b0b633931fc100a9dcc5dedadf7d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPluginItem::itemConfigurable</definition>
+        <argsstring></argsstring>
+        <name>itemConfigurable</name>
+        <qualifiedname>QfPluginItem::itemConfigurable</qualifiedname>
+        <read>dummyGetter_itemConfigurable_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="20" column="1" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginItem_1a288636535db10e4275695553b1554219" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPluginItem::itemDownloading</definition>
+        <argsstring></argsstring>
+        <name>itemDownloading</name>
+        <qualifiedname>QfPluginItem::itemDownloading</qualifiedname>
+        <read>dummyGetter_itemDownloading_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="22" column="1" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfPluginItem_1afc76eded44420508a3a72cc76ed7e44e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginItem::authorDetailsClicked</definition>
+        <argsstring>()</argsstring>
+        <name>authorDetailsClicked</name>
+        <qualifiedname>QfPluginItem::authorDetailsClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="24" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginItem_1a867804a1d8346341aa46903921372ac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginItem::uninstallConfirmationClicked</definition>
+        <argsstring>()</argsstring>
+        <name>uninstallConfirmationClicked</name>
+        <qualifiedname>QfPluginItem::uninstallConfirmationClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="26" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginItem_1abcd5206177691a223e9491aa840327cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginItem::toggleEnabledPlugin</definition>
+        <argsstring>(bool checked)</argsstring>
+        <name>toggleEnabledPlugin</name>
+        <qualifiedname>QfPluginItem::toggleEnabledPlugin</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>checked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="28" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginItem_1a984da9cdb6d64994e8f4fd51a7b7bc5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginItem::pluginNameClicked</definition>
+        <argsstring>()</argsstring>
+        <name>pluginNameClicked</name>
+        <qualifiedname>QfPluginItem::pluginNameClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="30" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginItem_1a68276783da4f7377e16683f9787399fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginItem::configClicked</definition>
+        <argsstring>()</argsstring>
+        <name>configClicked</name>
+        <qualifiedname>QfPluginItem::configClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="32" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginItem_1aa0aa19f724be078fd6b4baf0d9a69dad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginItem::updateClicked</definition>
+        <argsstring>()</argsstring>
+        <name>updateClicked</name>
+        <qualifiedname>QfPluginItem::updateClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="34" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginItem_1a894be5317a625f7b599d09ae094a5809" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginItem::downloadClicked</definition>
+        <argsstring>()</argsstring>
+        <name>downloadClicked</name>
+        <qualifiedname>QfPluginItem::downloadClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfPluginItem.qml" line="36" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfPluginItem</label>
+        <link refid="classQfPluginItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfPluginItem</label>
+        <link refid="classQfPluginItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfPluginItem.qml" line="9" column="1" bodyfile="src/app/qml/QfPluginItem.qml" bodystart="9" bodyend="45"/>
+    <listofallmembers>
+      <member refid="classQfPluginItem_1afc76eded44420508a3a72cc76ed7e44e" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>authorDetailsClicked</name></member>
+      <member refid="classQfPluginItem_1aea0c9021ee979a2c1e4d87c8b7113904" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>busyIndicator</name></member>
+      <member refid="classQfPluginItem_1a4ef91ac1b03b349ce1c0d6748a577a16" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>color</name></member>
+      <member refid="classQfPluginItem_1a68276783da4f7377e16683f9787399fd" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>configClicked</name></member>
+      <member refid="classQfPluginItem_1a797d3dd56d247d78abc1fede38c3e140" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>configureEnabledPlugin</name></member>
+      <member refid="classQfPluginItem_1a894be5317a625f7b599d09ae094a5809" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>downloadClicked</name></member>
+      <member refid="classQfPluginItem_1a218f8e2ab09f719d5b4389a0ef526565" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>downloadPlugin</name></member>
+      <member refid="classQfPluginItem_1a26351f2e253771d7fd7ecab10dde6c35" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>height</name></member>
+      <member refid="classQfPluginItem_1ad242925f236db77f11bf937c8eb15407" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>icon</name></member>
+      <member refid="classQfPluginItem_1a8449b0b633931fc100a9dcc5dedadf7d" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>itemConfigurable</name></member>
+      <member refid="classQfPluginItem_1a288636535db10e4275695553b1554219" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>itemDownloading</name></member>
+      <member refid="classQfPluginItem_1a4ee8c9941a298cc262ecc1f517bc9999" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>itemEnabled</name></member>
+      <member refid="classQfPluginItem_1abbb0b4f2a0da62e0f8af6bb981902a10" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>name</name></member>
+      <member refid="classQfPluginItem_1aef14dfca3f61cbef437dd07350d96bdb" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>pluginImage</name></member>
+      <member refid="classQfPluginItem_1abfcf9713e35fcded8377341e2f6b91c3" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>pluginItemContent</name></member>
+      <member refid="classQfPluginItem_1ad50b1bfdfbbd209987d4289c780ef8b9" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>pluginName</name></member>
+      <member refid="classQfPluginItem_1a984da9cdb6d64994e8f4fd51a7b7bc5c" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>pluginNameClicked</name></member>
+      <member refid="classQfPluginItem_1abcd5206177691a223e9491aa840327cf" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>toggleEnabledPlugin</name></member>
+      <member refid="classQfPluginItem_1a867804a1d8346341aa46903921372ac5" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>uninstallConfirmationClicked</name></member>
+      <member refid="classQfPluginItem_1aa0aa19f724be078fd6b4baf0d9a69dad" prot="public" virt="non-virtual"><scope>QfPluginItem</scope><name>updateClicked</name></member>
+      <member refid="classQfPluginItem_1a02e35803aaff7c09865222d4514f93f5" prot="private" virt="non-virtual"><scope>QfPluginItem</scope><name>updatePlugin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

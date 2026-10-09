@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGridAnnotation" kind="class" language="C++" prot="public">
+    <compoundname>QfGridAnnotation</compoundname>
+    <includes refid="qfgridmodel_8h" local="no">qfgridmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Positions</name>
+        <qualifiedname>QfGridAnnotation::Positions</qualifiedname>
+        <enumvalue id="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2a090265a6a85f1b2a232dda5a9058f0bf" prot="public">
+          <name>Top</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2afe2aa9d5a209342dcaffae03250ef58f" prot="public">
+          <name>Bottom</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2afc426599a0c33070acfc86d494b74b4c" prot="public">
+          <name>Left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2ac08c07783189625bfba1ed4017103ab2" prot="public">
+          <name>Right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="35" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="36" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGridAnnotation_1a2081682019bd3e06e34d894a0e0237bb" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Positions</type>
+        <definition>Positions QfGridAnnotation::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>QfGridAnnotation::position</qualifiedname>
+        <initializer>= Top</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="30" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridAnnotation_1ac904408122538b7afb912e6b77079dca" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QPointF</type>
+        <definition>QPointF QfGridAnnotation::coordinate</definition>
+        <argsstring></argsstring>
+        <name>coordinate</name>
+        <qualifiedname>QfGridAnnotation::coordinate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="31" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridAnnotation_1a8ac8d7ace3aea1c654a2dc968b3761de" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfGridAnnotation::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>QfGridAnnotation::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="32" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGridAnnotation_1a3585cf85e1e98177547863b4195282d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfGridAnnotation::QfGridAnnotation</definition>
+        <argsstring>(const Positions position=Top, const QPointF coordinate=QPointF(), const double value=0.0)</argsstring>
+        <name>QfGridAnnotation</name>
+        <qualifiedname>QfGridAnnotation::QfGridAnnotation</qualifiedname>
+        <param>
+          <type>const Positions</type>
+          <declname>position</declname>
+          <defval>Top</defval>
+        </param>
+        <param>
+          <type>const QPointF</type>
+          <declname>coordinate</declname>
+          <defval>QPointF()</defval>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgridmodel.h" line="44" column="5" bodyfile="src/core/qfgridmodel.h" bodystart="44" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds details for a given grid annotation. </para>
+    </detaileddescription>
+    <location file="src/core/qfgridmodel.h" line="26" column="1" bodyfile="src/core/qfgridmodel.h" bodystart="27" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2afe2aa9d5a209342dcaffae03250ef58f" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>Bottom</name></member>
+      <member refid="classQfGridAnnotation_1ac904408122538b7afb912e6b77079dca" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>coordinate</name></member>
+      <member refid="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2afc426599a0c33070acfc86d494b74b4c" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>Left</name></member>
+      <member refid="classQfGridAnnotation_1a2081682019bd3e06e34d894a0e0237bb" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>position</name></member>
+      <member refid="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>Positions</name></member>
+      <member refid="classQfGridAnnotation_1a3585cf85e1e98177547863b4195282d2" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>QfGridAnnotation</name></member>
+      <member refid="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2ac08c07783189625bfba1ed4017103ab2" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>Right</name></member>
+      <member refid="classQfGridAnnotation_1a8907f79bf1b46b8e7b538cc909412ea2a090265a6a85f1b2a232dda5a9058f0bf" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>Top</name></member>
+      <member refid="classQfGridAnnotation_1a8ac8d7ace3aea1c654a2dc968b3761de" prot="public" virt="non-virtual"><scope>QfGridAnnotation</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

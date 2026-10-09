@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEditorWidgetBinary" kind="class" language="C++" prot="public">
+    <compoundname>QfEditorWidgetBinary</compoundname>
+    <basecompoundref refid="classQfEditorWidgetBase" prot="public" virt="non-virtual">QfEditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEditorWidgetBinary_1acebdb1d034b76577be16e78de3f1eb6a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetBinary::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfEditorWidgetBinary::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetBinary.qml" line="6" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetBinary.qml" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetBinary_1a5a94a34051459ddc6aae9561bed97f94" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfEditorWidgetBinary::binaryValue</definition>
+        <argsstring></argsstring>
+        <name>binaryValue</name>
+        <qualifiedname>QfEditorWidgetBinary::binaryValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetBinary.qml" line="7" column="7" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetBinary.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetBinary</label>
+        <link refid="classQfEditorWidgetBinary"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetBinary</label>
+        <link refid="classQfEditorWidgetBinary"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetBinary.qml" line="5" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetBinary.qml" bodystart="5" bodyend="8"/>
+    <listofallmembers>
+      <member refid="classQfEditorWidgetBinary_1a5a94a34051459ddc6aae9561bed97f94" prot="private" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>binaryValue</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>hasMenu</name></member>
+      <member refid="classQfEditorWidgetBinary_1acebdb1d034b76577be16e78de3f1eb6a" prot="private" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>height</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>isNull</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>menu</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>requestBarcode</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>QfEditorWidgetBinary</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
