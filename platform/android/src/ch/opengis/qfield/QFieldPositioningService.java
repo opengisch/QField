@@ -47,6 +47,7 @@ public class QFieldPositioningService extends QtService {
 
     private NotificationManager notificationManager;
     private NotificationChannel notificationChannel;
+    private boolean notificationCancelled = false;
 
     private final String CHANNEL_ID = "qfield_service_02";
     private final int NOTIFICATION_ID = 102;
@@ -67,6 +68,7 @@ public class QFieldPositioningService extends QtService {
         Intent intent = new Intent(context, QFieldPositioningService.class);
         if (getInstance() != null) {
             getInstance().stopForeground(true);
+            getInstance().cancelNotification();
         }
         context.stopService(intent);
     }
@@ -97,6 +99,7 @@ public class QFieldPositioningService extends QtService {
     @Override
     public void onDestroy() {
         Log.v("QFieldPositioningService", "onDestroy triggered");
+        notificationCancelled = true;
         notificationManager.cancel(NOTIFICATION_ID);
         super.onDestroy();
         instance = null;
@@ -122,6 +125,7 @@ public class QFieldPositioningService extends QtService {
 
         instance = this;
 
+        notificationCancelled = false;
         notificationManager =
             (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
@@ -140,7 +144,6 @@ public class QFieldPositioningService extends QtService {
             new Notification.Builder(this)
                 .setSmallIcon(R.drawable.qfield_logo_vector)
                 .setWhen(System.currentTimeMillis())
-                .setOngoing(true)
                 .setContentTitle(getString(R.string.positioning_title))
                 .setContentText(getString(R.string.positioning_running));
 
@@ -168,6 +171,10 @@ public class QFieldPositioningService extends QtService {
 
     public void showNotification(String contentText,
                                  boolean addCopyToClipboard) {
+        if (notificationCancelled) {
+            return;
+        }
+
         // Return to QField activity when clicking on the notification
         PendingIntent contentIntent = PendingIntent.getActivity(
             this, 0, new Intent(this, QFieldActivity.class),
@@ -177,7 +184,6 @@ public class QFieldPositioningService extends QtService {
             new Notification.Builder(this)
                 .setSmallIcon(R.drawable.qfield_logo_vector)
                 .setWhen(System.currentTimeMillis())
-                .setOngoing(true)
                 .setContentTitle(getString(R.string.positioning_title))
                 .setContentText(contentText)
                 .setContentIntent(contentIntent);
@@ -198,5 +204,10 @@ public class QFieldPositioningService extends QtService {
 
         Notification notification = builder.build();
         notificationManager.notify(NOTIFICATION_ID, notification);
+    }
+
+    public void cancelNotification() {
+        notificationCancelled = true;
+        notificationManager.cancel(NOTIFICATION_ID);
     }
 }
