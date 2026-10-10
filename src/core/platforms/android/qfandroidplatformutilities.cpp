@@ -735,8 +735,11 @@ void QfAndroidPlatformUtilities::setHandleVolumeKeys( const bool handle )
 
 void QfAndroidPlatformUtilities::uploadPendingAttachments( QfCloudConnection *connection ) const
 {
-  // Request notification permission
-  checkAndAcquirePermissions( { QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) } );
+  if ( qtAndroidSkdVersion() >= 33 )
+  {
+    // Request notification permission
+    checkAndAcquirePermissions( { QStringLiteral( "android.permission.POST_NOTIFICATIONS" ) } );
+  }
 
   QTimer::singleShot( 500, [connection]() {
     if ( connection )
