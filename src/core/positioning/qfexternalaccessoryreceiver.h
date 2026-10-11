@@ -19,6 +19,7 @@
 #include "qfnmeagnssreceiver.h"
 
 #include <QBuffer>
+#include <QTimer>
 
 /**
  * The external accessory receiver connects to a GNSS receiver through the iOS
@@ -52,6 +53,12 @@ class QfExternalAccessoryReceiver : public QfNmeaGnssReceiver
 
     QBuffer *mBuffer = nullptr;
     QByteArray mBufferData;
+
+    bool mConnectRequested = false;
+    //! Retries opening a session while waiting for the accessory
+    QTimer mRetryTimer;
+    //! Reopens the session when no bytes arrive for a while
+    QTimer mDataWatchdog;
 
     class SessionContainer;
     SessionContainer *mContainer = nullptr;

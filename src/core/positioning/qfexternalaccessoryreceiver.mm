@@ -272,6 +272,26 @@ private:
 QfExternalAccessoryReceiver::QfExternalAccessoryReceiver(QObject *parent)
     : QfNmeaGnssReceiver(parent), mBuffer(new QBuffer(this)) {
   initNmeaConnection(mBuffer);
+
+  // The accessory manager only notifies connections it did not know about
+  // yet, poll while waiting so the session is also reopened when the
+  // accessory stayed listed as connected (e.g. after the app returned to the
+  // foreground) or when opening it failed
+  mRetryTimer.setSingleShot(true);
+  mRetryTimer.setInterval(2000);
+  connect(&mRetryTimer, &QTimer::timeout, this,
+          &QfExternalAccessoryReceiver::openSession);
+
+  // A session can open on a stale accessory connection and never deliver a
+  // byte, reopen it when the stream falls silent
+  mDataWatchdog.setSingleShot(true);
+  mDataWatchdog.setInterval(15000);
+  connect(&mDataWatchdog, &QTimer::timeout, this, [this]() {
+    qInfo() << "ExternalAccessoryReceiver: No data received, reopening the "
+               "session";
+    handleSessionEnded();
+  });
+
   setValid(true);
 }
 
@@ -283,6 +303,7 @@ QfExternalAccessoryReceiver::~QfExternalAccessoryReceiver() {
 }
 
 void QfExternalAccessoryReceiver::handleConnectDevice() {
+  mConnectRequested = true;
   if (!mContainer) {
     mContainer = new SessionContainer(this);
   }
@@ -290,6 +311,8 @@ void QfExternalAccessoryReceiver::handleConnectDevice() {
 }
 
 void QfExternalAccessoryReceiver::handleDisconnectDevice() {
+  mConnectRequested = false;
+  mRetryTimer.stop();
   closeSession();
   delete mContainer;
   mContainer = nullptr;
@@ -297,14 +320,15 @@ void QfExternalAccessoryReceiver::handleDisconnectDevice() {
 }
 
 void QfExternalAccessoryReceiver::openSession() {
-  if (!mContainer || mContainer->isOpen()) {
+  if (!mConnectRequested || !mContainer || mContainer->isOpen()) {
     return;
   }
 
   QString error;
   if (mContainer->open(error)) {
     mBufferData.clear();
-    mBuffer->open(QIODevice::ReadWrite);
+    mBuffer->open(QIODevice::ReadWrite | QIODevice::Truncate);
+    mDataWatchdog.start();
     if (!mLastError.isEmpty()) {
       mLastError.clear();
       emit lastErrorChanged(mLastError);
@@ -313,7 +337,7 @@ void QfExternalAccessoryReceiver::openSession() {
     return;
   }
 
-  if (!error.isEmpty()) {
+  if (!error.isEmpty() && error != mLastError) {
     mLastError = error;
     qInfo() << QStringLiteral("ExternalAccessoryReceiver: Error: %1")
                    .arg(mLastError);
@@ -321,9 +345,11 @@ void QfExternalAccessoryReceiver::openSession() {
   }
   // Wait for the accessory to (re)connect
   setSocketState(QAbstractSocket::ConnectingState);
+  mRetryTimer.start();
 }
 
 void QfExternalAccessoryReceiver::closeSession() {
+  mDataWatchdog.stop();
   if (mContainer) {
     mContainer->close();
   }
@@ -341,13 +367,18 @@ void QfExternalAccessoryReceiver::handleAccessoryDisconnected(
 
 void QfExternalAccessoryReceiver::handleSessionEnded() {
   closeSession();
+  if (!mConnectRequested) {
+    return;
+  }
   // Wait for the accessory to reconnect
   setSocketState(QAbstractSocket::ConnectingState);
+  mRetryTimer.start();
 }
 
 void QfExternalAccessoryReceiver::handleBytesReceived(const QByteArray &bytes) {
   Q_ASSERT(QThread::currentThread() == thread());
 
+  mDataWatchdog.start();
   mBufferData.append(bytes);
   const qsizetype endSentenceIndex =
       mBufferData.lastIndexOf(QByteArrayLiteral("\r\n"));
