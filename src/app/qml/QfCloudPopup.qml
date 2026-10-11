@@ -289,8 +289,7 @@ Popup {
 
             Shape {
               id: cloudOutline
-
-              readonly property string cloudPath: "M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"
+              readonly property string cloudPath: "M19.35 10.04C21.95 10.22 24 12.36 24 15C24 17.76 21.76 20 19 20H6C2.69 20 0 17.31 0 14C0 10.91 2.34 8.36 5.35 8.04C6.6 5.64 9.11 4 12 4C15.64 4 18.67 6.59 19.35 10.04Z"
 
               anchors.centerIn: parent
               width: 24
@@ -313,7 +312,7 @@ Popup {
 
                 property real progress: cloudAnimation.progress
                 property real offset: 0
-                property real colorPhase: 0
+                property real colorPhase: cloudAnimation.progress > 0 ? progress : 0
                 readonly property color fromColor: QfTheme.mainColor
                 readonly property color toColor: QfTheme.cloudColor
 
@@ -338,22 +337,6 @@ Popup {
                   to: 1
                   duration: 2000
                   loops: Animation.Infinite
-                }
-
-                SequentialAnimation on colorPhase {
-                  running: cloudAnimation.visible
-                  loops: Animation.Infinite
-
-                  NumberAnimation {
-                    to: 1
-                    duration: 3000
-                    easing.type: Easing.InOutSine
-                  }
-                  NumberAnimation {
-                    to: 0
-                    duration: 3000
-                    easing.type: Easing.InOutSine
-                  }
                 }
 
                 PathSvg {
