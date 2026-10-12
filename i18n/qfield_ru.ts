@@ -2246,7 +2246,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ответ на запрос обновления триггера проекта (%1) не содержит всех ожидаемых ключей: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
@@ -2468,7 +2468,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -3001,7 +3001,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать подкаталог %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
@@ -3337,7 +3337,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, форма объекта будет открываться автоматически при обнаружении только одного объекта, минуя список объектов.</translation>
     </message>
     <message>
         <source>Fixed scale navigation</source>
@@ -3377,7 +3377,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, будет использоваться встроенная камера операционной системы.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
@@ -3385,7 +3385,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, будут собираться и отправляться анонимизированные метрики, помогающие улучшить пользовательский опыт для всех.</translation>
     </message>
     <message>
         <source>General</source>
@@ -3501,7 +3501,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
+        <translation>Доступные настройки аутентификации:</translation>
     </message>
     <message>
         <source>Clear authentication cache</source>
@@ -3641,7 +3641,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
+        <translation>Когда карта отслеживает местоположение или привязана к нему, она также может поворачиваться в соответствии с ориентацией по компасу или направлением движения.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -3689,7 +3689,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Порог низкой точности</translation>
     </message>
     <message>
         <source>m</source>
@@ -3697,7 +3697,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Порог отличной точности</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
@@ -3725,7 +3725,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Поправка на высоту</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
@@ -3737,7 +3737,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>Это значение позволит скорректировать значения координаты Z, полученные с помощью устройства позиционирования. Если ввести значение 1,6, система будет автоматически вычитать 1,6 из каждого зафиксированного значения. Убедитесь, что вы ввели эффективную высоту антенны, то есть сумму длины вехи и смещения фазового центра антенны.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
@@ -3861,7 +3861,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Настройка устройства Bluetooth:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
@@ -3880,7 +3880,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Для поиска устройств по Bluetooth требуется разрешение на использование Bluetooth</translation>
     </message>
     <message>
         <source>Location permission denied</source>
@@ -3888,7 +3888,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>Для сканирования устройств Bluetooth требуется разрешение на доступ к местоположению</translation>
     </message>
 </context>
 <context>
@@ -4372,7 +4372,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploaded by %1 on %2</source>
-        <translation type="unfinished"/>
+        <translation>Загружено %1  %2</translation>
     </message>
     <message>
         <source>Applied</source>
@@ -4565,7 +4565,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка текущего проекта в QFieldCloud.</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
@@ -4597,39 +4597,39 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
+        <translation>Изменений пока не загружено</translation>
     </message>
     <message>
         <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
+        <translation>Только что загружено</translation>
     </message>
     <message>
         <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Загружено %1 минут назад</translation>
     </message>
     <message>
         <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
+        <translation>Последнее обновление сегодня в %1</translation>
     </message>
     <message>
         <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
+        <translation>Последнее обновление: %1</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить</translation>
     </message>
     <message numerus="yes">
         <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Автозагрузка каждую минуту</numerusform><numerusform>Автозагрузка каждые %n минуты</numerusform><numerusform>Автозагрузка каждые %n минут</numerusform><numerusform>Автозагрузка каждые %n минут</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Текущий проект не позволяет отключить автоматическую загрузку.</translation>
     </message>
     <message>
         <source>Synchronize project</source>
-        <translation type="unfinished"/>
+        <translation>Синхронизировать проект</translation>
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
@@ -4657,7 +4657,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload history</source>
-        <translation type="unfinished"/>
+        <translation>История загрузок</translation>
     </message>
     <message>
         <source>Danger zone</source>
@@ -4665,7 +4665,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -4725,7 +4725,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Использовано %1 из %2</translation>
     </message>
     <message>
         <source>Local changes</source>
@@ -4745,11 +4745,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading %1%</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка %1%</translation>
     </message>
     <message>
         <source>Uploading</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -4774,7 +4774,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка сети. Не удалось скачать вложение `%1`.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
@@ -4846,7 +4846,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="unfinished"/>
+        <translation>Ответ на запрос обновления триггера проекта (%1) не содержит всех ожидаемых ключей: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>aborted</source>
@@ -4854,11 +4854,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка сети. Не удалось загрузить файл `%1`.</translation>
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось загрузить один или несколько файлов</translation>
     </message>
 </context>
 <context>
@@ -4897,11 +4897,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить локальные изменения</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud упаковывает проект — подождите немного.</translation>
     </message>
     <message>
         <source>Downloading project</source>
@@ -4921,15 +4921,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>Клонировать проект</translation>
     </message>
     <message>
         <source>Creating project</source>
-        <translation type="unfinished"/>
+        <translation>Создание проекта</translation>
     </message>
     <message>
         <source>Create project from template</source>
-        <translation type="unfinished"/>
+        <translation>Создать проект по шаблону</translation>
     </message>
 </context>
 <context>
@@ -4952,7 +4952,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Include public projects</source>
-        <translation type="unfinished"/>
+        <translation>Включить публичные проекты</translation>
     </message>
     <message>
         <source>Search</source>
@@ -4979,15 +4979,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
+        <translation>В данный момент сеть неактивна. Мы автоматически применим изменения, как только вы снова подключитесь к сети.</translation>
     </message>
     <message>
         <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
+        <translation>Для создания проекта требуется название</translation>
     </message>
     <message>
         <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать облачный проект.</translation>
     </message>
 </context>
 <context>
@@ -5014,7 +5014,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Поиск проектов</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
@@ -5046,23 +5046,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
+        <translation>Обновление списка проектов...</translation>
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Поиск проектов...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
+        <translation>Облачные проекты не найдены.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Попробуйте %1 включить публичные проекты %2 и посмотреть, что предлагает сообщество.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
+        <translation>Попробуйте %1 включить публичные проекты %2.</translation>
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
@@ -5102,11 +5102,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить локальные изменения</translation>
     </message>
     <message>
         <source>Clone Project</source>
-        <translation type="unfinished"/>
+        <translation>Клонировать Проект</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
@@ -5118,7 +5118,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>View Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Посмотреть папку проекта</translation>
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
@@ -5126,15 +5126,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось получить подробную информацию о проекте QFieldCloud</translation>
     </message>
     <message>
         <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка клонирования проекта: %1</translation>
     </message>
     <message>
         <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать проект: %1</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
@@ -5146,11 +5146,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Creation</source>
-        <translation type="unfinished"/>
+        <translation>Создание проекта</translation>
     </message>
     <message>
         <source>Enter your project name</source>
-        <translation type="unfinished"/>
+        <translation>Введите название проекта</translation>
     </message>
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
@@ -5190,34 +5190,34 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Creating project…</source>
-        <translation type="unfinished"/>
+        <translation>Создание проекта…</translation>
     </message>
     <message>
         <source>Preparing project…</source>
-        <translation type="unfinished"/>
+        <translation>Подготовка проекта...</translation>
     </message>
     <message>
         <source>Project created but downloading failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Проект создан, но загрузка не удалась: %1</translation>
     </message>
     <message>
         <source>The newly-created project could not be prepared.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось подготовить только что созданный проект.</translation>
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка проекта...</translation>
     </message>
     <message>
         <source>Enter your project description</source>
-        <translation type="unfinished"/>
+        <translation>Введите описание проекта</translation>
     </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
     <message>
         <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
+        <translation>Сервер QFieldCloud недоступен</translation>
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
@@ -5225,11 +5225,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud сейчас на техническом обслуживании</translation>
     </message>
     <message>
         <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
+        <translation>Работа сервиса QFieldCloud нарушена</translation>
     </message>
     <message>
         <source>There is an ongoing incident</source>
@@ -5252,7 +5252,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Тарифный план владельца проекта недостаточен.</translation>
     </message>
     <message>
         <source>Expected the json document to be an array of delta status</source>
@@ -5272,7 +5272,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n feature(s) created</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n объект создан</numerusform><numerusform>%n объекта создано</numerusform><numerusform>%n объектов создано</numerusform><numerusform>%n объектов создано</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) edited</source>
@@ -5288,19 +5288,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The project folder could not be found.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось найти папку проекта.</translation>
     </message>
     <message>
         <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
-        <translation type="unfinished"/>
+        <translation>В папке проекта находится более одного файла проекта; переместите проект в отдельную папку и попробуйте снова.</translation>
     </message>
     <message>
         <source>The project folder does not contain a valid project file.</source>
-        <translation type="unfinished"/>
+        <translation>В папке проекта нет корректного файла проекта.</translation>
     </message>
     <message>
         <source>The project folder does not contain a project file.</source>
-        <translation type="unfinished"/>
+        <translation>В папке проекта нет файла проекта.</translation>
     </message>
 </context>
 <context>
@@ -5400,7 +5400,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Create Collection</source>
-        <translation type="unfinished"/>
+        <translation>Создать коллекцию</translation>
     </message>
     <message>
         <source>Markup Collection Creation</source>
@@ -5566,7 +5566,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при загрузке вложения по запросу в QFieldCloud:</translation>
     </message>
     <message>
         <source>Take a photo</source>
@@ -5787,7 +5787,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню Формы объекта</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
@@ -6665,7 +6665,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
+        <translation>Сжать проект и отправить...</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
@@ -6701,7 +6701,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Элементы, загружаемые в QFieldCloud</translation>
     </message>
     <message>
         <source>Remove File(s)</source>
@@ -6829,7 +6829,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Created projects</source>
-        <translation type="unfinished"/>
+        <translation>Созданные проекты</translation>
     </message>
     <message>
         <source>Imported projects</source>
@@ -6908,7 +6908,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Zoom to collection</source>
-        <translation type="unfinished"/>
+        <translation>Приблизить к коллекции</translation>
     </message>
     <message>
         <source>The collection has no features</source>
@@ -7233,7 +7233,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Папка проекта будет удалена. Продолжить удаление?</translation>
     </message>
     <message>
         <source>Failed to save file resource</source>
@@ -7553,7 +7553,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Data format:</source>
-        <translation type="unfinished"/>
+        <translation>Формат данных:</translation>
     </message>
     <message>
         <source>Distance:</source>
@@ -7757,23 +7757,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfProjectCreationScreen</name>
     <message>
         <source>Create a new project</source>
-        <translation type="unfinished"/>
+        <translation>Создать новый проект</translation>
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation type="unfinished"/>
+        <translation>На этой странице описано создание простого проекта с помощью базовых настроек. Для решения более сложных задач мы рекомендуем создавать проекты в QGIS с использованием QFieldSync.</translation>
     </message>
     <message>
         <source>New project name</source>
-        <translation type="unfinished"/>
+        <translation>Название нового проекта</translation>
     </message>
     <message>
         <source>Select your basemap</source>
-        <translation type="unfinished"/>
+        <translation>Выберите базовую карту</translation>
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation type="unfinished"/>
+        <translation>Выберите базовую карту для своего проекта. Выберите один из доступных вариантов или укажите собственный URL.</translation>
     </message>
     <message>
         <source>Colorful</source>
@@ -7797,7 +7797,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Custom basemap URL</source>
-        <translation type="unfinished"/>
+        <translation>URL пользовательской базовой карты</translation>
     </message>
     <message>
         <source>Take notes?</source>
@@ -7817,7 +7817,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track your position?</source>
-        <translation type="unfinished"/>
+        <translation>Следить за вашим местоположением?</translation>
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
@@ -7825,7 +7825,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Begin tracking automatically</source>
-        <translation type="unfinished"/>
+        <translation>Автоматическая запись трека</translation>
     </message>
     <message>
         <source>Backup &amp; collaborate?</source>
@@ -7833,30 +7833,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud позволяет синхронизировать и объединять данные, собранные вашей командой в %1 — от небольших индивидуальных проектов до масштабных кампаний по сбору данных.</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>
-        <translation type="unfinished"/>
+        <translation>Узнайте больше о QFieldCloud здесь</translation>
     </message>
     <message>
         <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
+        <translation>Автоматически загружать изменения через определённые промежутки времени</translation>
     </message>
     <message>
         <source>Create Project</source>
-        <translation type="unfinished"/>
+        <translation>Создать Проект</translation>
     </message>
     <message>
         <source>My Project</source>
-        <translation type="unfinished"/>
+        <translation>Мой Проект</translation>
     </message>
 </context>
 <context>
     <name>QfProjectUtils</name>
     <message>
         <source>Created Project</source>
-        <translation type="unfinished"/>
+        <translation>Созданные Проекты</translation>
     </message>
     <message>
         <source>Notes</source>
@@ -7904,15 +7904,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracks</source>
-        <translation type="unfinished"/>
+        <translation>Треки</translation>
     </message>
     <message>
         <source>Track color</source>
-        <translation type="unfinished"/>
+        <translation>Цвет трека</translation>
     </message>
     <message>
         <source>Basemap</source>
-        <translation type="unfinished"/>
+        <translation>Базовая карта</translation>
     </message>
     <message>
         <source>Attachments</source>
@@ -7981,7 +7981,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Открыть форму</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
@@ -8464,11 +8464,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation>Обзор (резюме) трекинга</translation>
+        <translation>Продолжить запись трека</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>Запись трека в слой %1 возобновлена</translation>
     </message>
 </context>
 <context>
@@ -8532,7 +8532,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка завершена.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
@@ -8556,11 +8556,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>Выбранные элементы относятся к разным проектам WebDAV.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Загружать нечего.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
@@ -8568,23 +8568,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка отменена.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка пропущена.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка заблокирована другим процессом.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось прочитать файл настроек WebDAV.</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>Неверный JSON-файл конфигурации WebDAV.</translation>
     </message>
 </context>
 <context>
@@ -8661,7 +8661,7 @@ project</source>
     </message>
     <message>
         <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
+        <translation>Базовая карта для отдельных наборов данных</translation>
     </message>
     <message>
         <source>Remove from recently opened</source>
@@ -8689,7 +8689,7 @@ project</source>
     </message>
     <message>
         <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
-        <translation type="unfinished"/>
+        <translation>Есть необработанные изменения: вы хотите загрузить их сейчас или оставить их в очереди, закрыв облачный проект и приложение?</translation>
     </message>
     <message>
         <source>Don&apos;t show this again</source>
@@ -8697,7 +8697,7 @@ project</source>
     </message>
     <message>
         <source>Upload now</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить сейчас</translation>
     </message>
     <message>
         <source>Close</source>
@@ -8756,7 +8756,7 @@ project</source>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>Карта напечатана на %1 с помощью QField</translation>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
@@ -8764,7 +8764,7 @@ project</source>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>Активирован режим без рамок; используйте верхний левый и нижний правый углы для перемещения и изменения размера окна.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
@@ -8825,7 +8825,7 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Карта разблокирована</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
@@ -8861,7 +8861,7 @@ to show actions</source>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Запись трека активна на %n слое</numerusform><numerusform>Запись трека активна на %n слоях</numerusform><numerusform>Запись трека активна на %n слоях</numerusform><numerusform>Запись трека активна на %n слоях</numerusform></translation>
     </message>
     <message>
         <source>Stop all</source>
@@ -8873,7 +8873,7 @@ to show actions</source>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>Нет подходящих слоёв для записи трека</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -9293,7 +9293,7 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1 нельзя скачать, так как тарифный план не позволяет это сделать.</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
@@ -9301,7 +9301,7 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Проект %1 нельзя скачать, так как тарифный план владельца проекта не позволяет это сделать.</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
@@ -9405,7 +9405,7 @@ to show actions</source>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>Легенда отображает слои карты и позволяет управлять их видимостью и прозрачностью: для этого нужно выполнить &lt;b&gt; длительное нажатие на слой, чтобы открыть всплывающее окно с настройками. &lt;/b&gt; Это окно предоставляет дополнительные возможности, такие как масштабирование карты до границ слоя и просмотр объектов, содержащихся в векторных слоях.</translation>
     </message>
     <message>
         <source>Measurement</source>
@@ -9433,15 +9433,15 @@ to show actions</source>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Откройте папку проекта для доступа к файлам проекта, источникам данных и сопутствующим документам. Это удобно для управления ресурсами проекта, ручной загрузки данных в QFieldCloud, а также для обмена наборами данных, вложениями и компоновками.</translation>
     </message>
     <message>
         <source>Pending changes are present. Upload these now or press back again to keep them pending and close the cloud project and app.</source>
-        <translation type="unfinished"/>
+        <translation>Есть ожидающие отправки изменения. Загрузите их сейчас или снова нажмите «Назад», чтобы сохранить их в статусе ожидания и закрыть облачный проект и приложение.</translation>
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Загрузить локальные изменения</translation>
     </message>
     <message>
         <source>Local changes</source>
@@ -9449,11 +9449,11 @@ to show actions</source>
     </message>
     <message>
         <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>В этом проекте есть изменения, которые еще не загружены. Нажмите синюю кнопку облака, чтобы открыть панель облачных проектов и отправить их в QFieldCloud.</translation>
     </message>
     <message>
         <source>This cloud project has pending changes which have not been uploaded yet. Open the dashboard using this button, then tap the blue cloud icon to send them to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>В этом облачном проекте есть ожидающие отправки изменения. Откройте панель управления с помощью этой кнопки, затем нажмите на синий значок облака, чтобы отправить их в QFieldCloud.</translation>
     </message>
     <message>
         <source>Printing %1</source>
@@ -9465,7 +9465,7 @@ to show actions</source>
     </message>
     <message>
         <source>Printed and placed in your project layouts folder</source>
-        <translation type="unfinished"/>
+        <translation>Распечатано и помещено в папку макетов вашего проекта</translation>
     </message>
     <message>
         <source>Open folder</source>
@@ -9889,7 +9889,7 @@ to show actions</source>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="vanished">Началась запись трека на слой %1</translation>
+        <translation type="vanished">Начата запись трека в слой %1</translation>
     </message>
     <message>
         <source>Tracker Settings</source>
@@ -9937,7 +9937,7 @@ to show actions</source>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="vanished">Прошедшее время (секунды с момента начала отслеживания)</translation>
+        <translation type="vanished">Прошедшее время (секунды с момента начала записи трека)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -10227,7 +10227,7 @@ to show actions</source>
     <name>gallery_relation_editor</name>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при загрузке вложения по запросу в QFieldCloud:</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
