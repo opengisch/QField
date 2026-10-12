@@ -238,18 +238,11 @@ static void openUrlContexts(id sceneDelegate, SEL selector, UIScene *scene,
                             NSSet<UIOpenURLContext *> *contexts) {
   const QString appDir =
       QfPlatformUtilities::instance()->applicationDirectory();
-  NSLog(@"QField[openURLContexts] %lu url(s), appDir=%@",
-        (unsigned long)contexts.count, appDir.toNSString());
   NSMutableSet<UIOpenURLContext *> *forwardedContexts = [NSMutableSet set];
   for (UIOpenURLContext *context in contexts) {
     NSURL *url = context.URL;
-    const bool insideAppDir =
-        isInsideApplicationDirectory(QString::fromNSString(url.path), appDir);
-    NSLog(@"QField[openURLContexts] url=%@ isFile=%d openInPlace=%d "
-          @"insideAppDir=%d",
-          url.absoluteString, url.isFileURL, context.options.openInPlace,
-          insideAppDir);
-    if (!url.isFileURL || !context.options.openInPlace || insideAppDir) {
+    if (!url.isFileURL || !context.options.openInPlace ||
+        isInsideApplicationDirectory(QString::fromNSString(url.path), appDir)) {
       [forwardedContexts addObject:context];
       continue;
     }
@@ -260,9 +253,6 @@ static void openUrlContexts(id sceneDelegate, SEL selector, UIScene *scene,
         fileURLWithPath:
             [directory stringByAppendingPathComponent:url.lastPathComponent]];
     const BOOL accessing = [url startAccessingSecurityScopedResource];
-    NSLog(@"QField[openURLContexts] startAccessingSecurityScopedResource=%d, "
-          @"copying to %@",
-          accessing, destination.path);
 
     // Reading may first download the file from iCloud
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
@@ -272,27 +262,20 @@ static void openUrlContexts(id sceneDelegate, SEL selector, UIScene *scene,
                                 attributes:nil
                                      error:nil];
         __block BOOL copied = NO;
-        __block NSError *copyError = nil;
-        NSError *coordinationError = nil;
         NSFileCoordinator *coordinator =
             [[NSFileCoordinator alloc] initWithFilePresenter:nil];
         [coordinator
             coordinateReadingItemAtURL:url
                                options:NSFileCoordinatorReadingWithoutChanges
-                                 error:&coordinationError
+                                 error:nil
                             byAccessor:^(NSURL *readingUrl) {
-                                NSError *error = nil;
                                 copied = [fileManager copyItemAtURL:readingUrl
                                                               toURL:destination
-                                                              error:&error];
-                                copyError = error;
+                                                              error:nil];
                             }];
         if (accessing) {
           [url stopAccessingSecurityScopedResource];
         }
-        NSLog(@"QField[openURLContexts] copied=%d coordinationError=%@ "
-              @"copyError=%@",
-              copied, coordinationError, copyError);
         if (copied) {
           dispatch_async(dispatch_get_main_queue(), ^{
               QDesktopServices::openUrl(
@@ -302,8 +285,6 @@ static void openUrlContexts(id sceneDelegate, SEL selector, UIScene *scene,
     });
   }
 
-  NSLog(@"QField[openURLContexts] forwarding %lu url(s) to Qt",
-        (unsigned long)forwardedContexts.count);
   if (forwardedContexts.count > 0) {
     originalOpenUrlContexts(sceneDelegate, selector, scene, forwardedContexts);
   }
@@ -317,11 +298,8 @@ static void installOpenInPlaceHandling() {
       class_getInstanceMethod(NSClassFromString(@"QIOSWindowSceneDelegate"),
                               @selector(scene:openURLContexts:));
   if (!method) {
-    NSLog(@"QField[openInPlace] QIOSWindowSceneDelegate scene:openURLContexts: "
-          @"not found, hook not installed");
     return;
   }
-  NSLog(@"QField[openInPlace] hook installed");
   originalOpenUrlContexts = reinterpret_cast<void (*)(
       id, SEL, UIScene *, NSSet<UIOpenURLContext *> *)>(
       method_setImplementation(method, reinterpret_cast<IMP>(openUrlContexts)));
@@ -793,124 +771,37 @@ void QfIosPlatformUtilities::importDatasets() const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
-static void removeIncomingFile(const QString &path, const QString &appDir) {
-  const QString inboxDir = appDir + QStringLiteral("/Inbox/");
-  if (path.startsWith(inboxDir)) {
-    QFile::remove(path);
-  } else if (path.startsWith(incomingDirectory() + QStringLiteral("/"))) {
-    QDir(QFileInfo(path).absolutePath()).removeRecursively();
-  }
-  NSLog(@"QField[importFile] cleaned up incoming file %@", path.toNSString());
-}
-
 void QfIosPlatformUtilities::importFile(const QString &path) const {
-  NSLog(@"QField[importFile] called with path: %@", path.toNSString());
-
   QFileInfo fileInfo(path);
-  if (!fileInfo.exists() || !fileInfo.isFile()) {
-    NSLog(@"QField[importFile] abort: not an existing regular file");
-    return;
-  }
-  if (!QfAppInterface::instance()) {
-    NSLog(@"QField[importFile] abort: AppInterface instance is null");
+  if (!fileInfo.exists() || !fileInfo.isFile() || !QfAppInterface::instance()) {
     return;
   }
 
-  const QString appDir = applicationDirectory();
-  const QString suffix = fileInfo.suffix().toLower();
-  const bool isProjectFile =
-      suffix == QLatin1String("qgs") || suffix == QLatin1String("qgz");
-  const bool isArchive = suffix == QLatin1String("zip");
-  NSLog(@"QField[importFile] suffix=%@ isProjectFile=%d isArchive=%d",
-        suffix.toNSString(), isProjectFile, isArchive);
-
-  // Files tapped in QField's own folder are opened where they are
-  if (!isArchive && isInsideApplicationDirectory(path, appDir)) {
-    const bool loaded = QfAppInterface::instance()->loadFile(path);
-    NSLog(@"QField[importFile] inside app dir, loadFile returned %d", loaded);
-    if (!loaded) {
-      emit QfAppInterface::instance()->openPath(fileInfo.absolutePath());
-    }
-    return;
-  }
-
-  if (isArchive) {
-    const QString importBase = appDir + QStringLiteral("/Imported Projects/");
-    QDir().mkpath(importBase);
-
-    QString destinationDir = importBase + fileInfo.completeBaseName();
-    int index = 1;
-    while (QFileInfo::exists(destinationDir)) {
-      destinationDir = importBase + fileInfo.completeBaseName() +
-                       QStringLiteral("_%1").arg(index);
-      ++index;
-    }
-    QDir().mkpath(destinationDir);
-
-    QStringList extractedFiles;
-    if (!QfFileUtils::unzip(path, destinationDir, extractedFiles, false)) {
-      NSLog(@"QField[importFile] abort: unzip failed for %@",
-            path.toNSString());
+  QString sourcePath = path;
+  if (isInsideApplicationDirectory(path, applicationDirectory())) {
+    // Files tapped in QField's own folder are opened where they are
+    if (fileInfo.suffix().toLower() != QLatin1String("zip")) {
+      if (!QfAppInterface::instance()->loadFile(path)) {
+        emit QfAppInterface::instance()->openPath(fileInfo.absolutePath());
+      }
       return;
     }
-    NSLog(@"QField[importFile] extracted %lu files into %@",
-          (unsigned long)extractedFiles.size(), destinationDir.toNSString());
-    removeIncomingFile(path, appDir);
 
-    // Open the project bundled within the archive, or reveal its content
-    QString projectFile;
-    for (const QString &extractedFile : extractedFiles) {
-      const QString extractedSuffix =
-          QFileInfo(extractedFile).suffix().toLower();
-      if (extractedSuffix == QLatin1String("qgs") ||
-          extractedSuffix == QLatin1String("qgz")) {
-        projectFile = extractedFile;
-        break;
-      }
+    // Archives are imported from a copy so the user's zip stays where it is
+    sourcePath = QStringLiteral("%1/%2/%3")
+                     .arg(incomingDirectory(),
+                          QString::fromNSString([NSUUID UUID].UUIDString),
+                          fileInfo.fileName());
+    QDir().mkpath(QFileInfo(sourcePath).absolutePath());
+    if (!QFile::copy(path, sourcePath)) {
+      return;
     }
-
-    if (!projectFile.isEmpty()) {
-      NSLog(@"QField[importFile] loading bundled project: %@",
-            projectFile.toNSString());
-      QfAppInterface::instance()->loadFile(projectFile);
-    } else {
-      NSLog(@"QField[importFile] no project in archive, revealing: %@",
-            destinationDir.toNSString());
-      emit QfAppInterface::instance()->openPath(destinationDir);
-    }
-    return;
   }
 
-  const QString importBase =
-      isProjectFile ? appDir + QStringLiteral("/Imported Projects/")
-                    : appDir + QStringLiteral("/Imported Datasets/");
-  QDir().mkpath(importBase);
-
-  const QString suffixPart =
-      suffix.isEmpty() ? QString() : QStringLiteral(".") + suffix;
-  QString destinationFile = importBase + fileInfo.fileName();
-  int index = 1;
-  while (QFileInfo::exists(destinationFile)) {
-    destinationFile = importBase + fileInfo.completeBaseName() +
-                      QStringLiteral("_%1").arg(index) + suffixPart;
-    ++index;
-  }
-
-  if (!QFile::copy(path, destinationFile)) {
-    NSLog(@"QField[importFile] abort: copy failed %@ -> %@", path.toNSString(),
-          destinationFile.toNSString());
-    return;
-  }
-  NSLog(@"QField[importFile] copied to %@", destinationFile.toNSString());
-  removeIncomingFile(path, appDir);
-
-  const bool loaded = QfAppInterface::instance()->loadFile(destinationFile);
-  NSLog(@"QField[importFile] loadFile(%@) returned %d",
-        destinationFile.toNSString(), loaded);
-  if (!loaded) {
-    NSLog(@"QField[importFile] revealing in browser: %@",
-          importBase.toNSString());
-    emit QfAppInterface::instance()->openPath(importBase);
+  emit QfAppInterface::instance()->importTriggered(fileInfo.fileName());
+  QfAppInterface::instance()->importLocalFile(sourcePath, true);
+  if (sourcePath.startsWith(incomingDirectory() + QStringLiteral("/"))) {
+    QDir(QFileInfo(sourcePath).absolutePath()).removeRecursively();
   }
 }
 

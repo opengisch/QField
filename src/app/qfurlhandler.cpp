@@ -19,7 +19,6 @@
 #include "qfplatformutilities.h"
 #include "qfurlhandler.h"
 
-#include <QDebug>
 #include <QTimer>
 
 QfUrlHandler::QfUrlHandler( QfAppInterface *iface, QObject *parent )
@@ -29,7 +28,6 @@ QfUrlHandler::QfUrlHandler( QfAppInterface *iface, QObject *parent )
 
 void QfUrlHandler::handleUrl( const QUrl &url )
 {
-  qWarning() << "QField[handleUrl] received url:" << url.toString() << "isLocalFile:" << url.isLocalFile();
   if ( url.isLocalFile() )
   {
     // Import on the next event loop cycle so the potentially heavy work (e.g.
