@@ -213,12 +213,127 @@ static const float sMinVolume = 0.00001f + sVolumeStep;
 
 @end
 
+static QString incomingDirectory() {
+  return QString::fromNSString(
+      [NSTemporaryDirectory() stringByAppendingPathComponent:@"Incoming"]);
+}
+
+static bool isInsideApplicationDirectory(const QString &path,
+                                         const QString &appDir) {
+  const QString canonicalPath = QFileInfo(path).canonicalFilePath();
+  const QString canonicalAppDir = QFileInfo(appDir).canonicalFilePath();
+  if (canonicalPath.isEmpty() || canonicalAppDir.isEmpty()) {
+    return false;
+  }
+  return canonicalPath.startsWith(canonicalAppDir + QStringLiteral("/")) &&
+         !canonicalPath.startsWith(canonicalAppDir + QStringLiteral("/Inbox/"));
+}
+
+static void (*originalOpenUrlContexts)(id, SEL, UIScene *,
+                                       NSSet<UIOpenURLContext *> *) = nullptr;
+
+// Qt only passes the path of opened URLs on, which drops the security scope of
+// files opened in place, so those are copied here while the scope is reachable
+static void openUrlContexts(id sceneDelegate, SEL selector, UIScene *scene,
+                            NSSet<UIOpenURLContext *> *contexts) {
+  const QString appDir =
+      QfPlatformUtilities::instance()->applicationDirectory();
+  NSLog(@"QField[openURLContexts] %lu url(s), appDir=%@",
+        (unsigned long)contexts.count, appDir.toNSString());
+  NSMutableSet<UIOpenURLContext *> *forwardedContexts = [NSMutableSet set];
+  for (UIOpenURLContext *context in contexts) {
+    NSURL *url = context.URL;
+    const bool insideAppDir =
+        isInsideApplicationDirectory(QString::fromNSString(url.path), appDir);
+    NSLog(@"QField[openURLContexts] url=%@ isFile=%d openInPlace=%d "
+          @"insideAppDir=%d",
+          url.absoluteString, url.isFileURL, context.options.openInPlace,
+          insideAppDir);
+    if (!url.isFileURL || !context.options.openInPlace || insideAppDir) {
+      [forwardedContexts addObject:context];
+      continue;
+    }
+
+    NSString *directory = [incomingDirectory().toNSString()
+        stringByAppendingPathComponent:[NSUUID UUID].UUIDString];
+    NSURL *destination = [NSURL
+        fileURLWithPath:
+            [directory stringByAppendingPathComponent:url.lastPathComponent]];
+    const BOOL accessing = [url startAccessingSecurityScopedResource];
+    NSLog(@"QField[openURLContexts] startAccessingSecurityScopedResource=%d, "
+          @"copying to %@",
+          accessing, destination.path);
+
+    // Reading may first download the file from iCloud
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager createDirectoryAtPath:directory
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:nil];
+        __block BOOL copied = NO;
+        __block NSError *copyError = nil;
+        NSError *coordinationError = nil;
+        NSFileCoordinator *coordinator =
+            [[NSFileCoordinator alloc] initWithFilePresenter:nil];
+        [coordinator
+            coordinateReadingItemAtURL:url
+                               options:NSFileCoordinatorReadingWithoutChanges
+                                 error:&coordinationError
+                            byAccessor:^(NSURL *readingUrl) {
+                                NSError *error = nil;
+                                copied = [fileManager copyItemAtURL:readingUrl
+                                                              toURL:destination
+                                                              error:&error];
+                                copyError = error;
+                            }];
+        if (accessing) {
+          [url stopAccessingSecurityScopedResource];
+        }
+        NSLog(@"QField[openURLContexts] copied=%d coordinationError=%@ "
+              @"copyError=%@",
+              copied, coordinationError, copyError);
+        if (copied) {
+          dispatch_async(dispatch_get_main_queue(), ^{
+              QDesktopServices::openUrl(
+                  QUrl::fromLocalFile(QString::fromNSString(destination.path)));
+          });
+        }
+    });
+  }
+
+  NSLog(@"QField[openURLContexts] forwarding %lu url(s) to Qt",
+        (unsigned long)forwardedContexts.count);
+  if (forwardedContexts.count > 0) {
+    originalOpenUrlContexts(sceneDelegate, selector, scene, forwardedContexts);
+  }
+}
+
+static void installOpenInPlaceHandling() {
+  if (originalOpenUrlContexts) {
+    return;
+  }
+  Method method =
+      class_getInstanceMethod(NSClassFromString(@"QIOSWindowSceneDelegate"),
+                              @selector(scene:openURLContexts:));
+  if (!method) {
+    NSLog(@"QField[openInPlace] QIOSWindowSceneDelegate scene:openURLContexts: "
+          @"not found, hook not installed");
+    return;
+  }
+  NSLog(@"QField[openInPlace] hook installed");
+  originalOpenUrlContexts = reinterpret_cast<void (*)(
+      id, SEL, UIScene *, NSSet<UIOpenURLContext *> *)>(
+      method_setImplementation(method, reinterpret_cast<IMP>(openUrlContexts)));
+}
+
 QfIosPlatformUtilities::QfIosPlatformUtilities() : QfPlatformUtilities() {
   NSError *sessionError = nil;
   [[AVAudioSession sharedInstance]
       setCategory:AVAudioSessionCategoryPlayAndRecord
             error:&sessionError];
   mVolumeButtonObserver = [[QFieldVolumeButtonObserver alloc] init];
+  installOpenInPlaceHandling();
 }
 
 void QfIosPlatformUtilities::setHandleVolumeKeys(const bool handle) {
@@ -678,11 +793,14 @@ void QfIosPlatformUtilities::importDatasets() const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
-static void removeInboxFile(const QString &path, const QString &appDir) {
+static void removeIncomingFile(const QString &path, const QString &appDir) {
   const QString inboxDir = appDir + QStringLiteral("/Inbox/");
   if (path.startsWith(inboxDir)) {
     QFile::remove(path);
+  } else if (path.startsWith(incomingDirectory() + QStringLiteral("/"))) {
+    QDir(QFileInfo(path).absolutePath()).removeRecursively();
   }
+  NSLog(@"QField[importFile] cleaned up incoming file %@", path.toNSString());
 }
 
 void QfIosPlatformUtilities::importFile(const QString &path) const {
@@ -706,6 +824,16 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
   NSLog(@"QField[importFile] suffix=%@ isProjectFile=%d isArchive=%d",
         suffix.toNSString(), isProjectFile, isArchive);
 
+  // Files tapped in QField's own folder are opened where they are
+  if (!isArchive && isInsideApplicationDirectory(path, appDir)) {
+    const bool loaded = QfAppInterface::instance()->loadFile(path);
+    NSLog(@"QField[importFile] inside app dir, loadFile returned %d", loaded);
+    if (!loaded) {
+      emit QfAppInterface::instance()->openPath(fileInfo.absolutePath());
+    }
+    return;
+  }
+
   if (isArchive) {
     const QString importBase = appDir + QStringLiteral("/Imported Projects/");
     QDir().mkpath(importBase);
@@ -727,7 +855,7 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
     }
     NSLog(@"QField[importFile] extracted %lu files into %@",
           (unsigned long)extractedFiles.size(), destinationDir.toNSString());
-    removeInboxFile(path, appDir);
+    removeIncomingFile(path, appDir);
 
     // Open the project bundled within the archive, or reveal its content
     QString projectFile;
@@ -774,7 +902,7 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
     return;
   }
   NSLog(@"QField[importFile] copied to %@", destinationFile.toNSString());
-  removeInboxFile(path, appDir);
+  removeIncomingFile(path, appDir);
 
   const bool loaded = QfAppInterface::instance()->loadFile(destinationFile);
   NSLog(@"QField[importFile] loadFile(%@) returned %d",
