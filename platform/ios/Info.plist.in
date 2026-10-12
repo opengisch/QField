@@ -131,7 +131,7 @@
     <true/>
 
     <key>LSSupportsOpeningDocumentsInPlace</key>
-    <false/>
+    <true/>
 
     <key>LSApplicationQueriesSchemes</key>
     <array>

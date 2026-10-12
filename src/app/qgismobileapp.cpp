@@ -171,6 +171,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   if ( QfPlatformUtilities::instance()->capabilities() & QfPlatformUtilities::FileImport )
   {
     QDesktopServices::setUrlHandler( QStringLiteral( "file" ), mUrlHandler.get(), "handleUrl" );
+    qWarning() << "QField[init] registered file URL handler";
   }
 
   mMessageLogModel = new QfMessageLogModel( this );
