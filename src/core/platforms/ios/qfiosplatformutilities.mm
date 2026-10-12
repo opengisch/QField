@@ -218,6 +218,12 @@ static QString incomingDirectory() {
       [NSTemporaryDirectory() stringByAppendingPathComponent:@"Incoming"]);
 }
 
+static QString incomingPath(const QString &fileName) {
+  return QStringLiteral("%1/%2/%3")
+      .arg(incomingDirectory(), QString::fromNSString([NSUUID UUID].UUIDString),
+           fileName);
+}
+
 static bool isInsideApplicationDirectory(const QString &path,
                                          const QString &appDir) {
   const QString canonicalPath = QFileInfo(path).canonicalFilePath();
@@ -225,6 +231,7 @@ static bool isInsideApplicationDirectory(const QString &path,
   if (canonicalPath.isEmpty() || canonicalAppDir.isEmpty()) {
     return false;
   }
+  // Inbox holds copies iOS made for us, those still need importing
   return canonicalPath.startsWith(canonicalAppDir + QStringLiteral("/")) &&
          !canonicalPath.startsWith(canonicalAppDir + QStringLiteral("/Inbox/"));
 }
@@ -247,11 +254,11 @@ static void openUrlContexts(id sceneDelegate, SEL selector, UIScene *scene,
       continue;
     }
 
-    NSString *directory = [incomingDirectory().toNSString()
-        stringByAppendingPathComponent:[NSUUID UUID].UUIDString];
-    NSURL *destination = [NSURL
-        fileURLWithPath:
-            [directory stringByAppendingPathComponent:url.lastPathComponent]];
+    const QString destinationPath =
+        incomingPath(QString::fromNSString(url.lastPathComponent));
+    NSURL *destination = [NSURL fileURLWithPath:destinationPath.toNSString()];
+    NSString *directory =
+        QFileInfo(destinationPath).absolutePath().toNSString();
     const BOOL accessing = [url startAccessingSecurityScopedResource];
 
     // Reading may first download the file from iCloud
@@ -291,9 +298,6 @@ static void openUrlContexts(id sceneDelegate, SEL selector, UIScene *scene,
 }
 
 static void installOpenInPlaceHandling() {
-  if (originalOpenUrlContexts) {
-    return;
-  }
   Method method =
       class_getInstanceMethod(NSClassFromString(@"QIOSWindowSceneDelegate"),
                               @selector(scene:openURLContexts:));
@@ -788,10 +792,7 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
     }
 
     // Archives are imported from a copy so the user's zip stays where it is
-    sourcePath = QStringLiteral("%1/%2/%3")
-                     .arg(incomingDirectory(),
-                          QString::fromNSString([NSUUID UUID].UUIDString),
-                          fileInfo.fileName());
+    sourcePath = incomingPath(fileInfo.fileName());
     QDir().mkpath(QFileInfo(sourcePath).absolutePath());
     if (!QFile::copy(path, sourcePath)) {
       return;
