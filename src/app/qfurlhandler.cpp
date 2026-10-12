@@ -30,10 +30,9 @@ void QfUrlHandler::handleUrl( const QUrl &url )
 {
   if ( url.isLocalFile() )
   {
-    // Import on the next event loop cycle so the potentially heavy work (e.g.
-    // unzipping an archive) does not block the incoming-URL handling
+    // Deferred so unzipping does not block the URL delivery
     const QString path = url.toLocalFile();
-    QTimer::singleShot( 0, [path]() { QfPlatformUtilities::instance()->importFile( path ); } );
+    QTimer::singleShot( 0, this, [path]() { QfPlatformUtilities::instance()->importFile( path ); } );
     return;
   }
 

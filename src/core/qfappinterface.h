@@ -56,8 +56,8 @@ class QfAppInterface : public QObject
     Q_INVOKABLE void importUrl( const QString &url, const QString &title = QString(), bool loadOnImport = false );
 
     /**
-     * Imports a local file into the Imported Projects or Imported Datasets folder, extracting
-     * compressed projects along the way, and reports the outcome through importEnded().
+     * Imports a local file into the Imported Projects or Imported Datasets folder, extracts it
+     * when it is a compressed project, and reports the outcome through importEnded().
      * \param filePath the file to import, which is moved rather than copied
      * \param loadOnImport set to TRUE to load the imported project or dataset when it is supported
      * \param fileName the name to import the file as, defaults to the name of \a filePath
