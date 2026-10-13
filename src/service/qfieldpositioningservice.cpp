@@ -115,5 +115,7 @@ void QFieldPositioningService::triggerStopNotification()
 QFieldPositioningService::~QFieldPositioningService()
 {
   qInfo() << "Switching positioning service's source off";
+  mNotificationTimer.stop();
+  disconnect( mPositioningSource.get() );
   mPositioningSource->setActive( false );
 }
