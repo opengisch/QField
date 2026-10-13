@@ -27,7 +27,7 @@
 #include <QVariant>
 
 /**
- * \brief A COGO operation exeuctor object allowing for property-driven access to COGO operations.
+ * \brief A COGO operation executor object allowing for property-driven access to COGO operations.
  * \ingroup core
  */
 class QfCogoExecutor : public QObject
