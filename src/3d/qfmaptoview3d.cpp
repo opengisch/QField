@@ -35,7 +35,9 @@ void QfMapToView3D::setTerrainProvider( Qf3DTerrainProvider *provider )
 
   if ( mTerrainProvider )
   {
-    disconnect( mTerrainProvider, nullptr, this, nullptr );
+    disconnect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &QfMapToView3D::transformPoint );
+    disconnect( mTerrainProvider, &Qf3DTerrainProvider::normalizedDataChanged, this, &QfMapToView3D::transformPoint );
+    disconnect( mTerrainProvider, &Qf3DTerrainProvider::isTransitioningChanged, this, nullptr );
   }
 
   mTerrainProvider = provider;
@@ -44,7 +46,12 @@ void QfMapToView3D::setTerrainProvider( Qf3DTerrainProvider *provider )
   {
     connect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &QfMapToView3D::transformPoint );
     connect( mTerrainProvider, &Qf3DTerrainProvider::normalizedDataChanged, this, &QfMapToView3D::transformPoint );
-    connect( mTerrainProvider, &Qf3DTerrainProvider::transitionEnded, this, &QfMapToView3D::transformPoint );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::isTransitioningChanged, this, [this] {
+      if ( !mTerrainProvider->isTransitioning() )
+      {
+        transformPoint();
+      }
+    } );
   }
 
   emit terrainProviderChanged();

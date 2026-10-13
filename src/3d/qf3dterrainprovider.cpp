@@ -623,7 +623,6 @@ void Qf3DTerrainProvider::endTransition()
 
   mIsTransitioning = false;
   emit isTransitioningChanged();
-  emit transitionEnded();
 }
 
 void Qf3DTerrainProvider::pan( double x, double z )
