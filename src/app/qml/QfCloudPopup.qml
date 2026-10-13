@@ -289,8 +289,6 @@ Popup {
 
             Shape {
               id: cloudOutline
-              readonly property string cloudPath: "M19.35 10.04C21.95 10.22 24 12.36 24 15C24 17.76 21.76 20 19 20H6C2.69 20 0 17.31 0 14C0 10.91 2.34 8.36 5.35 8.04C6.6 5.64 9.11 4 12 4C15.64 4 18.67 6.59 19.35 10.04Z"
-
               anchors.centerIn: parent
               width: 24
               height: 24
@@ -303,35 +301,35 @@ Popup {
                 fillColor: "transparent"
 
                 PathSvg {
-                  path: cloudOutline.cloudPath
+                  id: cloudOutlineSvg
+                  path: "M19.35 10.04C21.95 10.22 24 12.36 24 15C24 17.76 21.76 20 19 20H6C2.69 20 0 17.31 0 14C0 10.91 2.34 8.36 5.35 8.04C6.6 5.64 9.11 4 12 4C15.64 4 18.67 6.59 19.35 10.04Z"
                 }
               }
 
               ShapePath {
                 id: cloudOutlinePath
 
-                property real progress: cloudAnimation.progress
-                property real offset: 0
-                property real colorPhase: cloudAnimation.progress > 0 ? progress : 0
+                property real animatedProgress: cloudAnimation.progress
+                property real indeterminateTrimOffset: 0
+                property real colorPhase: cloudAnimation.progress > 0 ? animatedProgress : 0
                 readonly property color fromColor: QfTheme.mainColor
                 readonly property color toColor: QfTheme.cloudColor
 
-                // blend in HSL, RGB goes muddy halfway between green and blue
                 strokeColor: Qt.hsla(fromColor.hslHue + (toColor.hslHue - fromColor.hslHue) * colorPhase, fromColor.hslSaturation + (toColor.hslSaturation - fromColor.hslSaturation) * colorPhase, fromColor.hslLightness + (toColor.hslLightness - fromColor.hslLightness) * colorPhase, 1)
                 strokeWidth: 4 / cloudOutline.scale
                 fillColor: "transparent"
                 capStyle: ShapePath.RoundCap
-                trim.end: cloudAnimation.progress > 0 ? progress : 0.25
-                trim.offset: cloudAnimation.progress > 0 ? 0 : offset
+                trim.end: cloudAnimation.progress > 0 ? animatedProgress : 0.25
+                trim.offset: cloudAnimation.progress > 0 ? 0 : indeterminateTrimOffset
 
-                Behavior on progress {
+                Behavior on animatedProgress {
                   NumberAnimation {
                     duration: 500
                     easing.type: Easing.OutQuart
                   }
                 }
 
-                NumberAnimation on offset {
+                NumberAnimation on indeterminateTrimOffset {
                   running: cloudAnimation.visible && cloudAnimation.progress === 0
                   from: 0
                   to: 1
@@ -340,7 +338,7 @@ Popup {
                 }
 
                 PathSvg {
-                  path: cloudOutline.cloudPath
+                  path: cloudOutlineSvg.path
                 }
               }
             }
