@@ -32,6 +32,9 @@ QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> QfBluetoothLowEn
   { // Beken Corp.
     QBluetoothUuid( "0000ffe0-0000-1000-8000-00805f9b34fb" ),
     std::make_pair( QBluetoothUuid( "0000ffe1-0000-1000-8000-00805f9b34fb" ), QBluetoothUuid( "0000ffe1-0000-1000-8000-00805f9b34fb" ) ) },
+  { // Laird Virtual Serial Port (VSP), used e.g. by ppm10xx zero / ppm10xx BT
+    QBluetoothUuid( "569a1101-b87f-490c-92cb-11ba5ea5167c" ),
+    std::make_pair( QBluetoothUuid( "569a2000-b87f-490c-92cb-11ba5ea5167c" ), QBluetoothUuid( "569a2001-b87f-490c-92cb-11ba5ea5167c" ) ) },
 };
 
 
