@@ -1,5 +1,6 @@
 # Keep all classes in the Qt Android runtime package
 -keep class org.qtproject.qt.android.** { *; }
+-keep class ch.opengis.** {*; }
 
 # Prevent native methods and JNI callback methods from being obfuscated or removed
 -keepclasseswithmembernames class * {
