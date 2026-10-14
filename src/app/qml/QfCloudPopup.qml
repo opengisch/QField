@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Shapes
 import org.qfield.core
 import org.qfield.app
 import org.qfield.gui
@@ -55,7 +56,7 @@ Popup {
       showCancelButton: false
       showApplyButton: false
 
-      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QfCloudConnection.Connecting || (cloudProjectsModel.currentProject.status === QfCloudProject.Pushing && popup.isSynchronizing) || cloudProjectsModel.currentProject.status === QfCloudProject.Downloading) ? 'on' : 'off'
+      busyIndicatorState: cloudProjectsModel.currentProject && cloudConnection.status === QfCloudConnection.Connecting ? 'on' : 'off'
 
       topMargin: mainWindow.sceneTopMargin
 
@@ -262,18 +263,90 @@ Popup {
             Layout.bottomMargin: 20
           }
 
-          Rectangle {
+          Item {
             id: cloudAnimation
+
+            readonly property real progress: {
+              const project = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject : cloudProjectCreationConnection.target;
+              if (!project) {
+                return 0.0;
+              }
+              switch (project.status) {
+              case QfCloudProject.Downloading:
+                return project.downloadProgress;
+              case QfCloudProject.Pushing:
+                return project.deltaFilePushStatus === QfCloudProject.DeltaFileLocalStatus ? project.pushDeltaProgress : 0.0;
+              default:
+                return 0.0;
+              }
+            }
+
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.margins: 10
             width: 128
             height: 128
-            color: 'transparent'
             visible: statusText.visible
+
+            Shape {
+              id: cloudOutline
+              anchors.centerIn: parent
+              width: 24
+              height: 24
+              scale: parent.width / width
+              preferredRendererType: Shape.CurveRenderer
+
+              ShapePath {
+                strokeColor: Qt.hsla(cloudOutlinePath.strokeColor.hslHue, cloudOutlinePath.strokeColor.hslSaturation, cloudOutlinePath.strokeColor.hslLightness, 0.2)
+                strokeWidth: cloudOutlinePath.strokeWidth
+                fillColor: "transparent"
+
+                PathSvg {
+                  id: cloudOutlineSvg
+                  path: "M19.35 10.04C21.95 10.22 24 12.36 24 15C24 17.76 21.76 20 19 20H6C2.69 20 0 17.31 0 14C0 10.91 2.34 8.36 5.35 8.04C6.6 5.64 9.11 4 12 4C15.64 4 18.67 6.59 19.35 10.04Z"
+                }
+              }
+
+              ShapePath {
+                id: cloudOutlinePath
+
+                property real animatedProgress: cloudAnimation.progress
+                property real indeterminateTrimOffset: 0
+                property real colorPhase: cloudAnimation.progress > 0 ? animatedProgress : 0
+                readonly property color fromColor: QfTheme.mainColor
+                readonly property color toColor: QfTheme.cloudColor
+
+                strokeColor: Qt.hsla(fromColor.hslHue + (toColor.hslHue - fromColor.hslHue) * colorPhase, fromColor.hslSaturation + (toColor.hslSaturation - fromColor.hslSaturation) * colorPhase, fromColor.hslLightness + (toColor.hslLightness - fromColor.hslLightness) * colorPhase, 1)
+                strokeWidth: 4 / cloudOutline.scale
+                fillColor: "transparent"
+                capStyle: ShapePath.RoundCap
+                trim.end: cloudAnimation.progress > 0 ? animatedProgress : 0.25
+                trim.offset: cloudAnimation.progress > 0 ? 0 : indeterminateTrimOffset
+
+                Behavior on animatedProgress {
+                  NumberAnimation {
+                    duration: 500
+                    easing.type: Easing.OutQuart
+                  }
+                }
+
+                NumberAnimation on indeterminateTrimOffset {
+                  running: cloudAnimation.visible && cloudAnimation.progress === 0
+                  from: 0
+                  to: 1
+                  duration: 2000
+                  loops: Animation.Infinite
+                }
+
+                PathSvg {
+                  path: cloudOutlineSvg.path
+                }
+              }
+            }
 
             Image {
               id: statusIcon
               anchors.fill: parent
+              anchors.margins: 20
               fillMode: Image.PreserveAspectFit
               smooth: true
               source: {
@@ -312,38 +385,8 @@ Popup {
                 return '';
               }
 
-              width: parent.width
-              height: parent.height
               sourceSize.width: width * screen.devicePixelRatio
               sourceSize.height: height * screen.devicePixelRatio
-              opacity: 1
-
-              SequentialAnimation {
-                OpacityAnimator {
-                  from: 1
-                  to: 0.2
-                  duration: 2000
-                  target: statusIcon
-                }
-                OpacityAnimator {
-                  from: 0.2
-                  to: 1
-                  duration: 2000
-                  target: statusIcon
-                }
-                running: cloudAnimation.visible
-                loops: Animation.Infinite
-              }
-            }
-
-            ProgressBar {
-              anchors.bottom: parent.bottom
-              anchors.horizontalCenter: parent.horizontalCenter
-              width: parent.width
-              height: 6
-              indeterminate: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.packagingStatus !== QfCloudProject.PackagingFinishedStatus && cloudProjectsModel.currentProject.downloadProgress === 0.0)
-              value: cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.downloadProgress ? cloudProjectsModel.currentProject.downloadProgress : 0
-              visible: cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.ProjectStatus.Downloading
             }
           }
 
