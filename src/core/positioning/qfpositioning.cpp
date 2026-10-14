@@ -199,6 +199,9 @@ void QfPositioning::setActive( bool active )
     {
       QLocationPermission locationPermission;
       locationPermission.setAccuracy( QLocationPermission::Precise );
+#if defined( Q_OS_IOS )
+      locationPermission.setAvailability( QLocationPermission::Always );
+#endif
       Qt::PermissionStatus permissionStatus = qApp->checkPermission( locationPermission );
 
       if ( permissionStatus == Qt::PermissionStatus::Undetermined )
