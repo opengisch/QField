@@ -34,7 +34,7 @@ void QFieldCloudService::initService()
 {
   mCloudConnection.reset( new QfCloudConnection() );
 
-  QObject::connect( mCloudConnection.get(), &QfCloudConnection::pendingAttachmentsUploadStatus, this, [=]( const QString &fileName, double fileProgress, int uploadPending ) {
+  connect( mCloudConnection.get(), &QfCloudConnection::pendingAttachmentsUploadStatus, this, [this]( const QString &fileName, double fileProgress, int uploadPending ) {
     qInfo() << "about to trigger notification message" << fileName;
     QString messageString = tr( "Uploading %1" ).arg( fileName );
     if ( uploadPending > 0 )
@@ -49,11 +49,9 @@ void QFieldCloudService::initService()
                                         message.object<jstring>(),
                                         progress );
   } );
-  QObject::connect( mCloudConnection.get(), &QfCloudConnection::pendingAttachmentsUploadFinished, this, [=]() {
-    exit();
-  } );
+  connect( mCloudConnection.get(), &QfCloudConnection::pendingAttachmentsUploadFinished, this, [this] { exit(); } );
 
-  QTimer::singleShot( 1000, [=] { uploadPendingAttachments(); } );
+  QTimer::singleShot( 1000, this, &QFieldCloudService::uploadPendingAttachments );
 }
 
 void QFieldCloudService::uploadPendingAttachments()
