@@ -81,6 +81,12 @@ void Qf3DGeometry::setTerrainProvider( Qf3DTerrainProvider *provider )
   {
     connect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &Qf3DGeometry::markDirtyAndUpdate );
     connect( mTerrainProvider, &Qf3DTerrainProvider::normalizedDataChanged, this, &Qf3DGeometry::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::isTransitioningChanged, this, [this] {
+      if ( !mTerrainProvider->isTransitioning() )
+      {
+        markDirtyAndUpdate();
+      }
+    } );
 
     if ( mTerrainProvider->mapSettings() && mCrs.isValid() )
     {
