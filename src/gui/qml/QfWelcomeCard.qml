@@ -13,7 +13,18 @@ SwipeView {
   clip: true
   interactive: false
   property bool collapsed: false
-  Layout.preferredHeight: collapsed ? 0 : (currentItem ? currentItem.implicitHeight : implicitHeight)
+  property bool uniformHeight: false
+  readonly property real tallestPanelHeight: {
+    let tallest = 0;
+    for (let i = 0; i < count; ++i) {
+      const panel = itemAt(i);
+      if (panel) {
+        tallest = Math.max(tallest, panel.implicitHeight);
+      }
+    }
+    return tallest;
+  }
+  Layout.preferredHeight: collapsed ? 0 : (uniformHeight ? tallestPanelHeight : (currentItem ? currentItem.implicitHeight : implicitHeight))
 
   Behavior on implicitHeight {
     NumberAnimation {
@@ -38,15 +49,61 @@ SwipeView {
     property alias title: titleText.text
     property alias message: messageText.text
     property bool closable: false
+    property bool collapseOnClose: true
+    property url imageSource
+    readonly property bool fillsCardHeight: panel.SwipeView.view ? panel.SwipeView.view.uniformHeight : false
     default property alias actions: actionRow.children
 
+    signal closeClicked
+
     implicitHeight: panelLayout.implicitHeight
+
+    Rectangle {
+      id: imageFadeMask
+      anchors.fill: backgroundImage
+      radius: 11
+      visible: false
+      layer.enabled: true
+      gradient: Gradient {
+        orientation: Gradient.Horizontal
+        GradientStop {
+          position: 0.2
+          color: "transparent"
+        }
+        GradientStop {
+          position: 0.9
+          color: "white"
+        }
+      }
+    }
+
+    Image {
+      id: backgroundImage
+      anchors.fill: parent
+      anchors.margins: 1
+      visible: status === Image.Ready
+      source: panel.imageSource
+      fillMode: Image.PreserveAspectCrop
+      asynchronous: true
+      cache: true
+      opacity: 0.32
+
+      layer.enabled: true
+      layer.effect: QfOpacityMask {
+        maskSource: imageFadeMask
+        maskThresholdMin: 0.5
+        maskSpreadAtMin: 1.0
+        colorization: 1.0
+        colorizationColor: QfTheme.mainColor
+      }
+    }
 
     ColumnLayout {
       id: panelLayout
       anchors.left: parent.left
       anchors.right: parent.right
-      anchors.verticalCenter: parent.verticalCenter
+      anchors.top: parent.top
+      anchors.bottom: panel.fillsCardHeight ? parent.bottom : undefined
       spacing: 0
 
       ColumnLayout {
@@ -56,7 +113,7 @@ SwipeView {
         Layout.rightMargin: panel.closable ? closeButton.width + 8 : 16
         Layout.topMargin: 11
         Layout.bottomMargin: actionRow.children.length > 0 ? 0 : 16
-        spacing: 2
+        spacing: 6
 
         Text {
           id: titleText
@@ -74,6 +131,10 @@ SwipeView {
           color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
         }
+      }
+
+      Item {
+        Layout.fillHeight: true
       }
 
       RowLayout {
@@ -99,7 +160,12 @@ SwipeView {
       iconSource: QfTheme.getThemeVectorIcon("ic_close_white_24dp")
       iconColor: QfTheme.mainColor
 
-      onClicked: panel.SwipeView.view.collapse()
+      onClicked: {
+        panel.closeClicked();
+        if (panel.collapseOnClose) {
+          panel.SwipeView.view.collapse();
+        }
+      }
     }
   }
 }
