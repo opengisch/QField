@@ -109,6 +109,18 @@ TEST_CASE( "NewsParser" )
     REQUIRE( QfNewsParser::parseFeed( QByteArray() ).isEmpty() );
   }
 
+  SECTION( "parseFeedOnlyChannelItems" )
+  {
+    const QByteArray feed( "<rss><channel>"
+                           "<item><title>Inside</title><guid>inside</guid><pubDate>Tue, 08 Sep 2026 00:02:00 +0000</pubDate></item>"
+                           "</channel>"
+                           "<item><title>Outside</title><guid>outside</guid><pubDate>Tue, 08 Sep 2026 00:02:00 +0000</pubDate></item>"
+                           "</rss>" );
+    const QList<QfNewsItem> items = QfNewsParser::parseFeed( feed );
+    REQUIRE( items.size() == 1 );
+    REQUIRE( items[0].uuid == QStringLiteral( "inside" ) );
+  }
+
   SECTION( "disabledByDefault" )
   {
     QfNewsParser parser;

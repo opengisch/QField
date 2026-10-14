@@ -20,13 +20,13 @@
 
 #include <QCryptographicHash>
 #include <QDir>
+#include <QDomDocument>
 #include <QFile>
 #include <QFileInfo>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QSettings>
 #include <QStandardPaths>
-#include <QXmlStreamReader>
 #include <qgsnetworkaccessmanager.h>
 
 #include <algorithm>
@@ -149,69 +149,48 @@ void QfNewsParser::dismiss( const QString &uuid )
 QList<QfNewsItem> QfNewsParser::parseFeed( const QByteArray &data )
 {
   QList<QfNewsItem> items;
-  QXmlStreamReader xml( data );
 
-  bool insideItem = false;
-  QfNewsItem item;
-  while ( !xml.atEnd() )
+  QDomDocument document;
+  if ( !document.setContent( data, QDomDocument::ParseOption::UseNamespaceProcessing ) )
   {
-    xml.readNext();
-
-    if ( xml.isStartElement() )
-    {
-      if ( xml.name() == QLatin1String( "item" ) )
-      {
-        insideItem = true;
-        item = QfNewsItem();
-      }
-      else if ( insideItem )
-      {
-        if ( xml.name() == QLatin1String( "guid" ) )
-        {
-          item.uuid = xml.readElementText().trimmed();
-        }
-        else if ( xml.name() == QLatin1String( "title" ) )
-        {
-          item.title = xml.readElementText().trimmed();
-        }
-        else if ( xml.name() == QLatin1String( "link" ) )
-        {
-          item.url = QUrl( xml.readElementText().trimmed() );
-        }
-        else if ( xml.name() == QLatin1String( "pubDate" ) )
-        {
-          item.publicationDate = QDateTime::fromString( xml.readElementText().trimmed(), Qt::RFC2822Date );
-        }
-        else if ( xml.name() == QLatin1String( "description" ) )
-        {
-          item.description = QfStringUtils::htmlToPlainText( xml.readElementText() );
-        }
-        else if ( xml.name() == QLatin1String( "content" ) && xml.attributes().hasAttribute( QLatin1String( "url" ) ) )
-        {
-          item.imageUrl = QUrl( xml.attributes().value( QLatin1String( "url" ) ).toString() );
-        }
-      }
-    }
-    else if ( xml.isEndElement() && xml.name() == QLatin1String( "item" ) )
-    {
-      insideItem = false;
-
-      // The guid element is optional in RSS feeds, fall back to the item URL
-      if ( item.uuid.isEmpty() )
-      {
-        item.uuid = item.url.toString();
-      }
-
-      if ( !item.uuid.isEmpty() && !item.title.isEmpty() && item.publicationDate.isValid() )
-      {
-        items << item;
-      }
-    }
+    return items;
   }
 
-  if ( xml.hasError() )
+  const QDomNodeList itemNodes = document.elementsByTagName( QStringLiteral( "item" ) );
+  for ( int i = 0; i < itemNodes.size(); ++i )
   {
-    return QList<QfNewsItem>();
+    const QDomElement itemElement = itemNodes.at( i ).toElement();
+    if ( itemElement.parentNode().toElement().tagName() != QLatin1String( "channel" ) )
+    {
+      continue;
+    }
+
+    QfNewsItem item;
+    item.uuid = itemElement.firstChildElement( QStringLiteral( "guid" ) ).text().trimmed();
+    item.title = itemElement.firstChildElement( QStringLiteral( "title" ) ).text().trimmed();
+    item.url = QUrl( itemElement.firstChildElement( QStringLiteral( "link" ) ).text().trimmed() );
+    item.publicationDate = QDateTime::fromString( itemElement.firstChildElement( QStringLiteral( "pubDate" ) ).text().trimmed(), Qt::RFC2822Date );
+    item.description = QfStringUtils::htmlToPlainText( itemElement.firstChildElement( QStringLiteral( "description" ) ).text() );
+
+    for ( QDomElement child = itemElement.firstChildElement(); !child.isNull(); child = child.nextSiblingElement() )
+    {
+      if ( child.localName() == QLatin1String( "content" ) && child.hasAttribute( QStringLiteral( "url" ) ) )
+      {
+        item.imageUrl = QUrl( child.attribute( QStringLiteral( "url" ) ) );
+        break;
+      }
+    }
+
+    // The guid element is optional in RSS feeds, fall back to the item URL
+    if ( item.uuid.isEmpty() )
+    {
+      item.uuid = item.url.toString();
+    }
+
+    if ( !item.uuid.isEmpty() && !item.title.isEmpty() && item.publicationDate.isValid() )
+    {
+      items << item;
+    }
   }
 
   return items;
