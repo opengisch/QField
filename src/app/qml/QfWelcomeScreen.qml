@@ -139,6 +139,70 @@ Page {
       }
 
       QfWelcomeCard {
+        id: newsView
+        visible: newsParser.items.length > 0
+        interactive: count > 1
+        uniformHeight: true
+
+        Layout.margins: 6
+        Layout.topMargin: 0
+        Layout.bottomMargin: newsPageIndicator.visible ? 0 : 24
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
+
+        Repeater {
+          model: newsParser.items
+
+          QfWelcomeCard.Panel {
+            required property var modelData
+
+            closable: true
+            collapseOnClose: false
+            title: modelData.title
+            message: QfStringUtils.snippet(modelData.description, 160)
+            imageSource: modelData.imageUrl
+
+            onCloseClicked: newsParser.dismiss(modelData.uuid)
+
+            QfButton {
+              Layout.fillWidth: true
+              Layout.preferredHeight: 36
+              text: qsTr("Read more")
+              bgcolor: "transparent"
+              color: QfTheme.mainColor
+
+              onClicked: {
+                Qt.openUrlExternally(modelData.url);
+                newsParser.dismiss(modelData.uuid);
+              }
+            }
+          }
+        }
+      }
+
+      PageIndicator {
+        id: newsPageIndicator
+        visible: newsView.visible && count > 1
+
+        Layout.topMargin: 8
+        Layout.bottomMargin: 16
+        Layout.alignment: Qt.AlignHCenter
+        count: newsView.count
+        currentIndex: newsView.currentIndex
+
+        delegate: Rectangle {
+          required property int index
+
+          implicitWidth: 6
+          implicitHeight: 6
+          radius: 3
+          color: QfTheme.mainColor
+          opacity: index === newsPageIndicator.currentIndex ? 1 : 0.3
+        }
+      }
+
+      QfWelcomeCard {
         id: feedbackView
         visible: false
 
@@ -157,7 +221,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             text: qsTr("Reach out")
             icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
 
@@ -176,7 +240,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             Layout.preferredWidth: 0
             text: qsTr("Could be better")
             icon.source: QfTheme.getThemeVectorIcon('ic_thumb_down_white_24dp')
@@ -191,7 +255,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             Layout.preferredWidth: 0
             text: qsTr("Loving it")
             icon.source: QfTheme.getThemeVectorIcon('ic_thumb_up_white_24dp')
@@ -214,7 +278,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             text: qsTr("Rate us")
             icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
 
@@ -255,7 +319,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             Layout.preferredWidth: 0
             text: qsTr('I prefer not')
             bgcolor: "transparent"
@@ -269,7 +333,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             Layout.preferredWidth: 0
             text: qsTr('I agree')
 
@@ -849,8 +913,14 @@ Page {
     }
   }
 
+  QfNewsParser {
+    id: newsParser
+    feedUrl: "https://qfield.org/blog/feed.xml"
+  }
+
   Component.onCompleted: {
     adjustWelcomeScreen();
+    newsParser.fetch();
     const runCount = settings.value("/QField/RunCount", 0) * 1;
     if (runCount > 0) {
       // Avoid throwing new guides to pre-existing users upgrading
@@ -890,7 +960,9 @@ Page {
   }
 
   onVisibleChanged: {
-    if (!visible) {
+    if (visible) {
+      newsParser.fetch();
+    } else {
       welcomeText.text = "";
       feedbackView.visible = false;
       collectionView.visible = false;
