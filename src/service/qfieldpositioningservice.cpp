@@ -40,14 +40,14 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   mNotificationTimer.setSingleShot( false );
   connect( &mNotificationTimer, &QTimer::timeout, this, &QFieldPositioningService::triggerShowNotification );
 
-  connect( mPositioningSource.get(), &QfPositioningSource::positionInformationChanged, this, [=] {
+  connect( mPositioningSource.get(), &QfPositioningSource::positionInformationChanged, this, [this] {
     if ( !mPositioningSource->backgroundMode() && QFile::exists( QfPositioningSource::backgroundFilePath ) )
     {
       mPositioningSource->setBackgroundMode( true );
     }
   } );
 
-  connect( mPositioningSource.get(), &QfPositioningSource::backgroundModeChanged, this, [=] {
+  connect( mPositioningSource.get(), &QfPositioningSource::backgroundModeChanged, this, [this] {
     if ( mPositioningSource->active() )
     {
       if ( mPositioningSource->backgroundMode() )
@@ -63,7 +63,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
     }
   } );
 
-  connect( mPositioningSource.get(), &QfPositioningSource::activeChanged, this, [=] {
+  connect( mPositioningSource.get(), &QfPositioningSource::activeChanged, this, [this] {
     if ( mPositioningSource->active() )
     {
       if ( mPositioningSource->backgroundMode() )
