@@ -97,11 +97,15 @@ android {
          ndk {
            abiFilters "@ANDROID_ABI@"
          }
+         minifyEnabled = true
+         shrinkResources = true
        }
       debug {
          ndk {
            abiFilters "@ANDROID_ABI@"
          }
+         minifyEnabled = true
+         shrinkResources = true
        }
     }
 }
