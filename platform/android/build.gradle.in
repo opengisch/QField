@@ -98,6 +98,7 @@ android {
            abiFilters "@ANDROID_ABI@"
          }
          minifyEnabled = true
+         shrinkResources = true
          proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
        }
       debug {
@@ -105,6 +106,7 @@ android {
            abiFilters "@ANDROID_ABI@"
          }
          minifyEnabled = true
+         shrinkResources = true
          proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
        }
     }
