@@ -98,12 +98,14 @@ android {
            abiFilters "@ANDROID_ABI@"
          }
          minifyEnabled = true
+         proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
        }
       debug {
          ndk {
            abiFilters "@ANDROID_ABI@"
          }
          minifyEnabled = true
+         proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
        }
     }
 }
