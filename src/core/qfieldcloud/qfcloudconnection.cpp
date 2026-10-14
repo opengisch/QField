@@ -1042,11 +1042,11 @@ QfCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   if ( errorMessage.isEmpty() )
   {
     errorMessage = httpErrorMessage;
-    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( errorMessage, payloadPlainText ).arg( reply->errorString() ) );
+    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( errorMessage, payloadPlainText, reply->errorString() ) );
   }
   else
   {
-    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3\n%4" ).arg( errorMessage, httpErrorMessage, payloadPlainText ).arg( reply->errorString() ) );
+    QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3\n%4" ).arg( errorMessage, httpErrorMessage, payloadPlainText, reply->errorString() ) );
   }
 
   // strip HTML tags
@@ -1084,7 +1084,7 @@ void QfCloudConnection::processPendingAttachments()
   QMultiMap<QString, QString>::const_iterator it = attachments.constBegin();
   while ( it != attachments.constEnd() )
   {
-    if ( !QFileInfo( it.value() ).exists() )
+    if ( !QFileInfo::exists( it.value() ) )
     {
       // A pending attachment has been deleted from the local device, remove
       // This can happen when for e.g. users remove a cloud project from their devices
@@ -1119,38 +1119,53 @@ void QfCloudConnection::processPendingAttachments()
       if ( attachmentReply->error() != QNetworkReply::NoError )
       {
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at `%1`, reason:\n%2" )
-                                     .arg( fileName )
-                                     .arg( QfCloudConnection::errorString( attachmentReply ) ) );
+                                     .arg( fileName, QfCloudConnection::errorString( attachmentReply ) ) );
 
-        // Retry uploading for non-404 errors
-        if ( httpCode != 404 )
+        bool retryOnFail = true;
+        // 400: Attachment file name contains invalid character or content missing/empty
+        // 401: Authentication token invalidated while processing pending attachments
+        // 402: Project owner ran out of storage to receive attachments
+        // 403: Authenticated user does not have the right to upload attachments
+        // 404: Cloud project removed or access revoked, moving on
+        if ( httpCode == 401 )
+        {
+          emit pendingAttachmentsUploadFinished();
+          return;
+        }
+        else if ( httpCode == 400 || httpCode == 402 || httpCode == 403 || httpCode == 404 )
+        {
+          retryOnFail = false;
+        }
+
+        qInfo() << QStringLiteral( "Attachment upload failure - project ID: %1 / filename: %2 / http code: %3" ).arg( projectId, fileName, QString::number( httpCode ) );
+        const QList<QByteArray> rawHeaderList = attachmentReply->rawHeaderList();
+        for ( const QByteArray &header : rawHeaderList )
+        {
+          qInfo() << QStringLiteral( "Attachment upload failure - reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
+        }
+        qInfo() << QStringLiteral( "Attachment upload failure - reply content: %1" ).arg( attachmentReply->readAll() );
+
+        if ( retryOnFail )
         {
           mUploadFailingCount++;
 
           if ( mUploadFailingCount < 5 )
           {
-            // Retry the last attachment to upload after a brief delay
+            // Move failing attachment to the bottom of the queue list to avoid blocking other attachments permanently
+            QfCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
+            QfCloudUtils::addPendingAttachments( mUsername, projectId, QStringList() << fileName );
+
+            // Attempt to resume uploading after a brief delay
             QTimer::singleShot( std::pow( 5, mUploadFailingCount ) * 1000, this, [this] { processPendingAttachments(); } );
           }
           else
           {
-            // Too many fails, bailing out for now
+            // Too many fails, bailing out
             emit pendingAttachmentsUploadFinished();
           }
+
           return;
         }
-      }
-
-      if ( httpCode != 201 && httpCode != 404 )
-      {
-        qDebug() << QStringLiteral( "Attachment project ID: %1 %2 %3" ).arg( projectId ).arg( fileName ).arg( httpCode );
-
-        for ( const QByteArray &header : attachmentReply->rawHeaderList() )
-        {
-          qDebug() << QStringLiteral( "Attachment reply header: %1 => %2" ).arg( header ).arg( attachmentReply->rawHeader( header ) );
-        }
-
-        qDebug() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
       }
 
       QfCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
