@@ -153,7 +153,12 @@ QString QfPlatformUtilities::systemLocalDataLocation( const QString &subDir ) co
 
 bool QfPlatformUtilities::hasQgsProject() const
 {
-  return qApp->arguments().count() > 1 && !qApp->arguments().last().isEmpty();
+  if ( qApp->arguments().count() > 1 && !qApp->arguments().last().isEmpty() )
+  {
+    const QFileInfo fi( qApp->arguments().last() );
+    return fi.exists() && fi.isFile();
+  }
+  return false;
 }
 
 void QfPlatformUtilities::loadQgsProject() const
