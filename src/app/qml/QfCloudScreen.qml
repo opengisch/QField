@@ -672,7 +672,7 @@ Page {
                 }
               } else {
                 labelText = qsTr("No cloud projects found.");
-                if (Qt.platform !== "ios") {
+                if (Qt.platform.os !== "ios") {
                   labelText += "\n\n" + qsTr("To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>");
                 }
               }
@@ -1092,6 +1092,17 @@ Page {
       const isClone = fromProjectId !== "";
       if (hasError) {
         busyOverlay.state = "hidden";
+        if (errorString.indexOf(`"code":"${QfCloudUtils.errorCodeOverQuota}"`) >= 0) {
+          const message = isClone ? qsTr("Project cannot be cloned as your available storage is full.") : qsTr("Project cannot be created as your available storage is full.");
+          if (cloudConnection.url == cloudConnection.defaultUrl && Qt.platform.os !== "ios") {
+            displayToast(message, 'info', qsTr('Upgrade storage'), function () {
+              Qt.openUrlExternally('https://app.qfield.cloud/plans');
+            });
+          } else {
+            displayToast(message, 'warning');
+          }
+          return;
+        }
         displayToast(isClone ? qsTr("Project cloning failed: %1").arg(errorString) : qsTr("Project creation failed: %1").arg(errorString));
         return;
       }
@@ -1111,7 +1122,9 @@ Page {
       busyOverlay.state = "hidden";
 
       if (hasError) {
-        displayToast(qsTr("Project created but downloading failed: %1").arg(QfCloudUtils.userFriendlyErrorString(errorString)));
+        if (errorString.indexOf(`"code":"${QfCloudUtils.errorCodeOverQuota}"`) < 0) {
+          displayToast(qsTr("Project created but downloading failed: %1").arg(QfCloudUtils.userFriendlyErrorString(errorString)));
+        }
         return;
       }
 

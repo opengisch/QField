@@ -47,7 +47,7 @@ ColumnLayout {
         lastSubscriptionUser = projectDetails.cloudProject.owner;
         detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
         detailsStorageMeter.usageText = qsTr("Using %1 of %2").arg(QfFileUtils.representFileSize(subscriptionInformation.storageUsed, true)).arg(QfFileUtils.representFileSize(subscriptionInformation.storageTotal, true));
-        detailsStorageMeter.relatedUrl = Qt.platform !== "ios" ? QfCloudUtils.subscriptionManagementUrl(cloudConnection.url, subscriptionInformation.plan, projectDetails.cloudProject.owner, cloudConnection.username) : "";
+        detailsStorageMeter.relatedUrl = Qt.platform.os !== "ios" ? QfCloudUtils.subscriptionManagementUrl(cloudConnection.url, subscriptionInformation.plan, projectDetails.cloudProject.owner, cloudConnection.username) : "";
         detailsStorageMeter.warningThreshold = subscriptionInformation.storageThresholdWarning > 0 ? 1.0 - (subscriptionInformation.storageThresholdWarning / subscriptionInformation.storageTotal) : 0.8;
         detailsStorageMeter.criticalThreshold = subscriptionInformation.storageThresholdCritical > 0 ? 1.0 - (subscriptionInformation.storageThresholdCritical / subscriptionInformation.storageTotal) : 0.95;
         detailsStorageMeter.visible = true;
