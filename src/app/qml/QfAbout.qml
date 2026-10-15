@@ -214,6 +214,12 @@ Item {
     }
   }
 
+  QfChangelog {
+    id: changelogPopup
+    objectName: 'changelogPopup'
+    parent: Overlay.overlay
+  }
+
   Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       event.accepted = true;
