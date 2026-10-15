@@ -1135,9 +1135,17 @@ bool QgisMobileapp::print( const QString &layoutName )
     else
     {
       success = printAtlas( layoutToPrint, destination );
-      if ( success && layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+      if ( success )
       {
-        openPath = destination;
+        if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+        {
+          openPath = destination;
+        }
+        else if ( layoutToPrint->atlas()->count() == 1 )
+        {
+          layoutToPrint->atlas()->first();
+          openPath = layoutsFolder() + '/' + layoutToPrint->atlas()->currentFilename() + QStringLiteral( ".pdf" );
+        }
       }
     }
 
@@ -1190,18 +1198,20 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
 
     const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
     QString openPath;
-    if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
-    {
-      openPath = destination;
-    }
-    else if ( ids.size() == 1 )
-    {
-      layoutToPrint->atlas()->updateFeatures();
-      layoutToPrint->atlas()->first();
-      openPath = layoutsFolder() + '/' + layoutToPrint->atlas()->currentFilename() + QStringLiteral( ".pdf" );
-    }
 
     const bool success = printAtlas( layoutToPrint, destination );
+    if ( success )
+    {
+      if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
+      {
+        openPath = destination;
+      }
+      else if ( layoutToPrint->atlas()->count() == 1 )
+      {
+        layoutToPrint->atlas()->first();
+        openPath = layoutsFolder() + '/' + layoutToPrint->atlas()->currentFilename() + QStringLiteral( ".pdf" );
+      }
+    }
 
     layoutToPrint->atlas()->setFilterExpression( priorFilterExpression, error );
     layoutToPrint->atlas()->setFilterFeatures( priorFilterFeatures );
