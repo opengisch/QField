@@ -4962,8 +4962,6 @@ ApplicationWindow {
       welcomeScreen.focus = false;
       projectCreationScreen.visible = false;
       projectCreationScreen.focus = false;
-      if (changelogPopup.visible)
-        changelogPopup.close();
       dashBoard.layerTree.freeze();
       mapCanvasMap.stopRendering();
       mapCanvasMap.freeze('projectload');
@@ -5630,23 +5628,6 @@ ApplicationWindow {
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
-  }
-
-  QfChangelog {
-    id: changelogPopup
-    objectName: 'changelogPopup'
-    parent: Overlay.overlay
-
-    Component.onCompleted: {
-      if (Qfield.name === "QField") {
-        const changelogVersion = settings.value("/QField/ChangelogVersion", "");
-        if (changelogVersion === "") {
-          settings.setValue("/QField/ChangelogVersion", Qfield.version);
-        } else if (changelogVersion !== Qfield.version) {
-          open();
-        }
-      }
-    }
   }
 
   QfAbout {
