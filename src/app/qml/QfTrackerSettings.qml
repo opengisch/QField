@@ -108,14 +108,11 @@ QfPopup {
       }
     }
 
-    ScrollView {
+    Flickable {
       anchors.fill: parent
       anchors.bottomMargin: 10
-      topPadding: 5
-      bottomPadding: 5
-      leftPadding: 5
-      rightPadding: 5 // Considering scroll bar
-      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+      topMargin: 5
+      bottomMargin: 5
       ScrollBar.vertical: QfScrollBar {}
       contentWidth: trackerSettingsGrid.width
       contentHeight: trackerSettingsGrid.height + bottomRow.height
@@ -125,6 +122,8 @@ QfPopup {
         id: trackerSettingsGrid
         width: parent.parent.width
         Layout.fillWidth: true
+        Layout.leftMargin: 5
+        Layout.rightMargin: 5
 
         columns: 2
         columnSpacing: 0
