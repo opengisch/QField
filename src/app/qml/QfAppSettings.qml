@@ -376,11 +376,8 @@ Page {
       clip: true
 
       Item {
-        ScrollView {
-          topPadding: 5
-          leftPadding: 0
-          rightPadding: 0
-          ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        Flickable {
+          topMargin: 5
           ScrollBar.vertical: QfScrollBar {}
           contentWidth: generalSettingsGrid.width
           contentHeight: generalSettingsGrid.height
@@ -1173,11 +1170,8 @@ Page {
       }
 
       Item {
-        ScrollView {
-          topPadding: 5
-          leftPadding: 20
-          rightPadding: 20
-          ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        Flickable {
+          topMargin: 5
           ScrollBar.vertical: QfScrollBar {}
           contentWidth: positioningGrid.width
           contentHeight: positioningGrid.height
@@ -1186,11 +1180,13 @@ Page {
 
           ColumnLayout {
             id: positioningGrid
-            width: parent.parent.width
+            width: swipeView.width
             spacing: 10
 
             GridLayout {
               Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
 
               columns: 2
               columnSpacing: 0
@@ -1563,6 +1559,8 @@ Page {
 
             GridLayout {
               Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
 
               columns: 2
               columnSpacing: 0
