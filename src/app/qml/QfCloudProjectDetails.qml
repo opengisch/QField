@@ -132,13 +132,13 @@ ColumnLayout {
       }
     }
 
-    ScrollView {
+    Flickable {
       Layout.fillWidth: true
       Layout.fillHeight: true
       contentWidth: width
       contentHeight: projectDetailsBodyLayout.height
-      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
       ScrollBar.vertical: QfScrollBar {}
+      clip: true
 
       ColumnLayout {
         id: projectDetailsBodyLayout
