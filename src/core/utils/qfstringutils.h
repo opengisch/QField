@@ -67,6 +67,9 @@ class QFIELD_CORE_EXPORT QfStringUtils : public QObject
 
     //! Returns a short snippet representing the beginning of a longer text.
     static Q_INVOKABLE QString snippet( const QString &string, int desiredCharactersLength = 160 );
+
+    //! Returns the plain text content of an \a html string, with whitespaces simplified
+    static Q_INVOKABLE QString htmlToPlainText( const QString &html );
 };
 
 #endif // QFSTRINGUTILS_H

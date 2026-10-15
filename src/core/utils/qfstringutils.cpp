@@ -19,6 +19,7 @@
 
 #include <QFileInfo>
 #include <QRegularExpression>
+#include <QTextDocumentFragment>
 #include <QUuid>
 #include <qgscoordinatereferencesystemutils.h>
 #include <qgsstringutils.h>
@@ -295,4 +296,11 @@ QString QfStringUtils::snippet( const QString &string, int desiredCharactersLeng
   }
 
   return snippet;
+}
+
+QString QfStringUtils::htmlToPlainText( const QString &html )
+{
+  QString text = QTextDocumentFragment::fromHtml( html ).toPlainText();
+  text.remove( QChar::ObjectReplacementCharacter );
+  return text.simplified();
 }

@@ -41,4 +41,12 @@ TEST_CASE( "StringUtils" )
     REQUIRE( QfStringUtils::highlightText( "Crème brûlée", "creme", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">Crème</span> brûlée" );
     REQUIRE( QfStringUtils::highlightText( "beziers", "béz", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">bez</span>iers" );
   }
+
+  SECTION( "HtmlToPlainText" )
+  {
+    REQUIRE( QfStringUtils::htmlToPlainText( QString() ) == QString() );
+    REQUIRE( QfStringUtils::htmlToPlainText( QStringLiteral( "QField roxx" ) ) == QStringLiteral( "QField roxx" ) );
+    REQUIRE( QfStringUtils::htmlToPlainText( QStringLiteral( "<p>QField <a href=\"https://qfield.org\">roxx</a></p>\n<p>Open QField&rsquo;s settings</p>" ) ) == QStringLiteral( "QField roxx Open QField’s settings" ) );
+    REQUIRE( QfStringUtils::htmlToPlainText( QStringLiteral( "<figure><img src=\"https://qfield.org/image.webp\"></figure><p>QField roxx</p>" ) ) == QStringLiteral( "QField roxx" ) );
+  }
 }
