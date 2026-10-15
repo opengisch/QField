@@ -52,9 +52,10 @@ Page {
   Flickable {
     anchors.fill: parent
     anchors.topMargin: Math.max(mainWindow.sceneTopMargin + 58, (mainWindow.height - welcomeLayout.height) / 2 - 50)
-    anchors.leftMargin: mainWindow.sceneLeftMargin
-    anchors.rightMargin: mainWindow.sceneRightMargin
-    bottomMargin: mainWindow.sceneBottomMargin // Deliberately outside of the anchors for nicer content display
+    // Margins below are deliberately outside of the anchors for nicer content display
+    leftMargin: mainWindow.sceneLeftMargin
+    rightMargin: mainWindow.sceneRightMargin
+    bottomMargin: mainWindow.sceneBottomMargin
     ScrollBar.vertical: QfScrollBar {
       opacity: active
       _maxSize: 4
