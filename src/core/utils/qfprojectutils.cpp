@@ -95,7 +95,7 @@ QString QfProjectUtils::title( QgsProject *project )
 QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssPositionInformation &positionInformation )
 {
   QString projectTitle = options.value( QStringLiteral( "title" ), tr( "Created Project" ) ).toString();
-  QString projectFilename = projectTitle.normalized( QString::NormalizationForm_KD );
+  QString projectFilename = QgsStringUtils::unaccent( projectTitle );
   projectFilename.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
   QDir createdProjectsDir( QStringLiteral( "%1/Created Projects/" ).arg( QfPlatformUtilities::instance()->applicationDirectory() ) );
