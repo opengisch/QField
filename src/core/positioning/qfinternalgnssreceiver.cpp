@@ -14,14 +14,15 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qfield.h"
 #include "qfinternalgnssreceiver.h"
 #include "qfpositioningsource.h"
 
 
 QfInternalGnssReceiver::QfInternalGnssReceiver( QObject *parent )
   : QfAbstractGnssReceiver( parent )
-  , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( { { "desktopId", "ch.opengis.qfield" } }, nullptr ) ) )
-  , mGeoSatelliteSource( std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( { { "desktopId", "ch.opengis.qfield" } }, nullptr ) ) )
+  , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( { { "desktopId", QStringLiteral( "opengis.ch.%1" ).arg( Qfield::appName ) } }, nullptr ) ) )
+  , mGeoSatelliteSource( std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( { { "desktopId", QStringLiteral( "opengis.ch.%1" ).arg( Qfield::appName ) } }, nullptr ) ) )
 {
   if ( mGeoPositionSource )
   {
