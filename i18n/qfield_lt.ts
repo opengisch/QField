@@ -5215,6 +5215,18 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <source>Enter your project description</source>
         <translation>Įveskite projekto aprašymą</translation>
     </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Padidinti saugyklą</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

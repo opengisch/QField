@@ -5213,6 +5213,18 @@ epäonnistui, syy: %2</translation>
         <source>Enter your project description</source>
         <translation>Syötä projektin kuvaus</translation>
     </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Päivitä tallennustilaa</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

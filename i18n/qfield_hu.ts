@@ -5204,6 +5204,18 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Tárhelybővítés</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

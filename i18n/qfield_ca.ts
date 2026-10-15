@@ -5213,6 +5213,18 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <source>Enter your project description</source>
         <translation>Introdueix la descripció del teu projecte</translation>
     </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Amplia l&apos;emmagatzematge</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

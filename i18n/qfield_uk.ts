@@ -5215,6 +5215,18 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Enter your project description</source>
         <translation>Введіть опис вашого проекту</translation>
     </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Збільшити обсяг пам’яті</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
