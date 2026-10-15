@@ -49,12 +49,12 @@ Page {
     }
   }
 
-  ScrollView {
-    topPadding: Math.max(mainWindow.sceneTopMargin + 58, (mainWindow.height - welcomeLayout.height) / 2 - 50)
-    leftPadding: mainWindow.sceneLeftMargin
-    rightPadding: mainWindow.sceneRightMargin
-    bottomPadding: mainWindow.sceneBottomMargin
-    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+  Flickable {
+    anchors.fill: parent
+    anchors.topMargin: Math.max(mainWindow.sceneTopMargin + 58, (mainWindow.height - welcomeLayout.height) / 2 - 50)
+    anchors.leftMargin: mainWindow.sceneLeftMargin
+    anchors.rightMargin: mainWindow.sceneRightMargin
+    bottomMargin: mainWindow.sceneBottomMargin // Deliberately outside of the anchors for nicer content display
     ScrollBar.vertical: QfScrollBar {
       opacity: active
       _maxSize: 4
@@ -66,11 +66,8 @@ Page {
         }
       }
     }
-
-    contentItem: welcomeLayout
     contentWidth: welcomeLayout.width
     contentHeight: welcomeLayout.height
-    anchors.fill: parent
     clip: true
 
     ColumnLayout {
