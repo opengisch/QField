@@ -50,19 +50,14 @@ static QUrl writeRecentFeed( const QTemporaryDir &directory )
 {
   QByteArray content = feedFixtureContent();
   content.replace( "Tue, 08 Sep 2026 00:02:00 +0000", daysAgo( 2 ).toUtf8() );
-  content.replace( "Thu, 12 Feb 2026 00:00:00 +0000", daysAgo( 10 ).toUtf8() );
-  content.replace( "Mon, 10 Aug 2026 00:00:00 +0000", daysAgo( 40 ).toUtf8() );
+  content.replace( "Thu, 12 Feb 2026 00:00:00 +0000", daysAgo( 40 ).toUtf8() );
+  content.replace( "Mon, 10 Aug 2026 00:00:00 +0000", daysAgo( 50 ).toUtf8() );
 
   const QString path = directory.filePath( QStringLiteral( "recent_feed.xml" ) );
   QFile file( path );
   REQUIRE( file.open( QIODevice::WriteOnly ) );
   file.write( content );
   return QUrl::fromLocalFile( path );
-}
-
-static void setEnabledSinceDaysAgo( int days )
-{
-  QSettings().setValue( QfNewsParser::ENABLED_SINCE_SETTINGS_KEY, QDateTime::currentDateTimeUtc().addDays( -days ) );
 }
 
 static void fetchAndWait( QfNewsParser &parser )
@@ -142,7 +137,7 @@ TEST_CASE( "NewsParser" )
     REQUIRE( !parser.isFetching() );
   }
 
-  SECTION( "onlyNewsPublishedSinceEnabled" )
+  SECTION( "onlyNewsWithinMaximumAge" )
   {
     QfNewsParser parser;
     parser.setFeedUrl( writeRecentFeed( settingsDirectory ) );
@@ -151,23 +146,6 @@ TEST_CASE( "NewsParser" )
     parser.setEnabled( true );
     REQUIRE( parser.enabled() );
     REQUIRE( enabledSpy.count() == 1 );
-    REQUIRE( QSettings().value( QfNewsParser::ENABLED_SINCE_SETTINGS_KEY ).toDateTime().isValid() );
-
-    fetchAndWait( parser );
-    REQUIRE( parser.items().isEmpty() );
-
-    setEnabledSinceDaysAgo( 5 );
-    fetchAndWait( parser );
-    REQUIRE( parser.items().size() == 1 );
-    REQUIRE( parser.items()[0].uuid == danubeUuid );
-  }
-
-  SECTION( "onlyNewsWithinMaximumAge" )
-  {
-    QfNewsParser parser;
-    parser.setFeedUrl( writeRecentFeed( settingsDirectory ) );
-    parser.setEnabled( true );
-    setEnabledSinceDaysAgo( 60 );
 
     fetchAndWait( parser );
     REQUIRE( parser.items().size() == 2 );
@@ -181,7 +159,6 @@ TEST_CASE( "NewsParser" )
     QfNewsParser parser;
     parser.setFeedUrl( feedUrl );
     parser.setEnabled( true );
-    setEnabledSinceDaysAgo( 60 );
     fetchAndWait( parser );
     REQUIRE( parser.items().size() == 2 );
 
@@ -205,7 +182,6 @@ TEST_CASE( "NewsParser" )
     QfNewsParser parser;
     parser.setFeedUrl( feedUrl );
     parser.setEnabled( true );
-    setEnabledSinceDaysAgo( 60 );
     fetchAndWait( parser );
     REQUIRE( parser.items().size() == 2 );
 
@@ -225,7 +201,6 @@ TEST_CASE( "NewsParser" )
     QfNewsParser parser;
     parser.setFeedUrl( writeRecentFeed( settingsDirectory ) );
     parser.setEnabled( true );
-    setEnabledSinceDaysAgo( 60 );
     fetchAndWait( parser );
     parser.dismiss( pluginsUuid );
     REQUIRE( parser.items().size() == 1 );
@@ -233,7 +208,6 @@ TEST_CASE( "NewsParser" )
     parser.setEnabled( false );
     REQUIRE( !parser.enabled() );
     REQUIRE( parser.items().isEmpty() );
-    REQUIRE( !QSettings().contains( QfNewsParser::ENABLED_SINCE_SETTINGS_KEY ) );
     REQUIRE( !QSettings().contains( QfNewsParser::DISMISSED_UUIDS_SETTINGS_KEY ) );
   }
 }

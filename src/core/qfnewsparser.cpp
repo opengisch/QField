@@ -78,14 +78,6 @@ void QfNewsParser::setEnabled( bool enabled )
   QSettings settings;
   settings.setValue( ENABLED_SETTINGS_KEY, enabled );
   settings.remove( DISMISSED_UUIDS_SETTINGS_KEY );
-  if ( enabled )
-  {
-    settings.setValue( ENABLED_SINCE_SETTINGS_KEY, QDateTime::currentDateTimeUtc() );
-  }
-  else
-  {
-    settings.remove( ENABLED_SINCE_SETTINGS_KEY );
-  }
 
   emit enabledChanged();
 
@@ -214,8 +206,6 @@ void QfNewsParser::clearItems()
 void QfNewsParser::updateItems( const QList<QfNewsItem> &feedItems )
 {
   QSettings settings;
-  const QDateTime enabledSince = settings.value( ENABLED_SINCE_SETTINGS_KEY ).toDateTime();
-  const QDateTime publishedAfter = std::max( enabledSince, QDateTime::currentDateTimeUtc().addDays( -MAXIMUM_AGE_DAYS ) );
   const QStringList dismissedUuids = settings.value( DISMISSED_UUIDS_SETTINGS_KEY ).toStringList();
 
   QList<QfNewsItem> items;
@@ -226,7 +216,7 @@ void QfNewsParser::updateItems( const QList<QfNewsItem> &feedItems )
     {
       feedDismissedUuids << item.uuid;
     }
-    else if ( item.publicationDate > publishedAfter )
+    else if ( item.publicationDate.daysTo( QDateTime::currentDateTime() ) <= MAXIMUM_AGE_DAYS )
     {
       items << item;
     }

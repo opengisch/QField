@@ -64,7 +64,7 @@ Q_DECLARE_METATYPE( QfNewsItem )
 
 /**
  * \brief A class fetching RSS feeds and generating news items
- * published since the user enabled news, minus those already dismissed.
+ * published within the last MAXIMUM_AGE_DAYS days, minus those already dismissed.
  * \ingroup core
  */
 class QfNewsParser : public QObject
@@ -78,11 +78,10 @@ class QfNewsParser : public QObject
 
   public:
     static inline const QString ENABLED_SETTINGS_KEY = QStringLiteral( "/QField/News/Enabled" );
-    static inline const QString ENABLED_SINCE_SETTINGS_KEY = QStringLiteral( "/QField/News/EnabledSince" );
     static inline const QString DISMISSED_UUIDS_SETTINGS_KEY = QStringLiteral( "/QField/News/DismissedUuids" );
 
     //! News items older than this number of days are no longer shown
-    static constexpr int MAXIMUM_AGE_DAYS = 30;
+    static constexpr int MAXIMUM_AGE_DAYS = 45;
 
     //! The news parser constructor
     explicit QfNewsParser( QObject *parent = nullptr );
@@ -91,42 +90,41 @@ class QfNewsParser : public QObject
     QUrl feedUrl() const { return mFeedUrl; }
 
     /**
-     * Sets the RSS feed URL. News items are cleared and, if available, restored
-     * from the last successful fetch of that feed until the next fetch() call.
-     */
+   * Sets the RSS feed URL. News items are cleared and, if available, restored
+   * from the last successful fetch of that feed until the next fetch() call.
+   */
     void setFeedUrl( const QUrl &url );
 
     /**
-     * Returns TRUE if the user has opted into receiving news.
-     */
+   * Returns TRUE if the user has opted into receiving news.
+   */
     bool enabled() const;
 
     /**
-     * Sets whether the user has opted into receiving news. Enabling news
-     * records the current time, only news published after it will be shown.
-     */
+   * Sets whether the user has opted into receiving news.
+   */
     void setEnabled( bool enabled );
 
     //! Returns TRUE while the RSS feed is being fetched
     bool isFetching() const { return mIsFetching; }
 
-    //! Returns the undismissed news items published since news were enabled and within the last MAXIMUM_AGE_DAYS days, most recent first
+    //! Returns the undismissed news items published within the last MAXIMUM_AGE_DAYS days, most recent first
     QList<QfNewsItem> items() const { return mItems; }
 
     /**
-     * Fetches the RSS feed and refreshes the news items.
-     * \note Nothing will be fetched when news are disabled.
-     */
+   * Fetches the RSS feed and refreshes the news items.
+   * \note Nothing will be fetched when news are disabled.
+   */
     Q_INVOKABLE void fetch();
 
     /**
-     * Dismisses the news item matching a given \a uuid, it will no longer be part of the news items.
-     */
+   * Dismisses the news item matching a given \a uuid, it will no longer be part of the news items.
+   */
     Q_INVOKABLE void dismiss( const QString &uuid );
 
     /**
-     * Parses an RSS feed \a data content and returns its news items.
-     */
+   * Parses an RSS feed \a data content and returns its news items.
+   */
     static QList<QfNewsItem> parseFeed( const QByteArray &data );
 
   signals:
