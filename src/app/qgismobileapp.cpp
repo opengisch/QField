@@ -47,6 +47,7 @@
 #include "qffeaturehistory.h"
 #include "qffeaturelistmodel.h"
 #include "qffeatureutils.h"
+#include "qffileutils.h"
 #include "qfgeometryutils.h"
 #include "qfgnsspositioninformation.h"
 #include "qfgui.h"
@@ -180,7 +181,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   }
 
   // we cannot use "/" as separator, since QGIS puts a suffix QGIS/31700 anyway
-  const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( Qfield::appVersion, Qfield::appVersionStr.normalized( QString::NormalizationForm_KD ), Qfield::gitRev );
+  const QString userAgent = QStringLiteral( "qfield|%1|%2|%3|" ).arg( Qfield::appVersion, QgsStringUtils::unaccent( Qfield::appVersionStr ), Qfield::gitRev );
   QgsNetworkAccessManager::settingsUserAgent->setValue( userAgent );
   QgsNetworkAccessManager::settingsNetworkTimeout->setValue( 60 * 1000 );
   QgsNetworkAccessManager::instance()->setupDefaultProxyAndCache();
@@ -1111,7 +1112,16 @@ bool QgisMobileapp::print( const QString &layoutName )
   emit printTriggered( layoutToPrint->name() );
 
   QTimer::singleShot( 300, this, [this, layoutToPrint, templateLayout = std::move( templateLayout )]() {
-    const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
+    QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
+    const QString cloudProjectId = QfCloudUtils::getProjectId( mProjectFilePath );
+    if ( !cloudProjectId.isEmpty() )
+    {
+      const QString sanitizedDestination = QfFileUtils::sanitizeFilePath( destination );
+      if ( !sanitizedDestination.isEmpty() )
+      {
+        destination = sanitizedDestination;
+      }
+    }
 
     QString openPath;
     bool success = false;
