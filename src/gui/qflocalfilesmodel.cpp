@@ -167,7 +167,11 @@ const QString QfLocalFilesModel::getCurrentTitleFromPath( const QString &path ) 
     const QString cloudProjectId = QfCloudUtils::getProjectId( path );
     if ( !cloudProjectId.isEmpty() )
     {
-      return QfCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "name" ), QString() ).toString();
+      const QFileInfo fi( path );
+      if ( fi.fileName() == cloudProjectId )
+      {
+        return QfCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "name" ), QString() ).toString();
+      }
     }
   }
 

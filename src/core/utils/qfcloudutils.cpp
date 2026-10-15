@@ -75,19 +75,23 @@ bool QfCloudUtils::isCloudAction( const QgsMapLayer *layer )
 const QString QfCloudUtils::getProjectId( const QString &fileName )
 {
   if ( fileName.isEmpty() )
+  {
     return QString();
+  }
 
   const QString path = QFileInfo( fileName ).canonicalFilePath();
   if ( path.isEmpty() )
+  {
     return QString();
+  }
 
   const QString cloudPath = QFileInfo( QfCloudUtils::localCloudDirectory() ).canonicalFilePath();
   if ( cloudPath.isEmpty() || !path.startsWith( cloudPath ) )
+  {
     return QString();
+  }
 
-  const QRegularExpression re(
-    QStringLiteral( "^%1[/\\\\][^/\\\\]+[/\\\\]([^/\\\\]+)" )
-      .arg( QRegularExpression::escape( cloudPath ) ) );
+  const QRegularExpression re( QStringLiteral( "^%1[/\\\\][^/\\\\]+[/\\\\]([^/\\\\]+)" ).arg( QRegularExpression::escape( cloudPath ) ) );
   const QRegularExpressionMatch match = re.match( path );
 
   if ( match.hasMatch() )
