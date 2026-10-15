@@ -180,7 +180,6 @@ void QfMarkupManager::insertCollection( QfMarkupCollection *collection, const QS
 
   mCollections.insert( collection->uuid(), collection );
 
-
   QString geoJsonPath = collectionPath;
   if ( geoJsonPath.isEmpty() )
   {
