@@ -183,7 +183,7 @@ Page {
 
       PageIndicator {
         id: newsPageIndicator
-        visible: newsView.visible && count > 1
+        visible: newsView.count > 1
 
         Layout.topMargin: 8
         Layout.bottomMargin: 16
@@ -960,9 +960,7 @@ Page {
   }
 
   onVisibleChanged: {
-    if (visible) {
-      newsParser.fetch();
-    } else {
+    if (!visible) {
       welcomeText.text = "";
       feedbackView.visible = false;
       collectionView.visible = false;

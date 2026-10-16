@@ -14,7 +14,7 @@ SwipeView {
   interactive: false
   property bool collapsed: false
   property bool uniformHeight: false
-  readonly property real tallestPanelHeight: {
+  readonly property real tallestHeight: {
     let tallest = 0;
     for (let i = 0; i < count; ++i) {
       const panel = itemAt(i);
@@ -24,7 +24,7 @@ SwipeView {
     }
     return tallest;
   }
-  Layout.preferredHeight: collapsed ? 0 : (uniformHeight ? tallestPanelHeight : (currentItem ? currentItem.implicitHeight : implicitHeight))
+  Layout.preferredHeight: collapsed ? 0 : (uniformHeight ? tallestHeight : (currentItem ? currentItem.implicitHeight : implicitHeight))
 
   Behavior on implicitHeight {
     NumberAnimation {
@@ -51,7 +51,6 @@ SwipeView {
     property bool closable: false
     property bool collapseOnClose: true
     property url imageSource
-    readonly property bool fillsCardHeight: panel.SwipeView.view ? panel.SwipeView.view.uniformHeight : false
     default property alias actions: actionRow.children
 
     signal closeClicked
@@ -103,7 +102,7 @@ SwipeView {
       anchors.left: parent.left
       anchors.right: parent.right
       anchors.top: parent.top
-      anchors.bottom: panel.fillsCardHeight ? parent.bottom : undefined
+      anchors.bottom: panel.SwipeView.view && panel.SwipeView.view.uniformHeight ? parent.bottom : undefined
       spacing: 0
 
       ColumnLayout {
