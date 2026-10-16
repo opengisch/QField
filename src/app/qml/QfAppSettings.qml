@@ -29,6 +29,7 @@ Page {
   property alias fingerTapDigitizing: registry.fingerTapDigitizing
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
+  property alias showNews: registry.showNews
   property alias enableMapRotation: registry.enableMapRotation
   property alias quality: registry.quality
   property alias previewJobsEnabled: registry.previewJobsEnabled
@@ -134,6 +135,7 @@ Page {
     property bool fingerTapDigitizing: false
     property bool mouseAsTouchScreen: false
     property bool enableInfoCollection: true
+    property bool showNews: false
     property bool enableMapRotation: true
     property double quality: 1.0
     property bool previewJobsEnabled: true
@@ -277,6 +279,12 @@ Page {
       title: qsTr("Send anonymized metrics")
       description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.")
       settingAlias: "enableInfoCollection"
+      isVisible: true
+    }
+    ListElement {
+      title: qsTr("Show news on the welcome screen")
+      description: qsTr("If enabled, the latest news and useful tips will be displayed on the welcome screen.")
+      settingAlias: "showNews"
       isVisible: true
     }
     Component.onCompleted: {
