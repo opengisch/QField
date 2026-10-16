@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
 	<id>org.qfield.QField</id>
-	<metadata_license>GPL-2.0</metadata_license>
+	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-2.0+</project_license>
 	<name>QField</name>
 	<summary>A simplified touch optimized interface for QGIS</summary>
