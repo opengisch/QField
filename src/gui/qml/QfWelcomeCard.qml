@@ -48,6 +48,7 @@ SwipeView {
     id: panel
     property alias title: titleText.text
     property alias message: messageText.text
+    property alias messageMaximumLineCount: messageText.maximumLineCount
     property bool closable: false
     property bool collapseOnClose: true
     property url imageSource
@@ -129,6 +130,7 @@ SwipeView {
           font: titleText.visible ? QfTheme.tipFont : QfTheme.defaultFont
           color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
+          elide: Text.ElideRight
         }
       }
 
