@@ -3341,11 +3341,12 @@ ApplicationWindow {
         property string previousStateMachineState: ''
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && digitizingAllowed && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
+        anchors.right: parent.right
+
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
         showConfirmButton: stateMachine.state === "digitize"
         screenHovering: mapCanvasMap.hovered
-
         cogoOperationSettings: informationDrawer.cogoOperationSettings
 
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
@@ -3521,6 +3522,7 @@ ApplicationWindow {
         screenHovering: mapCanvasMap.hovered
 
         stateVisible: !screenLocker.enabled && (stateMachine.state === "digitize" && geometryEditingVertexModel.vertexCount > 0)
+        anchors.right: parent.right
 
         onRequestJumpToPoint: function (center, scale, handleMargins) {
           mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
@@ -3535,6 +3537,7 @@ ApplicationWindow {
         mapSettings: mapCanvas.mapSettings
 
         stateVisible: stateMachine.state === "digitize" && dashBoard.activeCollection
+        anchors.right: parent.right
       }
 
       QfConfirmationToolbar {
@@ -3547,6 +3550,7 @@ ApplicationWindow {
         signal moveCanceled
 
         stateVisible: moveFeaturesRequested
+        anchors.right: parent.right
 
         onConfirm: {
           endPoint = stateMachine.state === "digitize" ? coordinateLocator.currentCoordinate : mapCanvas.mapSettings.getCenter(true);
@@ -3585,6 +3589,7 @@ ApplicationWindow {
         signal rotateCanceled
 
         stateVisible: rotateFeaturesRequested
+        anchors.right: parent.right
 
         onConfirm: {
           rotateFeaturesRequested = false;
