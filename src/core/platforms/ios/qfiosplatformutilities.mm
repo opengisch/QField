@@ -213,12 +213,109 @@ static const float sMinVolume = 0.00001f + sVolumeStep;
 
 @end
 
+static QString incomingDirectory() {
+  return QString::fromNSString(
+      [NSTemporaryDirectory() stringByAppendingPathComponent:@"Incoming"]);
+}
+
+static QString incomingPath(const QString &fileName) {
+  return QStringLiteral("%1/%2/%3")
+      .arg(incomingDirectory(), QString::fromNSString([NSUUID UUID].UUIDString),
+           fileName);
+}
+
+static bool isInsideApplicationDirectory(const QString &path,
+                                         const QString &appDir) {
+  const QString canonicalPath = QFileInfo(path).canonicalFilePath();
+  const QString canonicalAppDir = QFileInfo(appDir).canonicalFilePath();
+  if (canonicalPath.isEmpty() || canonicalAppDir.isEmpty()) {
+    return false;
+  }
+  // Inbox holds copies iOS made for us, those still need importing
+  return canonicalPath.startsWith(canonicalAppDir + QStringLiteral("/")) &&
+         !canonicalPath.startsWith(canonicalAppDir + QStringLiteral("/Inbox/"));
+}
+
+static void (*originalOpenUrlContexts)(id, SEL, UIScene *,
+                                       NSSet<UIOpenURLContext *> *) = nullptr;
+
+// Qt only passes the path of opened URLs on, which drops the security scope of
+// files opened in place, so those are copied here while the scope is reachable
+static void openUrlContexts(id sceneDelegate, SEL selector, UIScene *scene,
+                            NSSet<UIOpenURLContext *> *contexts) {
+  const QString appDir =
+      QfPlatformUtilities::instance()->applicationDirectory();
+  NSMutableSet<UIOpenURLContext *> *forwardedContexts = [NSMutableSet set];
+  for (UIOpenURLContext *context in contexts) {
+    NSURL *url = context.URL;
+    if (!url.isFileURL || !context.options.openInPlace ||
+        isInsideApplicationDirectory(QString::fromNSString(url.path), appDir)) {
+      [forwardedContexts addObject:context];
+      continue;
+    }
+
+    const QString destinationPath =
+        incomingPath(QString::fromNSString(url.lastPathComponent));
+    NSURL *destination = [NSURL fileURLWithPath:destinationPath.toNSString()];
+    NSString *directory =
+        QFileInfo(destinationPath).absolutePath().toNSString();
+    const BOOL accessing = [url startAccessingSecurityScopedResource];
+
+    // Reading may first download the file from iCloud
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager createDirectoryAtPath:directory
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:nil];
+        __block BOOL copied = NO;
+        NSFileCoordinator *coordinator =
+            [[NSFileCoordinator alloc] initWithFilePresenter:nil];
+        [coordinator
+            coordinateReadingItemAtURL:url
+                               options:NSFileCoordinatorReadingWithoutChanges
+                                 error:nil
+                            byAccessor:^(NSURL *readingUrl) {
+                                copied = [fileManager copyItemAtURL:readingUrl
+                                                              toURL:destination
+                                                              error:nil];
+                            }];
+        if (accessing) {
+          [url stopAccessingSecurityScopedResource];
+        }
+        if (copied) {
+          dispatch_async(dispatch_get_main_queue(), ^{
+              QDesktopServices::openUrl(
+                  QUrl::fromLocalFile(QString::fromNSString(destination.path)));
+          });
+        }
+    });
+  }
+
+  if (forwardedContexts.count > 0) {
+    originalOpenUrlContexts(sceneDelegate, selector, scene, forwardedContexts);
+  }
+}
+
+static void installOpenInPlaceHandling() {
+  Method method =
+      class_getInstanceMethod(NSClassFromString(@"QIOSWindowSceneDelegate"),
+                              @selector(scene:openURLContexts:));
+  if (!method) {
+    return;
+  }
+  originalOpenUrlContexts = reinterpret_cast<void (*)(
+      id, SEL, UIScene *, NSSet<UIOpenURLContext *> *)>(
+      method_setImplementation(method, reinterpret_cast<IMP>(openUrlContexts)));
+}
+
 QfIosPlatformUtilities::QfIosPlatformUtilities() : QfPlatformUtilities() {
   NSError *sessionError = nil;
   [[AVAudioSession sharedInstance]
       setCategory:AVAudioSessionCategoryPlayAndRecord
             error:&sessionError];
   mVolumeButtonObserver = [[QFieldVolumeButtonObserver alloc] init];
+  installOpenInPlaceHandling();
 }
 
 void QfIosPlatformUtilities::setHandleVolumeKeys(const bool handle) {
@@ -236,7 +333,7 @@ QfPlatformUtilities::Capabilities QfIosPlatformUtilities::capabilities() const {
   QfPlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
       CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive |
-      VolumeKeys;
+      VolumeKeys | FileImport;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -676,6 +773,37 @@ void QfIosPlatformUtilities::importDatasets() const {
                            OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
   [root presentViewController:picker animated:YES completion:nil];
+}
+
+void QfIosPlatformUtilities::importFile(const QString &path) const {
+  QFileInfo fileInfo(path);
+  if (!fileInfo.exists() || !fileInfo.isFile() || !QfAppInterface::instance()) {
+    return;
+  }
+
+  QString sourcePath = path;
+  if (isInsideApplicationDirectory(path, applicationDirectory())) {
+    // Files tapped in QField's own folder are opened where they are
+    if (fileInfo.suffix().toLower() != QLatin1String("zip")) {
+      if (!QfAppInterface::instance()->loadFile(path)) {
+        emit QfAppInterface::instance()->openPath(fileInfo.absolutePath());
+      }
+      return;
+    }
+
+    // Archives are imported from a copy so the user's zip stays where it is
+    sourcePath = incomingPath(fileInfo.fileName());
+    QDir().mkpath(QFileInfo(sourcePath).absolutePath());
+    if (!QFile::copy(path, sourcePath)) {
+      return;
+    }
+  }
+
+  emit QfAppInterface::instance()->importTriggered(fileInfo.fileName());
+  QfAppInterface::instance()->importLocalFile(sourcePath, true);
+  if (sourcePath.startsWith(incomingDirectory() + QStringLiteral("/"))) {
+    QDir(QFileInfo(sourcePath).absolutePath()).removeRecursively();
+  }
 }
 
 void QfIosPlatformUtilities::sendDatasetTo(const QString &path) const {
