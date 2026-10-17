@@ -194,7 +194,7 @@ Page {
         Layout.maximumWidth: 410
 
         Repeater {
-          model: newsParser.items.slice(0, 3)
+          model: newsParser.items
 
           QfWelcomeCard.Panel {
             required property var modelData
@@ -1005,7 +1005,7 @@ Page {
         settings.setValue("/QField/CollectionFormShownV2", true);
       }
     }
-    if (Qfield.name === "QField" && runCount > 0 && !qfieldSettings.showNews && !collectionView.visible && !feedbackView.visible) {
+    if (Qfield.name.indexOf("QField") >= 0 && !qfieldSettings.showNews && !collectionView.visible && !feedbackView.visible) {
       const newsFormShown = settings.value("/QField/NewsFormShown", false);
       if (!newsFormShown) {
         newsOptInView.visible = true;
