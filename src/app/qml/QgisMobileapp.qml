@@ -3471,11 +3471,12 @@ ApplicationWindow {
 
             overlayFeatureFormDrawer.open();
             overlayFeatureFormDrawer.state = "Add";
-
-            digitizingRubberband.model.reset();
-            digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
-            digitizingFeature.resetFeature();
           }
+
+          digitizingRubberband.model.reset();
+          digitizingRubberband.model.frozen = digitizingToolbar.cogoEnabled;
+          digitizingFeature.resetFeature();
+
           coordinateLocator.sourceLocation = undefined;
         }
 
