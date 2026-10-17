@@ -293,6 +293,8 @@ Page {
           setProperty(i, 'isVisible', platformUtilities.capabilities & QfPlatformUtilities.NativeCamera ? true : false);
         } else if (get(i).settingAlias === 'enableInfoCollection') {
           setProperty(i, 'isVisible', platformUtilities.capabilities & QfPlatformUtilities.SentryFramework ? true : false);
+        } else if (get(i).settingAlias === 'showNews') {
+          setProperty(i, 'isVisible', Qfield.name.indexOf("QField") >= 0);
         } else {
           setProperty(i, 'isVisible', true);
         }
