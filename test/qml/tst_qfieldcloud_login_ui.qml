@@ -45,15 +45,14 @@ TestCase {
     }
   }
 
-  property var connectionSettings: qfieldCloudLogin.children[0]
-  property var loginFeedbackLabel: connectionSettings.children[1]
-  property var serverUrlLabel: connectionSettings.children[2]
-  property var serverUrlComboBox: connectionSettings.children[3]
-  property var usernameField: connectionSettings.children[4]
-  property var passwordField: connectionSettings.children[5]
-  property var showPasswordButton: passwordField.children[1]
-  property var availableProvidersRepeater: connectionSettings.children[9]
-  property var cloudRegisterLabel: connectionSettings.children[11]
+  property var loginFeedbackLabel: findChild(qfieldCloudLogin, "loginFeedbackLabel")
+  property var serverUrlLabel: findChild(qfieldCloudLogin, "serverUrlLabel")
+  property var serverUrlComboBox: findChild(qfieldCloudLogin, "serverUrlComboBox")
+  property var usernameField: findChild(qfieldCloudLogin, "usernameField")
+  property var passwordField: findChild(qfieldCloudLogin, "passwordField")
+  property var showPasswordButton: findChild(passwordField, "showPasswordButton")
+  property var availableProvidersRepeater: findChild(qfieldCloudLogin, "availableProvidersRepeater")
+  property var createAccountButton: findChild(qfieldCloudLogin, "createAccountButton")
 
   SignalSpy {
     id: loginFailedSpy
@@ -117,18 +116,17 @@ TestCase {
     compare(cloudConnection.status, QfCloudConnection.Disconnected);
     verify(usernameField.visible);
     verify(passwordField.visible);
-    // Register label requires a signup URL from server info, verify after fetch
     cloudConnection.url = data.url;
     cloudConnection.getServerInformation();
     tryCompare(cloudConnection, "isFetchingAvailableProviders", false, 10000);
-    verify(cloudRegisterLabel.visible);
+    verify(createAccountButton.visible);
     cloudConnection.username = data.username;
     cloudConnection.login(data.password);
     wait(5000);
     tryCompare(cloudConnection, "status", QfCloudConnection.LoggedIn, 15000);
     compare(usernameField.visible, false);
     compare(passwordField.visible, false);
-    compare(cloudRegisterLabel.visible, false);
+    compare(createAccountButton.visible, false);
   }
 
   /**

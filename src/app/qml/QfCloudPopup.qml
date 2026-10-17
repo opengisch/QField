@@ -851,6 +851,7 @@ Popup {
             visible: (cloudProjectsModel.currentProjectId || popup.pendingAction != "") && cloudConnection.status !== QfCloudConnection.LoggedIn
 
             ScrollView {
+              id: loginScrollView
               Layout.fillWidth: true
               Layout.fillHeight: true
               Layout.margins: 0
@@ -865,7 +866,19 @@ Popup {
                 id: qfieldCloudLogin
                 isVisible: connectionSettings.visible
                 width: parent.parent.width
+                availableHeight: loginScrollView.availableHeight
                 cloudServiceStatus: popup.cloudServiceStatus
+
+                onIsRegistrationVisibleChanged: {
+                  if (isRegistrationVisible || cloudConnection.status !== QfCloudConnection.LoggedIn) {
+                    return;
+                  }
+                  if (popup.pendingAction == "connect") {
+                    popup.visible = false;
+                  } else {
+                    connectionSettings.visible = false;
+                  }
+                }
               }
             }
 
@@ -942,7 +955,7 @@ Popup {
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
-        } else if (popup.pendingAction == "connect") {
+        } else if (popup.pendingAction == "connect" && !qfieldCloudLogin.isRegistrationVisible) {
           popup.visible = false;
         }
       } else if (cloudConnection.status === QfCloudConnection.Disconnected) {
@@ -1107,7 +1120,9 @@ Popup {
     if (isSynchronizing) {
       return;
     }
-    if (swipeView.currentIndex !== 1) {
+    if (qfieldCloudLogin.isRegistrationVisible || qfieldCloudLogin.isPasswordResetVisible) {
+      qfieldCloudLogin.goBack();
+    } else if (swipeView.currentIndex !== 1) {
       swipeView.currentIndex = 1;
     } else if (connectionSettings.visible) {
       if (cloudConnection.status === QfCloudConnection.LoggedIn) {
