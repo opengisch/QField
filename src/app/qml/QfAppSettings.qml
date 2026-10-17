@@ -29,6 +29,7 @@ Page {
   property alias fingerTapDigitizing: registry.fingerTapDigitizing
   property alias mouseAsTouchScreen: registry.mouseAsTouchScreen
   property alias enableInfoCollection: registry.enableInfoCollection
+  property alias showNews: registry.showNews
   property alias enableMapRotation: registry.enableMapRotation
   property alias quality: registry.quality
   property alias previewJobsEnabled: registry.previewJobsEnabled
@@ -134,6 +135,7 @@ Page {
     property bool fingerTapDigitizing: false
     property bool mouseAsTouchScreen: false
     property bool enableInfoCollection: true
+    property bool showNews: false
     property bool enableMapRotation: true
     property double quality: 1.0
     property bool previewJobsEnabled: true
@@ -279,12 +281,20 @@ Page {
       settingAlias: "enableInfoCollection"
       isVisible: true
     }
+    ListElement {
+      title: qsTr("Show news on the welcome screen")
+      description: qsTr("If enabled, the latest news and useful tips will be displayed on the welcome screen.")
+      settingAlias: "showNews"
+      isVisible: true
+    }
     Component.onCompleted: {
       for (var i = 0; i < count; i++) {
         if (get(i).settingAlias === 'nativeCamera2') {
           setProperty(i, 'isVisible', platformUtilities.capabilities & QfPlatformUtilities.NativeCamera ? true : false);
         } else if (get(i).settingAlias === 'enableInfoCollection') {
           setProperty(i, 'isVisible', platformUtilities.capabilities & QfPlatformUtilities.SentryFramework ? true : false);
+        } else if (get(i).settingAlias === 'showNews') {
+          setProperty(i, 'isVisible', Qfield.name.indexOf("QField") >= 0);
         } else {
           setProperty(i, 'isVisible', true);
         }
